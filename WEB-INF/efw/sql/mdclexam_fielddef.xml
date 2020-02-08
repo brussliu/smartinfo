@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="update">
+UPDATE 
+検査項目情報 
+SET
+	項目名称 = :nm
+WHERE
+	項目コード = :cd
+	</sql>
+</sqls>

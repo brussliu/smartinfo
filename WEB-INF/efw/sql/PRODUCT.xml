@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="selectproduct">
+		SELECT
+			T1."商品管理番号" as productno,
+			T1."SKU番号" as sku,
+			T1."ASIN番号" as asin,
+			T1."ラベル番号" as label,
+			T1."商品名称" as productname,
+			T1."ローカル在庫数量" as fbm,
+			T1."FBA在庫数量" as fba,
+			T1."価格" as price,
+			T1."商品種別" as productdiv,
+			T1."出品タイプ" as selltype
+		FROM 
+			"MASTER_出品マスタ情報" T1,
+			"INPUT_出品詳細情報" T2
+		WHERE
+			T1."SKU番号" = T2."出品者SKU" AND
+			T1."ASIN番号" = T2."ASIN 1"
+		ORDER BY
+			T1."商品管理番号",
+			T1."商品種別",
+			T1."商品名称"
+	</sql>
+
+</sqls>

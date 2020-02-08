@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="selectmasterlist1">
+		SELECT
+		 T1."商品管理番号" as productno,
+		 T1."商品分類" as productdiv,
+		 T1."SKU番号" as sku,
+		 T1."ASIN番号" as asin,
+		 T1."商品名称" as productname,
+		 (
+		  SELECT
+		  	count(*) 
+		  FROM 
+		  	"MASTER_出品マスタ情報" T2 
+		  WHERE
+			T1."商品管理番号" = T2."商品管理番号"
+			AND
+			T2."商品種別" = '子商品'
+		 ) as subq,
+		 T4."SKU番号" as subsku,
+		 T4."ASIN番号" as sukuasin
+		FROM
+		 "MASTER_出品マスタ情報" T1,
+		 (
+			SELECT
+			 *
+			FROM
+			(
+				SELECT
+				 T3."商品管理番号",
+				 T3."SKU番号",
+				 T3."ASIN番号",
+				 ROW_NUMBER() OVER(partition BY T3."商品管理番号" ORDER BY T3."商品名称") NB
+				FROM
+				  "MASTER_出品マスタ情報" T3
+				WHERE
+				 T3.商品種別 = '子商品'
+			
+			) TEMP
+			WHERE
+			 TEMP.NB = 1
+		 ) T4
+
+		WHERE
+		 T1."商品管理番号" = T4."商品管理番号"
+		 AND
+		 T1."商品種別" = '親商品'
+		ORDER BY
+		 T1."商品管理番号"
+	</sql>
+	<sql id="selectmasterlist2">
+		SELECT
+		 TEMP."商品管理番号" as productno,
+		 TEMP."SKU番号" as subsku,
+		 TEMP."ASIN番号" as subasin
+		FROM
+		(
+			SELECT
+			 T3."商品管理番号",
+			 T3."SKU番号",
+			 T3."ASIN番号",
+			 ROW_NUMBER() OVER(partition BY T3."商品管理番号" ORDER BY T3."商品名称") NB
+			FROM
+			  "MASTER_出品マスタ情報" T3
+			WHERE
+			 T3.商品種別 = '子商品'
+		
+		) TEMP
+		WHERE
+		 TEMP.NB > 1
+	</sql>
+	<sql id="selectmasterlist3">
+		SELECT
+		 T1."商品名" as productname,
+		 T1."出品者SKU" as sku,
+		 T1."ASIN 1" as asin
+		FROM
+		  "INPUT_出品詳細情報" T1
+		LEFT JOIN
+		  "MASTER_出品マスタ情報" T2 
+		  ON T2."SKU番号" = T1."出品者SKU" and T2."ASIN番号" = T1."ASIN 1"
+		WHERE
+		 T2."SKU番号" IS NULL
+		ORDER BY T1."商品名"
+	</sql>
+
+	<sql id="selectSub">
+		SELECT
+			"出品者SKU" as SKU,
+			"ASIN 1" as ASIN,
+			"商品名" as PRODUCTNAME
+		FROM
+			"INPUT_出品詳細情報" A
+		WHERE
+			A."商品名" LIKE concat('%', :freeword ,'%')
+	</sql>
+	<sql id="insertMaster">
+		INSERT INTO "MASTER_出品マスタ情報"
+		VALUES (
+			:col0,--商品管理番号
+			:col1,--商品分類
+			:col2,--SKU番号
+			:col3,--ASIN番号
+			:col4,--ラベル番号
+			:col5,--商品名称
+			:col6,--価格
+			:col7,--ローカル在庫数量
+			:col8,--FBA在庫数量
+			:col9,--商品種別
+			:col10 --出品タイプ
+		)
+	</sql>
+	<sql id="selectSubInfo">
+		SELECT
+		 T2."ラベル番号" as LABEL,
+		 T1."商品名" as PRODUCTNAME,
+		 T1."価格" as PRICE,
+		 T1."数量" as LOCALQUANTITY,
+		 T2."在庫数量" as FBAQUANTITY
+		FROM
+		 "INPUT_出品詳細情報" T1,
+		 "INPUT_FBA在庫情報" T2
+		WHERE
+		 T1."出品者SKU" = T2."SKU番号"
+		 AND
+		 T1."ASIN 1" = T2."ASIN番号"
+		 AND
+		 T1."出品者SKU" = :sku
+		 AND
+		 T1."ASIN 1" = :asin
+	</sql>
+
+</sqls>

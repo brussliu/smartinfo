@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="delAllProduct">
+		DELETE FROM "INPUT_出品詳細情報" 
+	</sql>
+	<sql id="insertProduct">
+		INSERT INTO "INPUT_出品詳細情報"
+		VALUES (
+			:col0,--出品者SKU
+			:col1,--ASIN 1
+			:col2,--商品名
+			:col3,--商品の説明
+			:col4,--出品ID
+			:col5,--価格
+			:col6,--数量
+			:col7,--出品日
+			:col8,--商品IDタイプ
+			:col9,--コンディション説明
+			:col10,--コンディション
+			:col11,--国外へ配送可
+			:col12,--迅速な配送
+			:col13,--商品ID
+			:col14,--在庫数
+			:col15,--フルフィルメント・チャンネル
+			:col16,--使用しない支払い方法
+			:col17,--配送日時指定SKUリスト
+			:col18,--merchant-shipping-group
+			:col19,--ポイント
+			:col20,--商品税コード
+			:col21 --調達タイプ
+		)
+	</sql>
+
+	<sql id="delAllFba">
+		DELETE FROM "INPUT_FBA在庫情報" 
+	</sql>
+	<sql id="insertFba">
+		INSERT INTO "INPUT_FBA在庫情報"
+		VALUES (
+			:col0,--seller-sku	
+			:col1,--fulfillment-channel-sku	
+			:col2,--asin	
+			:col3,--condition-type	
+			:col4,--Warehouse-Condition-code	
+			:col5 --Quantity Available
+		)
+	</sql>
+
+	<sql id="selectOrder">
+		SELECT COUNT(*) FROM "INPUT_注文情報" 
+		WHERE
+			"Amazon注文番号" = :col0
+			AND
+			"商品注文番号"	= :col1
+			AND
+			"注文日時"	= :col2
+	</sql>
+	<sql id="delOrder">
+		DELETE FROM "INPUT_注文情報" 
+		WHERE
+			"Amazon注文番号" = :col0
+			AND
+			"商品注文番号"	= :col1
+			AND
+			"注文日時"	= :col2
+	</sql>
+	<sql id="insertOrder">
+		INSERT INTO "INPUT_注文情報"
+		VALUES (
+			:col0,--amazon-order-id
+			:col1,--merchant-order-id
+			:col2,--purchase-date
+			:col3,--last-updated-date
+			:col4,--order-status
+			:col5,--fulfillment-channel
+			:col6,--sales-channel
+			:col7,--order-channel
+			:col8,--url
+			:col9,--ship-service-level
+			:col10,--product-name
+			:col11,--sku
+			:col12,--asin
+			:col13,--item-status
+			:col14,--quantity
+			:col15,--currency
+			:col16,--item-price
+			:col17,--item-tax
+			:col18,--shipping-price
+			:col19,--shipping-tax
+			:col20,--gift-wrap-price
+			:col21,--gift-wrap-tax
+			:col22,--item-promotion-discount
+			:col23,--ship-promotion-discount
+			:col24,--ship-city
+			:col25,--ship-state
+			:col26,--ship-postal-code
+			:col27,--ship-country
+			:col28 --promotion-ids
+		)
+	</sql>
+
+
+</sqls>
