@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="selectorderbyorder">
+		SELECT
+			T1."Amazon注文番号" as COL1,
+			T1."商品注文番号" as COL2,
+			T1."注文日時" as COL3,
+			T1."最終更新日時" as COL4,
+			T1."注文状態" as COL5,
+			T1."運営方" as COL6,
+			T1."販売方" as COL7,
+			T1."注文方" as COL8,
+			T1."url" as COL9,
+			T1."配送レベル" as COL10,
+			T2."商品管理番号" as COL11,
+			T2."商品名称" as COL12,
+			T2."SKU番号" as COL13,
+			T2."ASIN番号" as COL14,
+			T1."ステータス" as COL15,
+			T1."数量" as COL16,
+			T1."通貨" as COL17,
+			T1."価格" as COL18,
+			T1."税金" as COL19,
+			T1."配送料" as COL20,
+			T1."配送料税金" as COL21,
+			T1."ギフト料" as COL22,
+			T1."ギフト料税金" as COL23,
+			T1."販売割引" as COL24,
+			T1."配送割引" as COL25,
+			T1."配送-市区町村" as COL26,
+			T1."配送-都道府県" as COL27,
+			T1."郵便番号" as COL28,
+			T1."配送国" as COL29,
+			T1."割引コメント" as COL30
+		FROM 
+			"INPUT_注文情報" T1
+			LEFT JOIN "MASTER_出品マスタ情報" T2 ON
+			T1."SKU番号" = T2."SKU番号" AND
+			T1."ASIN番号" = T2."ASIN番号"
+		ORDER BY
+			T1."注文日時" DESC
+	</sql>
+
+</sqls>

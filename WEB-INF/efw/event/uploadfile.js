@@ -54,7 +54,7 @@ uploadfile.fire=function(params){
 		var f = fa[fa.length-1];
 
 
-		var csvReader = new CSVReader("upload/" + f, "\t");
+		var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
 
 		// // データ全件削除
 		// var delResult = db.change(
