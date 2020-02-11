@@ -7,29 +7,41 @@
 	<efw:Client/>
 	<script>
   	</script>
+  	   <style>
+      .menuHeader {
+      	width: 750px;
+      	height: 40px;
+      	background-color: blue;
+      	color: white;
+      	font-size: 20px;
+      	font-weight: bold;
+      }
+    </style>
 </head>
 <body style="background-color:ghostwhite;">
-<table style="width:60%" border="0">
+<table style="width:1500px;" border="0">
 	<tr>
 		<td>
-			<div class="ui-helper-reset ui-widget-header ui-corner-all mytitle" style="width:500px">Smart-Bear(新店)メニュー</div>
+			<div class="menuHeader">Smart-Bear(新店)メニュー</div>
 		</td>
 		<td>
-			<div class="ui-helper-reset ui-widget-header ui-corner-all mytitle" style="width:500px">Smart-KM(旧店)メニュー</div>
+			<div class="menuHeader">Smart-KM(旧店)メニュー</div>
 		</td>
 	</tr>
 	<tr>
-		<td>
-			<div style="text-align:center"><br>
-				<input type=button value="データ導入" style="width:300px;height: 30px;" onclick="Efw('menu_goto',{page:'si_upload.jsp'})"><br><br>
-				<input type=button value="マスタ情報" style="width:300px;height: 30px;" onclick="Efw('menu_goto',{page:'si_master.jsp'})"><br><br>
-				<input type=button value="商品情報" style="width:300px;height: 30px;" onclick="Efw('menu_goto',{page:'si_product.jsp'})"><br><br>
-				<input type=button value="注文情報" style="width:300px;height: 30px;" onclick="Efw('menu_goto',{page:'si_order.jsp'})"><br><br>
-				<input type=button value="在庫情報" style="width:300px;height: 30px;" onclick="Efw('menu_goto',{page:'si_stock.jsp'})"><br><br>
-			</div>
-		</td>
-		<td>
-			<div style="text-align:center"><br><br>
+		<td><div style="text-align:center"><br>
+			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_upload.jsp',shop:'Smart-Bear'})">
+			<br><br>
+			<input type=button value="マスタ情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_master.jsp',shop:'Smart-Bear'})">
+			<br><br>
+			<input type=button value="商品情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_product.jsp',shop:'Smart-Bear'})">
+			<br><br>
+			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-Bear'})">
+			<br><br>
+			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-Bear'})">
+			<br><br>
+		</div></td>
+		<td><div style="text-align:center">
 				<!--
 				<input type=button value="健康診断閲覧" style="width:300px" onclick="Efw('menu_goto',{page:'mdclexam.jsp'})"><br><br>
 				<input type=button value="Hello World" style="width:300px" onclick="Efw('menu_goto',{page:'helloworld.jsp'})"><br><br>
@@ -40,8 +52,7 @@
 				<input type=button value="Chartタグ" style="width:300px" onclick="Efw('menu_goto',{page:'chart.jsp'})"><br><br>
 				<input type=button value="統計情報" style="width:300px" onclick="Efw('menu_goto',{page:'statistics.jsp'})"><br><br>
 				-->
-			</div>
-		</td>
+		</div></td>
 	</tr>
 </table>
 

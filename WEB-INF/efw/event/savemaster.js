@@ -13,8 +13,10 @@ savemaster.paramsFormat={
 
 		"subsku":"required:true;display-name:子商品SKU番号;",
 		"subasin":"required:true;display-name:子商品ASIN番号;"
-	}
+	},
+	"#shop":null
 };
+var shopname = "";
 /**
  * 新規或は修正の場合、保存イベント実行関数
  */
@@ -44,10 +46,13 @@ savemaster.fire=function(params){
 	// 出品タイプ
 	var oya_selltype = "";
 
+	shopname = params["#shop"];
+
 	var insertResult = db.change(
 		"MASTER",
 		"insertMaster",
 		{
+			"shop":shopname,
 			"col0":oya_productid,
 			"col1":oya_productdiv,
 			"col2":oya_sku,
@@ -90,7 +95,8 @@ savemaster.fire=function(params){
 			"selectSubInfo",
 			{
 				"sku":sub_sku,
-				"asin":sub_asin
+				"asin":sub_asin,
+				"shop":shopname
 			}
 		).getArray();
 
@@ -110,6 +116,7 @@ savemaster.fire=function(params){
 			"MASTER",
 			"insertMaster",
 			{
+				"shop":shopname,
 				"col0":sub_productid,
 				"col1":sub_productdiv,
 				"col2":sub_sku,

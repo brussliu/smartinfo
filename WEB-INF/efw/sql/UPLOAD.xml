@@ -2,7 +2,7 @@
 <!DOCTYPE sqls>
 <sqls>
 	<sql id="delAllProduct">
-		DELETE FROM "INPUT_出品詳細情報" 
+		DELETE FROM "INPUT_出品詳細情報" WHERE "店舗名" = :shop
 	</sql>
 	<sql id="insertProduct">
 		INSERT INTO "INPUT_出品詳細情報"
@@ -28,12 +28,13 @@
 			:col18,--merchant-shipping-group
 			:col19,--ポイント
 			:col20,--商品税コード
-			:col21 --調達タイプ
+			:col21,--調達タイプ
+			:col22 --店舗名
 		)
 	</sql>
 
 	<sql id="delAllFba">
-		DELETE FROM "INPUT_FBA在庫情報" 
+		DELETE FROM "INPUT_FBA在庫情報" WHERE "店舗名" = :shop
 	</sql>
 	<sql id="insertFba">
 		INSERT INTO "INPUT_FBA在庫情報"
@@ -43,7 +44,8 @@
 			:col2,--asin	
 			:col3,--condition-type	
 			:col4,--Warehouse-Condition-code	
-			:col5 --Quantity Available
+			:col5,--Quantity Available
+			:col6 --shop
 		)
 	</sql>
 
@@ -55,6 +57,8 @@
 			"商品注文番号"	= :col1
 			AND
 			"注文日時"	= :col2
+			AND
+			"店舗名" = :col3
 	</sql>
 	<sql id="delOrder">
 		DELETE FROM "INPUT_注文情報" 
@@ -64,6 +68,8 @@
 			"商品注文番号"	= :col1
 			AND
 			"注文日時"	= :col2
+			AND
+			"店舗名" = :col3
 	</sql>
 	<sql id="insertOrder">
 		INSERT INTO "INPUT_注文情報"
@@ -96,7 +102,8 @@
 			:col25,--ship-state
 			:col26,--ship-postal-code
 			:col27,--ship-country
-			:col28 --promotion-ids
+			:col28,--promotion-ids
+			:col29 --shop
 		)
 	</sql>
 

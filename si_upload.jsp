@@ -3,9 +3,31 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>データ導入（Smart-Bear）</title>
+	<title>データ導入</title>
 	<efw:Client/>
 	<script>
+            (function ($) {
+                $.getUrlParam = function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]); return null;
+                }
+            })(jQuery);
+
+
+            $(function(){
+ 
+	            var shop = $.getUrlParam('shop');
+
+	            var page = "データ導入";
+
+	            var t = page + "（" + shop + "）" + $("#pagehead").html();
+
+	            $("#pagehead").html(t);
+
+	            $("#shop").val(shop);
+			 
+			});
 
   	</script>
     <style>
@@ -21,10 +43,10 @@
 </head>
 <body style="background-color:ghostwhite;">
 
-<div style="font-size: 30px;color: blue;display: inline-block;width: 100%">
-	データ導入（Smart-Bear）
+<div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
+<input type="hidden" id="shop">
 <br/>
 <table class="upfile">
 	<tr>

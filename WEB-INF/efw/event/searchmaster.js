@@ -1,14 +1,18 @@
 var searchmaster={};
 searchmaster.name="マスタ一覧検索";
 searchmaster.paramsFormat={
+	"#shop":null
 };
+var shopname = "";
 searchmaster.fire=function(params){
 	
 	var ret = new Result();
 
+	shopname = params["#shop"];
+
 	var oyahtml = 
 	"<tr style='background-color:rgb(205,255,255)'>" +
-		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{productno}</td>" +
+		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{productno}&nbsp;&nbsp;&nbsp;<input type='button' style='width:50px;' value='削除' onclick=\"delMaster('{productno}')\"></td>" +
 		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{productdiv}</td>" +
 		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{sku}</td>" +
 		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{asin}</td>" +
@@ -26,13 +30,13 @@ searchmaster.fire=function(params){
 	var selectResult1 = db.select(
 		"MASTER",
 		"selectmasterlist1",
-		{}
+		{shop:shopname}
 	).getArray();
 
 	var selectResult2 = db.select(
 		"MASTER",
 		"selectmasterlist2",
-		{}
+		{shop:shopname}
 	);
 
 	for(var i = 0;i < selectResult1.length;i ++){
@@ -57,7 +61,7 @@ searchmaster.fire=function(params){
 	var selectResult3 = db.select(
 		"MASTER",
 		"selectmasterlist3",
-		{}
+		{shop:shopname}
 	).getArray();
 	ret.runat("#producttable").append(subhtml2).withdata(selectResult3);
 

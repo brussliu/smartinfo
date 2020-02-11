@@ -15,7 +15,11 @@
 					setTimeout(function(){});
 				},
 				close : function(){
-					setTimeout(function(){Efw("searchmaster")},100);
+					setTimeout(function(){
+						Efw('menu_goto',{page:'si_master.jsp',shop:$("#shop").val()})
+						},
+						100
+						);
 				},
 			});
 		});

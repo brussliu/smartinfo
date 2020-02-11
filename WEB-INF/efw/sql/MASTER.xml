@@ -17,6 +17,8 @@
 			T1."商品管理番号" = T2."商品管理番号"
 			AND
 			T2."商品種別" = '子商品'
+			AND
+			T2."店舗名" = :shop
 		 ) as subq,
 		 T4."SKU番号" as subsku,
 		 T4."ASIN番号" as sukuasin
@@ -35,8 +37,9 @@
 				FROM
 				  "MASTER_出品マスタ情報" T3
 				WHERE
-				 T3.商品種別 = '子商品'
-			
+				 T3."商品種別" = '子商品'
+				 AND
+				 T3."店舗名" = :shop
 			) TEMP
 			WHERE
 			 TEMP.NB = 1
@@ -46,6 +49,8 @@
 		 T1."商品管理番号" = T4."商品管理番号"
 		 AND
 		 T1."商品種別" = '親商品'
+		 AND
+		 T1."店舗名" = :shop
 		ORDER BY
 		 T1."商品管理番号"
 	</sql>
@@ -64,8 +69,9 @@
 			FROM
 			  "MASTER_出品マスタ情報" T3
 			WHERE
-			 T3.商品種別 = '子商品'
-		
+			 T3."商品種別" = '子商品'
+			 AND
+			 T3."店舗名" = :shop
 		) TEMP
 		WHERE
 		 TEMP.NB > 1
@@ -80,8 +86,11 @@
 		LEFT JOIN
 		  "MASTER_出品マスタ情報" T2 
 		  ON T2."SKU番号" = T1."出品者SKU" and T2."ASIN番号" = T1."ASIN 1"
+			and T2."店舗名" = :shop
 		WHERE
 		 T2."SKU番号" IS NULL
+		 AND
+		 T1."店舗名" = :shop
 		ORDER BY T1."商品名"
 	</sql>
 
@@ -94,10 +103,13 @@
 			"INPUT_出品詳細情報" A
 		WHERE
 			A."商品名" LIKE concat('%', :freeword ,'%')
+			AND
+			A."店舗名" = :shop
 	</sql>
 	<sql id="insertMaster">
 		INSERT INTO "MASTER_出品マスタ情報"
 		VALUES (
+			:shop,--店舗名
 			:col0,--商品管理番号
 			:col1,--商品分類
 			:col2,--SKU番号
@@ -129,6 +141,16 @@
 		 T1."出品者SKU" = :sku
 		 AND
 		 T1."ASIN 1" = :asin
+		 AND
+		 T1."店舗名" = :shop
+		 AND
+		 T2."店舗名" = :shop
 	</sql>
-
+	<sql id="delmaster">
+		DELETE FROM "MASTER_出品マスタ情報" T1
+		WHERE
+		 T1."商品管理番号" = :productno
+		 AND
+		 T1."店舗名" = :shop
+	</sql>
 </sqls>

@@ -2,15 +2,20 @@ var searchsubproduct={};
 searchsubproduct.name="子商品検索";
 searchsubproduct.paramsFormat={
 	"#txt_freeWord":null,
+	"#shop":null
 };
+var shopname = "";
 searchsubproduct.fire=function(params){
 
 	var ret = new Result();
+	shopname = params["#shop"];
+
 	var selectResult = db.select(
 		"MASTER",
 		"selectSub",
 		{
-			"freeword":params["#txt_freeWord"]
+			"freeword":params["#txt_freeWord"],
+			shop:shopname
 		}
 	).getArray();
 

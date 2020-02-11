@@ -1,11 +1,14 @@
 var searchproduct={};
 searchproduct.name="商品一覧検索";
 searchproduct.paramsFormat={
+	"#shop":null
 };
+var shopname = "";
 searchproduct.fire=function(params){
 	
 	var ret = new Result();
-
+	shopname = params["#shop"];
+	
 	var resultHTML = 
 	"<tr>" +
 		"<td>{productno}</td>" +
@@ -23,7 +26,7 @@ searchproduct.fire=function(params){
 	var selectResult = db.select(
 		"PRODUCT",
 		"selectproduct",
-		{}
+		{shop:shopname}
 	).getArray();
 
 	ret.runat("#producttable").remove("tr").append(resultHTML).withdata(selectResult);

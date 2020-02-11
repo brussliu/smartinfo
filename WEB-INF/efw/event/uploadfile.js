@@ -5,12 +5,14 @@ uploadfile.paramsFormat={
 	"#importfile_fba":null,
 	"#importfile_order":null,
 	"data":null,
+	"#shop":null
 };
+var shopname = "";
 uploadfile.fire=function(params){
 
 	file.saveUploadFiles("upload");
 
-
+	shopname = params["#shop"];
 
 	if(params["data"] == "product"){
 
@@ -24,7 +26,7 @@ uploadfile.fire=function(params){
 		var delResult = db.change(
 			"UPLOAD",
 			"delAllProduct",
-			{}
+			{shop:shopname}
 		);
 
 		// データ全件導入
@@ -42,7 +44,7 @@ uploadfile.fire=function(params){
 		var delResult = db.change(
 			"UPLOAD",
 			"delAllFba",
-			{}
+			{shop:params["#shop"]}
 		);
 
 		// データ全件導入
@@ -100,7 +102,8 @@ function importProductInfo(aryField, index) {
 				"col18":aryField[18],
 				"col19":aryField[19],
 				"col20":aryField[20],
-				"col21":aryField[21]
+				"col21":aryField[21],
+				"col22":shopname
 			}
 		);
 
@@ -120,7 +123,8 @@ function importFbaInfo(aryField, index) {
 				"col2":aryField[2],
 				"col3":aryField[3],
 				"col4":aryField[4],
-				"col5":aryField[5]
+				"col5":aryField[5],
+				"col6":shopname
 			}
 		);
 
@@ -138,7 +142,8 @@ function importOrderInfo(aryField, index) {
 			{
 				"col0":aryField[0],
 				"col1":aryField[1],
-				"col2":aryField[2]
+				"col2":aryField[2],
+				"col3":shopname
 			}
 		).getArray();
 
@@ -150,7 +155,8 @@ function importOrderInfo(aryField, index) {
 				{
 					"col0":aryField[0],
 					"col1":aryField[1],
-					"col2":aryField[2]
+					"col2":aryField[2],
+					"col3":shopname
 				}
 			);
 		}
@@ -187,7 +193,8 @@ function importOrderInfo(aryField, index) {
 				"col25":aryField[25],
 				"col26":aryField[26],
 				"col27":aryField[27],
-				"col28":aryField[28]
+				"col28":aryField[28],
+				"col29":shopname
 			}
 		);
 

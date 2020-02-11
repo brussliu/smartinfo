@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="selectstock">
+		SELECT
+		 TEMP."商品管理番号" as productno,
+		 TEMP."商品種別" as productdiv,
+		 TEMP."SKU番号" as sku,
+		 TEMP."ASIN番号" as asin,
+		 TEMP."ラベル番号" as label,
+		 TEMP."商品名称" as productname,
+		 TEMP."前日数量" as selled1,
+		 TEMP."7日間数量" as selled7,
+		 TEMP."30日間数量" as selled30,
+		 TEMP."90日間数量" as selled90,
+		 TEMP."ローカル在庫数量" as fbm,
+		 TEMP."FBA在庫数量" as fba,
+		 CASE WHEN 
+		  TEMP."7日間数量" = 0 THEN 9999
+		 ELSE
+		  TEMP."在庫合計" / TEMP."7日間数量" 
+		 END as onsell7,
+		CASE WHEN 
+		  TEMP."30日間数量" = 0 THEN 9999
+		 ELSE
+		  TEMP."在庫合計" / TEMP."30日間数量" 
+		 END as onsell30,
+		 CASE WHEN 
+		  TEMP."90日間数量" = 0 THEN 9999
+		 ELSE
+		  TEMP."在庫合計" / TEMP."90日間数量" 
+		 END as onsell90
+		FROM
+		(
+		SELECT
+		 T0."商品管理番号",
+		 T0."商品種別",
+		 T0."SKU番号",
+		 T0."ASIN番号",
+		 T0."ラベル番号",
+		 T0."商品名称",
+		 T1."前日数量",
+		 COALESCE(T2."7日間数量",0) as "7日間数量",
+		 COALESCE(T3."30日間数量",0) as "30日間数量",
+		 COALESCE(T4."90日間数量",0) as "90日間数量",
+		 T0."ローカル在庫数量",
+		 T0."FBA在庫数量",
+		 TO_NUMBER(T0."ローカル在庫数量",'9999') + TO_NUMBER(T0."FBA在庫数量",'9999') as "在庫合計"
+		FROM
+		"MASTER_出品マスタ情報" T0
+		LEFT JOIN
+		(
+		SELECT
+			T."SKU番号",
+			T."ASIN番号",
+			SUM(TO_NUMBER(T."数量",'999')) as "前日数量"
+		FROM 
+			"INPUT_注文情報" T
+		WHERE
+			T."販売方" = 'Amazon.co.jp'
+			AND
+			T."店舗名" = :shop
+			AND
+			substring(T.注文日時,1,10) = 
+			date_part('year',now()-interval '1 day') || '-' || 
+			date_part('month',now()-interval '1 day') || '-' || 
+			date_part('day',now()-interval '1 day')
+		GROUP BY 
+			T."SKU番号",
+			T."ASIN番号"
+		) T1 ON
+		T0."SKU番号" = T1."SKU番号" AND
+		T0."ASIN番号" = T1."ASIN番号"
+		LEFT JOIN
+		(
+		SELECT
+			T."SKU番号",
+			T."ASIN番号",
+			SUM(TO_NUMBER(T."数量",'999')) as "7日間数量"
+		FROM 
+			"INPUT_注文情報" T
+		WHERE
+			T."販売方" = 'Amazon.co.jp'
+			AND
+			T."店舗名" = :shop
+			AND
+			substring(T.注文日時,1,10) >=
+			date_part('year',now()-interval '7 day') || '-' || 
+			date_part('month',now()-interval '7 day') || '-' || 
+			date_part('day',now()-interval '7 day')
+		GROUP BY 
+			T."SKU番号",
+			T."ASIN番号"
+		) T2 ON
+		T0."SKU番号" = T2."SKU番号" AND
+		T0."ASIN番号" = T2."ASIN番号"
+		LEFT JOIN
+		(
+		SELECT
+			T."SKU番号",
+			T."ASIN番号",
+			SUM(TO_NUMBER(T."数量",'999')) as "30日間数量"
+		FROM 
+			"INPUT_注文情報" T
+		WHERE
+			T."販売方" = 'Amazon.co.jp'
+			AND
+			T."店舗名" = :shop
+			AND
+			substring(T.注文日時,1,10) >=
+			date_part('year',now()-interval '30 day') || '-' || 
+			date_part('month',now()-interval '30 day') || '-' || 
+			date_part('day',now()-interval '30 day')
+		GROUP BY 
+			T."SKU番号",
+			T."ASIN番号"
+		) T3 ON
+		T0."SKU番号" = T3."SKU番号" AND
+		T0."ASIN番号" = T3."ASIN番号"
+		LEFT JOIN
+		(
+		SELECT
+			T."SKU番号",
+			T."ASIN番号",
+			SUM(TO_NUMBER(T."数量",'999')) as "90日間数量"
+		FROM 
+			"INPUT_注文情報" T
+		WHERE
+			T."販売方" = 'Amazon.co.jp'
+			AND
+			T."店舗名" = :shop
+			AND
+			substring(T.注文日時,1,10) >=
+			date_part('year',now()-interval '90 day') || '-' || 
+			date_part('month',now()-interval '90 day') || '-' || 
+			date_part('day',now()-interval '90 day')
+		GROUP BY 
+			T."SKU番号",
+			T."ASIN番号"
+		) T4 ON
+		T0."SKU番号" = T4."SKU番号" AND
+		T0."ASIN番号" = T4."ASIN番号"
+		WHERE
+			T0."店舗名" = :shop
+		) TEMP
+		ORDER BY 
+			TEMP."商品管理番号",TEMP."商品種別",TEMP."商品名称"
+	</sql>
+
+</sqls>

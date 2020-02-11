@@ -3,11 +3,40 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>マスタ情報（Smart-Bear）</title>
+	<title>マスタ情報</title>
 	<efw:Client/>
 	<script>
+
+        (function ($) {
+            $.getUrlParam = function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]); return null;
+            }
+        })(jQuery);
+
+
+        $(function(){
+
+            var shop = $.getUrlParam('shop');
+
+            var page = "マスタ情報一覧";
+
+            var t = page + "（" + shop + "）" + $("#pagehead").html();
+
+            $("#pagehead").html(t);
+
+            $("#shop").val(shop);
+		 
+		});
+
 		function searchMaster(){
+
 			Efw('searchmaster');
+		}
+
+		function delMaster(productno){
+			Efw('delmaster',{"productno" : productno});
 		}
 
   	</script>
@@ -19,10 +48,10 @@
 </head>
 <body style="background-color:ghostwhite;" onload="searchMaster();">
 <efw:Part path="si_master_inputdialog.jsp"/>
-<div style="font-size: 30px;color: blue;">
-	親子商品情報一覧（Smart-Bear）
+<div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
+<input type="hidden" id="shop">
 <br/>
 <input type="button" id="addmaster" style="width: 170px;height: 30px;" value="親商品登録" onclick="Efw('addmaster')">
 <br/><br/>

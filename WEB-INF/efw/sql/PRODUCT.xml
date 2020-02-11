@@ -18,7 +18,9 @@
 			"INPUT_出品詳細情報" T2
 		WHERE
 			T1."SKU番号" = T2."出品者SKU" AND
-			T1."ASIN番号" = T2."ASIN 1"
+			T1."ASIN番号" = T2."ASIN 1" AND
+			T1."店舗名" = :shop AND
+			T2."店舗名" = :shop
 		ORDER BY
 			T1."商品管理番号",
 			T1."商品種別",
