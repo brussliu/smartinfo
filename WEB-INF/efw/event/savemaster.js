@@ -51,21 +51,7 @@ savemaster.fire=function(params){
 
 	shopname = params["#shop"];
 
-	//var pic = params["#si_master_inputdialog"]["#productpic"];
-
-	// file.saveUploadFiles("upload");
-
-	// var fa = pic.split("\\");
-	// var f = fa[fa.length-1];
-
-	// var pictxt = file.readAllLines("upload/" + f);
-
 	var pictxt = params["#si_master_inputdialog"]["#productpicStr"];
-
-	pictxt.debug("PPPPPPPPPPPPPPPPPPPPPPPPPPPP");
-
-
-
 
 	var insertResult = db.change(
 		"MASTER",
