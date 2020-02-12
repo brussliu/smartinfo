@@ -3,6 +3,7 @@
 <sqls>
 	<sql id="selectmasterlist1">
 		SELECT
+		 T1."商品写真" as productpic,
 		 T1."商品管理番号" as productno,
 		 T1."商品分類" as productdiv,
 		 T1."SKU番号" as sku,
@@ -120,7 +121,8 @@
 			:col7,--ローカル在庫数量
 			:col8,--FBA在庫数量
 			:col9,--商品種別
-			:col10 --出品タイプ
+			:col10, --出品タイプ
+			:col11 --写真
 		)
 	</sql>
 	<sql id="selectSubInfo">

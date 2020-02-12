@@ -12,6 +12,7 @@ searchmaster.fire=function(params){
 
 	var oyahtml = 
 	"<tr style='background-color:rgb(205,255,255)'>" +
+		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'><img src='{productpic}' width='150px;'/></td>" +
 		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{productno}&nbsp;&nbsp;&nbsp;<input type='button' style='width:50px;' value='削除' onclick=\"delMaster('{productno}')\"></td>" +
 		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{productdiv}</td>" +
 		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{sku}</td>" +
@@ -54,7 +55,7 @@ searchmaster.fire=function(params){
 
 	var subhtml2 = 
 	"<tr style='background-color:rgb(255,205,255)'>" +
-		"<td colspan='5' style='font-size: 16px;'>{productname}</td>" +
+		"<td colspan='6' style='font-size: 16px;'>{productname}</td>" +
 		"<td style='width: 150px; font-size: 16px;'>{sku}</td>" +
 		"<td style='width: 150px; font-size: 16px;'>{asin}</td>" +
 	"</tr>";

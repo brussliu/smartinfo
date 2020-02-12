@@ -10,9 +10,12 @@ savemaster.paramsFormat={
 		"#sku":"required:true;display-name:SKU番号;",
 		"#asin":"required:true;display-name:ASIN番号;",
 		"#productname":"required:true;display-name:商品名称;",
+		"#productpic":"required:true;display-name:商品写真;",
 
 		"subsku":"required:true;display-name:子商品SKU番号;",
-		"subasin":"required:true;display-name:子商品ASIN番号;"
+		"subasin":"required:true;display-name:子商品ASIN番号;",
+		"#productpicStr":"required:true;display-name:商品写真;",
+
 	},
 	"#shop":null
 };
@@ -48,6 +51,22 @@ savemaster.fire=function(params){
 
 	shopname = params["#shop"];
 
+	//var pic = params["#si_master_inputdialog"]["#productpic"];
+
+	// file.saveUploadFiles("upload");
+
+	// var fa = pic.split("\\");
+	// var f = fa[fa.length-1];
+
+	// var pictxt = file.readAllLines("upload/" + f);
+
+	var pictxt = params["#si_master_inputdialog"]["#productpicStr"];
+
+	pictxt.debug("PPPPPPPPPPPPPPPPPPPPPPPPPPPP");
+
+
+
+
 	var insertResult = db.change(
 		"MASTER",
 		"insertMaster",
@@ -63,7 +82,8 @@ savemaster.fire=function(params){
 			"col7":oya_localstock,
 			"col8":oya_fbastock,
 			"col9":oya_producttype,
-			"col10":oya_selltype
+			"col10":oya_selltype,
+			"col11":pictxt
 		}
 	);
 

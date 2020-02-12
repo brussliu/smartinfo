@@ -29,6 +29,10 @@
 			 
 			});
 
+			function searchHistory(){
+				Efw('searchhistory');
+			}
+
   	</script>
     <style>
       .upfile {
@@ -41,14 +45,14 @@
       }
     </style>
 </head>
-<body style="background-color:ghostwhite;">
+<body style="background-color:ghostwhite;" onload="searchHistory();">
 
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
 <input type="hidden" id="shop">
 <br/>
-<table class="upfile">
+<table class="upfile" id="producttable">
 	<tr>
 		<td style="width: 200px;font-size: 20px;font-weight: bold;">
 			出品詳細レポート
@@ -56,14 +60,12 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入日時：
 		</td>
-		<td style="width: 180px;font-size: 16px;">
-			2020/12/12 12:12:12
+		<td style="width: 220px;font-size: 16px;" class="importtime">
 		</td>
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;">
-			9999件
+		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>
@@ -76,7 +78,7 @@
 	</tr>
 </table>
 <br/>
-<table class="upfile">
+<table class="upfile" id="fbatable">
 	<tr>
 		<td style="width: 200px;font-size: 20px;font-weight: bold;">
 			FBA在庫レポート
@@ -84,14 +86,12 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入日時：
 		</td>
-		<td style="width: 180px;font-size: 16px;">
-			2020/12/12 12:12:12
+		<td style="width: 220px;font-size: 16px;" class="importtime">
 		</td>
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;">
-			9999件
+		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>
@@ -104,7 +104,7 @@
 	</tr>
 </table>
 <br/>
-<table class="upfile">
+<table class="upfile" id="ordertable">
 	<tr>
 		<td style="width: 200px;font-size: 20px;font-weight: bold;">
 			全注文レポート
@@ -112,14 +112,12 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入日時：
 		</td>
-		<td style="width: 180px;font-size: 16px;">
-			2020/12/12 12:12:12
+		<td style="width: 220px;font-size: 16px;" class="importtime">
 		</td>
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;">
-			9999件
+		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>

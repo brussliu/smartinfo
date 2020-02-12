@@ -18,17 +18,17 @@
 		 CASE WHEN 
 		  TEMP."7日間数量" = 0 THEN 9999
 		 ELSE
-		  TEMP."在庫合計" / TEMP."7日間数量" 
+		  ROUND(TEMP."在庫合計" / TEMP."7日間数量" * 7)
 		 END as onsell7,
 		CASE WHEN 
 		  TEMP."30日間数量" = 0 THEN 9999
 		 ELSE
-		  TEMP."在庫合計" / TEMP."30日間数量" 
+		  ROUND(TEMP."在庫合計" / TEMP."30日間数量" * 30)
 		 END as onsell30,
 		 CASE WHEN 
 		  TEMP."90日間数量" = 0 THEN 9999
 		 ELSE
-		  TEMP."在庫合計" / TEMP."90日間数量" 
+		  ROUND(TEMP."在庫合計" / TEMP."90日間数量" * 90)
 		 END as onsell90
 		FROM
 		(
@@ -45,7 +45,8 @@
 		 COALESCE(T4."90日間数量",0) as "90日間数量",
 		 T0."ローカル在庫数量",
 		 T0."FBA在庫数量",
-		 TO_NUMBER(T0."ローカル在庫数量",'9999') + TO_NUMBER(T0."FBA在庫数量",'9999') as "在庫合計"
+		 COALESCE(TO_NUMBER(T0."ローカル在庫数量",'9999'),0) + 
+		 COALESCE(TO_NUMBER(T0."FBA在庫数量",'9999'),0) as "在庫合計"
 		FROM
 		"MASTER_出品マスタ情報" T0
 		LEFT JOIN

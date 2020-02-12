@@ -8,6 +8,7 @@ uploadfile.paramsFormat={
 	"#shop":null
 };
 var shopname = "";
+var count = 0;
 uploadfile.fire=function(params){
 
 	file.saveUploadFiles("upload");
@@ -16,6 +17,7 @@ uploadfile.fire=function(params){
 
 	if(params["data"] == "product"){
 
+		count = 0;
 		var fa = params["#importfile_product"].split("\\");
 		var f = fa[fa.length-1];
 
@@ -32,7 +34,23 @@ uploadfile.fire=function(params){
 		// データ全件導入
 		csvReader.loopAllLines(importProductInfo);
 
+		//"出品詳細レポート+01-26-2020.txt"
+		var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
+
+		var historyResult = db.change(
+			"UPLOAD",
+			"insertHistory",
+			{
+				"col0":shopname,
+				"col1":"product",
+				"col2":d,
+				"col3":count
+			}
+		);
+
 	}else if(params["data"] == "fba"){
+
+		count = 0;
 
 		var fa = params["#importfile_fba"].split("\\");
 		var f = fa[fa.length-1];
@@ -50,7 +68,23 @@ uploadfile.fire=function(params){
 		// データ全件導入
 		csvReader.loopAllLines(importFbaInfo);
 
+		//"FBA在庫レポート+01-26-2020.txt"
+		var d = f.substring(16,20) + "-" + f.substring(10,12) + "-" + f.substring(13,15);
+
+		var historyResult = db.change(
+			"UPLOAD",
+			"insertHistory",
+			{
+				"col0":shopname,
+				"col1":"fba",
+				"col2":d,
+				"col3":count
+			}
+		);
+
 	}else if(params["data"] == "order"){
+
+		count = 0;
 
 		var fa = params["#importfile_order"].split("\\");
 		var f = fa[fa.length-1];
@@ -58,19 +92,27 @@ uploadfile.fire=function(params){
 
 		var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
 
-		// // データ全件削除
-		// var delResult = db.change(
-		// 	"UPLOAD",
-		// 	"delAllOrder",
-		// 	{}
-		// );
-
 		// データ全件導入
 		csvReader.loopAllLines(importOrderInfo);
 
+		//"3630501660018292.txt"
+		var d = new Date().format("yyyy-MM-dd");
+
+		var historyResult = db.change(
+			"UPLOAD",
+			"insertHistory",
+			{
+				"col0":shopname,
+				"col1":"order",
+				"col2":d,
+				"col3":count
+			}
+		);
+
 	}
 	
-	return (new Result());
+	return (new Result().navigate("si_upload.jsp?shop=" + shopname));
+	//navigate(params["page"] + "?shop=" + params["shop"]);
 
 };
 
@@ -106,6 +148,7 @@ function importProductInfo(aryField, index) {
 				"col22":shopname
 			}
 		);
+		count = count + 1;
 
 	}
 
@@ -127,7 +170,7 @@ function importFbaInfo(aryField, index) {
 				"col6":shopname
 			}
 		);
-
+		count = count + 1;
 	}
 
 };
@@ -197,6 +240,8 @@ function importOrderInfo(aryField, index) {
 				"col29":shopname
 			}
 		);
+
+		count = count + 1;
 
 
 	}

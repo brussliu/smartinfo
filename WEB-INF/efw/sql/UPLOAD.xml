@@ -107,5 +107,38 @@
 		)
 	</sql>
 
+	<sql id="insertHistory">
+		INSERT INTO "データ導入履歴"
+		VALUES (
+			:col0,--店舗名
+			:col1,--データ種別
+			now(),--導入日時
+			:col2,--基準日時
+			:col3--導入件数
+		)
+	</sql>
+
+	<sql id="searchHistory">
+		select
+		TEMP."データ種別" as importtype,
+		TO_CHAR(TEMP."導入日時",'YYYY-mm-dd HH24：MI：SS') as importtime,
+		TEMP."基準日時" as basetime,
+		TEMP."導入件数" || '件' as importcount
+		from
+		(
+		select
+		 T."データ種別",
+		 T."導入日時",
+		 T."基準日時",
+		 T."導入件数",
+		 ROW_NUMBER() OVER(partition BY T."データ種別" ORDER BY T."導入日時" DESC) NB
+		from 
+		"データ導入履歴" T
+		where
+		T."店舗名" = :shop
+		) TEMP
+		where
+		NB = 1
+	</sql>
 
 </sqls>

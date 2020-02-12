@@ -61,11 +61,15 @@
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
 		<COL>
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 	</COLGROUP>
 	<tr>
+		<td style="width: 150px;font-size: 16px;font-weight: bold;">
+			商品写真
+		</td>
 		<td style="width: 150px;font-size: 16px;font-weight: bold;">
 			商品管理番号
 		</td>
@@ -92,6 +96,7 @@
 <table class="productlist" border="1" id="producttable" style="width: 100%">
 </table>
 	<COLGROUP>
+		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
