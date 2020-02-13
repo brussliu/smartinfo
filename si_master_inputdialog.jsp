@@ -115,7 +115,34 @@
 
 			};
 		}
+		function selectTR(obj) {
+			$(obj).addClass("SELECTED").siblings().removeClass("SELECTED");
+		}
+		function moveup(){
 
+			$("#selectedsubproduct").find("tr").each(function(){
+
+			    if($(this).hasClass("SELECTED")){
+					
+					$(this).prev("tr").before($(this));
+
+			    }
+				     
+			});
+
+		}
+		function movedown(){
+
+			$("#selectedsubproduct").find("tr").each(function(){
+
+			    if($(this).hasClass("SELECTED")){
+					
+					$(this).before($(this).next("tr"));
+			    }
+				     
+			});
+
+		}
 	</SCRIPT>
 	<style>
 		#img3 {
@@ -123,6 +150,9 @@
 		 width: 200px;
 		 display: none;
 		 padding-left: 17px;
+		}
+		.SELECTED{
+			background-color: blue;
 		}
     </style>
 	<TABLE STYLE="WIDTH: 100%" BORDER="1">
