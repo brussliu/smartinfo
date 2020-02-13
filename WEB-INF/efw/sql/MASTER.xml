@@ -122,7 +122,10 @@
 			:col8,--FBA在庫数量
 			:col9,--商品種別
 			:col10, --出品タイプ
-			:col11 --写真
+			:col11, --写真
+			:col12, --並び順
+			:col13, --色
+			:col14 --サイズ
 		)
 	</sql>
 	<sql id="selectSubInfo">

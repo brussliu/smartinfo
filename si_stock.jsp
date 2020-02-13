@@ -30,6 +30,23 @@
 		 
 		});
 
+        function changeColor(){
+
+			$("#stocktable").find("tr").each(function(){
+
+			    var tdArr = $(this).children();
+			    var html = tdArr.eq(2).html();
+			    if(html == "子商品"){
+			    	//alert($(this));
+			    	for(var i=3;i < tdArr.length;i ++){
+			    		tdArr.eq(i).css({"background": "rgb(255,255,205)"});
+			    	}
+			    	
+			    }
+			     
+			});
+
+        }
   	</script>
     <style>
       .productlist {

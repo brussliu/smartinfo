@@ -26,6 +26,8 @@
 
 		function addsub(){
 
+			var ptype = $('input:radio[name=ptype]:checked').val();
+
 			$("#subproduct").find("tr").each(function(){
 
 			    var tdArr = $(this).children();
@@ -33,6 +35,40 @@
 
 			    if(checkflg){
 			    	var $tr = $(this).clone(true);
+
+					$tr.click(function(){
+						$(this).addClass("SELECTED").siblings().removeClass("SELECTED");
+					});
+
+					var pn = tdArr.eq(3).html();
+					var color = "";
+					var size = "";
+					if(ptype == "10"){
+						color = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
+					}
+
+					if(ptype == "20"){
+						size = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
+					}
+					if(ptype == "30"){//color-size
+						var str = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
+
+						var strArr = str.split(",");
+						color = strArr[0].trim();
+						size = strArr[1].trim();
+					}
+					if(ptype == "40"){//size-color
+						var str = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
+
+						var strArr = str.split(",");
+						color = strArr[1].trim();
+						size = strArr[0].trim();
+					}
+
+			    	$tr.append("<td>"+color+"</td>");
+			    	$tr.append("<td>"+size+"</td>");
+
+
 			        $('#selectedsubproduct').append($tr);
 			        $(this).remove();
 			    }
@@ -48,8 +84,12 @@
 			    var tdArr = $(this).children();
 			    var checkflg = tdArr.eq(0).children()[0].checked;
 
+			    tdArr[tdArr.length-1].remove();
+			    tdArr[tdArr.length-2].remove();
+
 			    if(checkflg){
 			    	var $tr = $(this).clone(true);
+
 			        $('#subproduct').append($tr);
 			        $(this).remove();
 			    }
@@ -62,18 +102,25 @@
 
 			var skuArr = new Array();
 			var asinArr = new Array();
+			var colorArr = new Array();
+			var sizeArr = new Array();
+
 
 			$("#selectedsubproduct").find("tr").each(function(){
 
 			    var tdArr = $(this).children();
 			    var sku = tdArr.eq(1).html();
 				var asin = tdArr.eq(2).html();
+				var color = tdArr.eq(4).html();
+				var size = tdArr.eq(5).html();
 
 				skuArr.push(sku);
 				asinArr.push(asin);
+				colorArr.push(color);
+				sizeArr.push(size);
 			});
 
-			Efw('savemaster',{"subsku": skuArr ,"subasin": asinArr });
+			Efw('savemaster',{"subsku": skuArr ,"subasin": asinArr,"subcolor": colorArr,"subsize": sizeArr });
 
 		}
 
@@ -143,6 +190,11 @@
 			});
 
 		}
+
+		function activebutton(){
+			$("#addsub").attr("disabled",false);
+			$("#delsub").attr("disabled",false);
+		}
 	</SCRIPT>
 	<style>
 		#img3 {
@@ -152,7 +204,7 @@
 		 padding-left: 17px;
 		}
 		.SELECTED{
-			background-color: blue;
+			background-color: rgb(0,255,255);
 		}
     </style>
 	<TABLE STYLE="WIDTH: 100%" BORDER="1">
@@ -184,6 +236,7 @@
 					<option id="05">05:傘</option>
 					<option id="21">21:靴下（夏用）</option>
 					<option id="22">22:靴下（秋冬用）</option>
+					<option id="22">31:パジャマ</option>
 				</select>
 			</TD>
 		</TR>
@@ -238,12 +291,25 @@
 		<TR style="height:40px;">
 			<TD></TD>
 			<TD style="text-align: center;" colspan="2">
-				<input type="button" id="addsub" style="width: 80px;" value="▼" onclick="addsub()">
-				<input type="button" id="delsub" style="width: 80px;" value="▲" onclick="delsub()">
+				<input type="button" id="addsub" style="width: 80px;" value="▼" onclick="addsub()" disabled>
+				<input type="button" id="delsub" style="width: 80px;" value="▲" onclick="delsub()" disabled>
+				<div style="float: right;">
+					バリエーション種類：
+					<input type="radio" name="ptype" value="10" onclick="activebutton();">color
+					<input type="radio" name="ptype" value="20" onclick="activebutton();">size
+					<input type="radio" name="ptype" value="30" onclick="activebutton();">color-size
+					<input type="radio" name="ptype" value="40" onclick="activebutton();">size-color
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+
 			</TD>
 		</TR>
 		<TR>
-			<TD></TD>
+			<TD style="text-align: center;">
+				<input type="button" style="text-align: right;" value="▲" onclick="moveup();">
+				<br/><br/>
+				<input type="button" style="text-align: right;" value="▼" onclick="movedown();">
+			</TD>
 			<TD colspan="2">
 				<DIV style="height:150px;width:1000px;overflow:auto;background:#F1F1F1;">
 					<TABLE border="1" style="font-size: 12px;width: 100%">
@@ -252,12 +318,16 @@
 							<COL WIDTH="100PX">
 							<COL WIDTH="100PX">
 							<COL>
+							<COL WIDTH="100PX">
+							<COL WIDTH="100PX">
 						</COLGROUP>
 						<TR>
 							<TH>選択</TH>
 							<TH>SKU番号</TH>
 							<TH>ASIN番号</TH>
 							<TH>商品名称</TH>
+							<TH>color</TH>
+							<TH>size</TH>
 						</TR>
 					</TABLE>
 					<TABLE border="1" style="font-size: 12px;width: 100%" id="selectedsubproduct">
@@ -266,6 +336,8 @@
 							<COL WIDTH="100PX">
 							<COL WIDTH="100PX">
 							<COL>
+							<COL WIDTH="100PX">
+							<COL WIDTH="100PX">
 						</COLGROUP>
 					</TABLE>
 				</DIV>

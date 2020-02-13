@@ -10,7 +10,7 @@ searchstock.fire=function(params){
 	shopname = params["#shop"];
 
 	var resultHTML = 
-	"<tr>" +
+	"<tr style='background-color: rgb(205,255,255);'>" +
 		"<td><input type='checkbox'></td>" +
 		"<td>{productno}</td>" +
 		"<td>{productdiv}</td>" +
@@ -37,7 +37,7 @@ searchstock.fire=function(params){
 
 	ret.runat("#stocktable").remove("tr").append(resultHTML).withdata(selectResult);
 
-	var script = "$('#stocklist').show();";
+	var script = "$('#stocklist').show();changeColor();";
 	ret.eval(script);
 
 	// 画面へ結果を返す

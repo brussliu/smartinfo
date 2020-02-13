@@ -14,6 +14,10 @@ savemaster.paramsFormat={
 
 		"subsku":"required:true;display-name:子商品SKU番号;",
 		"subasin":"required:true;display-name:子商品ASIN番号;",
+
+		"subcolor":"required:true;display-name:子商品color;",
+		"subsize":"required:true;display-name:子商品size;",
+
 		"#productpicStr":"required:true;display-name:商品写真;",
 
 	},
@@ -49,6 +53,13 @@ savemaster.fire=function(params){
 	// 出品タイプ
 	var oya_selltype = "";
 
+	var oya_sort = "0";
+
+	var oya_color = "";
+
+	var oya_size = "";
+
+
 	shopname = params["#shop"];
 
 	var pictxt = params["#si_master_inputdialog"]["#productpicStr"];
@@ -69,7 +80,10 @@ savemaster.fire=function(params){
 			"col8":oya_fbastock,
 			"col9":oya_producttype,
 			"col10":oya_selltype,
-			"col11":pictxt
+			"col11":pictxt,
+			"col12":oya_sort,
+			"col13":oya_color,
+			"col14":oya_size
 		}
 	);
 
@@ -78,6 +92,12 @@ savemaster.fire=function(params){
 	var skuArr = params["#si_master_inputdialog"]["subsku"];
 
 	var asinArr = params["#si_master_inputdialog"]["subasin"];
+
+	var colorArr = params["#si_master_inputdialog"]["subcolor"];
+	colorArr.debug("FFFFFFFFFFFFFFFFFFFFf");
+
+	var sizeArr = params["#si_master_inputdialog"]["subsize"];
+	sizeArr.debug("GGGGGGGGGGGGGGGGGGGGGGG");
 
 	for(var i = 0;i < skuArr.length;i++){
 
@@ -116,7 +136,10 @@ savemaster.fire=function(params){
 		var sub_localstock = selectResult[0].localquantity;
 		// FBA在庫数量
 		var sub_fbastock = selectResult[0].fbaquantity;
-
+		// 色
+		var sub_color = colorArr[i];
+		// サイズ
+		var sub_size = sizeArr[i];
 
 		var subInsertResult = db.change(
 			"MASTER",
@@ -133,7 +156,11 @@ savemaster.fire=function(params){
 				"col7":sub_localstock,
 				"col8":sub_fbastock,
 				"col9":sub_producttype,
-				"col10":sub_selltype
+				"col10":sub_selltype,
+				"col11":"",
+				"col12":i+1,
+				"col13":sub_color,
+				"col14":sub_size
 			}
 		);
 
