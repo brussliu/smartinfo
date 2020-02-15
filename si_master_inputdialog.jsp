@@ -41,8 +41,8 @@
 					});
 
 					var pn = tdArr.eq(3).html();
-					var color = "";
-					var size = "";
+					var color = " ";
+					var size = " ";
 					if(ptype == "10"){
 						color = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
 					}
@@ -113,12 +113,16 @@
 				var asin = tdArr.eq(2).html();
 				var color = tdArr.eq(4).html();
 				var size = tdArr.eq(5).html();
-
+				//alert(color);
+				//alert(size);
 				skuArr.push(sku);
 				asinArr.push(asin);
 				colorArr.push(color);
 				sizeArr.push(size);
 			});
+
+			alert(colorArr.length);
+			alert(sizeArr.length);
 
 			Efw('savemaster',{"subsku": skuArr ,"subasin": asinArr,"subcolor": colorArr,"subsize": sizeArr });
 
@@ -236,7 +240,8 @@
 					<option id="05">05:傘</option>
 					<option id="21">21:靴下（夏用）</option>
 					<option id="22">22:靴下（秋冬用）</option>
-					<option id="22">31:パジャマ</option>
+					<option id="31">31:パジャマ</option>
+					<option id="41">41:バスタオル</option>
 				</select>
 			</TD>
 		</TR>

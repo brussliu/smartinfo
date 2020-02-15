@@ -94,10 +94,8 @@ savemaster.fire=function(params){
 	var asinArr = params["#si_master_inputdialog"]["subasin"];
 
 	var colorArr = params["#si_master_inputdialog"]["subcolor"];
-	colorArr.debug("FFFFFFFFFFFFFFFFFFFFf");
 
 	var sizeArr = params["#si_master_inputdialog"]["subsize"];
-	sizeArr.debug("GGGGGGGGGGGGGGGGGGGGGGG");
 
 	for(var i = 0;i < skuArr.length;i++){
 
@@ -137,9 +135,9 @@ savemaster.fire=function(params){
 		// FBA在庫数量
 		var sub_fbastock = selectResult[0].fbaquantity;
 		// 色
-		var sub_color = colorArr[i];
+		var sub_color = colorArr[i].trim();
 		// サイズ
-		var sub_size = sizeArr[i];
+		var sub_size = sizeArr[i].trim();
 
 		var subInsertResult = db.change(
 			"MASTER",

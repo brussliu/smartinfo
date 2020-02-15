@@ -47,6 +47,23 @@
 			});
 
         }
+
+        function searchstock(){
+
+        	var productdivArr = new Array();
+
+        	$('#productdiv input:checkbox:checked').each(function (index, item) {
+        		alert($(this).val());
+        		productdivArr.push($(this).val());
+    		});
+
+        	Efw('searchstock',{'productdiv': productdivArr});
+        }
+
+        function initstock(){
+        	Efw('initstock');
+        }
+
   	</script>
     <style>
       .productlist {
@@ -54,13 +71,13 @@
       }
     </style>
 </head>
-<body style="background-color:ghostwhite;" onload1="searchMaster();">
+<body style="background-color:ghostwhite;" onload="initstock();">
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="0" style="width: 100%;">
+<table class="productlist" border="1" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
@@ -76,7 +93,7 @@
 			検索条件
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="Efw('searchstock')">
+			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchstock()">
 		</td>
 	</tr>
 	<tr>
@@ -85,11 +102,13 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" colspan="5">
-			<input type="checkbox" name="productdiv">&nbsp;レインコート
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;傘
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;靴下（夏用）
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;靴下（秋冬用）
+		<td style="font-size: 16px;" colspan="5" id="productdiv">
+			<input type="checkbox" id="productdiv01" value="01">&nbsp;レインコート
+			<input type="checkbox" id="productdiv05" value="05" style="margin-left: 30px;">&nbsp;傘
+			<input type="checkbox" id="productdiv21" value="21" style="margin-left: 30px;">&nbsp;靴下（夏用）
+			<input type="checkbox" id="productdiv22" value="22" style="margin-left: 30px;">&nbsp;靴下（秋冬用）
+			<input type="checkbox" id="productdiv31" value="31" style="margin-left: 30px;">&nbsp;パジャマ
+			<input type="checkbox" id="productdiv41" value="41" style="margin-left: 30px;">&nbsp;バスタオル
 		</td>
 		<td style="font-size: 16px;">
 		</td>
@@ -101,7 +120,7 @@
 			商品番号
 		</td>
 		<td style="font-size: 16px;">
-			<select STYLE="WIDTH:150px;height:32px;" id="productdiv">
+			<select STYLE="WIDTH:150px;height:32px;" id="productno">
 				<option id=""></option>
 				<option id="W001">W001</option>	
 				<option id="W002">W002</option>
@@ -127,8 +146,10 @@
 				<option id="S">S</option>
 			</select>
 		</td>
-		<td style="font-size: 16px;">
+		<td style="font-size: 16px;" id="basedate_order">
+			
 		</td>
+		<input type="hidden" id="basedate_order_hidden">
 	</tr>
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
@@ -139,21 +160,26 @@
 		<td style="font-size: 16px;" colspan="5">
 			<input type="text" id="productname" style="width: 600px;height: 32px;">
 		</td>
-		<td style="font-size: 16px;">
+		<td style="font-size: 16px;" id="basedate_stock">
+			
 		</td>
+		<input type="hidden" id="basedate_stock_hidden">
 	</tr>
 </table>
 <hr>
-<div id="stocklist" style="height: 650px; width:1900px; overflow:scroll;border-style: solid;border-width: 1px;display: none;">
 <table border="1" style="width: 2500px;">
 	<COLGROUP>
-		<COL WIDTH="30PX">
+		<COL WIDTH="50PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL >
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
@@ -175,17 +201,22 @@
 		<td>販売数量<br/>（昨日）</td>
 		<td>販売数量<br/>（直近7日間）</td>
 		<td>販売数量<br/>（直近30日間）</td>
+		<td>販売数量<br/>（直近60日間）</td>
 		<td>販売数量<br/>（直近90日間）</td>
+		<td>販売数量<br/>（週間平均値）</td>
 		<td>FBM在庫</td>
 		<td>FBA在庫</td>
 		<td>販売可能期間<br/>(7)</td>
 		<td>販売可能期間<br/>(30)</td>
+		<td>販売可能期間<br/>(60)</td>
 		<td>販売可能期間<br/>(90)</td>
+		<td>販売可能期間<br/>(平均値)</td>
 	</tr>
 </table>
+
 <table border="1" id="stocktable" style="width: 2500px;font-size: 14px;">
 	<COLGROUP>
-		<COL WIDTH="30PX">
+		<COL WIDTH="50PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
@@ -201,26 +232,14 @@
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
 	</COLGROUP>
-	<tr>
-		<td>選択</td>
-		<td>商品管理番号</td>
-		<td>商品種別</td>
-		<td>SKU番号</td>
-		<td>ASIN番号</td>
-		<td>ラベル番号</td>
-		<td>商品名称</td>
-		<td>販売数量（昨日）</td>
-		<td>販売数量（直近7日間）</td>
-		<td>販売数量（直近30日間）</td>
-		<td>販売数量（直近90日間）</td>
-		<td>FBM在庫</td>
-		<td>FBA在庫</td>
-		<td>販売可能期間(7)</td>
-		<td>販売可能期間(30)</td>
-		<td>販売可能期間(90)</td>
-	</tr>
+
 </table>
+<div id="stocklist" style="height: 650px; width:1900px; overflow:scroll;border-style: solid;border-width: 1px;display: none;">
 </div>
 
 

@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqls>
 <sqls>
+	<sql id="searchhistory">
+		select
+			TEMP."データ種別" as importtype,
+			TEMP."基準日時" as basetime
+		from
+			(
+			select
+			 T."データ種別",
+			 T."導入日時",
+			 T."基準日時",
+			 T."導入件数",
+			 ROW_NUMBER() OVER(partition BY T."データ種別" ORDER BY T."導入日時" DESC) NB
+			from 
+			"データ導入履歴" T
+			where
+			T."店舗名" = :shop
+			) TEMP
+		where
+		NB = 1
+	</sql>
 	<sql id="selectstock">
 		SELECT
 		 TEMP."商品管理番号" as productno,
@@ -12,7 +32,15 @@
 		 TEMP."前日数量" as selled1,
 		 TEMP."7日間数量" as selled7,
 		 TEMP."30日間数量" as selled30,
+		 TEMP."60日間数量" as selled60,
 		 TEMP."90日間数量" as selled90,
+ 		 ROUND(
+	 		 (TEMP."前日数量" * 0.05 +
+			  TEMP."7日間数量"/7 * 0.15 +
+			  TEMP."30日間数量"/30 * 0.3 +
+			  TEMP."60日間数量"/60 * 0.3 +
+			  TEMP."90日間数量"/90 * 0.2) * 7, 2) as selledweek,
+
 		 TEMP."ローカル在庫数量" as fbm,
 		 TEMP."FBA在庫数量" as fba,
 		 CASE WHEN 
@@ -26,10 +54,30 @@
 		  ROUND(TEMP."在庫合計" / TEMP."30日間数量" * 30)
 		 END as onsell30,
 		 CASE WHEN 
+		  TEMP."60日間数量" = 0 THEN 9999
+		 ELSE
+		  ROUND(TEMP."在庫合計" / TEMP."60日間数量" * 60)
+		 END as onsell60,
+		 CASE WHEN 
 		  TEMP."90日間数量" = 0 THEN 9999
 		 ELSE
 		  ROUND(TEMP."在庫合計" / TEMP."90日間数量" * 90)
-		 END as onsell90
+		 END as onsell90,
+		 CASE WHEN 
+		  TEMP."前日数量" = 0 and 
+		  TEMP."7日間数量" = 0 and 
+		  TEMP."30日間数量" = 0 and
+		  TEMP."60日間数量" = 0 and
+		  TEMP."90日間数量" = 0 THEN 9999
+		 ELSE
+		  ROUND(
+		  TEMP."在庫合計" / 
+		  (TEMP."前日数量" * 0.05 +
+		   TEMP."7日間数量"/7 * 0.15 +
+		   TEMP."30日間数量"/30 * 0.3 +
+		   TEMP."60日間数量"/60 * 0.3 +
+		   TEMP."90日間数量"/90 * 0.2),2)
+		END as onsellweek
 		FROM
 		(
 		SELECT
@@ -39,10 +87,11 @@
 		 T0."ASIN番号",
 		 T0."ラベル番号",
 		 T0."商品名称",
-		 T1."前日数量",
+		 COALESCE(T1."前日数量",0) as "前日数量",
 		 COALESCE(T2."7日間数量",0) as "7日間数量",
 		 COALESCE(T3."30日間数量",0) as "30日間数量",
-		 COALESCE(T4."90日間数量",0) as "90日間数量",
+		 COALESCE(T4."60日間数量",0) as "60日間数量",
+		 COALESCE(T5."90日間数量",0) as "90日間数量",
 		 T0."ローカル在庫数量",
 		 T0."FBA在庫数量",
 		 COALESCE(TO_NUMBER(T0."ローカル在庫数量",'9999'),0) + 
@@ -62,10 +111,7 @@
 			AND
 			T."店舗名" = :shop
 			AND
-			substring(T.注文日時,1,10) = 
-			date_part('year',now()-interval '1 day') || '-' || 
-			date_part('month',now()-interval '1 day') || '-' || 
-			date_part('day',now()-interval '1 day')
+			substring(T.注文日時,1,10) = TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '1 day','yyyy-mm-dd')
 		GROUP BY 
 			T."SKU番号",
 			T."ASIN番号"
@@ -85,10 +131,7 @@
 			AND
 			T."店舗名" = :shop
 			AND
-			substring(T.注文日時,1,10) >=
-			date_part('year',now()-interval '7 day') || '-' || 
-			date_part('month',now()-interval '7 day') || '-' || 
-			date_part('day',now()-interval '7 day')
+			substring(T.注文日時,1,10) >= TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '7 day','yyyy-mm-dd')
 		GROUP BY 
 			T."SKU番号",
 			T."ASIN番号"
@@ -108,16 +151,33 @@
 			AND
 			T."店舗名" = :shop
 			AND
-			substring(T.注文日時,1,10) >=
-			date_part('year',now()-interval '30 day') || '-' || 
-			date_part('month',now()-interval '30 day') || '-' || 
-			date_part('day',now()-interval '30 day')
+			substring(T.注文日時,1,10) >= TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '30 day','yyyy-mm-dd')
 		GROUP BY 
 			T."SKU番号",
 			T."ASIN番号"
 		) T3 ON
 		T0."SKU番号" = T3."SKU番号" AND
 		T0."ASIN番号" = T3."ASIN番号"
+		LEFT JOIN
+		(
+		SELECT
+			T."SKU番号",
+			T."ASIN番号",
+			SUM(TO_NUMBER(T."数量",'999')) as "60日間数量"
+		FROM 
+			"INPUT_注文情報" T
+		WHERE
+			T."販売方" = 'Amazon.co.jp'
+			AND
+			T."店舗名" = :shop
+			AND
+			substring(T.注文日時,1,10) >= TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '60 day','yyyy-mm-dd')
+		GROUP BY 
+			T."SKU番号",
+			T."ASIN番号"
+		) T4 ON
+		T0."SKU番号" = T4."SKU番号" AND
+		T0."ASIN番号" = T4."ASIN番号"
 		LEFT JOIN
 		(
 		SELECT
@@ -131,16 +191,13 @@
 			AND
 			T."店舗名" = :shop
 			AND
-			substring(T.注文日時,1,10) >=
-			date_part('year',now()-interval '90 day') || '-' || 
-			date_part('month',now()-interval '90 day') || '-' || 
-			date_part('day',now()-interval '90 day')
+			substring(T.注文日時,1,10) >= TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '90 day','yyyy-mm-dd')
 		GROUP BY 
 			T."SKU番号",
 			T."ASIN番号"
-		) T4 ON
-		T0."SKU番号" = T4."SKU番号" AND
-		T0."ASIN番号" = T4."ASIN番号"
+		) T5 ON
+		T0."SKU番号" = T5."SKU番号" AND
+		T0."ASIN番号" = T5."ASIN番号"
 		WHERE
 			T0."店舗名" = :shop
 		) TEMP
