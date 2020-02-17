@@ -3,7 +3,14 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
 	<title>在庫情報</title>
+
+	<script language="JavaScript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script language="javascript" src="//cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+	<link rel="stylesheet" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
 	<efw:Client/>
 	<script>
 
@@ -27,8 +34,9 @@
             $("#pagehead").html(t);
 
             $("#shop").val(shop);
-		 
+
 		});
+
 
         function changeColor(){
 
@@ -36,16 +44,63 @@
 
 			    var tdArr = $(this).children();
 			    var html = tdArr.eq(2).html();
+			    if(html == "親商品"){
+			    	tdArr.eq(0).children().hide();
+			    }
+
+
 			    if(html == "子商品"){
 			    	//alert($(this));
 			    	for(var i=3;i < tdArr.length;i ++){
 			    		tdArr.eq(i).css({"background": "rgb(255,255,205)"});
 			    	}
-			    	
+
+			    	// 販売数量（週間平均値）
+			    	var num1 = parseFloat(tdArr.eq(14).html());
+			    	if(num1 < 0.2){
+			    		tdArr.eq(14).css({"background": "rgb(255,153,255)"});
+			    	}else if(num1 >= 0.2 && num1 < 0.5){
+			    		tdArr.eq(14).css({"background": "rgb(255,204,255)"});
+			    	}else if(num1 >= 0.5 && num1 < 1){
+			    		tdArr.eq(14).css({"background": "rgb(204,255,255)"});
+			    	}else if(num1 >= 1 && num1 < 2){
+			    		tdArr.eq(14).css({"background": "rgb(153,255,153)"});
+			    	}else if(num1 >= 2 && num1 < 5){
+			    		tdArr.eq(14).css({"background": "rgb(102,255,102)"});
+			    	}else if(num1 >= 5){
+			    		tdArr.eq(14).css({"background": "rgb(0,255,255)"});
+			    	}	
+
+			    	// 在庫
+			    	var num2 = parseFloat(tdArr.eq(16).html());
+			    	if(num2 < 5){
+			    		tdArr.eq(16).css({"background": "rgb(102,153,255)"});
+			    	}else if(num2 >= 5 && num2 < 10){
+			    		tdArr.eq(16).css({"background": "rgb(153,204,255)"});
+			    	}else if(num2 >= 10){
+			    		tdArr.eq(16).css({"background": "rgb(204,236,255)"});
+			    	}
+
+			    	// 販売可能期間
+			    	var num3 = parseFloat(tdArr.eq(21).html());
+			    	if(num2 == 0 || num3 < 10){
+			    		tdArr.eq(21).css({"background": "rgb(255,153,255)"});
+			    		$(this).addClass("stock1");
+			    	}else if(num3 >= 10 && num3 < 30){
+			    		tdArr.eq(21).css({"background": "rgb(255,204,255)"});
+			    		$(this).addClass("stock2");
+			    	}else{
+			    		$(this).addClass("stock0");
+			    	}
+
 			    }
 			     
 			});
 
+        }
+
+        function showstock(){
+        	$(".stock0").hide();
         }
 
         function searchstock(){
@@ -53,15 +108,111 @@
         	var productdivArr = new Array();
 
         	$('#productdiv input:checkbox:checked').each(function (index, item) {
-        		alert($(this).val());
         		productdivArr.push($(this).val());
     		});
 
         	Efw('searchstock',{'productdiv': productdivArr});
         }
 
+        function outputstock(){
+
+        	var productdivArr = new Array();
+
+        	$('#productdiv input:checkbox:checked').each(function (index, item) {
+        		productdivArr.push($(this).val());
+    		});
+
+			Efw('outputstock',{'productdiv': productdivArr});
+        }
+
+   //      function outputstock(){
+
+	  //       var p_no = new Array();
+	  //       var p_color = new Array();
+	  //       var p_size = new Array();
+	  //       var p_sku = new Array();
+	  //       var p_asin = new Array();
+	  //       var p_label = new Array();
+	  //       var p_nm = new Array();
+	  //       var p_selledweek = new Array();
+	  //       var p_fbm = new Array();
+	  //       var p_fba = new Array();
+	  //       var p_onsellweek = new Array();
+
+			// $("#stocktable").find("tr").each(function(){
+
+			//     var tdArr = $(this).children();
+			//     var checkflg = tdArr.eq(0).children()[0].checked;
+
+			//     if(checkflg){
+
+		 //        	var productno = tdArr.eq(1).html();
+		 //        	var productcolor = tdArr.eq(3).html();
+		 //        	var productsize = tdArr.eq(4).html();
+			// 		var productsku = tdArr.eq(5).html();
+			// 		var productasin = tdArr.eq(6).html();
+			// 		var productlabel = tdArr.eq(7).html();
+			// 		var productname = tdArr.eq(8).html();
+			// 		var productselledweek = tdArr.eq(14).html();
+			// 		var productfbm = tdArr.eq(15).html();
+			// 		var productfba = tdArr.eq(16).html();
+			// 		var productonsellweek = tdArr.eq(21).html();
+
+	  //       		p_no.push(productno);
+	  //       		p_color.push(productcolor);
+	  //       		p_size.push(productsize);
+			// 		p_sku.push(productsku);
+			// 		p_asin.push(productasin);
+			// 		p_label.push(productlabel);
+			// 		p_nm.push(productname);
+			// 		p_selledweek.push(productselledweek);
+			// 		p_fbm.push(productfbm);
+			// 		p_fba.push(productfba);
+			// 		p_onsellweek.push(productonsellweek);
+
+			//     }
+
+			// });
+
+			// Efw('addstock',
+			// 	{
+			// 		'addproductno': p_no,
+			// 		'addproductcolor': p_color,
+			// 		'addproductsize': p_size,
+			// 		'addproductsku': p_sku,
+			// 		'addproductasin': p_asin,
+			// 		'addproductlabel': p_label,
+			// 		'addproductnm': p_nm,
+			// 		'addproductselledweek': p_selledweek,
+			// 		'addproductfbm': p_fbm,
+			// 		'addproductfba': p_fba,
+			// 		'addproductonsellweek': p_onsellweek
+			// 	}
+			// );
+
+   //      }
+
         function initstock(){
         	Efw('initstock');
+        }
+
+        function showless(){
+        	$(".moreinfo").hide();
+
+        	$("#stocktablehead").css("width","1870px");
+        	$("#stocktable").css("width","1870px");
+
+        	$("#showmore").show();
+        	$("#showless").hide();
+        }
+        function showmore(){
+        	$(".moreinfo").show();
+        	$("#stocktablehead").css("width","3054px");
+        	$("#stocktable").css("width","3054px");
+
+			$("#showmore").hide();
+			$("#showless").show();
+
         }
 
   	</script>
@@ -72,6 +223,7 @@
     </style>
 </head>
 <body style="background-color:ghostwhite;" onload="initstock();">
+	<efw:Part path="si_stock_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
@@ -93,7 +245,7 @@
 			検索条件
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchstock()">
+			<input type="button" id="searchstock" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchstock()">
 		</td>
 	</tr>
 	<tr>
@@ -103,14 +255,15 @@
 			商品分類
 		</td>
 		<td style="font-size: 16px;" colspan="5" id="productdiv">
-			<input type="checkbox" id="productdiv01" value="01">&nbsp;レインコート
-			<input type="checkbox" id="productdiv05" value="05" style="margin-left: 30px;">&nbsp;傘
-			<input type="checkbox" id="productdiv21" value="21" style="margin-left: 30px;">&nbsp;靴下（夏用）
-			<input type="checkbox" id="productdiv22" value="22" style="margin-left: 30px;">&nbsp;靴下（秋冬用）
-			<input type="checkbox" id="productdiv31" value="31" style="margin-left: 30px;">&nbsp;パジャマ
-			<input type="checkbox" id="productdiv41" value="41" style="margin-left: 30px;">&nbsp;バスタオル
+			<input type="checkbox" checked id="productdiv01" value="01:レインコート">&nbsp;レインコート
+			<input type="checkbox" checked id="productdiv05" value="05:傘" style="margin-left: 30px;">&nbsp;傘
+			<input type="checkbox" checked id="productdiv21" value="21:靴下（夏用）" style="margin-left: 30px;">&nbsp;靴下（夏用）
+			<input type="checkbox" checked id="productdiv22" value="22:靴下（秋冬用）" style="margin-left: 30px;">&nbsp;靴下（秋冬用）
+			<input type="checkbox" checked id="productdiv31" value="31:パジャマ" style="margin-left: 30px;">&nbsp;パジャマ
+			<input type="checkbox" checked id="productdiv41" value="41:バスタオル" style="margin-left: 30px;">&nbsp;バスタオル
 		</td>
-		<td style="font-size: 16px;">
+		<td style="font-size: 16px;text-align: right;">
+			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
 		</td>
 	</tr>
 	<tr>
@@ -159,6 +312,10 @@
 		</td>
 		<td style="font-size: 16px;" colspan="5">
 			<input type="text" id="productname" style="width: 600px;height: 32px;">
+			<input type="button" id="aaa" style="width: 200px;height: 40px;font-size: 20px;" value="補足対象のみ" onclick="showstock()">
+
+			<input type="button" id="showmore" value="▶" onclick="showmore();" style="display: none;float: right;">
+			<input type="button" id="showless" value="◀" onclick="showless();" style="float: right;">
 		</td>
 		<td style="font-size: 16px;" id="basedate_stock">
 			
@@ -167,79 +324,37 @@
 	</tr>
 </table>
 <hr>
-<table border="1" style="width: 2500px;">
-	<COLGROUP>
-		<COL WIDTH="50PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL >
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-	</COLGROUP>
+<div id="stocklist" style="height: 650px; width:3200px; overflow:auto;border-style: solid;border-width: 1px;">
+<table border="1" id="stocktablehead" style="width: 2896px;font-size: 14px;">
 	<tr>
-		<td>選択</td>
-		<td>商品管理番号</td>
-		<td>商品種別</td>
-		<td>SKU番号</td>
-		<td>ASIN番号</td>
-		<td>ラベル番号</td>
-		<td>商品名称</td>
-		<td>販売数量<br/>（昨日）</td>
-		<td>販売数量<br/>（直近7日間）</td>
-		<td>販売数量<br/>（直近30日間）</td>
-		<td>販売数量<br/>（直近60日間）</td>
-		<td>販売数量<br/>（直近90日間）</td>
-		<td>販売数量<br/>（週間平均値）</td>
-		<td>FBM在庫</td>
-		<td>FBA在庫</td>
-		<td>販売可能期間<br/>(7)</td>
-		<td>販売可能期間<br/>(30)</td>
-		<td>販売可能期間<br/>(60)</td>
-		<td>販売可能期間<br/>(90)</td>
-		<td>販売可能期間<br/>(平均値)</td>
+		<td style="width: 50px;">選択</td>
+		<td style="width: 100px;">商品管理番号</td>
+		<td style="width: 100px;display:none;">商品種別</td>
+		<td style="width: 100px;">色</td>
+		<td style="width: 100px;">サイズ</td>
+		<td style="width: 100px;" class="moreinfo">SKU番号</td>
+		<td style="width: 100px;" class="moreinfo">ASIN番号</td>
+		<td style="width: 100px;" class="moreinfo">ラベル番号</td>
+		<td style="width: 750px;" class="moreinfo">商品名称</td>
+		<td style="width: 100px;">販売数量<br/>(昨日)</td>
+		<td style="width: 100px;">販売数量<br/>(直近7日間)</td>
+		<td style="width: 100px;">販売数量<br/>(直近30日間)</td>
+		<td style="width: 100px;">販売数量<br/>(直近60日間)</td>
+		<td style="width: 100px;">販売数量<br/>(直近90日間)</td>
+		<td style="width: 100px;">販売数量<br/>(週間平均値)</td>
+		<td style="width: 80px;">FBM在庫</td>
+		<td style="width: 80px;">FBA在庫</td>
+		<td style="width: 100px;">販売可能期間<br/>(7)</td>
+		<td style="width: 100px;">販売可能期間<br/>(30)</td>
+		<td style="width: 100px;">販売可能期間<br/>(60)</td>
+		<td style="width: 100px;">販売可能期間<br/>(90)</td>
+		<td style="width: 100px;">販売可能期間<br/>(平均値)</td>
 	</tr>
 </table>
 
-<table border="1" id="stocktable" style="width: 2500px;font-size: 14px;">
-	<COLGROUP>
-		<COL WIDTH="50PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL >
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-		<COL WIDTH="120PX">
-	</COLGROUP>
-
+<table border="1" id="stocktable" style="width: 2896px;font-size: 12px;">
 </table>
-<div id="stocklist" style="height: 650px; width:1900px; overflow:scroll;border-style: solid;border-width: 1px;display: none;">
+
 </div>
 
 

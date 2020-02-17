@@ -24,6 +24,55 @@
 			});
 		});
 
+		// function getstrcount(str1,str2){
+
+		// 	var count = 0;
+		// 	if(str1.indexOf(str2) <= 0){
+		// 		return count;
+		// 	}else{
+
+		// 		str1 = str1.substring(str1.indexOf(str2));
+		// 		count = count + 1;
+		// 		return count + getstrcount(str1,str2);
+		// 	}
+
+		// }
+
+		// function getsubinfo(){
+
+		// 	var a = [
+		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット",
+		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:13～15cm)",
+		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:13～15cm(1-3歳))",
+		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S13,15cm)",
+		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:13,15cm(1-3歳))",
+		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:(1-3歳)13,15cm)",
+		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:(1-3歳)13,15cm(4-5歳))"
+		// 		]
+
+		// 	for(var i = 0;i <a.length;i ++){
+
+		// 		var productname = a[i];
+
+
+		// 		var index2 = productname.lastIndexOf("(")+1;
+
+
+		// 			subinfo = productname.substring(index2,productname.lastIndexOf(")"));
+
+
+		// 			while(){
+
+		// 			}
+		// 			subinfo.indexOf("(")
+
+		// 	}
+			
+
+		// }
+
+
+
 		function addsub(){
 
 			var ptype = $('input:radio[name=ptype]:checked').val();
@@ -120,9 +169,6 @@
 				colorArr.push(color);
 				sizeArr.push(size);
 			});
-
-			alert(colorArr.length);
-			alert(sizeArr.length);
 
 			Efw('savemaster',{"subsku": skuArr ,"subasin": asinArr,"subcolor": colorArr,"subsize": sizeArr });
 
@@ -351,6 +397,7 @@
 	</TABLE>
 	<INPUT TYPE="HIDDEN" CLASS="action"> <BR>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="getsubinfo()" >123</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savemaster()" >登録</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_master_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
