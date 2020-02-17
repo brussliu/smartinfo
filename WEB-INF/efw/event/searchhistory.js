@@ -37,7 +37,7 @@ searchhistory.fire=function(params){
 			}
 		);
 	}
-	if(fbaArr.length > 0){
+	if(orderArr.length > 0){
 		ret.runat("#ordertable").withdata(
 			{
 				".importtime": orderArr[0].importtime,
