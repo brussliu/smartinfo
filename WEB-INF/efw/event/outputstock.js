@@ -70,15 +70,25 @@ outputstock.fire=function(params){
 	// excel.createSheet(newSheetName, "temp_1");
 
 
-	var labelY_from = 4;
-	var labelY_to = 48;
-	var labelX = ["F","G","H","I","J","K"];
+	var R_labelY_from = 4;
+	var R_labelY_to = 48;
+	var R_labelX = ["F","G","H","I","J","K"];
 
-	var writeStockX = ["L","M","N","O","P","Q"];
+	var R_writeStockX = ["L","M","N","O","P","Q"];
 
-	var writeSell30X = ["L","M","N","O","P","Q"];
-	var writeSell90X = ["R","S","T","U","V","W"];
-	var writeSellWeekX = ["X","Y","Z","AA","AB","AC"];
+	var R_writeSell30X = ["L","M","N","O","P","Q"];
+	var R_writeSell90X = ["R","S","T","U","V","W"];
+	var R_writeSellWeekX = ["X","Y","Z","AA","AB","AC"];
+
+	var W_labelY_from = 4;
+	var W_labelY_to = 116;
+	var W_labelX = "L";
+
+	var W_writeStockX = "N";
+
+	var W_writeSell30X = "L";
+	var W_writeSell90X = "M";
+	var W_writeSellWeekX = "N";
 
 	for(var i = 0;i < selectResult.length;i ++){
 
@@ -92,29 +102,52 @@ outputstock.fire=function(params){
 
 		if(productno.substring(0,1) == "T" || productno.substring(0,1) == "P"){
 			// 在庫情報シート
-			for(var x = 0;x < labelX.length;x ++){
-				for(var y = labelY_from;y <= labelY_to;y ++){
+			for(var x = 0;x < R_labelX.length;x ++){
+				for(var y = R_labelY_from;y <= R_labelY_to;y ++){
 
-					var excellabelno = excel.getValue("在庫情報", labelX[x] + y);
+					var excellabelno = excel.getValue("在庫情報R", R_labelX[x] + y);
 					if(excellabelno == null){
 						continue;
 					}
 					if(excellabelno == labelno){
 
-						excel.setCell("在庫情報", writeStockX[x]+y, fba);
+						excel.setCell("在庫情報R", R_writeStockX[x]+y, fba);
 
-						excel.setCell("販売予測", writeSell30X[x]+y, selled30);
+						excel.setCell("販売予測R", R_writeSell30X[x]+y, selled30);
 
-						excel.setCell("販売予測", writeSell90X[x]+y, selled90);
+						excel.setCell("販売予測R", R_writeSell90X[x]+y, selled90);
 
-						excel.setCell("販売予測", writeSellWeekX[x]+y, selledweek);
+						excel.setCell("販売予測R", R_writeSellWeekX[x]+y, selledweek);
 
 					}
 
 				}
 			}
 		}
+		if(productno.substring(0,1) == "W"){
 
+			for(var y = W_labelY_from;y <= W_labelY_to;y ++){
+
+					var excellabelno = excel.getValue("在庫情報W", W_labelX + y);
+
+					if(excellabelno == null){
+						continue;
+					}
+					if(excellabelno == labelno){
+
+						excel.setCell("在庫情報W", W_writeStockX+y, fba);
+
+						excel.setCell("販売予測W", W_writeSell30X+y, selled30);
+
+						excel.setCell("販売予測W", W_writeSell90X+y, selled90);
+
+						excel.setCell("販売予測W", W_writeSellWeekX+y, selledweek);
+
+					}
+
+			}
+
+		}
 
 
 	}
@@ -149,7 +182,7 @@ outputstock.fire=function(params){
 
 
 
-	excel.setActiveSheet("在庫情報").save(tempFilePathName);
+	excel.setActiveSheet("在庫情報R").save(tempFilePathName);
 
 
 	var ret = new Result();
