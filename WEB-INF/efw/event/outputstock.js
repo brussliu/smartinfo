@@ -76,27 +76,33 @@ outputstock.fire=function(params){
 
 	var R_writeStockX = ["L","M","N","O","P","Q"];
 
-	var R_writeSell30X = ["L","M","N","O","P","Q"];
-	var R_writeSell90X = ["R","S","T","U","V","W"];
-	var R_writeSellWeekX = ["X","Y","Z","AA","AB","AC"];
+	var R_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
+	var R_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
+	var R_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
+	var R_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
+	var R_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
 
 	var W_labelY_from = 4;
 	var W_labelY_to = 116;
 	var W_labelX = "L";
 
-	var W_writeStockX = "N";
+	var W_writeStockX = "M";
 
-	var W_writeSell30X = "L";
-	var W_writeSell90X = "M";
-	var W_writeSellWeekX = "N";
+	var W_writeSell7X = "O";
+	var W_writeSell30X = "P";
+	var W_writeSell60X = "Q";
+	var W_writeSell90X = "R";
+	var W_writeSellWeekX = "S";
 
 	for(var i = 0;i < selectResult.length;i ++){
 
 		var productno = selectResult[i]["productno"];
 		var labelno = selectResult[i]["label"];
 		var fba = selectResult[i]["fba"];
+		var selled7 = selectResult[i]["selled7"];
 		var selled30 = selectResult[i]["selled30"];
-		var selled90 = selectResult[i]["selled90"];selledweek
+		var selled60 = selectResult[i]["selled60"];
+		var selled90 = selectResult[i]["selled90"];
 		var selledweek = selectResult[i]["selledweek"];
 
 
@@ -113,11 +119,15 @@ outputstock.fire=function(params){
 
 						excel.setCell("在庫情報R", R_writeStockX[x]+y, fba);
 
-						excel.setCell("販売予測R", R_writeSell30X[x]+y, selled30);
+						excel.setCell("在庫情報R", R_writeSell7X[x]+y, selled7);
 
-						excel.setCell("販売予測R", R_writeSell90X[x]+y, selled90);
+						excel.setCell("在庫情報R", R_writeSell30X[x]+y, selled30);
 
-						excel.setCell("販売予測R", R_writeSellWeekX[x]+y, selledweek);
+						excel.setCell("在庫情報R", R_writeSell60X[x]+y, selled60);
+
+						excel.setCell("在庫情報R", R_writeSell90X[x]+y, selled90);
+
+						excel.setCell("在庫情報R", R_writeSellWeekX[x]+y, selledweek);
 
 					}
 
@@ -137,11 +147,15 @@ outputstock.fire=function(params){
 
 						excel.setCell("在庫情報W", W_writeStockX+y, fba);
 
-						excel.setCell("販売予測W", W_writeSell30X+y, selled30);
+						excel.setCell("在庫情報W", W_writeSell7X+y, selled7);
 
-						excel.setCell("販売予測W", W_writeSell90X+y, selled90);
+						excel.setCell("在庫情報W", W_writeSell30X+y, selled30);
 
-						excel.setCell("販売予測W", W_writeSellWeekX+y, selledweek);
+						excel.setCell("在庫情報W", W_writeSell60X+y, selled60);
+
+						excel.setCell("在庫情報W", W_writeSell90X+y, selled90);
+
+						excel.setCell("在庫情報W", W_writeSellWeekX+y, selledweek);
 
 					}
 
