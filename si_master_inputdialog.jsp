@@ -476,7 +476,6 @@
 	</TABLE>
 	<INPUT TYPE="HIDDEN" CLASS="action"> <BR>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="getsubinfo()" >123</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savemaster()" >登録</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_master_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
