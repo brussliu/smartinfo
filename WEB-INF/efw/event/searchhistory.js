@@ -19,6 +19,7 @@ searchhistory.fire=function(params){
 	var productArr = historyResult.seek("importtype","eq","product").getArray();
 	var fbaArr = historyResult.seek("importtype","eq","fba").getArray();
 	var orderArr = historyResult.seek("importtype","eq","order").getArray();
+	var localstockArr = historyResult.seek("importtype","eq","localstock").getArray();
 
 	if(productArr.length > 0){
 			ret.runat("#producttable").withdata(
@@ -37,11 +38,21 @@ searchhistory.fire=function(params){
 			}
 		);
 	}
+
 	if(orderArr.length > 0){
 		ret.runat("#ordertable").withdata(
 			{
 				".importtime": orderArr[0].importtime,
 				".importcount": orderArr[0].importcount
+			}
+		);
+	}
+
+	if(localstockArr.length > 0){
+		ret.runat("#localstocktable").withdata(
+			{
+				".importtime": localstockArr[0].importtime,
+				".importcount": localstockArr[0].importcount
 			}
 		);
 	}

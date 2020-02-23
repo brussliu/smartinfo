@@ -75,6 +75,7 @@ outputstock.fire=function(params){
 	var R_labelX = ["F","G","H","I","J","K"];
 
 	var R_writeStockX = ["L","M","N","O","P","Q"];
+	var R_writeLocalStockX = ["X","Y","Z","AA","AB","AC"];
 
 	var R_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
 	var R_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
@@ -87,6 +88,7 @@ outputstock.fire=function(params){
 	var W_labelX = "L";
 
 	var W_writeStockX = "M";
+	var W_writeLocalStockX = "N";
 
 	var W_writeSell7X = "O";
 	var W_writeSell30X = "P";
@@ -98,6 +100,7 @@ outputstock.fire=function(params){
 
 		var productno = selectResult[i]["productno"];
 		var labelno = selectResult[i]["label"];
+		var localstock = selectResult[i]["localstock"];
 		var fba = selectResult[i]["fba"];
 		var selled7 = selectResult[i]["selled7"];
 		var selled30 = selectResult[i]["selled30"];
@@ -118,6 +121,8 @@ outputstock.fire=function(params){
 					if(excellabelno == labelno){
 
 						excel.setCell("在庫情報R", R_writeStockX[x]+y, fba);
+
+						excel.setCell("在庫情報R", R_writeLocalStockX[x]+y, localstock);
 
 						excel.setCell("在庫情報R", R_writeSell7X[x]+y, selled7);
 
@@ -146,6 +151,8 @@ outputstock.fire=function(params){
 					if(excellabelno == labelno){
 
 						excel.setCell("在庫情報W", W_writeStockX+y, fba);
+
+						excel.setCell("在庫情報W", W_writeLocalStockX+y, localstock);
 
 						excel.setCell("在庫情報W", W_writeSell7X+y, selled7);
 

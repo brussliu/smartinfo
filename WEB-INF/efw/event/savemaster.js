@@ -10,7 +10,7 @@ savemaster.paramsFormat={
 		"#sku":"required:true;display-name:SKU番号;",
 		"#asin":"required:true;display-name:ASIN番号;",
 		"#productname":"required:true;display-name:商品名称;",
-		"#productpic":"required:true;display-name:商品写真;",
+		//"#productpic":"required:true;display-name:商品写真;",
 
 		"subsku":"required:true;display-name:子商品SKU番号;",
 		"subasin":"required:true;display-name:子商品ASIN番号;",
@@ -18,7 +18,8 @@ savemaster.paramsFormat={
 		"subcolor":"required:true;display-name:子商品color;",
 		"subsize":"required:true;display-name:子商品size;",
 
-		"#productpicStr":"required:true;display-name:商品写真;",
+		"picStr":"required:true;display-name:商品写真;",
+		"picColor":null,
 
 	},
 	"#shop":null
@@ -46,6 +47,8 @@ savemaster.fire=function(params){
 	var oya_price = "";
 	// ローカル在庫数量
 	var oya_localstock = "";
+	// FBM在庫数量
+	var oya_fbmstock = "";
 	// FBA在庫数量
 	var oya_fbastock = "";
 	// 商品種別
@@ -59,10 +62,10 @@ savemaster.fire=function(params){
 
 	var oya_size = "";
 
-
 	shopname = params["#shop"];
 
-	var pictxt = params["#si_master_inputdialog"]["#productpicStr"];
+	var picArr = params["#si_master_inputdialog"]["picStr"];
+	var picColorArr = params["#si_master_inputdialog"]["picColor"];
 
 	var insertResult = db.change(
 		"MASTER",
@@ -77,13 +80,14 @@ savemaster.fire=function(params){
 			"col5":oya_productname,
 			"col6":oya_price,
 			"col7":oya_localstock,
-			"col8":oya_fbastock,
-			"col9":oya_producttype,
-			"col10":oya_selltype,
-			"col11":pictxt,
-			"col12":oya_sort,
-			"col13":oya_color,
-			"col14":oya_size
+			"col8":oya_fbmstock,
+			"col9":oya_fbastock,
+			"col10":oya_producttype,
+			"col11":oya_selltype,
+			"col12":picArr[0],
+			"col13":oya_sort,
+			"col14":oya_color,
+			"col15":oya_size
 		}
 	);
 
@@ -130,8 +134,8 @@ savemaster.fire=function(params){
 		var sub_productname = selectResult[0].productname;
 		// 価格
 		var sub_price = selectResult[0].price;
-		// ローカル在庫数量
-		var sub_localstock = selectResult[0].localquantity;
+		// FBM在庫数量
+		var sub_fbmstock = selectResult[0].fbmquantity;
 		// FBA在庫数量
 		var sub_fbastock = selectResult[0].fbaquantity;
 		// 色
@@ -151,35 +155,37 @@ savemaster.fire=function(params){
 				"col4":sub_label,
 				"col5":sub_productname,
 				"col6":sub_price,
-				"col7":sub_localstock,
-				"col8":sub_fbastock,
-				"col9":sub_producttype,
-				"col10":sub_selltype,
-				"col11":"",
-				"col12":i+1,
-				"col13":sub_color,
-				"col14":sub_size
+				"col7":"",
+				"col8":sub_fbmstock,
+				"col9":sub_fbastock,
+				"col10":sub_producttype,
+				"col11":sub_selltype,
+				"col12":"",
+				"col13":i+1,
+				"col14":sub_color,
+				"col15":sub_size
 			}
 		);
 
 	}
 
+	for(var i = 0;i < picArr.length;i ++){
 
-  // "商品管理番号" VARCHAR(50)
-  // "商品分類" VARCHAR(50)
-  // "SKU番号" VARCHAR(50)
-  // "ASIN番号" VARCHAR(50)
+		var pic = picArr[i];
+		var color = picColorArr[i];
 
-  // "ラベル番号" VARCHAR(50)
-  // "商品名称" VARCHAR(200)
-  // "価格" VARCHAR(50)
-  // "ローカル在庫数量" VARCHAR(50)
-  // "FBA在庫数量" VARCHAR(50)
+		var picInsertResult = db.change(
+			"MASTER",
+			"insertColor",
+			{
+				"shop":shopname,
+				"col0":oya_productid,
+				"col1":color,
+				"col2":pic
+			}
+		);
 
-
-  // "商品種別" VARCHAR(50)
-  // "出品タイプ" VARCHAR(50)
-
+	}
 
 	return (new Result()).eval("si_master_inputdialog.dialog('close')");
 

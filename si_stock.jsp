@@ -342,6 +342,7 @@
 		<td style="width: 100px;">販売数量<br/>(直近60日間)</td>
 		<td style="width: 100px;">販売数量<br/>(直近90日間)</td>
 		<td style="width: 100px;">販売数量<br/>(週間平均値)</td>
+		<td style="width: 80px;">LOCAL在庫</td>
 		<td style="width: 80px;">FBM在庫</td>
 		<td style="width: 80px;">FBA在庫</td>
 		<td style="width: 100px;">販売可能期間<br/>(7)</td>

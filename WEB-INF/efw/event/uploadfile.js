@@ -4,6 +4,7 @@ uploadfile.paramsFormat={
 	"#importfile_product":null,
 	"#importfile_fba":null,
 	"#importfile_order":null,
+	"#importfile_localstock":null,
 	"data":null,
 	"#shop":null
 };
@@ -104,6 +105,87 @@ uploadfile.fire=function(params){
 			{
 				"col0":shopname,
 				"col1":"order",
+				"col2":d,
+				"col3":count
+			}
+		);
+
+	}else if(params["data"] == "localstock"){
+
+		count = 0;
+
+		var fa = params["#importfile_localstock"].split("\\");
+		var f = fa[fa.length-1];
+
+		var excelXSSF = new Excel("upload/" + f);
+
+		var R_labelX = ["F","G","H","I","J","K"];
+		var R_localStockX = ["X","Y","Z","AA","AB","AC"];
+
+		var R_labelY_from = 4;
+		var R_labelY_to = 48;
+
+		for(var x = 0;x < R_labelX.length;x ++){
+
+			for(var y = R_labelY_from;y <= R_labelY_to;y ++){
+
+				var label = excelXSSF.getValue("在庫情報R", R_labelX[x] + y);
+
+				if(label != null && label.length > 0){
+
+					var localstock = excelXSSF.getValue("在庫情報R", R_localStockX[x] + y);
+
+					var updateResult = db.change(
+						"UPLOAD",
+						"updateLocalstock",
+						{
+							"localstock":localstock,
+							"label":label
+						}
+					);
+
+					count = count + 1;
+				}
+
+			}
+		}
+
+		var W_labelX = "L";
+		var W_localStockX = "N";
+		var W_labelY_from = 4;
+		var W_labelY_to = 116;
+
+		for(var y = W_labelY_from;y <= W_labelY_to;y++){
+
+			var label = excelXSSF.getValue("在庫情報W", W_labelX + y);
+
+			if(label != null && label.length > 0){
+
+				var localstock = excelXSSF.getValue("在庫情報W", W_localStockX + y);
+
+				var updateResult = db.change(
+					"UPLOAD",
+					"updateLocalstock",
+					{
+						"localstock":localstock,
+						"label":label
+					}
+				);
+
+				count = count + 1;
+
+			}
+
+		}
+
+		var d = new Date().format("yyyy-MM-dd");
+
+		var historyResult = db.change(
+			"UPLOAD",
+			"insertHistory",
+			{
+				"col0":shopname,
+				"col1":"localstock",
 				"col2":d,
 				"col3":count
 			}

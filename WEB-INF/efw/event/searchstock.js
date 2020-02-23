@@ -29,6 +29,7 @@ searchstock.fire=function(params){
 		"<td style='width:100px;'>{selled60}</td>" +
 		"<td style='width:100px;'>{selled90}</td>" +
 		"<td style='width:100px;'>{selledweek}</td>" +
+		"<td style='width:80px;'>{localstock}</td>" +
 		"<td style='width:80px;'>{fbm}</td>" +
 		"<td style='width:80px;'>{fba}</td>" +
 		"<td style='width:100px;'>{onsell7}</td>" +

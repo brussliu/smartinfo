@@ -43,8 +43,8 @@
 			  TEMP."30日間数量"/30 * 0.3 +
 			  TEMP."60日間数量"/60 * 0.3 +
 			  TEMP."90日間数量"/90 * 0.2) * 7, 2) as selledweek,
-
-		 TEMP."ローカル在庫数量" as fbm,
+		 TEMP."LOCAL在庫数量" as localstock,
+		 TEMP."FBM在庫数量" as fbm,
 		 TEMP."FBA在庫数量" as fba,
 		 CASE WHEN 
 		  TEMP."7日間数量" = 0 THEN 9999
@@ -100,9 +100,10 @@
 		 COALESCE(T3."30日間数量",0) as "30日間数量",
 		 COALESCE(T4."60日間数量",0) as "60日間数量",
 		 COALESCE(T5."90日間数量",0) as "90日間数量",
-		 T0."ローカル在庫数量",
+		 T0."LOCAL在庫数量",
+		 T0."FBM在庫数量",
 		 T0."FBA在庫数量",
-		 COALESCE(TO_NUMBER(T0."ローカル在庫数量",'9999'),0) + 
+		 COALESCE(TO_NUMBER(T0."FBM在庫数量",'9999'),0) + 
 		 COALESCE(TO_NUMBER(T0."FBA在庫数量",'9999'),0) as "在庫合計"
 		FROM
 		"MASTER_出品マスタ情報" T0

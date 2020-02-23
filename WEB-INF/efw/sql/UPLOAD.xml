@@ -141,4 +141,11 @@
 		NB = 1
 	</sql>
 
+	<sql id="updateLocalstock">
+		update "MASTER_出品マスタ情報"
+		set
+		"LOCAL在庫数量" = :localstock
+		where
+		 "ラベル番号" = :label
+	</sql>
 </sqls>

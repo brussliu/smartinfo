@@ -12,20 +12,24 @@ searchmaster.fire=function(params){
 
 	var oyahtml = 
 	"<tr style='background-color:rgb(205,255,255)'>" +
-		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'><img src='{productpic}' width='150px;'/></td>" +
-		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{productno}&nbsp;&nbsp;&nbsp;<input type='button' style='width:50px;' value='削除' onclick=\"delMaster('{productno}')\"></td>" +
-		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{productdiv}</td>" +
-		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{sku}</td>" +
-		"<td style='width: 150px; font-size: 16px;' rowspan='{subq}'>{asin}</td>" +
-		"<td style='font-size: 16px;' rowspan='{subq}'>{productname}</td>" +
-		"<td style='width: 150px; font-size: 16px;'>{subsku}</td>" +
-		"<td style='width: 150px; font-size: 16px;'>{sukuasin}</td>" +
+		"<td style='width: 150px; font-size: 14px;' rowspan='{subq}'><img src='{productpic}' width='150px;'/></td>" +
+		"<td style='width: 150px; font-size: 14px;' rowspan='{subq}'>{productno}&nbsp;&nbsp;&nbsp;<input type='button' style='width:50px;' value='削除' onclick=\"delMaster('{productno}')\"></td>" +
+		"<td style='width: 150px; font-size: 14px;' rowspan='{subq}'>{productdiv}</td>" +
+		"<td style='width: 150px; font-size: 14px;' rowspan='{subq}'>{sku}</td>" +
+		"<td style='width: 150px; font-size: 14px;' rowspan='{subq}'>{asin}</td>" +
+		"<td style='font-size: 14px;' rowspan='{subq}'>{productname}</td>" +
+		"<td style='width: 150px; font-size: 14px;'>{subcolor}</td>" +
+		"<td style='width: 150px; font-size: 14px;'>{subsize}</td>" +
+		"<td style='width: 150px; font-size: 14px;'>{subsku}</td>" +
+		"<td style='width: 150px; font-size: 14px;'>{sukuasin}</td>" +
 	"</tr>";
 
 	var subhtml = 
 	"<tr>" +
-		"<td style='width: 150px; font-size: 16px;background-color:rgb(205,255,255);'>{subsku}</td>" +
-		"<td style='width: 150px; font-size: 16px;background-color:rgb(205,255,255);'>{subasin}</td>" +
+		"<td style='width: 150px; font-size: 14px;background-color:rgb(205,255,255);'>{subcolor}</td>" +
+		"<td style='width: 150px; font-size: 14px;background-color:rgb(205,255,255);'>{subsize}</td>" +
+		"<td style='width: 150px; font-size: 14px;background-color:rgb(205,255,255);'>{subsku}</td>" +
+		"<td style='width: 150px; font-size: 14px;background-color:rgb(205,255,255);'>{subasin}</td>" +
 	"</tr>";
 
 	var selectResult1 = db.select(
@@ -55,9 +59,9 @@ searchmaster.fire=function(params){
 
 	var subhtml2 = 
 	"<tr style='background-color:rgb(255,205,255)'>" +
-		"<td colspan='6' style='font-size: 16px;'>{productname}</td>" +
-		"<td style='width: 150px; font-size: 16px;'>{sku}</td>" +
-		"<td style='width: 150px; font-size: 16px;'>{asin}</td>" +
+		"<td colspan='6' style='font-size: 14px;'>{productname}</td>" +
+		"<td style='width: 150px; font-size: 14px;'>{sku}</td>" +
+		"<td style='width: 150px; font-size: 14px;'>{asin}</td>" +
 	"</tr>";
 	var selectResult3 = db.select(
 		"MASTER",

@@ -16,6 +16,7 @@ searchproduct.fire=function(params){
 		"<td>{asin}</td>" +
 		"<td>{label}</td>" +
 		"<td>{productname}</td>" +
+		"<td>{localstock}</td>" +
 		"<td>{fbm}</td>" +
 		"<td>{fba}</td>" +
 		"<td>{price}</td>" +

@@ -277,6 +277,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
 	</COLGROUP>
 	<tr>
 		<td rowspan="2">商品管理番号</td>
@@ -284,12 +285,13 @@
 		<td rowspan="2">ASIN番号</td>
 		<td rowspan="2">ラベル番号</td>
 		<td rowspan="2">商品名称</td>
-		<td colspan="2">在庫数量</td>
+		<td colspan="3">在庫数量</td>
 		<td rowspan="2">価格</td>
 		<td rowspan="2">商品種別</td>
 		<td rowspan="2">出品タイプ</td>
 	</tr>
 	<tr>
+		<td>LOCAL</td>
 		<td>FBM</td>
 		<td>FBA</td>
 	</tr>
@@ -306,6 +308,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
 	</COLGROUP>
 	<tr>
 		<td>P001</td>
@@ -315,6 +318,7 @@
 		<td>商品名称</td>
 		<td>在庫数量1</td>
 		<td>在庫数量2</td>
+		<td>在庫数量3</td>
 		<td>価格</td>
 		<td>商品種別</td>
 		<td>出品タイプ</td>

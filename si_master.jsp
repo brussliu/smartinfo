@@ -67,28 +67,34 @@
 		<COL WIDTH="150PX">
 	</COLGROUP>
 	<tr>
-		<td style="width: 150px;font-size: 16px;font-weight: bold;">
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
 			商品写真
 		</td>
-		<td style="width: 150px;font-size: 16px;font-weight: bold;">
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
 			商品管理番号
 		</td>
-		<td style="width: 150px;font-size: 16px;font-weight: bold;">
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
 			商品分類
 		</td>
-		<td style="width: 150px;font-size: 16px;font-weight: bold;">
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
 			親商品SKU番号
 		</td>
-		<td style="width: 150px;font-size: 16px;font-weight: bold;">
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
 			親商品ASIN番号
 		</td>
-		<td style="font-size: 16px;font-weight: bold;">
+		<td style="font-size: 14px;font-weight: bold;">
 			親商品名称
 		</td>
-		<td style="width: 150px;font-size: 16px;font-weight: bold;">
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
+			子商品色
+		</td>
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
+			子商品サイズ
+		</td>
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
 			子商品SKU番号
 		</td>
-		<td style="width: 150px;font-size: 16px;font-weight: bold;">
+		<td style="width: 150px;font-size: 14px;font-weight: bold;">
 			子商品ASIN番号
 		</td>
 	</tr>
@@ -102,6 +108,8 @@
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL>
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 	</COLGROUP>

@@ -8,8 +8,8 @@
 				title : "親商品登録",
 				autoOpen : false,
 				resizable : false,
-				height : 800,
-				width : 1200,
+				height : 1000,
+				width : 1400,
 				modal : true,
 				open : function(){
 					setTimeout(function(){});
@@ -24,52 +24,45 @@
 			});
 		});
 
-		// function getstrcount(str1,str2){
+		function getstrcount(str1,str2){
 
-		// 	var count = 0;
-		// 	if(str1.indexOf(str2) <= 0){
-		// 		return count;
-		// 	}else{
+			var count = 0;
 
-		// 		str1 = str1.substring(str1.indexOf(str2));
-		// 		count = count + 1;
-		// 		return count + getstrcount(str1,str2);
-		// 	}
+			var strArr = str1.split(str2);
 
-		// }
+			return strArr.length - 1;
 
-		// function getsubinfo(){
+		}
 
-		// 	var a = [
-		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット",
-		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:13～15cm)",
-		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:13～15cm(1-3歳))",
-		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S13,15cm)",
-		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:13,15cm(1-3歳))",
-		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:(1-3歳)13,15cm)",
-		// 		"【Smart-Bear】W103 ガールズ ボーイ 靴下 ソックス 女の子 男の子 ウールソックス 5足セット (S:(1-3歳)13,15cm(4-5歳))"
-		// 		]
+		function getsubinfo(productname){
 
-		// 	for(var i = 0;i <a.length;i ++){
+			var subinfo = "";
+			if(productname.indexOf("(") <= 0){
+				return subinfo;
+			}
 
-		// 		var productname = a[i];
+			var left = productname.lastIndexOf("(");
+			var temp = productname;
 
+			for(var j=0; j<999; j++){
+				
+				subinfo = productname.substring(left + 1,productname.lastIndexOf(")"));
 
-		// 		var index2 = productname.lastIndexOf("(")+1;
+				var countleft = getstrcount(subinfo,"(");
+				var countright = getstrcount(subinfo,")");
 
+				if(countleft == countright){
 
-		// 			subinfo = productname.substring(index2,productname.lastIndexOf(")"));
+					break;
+				}else{
 
+					temp = temp.substring(0,temp.lastIndexOf("("));
+					left = temp.lastIndexOf("(");
+				}
 
-		// 			while(){
-
-		// 			}
-		// 			subinfo.indexOf("(")
-
-		// 	}
-			
-
-		// }
+			}
+			return subinfo;
+		}
 
 
 
@@ -92,24 +85,25 @@
 					var pn = tdArr.eq(3).html();
 					var color = " ";
 					var size = " ";
+
+					var subinfo = getsubinfo(pn);
+
 					if(ptype == "10"){
-						color = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
+						color = subinfo;
 					}
 
 					if(ptype == "20"){
-						size = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
+						size = subinfo;
 					}
 					if(ptype == "30"){//color-size
-						var str = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
 
-						var strArr = str.split(",");
+						var strArr = subinfo.split(",");
 						color = strArr[0].trim();
 						size = strArr[1].trim();
 					}
 					if(ptype == "40"){//size-color
-						var str = pn.substring(pn.lastIndexOf("(")+1,pn.lastIndexOf(")"));
 
-						var strArr = str.split(",");
+						var strArr = subinfo.split(",");
 						color = strArr[1].trim();
 						size = strArr[0].trim();
 					}
@@ -153,6 +147,8 @@
 			var asinArr = new Array();
 			var colorArr = new Array();
 			var sizeArr = new Array();
+			var picArr = new Array();
+			var picColorArr = new Array();
 
 
 			$("#selectedsubproduct").find("tr").each(function(){
@@ -170,25 +166,85 @@
 				sizeArr.push(size);
 			});
 
-			Efw('savemaster',{"subsku": skuArr ,"subasin": asinArr,"subcolor": colorArr,"subsize": sizeArr });
+			$("#allpic").find("input").each(function(){
+
+				if($(this).attr("type") == "hidden"){
+					var picsrc = $(this).val();
+					var piccolor = $(this).next().html();
+					picColorArr.push(piccolor);
+					picArr.push(picsrc);
+				}
+
+			});
+
+
+			Efw('savemaster',{"subsku": skuArr ,"subasin": asinArr,"subcolor": colorArr,"subsize": sizeArr,"picStr":picArr,"picColor":picColorArr });
 
 		}
 
-		function uplaodPic(){
-			$("#productpic").click();
+		function uplaodPic(obj){
+
+			$(obj).next().click();
 		}
 
-		function changepic() {
+		function makepicarea(){
+
+			$("#allpic").find("div").each(function(){
+				$(this).remove();
+			});
+
+			var colorArr = new Array();
+
+			$("#selectedsubproduct").find("tr").each(function(){
+
+			    var tdArr = $(this).children();
+
+			    var color = tdArr.eq(4).html();
+			    if(colorArr.indexOf(color) < 0){
+			    	colorArr.push(color);
+			    }
+
+			});
+
+			for(var i=0;i < colorArr.length;i ++){
+
+				var color = colorArr[i];
+
+				var pichtml = 
+			    	"<div id='imgPreview_" + color + "' class='picdiv'>"+
+						"<div id='prompt_" + color + "' style='text-align: center;''>"+
+							"<img src='img/pic.png' style='width: 100px;height: 100px;padding-top: 30px;' onclick='uplaodPic(this);'>"+
+							"<input type='file' id='productpic" + color + "' style='display: none;' onchange='changepic(this)'>"+
+						"</div>"+
+						"<img src='#' id='img_" + color + "' class='img'/>"+
+						"<input type='hidden' id='productpicStr'>"+
+						"<div style='text-align: center;width: 160px;'>" + color + "</div>"+
+					"</div>";
+
+
+			    $("#allpic").append(pichtml);
+			}
+
+
+		}
+
+		function changepic(obj) {
 		
-			$("#prompt3").css("display", "none");
+			//$("#prompt3").css("display", "none");
+			$(obj).parent().css("display", "none");
+
 			
 			var reads = new FileReader();
-			f = document.getElementById('productpic').files[0];
+			//f = document.getElementById('productpic').files[0];
+			f = $(obj)[0].files[0];
 
 			reads.readAsDataURL(f);
 			reads.onload = function(e) {
-				document.getElementById('img3').src = this.result;
-				$("#img3").css("display", "block");
+				//document.getElementById('img3').src = this.result;
+
+				$(obj).parent().next().attr("src",this.result);
+
+				$(obj).parent().next().css("display", "block");
 				//$("#productpicStr").val(reads.result);
 
 				var image = new Image();
@@ -207,7 +263,7 @@
         			context.drawImage(this, 0, 0, imageWidth, imageHeight);
         			var data = canvas.toDataURL('image/jpeg',0.6);
 
-        			$("#productpicStr").val(data);
+        			$(obj).parent().next().next().val(data);
         		};
 
 			};
@@ -228,6 +284,7 @@
 			});
 
 		}
+
 		function movedown(){
 
 			$("#selectedsubproduct").find("tr").each(function(){
@@ -241,42 +298,62 @@
 
 		}
 
+		function clearTR(){
+
+			$("#selectedsubproduct").find("tr").each(function(){
+
+			    if($(this).hasClass("SELECTED")){
+					
+					$(this).remove();
+
+			    }
+				     
+			});
+
+		}
+
+
 		function activebutton(){
 			$("#addsub").attr("disabled",false);
 			$("#delsub").attr("disabled",false);
 		}
 	</SCRIPT>
 	<style>
-		#img3 {
-		 height: 200px;
-		 width: 200px;
+		.img {
+		 height: 160px;
+		 width: 160px;
 		 display: none;
-		 padding-left: 17px;
+		 //padding-left: 17px;
 		}
 		.SELECTED{
 			background-color: rgb(0,255,255);
 		}
+
+		.picdiv{
+			margin-left: 15px;
+			float: left; 
+			border-width: 1px;
+			border-style: solid;
+			width: 160px;height: 160px;
+			border-color: gray;
+		}
     </style>
 	<TABLE STYLE="WIDTH: 100%" BORDER="1">
 		<COLGROUP>
-			<COL WIDTH="120PX">
-			<COL WIDTH="800PX">
+			<COL WIDTH="150PX">
+			<COL WIDTH="250PX">
+			<COL WIDTH="150PX">
+			<COL WIDTH="250PX">
+			<COL WIDTH="150PX">
 			<COL>
 		</COLGROUP>
 		<TR style="height:40px;">
 			<TD>商品管理番号</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productid"></TD>
-			<TD rowspan="6" style="text-align: center;">
-				<div id="imgPreview">
-					<div id="prompt3">
-						<img src="img/pic.png" style="width: 100px;height: 100px;" onclick="uplaodPic();">
-						<input type="file" id="productpic" style="display: none;" class="filepath" 
-						onchange="changepic(this)" accept="image/jpg,image/jpeg,image/png,image/PNG">
-					</div>
-					<img src="#" id="img3" />
-					<input type="hidden" id="productpicStr">
-				</div>
-			</TD>
+			<TD>SKU番号</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="sku"></TD>
+			<TD>ASIN番号</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="asin"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>商品分類</TD>
@@ -290,30 +367,21 @@
 					<option id="41">41:バスタオル</option>
 				</select>
 			</TD>
-		</TR>
-		<TR style="height:40px;">
-			<TD>SKU番号</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="sku"></TD>
-		</TR>
-		<TR style="height:40px;">
-			<TD>ASIN番号</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="asin"></TD>
-		</TR>
-		<TR style="height:40px;">
 			<TD>商品名称</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:700px;height:30px;" id="productname"></TD>
+			<TD colspan="3"><INPUT TYPE="TEXT" STYLE="WIDTH:100%;height:30px;" id="productname"></TD>
 		</TR>
+
 		<TR style="height:40px;">
 			<TD>子商品選択</TD>
-			<TD>
+			<TD colspan="5">
 				<INPUT TYPE="TEXT" ID="txt_freeWord" STYLE="WIDTH:200px;height:30px;">
 				<input type="button" id="searchsubproduct" style="width: 80px;" value="検索" onclick="Efw('searchsubproduct')">
 			</TD>
 		</TR>
 		<TR>
 			<TD></TD>
-			<TD colspan="2">
-				<DIV style="height:150px;width:1000px;overflow:auto;background:#F1F1F1;">
+			<TD colspan="5">
+				<DIV style="height:150px;width:1200px;overflow:auto;background:#F1F1F1;">
 					<TABLE border="1" style="font-size: 12px;width: 100%">
 						<COLGROUP>
 							<COL WIDTH="50PX">
@@ -341,7 +409,7 @@
 		</TR>
 		<TR style="height:40px;">
 			<TD></TD>
-			<TD style="text-align: center;" colspan="2">
+			<TD style="text-align: center;" colspan="5">
 				<input type="button" id="addsub" style="width: 80px;" value="▼" onclick="addsub()" disabled>
 				<input type="button" id="delsub" style="width: 80px;" value="▲" onclick="delsub()" disabled>
 				<div style="float: right;">
@@ -357,20 +425,22 @@
 		</TR>
 		<TR>
 			<TD style="text-align: center;">
-				<input type="button" style="text-align: right;" value="▲" onclick="moveup();">
+				<input type="button" style="text-align: center;width: 50px;" value="▲" onclick="moveup();">
 				<br/><br/>
-				<input type="button" style="text-align: right;" value="▼" onclick="movedown();">
+				<input type="button" style="text-align: center;width: 50px;" value="▼" onclick="movedown();">
+				<br/><br/>
+				<input type="button" style="text-align: center;width: 50px;" value="×" onclick="clearTR()">
 			</TD>
-			<TD colspan="2">
-				<DIV style="height:150px;width:1000px;overflow:auto;background:#F1F1F1;">
+			<TD colspan="5">
+				<DIV style="height:150px;width:1200px;overflow:auto;background:#F1F1F1;">
 					<TABLE border="1" style="font-size: 12px;width: 100%">
 						<COLGROUP>
 							<COL WIDTH="50PX">
 							<COL WIDTH="100PX">
 							<COL WIDTH="100PX">
 							<COL>
-							<COL WIDTH="100PX">
-							<COL WIDTH="100PX">
+							<COL WIDTH="150PX">
+							<COL WIDTH="150PX">
 						</COLGROUP>
 						<TR>
 							<TH>選択</TH>
@@ -387,11 +457,20 @@
 							<COL WIDTH="100PX">
 							<COL WIDTH="100PX">
 							<COL>
-							<COL WIDTH="100PX">
-							<COL WIDTH="100PX">
+							<COL WIDTH="150PX">
+							<COL WIDTH="150PX">
 						</COLGROUP>
 					</TABLE>
 				</DIV>
+				<input type="button" style="text-align: right;float: right;" value="確定" onclick="makepicarea();">
+			</TD>
+		</TR>
+		<TR style="height:220px;">
+			<TD>商品写真</TD>
+			<TD colspan="5">
+				<div style="display: inline;width: 100%;height: 100%" id="allpic">
+
+				</div>
 			</TD>
 		</TR>
 	</TABLE>
