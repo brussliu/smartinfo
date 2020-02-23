@@ -59,7 +59,7 @@ searchmaster.fire=function(params){
 
 	var subhtml2 = 
 	"<tr style='background-color:rgb(255,205,255)'>" +
-		"<td colspan='6' style='font-size: 14px;'>{productname}</td>" +
+		"<td colspan='8' style='font-size: 14px;'>{productname}</td>" +
 		"<td style='width: 150px; font-size: 14px;'>{sku}</td>" +
 		"<td style='width: 150px; font-size: 14px;'>{asin}</td>" +
 	"</tr>";
