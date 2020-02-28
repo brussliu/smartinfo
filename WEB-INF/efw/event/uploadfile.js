@@ -135,6 +135,10 @@ uploadfile.fire=function(params){
 
 					var localstock = excelXSSF.getValue("在庫情報R", R_localStockX[x] + y);
 
+					if(localstock == null || localstock.length == 0){
+						localstock = "0";
+					}
+
 					var updateResult = db.change(
 						"UPLOAD",
 						"updateLocalstock",
@@ -162,6 +166,10 @@ uploadfile.fire=function(params){
 			if(label != null && label.length > 0){
 
 				var localstock = excelXSSF.getValue("在庫情報W", W_localStockX + y);
+
+				if(localstock == null || localstock.length == 0){
+					localstock = "0";
+				}
 
 				var updateResult = db.change(
 					"UPLOAD",
