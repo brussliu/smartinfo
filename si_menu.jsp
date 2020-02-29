@@ -41,17 +41,17 @@
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-Bear'})">
 			<br><br>
 		</div></td>
-		<td><div style="text-align:center">
-				<!--
-				<input type=button value="健康診断閲覧" style="width:300px" onclick="Efw('menu_goto',{page:'mdclexam.jsp'})"><br><br>
-				<input type=button value="Hello World" style="width:300px" onclick="Efw('menu_goto',{page:'helloworld.jsp'})"><br><br>
-				<input type=button value="各種サンプル" style="width:300px" onclick="Efw('menu_goto',{page:'sample.jsp'})"><br><br>
-				<input type=button value="elFinderタグ" style="width:300px" onclick="Efw('menu_goto',{page:'elfinder.jsp'})"><br><br>
-				<input type=button value="Signatureタグ" style="width:300px" onclick="Efw('menu_goto',{page:'signature.jsp'})"><br><br>
-				<input type=button value="CKEditorタグ" style="width:300px" onclick="Efw('menu_goto',{page:'ckeditor.jsp'})"><br><br>
-				<input type=button value="Chartタグ" style="width:300px" onclick="Efw('menu_goto',{page:'chart.jsp'})"><br><br>
-				<input type=button value="統計情報" style="width:300px" onclick="Efw('menu_goto',{page:'statistics.jsp'})"><br><br>
-				-->
+		<td><div style="text-align:center"><br>
+			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_upload.jsp',shop:'Smart-KM'})">
+			<br><br>
+			<input type=button value="マスタ情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_master.jsp',shop:'Smart-KM'})">
+			<br><br>
+			<input type=button value="商品情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_product.jsp',shop:'Smart-KM'})">
+			<br><br>
+			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-KM'})">
+			<br><br>
+			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-KM'})">
+			<br><br>
 		</div></td>
 	</tr>
 </table>

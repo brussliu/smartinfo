@@ -65,6 +65,7 @@ savemaster.fire=function(params){
 	shopname = params["#shop"];
 
 	var picArr = params["#si_master_inputdialog"]["picStr"];
+
 	var picColorArr = params["#si_master_inputdialog"]["picColor"];
 
 	var insertResult = db.change(

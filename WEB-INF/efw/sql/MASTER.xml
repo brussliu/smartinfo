@@ -3,7 +3,6 @@
 <sqls>
 	<sql id="selectmasterlist1">
 		SELECT
-		 T1."商品写真" as productpic,
 		 T1."商品管理番号" as productno,
 		 T1."商品分類" as productdiv,
 		 T1."SKU番号" as sku,
@@ -21,7 +20,22 @@
 			AND
 			T2."店舗名" = :shop
 		 ) as subq,
-		 T4."色" as subcolor,
+		 (
+		  SELECT
+		  	count(distinct coalesce(T2."サイズ",'')) 
+		  FROM 
+		  	"MASTER_出品マスタ情報" T2 
+		  WHERE
+			T1."商品管理番号" = T2."商品管理番号"
+			AND
+			T2."商品種別" = '子商品'
+			AND
+			T2."色" = T4."色"
+			AND
+			T2."店舗名" = :shop
+		 ) as subcq,
+		 T1."商品写真" as productpic,
+		 T5."色" as subcolor,
 		 T4."サイズ" as subsize,
 		 T4."SKU番号" as subsku,
 		 T4."ASIN番号" as sukuasin
@@ -48,7 +62,8 @@
 			) TEMP
 			WHERE
 			 TEMP.NB = 1
-		 ) T4
+		 ) T4,
+		 "MASTER_写真情報" T5
 
 		WHERE
 		 T1."商品管理番号" = T4."商品管理番号"
@@ -56,10 +71,63 @@
 		 T1."商品種別" = '親商品'
 		 AND
 		 T1."店舗名" = :shop
+		 AND
+		 T4."商品管理番号" = T5."商品管理番号"
+		 AND
+		 T4."色" = T5."色"
+		 AND
+		 T1."店舗名" = T5."店舗名"
+
 		ORDER BY
 		 T1."商品管理番号"
 	</sql>
+
 	<sql id="selectmasterlist2">
+		SELECT
+		 T5."商品管理番号" as productno,
+		 T5."色" as subcolor,
+		 T5."サイズ" as subsize,
+		 T5."SKU番号" as subsku,
+		 T5."ASIN番号" as subasin,
+		 T5."並び順"
+		FROM
+		 "MASTER_出品マスタ情報" T5,
+		 (
+			SELECT
+			distinct
+			 TEMP."商品管理番号",
+			 TEMP."色"
+			FROM
+			(
+				SELECT
+				 T3."商品管理番号",
+				 T3."色",
+				 T3."サイズ",
+				 T3."SKU番号",
+				 T3."ASIN番号",
+				 ROW_NUMBER() OVER(partition BY T3."商品管理番号" ORDER BY TO_NUMBER(T3."並び順",'999')) NB
+				FROM
+				  "MASTER_出品マスタ情報" T3
+				WHERE
+				 T3."商品種別" = '子商品'
+				 AND
+				 T3."店舗名" = :shop
+			) TEMP
+			WHERE
+			 TEMP.NB = 1
+			ORDER BY TEMP."商品管理番号"
+		 ) TEMP1
+		WHERE
+		 T5."商品管理番号" = TEMP1."商品管理番号"
+		 AND
+		 T5."色" = TEMP1."色"
+		 AND
+		 TO_NUMBER(T5."並び順",'999') > 1
+		ORDER BY
+		 T5."商品管理番号",TO_NUMBER(T5."並び順",'999')
+	</sql>
+
+	<sql id="selectmasterlist2_bak">
 		SELECT
 		 TEMP."商品管理番号" as productno,
 		 TEMP."色" as subcolor,
@@ -86,6 +154,72 @@
 		 TEMP.NB > 1
 	</sql>
 	<sql id="selectmasterlist3">
+		SELECT
+		 T1."商品管理番号" as productno,
+		 T1."色" as subcolor,
+		 T5."商品写真" as productpic,
+		 
+		 (
+		  SELECT
+		  	count(distinct coalesce(T2."サイズ",'')) 
+		  FROM 
+		  	"MASTER_出品マスタ情報" T2 
+		  WHERE
+			T2."商品管理番号" = T1."商品管理番号"
+			AND
+			T2."商品種別" = '子商品'
+			AND
+			T2."色" = T1."色"
+			AND
+			T2."店舗名" = :shop
+		 ) as subcq,
+
+		 T1."サイズ" as subsize,
+		 T1."SKU番号" as subsku,
+		 T1."ASIN番号" as subasin,
+		 ROW_NUMBER() OVER(partition BY T1."商品管理番号",T1."色" ORDER BY TO_NUMBER(T1."並び順",'999')) "subsort"
+		FROM
+		 "MASTER_出品マスタ情報" T1,
+		 (
+			SELECT
+			 *
+			FROM
+			(
+				SELECT
+				 T3."商品管理番号",
+				 T3."色",
+				 ROW_NUMBER() OVER(partition BY T3."商品管理番号" ORDER BY TO_NUMBER(T3."並び順",'999')) NB
+				FROM
+				  "MASTER_出品マスタ情報" T3
+				WHERE
+				 T3."商品種別" = '子商品'
+				 AND
+				 T3."店舗名" = :shop
+			) TEMP
+			WHERE
+			 TEMP.NB = 1
+		 ) T4,
+		 "MASTER_写真情報" T5
+
+		WHERE
+		 T1."商品管理番号" = T4."商品管理番号"
+		 AND
+		 T1."色" &lt;&gt; T4."色"
+		 AND
+		 T1."商品種別" = '子商品'
+		 AND
+		 T1."店舗名" = :shop
+		 AND
+		 T4."商品管理番号" = T5."商品管理番号"
+		 AND
+		 T1."色" = T5."色"
+		 AND
+		 T1."店舗名" = T5."店舗名"
+		ORDER BY
+		 T1."商品管理番号",TO_NUMBER(T1."並び順",'999')
+	</sql>
+
+	<sql id="selectmasterlist4">
 		SELECT
 		 T1."商品名" as productname,
 		 T1."出品者SKU" as sku,
@@ -162,6 +296,13 @@
 	</sql>
 	<sql id="delmaster">
 		DELETE FROM "MASTER_出品マスタ情報" T1
+		WHERE
+		 T1."商品管理番号" = :productno
+		 AND
+		 T1."店舗名" = :shop
+	</sql>
+	<sql id="delmasterpic">
+		DELETE FROM "MASTER_写真情報" T1
 		WHERE
 		 T1."商品管理番号" = :productno
 		 AND
