@@ -11,9 +11,15 @@ delmaster.fire=function(params){
 
 	shopname = params["#shop"];
 
-	var selectResult = db.change(
+	var selectResult1 = db.change(
 		"MASTER",
 		"delmaster",
+		{"productno": params["productno"],"shop":shopname}
+	);
+
+	var selectResult2 = db.change(
+		"MASTER",
+		"delmasterpic",
 		{"productno": params["productno"],"shop":shopname}
 	);
 

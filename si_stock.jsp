@@ -324,12 +324,13 @@
 	</tr>
 </table>
 <hr>
-<div id="stocklist" style="height: 650px; width:3200px; overflow:auto;border-style: solid;border-width: 1px;">
-<table border="1" id="stocktablehead" style="width: 2896px;font-size: 14px;">
+<div id="stocklist" style="height: 650px; width:3250px; overflow:auto;border-style: solid;border-width: 1px;">
+<table border="1" id="stocktablehead" style="width: 2982px;font-size: 14px;">
 	<tr>
 		<td style="width: 50px;">選択</td>
 		<td style="width: 100px;">商品管理番号</td>
 		<td style="width: 100px;display:none;">商品種別</td>
+		<td style="width: 100px;">写真</td>
 		<td style="width: 100px;">色</td>
 		<td style="width: 100px;">サイズ</td>
 		<td style="width: 100px;" class="moreinfo">SKU番号</td>
@@ -353,7 +354,7 @@
 	</tr>
 </table>
 
-<table border="1" id="stocktable" style="width: 2896px;font-size: 12px;">
+<table border="1" id="stocktable" style="width: 2982px;font-size: 12px;">
 </table>
 
 </div>
