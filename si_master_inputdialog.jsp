@@ -369,6 +369,7 @@
 			<TD>商品分類</TD>
 			<TD>
 				<select STYLE="WIDTH:200px;height:32px;" id="productdiv">
+					<option id="" class=""></option>	
 					<option id="01" class="newshop">01:レインコート</option>	
 					<option id="05" class="newshop">05:傘</option>
 					<option id="21" class="newshop">21:靴下（夏用）</option>
