@@ -22,6 +22,16 @@
 						);
 				},
 			});
+
+
+			if($("#shop").val() == "Smart-Bear"){
+				$(".newshop").show();
+				$(".oldshop").hide();
+			}
+			if($("#shop").val() == "Smart-KM"){
+				$(".oldshop").show();
+				$(".newshop").hide();
+			}
 		});
 
 		function getstrcount(str1,str2){
@@ -312,11 +322,11 @@
 
 		}
 
-
 		function activebutton(){
 			$("#addsub").attr("disabled",false);
 			$("#delsub").attr("disabled",false);
 		}
+
 	</SCRIPT>
 	<style>
 		.img {
@@ -359,12 +369,26 @@
 			<TD>商品分類</TD>
 			<TD>
 				<select STYLE="WIDTH:200px;height:32px;" id="productdiv">
-					<option id="01">01:レインコート</option>	
-					<option id="05">05:傘</option>
-					<option id="21">21:靴下（夏用）</option>
-					<option id="22">22:靴下（秋冬用）</option>
-					<option id="31">31:パジャマ</option>
-					<option id="41">41:バスタオル</option>
+					<option id="01" class="newshop">01:レインコート</option>	
+					<option id="05" class="newshop">05:傘</option>
+					<option id="21" class="newshop">21:靴下（夏用）</option>
+					<option id="22" class="newshop">22:靴下（秋冬用）</option>
+					<option id="31" class="newshop">31:パジャマ</option>
+					<option id="41" class="newshop">41:バスタオル</option>
+					<option id="050" class="oldshop">050:スマホケース</option>
+					<option id="100" class="oldshop">100:スマホ保護フィルム</option>
+					<option id="150" class="oldshop">150:スマホカメラ保護フィルム</option>
+					<option id="180" class="oldshop">180:充電ケーブル</option>
+					<option id="190" class="oldshop">190:無線充電器</option>
+					<option id="200" class="oldshop">200:スポーツ用品</option>
+					<option id="210" class="oldshop">210:自撮りライト</option>
+					<option id="250" class="oldshop">250:スタンド</option>
+					<option id="300" class="oldshop">300:イヤホン</option>
+					<option id="350" class="oldshop">350:扇風機</option>
+					<option id="400" class="oldshop">400:タブレットケース</option>
+					<option id="500" class="oldshop">500:セクシー下着</option>
+					<option id="600" class="oldshop">600:レインコート</option>
+					<option id="900" class="oldshop">900:その他</option>
 				</select>
 			</TD>
 			<TD>商品名称</TD>
@@ -381,7 +405,7 @@
 		<TR>
 			<TD></TD>
 			<TD colspan="5">
-				<DIV style="height:150px;width:1200px;overflow:auto;background:#F1F1F1;">
+				<DIV style="height:200px;width:1200px;overflow:auto;background:#F1F1F1;">
 					<TABLE border="1" style="font-size: 12px;width: 100%">
 						<COLGROUP>
 							<COL WIDTH="50PX">
@@ -432,7 +456,7 @@
 				<input type="button" style="text-align: center;width: 50px;" value="×" onclick="clearTR()">
 			</TD>
 			<TD colspan="5">
-				<DIV style="height:150px;width:1200px;overflow:auto;background:#F1F1F1;">
+				<DIV style="height:200px;width:1200px;overflow:auto;background:#F1F1F1;">
 					<TABLE border="1" style="font-size: 12px;width: 100%">
 						<COLGROUP>
 							<COL WIDTH="50PX">
