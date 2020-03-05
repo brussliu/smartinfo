@@ -238,15 +238,16 @@
 		T0."SKU番号" = T5."SKU番号" AND
 		T0."ASIN番号" = T5."ASIN番号"
 		WHERE
-			T0."店舗名" = :shop AND
-			(
-			T0."商品分類" = :productdiv1
-			<if exists="productdiv2">OR T0."商品分類" = :productdiv2 </if>
-			<if exists="productdiv3">OR T0."商品分類" = :productdiv3 </if>
-			<if exists="productdiv4">OR T0."商品分類" = :productdiv4 </if>
-			<if exists="productdiv5">OR T0."商品分類" = :productdiv5 </if>
-			<if exists="productdiv6">OR T0."商品分類" = :productdiv6 </if>
-			)
+			T0."店舗名" = :shop 
+			--AND
+			--(
+			--T0."商品分類" = :productdiv1
+			--<if exists="productdiv2">OR T0."商品分類" = :productdiv2 </if>
+			--<if exists="productdiv3">OR T0."商品分類" = :productdiv3 </if>
+			--<if exists="productdiv4">OR T0."商品分類" = :productdiv4 </if>
+			--<if exists="productdiv5">OR T0."商品分類" = :productdiv5 </if>
+			--<if exists="productdiv6">OR T0."商品分類" = :productdiv6 </if>
+			--)
 		) TEMP
 		ORDER BY 
 			TEMP."商品管理番号",TEMP."商品種別",TO_NUMBER(TEMP."並び順",'999')
