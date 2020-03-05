@@ -279,20 +279,17 @@
 		 T1."数量" as FBMQUANTITY,
 		 T2."在庫数量" as FBAQUANTITY
 		FROM
-		 "INPUT_出品詳細情報" T1,
+		 "INPUT_出品詳細情報" T1
+		 LEFT JOIN
 		 "INPUT_FBA在庫情報" T2
+		 ON T1."出品者SKU" = T2."SKU番号"
+		 AND T1."ASIN 1" = T2."ASIN番号"
 		WHERE
-		 T1."出品者SKU" = T2."SKU番号"
-		 AND
-		 T1."ASIN 1" = T2."ASIN番号"
-		 AND
 		 T1."出品者SKU" = :sku
 		 AND
 		 T1."ASIN 1" = :asin
 		 AND
 		 T1."店舗名" = :shop
-		 AND
-		 T2."店舗名" = :shop
 	</sql>
 	<sql id="delmaster">
 		DELETE FROM "MASTER_出品マスタ情報" T1
