@@ -48,7 +48,19 @@
 			:col6 --shop
 		)
 	</sql>
-
+	<sql id="updateFba">
+		UPDATE "MASTER_出品マスタ情報"
+		SET
+		  "FBA在庫数量" = :col5
+		WHERE 
+		  "SKU番号" = :col0
+		  AND
+		  "ASIN番号" = :col2
+		  AND
+		  "ラベル番号" = :col1
+		  AND
+		  "店舗名" = :col6
+	</sql>
 	<sql id="selectOrder">
 		SELECT COUNT(*) FROM "INPUT_注文情報" 
 		WHERE
