@@ -26,8 +26,9 @@ outputstock.fire=function(params){
 		var sku_X = "C";
 		var asin_X = "D";
 
-		var writeStockX = "H";
-		var writeLocalStockX = "I";
+		var writeFBAX = "H";
+		var writeFBMX = "I";
+		var writeLocalStockX = "J";
 
 		var writeSell7X = "K";
 		var writeSell30X = "L";
@@ -55,8 +56,11 @@ outputstock.fire=function(params){
 			var asin = selectResult[i]["asin"];
 			var labelno = selectResult[i]["label"];
 
-			var localstock = selectResult[i]["localstock"];
+
 			var fba = selectResult[i]["fba"];
+			var fbm = selectResult[i]["fbm"];
+			var localstock = selectResult[i]["localstock"];
+
 			var selled7 = selectResult[i]["selled7"];
 			var selled30 = selectResult[i]["selled30"];
 			var selled60 = selectResult[i]["selled60"];
@@ -83,7 +87,9 @@ outputstock.fire=function(params){
 					}
 					if(excel_sku == sku && excel_asin == asin){
 
-						excel.setCell(sheetName, writeStockX + y, fba);
+						excel.setCell(sheetName, writeFBAX + y, fba);
+
+						excel.setCell(sheetName, writeFBMX + y, fbm);
 
 						excel.setCell(sheetName, writeLocalStockX + y, localstock);
 
