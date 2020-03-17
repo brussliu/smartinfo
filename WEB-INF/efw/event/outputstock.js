@@ -36,6 +36,8 @@ outputstock.fire=function(params){
 		var writeSell90X = "N";
 		var writeSellWeekX = "O";
 
+		var writeFBAFlgX = "T";
+
 		var selectResult = db.select(
 			"STOCK",
 			"selectstock1",
@@ -56,10 +58,30 @@ outputstock.fire=function(params){
 			var asin = selectResult[i]["asin"];
 			var labelno = selectResult[i]["label"];
 
+			var fbaflg = "FBA";
 
-			var fba = selectResult[i]["fba"];
-			var fbm = selectResult[i]["fbm"];
-			var localstock = selectResult[i]["localstock"];
+
+			var fba;
+			if(selectResult[i]["fba"] == null || selectResult[i]["fba"].length == 0){
+				fba = 0;
+				fbaflg = "FBM";
+			}else{
+				fba = parseInt(selectResult[i]["fba"]);
+			}
+
+			var fbm;
+			if(selectResult[i]["fbm"] == null || selectResult[i]["fbm"].length == 0){
+				fbm = 0;
+			}else{
+				fbm = parseInt(selectResult[i]["fbm"]);
+			}
+
+			var localstock;
+			if(selectResult[i]["localstock"] == null || selectResult[i]["localstock"].length == 0){
+				localstock = 0;
+			}else{
+				localstock = parseInt(selectResult[i]["localstock"]);
+			}
 
 			var selled7 = selectResult[i]["selled7"];
 			var selled30 = selectResult[i]["selled30"];
@@ -102,6 +124,8 @@ outputstock.fire=function(params){
 						excel.setCell(sheetName, writeSell90X + y, selled90);
 
 						excel.setCell(sheetName, writeSellWeekX + y, selledweek);
+
+						excel.setCell(sheetName, writeFBAFlgX + y, fbaflg);
 
 					}
 				}
