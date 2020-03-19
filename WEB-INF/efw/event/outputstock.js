@@ -138,7 +138,7 @@ outputstock.fire=function(params){
 		excel.setActiveSheet(sheetNameList[0]).save(tempFilePathName);
 
 		ret.attach(tempFilePathName)
-		.saveas("SmartKM在庫補足_" + (new Date()).format("yyyyMMdd")+".xlsx")
+		.saveas("Smart-KM在庫補足_" + (new Date()).format("yyyyMMdd")+".xlsx")
 		.deleteAfterDownload();
 
 	}else{
@@ -303,7 +303,7 @@ outputstock.fire=function(params){
 		excel.setActiveSheet("在庫情報R").save(tempFilePathName);
 
 		ret.attach(tempFilePathName)
-		.saveas("在庫補足_" + (new Date()).format("yyyyMMdd")+".xlsx")
+		.saveas("Smart-Bear在庫補足_" + (new Date()).format("yyyyMMdd")+".xlsx")
 		.deleteAfterDownload();
 
 	}
