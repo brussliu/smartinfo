@@ -264,6 +264,7 @@
 		 TEMP."LOCAL在庫数量" as localstock,
 		 TEMP."FBM在庫数量" as fbm,
 		 TEMP."FBA在庫数量" as fba,
+		 TEMP."価格" as price,
 		 CASE WHEN 
 		  TEMP."7日間数量" = 0 THEN 9999
 		 ELSE
@@ -315,7 +316,8 @@
 		 T0."数量" AS "FBM在庫数量",
 		 FBA."在庫数量" AS "FBA在庫数量",
 		 COALESCE(TO_NUMBER(T0."数量",'9999'),0) + 
-		 COALESCE(TO_NUMBER(FBA."在庫数量",'9999'),0) as "在庫合計"
+		 COALESCE(TO_NUMBER(FBA."在庫数量",'9999'),0) as "在庫合計",
+		 "価格"
 		FROM
 		"INPUT_出品詳細情報" T0
 		

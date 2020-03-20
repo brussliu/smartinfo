@@ -26,17 +26,20 @@ outputstock.fire=function(params){
 		var sku_X = "C";
 		var asin_X = "D";
 
-		var writeFBAX = "H";
-		var writeFBMX = "I";
-		var writeLocalStockX = "J";
 
-		var writeSell7X = "K";
-		var writeSell30X = "L";
-		var writeSell60X = "M";
-		var writeSell90X = "N";
-		var writeSellWeekX = "O";
+		var writePriceX = "H";
 
-		var writeFBAFlgX = "T";
+		var writeFBAX = "I";
+		var writeFBMX = "J";
+		var writeLocalStockX = "K";
+
+		var writeSell7X = "L";
+		var writeSell30X = "M";
+		var writeSell60X = "N";
+		var writeSell90X = "O";
+		var writeSellWeekX = "P";
+
+		var writeFBAFlgX = "U";
 
 		var selectResult = db.select(
 			"STOCK",
@@ -57,6 +60,8 @@ outputstock.fire=function(params){
 			var sku = selectResult[i]["sku"];
 			var asin = selectResult[i]["asin"];
 			var labelno = selectResult[i]["label"];
+
+			var price = selectResult[i]["price"];
 
 			var fbaflg = "FBA";
 
@@ -108,6 +113,8 @@ outputstock.fire=function(params){
 						break;
 					}
 					if(excel_sku == sku && excel_asin == asin){
+
+						excel.setCell(sheetName, writePriceX + y, price);
 
 						excel.setCell(sheetName, writeFBAX + y, fba);
 
