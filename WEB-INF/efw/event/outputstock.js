@@ -216,19 +216,21 @@ outputstock.fire=function(params){
 		var R_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
 		var R_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
 		var R_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
+		var R_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
 
 		var W_labelY_from = 4;
 		var W_labelY_to = 116;
 		var W_labelX = "L";
 
-		var W_writeStockX = "M";
-		var W_writeLocalStockX = "N";
+		var W_writePriceX = "M";
+		var W_writeStockX = "N";
+		var W_writeLocalStockX = "O";
 
-		var W_writeSell7X = "O";
-		var W_writeSell30X = "P";
-		var W_writeSell60X = "Q";
-		var W_writeSell90X = "R";
-		var W_writeSellWeekX = "S";
+		var W_writeSell7X = "P";
+		var W_writeSell30X = "Q";
+		var W_writeSell60X = "R";
+		var W_writeSell90X = "S";
+		var W_writeSellWeekX = "T";
 
 		for(var i = 0;i < selectResult.length;i ++){
 
@@ -241,6 +243,7 @@ outputstock.fire=function(params){
 			var selled60 = selectResult[i]["selled60"];
 			var selled90 = selectResult[i]["selled90"];
 			var selledweek = selectResult[i]["selledweek"];
+			var price = selectResult[i]["price"];
 
 
 			if(productno.substring(0,1) == "T" || productno.substring(0,1) == "P"){
@@ -253,6 +256,8 @@ outputstock.fire=function(params){
 							continue;
 						}
 						if(excellabelno == labelno){
+
+							excel.setCell("在庫情報R", R_writePriceX[x]+y, price);
 
 							excel.setCell("在庫情報R", R_writeStockX[x]+y, fba);
 
@@ -283,6 +288,8 @@ outputstock.fire=function(params){
 							continue;
 						}
 						if(excellabelno == labelno){
+
+							excel.setCell("在庫情報W", W_writePriceX+y, price);
 
 							excel.setCell("在庫情報W", W_writeStockX+y, fba);
 
