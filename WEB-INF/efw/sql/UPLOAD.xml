@@ -32,7 +32,21 @@
 			:col22 --店舗名
 		)
 	</sql>
-
+	<sql id="updateProduct">
+		update "MASTER_出品マスタ情報"
+		set
+			"商品名称"	= :col2
+			,
+			"価格"	= :col5
+			,
+			"FBM在庫数量" = :col6
+		where
+			"店舗名" = :col22
+			and
+			"SKU番号" = :col0
+			and
+			"ASIN番号" = :col1
+	</sql>
 	<sql id="delAllFba">
 		DELETE FROM "INPUT_FBA在庫情報" WHERE "店舗名" = :shop
 	</sql>

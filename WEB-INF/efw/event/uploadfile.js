@@ -238,6 +238,20 @@ function importProductInfo(aryField, index) {
 				"col22":shopname
 			}
 		);
+
+		var updateResult = db.change(
+			"UPLOAD",
+			"updateProduct",
+			{
+				"col0":aryField[0],
+				"col1":aryField[1],
+				"col2":aryField[2],
+				"col5":aryField[5],
+				"col6":aryField[6],
+				"col22":shopname
+			}
+		);
+
 		count = count + 1;
 
 	}
