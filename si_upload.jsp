@@ -81,7 +81,7 @@
 			<input type="file" id="importfile_product" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="2" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'product'})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'product',liststock:null})">
 		</td>
 	</tr>
 </table>
@@ -107,7 +107,7 @@
 			<input type="file" id="importfile_fba" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="2" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'fba'})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'fba',liststock:null})">
 		</td>
 	</tr>
 </table>
@@ -133,7 +133,7 @@
 			<input type="file" id="importfile_order" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="2" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'order'})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'order',liststock:null})">
 		</td>
 	</tr>
 </table>
@@ -159,7 +159,7 @@
 			<input type="file" id="importfile_localstock" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="2" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'localstock'})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'localstock',liststock:null})">
 		</td>
 	</tr>
 </table>
