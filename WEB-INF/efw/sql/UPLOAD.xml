@@ -174,4 +174,116 @@
 		where
 		 "ラベル番号" = :label
 	</sql>
+
+	<sql id="insertLabel">
+		INSERT INTO "TEMP_在庫確認"
+		VALUES (
+			:col0,--店舗名
+			:col1,--ラベル番号
+			:col2 --分類名(シート名)
+		)
+	</sql>
+
+	<sql id="selectLabel">
+		SELECT
+			A."分類名" as "div",
+			B."商品管理番号" as "productno",
+			B."商品分類" as "productdiv",
+			B."SKU番号" as "sku",
+			B."ASIN番号" as "asin",
+			B."ラベル番号" as "label",
+			B."商品名称" as "productname",
+			B."色" as "color",
+			B."サイズ" as "size",
+			A."数量" as "count"
+		FROM
+			(
+			SELECT 
+				"店舗名",
+				"分類名",
+				"ラベル番号",
+				COUNT("ラベル番号") AS "数量"
+			FROM
+				"TEMP_在庫確認"
+			WHERE
+				"店舗名" = :col0
+				AND
+				"分類名" = :col1
+			GROUP BY 
+				"店舗名","分類名","ラベル番号"
+			) A
+			LEFT JOIN "MASTER_出品マスタ情報" B
+			ON A."店舗名" = B."店舗名" AND A."ラベル番号" = B."ラベル番号"
+		ORDER BY A."分類名",
+			B."商品管理番号",
+			B."並び順",
+			A."数量"
+	</sql>
+
+	<sql id="selectAllLabel">
+		SELECT
+			B."商品管理番号" as "productno",
+			B."商品分類" as "productdiv",
+			B."SKU番号" as "sku",
+			B."ASIN番号" as "asin",
+			B."ラベル番号" as "label",
+			B."商品名称" as "productname",
+			B."色" as "color",
+			B."サイズ" as "size",
+			A."数量" as "count"
+		FROM
+			(
+			SELECT 
+				"店舗名",
+				"ラベル番号",
+				COUNT("ラベル番号") AS "数量"
+			FROM
+				"TEMP_在庫確認"
+			WHERE
+				"店舗名" = :col0
+			GROUP BY 
+				"店舗名","ラベル番号"
+			) A
+			LEFT JOIN "MASTER_出品マスタ情報" B
+			ON A."店舗名" = B."店舗名" AND A."ラベル番号" = B."ラベル番号"
+		ORDER BY
+			B."商品管理番号",
+			B."並び順",
+			A."数量"
+	</sql>
+
+	<sql id="deleteLabel">
+		DELETE FROM "TEMP_在庫確認"
+		WHERE
+			"店舗名" = :col0
+	</sql>
+
+	<sql id="updateAllLocalStock">
+		UPDATE
+		"MASTER_出品マスタ情報"
+		SET "LOCAL在庫数量" = '0'
+		WHERE
+		"店舗名" = :col0
+		AND
+		"商品種別" = '子商品'
+	</sql>
+
+	<sql id="updateLocalStock">
+		UPDATE
+		"MASTER_出品マスタ情報"
+		SET "LOCAL在庫数量" = :col2
+		WHERE
+		"店舗名" = :col0
+		AND "ラベル番号" = :col1
+	</sql>
+
+	<sql id="addLocalStock">
+		UPDATE
+		"MASTER_出品マスタ情報"
+		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'99999') + :col2
+		WHERE
+		"店舗名" = :col0
+		AND "ラベル番号" = :col1
+	</sql>
+
 </sqls>
