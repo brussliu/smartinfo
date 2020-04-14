@@ -122,6 +122,8 @@
 		 AND
 		 T5."色" = TEMP1."色"
 		 AND
+		 T5."店舗名" = :shop
+		 AND
 		 TO_NUMBER(T5."並び順",'999') > 1
 		ORDER BY
 		 T5."商品管理番号",TO_NUMBER(T5."並び順",'999')
