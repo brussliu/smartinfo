@@ -197,5 +197,68 @@
 		</td>
 	</tr>
 </table>
+<br/>
+<table class="upfile" id="shiptable_amazon">
+	<tr>
+		<td style="width: 250px;font-size: 20px;font-weight: bold;">
+			Amazon発送情報導入
+		</td>
+		<td style="width: 120px;font-size: 16px;">
+			前回導入日時：
+		</td>
+		<td style="width: 220px;font-size: 16px;" class="importtime">
+		</td>
+		<td style="width: 120px;font-size: 16px;">
+			前回導入件数：
+		</td>
+		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<input type="file" id="importfile_ship_amazon" style="width: 400px;height: 30px;">
+		</td>
+		<td colspan="2" style="text-align: right;">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_amazon',liststock:''})">
+		</td>
+	</tr>
+</table>
+<br/>
+<table class="upfile" id="shiptable_qoo10">
+	<tr>
+		<td style="width: 250px;font-size: 20px;font-weight: bold;">
+			Qoo10発送情報導入
+		</td>
+		<td style="width: 120px;font-size: 16px;">
+			前回導入日時：
+		</td>
+		<td style="width: 220px;font-size: 16px;" class="importtime">
+		</td>
+		<td style="width: 120px;font-size: 16px;">
+			前回導入件数：
+		</td>
+		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			商品情報<br>
+			<input type="file" id="importfile_ship_qoo10_order" style="width: 400px;height: 30px;">
+		</td>
+		<td colspan="2" style="text-align: right;">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_order',liststock:''})">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			発送情報<br>
+			<input type="file" id="importfile_ship_qoo10_ship" style="width: 400px;height: 30px;">
+		</td>
+		<td colspan="2" style="text-align: right;">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_ship',liststock:''})">
+		</td>
+	</tr>
+</table>
+<br/>
 </body>
 </html>

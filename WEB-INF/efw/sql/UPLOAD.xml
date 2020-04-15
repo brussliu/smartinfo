@@ -286,4 +286,101 @@
 		AND "ラベル番号" = :col1
 	</sql>
 
+	<sql id="selectShipAmazon">
+		SELECT
+			*
+		FROM
+			"INPUT_発送情報_AMAZON"
+		WHERE
+			"注文番号" = :orderno
+			AND
+			"注文項目番号" = :orderitemno
+	</sql>
+
+	<sql id="insertShipAmazon">
+		INSERT INTO "INPUT_発送情報_AMAZON"
+		VALUES (
+			'未発送',
+			:col0, --注文番号
+			:col1, --注文項目番号
+			:col2, --注文時間
+			:col3, --支払時間
+			:col4, --購入者メール
+			:col5, --購入者名称
+			:col6, --購入者電話番号
+			:col7, --SKU番号
+			:col8, --商品名称
+			:col9, --商品数量
+			:col10,--通貨
+			:col11,--価格
+			:col12,--税金
+			:col13,--送料
+			:col14,--送料税金
+			:col15,--発送レベル
+			:col16,--宛先名称
+			:col17,--宛先住所１
+			:col18,--宛先住所２
+			:col19,--宛先住所３
+			:col20,--宛先住所市
+			:col21,--宛先都道府県
+			:col22,--宛先郵便番号
+			:col23,--宛先国
+			:col24--宛先電話番号
+		)
+	</sql>
+
+	<sql id="selectShipQoo10Product">
+		SELECT
+			*
+		FROM
+			"INPUT_発送情報_QOO10"
+		WHERE
+			"注文番号" = :orderno
+			AND
+			"カート番号" = :cartno
+	</sql>
+
+	<sql id="insertShipQoo10Product">
+		INSERT INTO "INPUT_発送情報_QOO10"
+		VALUES (
+			'未発送',
+			:col0, --配送状態
+			:col1, --注文番号
+			:col2, --カート番号
+			:col3, --配送会社
+			:col4, --送り状番号
+			:col5, --発送日
+			:col6, --発送予定日
+			:col7, --商品名
+			:col8, --数量
+			:col9, --オプション情報
+			:col10,--オプションコード
+			:col11,--受取人名
+			:col12,--販売者商品コード
+			:col13, --外部広告
+			null,
+			null,
+			null,
+			null,
+			null
+		)
+	</sql>
+
+	<sql id="updateShipQoo10ShipInfo">
+		UPDATE "INPUT_発送情報_QOO10"
+		SET
+			"購入者名" = :col0 ,
+			"受取人名" = :col1 ,
+			"郵便番号" = :col2 ,
+			"お届け先" = :col3 ,
+			"電話番号" = :col4 ,
+			"携帯電話" = :col5
+		WHERE
+			"注文番号" = :orderno
+
+	</sql>
+
+
+
 </sqls>
+

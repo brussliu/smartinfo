@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="searchShipProduct">
+		SELECT
+			substring(A."商品名称",position('】' in A."商品名称")+1,4) as productno,
+			B."商品分類" as productdiv,
+			A."SKU番号" as sku,
+			B."ASIN番号" as asin,
+			B."ラベル番号" as label,
+			A."商品名称" as productname,
+			B."色" as option1,
+			B."サイズ" as option2,
+			A."数量" as count
+		FROM
+		(
+			SELECT
+				"SKU番号",
+				"商品名称",
+				SUM(to_number("商品数量",'99999')) AS "数量"
+			FROM
+				"INPUT_発送情報_AMAZON"
+			WHERE
+				"発送状態" = '未発送'
+			GROUP BY
+				"SKU番号","商品名称"
+		) A
+		LEFT JOIN
+		"MASTER_出品マスタ情報" B
+		ON A."SKU番号" = B."SKU番号"
+
+		union all
+
+		SELECT
+			A."販売者商品コード" as productno,
+			'' as productdiv,
+			'' as sku,
+			'' as asin,
+			'' as label,
+			A."商品名" as productname,
+			A."オプション情報" as option1,
+			'' as option2,
+			SUM(to_number("数量",'99999')) as count
+		FROM
+			"INPUT_発送情報_QOO10" A
+		WHERE
+			A."発送状態" = '未発送'
+		GROUP BY
+			A."販売者商品コード",A."商品名",A."オプション情報"
+		ORDER BY
+			productno,productname,option1,option2
+	</sql>
+
+	<sql id="searchShipAddressUnship">
+		SELECT
+			distinct
+			'Amazon' as div,
+			A."発送状態" as shipstatus,
+			A."注文番号" as orderno,
+			A."支払時間" as shipdate,
+			A."購入者名称" as buyer,
+			A."購入者電話番号" as buyer_tel,
+			A."宛先名称" as receiver,
+			A."宛先郵便番号" as postno,
+			coalesce(A."宛先都道府県",'') || 
+			coalesce(A."宛先住所市",'') || 
+			coalesce(A."宛先住所１",'') || 
+			coalesce(A."宛先住所２",'') || 
+			coalesce(A."宛先住所３",'') as address,
+			SUM(to_number(A."商品数量",'99999')) as count,
+			SUM(to_number(A."商品数量",'99999') * to_number(A."価格",'99999')) as amount
+		FROM
+			"INPUT_発送情報_AMAZON" A
+		WHERE
+			A."発送状態" = '未発送'
+		GROUP BY
+			A."注文番号",
+			A."支払時間",
+			A."購入者名称",
+			A."購入者電話番号",
+			A."宛先名称",
+			A."宛先郵便番号",
+			coalesce(A."宛先都道府県",'') || 
+			coalesce(A."宛先住所市",'') || 
+			coalesce(A."宛先住所１",'') || 
+			coalesce(A."宛先住所２",'') || 
+			coalesce(A."宛先住所３",''),
+			A."発送状態"
+
+		UNION ALL
+
+		SELECT
+			distinct
+			'Qoo10' as div,
+			Q."発送状態" as shipstatus,
+			Q."カート番号" as orderno,
+			Q."発送日" as shipdate,
+			Q."購入者名" as buyer,
+			Q."電話番号" as buyer_tel,
+			Q."受取人名" as receiver,
+			Q."郵便番号" as postno,
+			Q."お届け先" as address,
+			SUM(to_number(Q."数量",'99999')) as count,
+			SUM(to_number(Q."数量",'99999') * 0) as amount
+		FROM
+			"INPUT_発送情報_QOO10" Q
+		WHERE
+			Q."発送状態" = '未発送'
+		GROUP BY
+			Q."カート番号",
+			Q."発送日",
+			Q."購入者名",
+			Q."電話番号",
+			Q."受取人名",
+			Q."郵便番号",
+			Q."お届け先",
+			Q."発送状態"
+
+	</sql>
+
+	<sql id="searchShipAddressShipped">
+
+		SELECT
+			distinct
+			'Amazon' as div,
+			A."発送状態" as shipstatus,
+			A."注文番号" as orderno,
+			A."支払時間" as shipdate,
+			A."購入者名称" as buyer,
+			A."購入者電話番号" as buyer_tel,
+			A."宛先名称" as receiver,
+			A."宛先郵便番号" as postno,
+			coalesce(A."宛先都道府県",'') || 
+			coalesce(A."宛先住所市",'') || 
+			coalesce(A."宛先住所１",'') || 
+			coalesce(A."宛先住所２",'') || 
+			coalesce(A."宛先住所３",'') as address,
+			SUM(to_number(A."商品数量",'99999')) as count,
+			SUM(to_number(A."商品数量",'99999') * to_number(A."価格",'99999')) as amount
+		FROM
+			"INPUT_発送情報_AMAZON" A
+		WHERE
+			A."発送状態" = '発送済'
+			AND
+			substring(A."支払時間",1,10) >= TO_CHAR(current_date -interval '7 day','yyyy-mm-dd')
+		GROUP BY
+			A."注文番号",
+			A."支払時間",
+			A."購入者名称",
+			A."購入者電話番号",
+			A."宛先名称",
+			A."宛先郵便番号",
+			coalesce(A."宛先都道府県",'') || 
+			coalesce(A."宛先住所市",'') || 
+			coalesce(A."宛先住所１",'') || 
+			coalesce(A."宛先住所２",'') || 
+			coalesce(A."宛先住所３",''),
+			A."発送状態"
+
+		UNION ALL
+
+		SELECT
+			distinct
+			'Qoo10' as div,
+			Q."発送状態" as shipstatus,
+			Q."カート番号" as orderno,
+			Q."発送日" as shipdate,
+			Q."購入者名" as buyer,
+			Q."電話番号" as buyer_tel,
+			Q."受取人名" as receiver,
+			Q."郵便番号" as postno,
+			Q."お届け先" as address,
+			SUM(to_number(Q."数量",'99999')) as count,
+			SUM(to_number(Q."数量",'99999') * 0) as amount
+		FROM
+			"INPUT_発送情報_QOO10" Q
+		WHERE
+			Q."発送状態" = '発送済'
+			AND
+			substring(Q."発送日",1,10) >= TO_CHAR(current_date -interval '7 day','yyyy-mm-dd')
+		GROUP BY
+			Q."カート番号",
+			Q."発送日",
+			Q."購入者名",
+			Q."電話番号",
+			Q."受取人名",
+			Q."郵便番号",
+			Q."お届け先",
+			Q."発送状態"
+
+	</sql>
+
+	<sql id="selectProductKindToCheck">
+		SELECT
+			A.orderno,
+			A.productkey,
+			A.productname,
+			B."商品種別" as productkind
+		FROM
+		(
+			SELECT
+				A."注文番号" as orderno,
+				A."SKU番号" as productkey,
+				A."商品名称" as productname
+			FROM
+				"INPUT_発送情報_AMAZON" A
+			UNION ALL
+			SELECT
+				Q."カート番号" as orderno,
+				Q."注文番号" as productkey,
+				Q."商品名" || Q."オプション情報" as productname
+			FROM
+				"INPUT_発送情報_QOO10" Q
+		) A
+		LEFT JOIN "MASTER_商品種別" B
+		ON A.productkey = B."商品キー"
+		WHERE orderno = :col0
+		AND B."商品種別" is null
+	</sql>
+
+	<sql id="selectProductKind">
+		SELECT
+			A.orderno,
+			A.productkey,
+			A.productname,
+			B."商品種別" as productkind
+		FROM
+		(
+			SELECT
+				A."注文番号" as orderno,
+				A."SKU番号" as productkey,
+				A."商品名称" as productname
+			FROM
+				"INPUT_発送情報_AMAZON" A
+			UNION ALL
+			SELECT
+				Q."カート番号" as orderno,
+				Q."注文番号" as productkey,
+				Q."商品名" || Q."オプション情報" as productname
+			FROM
+				"INPUT_発送情報_QOO10" Q
+		) A
+		LEFT JOIN "MASTER_商品種別" B
+		ON A.productkey = B."商品キー"
+		WHERE orderno = :col0
+	</sql>
+
+	<sql id="insertProductKind">
+		INSERT INTO "MASTER_商品種別"
+		VALUES (
+			:col0,--商品キー
+			:col1--商品種別
+		)
+	</sql>
+
+	<sql id="updateShipA">
+		UPDATE "INPUT_発送情報_AMAZON"
+		SET "発送状態" = '発送済'
+		WHERE "注文番号" = :shipno
+	</sql>
+
+	<sql id="updateShipQ">
+		UPDATE "INPUT_発送情報_QOO10"
+		SET "発送状態" = '発送済'
+		WHERE "カート番号" = :shipno
+	</sql>
+
+</sqls>
+

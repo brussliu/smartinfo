@@ -1,10 +1,14 @@
 var global={};
 global.name="システム初期化";
 
+var addressList = file.readAllLines("templates/addressList.txt").split("\r\n");
 /**
  * グローバルイベント実行関数
  */
-global.fire=function(){};
+global.fire=function(){
+
+
+};
 /**
  * ページング用データの取得<br>
  * <br>
@@ -58,3 +62,36 @@ function getPageData(groupId,getCountSqlId,getDataSqlId,searchCondition,pageRows
 	return pageData;
 }
 
+function getStandardAddress(address){
+
+	var standardAddress = new Array();
+
+	var address1 = address;
+	var address2 = "";
+
+	//addressList.length.debug("000000000000");
+	for(var i = 0; i < addressList.length; i ++){
+
+		if(address.indexOf(addressList[i]) >= 0){
+
+			//addressList[i].debug("TTTTTTTTTTTTT");
+			//i.debug("IIIIIIIIIIIIIIIIIII");
+
+			address1 = addressList[i];
+			break;
+		}
+
+	}
+
+	//address1.debug("111111111111111111");
+
+	address2 = address.substring(address1.length);
+	//address2.debug("222222222222222222");
+
+	standardAddress.push(address1);
+	standardAddress.push(address2);
+
+	//standardAddress.debug("999999999999999")
+
+	return standardAddress;
+}
