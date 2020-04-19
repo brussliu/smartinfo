@@ -594,8 +594,7 @@ function importShipAmazonInfo(aryField, index) {
 					"col20":aryField[20],
 					"col21":aryField[21],
 					"col22":aryField[22],
-					"col23":aryField[23],
-					"col24":aryField[25]
+					"col23":aryField[23]
 				}
 			);
 		

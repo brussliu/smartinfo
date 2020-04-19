@@ -68,9 +68,11 @@
 			coalesce(A."宛先住所２",'') || 
 			coalesce(A."宛先住所３",'') as address,
 			SUM(to_number(A."商品数量",'99999')) as count,
-			SUM(to_number(A."商品数量",'99999') * to_number(A."価格",'99999')) as amount
+			SUM(to_number(A."商品数量",'99999') * to_number(B."価格",'99999')) as amount
 		FROM
 			"INPUT_発送情報_AMAZON" A
+			LEFT JOIN "MASTER_出品マスタ情報" B
+			ON A."SKU番号" = B."SKU番号"
 		WHERE
 			A."発送状態" = '未発送'
 		GROUP BY
@@ -136,9 +138,11 @@
 			coalesce(A."宛先住所２",'') || 
 			coalesce(A."宛先住所３",'') as address,
 			SUM(to_number(A."商品数量",'99999')) as count,
-			SUM(to_number(A."商品数量",'99999') * to_number(A."価格",'99999')) as amount
+			SUM(to_number(A."商品数量",'99999') * to_number(B."価格",'99999')) as amount
 		FROM
 			"INPUT_発送情報_AMAZON" A
+			LEFT JOIN "MASTER_出品マスタ情報" B
+			ON A."SKU番号" = B."SKU番号"
 		WHERE
 			A."発送状態" = '発送済'
 			AND
