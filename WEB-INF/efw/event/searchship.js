@@ -12,13 +12,12 @@ searchship.fire=function(params){
 
 	var resultHTML1 = 
 	"<tr>" +
-		"<td style='width: 50px;'></td>" +
 		"<td style='width: 100px;'>{productno}</td>" +
-		"<td style='width: 100px;'>{productdiv}</td>" +
-		"<td style='width: 100px;'>{sku}</td>" +
-		"<td style='width: 100px;'>{asin}</td>" +
+		"<td style='width: 120px;'>{productdiv}</td>" +
+		"<td style='width: 120px;'>{sku}</td>" +
+		"<td style='width: 120px;'>{asin}</td>" +
 		"<td style='width: 100px;'>{label}</td>" +
-		"<td style='width: 800px;'>{productname}</td>" +
+		"<td style=''>{productname}</td>" +
 		"<td style='width: 250px;'>{option1}</td>" +
 		"<td style='width: 100px;'>{option2}</td>" +
 		"<td style='width: 100px;'>{count}</td>" +
@@ -63,7 +62,7 @@ searchship.fire=function(params){
 	ret.runat("#shipinfotable").append(resultHTML2).withdata(selectResult2);
 
 	var resultHTML3 = 
-	"<tr>" +
+	"<tr style='background-color: rgb(195,195,195);'>" +
 		"<td style='width: 50px;'></td>" +
 		"<td style='width: 80px;'>{div}</td>" +
 		"<td style='width: 80px;'>{shipstatus}</td>" +

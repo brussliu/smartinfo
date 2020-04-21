@@ -160,7 +160,7 @@
 
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="1" style="width: 100%;">
+<table class="productlist" border="0" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
@@ -208,27 +208,29 @@
 		</td>
 	</tr>
 </table>
+<br/>
 <hr>
-<span style="font-weight: bold;">未発送分の集計情報:</span>
+<span style="font-weight: bold;">【未発送分の商品集計情報】</span>
 <table border="1" id="ship_productinfo" style="font-size: 14px;">
-	<tr>
-		<td style="width: 50px;"></td>
+	<tr style="font-weight: bold;background-color: rgb(34,177,76);">
 		<td style="width: 100px;">商品管理番号</td>
-		<td style="width: 100px;">商品種別</td>
-		<td style="width: 100px;">SKU番号</td>
-		<td style="width: 100px;">ASIN番号</td>
+		<td style="width: 120px;">商品種別</td>
+		<td style="width: 120px;">SKU番号</td>
+		<td style="width: 120px;">ASIN番号</td>
 		<td style="width: 100px;">ラベル番号</td>
-		<td style="width: 800px;">商品名称</td>
+		<td style="">商品名称</td>
 		<td style="width: 250px;">色</td>
 		<td style="width: 100px;">サイズ</td>
 		<td style="width: 100px;">数量</td>
 	</tr>
 
 </table>
-<span style="font-weight: bold;">発送情報:</span>
+<br/>
+<hr>
+<span style="font-weight: bold;">【発送情報】</span>
 
 <table border="1" id="shipinfotable" style="font-size: 14px;">
-	<tr>
+	<tr style="font-weight: bold;background-color: rgb(128,255,255);">
 		<td style="width: 50px;">選択</td>
 		<td style="width: 80px;">状態</td>
 		<td style="width: 80px;">区分</td>
