@@ -13,9 +13,6 @@ outputship.fire=function(params){
 	
 	var ret = new Result();
 
-
-	params.debug("WWWWWWWWWWWWW");
-
 	shopname = params["#shop"];
 
 	var shipnoArr = params["shipno"];
@@ -27,6 +24,7 @@ outputship.fire=function(params){
 	var shipCount = shipnoArr.length;
 
 	var contentArr = new Array();
+
 
 	for(var i = 0; i < shipCount; i ++){
 
@@ -65,15 +63,45 @@ outputship.fire=function(params){
 
 			contentArr.push( selectResult1[0].productkind );
 
-
 		}
-
 
 	}
 
-	var pagekind = 6;
 
-	
+
+	var selectProductResult = db.select(
+		"SHIP",
+		"searchShipProduct",
+		{
+		shop:shopname
+		}
+	).getArray();
+
+	var excel = new Excel("templates/print_templates.xlsx");
+
+	var tempFilePathName = file.getTempFileName();
+
+	for(var i = 0; i < selectProductResult.length; i ++){
+
+		excel.setCell("Product", "A" + (i+2), selectProductResult[i].productno);
+		excel.setCell("Product", "B" + (i+2), selectProductResult[i].productdiv);
+		excel.setCell("Product", "C" + (i+2), selectProductResult[i].sku);
+		excel.setCell("Product", "D" + (i+2), selectProductResult[i].asin);
+		excel.setCell("Product", "E" + (i+2), selectProductResult[i].label);
+		excel.setCell("Product", "F" + (i+2), selectProductResult[i].productname);
+		excel.setCell("Product", "G" + (i+2), selectProductResult[i].option1);
+		excel.setCell("Product", "H" + (i+2), selectProductResult[i].option2);
+		excel.setCell("Product", "I" + (i+2), selectProductResult[i].count);
+
+	}
+
+
+
+
+
+
+
+	var pagekind = 6;
 
 	var pageCount = Math.ceil( shipCount / pagekind ) ;
 
@@ -81,11 +109,6 @@ outputship.fire=function(params){
 	if(lastPageType == 0){
 		lastPageType = pagekind;
 	}
-
-	var excel = new Excel("templates/print_templates.xlsx");
-
-	var tempFilePathName = file.getTempFileName();
-
 
 	for(var i = 0; i < shipCount; i ++){
 
@@ -98,7 +121,6 @@ outputship.fire=function(params){
 		if(receiver.substring(receiver.length-1) != "様"){
 			receiver = receiver + "　様"
 		}
-		receiver.debug("CCCCCCCCCCCCCCC");
 
 		var content = contentArr[i];
 
@@ -218,7 +240,7 @@ outputship.fire=function(params){
 	}
 
 
-	excel.setActiveSheet("Address1").save(tempFilePathName);
+	excel.setActiveSheet("Product").save(tempFilePathName);
 
 	ret.attach(tempFilePathName)
 	.saveas("発送情報_" + (new Date()).format("yyyyMMdd")+".xlsx")
