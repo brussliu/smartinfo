@@ -26,6 +26,7 @@ outputstock.fire=function(params){
 		var sku_X = "C";
 		var asin_X = "D";
 
+		var productname_X = "G";
 
 		var writePriceX = "H";
 
@@ -55,11 +56,16 @@ outputstock.fire=function(params){
 
 		var tempFilePathName=file.getTempFileName();
 
+		// var newProductArr = new Array();
+
+		var newListY_from = 4;
+
 		for(var i = 0;i < selectResult.length;i ++){
 
 			var sku = selectResult[i]["sku"];
 			var asin = selectResult[i]["asin"];
 			var labelno = selectResult[i]["label"];
+			var productname = selectResult[i]["productname"];
 
 			var price = selectResult[i]["price"];
 
@@ -100,6 +106,8 @@ outputstock.fire=function(params){
 				"花柄ケース",	"ケーブル", 			"無線充電器",	"自撮りライト",		"スタンド", 
 				"イヤホン",	"タブレットケース",		"下着",			"スマホリング",		"スポーツ"];
 
+			var listedflg = false;
+
 			for(var sn = 0;sn < sheetNameList.length;sn ++){
 
 				var sheetName = sheetNameList[sn];
@@ -134,8 +142,42 @@ outputstock.fire=function(params){
 
 						excel.setCell(sheetName, writeFBAFlgX + y, fbaflg);
 
+						listedflg = true;
+
 					}
 				}
+
+			}
+
+			if(listedflg == false){
+
+				excel.setCell("NEW", sku_X + newListY_from, sku);
+
+				excel.setCell("NEW", asin_X + newListY_from, asin);
+
+				excel.setCell("NEW", productname_X + newListY_from, productname);
+
+				excel.setCell("NEW", writePriceX + newListY_from, price);
+
+				excel.setCell("NEW", writeFBAX + newListY_from, fba);
+
+				excel.setCell("NEW", writeFBMX + newListY_from, fbm);
+
+				excel.setCell("NEW", writeLocalStockX + newListY_from, localstock);
+
+				excel.setCell("NEW", writeSell7X + newListY_from, selled7);
+
+				excel.setCell("NEW", writeSell30X + newListY_from, selled30);
+
+				excel.setCell("NEW", writeSell60X + newListY_from, selled60);
+
+				excel.setCell("NEW", writeSell90X + newListY_from, selled90);
+
+				excel.setCell("NEW", writeSellWeekX + newListY_from, selledweek);
+
+				excel.setCell("NEW", writeFBAFlgX + newListY_from, fbaflg);
+
+				newListY_from = newListY_from + 1;
 
 			}
 
