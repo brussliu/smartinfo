@@ -172,7 +172,7 @@ uploadfile.fire=function(params){
 		var W_labelX = "L";
 		var W_localStockX = "O";
 		var W_labelY_from = 4;
-		var W_labelY_to = 116;
+		var W_labelY_to = 186;
 
 		for(var y = W_labelY_from;y <= W_labelY_to;y++){
 
