@@ -261,7 +261,7 @@ outputstock.fire=function(params){
 		var R_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
 
 		var W_labelY_from = 4;
-		var W_labelY_to = 116;
+		var W_labelY_to = 186;
 		var W_labelX = "L";
 
 		var W_writePriceX = "M";
