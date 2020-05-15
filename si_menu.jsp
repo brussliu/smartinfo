@@ -16,16 +16,24 @@
       	font-size: 20px;
       	font-weight: bold;
       }
+      .menuHeader2 {
+      	width: 1506px;
+      	height: 40px;
+      	background-color: blue;
+      	color: white;
+      	font-size: 20px;
+      	font-weight: bold;
+      }
     </style>
 </head>
 <body style="background-color:ghostwhite;">
-<table style="width:1500px;" border="0">
+<table style="width:1500px;" border="1">
 	<tr>
 		<td>
-			<div class="menuHeader">Smart-Bear(新店)メニュー</div>
+			<div class="menuHeader">&nbsp;Smart-Bear(新店)メニュー</div>
 		</td>
 		<td>
-			<div class="menuHeader">Smart-KM(旧店)メニュー</div>
+			<div class="menuHeader">&nbsp;Smart-KM(旧店)メニュー</div>
 		</td>
 	</tr>
 	<tr>
@@ -40,8 +48,6 @@
 			<br><br>
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-Bear'})">
 			<br><br>
-			<input type=button value="発送管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_ship.jsp',shop:'Smart-Bear'})">
-			<br><br>
 		</div></td>
 		<td><div style="text-align:center"><br>
 			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_upload.jsp',shop:'Smart-KM'})">
@@ -53,6 +59,21 @@
 			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-KM'})">
 			<br><br>
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-KM'})">
+			<br><br>
+		</div></td>
+	</tr>
+</table>
+<table style="width:1506px;" border="1">
+	<tr>
+		<td>
+			<div class="menuHeader2">&nbsp;共通メニュー</div>
+		</td>
+	</tr>
+	<tr>
+		<td><div style="text-align:center"><br>
+			<input type=button value="発送管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_ship.jsp',shop:'Smart-Bear'})">
+			<br><br>
+			<input type=button value="商品スキャン" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_scan.jsp',shop:'Smart-Bear'})">
 			<br><br>
 		</div></td>
 	</tr>
