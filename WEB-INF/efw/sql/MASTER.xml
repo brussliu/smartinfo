@@ -30,7 +30,7 @@
 			AND
 			T2."商品種別" = '子商品'
 			AND
-			T2."色" = T4."色"
+			COALESCE(T2."色",'') = COALESCE(T4."色",'')
 			AND
 			T2."店舗名" = T1."店舗名"
 		 ) as subcq,
@@ -72,7 +72,7 @@
 		 AND
 		 T4."商品管理番号" = T5."商品管理番号"
 		 AND
-		 T4."色" = T5."色"
+		 COALESCE(T4."色",'') = COALESCE(T5."色",'')
 		WHERE
 		 T1."商品種別" = '親商品'
 		 AND
@@ -119,7 +119,7 @@
 		WHERE
 		 T5."商品管理番号" = TEMP1."商品管理番号"
 		 AND
-		 T5."色" = TEMP1."色"
+		 COALESCE(T5."色",'') = COALESCE(TEMP1."色",'')
 		 AND
 		 T5."店舗名" = :shop
 		 AND
@@ -170,11 +170,10 @@
 			AND
 			T2."商品種別" = '子商品'
 			AND
-			T2."色" = T1."色"
+			COALESCE(T2."色",'') = COALESCE(T1."色",'')
 			AND
 			T2."店舗名" = :shop
 		 ) as subcq,
-
 		 T1."サイズ" as subsize,
 		 T1."SKU番号" as subsku,
 		 T1."ASIN番号" as subasin,
@@ -205,7 +204,7 @@
 		WHERE
 		 T1."商品管理番号" = T4."商品管理番号"
 		 AND
-		 T1."色" &lt;&gt; T4."色"
+		 COALESCE(T1."色",'') &lt;&gt; COALESCE(T4."色",'')
 		 AND
 		 T1."商品種別" = '子商品'
 		 AND
@@ -213,7 +212,7 @@
 		 AND
 		 T4."商品管理番号" = T5."商品管理番号"
 		 AND
-		 T1."色" = T5."色"
+		 COALESCE(T1."色",'') = COALESCE(T5."色",'')
 		 AND
 		 T1."店舗名" = T5."店舗名"
 		ORDER BY
