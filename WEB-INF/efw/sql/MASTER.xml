@@ -18,7 +18,7 @@
 			AND
 			T2."商品種別" = '子商品'
 			AND
-			T2."店舗名" = :shop
+			T2."店舗名" = T1."店舗名"
 		 ) as subq,
 		 (
 		  SELECT
@@ -32,7 +32,7 @@
 			AND
 			T2."色" = T4."色"
 			AND
-			T2."店舗名" = :shop
+			T2."店舗名" = T1."店舗名"
 		 ) as subcq,
 		 T1."商品写真" as productpic,
 		 T5."色" as subcolor,
@@ -40,13 +40,15 @@
 		 T4."SKU番号" as subsku,
 		 T4."ASIN番号" as sukuasin
 		FROM
-		 "MASTER_出品マスタ情報" T1,
+		 "MASTER_出品マスタ情報" T1
+		 LEFT JOIN 
 		 (
 			SELECT
 			 *
 			FROM
 			(
 				SELECT
+				 T3."店舗名",
 				 T3."商品管理番号",
 				 T3."色",
 				 T3."サイズ",
@@ -62,22 +64,19 @@
 			) TEMP
 			WHERE
 			 TEMP.NB = 1
-		 ) T4,
+		 ) T4 ON T1."商品管理番号" = T4."商品管理番号"
+		 LEFT JOIN 
 		 "MASTER_写真情報" T5
-
-		WHERE
-		 T1."商品管理番号" = T4."商品管理番号"
-		 AND
-		 T1."商品種別" = '親商品'
-		 AND
-		 T1."店舗名" = :shop
+		 ON
+		 T4."店舗名" = T5."店舗名"
 		 AND
 		 T4."商品管理番号" = T5."商品管理番号"
 		 AND
 		 T4."色" = T5."色"
+		WHERE
+		 T1."商品種別" = '親商品'
 		 AND
-		 T1."店舗名" = T5."店舗名"
-
+		 T1."店舗名" = :shop
 		ORDER BY
 		 T1."商品管理番号"
 	</sql>
