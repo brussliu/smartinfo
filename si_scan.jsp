@@ -30,11 +30,23 @@
 		 
 		});
 
+		function checkInput(obj){
+
+			if($(obj).val().length == 0){
+
+			}else if($(obj).val().length == 10 && $(obj).val().startsWith("X000")){
+
+			}else{
+
+				$(obj).focus();
+			}
+		}
+
 		function inputLabel(obj,n){
 
 			//Efw('searchmaster');
 
-			if($(obj).val().length == 10){
+			if($(obj).val().length == 10 && $(obj).val().startsWith("X000")){
 				//alert($(obj).val());
 
 				// 商品管理コード取得
@@ -59,42 +71,60 @@
 				
 
 				if(n < 10){
-					var html = "<INPUT TYPE='TEXT' STYLE='WIDTH:100%;height:30px;ime-mode:disabled;' value='' oninput='inputLabel(this," + (n+1) + ");'>";
-					$(obj).parent().next().html(html);
-					$(obj).parent().next().children().focus();
+
+					var next = $(obj).parent().next().children();
+
+					if(next.length > 0){
+
+
+					}else{
+
+						var html = "<INPUT TYPE='TEXT' STYLE='WIDTH:100%;height:30px;ime-mode:disabled;' value='' oninput='inputLabel(this," + (n+1) + ");' maxlength='10' onblur='checkInput(this);'>";
+						$(obj).parent().next().html(html);
+						$(obj).parent().next().children().focus();
+
+					}
+
 				}else{
 
-					var $tdName1 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'><INPUT TYPE='TEXT' STYLE='WIDTH:100%;height:30px;ime-mode:disabled;' value='' oninput='inputLabel(this,1);'></td>");
-					var $tdName2 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-					var $tdName3 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-					var $tdName4 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-					var $tdName5 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-					var $tdName6 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-					var $tdName7 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-					var $tdName8 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-					var $tdName9 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-					var $tdName10 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+					var next = $(obj).parent().parent().next().children().children();
 
-					var $tr = $("<tr></tr>");
-					$tr.append($tdName1);
-					$tr.append($tdName2);
-					$tr.append($tdName3);
-					$tr.append($tdName4);
-					$tr.append($tdName5);
-					$tr.append($tdName6);
-					$tr.append($tdName7);
-					$tr.append($tdName8);
-					$tr.append($tdName9);
-					$tr.append($tdName10);
+					if(next.length > 0){
 
 
-					$(obj).parent().parent().parent().append($tr);
+					}else{
 
-					$(obj).parent().parent().next().children().children().focus();
+						var $tdName1 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'><INPUT TYPE='TEXT' STYLE='WIDTH:100%;height:30px;ime-mode:disabled;' value='' oninput='inputLabel(this,1);' maxlength='10' onblur='checkInput(this);'></td>");
+						var $tdName2 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+						var $tdName3 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+						var $tdName4 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+						var $tdName5 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+						var $tdName6 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+						var $tdName7 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+						var $tdName8 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+						var $tdName9 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+						var $tdName10 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
+
+						var $tr = $("<tr></tr>");
+						$tr.append($tdName1);
+						$tr.append($tdName2);
+						$tr.append($tdName3);
+						$tr.append($tdName4);
+						$tr.append($tdName5);
+						$tr.append($tdName6);
+						$tr.append($tdName7);
+						$tr.append($tdName8);
+						$tr.append($tdName9);
+						$tr.append($tdName10);
+
+
+						$(obj).parent().parent().parent().append($tr);
+
+						$(obj).parent().parent().next().children().children().focus();
+
+					}
 
 				}
-
-
 
 			}else{
 
@@ -114,6 +144,7 @@
 			$("#plist").children(":last").show();
 
 		}
+
 
 		function liststock(){
 
@@ -202,7 +233,7 @@
 		</tr>
 		<tr>
 			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-				<INPUT TYPE="TEXT" STYLE="WIDTH:100%;height:30px;ime-mode:disabled;" value="" oninput="inputLabel(this,1);">
+				<INPUT TYPE="TEXT" STYLE="WIDTH:100%;height:30px;ime-mode:disabled;" value="" oninput="inputLabel(this,1);" maxlength="10" onblur="checkInput(this);">
 			</td>
 			<td style="width: 100px;font-size: 14px;font-weight: bold;">
 
