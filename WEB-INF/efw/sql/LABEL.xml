@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="selectLabelData">
+		select
+			M."商品管理番号" as productno,
+			M."商品名称" as productname,
+			M."色" as color,
+			M."サイズ" as size,
+			F."ラベル番号" as labelno,
+			M."ASIN番号" as asin,
+			M."SKU番号" as sku,
+			M."並び順" as sortno
+		from "MASTER_出品マスタ情報" M
+		left join "INPUT_FBA在庫情報" F
+		on M."SKU番号" = F."SKU番号" and M."ASIN番号" = F."ASIN番号" and F."販売可否状態" = 'SELLABLE'
+		where
+			M."店舗名" = :shop
+			and
+			M."ラベル番号" is not NULL
+		order by
+			M."商品管理番号",
+			to_number(M."並び順",'999')
+	</sql>
+</sqls>

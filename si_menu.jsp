@@ -75,6 +75,8 @@
 			<br><br>
 			<input type=button value="商品スキャン" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_scan.jsp',shop:'Smart-Bear'})">
 			<br><br>
+			<input type=button value="ラベル番号印刷用データ出力" style="width:400px;height: 40px;" onclick="Efw('outputlabeldata')">
+			<br><br>
 		</div></td>
 	</tr>
 </table>
