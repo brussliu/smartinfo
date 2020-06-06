@@ -271,7 +271,7 @@ outputstock.fire=function(params){
 		var PJ_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
 
 		var UB_labelY_from = 4;
-		var UB_labelY_to = 12;
+		var UB_labelY_to = 13;
 		var UB_labelX = ["F"];
 		var UB_writeStockX = ["G"];
 		var UB_writeLocalStockX = ["H"];
@@ -461,7 +461,7 @@ outputstock.fire=function(params){
 				}
 				
 			}
-			
+
 			// 靴下
 			if(productno.substring(0,1) == "W"){
 
