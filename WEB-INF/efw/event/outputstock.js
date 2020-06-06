@@ -296,15 +296,15 @@ outputstock.fire=function(params){
 
 		var W_labelY_from = 4;
 		var W_labelY_to = 186;
-		var W_labelX = "L";
-		var W_writePriceX = "M";
-		var W_writeStockX = "N";
-		var W_writeLocalStockX = "O";
-		var W_writeSell7X = "P";
-		var W_writeSell30X = "Q";
-		var W_writeSell60X = "R";
-		var W_writeSell90X = "S";
-		var W_writeSellWeekX = "T";
+		var W_labelX = "J";
+		var W_writePriceX = "K";
+		var W_writeStockX = "L";
+		var W_writeLocalStockX = "M";
+		var W_writeSell7X = "O";
+		var W_writeSell30X = "P";
+		var W_writeSell60X = "Q";
+		var W_writeSell90X = "R";
+		var W_writeSellWeekX = "S";
 
 		for(var i = 0;i < selectResult.length;i ++){
 
