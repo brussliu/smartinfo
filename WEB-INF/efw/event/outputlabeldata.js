@@ -42,14 +42,14 @@ outputlabeldata.fire=function(params){
 	var sheet2 = 'Smart-Bear';
 	for(var i = 0; i < selectResult2.length; i ++){
 
-		excel.setCell(sheet1, "A" + (i+2), selectResult2[i].productno);
-		excel.setCell(sheet1, "B" + (i+2), selectResult2[i].productname);
-		excel.setCell(sheet1, "C" + (i+2), selectResult2[i].color);
-		excel.setCell(sheet1, "D" + (i+2), selectResult2[i].size);
-		excel.setCell(sheet1, "E" + (i+2), selectResult2[i].labelno);
-		excel.setCell(sheet1, "F" + (i+2), selectResult2[i].asin);
-		excel.setCell(sheet1, "G" + (i+2), selectResult2[i].sku);
-		excel.setCell(sheet1, "H" + (i+2), selectResult2[i].sortno);
+		excel.setCell(sheet2, "A" + (i+2), selectResult2[i].productno);
+		excel.setCell(sheet2, "B" + (i+2), selectResult2[i].productname);
+		excel.setCell(sheet2, "C" + (i+2), selectResult2[i].color);
+		excel.setCell(sheet2, "D" + (i+2), selectResult2[i].size);
+		excel.setCell(sheet2, "E" + (i+2), selectResult2[i].labelno);
+		excel.setCell(sheet2, "F" + (i+2), selectResult2[i].asin);
+		excel.setCell(sheet2, "G" + (i+2), selectResult2[i].sku);
+		excel.setCell(sheet2, "H" + (i+2), selectResult2[i].sortno);
 
 	}
 
