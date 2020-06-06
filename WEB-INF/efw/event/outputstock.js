@@ -246,28 +246,60 @@ outputstock.fire=function(params){
 		// excel.createSheet(newSheetName, "temp_1");
 
 
-		var R_labelY_from = 4;
-		var R_labelY_to = 48;
-		var R_labelX = ["F","G","H","I","J","K"];
+		var RC_labelY_from = 4;
+		var RC_labelY_to = 48;
+		var RC_labelX = ["F","G","H","I","J","K"];
+		var RC_writeStockX = ["L","M","N","O","P","Q"];
+		var RC_writeLocalStockX = ["X","Y","Z","AA","AB","AC"];
+		var RC_writeSell7X = ["AJ","AK","AL","AM","AN","AO"];
+		var RC_writeSell30X = ["AP","AQ","AR","AS","AT","AU"];
+		var RC_writeSell60X = ["AV","AW","AX","AY","AZ","BA"];
+		var RC_writeSell90X = ["BB","BC","BD","BE","BF","BG"];
+		var RC_writeSellWeekX = ["BH","BI","BJ","BK","BL","BM"];
+		var RC_writePriceX = ["CL","CM","CN","CO","CP","CQ"];
 
-		var R_writeStockX = ["L","M","N","O","P","Q"];
-		var R_writeLocalStockX = ["X","Y","Z","AA","AB","AC"];
+		var PJ_labelY_from = 4;
+		var PJ_labelY_to = 11;
+		var PJ_labelX = ["F","G","H","I","J","K"];
+		var PJ_writeStockX = ["L","M","N","O","P","Q"];
+		var PJ_writeLocalStockX = ["R","S","T","U","V","W"];
+		var PJ_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
+		var PJ_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
+		var PJ_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
+		var PJ_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
+		var PJ_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
+		var PJ_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
 
-		var R_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
-		var R_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
-		var R_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
-		var R_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
-		var R_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
-		var R_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
+		var UB_labelY_from = 4;
+		var UB_labelY_to = 12;
+		var UB_labelX = ["F"];
+		var UB_writeStockX = ["G"];
+		var UB_writeLocalStockX = ["H"];
+		var UB_writeSell7X = ["J"];
+		var UB_writeSell30X = ["K"];
+		var UB_writeSell60X = ["L"];
+		var UB_writeSell90X = ["M"];
+		var UB_writeSellWeekX = ["N"];
+		var UB_writePriceX = ["S"];
+
+		var RB_labelY_from = 4;
+		var RB_labelY_to = 132;
+		var RB_labelX = ["H"];
+		var RB_writeStockX = ["I"];
+		var RB_writeLocalStockX = ["J"];
+		var RB_writeSell7X = ["L"];
+		var RB_writeSell30X = ["M"];
+		var RB_writeSell60X = ["N"];
+		var RB_writeSell90X = ["O"];
+		var RB_writeSellWeekX = ["P"];
+		var RB_writePriceX = ["U"];
 
 		var W_labelY_from = 4;
 		var W_labelY_to = 186;
 		var W_labelX = "L";
-
 		var W_writePriceX = "M";
 		var W_writeStockX = "N";
 		var W_writeLocalStockX = "O";
-
 		var W_writeSell7X = "P";
 		var W_writeSell30X = "Q";
 		var W_writeSell60X = "R";
@@ -287,65 +319,178 @@ outputstock.fire=function(params){
 			var selledweek = selectResult[i]["selledweek"];
 			var price = selectResult[i]["price"];
 
+			// レインコート
+			if(productno == "T001" || productno == "T002" || productno == "T003" || productno == "T004" || productno == "T005" 
+			|| productno == "T006" || productno == "T007" || productno == "T008" || productno == "T009" || productno == "T010" ){
 
-			if(productno.substring(0,1) == "T" || productno.substring(0,1) == "P"){
+				var sheetName = "在庫情報（雨衣）";
 				// 在庫情報シート
-				for(var x = 0;x < R_labelX.length;x ++){
-					for(var y = R_labelY_from;y <= R_labelY_to;y ++){
+				for(var x = 0;x < RC_labelX.length;x ++){
+					for(var y = RC_labelY_from;y <= RC_labelY_to;y ++){
 
-						var excellabelno = excel.getValue("在庫情報R", R_labelX[x] + y);
+						var excellabelno = excel.getValue(sheetName, RC_labelX[x] + y);
 						if(excellabelno == null){
 							continue;
 						}
 						if(excellabelno == labelno){
-
-							excel.setCell("在庫情報R", R_writePriceX[x]+y, price);
-
-							excel.setCell("在庫情報R", R_writeStockX[x]+y, fba);
-
-							excel.setCell("在庫情報R", R_writeLocalStockX[x]+y, localstock);
-
-							excel.setCell("在庫情報R", R_writeSell7X[x]+y, selled7);
-
-							excel.setCell("在庫情報R", R_writeSell30X[x]+y, selled30);
-
-							excel.setCell("在庫情報R", R_writeSell60X[x]+y, selled60);
-
-							excel.setCell("在庫情報R", R_writeSell90X[x]+y, selled90);
-
-							excel.setCell("在庫情報R", R_writeSellWeekX[x]+y, selledweek);
-
+							// 商品価格
+							excel.setCell(sheetName, RC_writePriceX[x]+y, price);
+							// FBA在庫数量
+							excel.setCell(sheetName, RC_writeStockX[x]+y, fba);
+							// ローカル在庫
+							excel.setCell(sheetName, RC_writeLocalStockX[x]+y, localstock);
+							// 販売数量(直近7日間)
+							excel.setCell(sheetName, RC_writeSell7X[x]+y, selled7);
+							// 販売数量(直近30日間)
+							excel.setCell(sheetName, RC_writeSell30X[x]+y, selled30);
+							// 販売数量(直近60日間)
+							excel.setCell(sheetName, RC_writeSell60X[x]+y, selled60);
+							// 販売数量(直近90日間)
+							excel.setCell(sheetName, RC_writeSell90X[x]+y, selled90);
+							// 販売数量(週間平均値)
+							excel.setCell(sheetName, RC_writeSellWeekX[x]+y, selledweek);
 						}
-
 					}
 				}
+
 			}
+
+			// レインコート
+			if(productno == "P001" || productno == "P002"){
+
+				var sheetName = "在庫情報（居家服）";
+				// 在庫情報シート
+				for(var x = 0;x < PJ_labelX.length;x ++){
+					for(var y = PJ_labelY_from;y <= PJ_labelY_to;y ++){
+
+						var excellabelno = excel.getValue(sheetName, PJ_labelX[x] + y);
+						if(excellabelno == null){
+							continue;
+						}
+						if(excellabelno == labelno){
+							// 商品価格
+							excel.setCell(sheetName, PJ_writePriceX[x]+y, price);
+							// FBA在庫数量
+							excel.setCell(sheetName, PJ_writeStockX[x]+y, fba);
+							// ローカル在庫
+							excel.setCell(sheetName, PJ_writeLocalStockX[x]+y, localstock);
+							// 販売数量(直近7日間)
+							excel.setCell(sheetName, PJ_writeSell7X[x]+y, selled7);
+							// 販売数量(直近30日間)
+							excel.setCell(sheetName, PJ_writeSell30X[x]+y, selled30);
+							// 販売数量(直近60日間)
+							excel.setCell(sheetName, PJ_writeSell60X[x]+y, selled60);
+							// 販売数量(直近90日間)
+							excel.setCell(sheetName, PJ_writeSell90X[x]+y, selled90);
+							// 販売数量(週間平均値)
+							excel.setCell(sheetName, PJ_writeSellWeekX[x]+y, selledweek);
+						}
+					}
+				}
+				
+			}
+
+			// 傘
+			if(productno == "T206" || productno == "T207" || productno == "T208" 
+			|| productno == "T209" || productno == "T101"){
+
+				var sheetName = "在庫情報（雨伞等）";
+				// 在庫情報シート
+				for(var x = 0;x < UB_labelX.length;x ++){
+					for(var y = UB_labelY_from;y <= UB_labelY_to;y ++){
+
+						var excellabelno = excel.getValue(sheetName, UB_labelX[x] + y);
+						if(excellabelno == null){
+							continue;
+						}
+						if(excellabelno == labelno){
+							// 商品価格
+							excel.setCell(sheetName, UB_writePriceX[x]+y, price);
+							// FBA在庫数量
+							excel.setCell(sheetName, UB_writeStockX[x]+y, fba);
+							// ローカル在庫
+							excel.setCell(sheetName, UB_writeLocalStockX[x]+y, localstock);
+							// 販売数量(直近7日間)
+							excel.setCell(sheetName, UB_writeSell7X[x]+y, selled7);
+							// 販売数量(直近30日間)
+							excel.setCell(sheetName, UB_writeSell30X[x]+y, selled30);
+							// 販売数量(直近60日間)
+							excel.setCell(sheetName, UB_writeSell60X[x]+y, selled60);
+							// 販売数量(直近90日間)
+							excel.setCell(sheetName, UB_writeSell90X[x]+y, selled90);
+							// 販売数量(週間平均値)
+							excel.setCell(sheetName, UB_writeSellWeekX[x]+y, selledweek);
+						}
+					}
+				}
+				
+			}
+
+			// 雨靴
+			if(productno == "T301" || productno == "T302" || productno == "T303" 
+			|| productno == "T306" || productno == "T308" || productno == "T309"){
+
+				var sheetName = "在庫情報（雨靴）";
+				// 在庫情報シート
+				for(var x = 0;x < RB_labelX.length;x ++){
+					for(var y = RB_labelY_from;y <= RB_labelY_to;y ++){
+
+						var excellabelno = excel.getValue(sheetName, RB_labelX[x] + y);
+						if(excellabelno == null){
+							continue;
+						}
+						if(excellabelno == labelno){
+							// 商品価格
+							excel.setCell(sheetName, RB_writePriceX[x]+y, price);
+							// FBA在庫数量
+							excel.setCell(sheetName, RB_writeStockX[x]+y, fba);
+							// ローカル在庫
+							excel.setCell(sheetName, RB_writeLocalStockX[x]+y, localstock);
+							// 販売数量(直近7日間)
+							excel.setCell(sheetName, RB_writeSell7X[x]+y, selled7);
+							// 販売数量(直近30日間)
+							excel.setCell(sheetName, RB_writeSell30X[x]+y, selled30);
+							// 販売数量(直近60日間)
+							excel.setCell(sheetName, RB_writeSell60X[x]+y, selled60);
+							// 販売数量(直近90日間)
+							excel.setCell(sheetName, RB_writeSell90X[x]+y, selled90);
+							// 販売数量(週間平均値)
+							excel.setCell(sheetName, RB_writeSellWeekX[x]+y, selledweek);
+						}
+					}
+				}
+				
+			}
+			
+			// 靴下
 			if(productno.substring(0,1) == "W"){
+
+				var sheetName = "在庫情報（袜子）";
 
 				for(var y = W_labelY_from;y <= W_labelY_to;y ++){
 
-						var excellabelno = excel.getValue("在庫情報W", W_labelX + y);
+						var excellabelno = excel.getValue(sheetName, W_labelX + y);
 
 						if(excellabelno == null){
 							continue;
 						}
 						if(excellabelno == labelno){
 
-							excel.setCell("在庫情報W", W_writePriceX+y, price);
+							excel.setCell(sheetName, W_writePriceX+y, price);
 
-							excel.setCell("在庫情報W", W_writeStockX+y, fba);
+							excel.setCell(sheetName, W_writeStockX+y, fba);
 
-							excel.setCell("在庫情報W", W_writeLocalStockX+y, localstock);
+							excel.setCell(sheetName, W_writeLocalStockX+y, localstock);
 
-							excel.setCell("在庫情報W", W_writeSell7X+y, selled7);
+							excel.setCell(sheetName, W_writeSell7X+y, selled7);
 
-							excel.setCell("在庫情報W", W_writeSell30X+y, selled30);
+							excel.setCell(sheetName, W_writeSell30X+y, selled30);
 
-							excel.setCell("在庫情報W", W_writeSell60X+y, selled60);
+							excel.setCell(sheetName, W_writeSell60X+y, selled60);
 
-							excel.setCell("在庫情報W", W_writeSell90X+y, selled90);
+							excel.setCell(sheetName, W_writeSell90X+y, selled90);
 
-							excel.setCell("在庫情報W", W_writeSellWeekX+y, selledweek);
+							excel.setCell(sheetName, W_writeSellWeekX+y, selledweek);
 
 						}
 
@@ -356,7 +501,7 @@ outputstock.fire=function(params){
 
 		}
 
-		excel.setActiveSheet("在庫情報R").save(tempFilePathName);
+		excel.setActiveSheet("在庫情報（雨衣）").save(tempFilePathName);
 
 		ret.attach(tempFilePathName)
 		.saveas("Smart-Bear在庫補足_" + (new Date()).format("yyyyMMdd")+".xlsx")
