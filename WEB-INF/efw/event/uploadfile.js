@@ -790,20 +790,21 @@ function importFbaInfo(aryField, index) {
 			}
 		);
 
-
-		var updateResult = db.change(
-			"UPLOAD",
-			"updateFba",
-			{
-				"col0":aryField[0],
-				"col1":aryField[1],
-				"col2":aryField[2],
-				// "col3":aryField[3],
-				// "col4":aryField[4],
-				"col5":aryField[5],
-				"col6":shopname
-			}
-		);
+		if(aryField[4] == "SELLABLE"){
+			var updateResult = db.change(
+				"UPLOAD",
+				"updateFba",
+				{
+					"col0":aryField[0],
+					"col1":aryField[1],
+					"col2":aryField[2],
+					// "col3":aryField[3],
+					// "col4":aryField[4],
+					"col5":aryField[5],
+					"col6":shopname
+				}
+			);
+		}
 		
 		count = count + 1;
 	}
