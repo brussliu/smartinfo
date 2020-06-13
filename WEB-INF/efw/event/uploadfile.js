@@ -281,8 +281,8 @@ uploadfile.fire=function(params){
 		}
 
 
-		var W_labelX = "L";
-		var W_localStockX = "O";
+		var W_labelX = "J";
+		var W_localStockX = "M";
 		var W_labelY_from = 4;
 		var W_labelY_to = 186;
 
