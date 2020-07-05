@@ -372,6 +372,7 @@
 					<option id="" class=""></option>	
 					<option id="01" class="newshop">01:レインコート</option>	
 					<option id="05" class="newshop">05:傘</option>
+					<option id="08" class="newshop">08:雨靴</option>
 					<option id="21" class="newshop">21:靴下（夏用）</option>
 					<option id="22" class="newshop">22:靴下（秋冬用）</option>
 					<option id="31" class="newshop">31:パジャマ</option>
