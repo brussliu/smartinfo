@@ -430,6 +430,8 @@ outputstock.fire=function(params){
 			if(productno == "T301" || productno == "T302" || productno == "T303" 
 			|| productno == "T306" || productno == "T308" || productno == "T309"){
 
+				selectResult[i].debug("GGGGGGGGGGGGGGGXXXX");
+
 				var sheetName = "在庫情報（雨靴）";
 				// 在庫情報シート
 				for(var x = 0;x < RB_labelX.length;x ++){
