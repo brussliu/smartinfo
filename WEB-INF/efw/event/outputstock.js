@@ -270,8 +270,9 @@ outputstock.fire=function(params){
 		var PJ_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
 		var PJ_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
 
+		// 傘
 		var UB_labelY_from = 4;
-		var UB_labelY_to = 13;
+		var UB_labelY_to = 14;
 		var UB_labelX = ["F"];
 		var UB_writeStockX = ["G"];
 		var UB_writeLocalStockX = ["H"];
@@ -282,8 +283,9 @@ outputstock.fire=function(params){
 		var UB_writeSellWeekX = ["N"];
 		var UB_writePriceX = ["S"];
 
+		// 雨靴
 		var RB_labelY_from = 4;
-		var RB_labelY_to = 132;
+		var RB_labelY_to = 142;
 		var RB_labelX = ["H"];
 		var RB_writeStockX = ["I"];
 		var RB_writeLocalStockX = ["J"];
@@ -294,6 +296,7 @@ outputstock.fire=function(params){
 		var RB_writeSellWeekX = ["P"];
 		var RB_writePriceX = ["U"];
 
+		// 靴下
 		var W_labelY_from = 4;
 		var W_labelY_to = 186;
 		var W_labelX = "J";
