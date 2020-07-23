@@ -20,6 +20,7 @@ searchhistory.fire=function(params){
 	var fbaArr = historyResult.seek("importtype","eq","fba").getArray();
 	var orderArr = historyResult.seek("importtype","eq","order").getArray();
 	var localstockArr = historyResult.seek("importtype","eq","localstock").getArray();
+	var onboardstockArr = historyResult.seek("importtype","eq","onboardstock").getArray();
 
 	if(productArr.length > 0){
 			ret.runat("#producttable").withdata(
@@ -56,6 +57,16 @@ searchhistory.fire=function(params){
 			}
 		);
 	}
+
+	if(onboardstockArr.length > 0){
+		ret.runat("#onboardstocktable").withdata(
+			{
+				".importtime": onboardstockArr[0].importtime,
+				".importcount": onboardstockArr[0].importcount
+			}
+		);
+	}
+
 	// 画面へ結果を返す
 	return ret;
 

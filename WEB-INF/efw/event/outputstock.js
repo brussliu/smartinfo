@@ -251,6 +251,7 @@ outputstock.fire=function(params){
 		var RC_labelX = ["F","G","H","I","J","K"];
 		var RC_writeStockX = ["L","M","N","O","P","Q"];
 		var RC_writeLocalStockX = ["X","Y","Z","AA","AB","AC"];
+		var RC_writeOnboardStockX = ["AD","AE","AF","AG","AH","AI"];
 		var RC_writeSell7X = ["AJ","AK","AL","AM","AN","AO"];
 		var RC_writeSell30X = ["AP","AQ","AR","AS","AT","AU"];
 		var RC_writeSell60X = ["AV","AW","AX","AY","AZ","BA"];
@@ -263,6 +264,7 @@ outputstock.fire=function(params){
 		var PJ_labelX = ["F","G","H","I","J","K"];
 		var PJ_writeStockX = ["L","M","N","O","P","Q"];
 		var PJ_writeLocalStockX = ["R","S","T","U","V","W"];
+		var PJ_writeOnboardStockX = ["X","Y","Z","AA","AB","AC"];
 		var PJ_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
 		var PJ_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
 		var PJ_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
@@ -276,6 +278,7 @@ outputstock.fire=function(params){
 		var UB_labelX = ["F"];
 		var UB_writeStockX = ["G"];
 		var UB_writeLocalStockX = ["H"];
+		var UB_writeOnboardStockX = ["I"];
 		var UB_writeSell7X = ["J"];
 		var UB_writeSell30X = ["K"];
 		var UB_writeSell60X = ["L"];
@@ -289,6 +292,7 @@ outputstock.fire=function(params){
 		var RB_labelX = ["H"];
 		var RB_writeStockX = ["I"];
 		var RB_writeLocalStockX = ["J"];
+		var RB_writeOnboardStockX = ["K"];
 		var RB_writeSell7X = ["L"];
 		var RB_writeSell30X = ["M"];
 		var RB_writeSell60X = ["N"];
@@ -298,11 +302,12 @@ outputstock.fire=function(params){
 
 		// 靴下
 		var W_labelY_from = 4;
-		var W_labelY_to = 186;
+		var W_labelY_to = 183;
 		var W_labelX = "J";
 		var W_writePriceX = "K";
 		var W_writeStockX = "L";
 		var W_writeLocalStockX = "M";
+		var W_writeOnboardStockX = "N";
 		var W_writeSell7X = "O";
 		var W_writeSell30X = "P";
 		var W_writeSell60X = "Q";
@@ -315,6 +320,7 @@ outputstock.fire=function(params){
 			var labelno = selectResult[i]["label"];
 			var localstock = selectResult[i]["localstock"];
 			var fba = selectResult[i]["fba"];
+			var onboard = selectResult[i]["onboard"];
 			var selled7 = selectResult[i]["selled7"];
 			var selled30 = selectResult[i]["selled30"];
 			var selled60 = selectResult[i]["selled60"];
@@ -342,6 +348,8 @@ outputstock.fire=function(params){
 							excel.setCell(sheetName, RC_writeStockX[x]+y, fba);
 							// ローカル在庫
 							excel.setCell(sheetName, RC_writeLocalStockX[x]+y, localstock);
+							// ONBOARD在庫
+							excel.setCell(sheetName, RC_writeOnboardStockX[x]+y, onboard);
 							// 販売数量(直近7日間)
 							excel.setCell(sheetName, RC_writeSell7X[x]+y, selled7);
 							// 販売数量(直近30日間)
@@ -377,6 +385,8 @@ outputstock.fire=function(params){
 							excel.setCell(sheetName, PJ_writeStockX[x]+y, fba);
 							// ローカル在庫
 							excel.setCell(sheetName, PJ_writeLocalStockX[x]+y, localstock);
+							// ONBOARD在庫
+							excel.setCell(sheetName, PJ_writeOnboardStockX[x]+y, onboard);
 							// 販売数量(直近7日間)
 							excel.setCell(sheetName, PJ_writeSell7X[x]+y, selled7);
 							// 販売数量(直近30日間)
@@ -413,6 +423,8 @@ outputstock.fire=function(params){
 							excel.setCell(sheetName, UB_writeStockX[x]+y, fba);
 							// ローカル在庫
 							excel.setCell(sheetName, UB_writeLocalStockX[x]+y, localstock);
+							// ONBOARD在庫
+							excel.setCell(sheetName, UB_writeOnboardStockX[x]+y, onboard);
 							// 販売数量(直近7日間)
 							excel.setCell(sheetName, UB_writeSell7X[x]+y, selled7);
 							// 販売数量(直近30日間)
@@ -449,6 +461,8 @@ outputstock.fire=function(params){
 							excel.setCell(sheetName, RB_writeStockX[x]+y, fba);
 							// ローカル在庫
 							excel.setCell(sheetName, RB_writeLocalStockX[x]+y, localstock);
+							// ONBOARD在庫
+							excel.setCell(sheetName, RB_writeOnboardStockX[x]+y, onboard);
 							// 販売数量(直近7日間)
 							excel.setCell(sheetName, RB_writeSell7X[x]+y, selled7);
 							// 販売数量(直近30日間)
@@ -484,6 +498,8 @@ outputstock.fire=function(params){
 							excel.setCell(sheetName, W_writeStockX+y, fba);
 
 							excel.setCell(sheetName, W_writeLocalStockX+y, localstock);
+
+							excel.setCell(sheetName, W_writeOnboardStockX+y, onboard);
 
 							excel.setCell(sheetName, W_writeSell7X+y, selled7);
 

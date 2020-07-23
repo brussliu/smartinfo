@@ -6,6 +6,7 @@ uploadfile.paramsFormat={
 	"#importfile_order":null,
 	"#importfile_localstock":null,
 	"#importfile_liststock":null,
+	"#importfile_onboardstock":null,
 
 	"#importfile_ship_amazon":null,
 
@@ -323,6 +324,209 @@ uploadfile.fire=function(params){
 			{
 				"col0":shopname,
 				"col1":"localstock",
+				"col2":d,
+				"col3":count
+			}
+		);
+
+	}else if(params["data"] == "onboardstock"){
+
+		count = 0;
+
+		var fa = params["#importfile_onboardstock"].split("\\");
+		var f = fa[fa.length-1];
+
+		var excelXSSF = new Excel("upload/" + f);
+
+		var RC_labelX = ["F","G","H","I","J","K"];
+		var RC_onboardStockX = ["AD","AE","AF","AG","AH","AI"];
+		var RC_labelY_from = 4;
+		var RC_labelY_to = 30;
+
+		var sheetName = "在庫情報（雨衣）";
+
+		for(var x = 0;x < RC_labelX.length;x ++){
+
+			for(var y = RC_labelY_from;y <= RC_labelY_to;y ++){
+
+				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
+
+				if(label != null && label.length > 0){
+
+					var onboardstock = excelXSSF.getValue(sheetName, RC_onboardStockX[x] + y);
+
+					if(onboardstock == null || onboardstock.length == 0){
+						onboardstock = "0";
+					}
+
+					var updateResult = db.change(
+						"UPLOAD",
+						"updateOnboardstock",
+						{
+							"onboardstock":onboardstock,
+							"label":label
+						}
+					);
+
+					count = count + 1;
+				}
+
+			}
+		}
+
+
+		var PJ_labelX = ["F","G","H","I","J","K"];
+		var PJ_onboardStockX = ["X","Y","Z","AA","AB","AC"];
+		var PJ_labelY_from = 4;
+		var PJ_labelY_to = 11;
+
+		var sheetName = "在庫情報（居家服）";
+
+		for(var x = 0;x < PJ_labelX.length;x ++){
+
+			for(var y = PJ_labelY_from;y <= PJ_labelY_to;y ++){
+
+				var label = excelXSSF.getValue(sheetName, PJ_labelX[x] + y);
+
+				if(label != null && label.length > 0){
+
+					var onboardstock = excelXSSF.getValue(sheetName, PJ_onboardStockX[x] + y);
+
+					if(onboardstock == null || onboardstock.length == 0){
+						onboardstock = "0";
+					}
+
+					var updateResult = db.change(
+						"UPLOAD",
+						"updateOnboardstock",
+						{
+							"onboardstock":onboardstock,
+							"label":label
+						}
+					);
+
+					count = count + 1;
+				}
+
+			}
+		}
+
+
+		var UB_labelX = ["F"];
+		var UB_onboardStockX = ["I"];
+		var UB_labelY_from = 4;
+		var UB_labelY_to = 13;
+
+		var sheetName = "在庫情報（雨伞等）";
+
+		for(var x = 0;x < UB_labelX.length;x ++){
+
+			for(var y = UB_labelY_from;y <= UB_labelY_to;y ++){
+
+				var label = excelXSSF.getValue(sheetName, UB_labelX[x] + y);
+
+				if(label != null && label.length > 0){
+
+					var onboardstock = excelXSSF.getValue(sheetName, UB_onboardStockX[x] + y);
+
+					if(onboardstock == null || onboardstock.length == 0){
+						onboardstock = "0";
+					}
+
+					var updateResult = db.change(
+						"UPLOAD",
+						"updateOnboardstock",
+						{
+							"onboardstock":onboardstock,
+							"label":label
+						}
+					);
+
+					count = count + 1;
+				}
+
+			}
+		}
+
+		var RB_labelX = ["H"];
+		var RB_onboardStockX = ["K"];
+		var RB_labelY_from = 4;
+		var RB_labelY_to = 132;
+
+		var sheetName = "在庫情報（雨靴）";
+
+		for(var x = 0;x < RB_labelX.length;x ++){
+
+			for(var y = RB_labelY_from;y <= RB_labelY_to;y ++){
+
+				var label = excelXSSF.getValue(sheetName, RB_labelX[x] + y);
+
+				if(label != null && label.length > 0){
+
+					var onboardstock = excelXSSF.getValue(sheetName, RB_onboardStockX[x] + y);
+
+					if(onboardstock == null || onboardstock.length == 0){
+						onboardstock = "0";
+					}
+
+					var updateResult = db.change(
+						"UPLOAD",
+						"updateOnboardstock",
+						{
+							"onboardstock":onboardstock,
+							"label":label
+						}
+					);
+
+					count = count + 1;
+				}
+
+			}
+		}
+
+
+		var W_labelX = "J";
+		var W_onboardStockX = "N";
+		var W_labelY_from = 4;
+		var W_labelY_to = 186;
+
+		var sheetName = "在庫情報（袜子）";
+
+		for(var y = W_labelY_from;y <= W_labelY_to;y++){
+
+			var label = excelXSSF.getValue(sheetName, W_labelX + y);
+
+			if(label != null && label.length > 0){
+
+				var onboardstock = excelXSSF.getValue(sheetName, W_onboardStockX + y);
+
+				if(onboardstock == null || onboardstock.length == 0){
+					onboardstock = "0";
+				}
+
+				var updateResult = db.change(
+					"UPLOAD",
+					"updateOnboardstock",
+					{
+						"onboardstock":onboardstock,
+						"label":label
+					}
+				);
+
+				count = count + 1;
+
+			}
+
+		}
+
+		var d = new Date().format("yyyy-MM-dd");
+
+		var historyResult = db.change(
+			"UPLOAD",
+			"insertHistory",
+			{
+				"col0":shopname,
+				"col1":"onboardstock",
 				"col2":d,
 				"col3":count
 			}

@@ -175,6 +175,14 @@
 		 "ラベル番号" = :label
 	</sql>
 
+	<sql id="updateOnboardstock">
+		update "MASTER_出品マスタ情報"
+		set
+		"ONBOARD在庫数量" = :onboardstock
+		where
+		 "ラベル番号" = :label
+	</sql>
+
 	<sql id="insertLabel">
 		INSERT INTO "TEMP_在庫確認"
 		VALUES (
