@@ -248,7 +248,7 @@
 		ORDER BY 
 			TEMP."商品管理番号",TEMP."商品種別",TO_NUMBER(TEMP."並び順",'999')
 	</sql>
-	<sql id="selectstock1">
+	<sql id="selectstockKM">
 		SELECT
 		 TEMP."出品者SKU" as sku,
 		 TEMP."ASIN 1" as asin,
@@ -268,6 +268,8 @@
 		 TEMP."LOCAL在庫数量" as localstock,
 		 TEMP."FBM在庫数量" as fbm,
 		 TEMP."FBA在庫数量" as fba,
+		 TEMP."LOCAL在庫数量" as local,
+		 TEMP."ONBOARD在庫数量" as onboard,
 		 TEMP."価格" as price,
 		 CASE WHEN 
 		  TEMP."7日間数量" = 0 THEN 9999
@@ -316,9 +318,10 @@
 		 COALESCE(T3."30日間数量",0) as "30日間数量",
 		 COALESCE(T4."60日間数量",0) as "60日間数量",
 		 COALESCE(T5."90日間数量",0) as "90日間数量",
-		 0 AS "LOCAL在庫数量",
 		 T0."数量" AS "FBM在庫数量",
 		 FBA."在庫数量" AS "FBA在庫数量",
+		 STOCK."LOCAL在庫数量" AS "LOCAL在庫数量",
+		 STOCK."ONBOARD在庫数量" AS "ONBOARD在庫数量",
 		 COALESCE(TO_NUMBER(T0."数量",'9999'),0) + 
 		 COALESCE(TO_NUMBER(FBA."在庫数量",'9999'),0) as "在庫合計",
 		 "価格"
@@ -328,7 +331,11 @@
 		LEFT JOIN "INPUT_FBA在庫情報" FBA ON
 		T0."出品者SKU" = FBA."SKU番号" AND
 		T0."ASIN 1" = FBA."ASIN番号"
-		
+
+		LEFT JOIN "INPUT_在庫情報" STOCK ON
+		T0."出品者SKU" = STOCK."SKU番号" AND
+		T0."ASIN 1" = STOCK."ASIN番号"
+
 		LEFT JOIN
 		(
 		SELECT

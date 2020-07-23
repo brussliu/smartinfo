@@ -387,7 +387,23 @@
 
 	</sql>
 
+	<sql id="delLocalstockKM">
+		DELETE FROM "INPUT_在庫情報"
+		WHERE
+			"SKU番号" = :sku
+			AND
+			"ASIN番号" = :asin
+	</sql>
 
+	<sql id="insLocalstockKM">
+		INSERT INTO "INPUT_在庫情報"
+		VALUES (
+			:sku,
+			:asin,
+			:localstock,
+			:onboardstock
+		)
+	</sql>
 
 </sqls>
 

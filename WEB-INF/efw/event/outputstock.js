@@ -33,18 +33,19 @@ outputstock.fire=function(params){
 		var writeFBAX = "I";
 		var writeFBMX = "J";
 		var writeLocalStockX = "K";
+		var writeOnboardStockX = "L";
 
-		var writeSell7X = "L";
-		var writeSell30X = "M";
-		var writeSell60X = "N";
-		var writeSell90X = "O";
-		var writeSellWeekX = "P";
+		var writeSell7X = "M";
+		var writeSell30X = "N";
+		var writeSell60X = "O";
+		var writeSell90X = "P";
+		var writeSellWeekX = "Q";
 
-		var writeFBAFlgX = "U";
+		var writeFBAFlgX = "V";
 
 		var selectResult = db.select(
 			"STOCK",
-			"selectstock1",
+			"selectstockKM",
 			{
 			shop:shopname,
 			basedate_order:params["#basedate_order_hidden"],
@@ -88,10 +89,17 @@ outputstock.fire=function(params){
 			}
 
 			var localstock;
-			if(selectResult[i]["localstock"] == null || selectResult[i]["localstock"].length == 0){
+			if(selectResult[i]["local"] == null || selectResult[i]["local"].length == 0){
 				localstock = 0;
 			}else{
-				localstock = parseInt(selectResult[i]["localstock"]);
+				localstock = parseInt(selectResult[i]["local"]);
+			}
+
+			var onboardstock;
+			if(selectResult[i]["onboard"] == null || selectResult[i]["onboard"].length == 0){
+				onboardstock = 0;
+			}else{
+				onboardstock = parseInt(selectResult[i]["onboard"]);
 			}
 
 			var selled7 = selectResult[i]["selled7"];
@@ -130,6 +138,8 @@ outputstock.fire=function(params){
 
 						excel.setCell(sheetName, writeLocalStockX + y, localstock);
 
+						excel.setCell(sheetName, writeOnboardStockX + y, onboardstock);
+
 						excel.setCell(sheetName, writeSell7X + y, selled7);
 
 						excel.setCell(sheetName, writeSell30X + y, selled30);
@@ -164,6 +174,8 @@ outputstock.fire=function(params){
 				excel.setCell("NEW", writeFBMX + newListY_from, fbm);
 
 				excel.setCell("NEW", writeLocalStockX + newListY_from, localstock);
+
+				excel.setCell("NEW", writeOnboardStockX + newListY_from, onboardstock);
 
 				excel.setCell("NEW", writeSell7X + newListY_from, selled7);
 

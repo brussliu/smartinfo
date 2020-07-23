@@ -135,22 +135,239 @@ uploadfile.fire=function(params){
 
 		var excelXSSF = new Excel("upload/" + f);
 
-		var RC_labelX = ["F","G","H","I","J","K"];
-		var RC_localStockX = ["X","Y","Z","AA","AB","AC"];
-		var RC_labelY_from = 4;
-		var RC_labelY_to = 30;
+		if(shopname == "Smart-KM"){
 
-		var sheetName = "在庫情報（雨衣）";
+			var sheetNameArr = [
+			"廃止予定","NEW","スマホ保護フィルム","カメラ保護","スマホケース","iFace風","花柄ケース","ケーブル",
+			"無線充電器","自撮りライト","スタンド","イヤホン","タブレットケース","下着","スマホリング","スポーツ"];
 
-		for(var x = 0;x < RC_labelX.length;x ++){
+			for(var i = 0;i < sheetNameArr.length;i ++){
 
-			for(var y = RC_labelY_from;y <= RC_labelY_to;y ++){
+				var sheetName = sheetNameArr[i];
 
-				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
+				var skuX = "C";
+				var asinX = "D";
+
+				var localStockX = "K";
+				var onboardStockX = "L";
+
+				var labelY_from = 4;
+				var labelY_to = 999;
+
+				for(var y = labelY_from;y <= labelY_to;y++){
+
+					var sku = excelXSSF.getValue(sheetName, skuX + y);
+					var asin = excelXSSF.getValue(sheetName, asinX + y);
+
+					if(sku != null && sku.length > 0 && asin != null && asin.length > 0){
+
+						var localstock = excelXSSF.getValue(sheetName, localStockX + y);
+						var onboardstock = excelXSSF.getValue(sheetName, onboardStockX + y);
+
+						if(localstock == null || localstock.length == 0){
+							localstock = "0";
+						}
+						if(onboardstock == null || onboardstock.length == 0){
+							onboardstock = "0";
+						}
+
+						var delResult = db.change(
+							"UPLOAD",
+							"delLocalstockKM",
+							{
+								"sku":sku,
+								"asin":asin
+							}
+						);
+
+						var insResult = db.change(
+							"UPLOAD",
+							"insLocalstockKM",
+							{
+								"localstock":localstock,
+								"onboardstock":onboardstock,
+								"sku":sku,
+								"asin":asin
+							}
+						);
+
+						count = count + 1;
+
+					}else{
+
+						break;
+
+					}
+
+				}
+
+
+			}
+
+
+		}else{
+
+			var RC_labelX = ["F","G","H","I","J","K"];
+			var RC_localStockX = ["X","Y","Z","AA","AB","AC"];
+			var RC_labelY_from = 4;
+			var RC_labelY_to = 30;
+
+			var sheetName = "在庫情報（雨衣）";
+
+			for(var x = 0;x < RC_labelX.length;x ++){
+
+				for(var y = RC_labelY_from;y <= RC_labelY_to;y ++){
+
+					var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
+
+					if(label != null && label.length > 0){
+
+						var localstock = excelXSSF.getValue(sheetName, RC_localStockX[x] + y);
+
+						if(localstock == null || localstock.length == 0){
+							localstock = "0";
+						}
+
+						var updateResult = db.change(
+							"UPLOAD",
+							"updateLocalstock",
+							{
+								"localstock":localstock,
+								"label":label
+							}
+						);
+
+						count = count + 1;
+					}
+
+				}
+			}
+
+
+			var PJ_labelX = ["F","G","H","I","J","K"];
+			var PJ_localStockX = ["R","S","T","U","V","W"];
+			var PJ_labelY_from = 4;
+			var PJ_labelY_to = 11;
+
+			var sheetName = "在庫情報（居家服）";
+
+			for(var x = 0;x < PJ_labelX.length;x ++){
+
+				for(var y = PJ_labelY_from;y <= PJ_labelY_to;y ++){
+
+					var label = excelXSSF.getValue(sheetName, PJ_labelX[x] + y);
+
+					if(label != null && label.length > 0){
+
+						var localstock = excelXSSF.getValue(sheetName, PJ_localStockX[x] + y);
+
+						if(localstock == null || localstock.length == 0){
+							localstock = "0";
+						}
+
+						var updateResult = db.change(
+							"UPLOAD",
+							"updateLocalstock",
+							{
+								"localstock":localstock,
+								"label":label
+							}
+						);
+
+						count = count + 1;
+					}
+
+				}
+			}
+
+
+			var UB_labelX = ["F"];
+			var UB_localStockX = ["H"];
+			var UB_labelY_from = 4;
+			var UB_labelY_to = 13;
+
+			var sheetName = "在庫情報（雨伞等）";
+
+			for(var x = 0;x < UB_labelX.length;x ++){
+
+				for(var y = UB_labelY_from;y <= UB_labelY_to;y ++){
+
+					var label = excelXSSF.getValue(sheetName, UB_labelX[x] + y);
+
+					if(label != null && label.length > 0){
+
+						var localstock = excelXSSF.getValue(sheetName, UB_localStockX[x] + y);
+
+						if(localstock == null || localstock.length == 0){
+							localstock = "0";
+						}
+
+						var updateResult = db.change(
+							"UPLOAD",
+							"updateLocalstock",
+							{
+								"localstock":localstock,
+								"label":label
+							}
+						);
+
+						count = count + 1;
+					}
+
+				}
+			}
+
+			var RB_labelX = ["H"];
+			var RB_localStockX = ["J"];
+			var RB_labelY_from = 4;
+			var RB_labelY_to = 132;
+
+			var sheetName = "在庫情報（雨靴）";
+
+			for(var x = 0;x < RB_labelX.length;x ++){
+
+				for(var y = RB_labelY_from;y <= RB_labelY_to;y ++){
+
+					var label = excelXSSF.getValue(sheetName, RB_labelX[x] + y);
+
+					if(label != null && label.length > 0){
+
+						var localstock = excelXSSF.getValue(sheetName, RB_localStockX[x] + y);
+
+						if(localstock == null || localstock.length == 0){
+							localstock = "0";
+						}
+
+						var updateResult = db.change(
+							"UPLOAD",
+							"updateLocalstock",
+							{
+								"localstock":localstock,
+								"label":label
+							}
+						);
+
+						count = count + 1;
+					}
+
+				}
+			}
+
+
+			var W_labelX = "J";
+			var W_localStockX = "M";
+			var W_labelY_from = 4;
+			var W_labelY_to = 186;
+
+			var sheetName = "在庫情報（袜子）";
+
+			for(var y = W_labelY_from;y <= W_labelY_to;y++){
+
+				var label = excelXSSF.getValue(sheetName, W_labelX + y);
 
 				if(label != null && label.length > 0){
 
-					var localstock = excelXSSF.getValue(sheetName, RC_localStockX[x] + y);
+					var localstock = excelXSSF.getValue(sheetName, W_localStockX + y);
 
 					if(localstock == null || localstock.length == 0){
 						localstock = "0";
@@ -166,168 +383,27 @@ uploadfile.fire=function(params){
 					);
 
 					count = count + 1;
+
 				}
 
 			}
-		}
 
+			var d = new Date().format("yyyy-MM-dd");
 
-		var PJ_labelX = ["F","G","H","I","J","K"];
-		var PJ_localStockX = ["R","S","T","U","V","W"];
-		var PJ_labelY_from = 4;
-		var PJ_labelY_to = 11;
-
-		var sheetName = "在庫情報（居家服）";
-
-		for(var x = 0;x < PJ_labelX.length;x ++){
-
-			for(var y = PJ_labelY_from;y <= PJ_labelY_to;y ++){
-
-				var label = excelXSSF.getValue(sheetName, PJ_labelX[x] + y);
-
-				if(label != null && label.length > 0){
-
-					var localstock = excelXSSF.getValue(sheetName, PJ_localStockX[x] + y);
-
-					if(localstock == null || localstock.length == 0){
-						localstock = "0";
-					}
-
-					var updateResult = db.change(
-						"UPLOAD",
-						"updateLocalstock",
-						{
-							"localstock":localstock,
-							"label":label
-						}
-					);
-
-					count = count + 1;
+			var historyResult = db.change(
+				"UPLOAD",
+				"insertHistory",
+				{
+					"col0":shopname,
+					"col1":"localstock",
+					"col2":d,
+					"col3":count
 				}
-
-			}
-		}
-
-
-		var UB_labelX = ["F"];
-		var UB_localStockX = ["H"];
-		var UB_labelY_from = 4;
-		var UB_labelY_to = 13;
-
-		var sheetName = "在庫情報（雨伞等）";
-
-		for(var x = 0;x < UB_labelX.length;x ++){
-
-			for(var y = UB_labelY_from;y <= UB_labelY_to;y ++){
-
-				var label = excelXSSF.getValue(sheetName, UB_labelX[x] + y);
-
-				if(label != null && label.length > 0){
-
-					var localstock = excelXSSF.getValue(sheetName, UB_localStockX[x] + y);
-
-					if(localstock == null || localstock.length == 0){
-						localstock = "0";
-					}
-
-					var updateResult = db.change(
-						"UPLOAD",
-						"updateLocalstock",
-						{
-							"localstock":localstock,
-							"label":label
-						}
-					);
-
-					count = count + 1;
-				}
-
-			}
-		}
-
-		var RB_labelX = ["H"];
-		var RB_localStockX = ["J"];
-		var RB_labelY_from = 4;
-		var RB_labelY_to = 132;
-
-		var sheetName = "在庫情報（雨靴）";
-
-		for(var x = 0;x < RB_labelX.length;x ++){
-
-			for(var y = RB_labelY_from;y <= RB_labelY_to;y ++){
-
-				var label = excelXSSF.getValue(sheetName, RB_labelX[x] + y);
-
-				if(label != null && label.length > 0){
-
-					var localstock = excelXSSF.getValue(sheetName, RB_localStockX[x] + y);
-
-					if(localstock == null || localstock.length == 0){
-						localstock = "0";
-					}
-
-					var updateResult = db.change(
-						"UPLOAD",
-						"updateLocalstock",
-						{
-							"localstock":localstock,
-							"label":label
-						}
-					);
-
-					count = count + 1;
-				}
-
-			}
-		}
-
-
-		var W_labelX = "J";
-		var W_localStockX = "M";
-		var W_labelY_from = 4;
-		var W_labelY_to = 186;
-
-		var sheetName = "在庫情報（袜子）";
-
-		for(var y = W_labelY_from;y <= W_labelY_to;y++){
-
-			var label = excelXSSF.getValue(sheetName, W_labelX + y);
-
-			if(label != null && label.length > 0){
-
-				var localstock = excelXSSF.getValue(sheetName, W_localStockX + y);
-
-				if(localstock == null || localstock.length == 0){
-					localstock = "0";
-				}
-
-				var updateResult = db.change(
-					"UPLOAD",
-					"updateLocalstock",
-					{
-						"localstock":localstock,
-						"label":label
-					}
-				);
-
-				count = count + 1;
-
-			}
+			);
 
 		}
 
-		var d = new Date().format("yyyy-MM-dd");
 
-		var historyResult = db.change(
-			"UPLOAD",
-			"insertHistory",
-			{
-				"col0":shopname,
-				"col1":"localstock",
-				"col2":d,
-				"col3":count
-			}
-		);
 
 	}else if(params["data"] == "onboardstock"){
 
