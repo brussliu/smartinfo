@@ -62,7 +62,7 @@
 <br/>
 <table class="upfile" id="producttable">
 	<tr>
-		<td style="width: 200px;font-size: 20px;font-weight: bold;">
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			出品詳細レポート
 		</td>
 		<td style="width: 120px;font-size: 16px;">
@@ -88,7 +88,7 @@
 <br/>
 <table class="upfile" id="fbatable">
 	<tr>
-		<td style="width: 200px;font-size: 20px;font-weight: bold;">
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			FBA在庫レポート
 		</td>
 		<td style="width: 120px;font-size: 16px;">
@@ -114,7 +114,7 @@
 <br/>
 <table class="upfile" id="ordertable">
 	<tr>
-		<td style="width: 200px;font-size: 20px;font-weight: bold;">
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			全注文レポート
 		</td>
 		<td style="width: 120px;font-size: 16px;">
@@ -140,7 +140,7 @@
 <br/>
 <table class="upfile" id="localstocktable">
 	<tr>
-		<td style="width: 200px;font-size: 20px;font-weight: bold;">
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			LOCAL在庫情報導入
 		</td>
 		<td style="width: 120px;font-size: 16px;">
@@ -166,7 +166,7 @@
 <br/>
 <table class="upfile" id="onboardstocktable">
 	<tr>
-		<td style="width: 200px;font-size: 20px;font-weight: bold;">
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			ONBOARD在庫情報導入
 		</td>
 		<td style="width: 120px;font-size: 16px;">
@@ -192,7 +192,7 @@
 <br/>
 <table class="upfile" id="liststocktable">
 	<tr>
-		<td style="width: 200px;font-size: 20px;font-weight: bold;">
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			在庫情報統計
 		</td>
 		<td style="width: 120px;font-size: 16px;">
@@ -226,7 +226,7 @@
 <br/>
 <table class="upfile" id="shiptable_amazon">
 	<tr>
-		<td style="width: 250px;font-size: 20px;font-weight: bold;">
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			Amazon発送情報導入
 		</td>
 		<td style="width: 120px;font-size: 16px;">
@@ -252,7 +252,7 @@
 <br/>
 <table class="upfile" id="shiptable_qoo10">
 	<tr>
-		<td style="width: 250px;font-size: 20px;font-weight: bold;">
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			Qoo10発送情報導入
 		</td>
 		<td style="width: 120px;font-size: 16px;">
