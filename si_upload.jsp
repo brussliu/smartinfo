@@ -26,6 +26,13 @@
 	            $("#pagehead").html(t);
 
 	            $("#shop").val(shop);
+
+	            if(shop = 'Smart-KM'){
+
+	            	$("#onboardstocktable #import").hide();
+	            	$("#onboardstocktable #importfile_onboardstock").hide();
+	            	
+	            }
 			 
 			});
 
