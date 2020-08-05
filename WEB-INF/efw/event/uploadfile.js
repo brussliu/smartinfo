@@ -158,6 +158,7 @@ uploadfile.fire=function(params){
 
 					var sku = excelXSSF.getValue(sheetName, skuX + y);
 					var asin = excelXSSF.getValue(sheetName, asinX + y);
+					var label = "";
 
 					if(sku != null && sku.length > 0 && asin != null && asin.length > 0){
 
@@ -176,7 +177,8 @@ uploadfile.fire=function(params){
 							"delLocalstockKM",
 							{
 								"sku":sku,
-								"asin":asin
+								"asin":asin,
+								"label":label
 							}
 						);
 
@@ -187,7 +189,8 @@ uploadfile.fire=function(params){
 								"localstock":localstock,
 								"onboardstock":onboardstock,
 								"sku":sku,
-								"asin":asin
+								"asin":asin,
+								"label":label
 							}
 						);
 
@@ -209,153 +212,259 @@ uploadfile.fire=function(params){
 
 			var RC_labelX = ["F","G","H","I","J","K"];
 			var RC_localStockX = ["X","Y","Z","AA","AB","AC"];
+			var RC_onboardStockX = ["AD","AE","AF","AG","AH","AI"];
 			var RC_labelY_from = 4;
 			var RC_labelY_to = 30;
 
 			var sheetName = "在庫情報（雨衣）";
 
-			for(var x = 0;x < RC_labelX.length;x ++){
 
-				for(var y = RC_labelY_from;y <= RC_labelY_to;y ++){
+			for(var y = RC_labelY_from;y <= RC_labelY_to;y++){
 
+				for(var x = 0;x < RC_labelX.length;x ++){
+
+					var sku = "";
+					var asin = "";
 					var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
 
 					if(label != null && label.length > 0){
 
 						var localstock = excelXSSF.getValue(sheetName, RC_localStockX[x] + y);
+						var onboardstock = excelXSSF.getValue(sheetName, RC_onboardStockX[x] + y);
 
 						if(localstock == null || localstock.length == 0){
 							localstock = "0";
 						}
+						if(onboardstock == null || onboardstock.length == 0){
+							onboardstock = "0";
+						}
 
-						var updateResult = db.change(
+						var delResult = db.change(
 							"UPLOAD",
-							"updateLocalstock",
+							"delLocalstock",
+							{
+								"sku":sku,
+								"asin":asin,
+								"label":label
+							}
+						);
+
+						var insResult = db.change(
+							"UPLOAD",
+							"insLocalstock",
 							{
 								"localstock":localstock,
+								"onboardstock":onboardstock,
+								"sku":sku,
+								"asin":asin,
 								"label":label
 							}
 						);
 
 						count = count + 1;
+
+					}else{
+
+						continue;
+
 					}
 
 				}
+
 			}
 
 
 			var PJ_labelX = ["F","G","H","I","J","K"];
 			var PJ_localStockX = ["R","S","T","U","V","W"];
+			var PJ_onboardStockX = ["X","Y","Z","AA","AB","AC"];
 			var PJ_labelY_from = 4;
 			var PJ_labelY_to = 11;
 
 			var sheetName = "在庫情報（居家服）";
 
-			for(var x = 0;x < PJ_labelX.length;x ++){
+			for(var y = PJ_labelY_from;y <= PJ_labelY_to;y++){
 
-				for(var y = PJ_labelY_from;y <= PJ_labelY_to;y ++){
+				for(var x = 0;x < PJ_labelX.length;x ++){
 
+					var sku = "";
+					var asin = "";
 					var label = excelXSSF.getValue(sheetName, PJ_labelX[x] + y);
 
 					if(label != null && label.length > 0){
 
 						var localstock = excelXSSF.getValue(sheetName, PJ_localStockX[x] + y);
+						var onboardstock = excelXSSF.getValue(sheetName, PJ_onboardStockX[x] + y);
 
 						if(localstock == null || localstock.length == 0){
 							localstock = "0";
 						}
+						if(onboardstock == null || onboardstock.length == 0){
+							onboardstock = "0";
+						}
 
-						var updateResult = db.change(
+						var delResult = db.change(
 							"UPLOAD",
-							"updateLocalstock",
+							"delLocalstock",
+							{
+								"sku":sku,
+								"asin":asin,
+								"label":label
+							}
+						);
+
+						var insResult = db.change(
+							"UPLOAD",
+							"insLocalstock",
 							{
 								"localstock":localstock,
+								"onboardstock":onboardstock,
+								"sku":sku,
+								"asin":asin,
 								"label":label
 							}
 						);
 
 						count = count + 1;
+
+					}else{
+
+						continue;
+
 					}
 
 				}
+
 			}
 
 
 			var UB_labelX = ["F"];
 			var UB_localStockX = ["H"];
+			var UB_onboardStockX = ["I"];
 			var UB_labelY_from = 4;
 			var UB_labelY_to = 13;
 
 			var sheetName = "在庫情報（雨伞等）";
 
-			for(var x = 0;x < UB_labelX.length;x ++){
+			for(var y = UB_labelY_from;y <= UB_labelY_to;y++){
 
-				for(var y = UB_labelY_from;y <= UB_labelY_to;y ++){
+				for(var x = 0;x < UB_labelX.length;x ++){
 
+					var sku = "";
+					var asin = "";
 					var label = excelXSSF.getValue(sheetName, UB_labelX[x] + y);
 
 					if(label != null && label.length > 0){
 
 						var localstock = excelXSSF.getValue(sheetName, UB_localStockX[x] + y);
+						var onboardstock = excelXSSF.getValue(sheetName, UB_onboardStockX[x] + y);
 
 						if(localstock == null || localstock.length == 0){
 							localstock = "0";
 						}
+						if(onboardstock == null || onboardstock.length == 0){
+							onboardstock = "0";
+						}
 
-						var updateResult = db.change(
+						var delResult = db.change(
 							"UPLOAD",
-							"updateLocalstock",
+							"delLocalstock",
+							{
+								"sku":sku,
+								"asin":asin,
+								"label":label
+							}
+						);
+
+						var insResult = db.change(
+							"UPLOAD",
+							"insLocalstock",
 							{
 								"localstock":localstock,
+								"onboardstock":onboardstock,
+								"sku":sku,
+								"asin":asin,
 								"label":label
 							}
 						);
 
 						count = count + 1;
+
+					}else{
+
+						continue;
+
 					}
 
 				}
+
 			}
 
 			var RB_labelX = ["H"];
 			var RB_localStockX = ["J"];
+			var RB_onboardStockX = ["K"];
 			var RB_labelY_from = 4;
 			var RB_labelY_to = 132;
 
 			var sheetName = "在庫情報（雨靴）";
 
-			for(var x = 0;x < RB_labelX.length;x ++){
+			for(var y = RB_labelY_from;y <= RB_labelY_to;y++){
 
-				for(var y = RB_labelY_from;y <= RB_labelY_to;y ++){
+				for(var x = 0;x < RB_labelX.length;x ++){
 
+					var sku = "";
+					var asin = "";
 					var label = excelXSSF.getValue(sheetName, RB_labelX[x] + y);
 
 					if(label != null && label.length > 0){
 
 						var localstock = excelXSSF.getValue(sheetName, RB_localStockX[x] + y);
+						var onboardstock = excelXSSF.getValue(sheetName, RB_onboardStockX[x] + y);
 
 						if(localstock == null || localstock.length == 0){
 							localstock = "0";
 						}
+						if(onboardstock == null || onboardstock.length == 0){
+							onboardstock = "0";
+						}
 
-						var updateResult = db.change(
+						var delResult = db.change(
 							"UPLOAD",
-							"updateLocalstock",
+							"delLocalstock",
+							{
+								"sku":sku,
+								"asin":asin,
+								"label":label
+							}
+						);
+
+						var insResult = db.change(
+							"UPLOAD",
+							"insLocalstock",
 							{
 								"localstock":localstock,
+								"onboardstock":onboardstock,
+								"sku":sku,
+								"asin":asin,
 								"label":label
 							}
 						);
 
 						count = count + 1;
+
+					}else{
+
+						continue;
+
 					}
 
 				}
+
 			}
 
 
-			var W_labelX = "J";
-			var W_localStockX = "M";
+			var W_labelX = ["J"];
+			var W_localStockX = ["M"];
+			var W_onboardStockX = ["N"];
 			var W_labelY_from = 4;
 			var W_labelY_to = 186;
 
@@ -363,26 +472,53 @@ uploadfile.fire=function(params){
 
 			for(var y = W_labelY_from;y <= W_labelY_to;y++){
 
-				var label = excelXSSF.getValue(sheetName, W_labelX + y);
+				for(var x = 0;x < W_labelX.length;x ++){
 
-				if(label != null && label.length > 0){
+					var sku = "";
+					var asin = "";
+					var label = excelXSSF.getValue(sheetName, W_labelX[x] + y);
 
-					var localstock = excelXSSF.getValue(sheetName, W_localStockX + y);
+					if(label != null && label.length > 0){
 
-					if(localstock == null || localstock.length == 0){
-						localstock = "0";
-					}
+						var localstock = excelXSSF.getValue(sheetName, W_localStockX[x] + y);
+						var onboardstock = excelXSSF.getValue(sheetName, W_onboardStockX[x] + y);
 
-					var updateResult = db.change(
-						"UPLOAD",
-						"updateLocalstock",
-						{
-							"localstock":localstock,
-							"label":label
+						if(localstock == null || localstock.length == 0){
+							localstock = "0";
 						}
-					);
+						if(onboardstock == null || onboardstock.length == 0){
+							onboardstock = "0";
+						}
 
-					count = count + 1;
+						var delResult = db.change(
+							"UPLOAD",
+							"delLocalstock",
+							{
+								"sku":sku,
+								"asin":asin,
+								"label":label
+							}
+						);
+
+						var insResult = db.change(
+							"UPLOAD",
+							"insLocalstock",
+							{
+								"localstock":localstock,
+								"onboardstock":onboardstock,
+								"sku":sku,
+								"asin":asin,
+								"label":label
+							}
+						);
+
+						count = count + 1;
+
+					}else{
+
+						continue;
+
+					}
 
 				}
 

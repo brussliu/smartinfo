@@ -26,13 +26,6 @@
 	            $("#pagehead").html(t);
 
 	            $("#shop").val(shop);
-
-	            if(shop == "Smart-KM"){
-
-	            	$("#onboardstocktable #import").hide();
-	            	$("#onboardstocktable #importfile_onboardstock").hide();
-	            	
-	            }
 			 
 			});
 
@@ -148,7 +141,7 @@
 <table class="upfile" id="localstocktable">
 	<tr>
 		<td style="width: 350px;font-size: 20px;font-weight: bold;">
-			LOCAL在庫情報導入
+			在庫情報導入
 		</td>
 		<td style="width: 120px;font-size: 16px;">
 			前回導入日時：
@@ -167,32 +160,6 @@
 		</td>
 		<td colspan="2" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'localstock',liststock:''})">
-		</td>
-	</tr>
-</table>
-<br/>
-<table class="upfile" id="onboardstocktable">
-	<tr>
-		<td style="width: 350px;font-size: 20px;font-weight: bold;">
-			ONBOARD在庫情報導入
-		</td>
-		<td style="width: 120px;font-size: 16px;">
-			前回導入日時：
-		</td>
-		<td style="width: 220px;font-size: 16px;" class="importtime">
-		</td>
-		<td style="width: 120px;font-size: 16px;">
-			前回導入件数：
-		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
-		</td>
-	</tr>
-	<tr>
-		<td colspan="3">
-			<input type="file" id="importfile_onboardstock" style="width: 400px;height: 30px;">
-		</td>
-		<td colspan="2" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'onboardstock',liststock:''})">
 		</td>
 	</tr>
 </table>
