@@ -173,7 +173,7 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstock",
+							"delLocalstockFBM",
 							{
 								"sku":sku,
 								"asin":asin,
@@ -241,7 +241,7 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstock",
+							"delLocalstockFBA",
 							{
 								"sku":sku,
 								"asin":asin,
@@ -306,7 +306,7 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstock",
+							"delLocalstockFBA",
 							{
 								"sku":sku,
 								"asin":asin,
@@ -371,7 +371,7 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstock",
+							"delLocalstockFBA",
 							{
 								"sku":sku,
 								"asin":asin,
@@ -435,7 +435,7 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstock",
+							"delLocalstockFBA",
 							{
 								"sku":sku,
 								"asin":asin,
@@ -500,7 +500,7 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstock",
+							"delLocalstockFBA",
 							{
 								"sku":sku,
 								"asin":asin,

@@ -387,14 +387,18 @@
 
 	</sql>
 
-	<sql id="delLocalstock">
+	<sql id="delLocalstockFBA">
+		DELETE FROM "INPUT_在庫情報"
+		WHERE
+			"ラベル番号" = :label
+	</sql>
+
+	<sql id="delLocalstockFBM">
 		DELETE FROM "INPUT_在庫情報"
 		WHERE
 			"SKU番号" = :sku
 			AND
 			"ASIN番号" = :asin
-			AND
-			"ラベル番号" = :label
 	</sql>
 
 	<sql id="insLocalstock">
