@@ -343,7 +343,7 @@ uploadfile.fire=function(params){
 			var UB_localStockX = ["H"];
 			var UB_onboardStockX = ["I"];
 			var UB_labelY_from = 4;
-			var UB_labelY_to = 13;
+			var UB_labelY_to = 14;
 
 			var sheetName = "在庫情報（雨伞等）";
 
