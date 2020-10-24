@@ -261,14 +261,13 @@
 			:col5,--商品名称
 			:col6,--価格
 			:col7,--FBM在庫数量
-			:col8,--FBM在庫数量
-			:col9,--FBA在庫数量
-			:col10,--商品種別
-			:col11, --出品タイプ
-			:col12, --写真
-			:col13, --並び順
-			:col14, --色
-			:col15 --サイズ
+			:col8,--FBA在庫数量
+			:col9,--商品種別
+			:col10, --出品タイプ
+			:col11, --写真
+			:col12, --並び順
+			:col13, --色
+			:col14 --サイズ
 		)
 	</sql>
 	<sql id="selectSubInfo">

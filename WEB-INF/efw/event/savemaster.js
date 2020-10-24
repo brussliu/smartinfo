@@ -80,15 +80,14 @@ savemaster.fire=function(params){
 			"col4":oya_label,
 			"col5":oya_productname,
 			"col6":oya_price,
-			"col7":oya_localstock,
-			"col8":oya_fbmstock,
-			"col9":oya_fbastock,
-			"col10":oya_producttype,
-			"col11":oya_selltype,
-			"col12":picArr[0],
-			"col13":oya_sort,
-			"col14":oya_color,
-			"col15":oya_size
+			"col7":oya_fbmstock,
+			"col8":oya_fbastock,
+			"col9":oya_producttype,
+			"col10":oya_selltype,
+			"col11":picArr[0],
+			"col12":oya_sort,
+			"col13":oya_color,
+			"col14":oya_size
 		}
 	);
 
@@ -156,15 +155,14 @@ savemaster.fire=function(params){
 				"col4":sub_label,
 				"col5":sub_productname,
 				"col6":sub_price,
-				"col7":"",
-				"col8":sub_fbmstock,
-				"col9":sub_fbastock,
-				"col10":sub_producttype,
-				"col11":sub_selltype,
-				"col12":"",
-				"col13":i+1,
-				"col14":sub_color,
-				"col15":sub_size
+				"col7":sub_fbmstock,
+				"col8":sub_fbastock,
+				"col9":sub_producttype,
+				"col10":sub_selltype,
+				"col11":"",
+				"col12":i+1,
+				"col13":sub_color,
+				"col14":sub_size
 			}
 		);
 
