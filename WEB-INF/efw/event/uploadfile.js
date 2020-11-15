@@ -1,22 +1,27 @@
 var uploadfile={};
 uploadfile.name="ファイルアップロード";
 uploadfile.paramsFormat={
+
+	// 商品マスタ情報
+	"#importfile_master":null,
+	// 出品詳細情報
 	"#importfile_product":null,
+	// FBA在庫情報
 	"#importfile_fba":null,
+	// 全注文情報
 	"#importfile_order":null,
+	// 在庫情報導入
 	"#importfile_localstock":null,
+	// 在庫情報統計
 	"#importfile_liststock":null,
 
+	// アマゾン発送情報導入
 	"#importfile_ship_amazon":null,
-
+	// Qoo10発送情報導入
 	"#importfile_ship_qoo10_order":null,
 	"#importfile_ship_qoo10_ship":null,
 
 	"liststock":null,
-
-	// "#output_liststock":null,
-	// "#update_liststock":null,
-	// "#add_liststock":null,
 
 	"data":null,
 	"#shop":null
@@ -31,7 +36,95 @@ uploadfile.fire=function(params){
 
 	var ret = new Result();
 
-	if(params["data"] == "product"){
+	if(params["data"] == "master"){
+
+		count = 0;
+		var fa = params["#importfile_master"].split("\\");
+		var f = fa[fa.length-1];
+
+		// データ全件削除
+		var delResult = db.change(
+			"UPLOAD",
+			"delAllMaster",
+			{shop:shopname}
+		);
+		
+		// Excelファイル
+		var excelXSSF = new Excel("upload/" + f);
+
+		var sheetName = "";
+		if(shopname == "Smart-Bear"){
+			sheetName = "新店";
+		}else if(shopname == "Smart-KM"){
+			sheetName = "旧店";
+		}
+
+		var shop_X = "B";
+		var p_no_X = "C";
+		var p_category_X = "D";
+		var p_type_X = "E";
+		var p_color_X = "F";
+		var p_size_X = "G";
+
+		var sku_X = "H";
+		var asin_X = "I";
+
+		var row_from = 2;
+		var row_to = 9999;
+
+		var count = 1;
+
+		for(var y = row_from;y <= row_to;y++){
+
+			var shop = excelXSSF.getValue(sheetName, shop_X + y);
+			var p_no = excelXSSF.getValue(sheetName, p_no_X + y);
+			var p_category = excelXSSF.getValue(sheetName, p_category_X + y);
+			var p_type = excelXSSF.getValue(sheetName, p_type_X + y);
+			var p_color = excelXSSF.getValue(sheetName, p_color_X + y);
+			var p_size = excelXSSF.getValue(sheetName, p_size_X + y);
+			var sku = excelXSSF.getValue(sheetName, sku_X + y);
+			var asin = excelXSSF.getValue(sheetName, asin_X + y);
+
+			if(shop == null || shop.length <= 0){
+				break;
+			}
+
+			var insertResult = db.change(
+				"UPLOAD",
+				"insertMaster",
+				{
+					"col0" : count,
+					"col1" : shopname,
+					"col2" : p_no,
+					"col3" : p_category,
+					"col4" : p_type,
+					"col5" : p_color,
+					"col6" : p_size,
+					"col7" : sku,
+					"col8" : asin
+				}
+			);
+
+			count = count + 1;
+
+		}
+
+
+		//"出品詳細レポート+01-26-2020.txt"
+		var d = new Date().format("yyyy-MM-dd");
+
+		var historyResult = db.change(
+			"UPLOAD",
+			"insertHistory",
+			{
+				"col0":shopname,
+				"col1":"master",
+				"col2":d,
+				"col3":count
+			}
+		);
+	
+	}else if(params["data"] == "product"){
 
 		count = 0;
 		var fa = params["#importfile_product"].split("\\");
@@ -173,11 +266,10 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstockFBM",
+							"delLocalstock",
 							{
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -188,8 +280,7 @@ uploadfile.fire=function(params){
 								"localstock":localstock,
 								"onboardstock":onboardstock,
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -223,9 +314,23 @@ uploadfile.fire=function(params){
 
 				for(var x = 0;x < RC_labelX.length;x ++){
 
-					var sku = "";
-					var asin = "";
 					var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
+
+					var detailResult = db.select(
+						"UPLOAD",
+						"searchSKUASIN",
+						{
+							label:label,
+							shop:shopname
+						}
+					).getArray();
+
+					if(detailResult == null || detailResult.length <= 0){
+						continue;
+					}
+
+					var sku = detailResult[0]["sku"];
+					var asin = detailResult[0]["asin"];
 
 					if(label != null && label.length > 0){
 
@@ -241,11 +346,10 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstockFBA",
+							"delLocalstock",
 							{
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -256,8 +360,7 @@ uploadfile.fire=function(params){
 								"localstock":localstock,
 								"onboardstock":onboardstock,
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -288,10 +391,21 @@ uploadfile.fire=function(params){
 
 				for(var x = 0;x < PJ_labelX.length;x ++){
 
-					var sku = "";
-					var asin = "";
 					var label = excelXSSF.getValue(sheetName, PJ_labelX[x] + y);
+					var detailResult = db.select(
+						"UPLOAD",
+						"searchSKUASIN",
+						{
+							label:label,
+							shop:shopname
+						}
+					).getArray();
+					if(detailResult == null || detailResult.length <= 0){
+						continue;
+					}
 
+					var sku = detailResult[0]["sku"];
+					var asin = detailResult[0]["asin"];
 					if(label != null && label.length > 0){
 
 						var localstock = excelXSSF.getValue(sheetName, PJ_localStockX[x] + y);
@@ -306,11 +420,10 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstockFBA",
+							"delLocalstock",
 							{
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -321,8 +434,7 @@ uploadfile.fire=function(params){
 								"localstock":localstock,
 								"onboardstock":onboardstock,
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -353,9 +465,21 @@ uploadfile.fire=function(params){
 
 				for(var x = 0;x < UB_labelX.length;x ++){
 
-					var sku = "";
-					var asin = "";
 					var label = excelXSSF.getValue(sheetName, UB_labelX[x] + y);
+					var detailResult = db.select(
+						"UPLOAD",
+						"searchSKUASIN",
+						{
+							label:label,
+							shop:shopname
+						}
+					).getArray();
+					if(detailResult == null || detailResult.length <= 0){
+						continue;
+					}
+
+					var sku = detailResult[0]["sku"];
+					var asin = detailResult[0]["asin"];
 
 					if(label != null && label.length > 0){
 
@@ -371,11 +495,10 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstockFBA",
+							"delLocalstock",
 							{
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -386,8 +509,7 @@ uploadfile.fire=function(params){
 								"localstock":localstock,
 								"onboardstock":onboardstock,
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -417,9 +539,21 @@ uploadfile.fire=function(params){
 
 				for(var x = 0;x < RB_labelX.length;x ++){
 
-					var sku = "";
-					var asin = "";
 					var label = excelXSSF.getValue(sheetName, RB_labelX[x] + y);
+					var detailResult = db.select(
+						"UPLOAD",
+						"searchSKUASIN",
+						{
+							label:label,
+							shop:shopname
+						}
+					).getArray();
+					if(detailResult == null || detailResult.length <= 0){
+						continue;
+					}
+
+					var sku = detailResult[0]["sku"];
+					var asin = detailResult[0]["asin"];
 
 					if(label != null && label.length > 0){
 
@@ -435,11 +569,10 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstockFBA",
+							"delLocalstock",
 							{
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -450,8 +583,7 @@ uploadfile.fire=function(params){
 								"localstock":localstock,
 								"onboardstock":onboardstock,
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -482,9 +614,23 @@ uploadfile.fire=function(params){
 
 				for(var x = 0;x < W_labelX.length;x ++){
 
-					var sku = "";
-					var asin = "";
 					var label = excelXSSF.getValue(sheetName, W_labelX[x] + y);
+					var detailResult = db.select(
+						"UPLOAD",
+						"searchSKUASIN",
+						{
+							label:label,
+							shop:shopname
+						}
+					).getArray();
+
+					detailResult.debug("ZZZZZZZZZZZZZZZZZZZZZ");
+					if(detailResult == null || detailResult.length <= 0){
+						continue;
+					}
+
+					var sku = detailResult[0]["sku"];
+					var asin = detailResult[0]["asin"];
 
 					if(label != null && label.length > 0){
 
@@ -500,11 +646,10 @@ uploadfile.fire=function(params){
 
 						var delResult = db.change(
 							"UPLOAD",
-							"delLocalstockFBA",
+							"delLocalstock",
 							{
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -515,8 +660,7 @@ uploadfile.fire=function(params){
 								"localstock":localstock,
 								"onboardstock":onboardstock,
 								"sku":sku,
-								"asin":asin,
-								"label":label
+								"asin":asin
 							}
 						);
 
@@ -941,6 +1085,7 @@ function importShipAmazonInfo(aryField, index) {
 	}
 
 };
+
 
 function importProductInfo(aryField, index) {
 

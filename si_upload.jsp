@@ -60,6 +60,33 @@
 </div>
 <input type="hidden" id="shop">
 <br/>
+<table class="upfile" id="mastertable">
+	<tr>
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
+			商品マスタ情報
+		</td>
+		<td style="width: 120px;font-size: 16px;">
+			前回導入日時：
+		</td>
+		<td style="width: 220px;font-size: 16px;" class="importtime">
+		</td>
+		<td style="width: 120px;font-size: 16px;">
+			前回導入件数：
+		</td>
+		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="file" id="importfile_master" style="width: 400px;height: 30px;">
+		</td>
+		<td colspan="3" style="text-align: right;">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導出" onclick="Efw('outputmaster')">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'master',liststock:''})">
+		</td>
+	</tr>
+</table>
+<br/>
 <table class="upfile" id="producttable">
 	<tr>
 		<td style="width: 350px;font-size: 20px;font-weight: bold;">
@@ -77,10 +104,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="2">
 			<input type="file" id="importfile_product" style="width: 400px;height: 30px;">
 		</td>
-		<td colspan="2" style="text-align: right;">
+		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'product',liststock:''})">
 		</td>
 	</tr>
@@ -103,10 +130,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="2">
 			<input type="file" id="importfile_fba" style="width: 400px;height: 30px;">
 		</td>
-		<td colspan="2" style="text-align: right;">
+		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'fba',liststock:''})">
 		</td>
 	</tr>
@@ -129,10 +156,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="2">
 			<input type="file" id="importfile_order" style="width: 400px;height: 30px;">
 		</td>
-		<td colspan="2" style="text-align: right;">
+		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'order',liststock:''})">
 		</td>
 	</tr>
@@ -155,10 +182,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="2">
 			<input type="file" id="importfile_localstock" style="width: 400px;height: 30px;">
 		</td>
-		<td colspan="2" style="text-align: right;">
+		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'localstock',liststock:''})">
 		</td>
 	</tr>
@@ -181,10 +208,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="2">
 			<input type="file" id="importfile_liststock" style="width: 400px;height: 30px;">
 		</td>
-		<td colspan="2" style="text-align: right;">
+		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="importData();">
 		</td>
 	</tr>
@@ -215,10 +242,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="2">
 			<input type="file" id="importfile_ship_amazon" style="width: 400px;height: 30px;">
 		</td>
-		<td colspan="2" style="text-align: right;">
+		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_amazon',liststock:''})">
 		</td>
 	</tr>
@@ -241,20 +268,20 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="2">
 			商品情報<br>
 			<input type="file" id="importfile_ship_qoo10_order" style="width: 400px;height: 30px;">
 		</td>
-		<td colspan="2" style="text-align: right;">
+		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_order',liststock:''})">
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="2">
 			発送情報<br>
 			<input type="file" id="importfile_ship_qoo10_ship" style="width: 400px;height: 30px;">
 		</td>
-		<td colspan="2" style="text-align: right;">
+		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_ship',liststock:''})">
 		</td>
 	</tr>

@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqls>
 <sqls>
+<sql id="selectmaster">
+		SELECT
+			T1."店舗名" as shopname,
+			T1."商品管理番号" as productno,
+			T1."商品分類" as productdiv,
+			T1."商品種別" as producttype,
+			T1."色" as color,
+			T1."サイズ" as size,
+			T1."SKU番号" as sku,
+			T1."ASIN番号" as asin
+		FROM
+			"NEW_出品マスタ情報" T1
+		WHERE
+			T1."店舗名" = :shop
+		ORDER BY
+			TO_NUMBER(T1."req_no",'999')
+	</sql>
+
 	<sql id="selectmasterlist1">
 		SELECT
 		 T1."商品管理番号" as productno,

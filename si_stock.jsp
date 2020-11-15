@@ -125,73 +125,6 @@
 			Efw('outputstock',{'productdiv': productdivArr});
         }
 
-   //      function outputstock(){
-
-	  //       var p_no = new Array();
-	  //       var p_color = new Array();
-	  //       var p_size = new Array();
-	  //       var p_sku = new Array();
-	  //       var p_asin = new Array();
-	  //       var p_label = new Array();
-	  //       var p_nm = new Array();
-	  //       var p_selledweek = new Array();
-	  //       var p_fbm = new Array();
-	  //       var p_fba = new Array();
-	  //       var p_onsellweek = new Array();
-
-			// $("#stocktable").find("tr").each(function(){
-
-			//     var tdArr = $(this).children();
-			//     var checkflg = tdArr.eq(0).children()[0].checked;
-
-			//     if(checkflg){
-
-		 //        	var productno = tdArr.eq(1).html();
-		 //        	var productcolor = tdArr.eq(3).html();
-		 //        	var productsize = tdArr.eq(4).html();
-			// 		var productsku = tdArr.eq(5).html();
-			// 		var productasin = tdArr.eq(6).html();
-			// 		var productlabel = tdArr.eq(7).html();
-			// 		var productname = tdArr.eq(8).html();
-			// 		var productselledweek = tdArr.eq(14).html();
-			// 		var productfbm = tdArr.eq(15).html();
-			// 		var productfba = tdArr.eq(16).html();
-			// 		var productonsellweek = tdArr.eq(21).html();
-
-	  //       		p_no.push(productno);
-	  //       		p_color.push(productcolor);
-	  //       		p_size.push(productsize);
-			// 		p_sku.push(productsku);
-			// 		p_asin.push(productasin);
-			// 		p_label.push(productlabel);
-			// 		p_nm.push(productname);
-			// 		p_selledweek.push(productselledweek);
-			// 		p_fbm.push(productfbm);
-			// 		p_fba.push(productfba);
-			// 		p_onsellweek.push(productonsellweek);
-
-			//     }
-
-			// });
-
-			// Efw('addstock',
-			// 	{
-			// 		'addproductno': p_no,
-			// 		'addproductcolor': p_color,
-			// 		'addproductsize': p_size,
-			// 		'addproductsku': p_sku,
-			// 		'addproductasin': p_asin,
-			// 		'addproductlabel': p_label,
-			// 		'addproductnm': p_nm,
-			// 		'addproductselledweek': p_selledweek,
-			// 		'addproductfbm': p_fbm,
-			// 		'addproductfba': p_fba,
-			// 		'addproductonsellweek': p_onsellweek
-			// 	}
-			// );
-
-   //      }
-
         function initstock(){
         	Efw('initstock');
         }
@@ -216,11 +149,6 @@
         }
 
   	</script>
-    <style>
-      .productlist {
-
-      }
-    </style>
 </head>
 <body style="background-color:ghostwhite;" onload="initstock();">
 	<efw:Part path="si_stock_inputdialog.jsp"/>

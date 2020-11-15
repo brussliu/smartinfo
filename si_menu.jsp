@@ -39,8 +39,10 @@
 	<tr>
 		<td><div style="text-align:center"><br>
 			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_upload.jsp',shop:'Smart-Bear'})">
+			<!--
 			<br><br>
 			<input type=button value="マスタ情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_master.jsp',shop:'Smart-Bear'})">
+			-->
 			<br><br>
 			<input type=button value="商品情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_product.jsp',shop:'Smart-Bear'})">
 			<br><br>
@@ -51,8 +53,10 @@
 		</div></td>
 		<td><div style="text-align:center"><br>
 			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_upload.jsp',shop:'Smart-KM'})">
+			<!--
 			<br><br>
 			<input type=button value="マスタ情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_master.jsp',shop:'Smart-KM'})">
+			-->
 			<br><br>
 			<input type=button value="商品情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_product.jsp',shop:'Smart-KM'})">
 			<br><br>

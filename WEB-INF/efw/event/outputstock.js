@@ -45,7 +45,7 @@ outputstock.fire=function(params){
 
 		var selectResult = db.select(
 			"STOCK",
-			"selectstockKM",
+			"selectstock",
 			{
 			shop:shopname,
 			basedate_order:params["#basedate_order_hidden"],

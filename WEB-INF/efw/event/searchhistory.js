@@ -16,11 +16,21 @@ searchhistory.fire=function(params){
 		{shop:shopname}
 	);
 
+	var masterArr = historyResult.seek("importtype","eq","master").getArray();
 	var productArr = historyResult.seek("importtype","eq","product").getArray();
 	var fbaArr = historyResult.seek("importtype","eq","fba").getArray();
 	var orderArr = historyResult.seek("importtype","eq","order").getArray();
 	var localstockArr = historyResult.seek("importtype","eq","localstock").getArray();
 	var onboardstockArr = historyResult.seek("importtype","eq","onboardstock").getArray();
+
+	if(masterArr.length > 0){
+		ret.runat("#mastertable").withdata(
+			{
+				".importtime": masterArr[0].importtime,
+				".importcount": masterArr[0].importcount
+			}
+	);
+}
 
 	if(productArr.length > 0){
 			ret.runat("#producttable").withdata(

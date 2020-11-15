@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqls>
 <sqls>
+	<sql id="delAllMaster">
+		DELETE FROM "NEW_出品マスタ情報" WHERE "店舗名" = :shop
+	</sql>
+	<sql id="insertMaster">
+		INSERT INTO "NEW_出品マスタ情報"
+		VALUES (
+			:col0,--REQ_NO
+			:col1,--店舗名
+			:col2,--商品管理番号
+			:col3,--商品分類
+			:col4,--商品種別
+			:col5,--色
+			:col6,--サイズ
+			:col7,--SKU番号
+			:col8 --ASIN番号
+		)
+	</sql>
 	<sql id="delAllProduct">
 		DELETE FROM "INPUT_出品詳細情報" WHERE "店舗名" = :shop
 	</sql>
@@ -387,14 +404,8 @@
 
 	</sql>
 
-	<sql id="delLocalstockFBA">
-		DELETE FROM "INPUT_在庫情報"
-		WHERE
-			"ラベル番号" = :label
-	</sql>
-
-	<sql id="delLocalstockFBM">
-		DELETE FROM "INPUT_在庫情報"
+	<sql id="delLocalstock">
+		DELETE FROM "NEW_在庫情報"
 		WHERE
 			"SKU番号" = :sku
 			AND
@@ -402,15 +413,30 @@
 	</sql>
 
 	<sql id="insLocalstock">
-		INSERT INTO "INPUT_在庫情報"
+		INSERT INTO "NEW_在庫情報"
 		VALUES (
 			:sku,
 			:asin,
 			:localstock,
-			:onboardstock,
-			:label
+			:onboardstock
 		)
 	</sql>
+
+	<sql id="searchSKUASIN">
+		SELECT 
+			T1."SKU番号" as sku,
+			T1."ASIN番号" as asin
+		FROM
+			"NEW_出品マスタ情報" T1
+			JOIN "INPUT_FBA在庫情報" T2 ON  T1."SKU番号" = T2."SKU番号" AND T1."ASIN番号" = T2."ASIN番号"
+		WHERE
+			T2."ラベル番号" = :label
+			and
+			T1."店舗名" = :shop
+	</sql>
+
+
+
 
 </sqls>
 
