@@ -496,12 +496,12 @@ outputstock.fire=function(params){
 
 				var sheetName = "在庫情報（袜子）";
 
-				for(var y = W_labelY_from;y <= W_labelY_to;y ++){
+				for(var y = W_labelY_from;y <= 9999;y ++){
 
 						var excellabelno = excel.getValue(sheetName, W_labelX + y);
 
-						if(excellabelno == null){
-							continue;
+						if(excellabelno == null || excellabelno.length <= 0){
+							break;
 						}
 						if(excellabelno == labelno){
 
