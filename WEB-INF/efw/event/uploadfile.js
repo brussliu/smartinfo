@@ -527,7 +527,7 @@ uploadfile.fire=function(params){
 			var RB_localStockX = ["J"];
 			var RB_onboardStockX = ["K"];
 			var RB_labelY_from = 4;
-			var RB_labelY_to = 132;
+			var RB_labelY_to = 142;
 
 			var sheetName = "在庫情報（雨靴）";
 
