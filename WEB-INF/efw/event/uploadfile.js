@@ -72,8 +72,6 @@ uploadfile.fire=function(params){
 		var row_from = 2;
 		var row_to = 9999;
 
-		var count = 1;
-
 		for(var y = row_from;y <= row_to;y++){
 
 			var shop = excelXSSF.getValue(sheetName, shop_X + y);
@@ -1134,6 +1132,8 @@ function importProductInfo(aryField, index) {
 		);
 
 		count = count + 1;
+
+		count.debug("CCCCCCCCCCCCCCCCCCCCc");
 
 	}
 
