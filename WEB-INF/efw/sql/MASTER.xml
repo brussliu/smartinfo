@@ -16,7 +16,7 @@
 		WHERE
 			T1."店舗名" = :shop
 		ORDER BY
-			TO_NUMBER(T1."req_no",'999')
+			TO_NUMBER(T1."req_no",'9999')
 	</sql>
 
 	<sql id="selectmasterlist1">
