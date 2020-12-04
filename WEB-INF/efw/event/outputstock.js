@@ -70,7 +70,7 @@ outputstock.fire=function(params){
 
 			var price = selectResult[i]["price"];
 
-			var fbaflg = "FBA";
+			var fbaflg = "";
 
 
 			var fba;
