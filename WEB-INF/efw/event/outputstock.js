@@ -76,16 +76,19 @@ outputstock.fire=function(params){
 			var fba;
 			if(selectResult[i]["fba"] == null || selectResult[i]["fba"].length == 0){
 				fba = 0;
-				fbaflg = "FBM";
+				
 			}else{
 				fba = parseInt(selectResult[i]["fba"]);
+				fbaflg = "FBA";
 			}
 
 			var fbm;
 			if(selectResult[i]["fbm"] == null || selectResult[i]["fbm"].length == 0){
 				fbm = 0;
+				
 			}else{
 				fbm = parseInt(selectResult[i]["fbm"]);
+				fbaflg = "FBM";
 			}
 
 			var localstock;
