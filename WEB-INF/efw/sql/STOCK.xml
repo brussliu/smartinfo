@@ -101,8 +101,8 @@
 				T0."商品種別",
 				T0."色",
 				T0."サイズ",
-				T0."SKU番号",
-				T0."ASIN番号",
+				DETAIL."出品者SKU" as "SKU番号",
+				DETAIL."ASIN 1" as T0."ASIN番号",
 				FBA."ラベル番号",
 				DETAIL."商品名",
 				COALESCE(T1."前日数量",0) as "前日数量",
@@ -127,7 +127,7 @@
 					SELECT
 						T."SKU番号",
 						T."ASIN番号",
-						SUM(TO_NUMBER(T."数量",'999')) as "前日数量"
+						SUM(TO_NUMBER(T."数量",'9999')) as "前日数量"
 					FROM 
 						"INPUT_注文情報" T
 					WHERE
@@ -145,7 +145,7 @@
 					SELECT
 						T."SKU番号",
 						T."ASIN番号",
-						SUM(TO_NUMBER(T."数量",'999')) as "7日間数量"
+						SUM(TO_NUMBER(T."数量",'9999')) as "7日間数量"
 					FROM 
 						"INPUT_注文情報" T
 					WHERE
@@ -163,7 +163,7 @@
 					SELECT
 						T."SKU番号",
 						T."ASIN番号",
-						SUM(TO_NUMBER(T."数量",'999')) as "30日間数量"
+						SUM(TO_NUMBER(T."数量",'9999')) as "30日間数量"
 					FROM 
 						"INPUT_注文情報" T
 					WHERE
@@ -181,7 +181,7 @@
 					SELECT
 						T."SKU番号",
 						T."ASIN番号",
-						SUM(TO_NUMBER(T."数量",'999')) as "60日間数量"
+						SUM(TO_NUMBER(T."数量",'9999')) as "60日間数量"
 					FROM 
 						"INPUT_注文情報" T
 					WHERE
@@ -199,7 +199,7 @@
 					SELECT
 						T."SKU番号",
 						T."ASIN番号",
-						SUM(TO_NUMBER(T."数量",'999')) as "90日間数量"
+						SUM(TO_NUMBER(T."数量",'9999')) as "90日間数量"
 					FROM 
 						"INPUT_注文情報" T
 					WHERE
@@ -215,7 +215,7 @@
 			WHERE
 				DETAIL."店舗名" = :shop 
 		) TEMP
-		ORDER BY TO_NUMBER(TEMP."req_no",'999')
+		ORDER BY TO_NUMBER(TEMP."req_no",'9999')
 	</sql>
 
 </sqls>
