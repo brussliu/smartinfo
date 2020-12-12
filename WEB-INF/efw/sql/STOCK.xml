@@ -102,7 +102,7 @@
 				T0."色",
 				T0."サイズ",
 				DETAIL."出品者SKU" as "SKU番号",
-				DETAIL."ASIN 1" as T0."ASIN番号",
+				DETAIL."ASIN 1" as "ASIN番号",
 				FBA."ラベル番号",
 				DETAIL."商品名",
 				COALESCE(T1."前日数量",0) as "前日数量",
