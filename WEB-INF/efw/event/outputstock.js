@@ -92,10 +92,10 @@ outputstock.fire=function(params){
 			}
 
 			var localstock;
-			if(selectResult[i]["local"] == null || selectResult[i]["local"].length == 0){
+			if(selectResult[i]["localstock"] == null || selectResult[i]["localstock"].length == 0){
 				localstock = 0;
 			}else{
-				localstock = parseInt(selectResult[i]["local"]);
+				localstock = parseInt(selectResult[i]["localstock"]);
 			}
 
 			var onboardstock;
