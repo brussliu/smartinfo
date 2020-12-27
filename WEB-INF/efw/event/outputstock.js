@@ -495,7 +495,7 @@ outputstock.fire=function(params){
 			}
 
 			// 靴下
-			if(productno.substring(0,1) == "W"){
+			if(productno != null && productno.length > 0 && productno.substring(0,1) == "W"){
 
 				var sheetName = "在庫情報（袜子）";
 
