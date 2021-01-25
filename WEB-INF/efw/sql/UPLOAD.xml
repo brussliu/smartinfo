@@ -184,14 +184,6 @@
 		NB = 1
 	</sql>
 
-	<sql id="updateLocalstock">
-		update "MASTER_出品マスタ情報"
-		set
-		"LOCAL在庫数量" = :localstock
-		where
-		 "ラベル番号" = :label
-	</sql>
-
 	<sql id="updateOnboardstock">
 		update "MASTER_出品マスタ情報"
 		set
@@ -435,7 +427,7 @@
 			T1."店舗名" = :shop
 	</sql>
 
-	<sql id="updateLocalstock">
+	<sql id="updateNewLocalstock">
 		UPDATE "NEW_在庫情報"
 		SET
 			"LOCAL在庫数量" = "LOCAL在庫数量" - :delivery

@@ -1271,11 +1271,11 @@ function importDelivery(aryField, index) {
 
 		var insResult = db.change(
 			"UPLOAD",
-			"updateLocalstock",
+			"updateNewLocalstock",
 			{
 				"delivery":aryField[9],
 				"sku":aryField[0],
-				"asin":aryField[2],
+				"asin":aryField[2]
 			}
 		);
 
