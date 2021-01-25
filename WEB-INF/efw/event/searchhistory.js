@@ -22,6 +22,7 @@ searchhistory.fire=function(params){
 	var orderArr = historyResult.seek("importtype","eq","order").getArray();
 	var localstockArr = historyResult.seek("importtype","eq","localstock").getArray();
 	var onboardstockArr = historyResult.seek("importtype","eq","onboardstock").getArray();
+	var deliveryArr = historyResult.seek("importtype","eq","delivery").getArray();
 
 	if(masterArr.length > 0){
 		ret.runat("#mastertable").withdata(
@@ -73,6 +74,15 @@ searchhistory.fire=function(params){
 			{
 				".importtime": onboardstockArr[0].importtime,
 				".importcount": onboardstockArr[0].importcount
+			}
+		);
+	}
+
+	if(deliveryArr.length > 0){
+		ret.runat("#deliverytable").withdata(
+			{
+				".importtime": deliveryArr[0].importtime,
+				".importcount": deliveryArr[0].importcount
 			}
 		);
 	}

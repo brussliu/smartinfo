@@ -191,7 +191,7 @@
 	</tr>
 </table>
 <br/>
-<table class="upfile" id="localstocktable">
+<table class="upfile" id="deliverytable">
 	<tr>
 		<td style="width: 350px;font-size: 20px;font-weight: bold;">
 			納品情報導入

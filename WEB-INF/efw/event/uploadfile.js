@@ -14,6 +14,8 @@ uploadfile.paramsFormat={
 	"#importfile_localstock":null,
 	// 在庫情報統計
 	"#importfile_liststock":null,
+	// 納品情報導入
+	"#importfile_delivery":null,
 
 	// アマゾン発送情報導入
 	"#importfile_ship_amazon":null,
