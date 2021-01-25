@@ -1266,14 +1266,15 @@ function importDelivery(aryField, index) {
 
 		aryField.debug("WWWWWWWWWWWWWWWWWWWWWW");
 
-		// var insResult = db.change(
-		// 	"UPLOAD",
-		// 	"updateLocalstock",
-		// 	{
-		// 		"delivery":aryField[9],
-		// 		"sku":aryField[0]
-		// 	}
-		// );
+		var insResult = db.change(
+			"UPLOAD",
+			"updateLocalstock",
+			{
+				"delivery":aryField[9],
+				"sku":aryField[0],
+				"asin":aryField[2],
+			}
+		);
 
 		count = count + 1;
 

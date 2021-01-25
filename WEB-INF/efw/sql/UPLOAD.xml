@@ -441,7 +441,8 @@
 			"LOCAL在庫数量" = "LOCAL在庫数量" - :delivery
 		WHERE
 			"SKU番号" = :sku
-
+			AND
+			"ASIN番号" = :asin
 	</sql>
 
 
