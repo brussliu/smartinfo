@@ -435,6 +435,14 @@
 			T1."店舗名" = :shop
 	</sql>
 
+	<sql id="updateLocalstock">
+		UPDATE "NEW_在庫情報"
+		SET
+			"LOCAL在庫数量" = "LOCAL在庫数量" - :delivery
+		WHERE
+			"SKU番号" = :sku
+
+	</sql>
 
 
 

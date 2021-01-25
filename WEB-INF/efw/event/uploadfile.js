@@ -683,6 +683,31 @@ uploadfile.fire=function(params){
 
 		}
 
+	}else if(params["data"] == "delivery"){
+
+
+		count = 0;
+		var fa = params["#importfile_delivery"].split("\\");
+		var f = fa[fa.length-1];
+
+
+		var csvReader = new CSVReader("upload/" + f, "\t");
+
+		// データ全件導入
+		csvReader.loopAllLines(importDelivery);
+
+		var d = new Date().format("yyyy-MM-dd");
+
+		var historyResult = db.change(
+			"UPLOAD",
+			"insertHistory",
+			{
+				"col0":shopname,
+				"col1":"delivery",
+				"col2":d,
+				"col3":count
+			}
+		);
 
 
 	}else if(params["data"] == "liststock"){
@@ -796,7 +821,6 @@ uploadfile.fire=function(params){
 			excel.setCell("ALL", "H" + (r2 + 5), countInfo["color"]);
 			excel.setCell("ALL", "I" + (r2 + 5), countInfo["size"]);
 			excel.setCell("ALL", "J" + (r2 + 5), countInfo["count"]);
-
 
 			if(opt == "output"){
 
@@ -956,23 +980,13 @@ uploadfile.fire=function(params){
 };
 function getContent(tablehtml,start_txt,end_txt){
 
-	//tablehtml.debug("HHHHHHHHHHHHHHHHHHHH");
-
 	var start_index = tablehtml.indexOf(start_txt) + start_txt.length;
-
-	//start_index.debug("SSSSSSSSS");
 
 	var txt_temp = tablehtml.substring(start_index);
 
-	//txt_temp.debug("TTTTTTTTTTTT");
-
 	var end_index = start_index + txt_temp.indexOf(end_txt);
 
-	//end_index.debug("EEEEEEEEEEEEE");
-	
 	var content = tablehtml.substring(start_index,   end_index);
-
-	//content.debug("CCCCCCCCCCCCCC");
 
 	return content;
 
@@ -1239,6 +1253,27 @@ function importOrderInfo(aryField, index) {
 
 		count = count + 1;
 
+
+	}
+
+};
+
+function importDelivery(aryField, index) {
+
+	if(index > 8){
+
+		aryField.debug("WWWWWWWWWWWWWWWWWWWWWW");
+
+		// var insResult = db.change(
+		// 	"UPLOAD",
+		// 	"updateLocalstock",
+		// 	{
+		// 		"delivery":aryField[9],
+		// 		"sku":aryField[0]
+		// 	}
+		// );
+
+		count = count + 1;
 
 	}
 
