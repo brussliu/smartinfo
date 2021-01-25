@@ -430,7 +430,7 @@
 	<sql id="updateNewLocalstock">
 		UPDATE "NEW_在庫情報"
 		SET
-			"LOCAL在庫数量" = to_number("LOCAL在庫数量", '9999') - :delivery
+			"LOCAL在庫数量" = to_number("LOCAL在庫数量", '99999') - to_number(:delivery, '99999')
 		WHERE
 			"SKU番号" = :sku
 			AND
