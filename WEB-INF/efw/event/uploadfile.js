@@ -1265,6 +1265,9 @@ function importDelivery(aryField, index) {
 	if(index > 8){
 
 		aryField.debug("WWWWWWWWWWWWWWWWWWWWWW");
+		aryField[9].debug("qqqqqqqqqqqqqqqq1");
+		aryField[0].debug("qqqqqqqqqqqqqqqq2");
+		aryField[2].debug("qqqqqqqqqqqqqqqq3");
 
 		var insResult = db.change(
 			"UPLOAD",
