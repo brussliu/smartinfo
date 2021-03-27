@@ -301,8 +301,9 @@ uploadfile.fire=function(params){
 		}else{
 
 			var RC_labelX = ["F","G","H","I","J","K"];
-			var RC_localStockX = ["X","Y","Z","AA","AB","AC"];
-			var RC_onboardStockX = ["AD","AE","AF","AG","AH","AI"];
+			var RC_localStockX = ["R","S","T","U","V","W"];
+			var RC_onboardStockX = ["X","Y","Z","AA","AB","AC"];
+
 			var RC_labelY_from = 4;
 			var RC_labelY_to = 30;
 
@@ -528,7 +529,7 @@ uploadfile.fire=function(params){
 			var RB_labelX = ["H"];
 			var RB_localStockX = ["J"];
 			var RB_onboardStockX = ["K"];
-			var RB_labelY_from = 4;
+			var RB_labelY_from = 3;
 			var RB_labelY_to = 142;
 
 			var sheetName = "在庫情報（雨靴）";
