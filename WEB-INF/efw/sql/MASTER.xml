@@ -3,20 +3,26 @@
 <sqls>
 <sql id="selectmaster">
 		SELECT
-			T1."店舗名" as shopname,
-			T1."商品管理番号" as productno,
-			T1."商品分類" as productdiv,
-			T1."商品種別" as producttype,
-			T1."色" as color,
-			T1."サイズ" as size,
-			T1."SKU番号" as sku,
-			T1."ASIN番号" as asin
+			M."店舗名" as shopname,
+			M."商品管理番号" as productno,
+			M."商品分類" as productdiv,
+			M."商品種別" as producttype,
+			M."色" as color,
+			M."サイズ" as size,
+			M."SKU番号" as sku,
+			M."ASIN番号" as asin
 		FROM
-			"NEW_出品マスタ情報" T1
+			"NEW_出品マスタ情報" M
+			left join "MASTER_ソート情報" C on C."大区分" = M."商品管理番号" and C."小区分" = '色' and M."色" = C."内容"
+			left join "MASTER_ソート情報" S on S."大区分" = M."商品分類" and S."小区分" = 'サイズ' and M."サイズ" = S."内容"
 		WHERE
-			T1."店舗名" = :shop
+			M."店舗名" = :shop
 		ORDER BY
-			TO_NUMBER(T1."req_no",'9999')
+			M."店舗名",
+			M."商品管理番号",
+			M."商品種別",
+			COALESCE(C."ソート",M."色"),
+			COALESCE(S."ソート",M."サイズ")
 	</sql>
 
 	<sql id="selectmasterlist1">
