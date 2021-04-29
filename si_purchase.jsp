@@ -175,7 +175,7 @@
 			仕入内容：<input type="file" id="importfile_purchase" style="width: 400px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="新規登録" style="width:100px;" onclick="">
+			<input type=button value="新規登録" style="width:100px;height: 32px;" onclick="">
 		</td>
 		<td>
 		</td>
@@ -200,7 +200,7 @@
 		<td style="width: 100px;">届く日</td>
 		<td style="width: 100px;">受取日</td>
 	</tr>
-	<tr>
+	<tr style="height: 28px;">
 		<td rowspan="2">20210501-192356</td>
 		<td >20210501_靴下</td>
 		<td >999</td>
@@ -212,7 +212,7 @@
 		<td >2021/12/31</td>
 		<td >2021/12/31</td>
 	</tr>
-	<tr>
+	<tr style="height: 28px;">
 		<td colspan="4"><input type="file" id="importfile_purchase" style="width: 400px;"></td>
 		<td ><input type=button value="更　　新" style="width:80px;" onclick=""></td>
 		<td ><input type=button value="仕入確定" style="width:80px;" onclick=""></td>
