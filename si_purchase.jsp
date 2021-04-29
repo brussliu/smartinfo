@@ -134,9 +134,15 @@
 
 			//var file = $(obj).parent().prev().children(0);
 
-			alert($(obj).parent().prev().children(0));
+			alert($(obj).parent().parent().prev().children(0).html());
 
-			Efw('updatepurchase',{purchasefile:$(obj).parent().prev().children(0)});
+			Efw('updatepurchase', 
+				{
+					purchaseNo : $(obj).parent().parent().prev().children(0).html(), 
+					purchasefile : $(obj).parent().prev().children(0)
+				}
+			);
+
 
 		}
 
