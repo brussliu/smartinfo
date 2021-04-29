@@ -51,4 +51,23 @@
 			P1."ステータス",
 			P1."仕入NO"
 	</sql>
+	<sql id="insertPurchaseDetail">
+		INSERT INTO "仕入明細"
+		(
+			"仕入NO",
+			"SKU番号",
+			"ASIN番号", 
+			"単価", 
+			"数量", 
+			"金額"
+		)
+		VALUES (
+			:col0,--"仕入NO"
+			:col1,--"SKU番号"
+			:col2,--"ASIN番号"
+			:col3, --"単価"
+			:col4, --"数量"
+			:col5, --"金額"
+		)
+	</sql>
 </sqls>

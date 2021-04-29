@@ -43,61 +43,375 @@ addpurchase.fire=function(params){
 		}
 	);
 
-	// file.saveUploadFiles("upload");
+	file.saveUploadFiles("upload");
 
-	// var fa = params["#importfile_master"].split("\\");
-	// var f = fa[fa.length-1];
+	var fa = params["#importfile_master"].split("\\");
+	var f = fa[fa.length-1];
 
-	// // Excelファイル
-	// var excelXSSF = new Excel("upload/" + f);
+	// Excelファイル
+	var excelXSSF = new Excel("upload/" + f);
 
-	// var shop_X = "B";
-	// var p_no_X = "C";
-	// var p_category_X = "D";
-	// var p_type_X = "E";
-	// var p_color_X = "F";
-	// var p_size_X = "G";
+	if(shopname == "Smart-KM"){
 
-	// var sku_X = "H";
-	// var asin_X = "I";
+	}else{
 
-	// var row_from = 2;
-	// var row_to = 9999;
+		var RC_labelX = ["F","G","H","I","J","K"];
+		var RC_localStockX = ["R","S","T","U","V","W"];
+		var RC_onboardStockX = ["X","Y","Z","AA","AB","AC"];
+		var RC_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
 
-	// for(var y = row_from;y <= row_to;y++){
+		var RC_labelY_from = 4;
+		var RC_labelY_to = 30;
 
-	// 	var shop = excelXSSF.getValue(sheetName, shop_X + y);
-	// 	var p_no = excelXSSF.getValue(sheetName, p_no_X + y);
-	// 	var p_category = excelXSSF.getValue(sheetName, p_category_X + y);
-	// 	var p_type = excelXSSF.getValue(sheetName, p_type_X + y);
-	// 	var p_color = excelXSSF.getValue(sheetName, p_color_X + y);
-	// 	var p_size = excelXSSF.getValue(sheetName, p_size_X + y);
-	// 	var sku = excelXSSF.getValue(sheetName, sku_X + y);
-	// 	var asin = excelXSSF.getValue(sheetName, asin_X + y);
+		var sheetName = "在庫情報（雨衣）";
 
-	// 	if(shop == null || shop.length <= 0){
-	// 		break;
-	// 	}
+		for(var y = RC_labelY_from;y <= RC_labelY_to;y++){
 
-	// 	var insertResult = db.change(
-	// 		"UPLOAD",
-	// 		"insertMaster",
-	// 		{
-	// 			"col0" : count,
-	// 			"col1" : shopname,
-	// 			"col2" : p_no,
-	// 			"col3" : p_category,
-	// 			"col4" : p_type,
-	// 			"col5" : p_color,
-	// 			"col6" : p_size,
-	// 			"col7" : sku,
-	// 			"col8" : asin
-	// 		}
-	// 	);
+			for(var x = 0;x < RC_labelX.length;x ++){
 
-	// 	count = count + 1;
+				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
+				if(label == null || label.length == 0){
+					continue;
+				}
 
-	// }
+				var detailResult = db.select(
+					"UPLOAD",
+					"searchSKUASIN",
+					{
+						label:label,
+						shop:shopname
+					}
+				).getArray();
+				if(detailResult == null || detailResult.length <= 0){
+					continue;
+				}
+
+				var sku = detailResult[0]["sku"];
+				var asin = detailResult[0]["asin"];
+
+				var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
+				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
+					continue;
+				}
+
+				var insResult = db.change(
+					"PURCHASE",
+					"insertPurchaseDetail",
+					{
+						"col0":purchaseNo,
+						"col1":sku,
+						"col2":asin,
+						"col3":"10",
+						"col4":purchase,
+						"col5":purchase * 10
+					}
+				);
+
+				count = count + 1;
+
+
+			}
+
+		}
+
+
+		// var PJ_labelX = ["F","G","H","I","J","K"];
+		// var PJ_localStockX = ["R","S","T","U","V","W"];
+		// var PJ_onboardStockX = ["X","Y","Z","AA","AB","AC"];
+		// var PJ_labelY_from = 4;
+		// var PJ_labelY_to = 11;
+
+		// var sheetName = "在庫情報（居家服）";
+
+		// sheetName.debug("BBBBBBBBBBB");
+
+		// for(var y = PJ_labelY_from;y <= PJ_labelY_to;y++){
+
+		// 	for(var x = 0;x < PJ_labelX.length;x ++){
+
+		// 		var label = excelXSSF.getValue(sheetName, PJ_labelX[x] + y);
+		// 		var detailResult = db.select(
+		// 			"UPLOAD",
+		// 			"searchSKUASIN",
+		// 			{
+		// 				label:label,
+		// 				shop:shopname
+		// 			}
+		// 		).getArray();
+		// 		if(detailResult == null || detailResult.length <= 0){
+		// 			continue;
+		// 		}
+
+		// 		var sku = detailResult[0]["sku"];
+		// 		var asin = detailResult[0]["asin"];
+		// 		if(label != null && label.length > 0){
+
+		// 			var localstock = excelXSSF.getValue(sheetName, PJ_localStockX[x] + y);
+		// 			var onboardstock = excelXSSF.getValue(sheetName, PJ_onboardStockX[x] + y);
+
+		// 			if(localstock == null || localstock.length == 0){
+		// 				localstock = "0";
+		// 			}
+		// 			if(onboardstock == null || onboardstock.length == 0){
+		// 				onboardstock = "0";
+		// 			}
+
+		// 			var delResult = db.change(
+		// 				"UPLOAD",
+		// 				"delLocalstock",
+		// 				{
+		// 					"sku":sku,
+		// 					"asin":asin
+		// 				}
+		// 			);
+
+		// 			var insResult = db.change(
+		// 				"UPLOAD",
+		// 				"insLocalstock",
+		// 				{
+		// 					"localstock":localstock,
+		// 					"onboardstock":onboardstock,
+		// 					"sku":sku,
+		// 					"asin":asin
+		// 				}
+		// 			);
+
+		// 			count = count + 1;
+
+		// 		}else{
+
+		// 			continue;
+
+		// 		}
+
+		// 	}
+
+		// }
+
+
+		// var UB_labelX = ["F"];
+		// var UB_localStockX = ["H"];
+		// var UB_onboardStockX = ["I"];
+		// var UB_labelY_from = 4;
+		// var UB_labelY_to = 14;
+
+		// var sheetName = "在庫情報（雨伞等）";
+
+		// sheetName.debug("CCCCCCCCCC");
+
+		// for(var y = UB_labelY_from;y <= UB_labelY_to;y++){
+
+		// 	for(var x = 0;x < UB_labelX.length;x ++){
+
+		// 		var label = excelXSSF.getValue(sheetName, UB_labelX[x] + y);
+		// 		var detailResult = db.select(
+		// 			"UPLOAD",
+		// 			"searchSKUASIN",
+		// 			{
+		// 				label:label,
+		// 				shop:shopname
+		// 			}
+		// 		).getArray();
+		// 		if(detailResult == null || detailResult.length <= 0){
+		// 			continue;
+		// 		}
+
+		// 		var sku = detailResult[0]["sku"];
+		// 		var asin = detailResult[0]["asin"];
+
+		// 		if(label != null && label.length > 0){
+
+		// 			var localstock = excelXSSF.getValue(sheetName, UB_localStockX[x] + y);
+		// 			var onboardstock = excelXSSF.getValue(sheetName, UB_onboardStockX[x] + y);
+
+		// 			if(localstock == null || localstock.length == 0){
+		// 				localstock = "0";
+		// 			}
+		// 			if(onboardstock == null || onboardstock.length == 0){
+		// 				onboardstock = "0";
+		// 			}
+
+		// 			var delResult = db.change(
+		// 				"UPLOAD",
+		// 				"delLocalstock",
+		// 				{
+		// 					"sku":sku,
+		// 					"asin":asin
+		// 				}
+		// 			);
+
+		// 			var insResult = db.change(
+		// 				"UPLOAD",
+		// 				"insLocalstock",
+		// 				{
+		// 					"localstock":localstock,
+		// 					"onboardstock":onboardstock,
+		// 					"sku":sku,
+		// 					"asin":asin
+		// 				}
+		// 			);
+
+		// 			count = count + 1;
+
+		// 		}else{
+
+		// 			continue;
+
+		// 		}
+
+		// 	}
+
+		// }
+
+		// var RB_labelX = ["H"];
+		// var RB_localStockX = ["J"];
+		// var RB_onboardStockX = ["K"];
+		// var RB_labelY_from = 3;
+		// var RB_labelY_to = 142;
+
+		// var sheetName = "在庫情報（雨靴）";
+
+		// sheetName.debug("DDDDDDDDDDDD");
+
+		// for(var y = RB_labelY_from;y <= RB_labelY_to;y++){
+
+		// 	for(var x = 0;x < RB_labelX.length;x ++){
+
+		// 		var label = excelXSSF.getValue(sheetName, RB_labelX[x] + y);
+		// 		var detailResult = db.select(
+		// 			"UPLOAD",
+		// 			"searchSKUASIN",
+		// 			{
+		// 				label:label,
+		// 				shop:shopname
+		// 			}
+		// 		).getArray();
+		// 		if(detailResult == null || detailResult.length <= 0){
+		// 			continue;
+		// 		}
+
+		// 		var sku = detailResult[0]["sku"];
+		// 		var asin = detailResult[0]["asin"];
+
+		// 		if(label != null && label.length > 0){
+
+		// 			var localstock = excelXSSF.getValue(sheetName, RB_localStockX[x] + y);
+		// 			var onboardstock = excelXSSF.getValue(sheetName, RB_onboardStockX[x] + y);
+
+		// 			if(localstock == null || localstock.length == 0){
+		// 				localstock = "0";
+		// 			}
+		// 			if(onboardstock == null || onboardstock.length == 0){
+		// 				onboardstock = "0";
+		// 			}
+
+		// 			var delResult = db.change(
+		// 				"UPLOAD",
+		// 				"delLocalstock",
+		// 				{
+		// 					"sku":sku,
+		// 					"asin":asin
+		// 				}
+		// 			);
+
+		// 			var insResult = db.change(
+		// 				"UPLOAD",
+		// 				"insLocalstock",
+		// 				{
+		// 					"localstock":localstock,
+		// 					"onboardstock":onboardstock,
+		// 					"sku":sku,
+		// 					"asin":asin
+		// 				}
+		// 			);
+
+		// 			count = count + 1;
+
+		// 		}else{
+
+		// 			continue;
+
+		// 		}
+
+		// 	}
+
+		// }
+
+
+		// var W_labelX = "J";
+		// var W_localStockX = "M";
+		// var W_onboardStockX = "N";
+		// var W_labelY_from = 4;
+
+		// var sheetName = "在庫情報（袜子）";
+
+		// sheetName.debug("EEEEEEEEEEEEEEEEEEE");
+
+		// for(var y = W_labelY_from;y <= 9999;y++){
+
+		// 	var label = excelXSSF.getValue(sheetName, W_labelX + y);
+
+		// 	if(label == null || label.length <= 0){
+		// 		break;
+		// 	}
+
+		// 	var detailResult = db.select(
+		// 		"UPLOAD",
+		// 		"searchSKUASIN",
+		// 		{
+		// 			label:label,
+		// 			shop:shopname
+		// 		}
+		// 	).getArray();
+
+		// 	detailResult.debug("ZZZZZZZZZZZZZZZZZZZZZ");
+		// 	if(detailResult == null || detailResult.length <= 0){
+		// 		continue;
+		// 	}
+
+		// 	var sku = detailResult[0]["sku"];
+		// 	var asin = detailResult[0]["asin"];
+
+
+		// 	var localstock = excelXSSF.getValue(sheetName, W_localStockX + y);
+		// 	var onboardstock = excelXSSF.getValue(sheetName, W_onboardStockX + y);
+
+		// 	if(localstock == null || localstock.length == 0){
+		// 		localstock = "0";
+		// 	}
+		// 	if(onboardstock == null || onboardstock.length == 0){
+		// 		onboardstock = "0";
+		// 	}
+
+		// 	var delResult = db.change(
+		// 		"UPLOAD",
+		// 		"delLocalstock",
+		// 		{
+		// 			"sku":sku,
+		// 			"asin":asin
+		// 		}
+		// 	);
+
+		// 	var insResult = db.change(
+		// 		"UPLOAD",
+		// 		"insLocalstock",
+		// 		{
+		// 			"localstock":localstock,
+		// 			"onboardstock":onboardstock,
+		// 			"sku":sku,
+		// 			"asin":asin
+		// 		}
+		// 	);
+
+		// 	count = count + 1;
+
+
+		// }
+
+
+
+
+	}
 
 
 
@@ -111,29 +425,6 @@ addpurchase.fire=function(params){
 
 
 
-	// 仕入明細テーブル登録
-	// var insertResult = db.change(
-	// 	"PURCHASE",
-	// 	"insertPurchase",
-	// 	{
-	// 		"shop":shopname,
-	// 		"col0":oya_productid,
-	// 		"col1":oya_productdiv,
-	// 		"col2":oya_sku,
-	// 		"col3":oya_asin,
-	// 		"col4":oya_label,
-	// 		"col5":oya_productname,
-	// 		"col6":oya_price,
-	// 		"col7":oya_fbmstock,
-	// 		"col8":oya_fbastock,
-	// 		"col9":oya_producttype,
-	// 		"col10":oya_selltype,
-	// 		"col11":picArr[0],
-	// 		"col12":oya_sort,
-	// 		"col13":oya_color,
-	// 		"col14":oya_size
-	// 	}
-	// );
 
 
 	return (new Result())
