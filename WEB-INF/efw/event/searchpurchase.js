@@ -32,7 +32,9 @@ searchpurchase.fire=function(params){
 	var selectResult = db.select(
 		"PURCHASE",
 		"searchPurchase",
-		{}
+		{
+			"col0":"",
+		}
 	).getArray();
 
 
