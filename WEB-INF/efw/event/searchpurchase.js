@@ -1,7 +1,7 @@
 var searchpurchase={};
 searchpurchase.name="仕入情報検索";
 searchpurchase.paramsFormat={
-
+	"#shop":null
 };
 var shopname = "";
 searchpurchase.fire=function(params){

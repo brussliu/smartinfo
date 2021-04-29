@@ -137,5 +137,5 @@ addpurchase.fire=function(params){
 
 
 	return (new Result())
-	.eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:''})");
+	.eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
 };
