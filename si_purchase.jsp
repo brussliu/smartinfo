@@ -25,15 +25,15 @@
 
         $(function(){
 
-            // var shop = $.getUrlParam('shop');
+            var shop = $.getUrlParam('shop');
 
-            // var page = "発送管理";
+            var page = "発送管理";
 
-            // var t = page + "（" + shop + "）" + $("#pagehead").html();
+            var t = page + "（" + shop + "）" + $("#pagehead").html();
 
-            // $("#pagehead").html(t);
+            $("#pagehead").html(t);
 
-            // $("#shop").val(shop);
+            $("#shop").val(shop);
 
 		});
 
@@ -211,7 +211,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 	</COLGROUP>
-	<tr style="height: 28px;">
+	<tr style="height: 30px;">
 		<td rowspan="2">20210501-192356</td>
 		<td >20210501_靴下</td>
 		<td >999</td>
@@ -223,13 +223,16 @@
 		<td >2021/12/31</td>
 		<td >2021/12/31</td>
 	</tr>
-	<tr style="height: 28px;">
+	<tr style="height: 30px;">
 		<td colspan="4"><input type="file" style="width: 400px;"></td>
-		<td ><input type=button value="更　　新" style="width:80px;" onclick=""></td>
-		<td ><input type=button value="仕入確定" style="width:80px;" onclick=""></td>
-		<td ><input type=button value="発送した" style="width:80px;" onclick=""></td>
-		<td ><input type=button value="到着した" style="width:80px;" onclick=""></td>
-		<td ><input type=button value="受け取り" style="width:80px;" onclick=""></td>
+		<td colspan="5">
+			<input type=button value="更　　新" style="width:80px;" onclick="">&nbsp;
+			<input type=button value="仕入確定" style="width:80px;" onclick="">&nbsp;
+			<input type=button value="発送した" style="width:80px;" onclick="">&nbsp;
+			<input type=button value="到着した" style="width:80px;" onclick="">&nbsp;
+			<input type=button value="受け取り" style="width:80px;" onclick="">&nbsp;
+			<input type=button value="削　　除" style="width:80px;" onclick="">
+		</td>
 	</tr>
 </table>
 

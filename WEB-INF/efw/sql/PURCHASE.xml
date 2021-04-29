@@ -4,12 +4,14 @@
 	<sql id="insertPurchase">
 		INSERT INTO "仕入管理"
 		(
+			"店舗名",
 			"仕入NO",
 			"仕入名称",
 			"ステータス",
 			"新規登録日"
 		)
 		VALUES (
+			:shop,--"店舗名"
 			:col0,--"仕入NO"
 			:col1,--"仕入名称"
 			:col2,--"ステータス"
@@ -43,6 +45,8 @@
 			P1."受取日" as acceptance_date
 		from
 			"仕入管理" P1
+		where
+			P1."店舗名" = :shop
 		order by
 			P1."ステータス",
 			P1."仕入NO"

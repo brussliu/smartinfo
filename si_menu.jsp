@@ -39,10 +39,6 @@
 	<tr>
 		<td><div style="text-align:center"><br>
 			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_upload.jsp',shop:'Smart-Bear'})">
-			<!--
-			<br><br>
-			<input type=button value="マスタ情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_master.jsp',shop:'Smart-Bear'})">
-			-->
 			<br><br>
 			<input type=button value="商品情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_product.jsp',shop:'Smart-Bear'})">
 			<br><br>
@@ -50,19 +46,19 @@
 			<br><br>
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-Bear'})">
 			<br><br>
+			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:'Smart-Bear'})">
+			<br><br>
 		</div></td>
 		<td><div style="text-align:center"><br>
 			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_upload.jsp',shop:'Smart-KM'})">
-			<!--
-			<br><br>
-			<input type=button value="マスタ情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_master.jsp',shop:'Smart-KM'})">
-			-->
 			<br><br>
 			<input type=button value="商品情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_product.jsp',shop:'Smart-KM'})">
 			<br><br>
 			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-KM'})">
 			<br><br>
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-KM'})">
+			<br><br>
+			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:'Smart-KM'})">
 			<br><br>
 		</div></td>
 	</tr>
@@ -80,8 +76,6 @@
 			<input type=button value="商品スキャン" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_scan.jsp',shop:'Smart-Bear'})">
 			<br><br>
 			<input type=button value="ラベル番号印刷用データ出力" style="width:400px;height: 40px;" onclick="Efw('outputlabeldata')">
-			<br><br>
-			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:''})">
 			<br><br>
 		</div></td>
 	</tr>

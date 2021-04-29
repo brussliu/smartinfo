@@ -3,9 +3,12 @@ searchpurchase.name="仕入情報検索";
 searchpurchase.paramsFormat={
 
 };
+var shopname = "";
 searchpurchase.fire=function(params){
 	
 	var ret = new Result();
+
+	shopname = params["#shop"];
 
 	var resultHTML = 
 	"<tr style='height: 28px;'>" +
@@ -33,35 +36,15 @@ searchpurchase.fire=function(params){
 		"PURCHASE",
 		"searchPurchase",
 		{
-			"col0":"",
+			"shop":shopname,
 		}
 	).getArray();
 
-
-	// selectResult.debug("AAAAAAAAAAAAAAAAAa");
 
 	ret.runat("#purchasenamelist").remove("tr");
 
 	ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
 
-	// for(var i = 0;i < selectResult.length;i ++){
-
-	// 	var data = new Array(selectResult[i]);
-
-	// 	data.debug("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
-
-	// 	ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
-
-
-
-
-		
-
-	// }
-
-
-	// var script = "$('#stocklist').show();changeColor();";
-	// ret.eval(script);
 
 	// 画面へ結果を返す
 	return ret;
