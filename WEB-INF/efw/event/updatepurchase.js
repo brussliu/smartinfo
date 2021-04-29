@@ -18,7 +18,7 @@ updatepurchase.fire=function(params){
 
 	file.saveUploadFiles("upload");
 
-	var fa = importfile_purchase.split("\\");
+	var fa = purchasefile.split("\\");
 	var f = fa[fa.length-1];
 
 	// Excelファイル
