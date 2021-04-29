@@ -21,7 +21,7 @@ addpurchase.fire=function(params){
 	var today = new Date();
 
 	// 新規登録日
-	var registrationDate = today.format("yyyyMMdd");
+	var registrationDate = today.format("yyyy/MM/dd");
 
 	// 仕入No
 	var purchaseNo = today.format("yyyyMMdd-HHmmss");

@@ -124,35 +124,20 @@
         	Efw('outputship',{'shipno': shipnoArr, 'postno': postnoArr, 'shipaddress': shipaddressArr, 'receiver': receiverArr});
         }
 
-        function searchship(){
+        function searchPurchase(){
 
-        	Efw('searchship');
-
-        }
-
-        function addproductkind(){
-
-        	Efw('addproductkind')
-        }
-
-        function ship(obj){
-
-        	var shipno = $(obj).parent().prev().prev().prev().prev().prev().prev().prev().prev().html();
-
-        	
-
-        	Efw('updateship',{'shipno': shipno});
-
-        	$(obj).parent().html("発送済");
+        	Efw('searchpurchase');
 
         }
+
+
 
   	</script>
     <style>
 
     </style>
 </head>
-<body style="background-color:ghostwhite;">
+<body style="background-color:ghostwhite;" onload="searchPurchase();">
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
@@ -187,7 +172,7 @@
 <span style="font-weight: bold;">仕入情報一覧</span>
 <br/>
 
-<table border="1" id="purchasenamelist" style="font-size: 16px;">
+<table border="1">
 	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td style="width: 150px;">仕入No</td>
 		<td style="width: 300px;">仕入名称</td>
@@ -200,6 +185,8 @@
 		<td style="width: 100px;">届く日</td>
 		<td style="width: 100px;">受取日</td>
 	</tr>
+</table>
+<table border="1" id="purchasenamelist" style="font-size: 16px;">
 	<tr style="height: 28px;">
 		<td rowspan="2">20210501-192356</td>
 		<td >20210501_靴下</td>
@@ -213,7 +200,7 @@
 		<td >2021/12/31</td>
 	</tr>
 	<tr style="height: 28px;">
-		<td colspan="4"><input type="file" id="importfile_purchase" style="width: 400px;"></td>
+		<td colspan="4"><input type="file" style="width: 400px;"></td>
 		<td ><input type=button value="更　　新" style="width:80px;" onclick=""></td>
 		<td ><input type=button value="仕入確定" style="width:80px;" onclick=""></td>
 		<td ><input type=button value="発送した" style="width:80px;" onclick=""></td>
@@ -221,7 +208,6 @@
 		<td ><input type=button value="受け取り" style="width:80px;" onclick=""></td>
 	</tr>
 </table>
-
 
 <!--
 <br/>
