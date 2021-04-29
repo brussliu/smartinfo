@@ -187,8 +187,8 @@
 <span style="font-weight: bold;">仕入情報一覧</span>
 <br/>
 
-<table border="1" id="purchasenamelist" style="font-size: 14px;">
-	<tr style="font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
+<table border="1" id="purchasenamelist" style="font-size: 16px;">
+	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td style="width: 150px;">仕入No</td>
 		<td style="width: 300px;">仕入名称</td>
 		<td style="width: 100px;">数量</td>
@@ -221,6 +221,8 @@
 		<td ><input type=button value="受け取り" style="width:80px;" onclick=""></td>
 	</tr>
 </table>
+
+
 <!--
 <br/>
 <hr>
