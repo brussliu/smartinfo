@@ -186,19 +186,31 @@
 		<COL WIDTH="100PX">
 	</COLGROUP>
 	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
-		<td style="width: 150px;">仕入No</td>
-		<td style="width: 300px;">仕入名称</td>
-		<td style="width: 100px;">数量</td>
-		<td style="width: 100px;">金额</td>
-		<td style="width: 100px;">ステータス</td>
-		<td style="width: 100px;">新規登録日</td>
-		<td style="width: 100px;">仕入確定日</td>
-		<td style="width: 100px;">発送日</td>
-		<td style="width: 100px;">届く日</td>
-		<td style="width: 100px;">受取日</td>
+		<td >仕入No</td>
+		<td >仕入名称</td>
+		<td >数量</td>
+		<td >金额</td>
+		<td >ステータス</td>
+		<td >新規登録日</td>
+		<td >仕入確定日</td>
+		<td >発送日</td>
+		<td >届く日</td>
+		<td >受取日</td>
 	</tr>
 </table>
 <table border="1" id="purchasenamelist" style="font-size: 16px;">
+	<COLGROUP>
+		<COL WIDTH="150PX">
+		<COL WIDTH="300PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+	</COLGROUP>
 	<tr style="height: 28px;">
 		<td rowspan="2">20210501-192356</td>
 		<td >20210501_靴下</td>
