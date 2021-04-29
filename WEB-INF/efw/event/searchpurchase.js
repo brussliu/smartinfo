@@ -36,6 +36,8 @@ searchpurchase.fire=function(params){
 		{}
 	).getArray();
 
+	selectResult.debug("AAAAAAAAAAAAAAAAAa");
+
 	ret.runat("#purchasenamelist").remove("tr");
 
 	for(var i = 0;i < selectResult.length;i ++){
