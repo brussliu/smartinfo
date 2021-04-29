@@ -51,6 +51,8 @@ addpurchase.fire=function(params){
 	// Excelファイル
 	var excelXSSF = new Excel("upload/" + f);
 
+	excelXSSF.debug("EEEEEEEEEEEEEEEeee");
+
 	if(shopname == "Smart-KM"){
 
 	}else{
@@ -70,7 +72,7 @@ addpurchase.fire=function(params){
 			for(var x = 0;x < RC_labelX.length;x ++){
 
 				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
-				"label".debug("LLLLLLLLLLLLLLLLLLL");
+				label.debug("LLLLLLLLLLLLLLLLLLL");
 				if(label == null || label.length == 0){
 					continue;
 				}
