@@ -29,13 +29,13 @@ searchpurchase.fire=function(params){
 		"<td ><input type=button value='受け取り' style='width:80px;' onclick=''></td>" +
 	"</tr>";
 
-	// var selectResult = db.select(
-	// 	"PURCHASE",
-	// 	"searchPurchase",
-	// 	{
-	// 		"col0":"",
-	// 	}
-	// ).getArray();
+	var selectResult = db.select(
+		"PURCHASE",
+		"searchPurchase",
+		{
+			"col0":"",
+		}
+	);
 
 
 	// selectResult.debug("AAAAAAAAAAAAAAAAAa");
