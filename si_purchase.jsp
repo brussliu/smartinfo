@@ -159,7 +159,7 @@
 
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="0" style="width: 100%;">
+<table border="0" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">
@@ -181,25 +181,36 @@
 	</tr>
 </table>
 
-
-
 <br/>
 <hr>
-<span style="font-weight: bold;">【未発送分の商品集計情報】</span>
-<table border="1" id="ship_productinfo" style="font-size: 14px;">
-	<tr style="font-weight: bold;background-color: rgb(34,177,76);">
-		<td style="width: 100px;">商品管理番号</td>
-		<td style="width: 120px;">商品種別</td>
-		<td style="width: 120px;">SKU番号</td>
-		<td style="width: 120px;">ASIN番号</td>
-		<td style="width: 100px;">ラベル番号</td>
-		<td style="">商品名称</td>
-		<td style="width: 250px;">色</td>
-		<td style="width: 100px;">サイズ</td>
+<span style="font-weight: bold;">仕入情報一覧</span>
+<table border="1" id="purchasenamelist" style="font-size: 14px;">
+	<tr style="font-weight: bold;background-color:rgb(128,255,255)">
+		<td style="width: 100px;">仕入No</td>
+		<td style="">仕入名称</td>
 		<td style="width: 100px;">数量</td>
+		<td style="width: 100px;">金额</td>
+		<td style="width: 150px;">ステータス</td>
+		<td style="width: 100px;">新規登録日</td>
+		<td style="width: 100px;">仕入確定日</td>
+		<td style="width: 100px;">発送日</td>
+		<td style="width: 100px;">届く日</td>
+		<td style="width: 100px;">受取日</td>
 	</tr>
-
+	<tr style="font-weight: bold;background-color:rgb(128,255,255)">
+		<td style="width: 100px;">20210501-192356</td>
+		<td style="">20210501_靴下</td>
+		<td style="width: 120px;">999</td>
+		<td style="width: 120px;">999,999,999</td>
+		<td style="width: 100px;">0:新規登録</td>
+		<td style="width: 120px;">2021/12/31</td>
+		<td style="width: 250px;">2021/12/31</td>
+		<td style="width: 100px;">2021/12/31</td>
+		<td style="width: 100px;">2021/12/31</td>
+		<td style="width: 100px;">2021/12/31</td>
+	</tr>
 </table>
+<!--
 <br/>
 <hr>
 <span style="font-weight: bold;">【発送情報】</span>
@@ -220,8 +231,8 @@
 		<td style="width: 150px;">発送</td>
 	</tr>
 </table>
-<!--
-<div id="stocklist" style="height: 580px; width:1900px; overflow:auto;border-style: solid;border-width: 1px;">
+
+
 </div>
 -->
 </body>
