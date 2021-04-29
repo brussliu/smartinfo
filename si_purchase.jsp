@@ -159,6 +159,7 @@
 
 <input type="hidden" id="shop">
 <br/>
+<br/>
 <table border="0" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="350PX">
@@ -168,22 +169,24 @@
 	</COLGROUP>
 	<tr>
 		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="1">
-			<input type="text" id="purchasename" style="width: 300px;height: 32px;">
+			仕入名称：<input type="text" id="purchasename" style="width: 300px;height: 32px;">
 		</td>
 		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="1">
-			<input type="file" id="importfile_purchase" style="width: 400px;height: 30px;">
+			仕入内容：<input type="file" id="importfile_purchase" style="width: 400px;">
 		</td>
 		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="新規登録" style="width:100px;height: 40px;" onclick="">
+			<input type=button value="新規登録" style="width:100px;" onclick="">
 		</td>
 		<td>
 		</td>
 	</tr>
 </table>
 
-<br/>
 <hr>
+
 <span style="font-weight: bold;">仕入情報一覧</span>
+<br/>
+
 <table border="1" id="purchasenamelist" style="font-size: 14px;">
 	<tr style="font-weight: bold;background-color:rgb(128,255,255)">
 		<td style="width: 150px;">仕入No</td>
@@ -210,12 +213,12 @@
 		<td >2021/12/31</td>
 	</tr>
 	<tr>
-		<td colspan="4">20210501_靴下</td>
-		<td ><input type=button value="更　　新" style="width:80px;height: 40px;" onclick=""></td>
-		<td ><input type=button value="仕入確定" style="width:80px;height: 40px;" onclick=""></td>
-		<td ><input type=button value="発送した" style="width:80px;height: 40px;" onclick=""></td>
-		<td ><input type=button value="到着した" style="width:80px;height: 40px;" onclick=""></td>
-		<td ><input type=button value="受け取り" style="width:80px;height: 40px;" onclick=""></td>
+		<td colspan="4"><input type="file" id="importfile_purchase" style="width: 400px;"></td>
+		<td ><input type=button value="更　　新" style="width:80px;" onclick=""></td>
+		<td ><input type=button value="仕入確定" style="width:80px;" onclick=""></td>
+		<td ><input type=button value="発送した" style="width:80px;" onclick=""></td>
+		<td ><input type=button value="到着した" style="width:80px;" onclick=""></td>
+		<td ><input type=button value="受け取り" style="width:80px;" onclick=""></td>
 	</tr>
 </table>
 <!--
