@@ -51,8 +51,6 @@ addpurchase.fire=function(params){
 	// Excelファイル
 	var excelXSSF = new Excel("upload/" + f);
 
-	excelXSSF.debug("EEEEEEEEEEEEEEEeee");
-
 	if(shopname == "Smart-KM"){
 
 	}else{
@@ -94,23 +92,23 @@ addpurchase.fire=function(params){
 				var asin = detailResult[0]["asin"];
 
 				var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
-				purchase.debug("PPPPPPPPPPPPPPPPPPPPP");
+				"purchase".debug("PPPPPPPPPPPPPPPPPPPPP");
 				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 					continue;
 				}
 
-				var insResult = db.change(
-					"PURCHASE",
-					"insertPurchaseDetail",
-					{
-						"col0":purchaseNo,
-						"col1":sku,
-						"col2":asin,
-						"col3":"10",
-						"col4":purchase,
-						"col5":purchase * 10
-					}
-				);
+				// var insResult = db.change(
+				// 	"PURCHASE",
+				// 	"insertPurchaseDetail",
+				// 	{
+				// 		"col0":purchaseNo,
+				// 		"col1":sku,
+				// 		"col2":asin,
+				// 		"col3":"10",
+				// 		"col4":purchase,
+				// 		"col5":purchase * 10
+				// 	}
+				// );
 
 			}
 
