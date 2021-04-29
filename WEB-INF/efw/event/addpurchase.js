@@ -91,8 +91,8 @@ addpurchase.fire=function(params){
 				var sku = detailResult[0]["sku"];
 				var asin = detailResult[0]["asin"];
 
-				var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
-				"purchase".debug("PPPPPPPPPPPPPPPPPPPPP");
+				var purchase = excelXSSF.getValue(sheetName, RC_onboardStockX[x] + y);
+				purchase.debug("PPPPPPPPPPPPPPPPPPPPP");
 				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 					continue;
 				}
