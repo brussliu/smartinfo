@@ -211,6 +211,14 @@
 		<td >2021/12/31</td>
 		<td >2021/12/31</td>
 	</tr>
+	<tr>
+		<td colspan="4">20210501_靴下</td>
+		<td ><input type=button value="更　　新" style="width:80px;height: 40px;" onclick=""></td>
+		<td ><input type=button value="仕入確定" style="width:80px;height: 40px;" onclick=""></td>
+		<td ><input type=button value="発送した" style="width:80px;height: 40px;" onclick=""></td>
+		<td ><input type=button value="到着した" style="width:80px;height: 40px;" onclick=""></td>
+		<td ><input type=button value="受け取り" style="width:80px;height: 40px;" onclick=""></td>
+	</tr>
 </table>
 <!--
 <br/>
