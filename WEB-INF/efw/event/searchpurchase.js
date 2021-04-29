@@ -29,18 +29,18 @@ searchpurchase.fire=function(params){
 		"<td ><input type=button value='受け取り' style='width:80px;' onclick=''></td>" +
 	"</tr>";
 
-	resultHTML.debug("BBBBBBBBBBB");
 	var selectResult = db.select(
 		"PURCHASE",
 		"searchPurchase",
 		{}
 	).getArray();
 
-	selectResult.debug("AAAAAAAAAAAAAAAAAa");
 
-	ret.runat("#purchasenamelist").remove("tr");
+	// selectResult.debug("AAAAAAAAAAAAAAAAAa");
 
-	ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
+	// ret.runat("#purchasenamelist").remove("tr");
+
+	// ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
 
 	// for(var i = 0;i < selectResult.length;i ++){
 
