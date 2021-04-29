@@ -70,6 +70,7 @@ addpurchase.fire=function(params){
 			for(var x = 0;x < RC_labelX.length;x ++){
 
 				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
+				label.debug("LLLLLLLLLLLLLLLLLLL");
 				if(label == null || label.length == 0){
 					continue;
 				}
@@ -82,6 +83,7 @@ addpurchase.fire=function(params){
 						shop:shopname
 					}
 				).getArray();
+				detailResult.debug("DDDDDDDDDDDDDDDDDD");
 				if(detailResult == null || detailResult.length <= 0){
 					continue;
 				}
@@ -90,6 +92,7 @@ addpurchase.fire=function(params){
 				var asin = detailResult[0]["asin"];
 
 				var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
+				detailResult.debug("PPPPPPPPPPPPPPPPPPPPP");
 				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 					continue;
 				}
@@ -106,9 +109,6 @@ addpurchase.fire=function(params){
 						"col5":purchase * 10
 					}
 				);
-
-				count = count + 1;
-
 
 			}
 
