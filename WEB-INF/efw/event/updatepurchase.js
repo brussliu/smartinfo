@@ -3,7 +3,7 @@ updatepurchase.name="仕入新規登録";
 updatepurchase.paramsFormat={
 
 	purchasefile : "required:true;display-name:仕入内容;",
-	purchaseNo : null;
+	purchaseNo : null,
 	"#shop" : null
 };
 
@@ -13,47 +13,20 @@ updatepurchase.fire=function(params){
 
 	shopname = params["#shop"];
 
-	params["purchasefile"].debug("FFFFFFFFFFFFFFFFFF");
+	// 仕入No
+	var purchaseNo = params["purchaseNo"];
 
-	params["purchaseNo"].debug("PPPPPPPPPPPPP");
+	file.saveUploadFiles("upload");
 
-	// // 仕入名称
-	// var purchasename = params["#purchaseInfo"]["#purchasename"];
-	// // 仕入内容
-	// var importfile_purchase = params["#purchaseInfo"]["#importfile_purchase"];
+	var fa = importfile_purchase.split("\\");
+	var f = fa[fa.length-1];
 
-	// var today = new Date();
+	// Excelファイル
+	var excelXSSF = new Excel("upload/" + f);
 
-	// // 新規登録日
-	// var registrationDate = today.format("yyyy/MM/dd");
+	if(shopname == "Smart-KM"){
 
-	// // 仕入No
-	// var purchaseNo = today.format("yyyyMMdd-HHmmss");
-
-	// // 仕入管理テーブル登録
-	// var insertResult = db.change(
-	// 	"PURCHASE",
-	// 	"insertPurchase",
-	// 	{
-	// 		"shop":shopname,
-	// 		"col0":purchaseNo,
-	// 		"col1":purchasename,
-	// 		"col2":"0：新規登録",
-	// 		"col3":registrationDate
-	// 	}
-	// );
-
-	// file.saveUploadFiles("upload");
-
-	// var fa = importfile_purchase.split("\\");
-	// var f = fa[fa.length-1];
-
-	// // Excelファイル
-	// var excelXSSF = new Excel("upload/" + f);
-
-	// if(shopname == "Smart-KM"){
-
-	// }else{
+	}else{
 
 	// 	var RC_labelX = ["F","G","H","I","J","K"];
 	// 	var RC_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
@@ -330,8 +303,8 @@ updatepurchase.fire=function(params){
 
 	// 	}
 
-	// }
+	}
 
-	// return (new Result())
-	// .eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	return (new Result())
+	.eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
 };
