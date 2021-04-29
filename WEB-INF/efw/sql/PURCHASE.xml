@@ -48,42 +48,42 @@
 				when P1."ステータス" = '1：仕入確定' then ''
 				when P1."ステータス" = '2：発送済み' then ''
 				when P1."ステータス" = '3：到着済み' then ''
-				when P1."ステータス" = '4：受取済み' then 'display:none'
+				when P1."ステータス" = '4：受取済み' then 'none'
 			end as file_display,
 			case 
 				when P1."ステータス" = '0：新規登録' then ''
 				when P1."ステータス" = '1：仕入確定' then ''
 				when P1."ステータス" = '2：発送済み' then ''
 				when P1."ステータス" = '3：到着済み' then ''
-				when P1."ステータス" = '4：受取済み' then 'display:none'
+				when P1."ステータス" = '4：受取済み' then 'none'
 			end as update_display,
 			case 
 				when P1."ステータス" = '0：新規登録' then ''
-				when P1."ステータス" = '1：仕入確定' then 'display:none'
-				when P1."ステータス" = '2：発送済み' then 'display:none'
-				when P1."ステータス" = '3：到着済み' then 'display:none'
-				when P1."ステータス" = '4：受取済み' then 'display:none'
+				when P1."ステータス" = '1：仕入確定' then 'none'
+				when P1."ステータス" = '2：発送済み' then 'none'
+				when P1."ステータス" = '3：到着済み' then 'none'
+				when P1."ステータス" = '4：受取済み' then 'none'
 			end as confirm_display,
 			case 
-				when P1."ステータス" = '0：新規登録' then 'display:none'
+				when P1."ステータス" = '0：新規登録' then 'none'
 				when P1."ステータス" = '1：仕入確定' then ''
-				when P1."ステータス" = '2：発送済み' then 'display:none'
-				when P1."ステータス" = '3：到着済み' then 'display:none'
-				when P1."ステータス" = '4：受取済み' then 'display:none'
+				when P1."ステータス" = '2：発送済み' then 'none'
+				when P1."ステータス" = '3：到着済み' then 'none'
+				when P1."ステータス" = '4：受取済み' then 'none'
 			end as shipping_display,			
 			case 
-				when P1."ステータス" = '0：新規登録' then 'display:none'
-				when P1."ステータス" = '1：仕入確定' then 'display:none'
+				when P1."ステータス" = '0：新規登録' then 'none'
+				when P1."ステータス" = '1：仕入確定' then 'none'
 				when P1."ステータス" = '2：発送済み' then ''
-				when P1."ステータス" = '3：到着済み' then 'display:none'
-				when P1."ステータス" = '4：受取済み' then 'display:none'
+				when P1."ステータス" = '3：到着済み' then 'none'
+				when P1."ステータス" = '4：受取済み' then 'none'
 			end as arrival_display,			
 			case 
-				when P1."ステータス" = '0：新規登録' then 'display:none'
-				when P1."ステータス" = '1：仕入確定' then 'display:none'
-				when P1."ステータス" = '2：発送済み' then 'display:none'
+				when P1."ステータス" = '0：新規登録' then 'none'
+				when P1."ステータス" = '1：仕入確定' then 'none'
+				when P1."ステータス" = '2：発送済み' then 'none'
 				when P1."ステータス" = '3：到着済み' then ''
-				when P1."ステータス" = '4：受取済み' then 'display:none'
+				when P1."ステータス" = '4：受取済み' then 'none'
 			end as acceptance_display
 		from
 			"仕入管理" P1
