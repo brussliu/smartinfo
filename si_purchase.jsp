@@ -187,7 +187,7 @@
 <table border="1" id="purchasenamelist" style="font-size: 14px;">
 	<tr style="font-weight: bold;background-color:rgb(128,255,255)">
 		<td style="width: 150px;">仕入No</td>
-		<td style="">仕入名称</td>
+		<td style="width: 300px;">仕入名称</td>
 		<td style="width: 100px;">数量</td>
 		<td style="width: 100px;">金额</td>
 		<td style="width: 100px;">ステータス</td>
@@ -197,17 +197,19 @@
 		<td style="width: 100px;">届く日</td>
 		<td style="width: 100px;">受取日</td>
 	</tr>
-	<tr">
-		<td style="width: 150px;">20210501-192356</td>
-		<td style="">20210501_靴下</td>
-		<td style="width: 100px;">999</td>
-		<td style="width: 100px;">999,999,999</td>
-		<td style="width: 100px;">0:新規登録</td>
-		<td style="width: 100px;">2021/12/31</td>
-		<td style="width: 100px;">2021/12/31</td>
-		<td style="width: 100px;">2021/12/31</td>
-		<td style="width: 100px;">2021/12/31</td>
-		<td style="width: 100px;">2021/12/31</td>
+	<tr>
+		<td rowspan="2">20210501-192356</td>
+	</tr>
+	<tr>
+		<td >20210501_靴下</td>
+		<td >999</td>
+		<td >999,999,999</td>
+		<td >0:新規登録</td>
+		<td >2021/12/31</td>
+		<td >2021/12/31</td>
+		<td >2021/12/31</td>
+		<td >2021/12/31</td>
+		<td >2021/12/31</td>
 	</tr>
 </table>
 <!--
