@@ -42,6 +42,8 @@ searchpurchase.fire=function(params){
 
 		var data = new Array(selectResult[i]);
 
+		data.debug("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+
 		ret.runat("#purchasenamelist").append(resultHTML).withdata(data);
 
 
