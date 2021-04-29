@@ -3,7 +3,6 @@ searchpurchase.name="仕入情報検索";
 searchpurchase.paramsFormat={
 
 };
-var shopname = "";
 searchpurchase.fire=function(params){
 	
 	var ret = new Result();
@@ -30,6 +29,7 @@ searchpurchase.fire=function(params){
 		"<td ><input type=button value='受け取り' style='width:80px;' onclick=''></td>" +
 	"</tr>";
 
+	resultHTML.debug("BBBBBBBBBBB");
 	var selectResult = db.select(
 		"PURCHASE",
 		"searchPurchase",
@@ -40,20 +40,22 @@ searchpurchase.fire=function(params){
 
 	ret.runat("#purchasenamelist").remove("tr");
 
-	for(var i = 0;i < selectResult.length;i ++){
+	ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
 
-		var data = new Array(selectResult[i]);
+	// for(var i = 0;i < selectResult.length;i ++){
 
-		data.debug("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+	// 	var data = new Array(selectResult[i]);
 
-		ret.runat("#purchasenamelist").append(resultHTML).withdata(data);
+	// 	data.debug("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+
+	// 	ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
 
 
 
 
 		
 
-	}
+	// }
 
 
 	// var script = "$('#stocklist').show();changeColor();";
