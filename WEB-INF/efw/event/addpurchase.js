@@ -70,7 +70,7 @@ addpurchase.fire=function(params){
 			for(var x = 0;x < RC_labelX.length;x ++){
 
 				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
-				label.debug("LLLLLLLLLLLLLLLLLLL");
+				"label".debug("LLLLLLLLLLLLLLLLLLL");
 				if(label == null || label.length == 0){
 					continue;
 				}
@@ -92,7 +92,7 @@ addpurchase.fire=function(params){
 				var asin = detailResult[0]["asin"];
 
 				var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
-				detailResult.debug("PPPPPPPPPPPPPPPPPPPPP");
+				purchase.debug("PPPPPPPPPPPPPPPPPPPPP");
 				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 					continue;
 				}
