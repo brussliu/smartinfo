@@ -160,7 +160,7 @@
 <input type="hidden" id="shop">
 <br/>
 <br/>
-<table border="0" style="width: 100%;">
+<table id="purchaseInfo" border="0" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">
@@ -175,7 +175,7 @@
 			仕入内容：<input type="file" id="importfile_purchase" style="width: 400px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="新規登録" style="width:100px;height: 32px;" onclick="">
+			<input type=button value="新規登録" style="width:100px;height: 32px;" onclick="Efw('addpurchase')">
 		</td>
 		<td>
 		</td>

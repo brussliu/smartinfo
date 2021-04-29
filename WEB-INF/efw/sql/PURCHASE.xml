@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="insertPurchase">
+		INSERT INTO "仕入管理"
+		(
+			"仕入NO",
+			"仕入名称",
+			"ステータス",
+			"新規登録日"
+		)
+		VALUES (
+			:col0,--"仕入NO"
+			:col1,--"仕入名称"
+			:col2,--"ステータス"
+			:col3 --"新規登録日"
+		)
+	</sql>
+
+
+
+</sqls>
