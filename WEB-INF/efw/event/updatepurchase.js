@@ -2,13 +2,8 @@ var updatepurchase={};
 updatepurchase.name="仕入新規登録";
 updatepurchase.paramsFormat={
 
-	"#purchaseInfo":{
-
-		"#purchasename":"required:true;display-name:仕入名称;",
-		"#importfile_purchase":"required:true;display-name:仕入内容;",
-
-	},
-	"#shop":null
+	"purchasefile" : "required:true;display-name:仕入内容;",
+	"#shop" : null
 };
 
 var shopname = "";
@@ -16,6 +11,8 @@ var shopname = "";
 updatepurchase.fire=function(params){
 
 	shopname = params["#shop"];
+
+	params["purchasefile"].debug("FFFFFFFFFFFFFFFFFF");
 
 	// // 仕入名称
 	// var purchasename = params["#purchaseInfo"]["#purchasename"];
