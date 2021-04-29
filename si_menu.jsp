@@ -81,7 +81,7 @@
 			<br><br>
 			<input type=button value="ラベル番号印刷用データ出力" style="width:400px;height: 40px;" onclick="Efw('outputlabeldata')">
 			<br><br>
-			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp'})">
+			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:''})">
 			<br><br>
 		</div></td>
 	</tr>
