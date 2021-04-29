@@ -173,6 +173,18 @@
 <br/>
 
 <table border="1">
+	<COLGROUP>
+		<COL WIDTH="150PX">
+		<COL WIDTH="300PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+	</COLGROUP>
 	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td style="width: 150px;">仕入No</td>
 		<td style="width: 300px;">仕入名称</td>
