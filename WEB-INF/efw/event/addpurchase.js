@@ -20,7 +20,7 @@ addpurchase.fire=function(params){
 	// 仕入名称
 	var purchasename = params["#purchaseInfo"]["#purchasename"];
 	// 仕入内容
-	// var importfile_purchase = params["#purchaseInfo"]["#importfile_purchase"];
+	var importfile_purchase = params["#purchaseInfo"]["#importfile_purchase"];
 
 	var today = new Date();
 
@@ -45,7 +45,7 @@ addpurchase.fire=function(params){
 
 	file.saveUploadFiles("upload");
 
-	var fa = params["#importfile_purchase"].split("\\");
+	var fa = importfile_purchase.split("\\");
 	var f = fa[fa.length-1];
 
 	// Excelファイル
