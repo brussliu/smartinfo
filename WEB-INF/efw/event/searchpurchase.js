@@ -35,14 +35,14 @@ searchpurchase.fire=function(params){
 		{
 			"col0":"",
 		}
-	);
+	).getArray();
 
 
 	// selectResult.debug("AAAAAAAAAAAAAAAAAa");
 
-	// ret.runat("#purchasenamelist").remove("tr");
+	ret.runat("#purchasenamelist").remove("tr");
 
-	// ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
+	ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
 
 	// for(var i = 0;i < selectResult.length;i ++){
 

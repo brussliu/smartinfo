@@ -33,7 +33,7 @@ addpurchase.fire=function(params){
 		{
 			"col0":purchaseNo,
 			"col1":purchasename,
-			"col2":"0:新規登録",
+			"col2":"0：新規登録",
 			"col3":registrationDate
 		}
 	);
