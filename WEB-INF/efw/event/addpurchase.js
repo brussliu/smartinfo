@@ -70,7 +70,6 @@ addpurchase.fire=function(params){
 			for(var x = 0;x < RC_labelX.length;x ++){
 
 				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
-				label.debug("LLLLLLLLLLLLLLLLLLL");
 				if(label == null || label.length == 0){
 					continue;
 				}
@@ -83,7 +82,6 @@ addpurchase.fire=function(params){
 						shop:shopname
 					}
 				).getArray();
-				detailResult.debug("DDDDDDDDDDDDDDDDDD");
 				if(detailResult == null || detailResult.length <= 0){
 					continue;
 				}
@@ -91,24 +89,23 @@ addpurchase.fire=function(params){
 				var sku = detailResult[0]["sku"];
 				var asin = detailResult[0]["asin"];
 
-				var purchase = excelXSSF.getValue(sheetName, RC_onboardStockX[x] + y);
-				purchase.debug("PPPPPPPPPPPPPPPPPPPPP");
+				var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
 				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 					continue;
 				}
 
-				// var insResult = db.change(
-				// 	"PURCHASE",
-				// 	"insertPurchaseDetail",
-				// 	{
-				// 		"col0":purchaseNo,
-				// 		"col1":sku,
-				// 		"col2":asin,
-				// 		"col3":"10",
-				// 		"col4":purchase,
-				// 		"col5":purchase * 10
-				// 	}
-				// );
+				var insResult = db.change(
+					"PURCHASE",
+					"insertPurchaseDetail",
+					{
+						"col0":purchaseNo,
+						"col1":sku,
+						"col2":asin,
+						"col3":"10",
+						"col4":purchase,
+						"col5":purchase * 10
+					}
+				);
 
 			}
 
