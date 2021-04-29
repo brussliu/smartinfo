@@ -24,12 +24,12 @@ searchpurchase.fire=function(params){
 		"<td >{acceptance_date}</td>" +
 	"</tr>" +
 	"<tr style='height: 28px;'>" +
-		"<td colspan='4'><input type='file' style='width: 400px;'></td>" +
-		"<td ><input type=button value='更　　新' style='width:80px;' onclick=''></td>" +
-		"<td ><input type=button value='仕入確定' style='width:80px;' onclick=''></td>" +
-		"<td ><input type=button value='発送した' style='width:80px;' onclick=''></td>" +
-		"<td ><input type=button value='到着した' style='width:80px;' onclick=''></td>" +
-		"<td ><input type=button value='受け取り' style='width:80px;' onclick=''></td>" +
+		"<td colspan='4'><input type='file' style='width: 400px;{file_display}'></td>" +
+		"<td ><input type=button value='更　　新' style='width:80px;{update_display}' onclick=''></td>" +
+		"<td ><input type=button value='仕入確定' style='width:80px;{confirm_display}' onclick=''></td>" +
+		"<td ><input type=button value='発送した' style='width:80px;{shipping_display}' onclick=''></td>" +
+		"<td ><input type=button value='到着した' style='width:80px;{arrival_display}' onclick=''></td>" +
+		"<td ><input type=button value='受け取り' style='width:80px;{acceptance_display}' onclick=''></td>" +
 	"</tr>";
 
 	var selectResult = db.select(

@@ -126,7 +126,7 @@
 
         function searchPurchase(){
 
-        	Efw('searchpurchase');
+			Efw('searchpurchase');
 
         }
 
