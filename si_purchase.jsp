@@ -168,13 +168,13 @@
 		<COL >
 	</COLGROUP>
 	<tr>
-		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="1">
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			仕入名称：<input type="text" id="purchasename" style="width: 300px;height: 32px;">
 		</td>
-		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="1">
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			仕入内容：<input type="file" id="importfile_purchase" style="width: 400px;">
 		</td>
-		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="1">
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="新規登録" style="width:100px;" onclick="">
 		</td>
 		<td>
@@ -188,7 +188,7 @@
 <br/>
 
 <table border="1" id="purchasenamelist" style="font-size: 14px;">
-	<tr style="font-weight: bold;background-color:rgb(128,255,255)">
+	<tr style="font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td style="width: 150px;">仕入No</td>
 		<td style="width: 300px;">仕入名称</td>
 		<td style="width: 100px;">数量</td>
