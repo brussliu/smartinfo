@@ -25,7 +25,7 @@ searchpurchase.fire=function(params){
 	"</tr>" +
 	"<tr style='height: 28px;'>" +
 		"<td colspan='4'><input type='file' style='width: 400px;display:{file_display}'></td>" +
-		"<td ><input type=button value='更　　新' style='width:80px;display:{update_display}' onclick=''></td>" +
+		"<td ><input type=button value='更　　新' style='width:80px;display:{update_display}' onclick='update(this)'></td>" +
 		"<td ><input type=button value='仕入確定' style='width:80px;display:{confirm_display}' onclick=''></td>" +
 		"<td ><input type=button value='発送した' style='width:80px;display:{shipping_display}' onclick=''></td>" +
 		"<td ><input type=button value='到着した' style='width:80px;display:{arrival_display}' onclick=''></td>" +

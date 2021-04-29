@@ -130,7 +130,15 @@
 
         }
 
+        function update(obj){
 
+			//var file = $(obj).parent().prev().children(0);
+
+			alert($(obj).parent().prev().children(0));
+
+			Efw('updatepurchase',{purchasefile:$(obj).parent().prev().children(0)});
+
+		}
 
   	</script>
     <style>
