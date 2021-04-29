@@ -7,8 +7,6 @@ var shopname = "";
 searchpurchase.fire=function(params){
 	
 	var ret = new Result();
-	shopname = params["#shop"];
-
 
 	var resultHTML = 
 	"<tr style='height: 28px;'>"
