@@ -24,7 +24,7 @@ addpurchase.fire=function(params){
 	var registrationDate = today.format("yyyyMMdd");
 
 	// 仕入No
-	var purchaseNo = today.format("yyyyMMdd-hh24mmss");
+	var purchaseNo = today.format("yyyyMMdd-HHmmss");
 
 	// 仕入管理テーブル登録
 	var insertResult = db.change(
