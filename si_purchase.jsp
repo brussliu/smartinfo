@@ -176,6 +176,8 @@
 		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="新規登録" style="width:100px;height: 40px;" onclick="">
 		</td>
+		<td>
+		</td>
 	</tr>
 </table>
 
