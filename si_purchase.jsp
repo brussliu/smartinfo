@@ -161,12 +161,16 @@
 <input type="hidden" id="shop">
 <br/>
 <br/>
-<table id="purchaseInfo" border="0" style="width: 100%;">
+<table id="purchaseInfo" border="0" style="">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">
 		<COL WIDTH="150PX">
-		<COL >
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
 	</COLGROUP>
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
@@ -178,7 +182,20 @@
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="新規登録" style="width:100px;height: 32px;" onclick="Efw('addpurchase')">
 		</td>
-		<td>
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
+			<input type=button value="更　　新" style="width:100px;height: 32px;" onclick="">
+		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
+			<input type=button value="仕入確定" style="width:100px;height: 32px;" onclick="">
+		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
+			<input type=button value="発送した" style="width:100px;height: 32px;" onclick="">
+		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
+			<input type=button value="到着した" style="width:100px;height: 32px;" onclick="">
+		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
+			<input type=button value="受　　取" style="width:100px;height: 32px;" onclick="">
 		</td>
 	</tr>
 </table>
@@ -190,6 +207,7 @@
 
 <table border="1">
 	<COLGROUP>
+		<COL WIDTH="50PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="300PX">
 		<COL WIDTH="100PX">
@@ -202,6 +220,7 @@
 		<COL WIDTH="100PX">
 	</COLGROUP>
 	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
+		<td ></td>
 		<td >仕入No</td>
 		<td >仕入名称</td>
 		<td >数量</td>
@@ -216,6 +235,7 @@
 </table>
 <table border="1" id="purchasenamelist" style="font-size: 16px;">
 	<COLGROUP>
+		<COL WIDTH="50PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="300PX">
 		<COL WIDTH="100PX">
@@ -228,7 +248,8 @@
 		<COL WIDTH="100PX">
 	</COLGROUP>
 	<tr style="height: 30px;">
-		<td rowspan="2">20210501-192356</td>
+		<td ><input type="radio" name="purchaseitem"></td>
+		<td >20210501-192356</td>
 		<td >20210501_靴下</td>
 		<td >999</td>
 		<td >999,999,999</td>
@@ -238,17 +259,6 @@
 		<td >2021/12/31</td>
 		<td >2021/12/31</td>
 		<td >2021/12/31</td>
-	</tr>
-	<tr style="height: 30px;">
-		<td colspan="4"><input type="file" style="width: 400px;"></td>
-		<td colspan="5">
-			<input type=button value="更　　新" style="width:80px;" onclick="">&nbsp;
-			<input type=button value="仕入確定" style="width:80px;" onclick="">&nbsp;
-			<input type=button value="発送した" style="width:80px;" onclick="">&nbsp;
-			<input type=button value="到着した" style="width:80px;" onclick="">&nbsp;
-			<input type=button value="受け取り" style="width:80px;" onclick="">&nbsp;
-			<input type=button value="削　　除" style="width:80px;" onclick="">
-		</td>
 	</tr>
 </table>
 
