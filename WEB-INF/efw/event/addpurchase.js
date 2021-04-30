@@ -361,8 +361,8 @@ addpurchase.fire=function(params){
 					"col0":purchaseNo,
 					"col1":sku,
 					"col2":asin,
-					"col3":price,
-					"col4":purchase,
+					"col3":"",
+					"col4":"",
 					"col5":""
 				}
 			);
