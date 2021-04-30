@@ -344,7 +344,6 @@ addpurchase.fire=function(params){
 			if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 				continue;
 			}
-			purchase.debug("PPPPPPPPPPPP");
 
 			var price = excelXSSF.getValue(price_sheetName, W_priceX + y);
 			if(price == null || price.length == 0){
@@ -361,8 +360,8 @@ addpurchase.fire=function(params){
 					"col0":purchaseNo,
 					"col1":sku,
 					"col2":asin,
-					"col3":"",
-					"col4":"",
+					"col3":parseFloat(price).toFixed(2),
+					"col4":purchase,
 					"col5":""
 				}
 			);
