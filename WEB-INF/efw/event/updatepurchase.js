@@ -169,7 +169,7 @@ updatepurchase.fire=function(params){
 					"PURCHASE",
 					"insertPurchaseDetail",
 					{
-						"col0":purchaseNo,
+						"col0":purchaseno,
 						"col1":sku,
 						"col2":asin,
 						"col3":parseFloat(price).toFixed(2),
@@ -232,7 +232,7 @@ updatepurchase.fire=function(params){
 					"PURCHASE",
 					"insertPurchaseDetail",
 					{
-						"col0":purchaseNo,
+						"col0":purchaseno,
 						"col1":sku,
 						"col2":asin,
 						"col3":parseFloat(price).toFixed(2),
@@ -295,7 +295,7 @@ updatepurchase.fire=function(params){
 					"PURCHASE",
 					"insertPurchaseDetail",
 					{
-						"col0":purchaseNo,
+						"col0":purchaseno,
 						"col1":sku,
 						"col2":asin,
 						"col3":parseFloat(price).toFixed(2),
@@ -356,7 +356,7 @@ updatepurchase.fire=function(params){
 				"PURCHASE",
 				"insertPurchaseDetail",
 				{
-					"col0":purchaseNo,
+					"col0":purchaseno,
 					"col1":sku,
 					"col2":asin,
 					"col3":parseFloat(price).toFixed(2),
