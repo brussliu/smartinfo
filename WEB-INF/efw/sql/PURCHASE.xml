@@ -19,14 +19,58 @@
 		)
 	</sql>
 
-	<sql id="updatePurchase1">
+	<sql id="updatePurchase0">
 		UPDATE "仕入管理" SET "仕入名称" = :col1
 		WHERE 
 			"店舗名" = :shop
 			AND
 			"仕入NO" = :col0
 	</sql>
-	
+
+	<sql id="updatePurchase1">
+		UPDATE "仕入管理" 
+		SET 
+			"ステータス" = :col1
+			,"仕入確定日" = :col2
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchase2">
+		UPDATE "仕入管理" 
+		SET 
+			"ステータス" = :col1
+			,"発送日" = :col2
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchase3">
+		UPDATE "仕入管理" 
+		SET 
+			"ステータス" = :col1
+			,"到着日" = :col2
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchase4">
+		UPDATE "仕入管理" 
+		SET 
+			"ステータス" = :col1
+			,"受取日" = :col2
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
 	<sql id="searchPurchase">
 		select
 			P1."仕入NO" as purchase_no,

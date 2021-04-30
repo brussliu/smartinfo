@@ -149,6 +149,11 @@
 
 		}
 
+		function updatepurchasestatus(no){
+
+			Efw('updatepurchasestatus',{status:no});
+		}
+
 		function selectitem(obj){
 
 			var purchaseno = $(obj).parent().next().html();
@@ -293,16 +298,16 @@
 			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="updatepurchase()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="仕入確定" style="width:100px;height: 32px;" id="confirm" disabled onclick="">
+			<input type=button value="仕入確定" style="width:100px;height: 32px;" id="confirm" disabled onclick="updatepurchasestatus(1);">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="発送した" style="width:100px;height: 32px;" id="shopping" disabled onclick="">
+			<input type=button value="発送した" style="width:100px;height: 32px;" id="shopping" disabled onclick="updatepurchasestatus(2);">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="到着した" style="width:100px;height: 32px;" id="arrival" disabled onclick="">
+			<input type=button value="到着した" style="width:100px;height: 32px;" id="arrival" disabled onclick="updatepurchasestatus(3);">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="受　　取" style="width:100px;height: 32px;" id="acceptance" disabled onclick="">
+			<input type=button value="受　　取" style="width:100px;height: 32px;" id="acceptance" disabled onclick="updatepurchasestatus(4);">
 		</td>
 	</tr>
 </table>
