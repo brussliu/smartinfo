@@ -360,6 +360,7 @@ outputpurchase.fire=function(params){
 							excel.setCell(sheetName, RC_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
 							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
+								purchase = parseInt(purchase);
 								excel.setCell(sheetName, RC_writePurchaseX[x]+y, purchase);
 							}
 							
