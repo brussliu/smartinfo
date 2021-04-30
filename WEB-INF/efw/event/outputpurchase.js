@@ -313,18 +313,18 @@ outputpurchase.fire=function(params){
 
 			var productno = selectResult[i]["productno"];
 			var labelno = selectResult[i]["label"];
-			var localstock = selectResult[i]["localstock"];
-			var fba = selectResult[i]["fba"];
-			var onboard = selectResult[i]["onboard"];
-			var selled7 = selectResult[i]["selled7"];
-			var selled30 = selectResult[i]["selled30"];
-			var selled60 = selectResult[i]["selled60"];
-			var selled90 = selectResult[i]["selled90"];
+			var localstock = returnQuantity(selectResult[i]["localstock"]);
+			var fba = returnQuantity(selectResult[i]["fba"]);
+			var onboard = returnQuantity(selectResult[i]["onboard"]);
+			var selled7 = returnQuantity(selectResult[i]["selled7"]);
+			var selled30 = returnQuantity(selectResult[i]["selled30"]);
+			var selled60 = returnQuantity(selectResult[i]["selled60"]);
+			var selled90 = returnQuantity(selectResult[i]["selled90"]);
 			var selledweek = selectResult[i]["selledweek"];
 			var price = selectResult[i]["price"];
-			var purchase = selectResult[i]["purchase"];
+			var purchase = returnQuantity(selectResult[i]["purchase"]);
 
-			labelno.debug("LLLLLLLLLLLLLLLLLLLLLL");
+			//labelno.debug("LLLLLLLLLLLLLLLLLLLLLL");
 
 			// レインコート
 			if(productno == "T001" || productno == "T002" || productno == "T003" || productno == "T004" || productno == "T005" 
@@ -359,10 +359,7 @@ outputpurchase.fire=function(params){
 							// 販売数量(週間平均値)
 							excel.setCell(sheetName, RC_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
-								purchase = parseInt(purchase);
-								excel.setCell(sheetName, RC_writePurchaseX[x]+y, purchase);
-							}
+							excel.setCell(sheetName, RC_writePurchaseX[x]+y, purchase);
 							
 						}
 					}
@@ -551,3 +548,11 @@ outputpurchase.fire=function(params){
 	return (ret);
 
 };
+
+function returnQuantity(quantity){
+
+	if(quantity == null || quantity == "" || quantity == "0" || quantity == 0){
+		return null;
+	}
+	return parseInt(quantity);
+}
