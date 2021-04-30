@@ -379,27 +379,25 @@ outputpurchase.fire=function(params){
 						}
 						if(excellabelno == labelno){
 							// 商品価格
-							excel.setCell(sheetName, PJ_writePriceX[x]+y, price);
+							setExcelValue(excel, sheetName, PJ_writePriceX[x]+y, price);
 							// FBA在庫数量
-							excel.setCell(sheetName, PJ_writeStockX[x]+y, fba);
+							setExcelValue(excel, sheetName, PJ_writeStockX[x]+y, fba);
 							// ローカル在庫
-							excel.setCell(sheetName, PJ_writeLocalStockX[x]+y, localstock);
+							setExcelValue(excel, sheetName, PJ_writeLocalStockX[x]+y, localstock);
 							// ONBOARD在庫
-							excel.setCell(sheetName, PJ_writeOnboardStockX[x]+y, onboard);
+							setExcelValue(excel, sheetName, PJ_writeOnboardStockX[x]+y, onboard);
 							// 販売数量(直近7日間)
-							excel.setCell(sheetName, PJ_writeSell7X[x]+y, selled7);
+							setExcelValue(excel, sheetName, PJ_writeSell7X[x]+y, selled7);
 							// 販売数量(直近30日間)
-							excel.setCell(sheetName, PJ_writeSell30X[x]+y, selled30);
+							setExcelValue(excel, sheetName, PJ_writeSell30X[x]+y, selled30);
 							// 販売数量(直近60日間)
-							excel.setCell(sheetName, PJ_writeSell60X[x]+y, selled60);
+							setExcelValue(excel, sheetName, PJ_writeSell60X[x]+y, selled60);
 							// 販売数量(直近90日間)
-							excel.setCell(sheetName, PJ_writeSell90X[x]+y, selled90);
+							setExcelValue(excel, sheetName, PJ_writeSell90X[x]+y, selled90);
 							// 販売数量(週間平均値)
-							excel.setCell(sheetName, PJ_writeSellWeekX[x]+y, selledweek);
+							setExcelValue(excel, sheetName, PJ_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
-								excel.setCell(sheetName, PJ_writePurchaseX[x]+y, purchase);
-							}
+							setExcelValue(excel, sheetName, PJ_writePurchaseX[x]+y, purchase);
 							
 						}
 					}
@@ -422,27 +420,25 @@ outputpurchase.fire=function(params){
 						}
 						if(excellabelno == labelno){
 							// 商品価格
-							excel.setCell(sheetName, UB_writePriceX[x]+y, price);
+							setExcelValue(excel, sheetName, UB_writePriceX[x]+y, price);
 							// FBA在庫数量
-							excel.setCell(sheetName, UB_writeStockX[x]+y, fba);
+							setExcelValue(excel, sheetName, UB_writeStockX[x]+y, fba);
 							// ローカル在庫
-							excel.setCell(sheetName, UB_writeLocalStockX[x]+y, localstock);
+							setExcelValue(excel, sheetName, UB_writeLocalStockX[x]+y, localstock);
 							// ONBOARD在庫
-							excel.setCell(sheetName, UB_writeOnboardStockX[x]+y, onboard);
+							setExcelValue(excel, sheetName, UB_writeOnboardStockX[x]+y, onboard);
 							// 販売数量(直近7日間)
-							excel.setCell(sheetName, UB_writeSell7X[x]+y, selled7);
+							setExcelValue(excel, sheetName, UB_writeSell7X[x]+y, selled7);
 							// 販売数量(直近30日間)
-							excel.setCell(sheetName, UB_writeSell30X[x]+y, selled30);
+							setExcelValue(excel, sheetName, UB_writeSell30X[x]+y, selled30);
 							// 販売数量(直近60日間)
-							excel.setCell(sheetName, UB_writeSell60X[x]+y, selled60);
+							setExcelValue(excel, sheetName, UB_writeSell60X[x]+y, selled60);
 							// 販売数量(直近90日間)
-							excel.setCell(sheetName, UB_writeSell90X[x]+y, selled90);
+							setExcelValue(excel, sheetName, UB_writeSell90X[x]+y, selled90);
 							// 販売数量(週間平均値)
-							excel.setCell(sheetName, UB_writeSellWeekX[x]+y, selledweek);
+							setExcelValue(excel, sheetName, UB_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
-								excel.setCell(sheetName, UB_writePurchaseX[x]+y, purchase);
-							}
+							setExcelValue(excel, sheetName, UB_writePurchaseX[x]+y, purchase);
 						}
 					}
 				}
@@ -464,27 +460,25 @@ outputpurchase.fire=function(params){
 						}
 						if(excellabelno == labelno){
 							// 商品価格
-							excel.setCell(sheetName, RB_writePriceX[x]+y, price);
+							setExcelValue(excel, sheetName, RB_writePriceX[x]+y, price);
 							// FBA在庫数量
-							excel.setCell(sheetName, RB_writeStockX[x]+y, fba);
+							setExcelValue(excel, sheetName, RB_writeStockX[x]+y, fba);
 							// ローカル在庫
-							excel.setCell(sheetName, RB_writeLocalStockX[x]+y, localstock);
+							setExcelValue(excel, sheetName, RB_writeLocalStockX[x]+y, localstock);
 							// ONBOARD在庫
-							excel.setCell(sheetName, RB_writeOnboardStockX[x]+y, onboard);
+							setExcelValue(excel, sheetName, RB_writeOnboardStockX[x]+y, onboard);
 							// 販売数量(直近7日間)
-							excel.setCell(sheetName, RB_writeSell7X[x]+y, selled7);
+							setExcelValue(excel, sheetName, RB_writeSell7X[x]+y, selled7);
 							// 販売数量(直近30日間)
-							excel.setCell(sheetName, RB_writeSell30X[x]+y, selled30);
+							setExcelValue(excel, sheetName, RB_writeSell30X[x]+y, selled30);
 							// 販売数量(直近60日間)
-							excel.setCell(sheetName, RB_writeSell60X[x]+y, selled60);
+							setExcelValue(excel, sheetName, RB_writeSell60X[x]+y, selled60);
 							// 販売数量(直近90日間)
-							excel.setCell(sheetName, RB_writeSell90X[x]+y, selled90);
+							setExcelValue(excel, sheetName, RB_writeSell90X[x]+y, selled90);
 							// 販売数量(週間平均値)
-							excel.setCell(sheetName, RB_writeSellWeekX[x]+y, selledweek);
+							setExcelValue(excel, sheetName, RB_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
-								excel.setCell(sheetName, RB_writePurchaseX[x]+y, purchase);
-							}
+							setExcelValue(excel, sheetName, RB_writePurchaseX[x]+y, purchase);
 						}
 					}
 				}
@@ -505,27 +499,25 @@ outputpurchase.fire=function(params){
 						}
 						if(excellabelno == labelno){
 
-							excel.setCell(sheetName, W_writePriceX+y, price);
+							setExcelValue(excel, sheetName, W_writePriceX+y, price);
 
-							excel.setCell(sheetName, W_writeStockX+y, fba);
+							setExcelValue(excel, sheetName, W_writeStockX+y, fba);
 
-							excel.setCell(sheetName, W_writeLocalStockX+y, localstock);
+							setExcelValue(excel, sheetName, W_writeLocalStockX+y, localstock);
 
-							excel.setCell(sheetName, W_writeOnboardStockX+y, onboard);
+							setExcelValue(excel, sheetName, W_writeOnboardStockX+y, onboard);
 
-							excel.setCell(sheetName, W_writeSell7X+y, selled7);
+							setExcelValue(excel, sheetName, W_writeSell7X+y, selled7);
 
-							excel.setCell(sheetName, W_writeSell30X+y, selled30);
+							setExcelValue(excel, sheetName, W_writeSell30X+y, selled30);
 
-							excel.setCell(sheetName, W_writeSell60X+y, selled60);
+							setExcelValue(excel, sheetName, W_writeSell60X+y, selled60);
 
-							excel.setCell(sheetName, W_writeSell90X+y, selled90);
+							setExcelValue(excel, sheetName, W_writeSell90X+y, selled90);
 
-							excel.setCell(sheetName, W_writeSellWeekX+y, selledweek);
+							setExcelValue(excel, sheetName, W_writeSellWeekX+y, selledweek);
 							// 仕入数量
-							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
-								excel.setCell(sheetName, W_writePurchaseX+y, purchase);
-							}
+							setExcelValue(excel, sheetName, W_writePurchaseX+y, purchase);
 						}
 
 				}
