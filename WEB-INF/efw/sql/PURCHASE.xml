@@ -18,6 +18,15 @@
 			:col3 --"新規登録日"
 		)
 	</sql>
+
+	<sql id="updatePurchase1">
+		UPDATE "仕入管理" SET "仕入名称" = :col1
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+	
 	<sql id="searchPurchase">
 		select
 			P1."仕入NO" as purchase_no,
@@ -111,5 +120,9 @@
 			:col4, --"数量"
 			:col5  --"金額"
 		)
+	</sql>
+	<sql id="delPurchaseDetail">
+		DELETE FROM "仕入明細"
+		WHERE "仕入NO" = :col0
 	</sql>
 </sqls>

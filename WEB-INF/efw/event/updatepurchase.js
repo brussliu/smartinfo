@@ -4,7 +4,7 @@ updatepurchase.paramsFormat={
 
 	"#purchaseno":"required:true;display-name:仕入No;",
 	"#purchasename":"required:true;display-name:仕入名称;",
-	"#importfile_purchase":"required:true;display-name:仕入内容;",
+	"#importfile_purchase":null,
 	"#shop" : null
 };
 
@@ -15,9 +15,27 @@ updatepurchase.fire=function(params){
 	shopname = params["#shop"];
 
 	// 仕入No
-	var purchaseNo = params["#purchaseNo"];
+	var purchaseno = params["#purchaseNo"];
+	// 仕入名称
+	var purchasename = params["#purchasename"];
+
+	// 仕入管理テーブル登録
+	var updateResult = db.change(
+		"PURCHASE",
+		"updatePurchase",
+		{
+			"shop":shopname,
+			"col0":purchaseno,
+			"col1":purchasename
+		}
+	);
+
 	// 仕入内容
 	var importfile_purchase = params["#importfile_purchase"];
+
+	if(importfile_purchase == null || importfile_purchase.length == 0){
+		return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	}
 
 	file.saveUploadFiles("upload");
 
@@ -38,6 +56,9 @@ updatepurchase.fire=function(params){
 		var RC_labelY_to = 30;
 
 		var sheetName = "在庫情報（雨衣）";
+
+		var RC_priceX = ["L","M","N","O","P","Q"];
+		var price_sheetName = "入荷見積（雨衣）";
 
 		for(var y = RC_labelY_from;y <= RC_labelY_to;y++){
 
@@ -68,11 +89,16 @@ updatepurchase.fire=function(params){
 					continue;
 				}
 
+				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+				if(price == null || price.length == 0){
+					price = "0";
+				}
+
 				var delResult = db.change(
-					"UPLOAD",
-					"delLocalstock",
+					"PURCHASE",
+					"delPurchaseDetail",
 					{
-						"col0":purchaseNo
+						"col0":purchaseno
 					}
 				);
 
@@ -80,12 +106,12 @@ updatepurchase.fire=function(params){
 					"PURCHASE",
 					"insertPurchaseDetail",
 					{
-						"col0":purchaseNo,
+						"col0":purchaseno,
 						"col1":sku,
 						"col2":asin,
-						"col3":"10",
+						"col3":parseFloat(price).toFixed(2),
 						"col4":purchase,
-						"col5":purchase * 10
+						"col5":(parseFloat(price) * purchase).toFixed(2)
 					}
 				);
 
@@ -316,6 +342,5 @@ updatepurchase.fire=function(params){
 
 	}
 
-	return (new Result())
-	.eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
 };
