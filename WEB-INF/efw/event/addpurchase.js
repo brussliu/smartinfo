@@ -352,7 +352,7 @@ addpurchase.fire=function(params){
 			}
 			price.debug("WWWWWWWWWWWWWW");
 
-			(parseFloat(purchase) * parseFloat(price)).toString().debug("ZZZZZZZZZZZZZ");
+			(parseFloat(purchase) * parseFloat(price)).toString().substr(0, 10).debug("ZZZZZZZZZZZZZ");
 
 			var insResult = db.change(
 				"PURCHASE",
@@ -363,7 +363,7 @@ addpurchase.fire=function(params){
 					"col2":asin,
 					"col3":price,
 					"col4":purchase,
-					"col5":(parseFloat(purchase) * parseFloat(price)).toString()
+					"col5":""
 				}
 			);
 
