@@ -352,6 +352,8 @@ addpurchase.fire=function(params){
 			}
 			price.debug("WWWWWWWWWWWWWW");
 
+			(parseFloat(purchase) * parseFloat(price)).toString().debug("ZZZZZZZZZZZZZ");
+
 			var insResult = db.change(
 				"PURCHASE",
 				"insertPurchaseDetail",
