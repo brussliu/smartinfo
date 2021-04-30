@@ -3,7 +3,7 @@ updatepurchase.name="仕入新規登録";
 updatepurchase.paramsFormat={
 
 	//purchasefile : "required:true;display-name:仕入内容;",
-	"#importfile_purchase_forupdate":"required:true;display-name:仕入内容;",
+	"importfile_purchase_forupdate":"required:true;display-name:仕入内容;",
 	purchaseNo : null,
 	"#shop" : null
 };
