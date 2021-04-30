@@ -307,7 +307,7 @@ outputpurchase.fire=function(params){
 		var W_writeSell90X = "R";
 		var W_writeSellWeekX = "S";
 
-		var W_writePurchaseX = ["U"];
+		var W_writePurchaseX = "U";
 
 		for(var i = 0;i < selectResult.length;i ++){
 
@@ -517,7 +517,7 @@ outputpurchase.fire=function(params){
 
 							excel.setCell(sheetName, W_writeSellWeekX+y, selledweek);
 							// 仕入数量
-							excel.setCell(sheetName, W_writePurchaseX[x]+y, purchase);
+							excel.setCell(sheetName, W_writePurchaseX+y, purchase);
 
 						}
 
