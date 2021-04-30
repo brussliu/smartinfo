@@ -314,7 +314,7 @@ addpurchase.fire=function(params){
 
 		var sheetName = "在庫情報（袜子）";
 
-		var W_priceX = ["K"];
+		var W_priceX = "K";
 		var price_sheetName = "入荷見積（袜子）";
 
 		for(var y = W_labelY_from;y <= 9999;y++){
@@ -336,18 +336,17 @@ addpurchase.fire=function(params){
 			if(detailResult == null || detailResult.length <= 0){
 				continue;
 			}
-			detailResult.debug("DDDDDDDDDDDDD");
 
 			var sku = detailResult[0]["sku"];
 			var asin = detailResult[0]["asin"];
 
-			var purchase = excelXSSF.getValue(sheetName, W_purchaseX[x] + y);
+			var purchase = excelXSSF.getValue(sheetName, W_purchaseX + y);
 			if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 				continue;
 			}
 			purchase.debug("PPPPPPPPPPPP");
 
-			var price = excelXSSF.getValue(price_sheetName, W_priceX[x] + y);
+			var price = excelXSSF.getValue(price_sheetName, W_priceX + y);
 			if(price == null || price.length == 0){
 				price = "0";
 			}
