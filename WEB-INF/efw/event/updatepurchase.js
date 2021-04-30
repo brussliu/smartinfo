@@ -15,7 +15,7 @@ updatepurchase.fire=function(params){
 	shopname = params["#shop"];
 
 	// 仕入No
-	var purchaseno = params["#purchaseNo"];
+	var purchaseno = params["#purchaseno"];
 	// 仕入名称
 	var purchasename = params["#purchasename"];
 
