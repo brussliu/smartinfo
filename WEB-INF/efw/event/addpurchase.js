@@ -361,7 +361,7 @@ addpurchase.fire=function(params){
 					"col2":asin,
 					"col3":price,
 					"col4":purchase,
-					"col5":purchase * price
+					"col5":(parseFloat(purchase) * parseFloat(price)).toString()
 				}
 			);
 
