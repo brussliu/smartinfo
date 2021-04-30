@@ -325,6 +325,7 @@ addpurchase.fire=function(params){
 				break;
 			}
 
+			label.debug("LLLLLLLLLLL");
 			var detailResult = db.select(
 				"UPLOAD",
 				"searchSKUASIN",
