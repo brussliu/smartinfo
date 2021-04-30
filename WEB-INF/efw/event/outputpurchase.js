@@ -359,7 +359,10 @@ outputpurchase.fire=function(params){
 							// 販売数量(週間平均値)
 							excel.setCell(sheetName, RC_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							excel.setCell(sheetName, RC_writePurchaseX[x]+y, purchase);
+							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
+								excel.setCell(sheetName, RC_writePurchaseX[x]+y, purchase);
+							}
+							
 						}
 					}
 				}
@@ -398,7 +401,10 @@ outputpurchase.fire=function(params){
 							// 販売数量(週間平均値)
 							excel.setCell(sheetName, PJ_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							excel.setCell(sheetName, PJ_writePurchaseX[x]+y, purchase);
+							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
+								excel.setCell(sheetName, PJ_writePurchaseX[x]+y, purchase);
+							}
+							
 						}
 					}
 				}
@@ -438,7 +444,9 @@ outputpurchase.fire=function(params){
 							// 販売数量(週間平均値)
 							excel.setCell(sheetName, UB_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							excel.setCell(sheetName, UB_writePurchaseX[x]+y, purchase);
+							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
+								excel.setCell(sheetName, UB_writePurchaseX[x]+y, purchase);
+							}
 						}
 					}
 				}
@@ -478,7 +486,9 @@ outputpurchase.fire=function(params){
 							// 販売数量(週間平均値)
 							excel.setCell(sheetName, RB_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							excel.setCell(sheetName, RB_writePurchaseX[x]+y, purchase);
+							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
+								excel.setCell(sheetName, RB_writePurchaseX[x]+y, purchase);
+							}
 						}
 					}
 				}
@@ -517,8 +527,9 @@ outputpurchase.fire=function(params){
 
 							excel.setCell(sheetName, W_writeSellWeekX+y, selledweek);
 							// 仕入数量
-							excel.setCell(sheetName, W_writePurchaseX+y, purchase);
-
+							if(purchase != null && purchase != "" && purchase != 0 && purchase != "0"){
+								excel.setCell(sheetName, W_writePurchaseX+y, purchase);
+							}
 						}
 
 				}
