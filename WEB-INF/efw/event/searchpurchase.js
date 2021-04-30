@@ -12,7 +12,7 @@ searchpurchase.fire=function(params){
 
 	var resultHTML = 
 	"<tr style='height: 28px;'>" +
-		"<td ><input type='radio' name='purchaseitem'></td>" +
+		"<td ><input type='radio' name='purchaseitem' onclick='select(this)'></td>" +
 		"<td >{purchase_no}</td>" +
 		"<td >{purchase_name}</td>" +
 		"<td >{quantity}</td>" +

@@ -148,6 +148,127 @@
 
 		}
 
+		function select(obj){
+
+			var purchaseno = $(obj).parent().next().html();
+
+			var purchasename = $(obj).parent().next().next().html();
+
+			var status = $(obj).parent().next().next().next().next().next().html();
+
+			// 0：新規登録
+			// 1：仕入確定
+			// 2：発送済み
+			// 3：到着済み
+			// 4：受取済み
+
+			if(status == "0：新規登録"){
+
+				// 新規登録
+				$("#add").attr("disabled", false);
+				// 出力
+				$("#output").attr("disabled", false);
+				// 更新
+				$("#update").attr("disabled", false);
+				// 仕入確定
+				$("#confirm").attr("disabled", false);
+				// 発送した
+				$("#shopping").attr("disabled", true);
+				// 到着した
+				$("#arrival").attr("disabled", true);
+				// 受取
+				$("#acceptance").attr("disabled", true);
+				
+			}else if(status == "1：仕入確定"){
+
+				// 新規登録
+				$("#add").attr("disabled", false);
+				// 出力
+				$("#output").attr("disabled", false);
+				// 更新
+				$("#update").attr("disabled", false);
+				// 仕入確定
+				$("#confirm").attr("disabled", true);
+				// 発送した
+				$("#shopping").attr("disabled", false);
+				// 到着した
+				$("#arrival").attr("disabled", true);
+				// 受取
+				$("#acceptance").attr("disabled", true);
+
+			}else if(status == "2：発送済み"){
+
+				// 新規登録
+				$("#add").attr("disabled", false);
+				// 出力
+				$("#output").attr("disabled", false);
+				// 更新
+				$("#update").attr("disabled", false);
+				// 仕入確定
+				$("#confirm").attr("disabled", true);
+				// 発送した
+				$("#shopping").attr("disabled", true);
+				// 到着した
+				$("#arrival").attr("disabled", false);
+				// 受取
+				$("#acceptance").attr("disabled", true);
+
+			}else if(status == "3：到着済み"){
+
+				// 新規登録
+				$("#add").attr("disabled", false);
+				// 出力
+				$("#output").attr("disabled", false);
+				// 更新
+				$("#update").attr("disabled", false);
+				// 仕入確定
+				$("#confirm").attr("disabled", true);
+				// 発送した
+				$("#shopping").attr("disabled", true);
+				// 到着した
+				$("#arrival").attr("disabled", true);
+				// 受取
+				$("#acceptance").attr("disabled", false);
+
+			}else if(status == "4：受取済み"){
+				// 新規登録
+				$("#add").attr("disabled", false);
+				// 出力
+				$("#output").attr("disabled", false);
+				// 更新
+				$("#update").attr("disabled", true);
+				// 仕入確定
+				$("#confirm").attr("disabled", true);
+				// 発送した
+				$("#shopping").attr("disabled", true);
+				// 到着した
+				$("#arrival").attr("disabled", true);
+				// 受取
+				$("#acceptance").attr("disabled", true);
+			}
+
+
+			$("#purchasename").val($(obj).parent().next().next().html());
+
+
+			
+
+			//$("#importfile_purchase_forupdate").val($(obj).parent().prev().children(0));
+
+			// alert($(obj).parent().parent().prev().children(0).html());
+			// alert($("#importfile_purchase_forupdate"));
+
+			// Efw('updatepurchase', 
+			// 	{
+			// 		purchaseNo : $(obj).parent().parent().prev().children(0).html(), 
+			// 		"importfile_purchase_forupdate" : $(obj).parent().prev().children(0)
+			// 		//purchasefile : $(obj).parent().prev().children(0)
+			// 	}
+			// );
+
+
+		}
+
   	</script>
     <style>
 
@@ -159,18 +280,21 @@
 </div>
 
 <input type="hidden" id="shop">
+<input type="hidden" id="purchaseno">
+
 <br/>
 <br/>
 <table id="purchaseInfo" border="0" style="">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
+		<COL WIDTH="120PX">
 	</COLGROUP>
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
@@ -180,22 +304,25 @@
 			仕入内容：<input type="file" id="importfile_purchase" style="width: 400px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="新規登録" style="width:100px;height: 32px;" onclick="Efw('addpurchase')">
+			<input type=button value="新規登録" style="width:100px;height: 32px;" id="add" onclick="Efw('addpurchase')">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="更　　新" style="width:100px;height: 32px;" onclick="">
+			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="仕入確定" style="width:100px;height: 32px;" onclick="">
+			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="発送した" style="width:100px;height: 32px;" onclick="">
+			<input type=button value="仕入確定" style="width:100px;height: 32px;" id="confirm" disabled onclick="">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="到着した" style="width:100px;height: 32px;" onclick="">
+			<input type=button value="発送した" style="width:100px;height: 32px;" id="shopping" disabled onclick="">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="受　　取" style="width:100px;height: 32px;" onclick="">
+			<input type=button value="到着した" style="width:100px;height: 32px;" id="arrival" disabled onclick="">
+		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
+			<input type=button value="受　　取" style="width:100px;height: 32px;" id="acceptance" disabled onclick="">
 		</td>
 	</tr>
 </table>
