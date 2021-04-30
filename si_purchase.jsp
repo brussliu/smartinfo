@@ -140,6 +140,7 @@
 			Efw('updatepurchase', 
 				{
 					purchaseNo : $(obj).parent().parent().prev().children(0).html(), 
+					"#importfile_purchase_forupdate" : $(obj).parent().prev().children(0)
 					//purchasefile : $(obj).parent().prev().children(0)
 				}
 			);
