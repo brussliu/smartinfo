@@ -148,7 +148,7 @@
 
 		}
 
-		function select(obj){
+		function selectitem(obj){
 
 			alert(obj);
 
