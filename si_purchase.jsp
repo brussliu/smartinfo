@@ -40,7 +40,7 @@
         function outputpurchase(){
 
 			Efw('outputpurchase');
-			
+
         }
 
         function searchPurchase(){
@@ -217,12 +217,15 @@
 		</td>
 	</tr>
 </table>
-
+<span style="font-weight: bold;color: red;">※発送した際に、在庫情報一覧の途中欄に計上</span>
+<br/>
+<span style="font-weight: bold;color: red;">※受取した際に、在庫情報一覧の家欄に計上</span>
 <hr>
 
 <span style="font-weight: bold;">仕入情報一覧</span>
 <br/>
-
+<br/>
+<br/>
 <table border="1">
 	<COLGROUP>
 		<COL WIDTH="50PX">

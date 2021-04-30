@@ -24,7 +24,7 @@ updatepurchasestatus.fire=function(params){
 	if(status == 0 || status == "0" ){
 
 		return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
-		
+
 	}else if(status == 1 || status == "1" ){
 		statusStr = "1：仕入確定";
 		sql = "updatePurchase1";
@@ -57,6 +57,39 @@ updatepurchasestatus.fire=function(params){
 			"col2":dDate
 		}
 	);
+
+	if(status == 2 || status == "2" ){
+
+		var updateResult1 = db.change(
+			"PURCHASE",
+			"updatePurchaseShipping",
+			{
+				"col0":purchaseno
+			}
+		);
+
+	}
+
+
+	if(status == 4 || status == "4" ){
+
+		// 途中数量から削減
+		var updateResult1 = db.change(
+			"PURCHASE",
+			"updatePurchaseAcceptance1",
+			{
+				"col0":purchaseno
+			}
+		);
+		// 家数量に計上
+		var updateResult2 = db.change(
+			"PURCHASE",
+			"updatePurchaseAcceptance2",
+			{
+				"col0":purchaseno
+			}
+		);
+	}
 
 
 
