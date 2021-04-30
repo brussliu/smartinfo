@@ -132,7 +132,7 @@
 
         function update(obj){
 
-			$("#importfile_purchase_forupdate").val($(obj).parent().prev().children(0));
+			//$("#importfile_purchase_forupdate").val($(obj).parent().prev().children(0));
 
 			alert($(obj).parent().parent().prev().children(0).html());
 			alert($("#importfile_purchase_forupdate"));
