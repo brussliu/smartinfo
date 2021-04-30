@@ -37,91 +37,10 @@
 
 		});
 
+        function outputpurchase(){
 
-   //      function changeColor(){
-
-			// $("#stocktable").find("tr").each(function(){
-
-			//     var tdArr = $(this).children();
-			//     var html = tdArr.eq(2).html();
-			//     if(html == "親商品"){
-			//     	tdArr.eq(0).children().hide();
-			//     }
-
-
-			//     if(html == "子商品"){
-			//     	//alert($(this));
-			//     	for(var i=3;i < tdArr.length;i ++){
-			//     		tdArr.eq(i).css({"background": "rgb(255,255,205)"});
-			//     	}
-
-			//     	// 販売数量（週間平均値）
-			//     	var num1 = parseFloat(tdArr.eq(14).html());
-			//     	if(num1 < 0.2){
-			//     		tdArr.eq(14).css({"background": "rgb(255,153,255)"});
-			//     	}else if(num1 >= 0.2 && num1 < 0.5){
-			//     		tdArr.eq(14).css({"background": "rgb(255,204,255)"});
-			//     	}else if(num1 >= 0.5 && num1 < 1){
-			//     		tdArr.eq(14).css({"background": "rgb(204,255,255)"});
-			//     	}else if(num1 >= 1 && num1 < 2){
-			//     		tdArr.eq(14).css({"background": "rgb(153,255,153)"});
-			//     	}else if(num1 >= 2 && num1 < 5){
-			//     		tdArr.eq(14).css({"background": "rgb(102,255,102)"});
-			//     	}else if(num1 >= 5){
-			//     		tdArr.eq(14).css({"background": "rgb(0,255,255)"});
-			//     	}	
-
-			//     	// 在庫
-			//     	var num2 = parseFloat(tdArr.eq(16).html());
-			//     	if(num2 < 5){
-			//     		tdArr.eq(16).css({"background": "rgb(102,153,255)"});
-			//     	}else if(num2 >= 5 && num2 < 10){
-			//     		tdArr.eq(16).css({"background": "rgb(153,204,255)"});
-			//     	}else if(num2 >= 10){
-			//     		tdArr.eq(16).css({"background": "rgb(204,236,255)"});
-			//     	}
-
-			//     	// 販売可能期間
-			//     	var num3 = parseFloat(tdArr.eq(21).html());
-			//     	if(num2 == 0 || num3 < 10){
-			//     		tdArr.eq(21).css({"background": "rgb(255,153,255)"});
-			//     		$(this).addClass("stock1");
-			//     	}else if(num3 >= 10 && num3 < 30){
-			//     		tdArr.eq(21).css({"background": "rgb(255,204,255)"});
-			//     		$(this).addClass("stock2");
-			//     	}else{
-			//     		$(this).addClass("stock0");
-			//     	}
-
-			//     }
-			     
-			// });
-
-   //      }
-
-   //      function showstock(){
-   //      	$(".stock0").hide();
-   //      }
-        function outputship(){
-
-        	var shipnoArr = new Array();
-
-        	var postnoArr = new Array();
-        	var shipaddressArr = new Array();
-	        var receiverArr = new Array();
-
-
-        	$('#shipinfotable input:checkbox:checked').each(function (index, item) {
-
-        		shipnoArr.push($(this).val());
-
-        		postnoArr.push($(this).parent().next().next().next().next().next().next().next().next().html());
-        		shipaddressArr.push($(this).parent().next().next().next().next().next().next().next().next().next().html());
-        		receiverArr.push($(this).parent().next().next().next().next().next().next().next().html());
-        		
-    		});
-
-        	Efw('outputship',{'shipno': shipnoArr, 'postno': postnoArr, 'shipaddress': shipaddressArr, 'receiver': receiverArr});
+			Efw('outputpurchase');
+			
         }
 
         function searchPurchase(){
@@ -131,19 +50,6 @@
         }
 
         function updatepurchase(){
-
-			//$("#importfile_purchase_forupdate").val($(obj).parent().prev().children(0));
-
-			// alert($(obj).parent().parent().prev().children(0).html());
-			// alert($("#importfile_purchase_forupdate"));
-
-			// Efw('updatepurchase', 
-			// 	{
-			// 		purchaseNo : $(obj).parent().parent().prev().children(0).html(), 
-			// 		"importfile_purchase_forupdate" : $(obj).parent().prev().children(0)
-			// 		//purchasefile : $(obj).parent().prev().children(0)
-			// 	}
-			// );
 
 			Efw('updatepurchase');
 
@@ -292,7 +198,7 @@
 			<input type=button value="新規登録" style="width:100px;height: 32px;" id="add" onclick="Efw('addpurchase')">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="">
+			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="outputpurchase()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="updatepurchase()">
@@ -320,16 +226,16 @@
 <table border="1">
 	<COLGROUP>
 		<COL WIDTH="50PX">
+		<COL WIDTH="200PX">
+		<COL WIDTH="400PX">
 		<COL WIDTH="150PX">
-		<COL WIDTH="300PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
 	</COLGROUP>
 	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td ></td>
@@ -348,16 +254,16 @@
 <table border="1" id="purchasenamelist" style="font-size: 16px;">
 	<COLGROUP>
 		<COL WIDTH="50PX">
+		<COL WIDTH="200PX">
+		<COL WIDTH="400PX">
 		<COL WIDTH="150PX">
-		<COL WIDTH="300PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
-		<COL WIDTH="100PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
 	</COLGROUP>
 	<tr style="height: 30px;">
 		<td ><input type="radio" name="purchaseitem"></td>
