@@ -325,7 +325,6 @@ addpurchase.fire=function(params){
 				break;
 			}
 
-			label.debug("LLLLLLLLLLL");
 			var detailResult = db.select(
 				"UPLOAD",
 				"searchSKUASIN",
@@ -337,6 +336,7 @@ addpurchase.fire=function(params){
 			if(detailResult == null || detailResult.length <= 0){
 				continue;
 			}
+			detailResult.debug("DDDDDDDDDDDDD");
 
 			var sku = detailResult[0]["sku"];
 			var asin = detailResult[0]["asin"];
@@ -345,11 +345,13 @@ addpurchase.fire=function(params){
 			if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 				continue;
 			}
+			purchase.debug("PPPPPPPPPPPP");
 
 			var price = excelXSSF.getValue(price_sheetName, W_priceX[x] + y);
 			if(price == null || price.length == 0){
 				price = "0";
 			}
+			price.debug("WWWWWWWWWWWWWW");
 
 			var insResult = db.change(
 				"PURCHASE",
