@@ -324,6 +324,8 @@ outputpurchase.fire=function(params){
 			var price = selectResult[i]["price"];
 			var purchase = selectResult[i]["purchase"];
 
+			labelno.debug("LLLLLLLLLLLLLLLLLLLLLL");
+
 			// レインコート
 			if(productno == "T001" || productno == "T002" || productno == "T003" || productno == "T004" || productno == "T005" 
 			|| productno == "T006" || productno == "T007" || productno == "T008" || productno == "T009" || productno == "T010" ){
