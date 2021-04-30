@@ -156,11 +156,11 @@
 
 			var status = $(obj).parent().next().next().next().next().next().html();
 
-			// 0：新規登録
-			// 1：仕入確定
-			// 2：発送済み
-			// 3：到着済み
-			// 4：受取済み
+			alert(purchaseno);
+
+			alert(purchasename);
+
+			alert(status);
 
 			if(status == "0：新規登録"){
 
@@ -389,30 +389,5 @@
 	</tr>
 </table>
 
-<!--
-<br/>
-<hr>
-<span style="font-weight: bold;">【発送情報】</span>
-
-<table border="1" id="shipinfotable" style="font-size: 14px;">
-	<tr style="font-weight: bold;background-color: rgb(128,255,255);">
-		<td style="width: 50px;">選択</td>
-		<td style="width: 80px;">状態</td>
-		<td style="width: 80px;">区分</td>
-		<td style="width: 200px;">注文番号</td>
-		<td style="width: 250px;">注文時間</td>
-		<td style="width: 100px;">注文数量合計</td>
-		<td style="width: 100px;">注文金額合計</td>
-		<td style="width: 100px;">お客様名称</td>
-		<td style="width: 100px;">郵便番号</td>
-		<td style="width: 400px;">住所</td>
-		<td style="width: 150px;">電話番号</td>
-		<td style="width: 150px;">発送</td>
-	</tr>
-</table>
-
-
-</div>
--->
 </body>
 </html>
