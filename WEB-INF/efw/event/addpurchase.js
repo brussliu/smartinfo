@@ -63,6 +63,9 @@ addpurchase.fire=function(params){
 
 		var sheetName = "在庫情報（雨衣）";
 
+		var RC_priceX = ["L","M","N","O","P","Q"];
+		var price_sheetName = "入荷見積（雨衣）";
+
 		for(var y = RC_labelY_from;y <= RC_labelY_to;y++){
 
 			for(var x = 0;x < RC_labelX.length;x ++){
@@ -92,6 +95,11 @@ addpurchase.fire=function(params){
 					continue;
 				}
 
+				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+				if(price == null || price.length == 0){
+					price = "0";
+				}
+
 				var insResult = db.change(
 					"PURCHASE",
 					"insertPurchaseDetail",
@@ -99,9 +107,9 @@ addpurchase.fire=function(params){
 						"col0":purchaseNo,
 						"col1":sku,
 						"col2":asin,
-						"col3":"10",
+						"col3":price,
 						"col4":purchase,
-						"col5":purchase * 10
+						"col5":purchase * price
 					}
 				);
 

@@ -1,10 +1,10 @@
 var updatepurchase={};
-updatepurchase.name="仕入新規登録";
+updatepurchase.name="仕入情報更新";
 updatepurchase.paramsFormat={
 
-	//purchasefile : "required:true;display-name:仕入内容;",
-	"importfile_purchase_forupdate":"required:true;display-name:仕入内容;",
-	purchaseNo : null,
+	"#purchaseno":"required:true;display-name:仕入No;",
+	"#purchasename":"required:true;display-name:仕入名称;",
+	"#importfile_purchase":"required:true;display-name:仕入内容;",
 	"#shop" : null
 };
 
@@ -15,10 +15,9 @@ updatepurchase.fire=function(params){
 	shopname = params["#shop"];
 
 	// 仕入No
-	var purchaseNo = params["purchaseNo"];
-
+	var purchaseNo = params["#purchaseNo"];
 	// 仕入内容
-	var importfile_purchase = params["importfile_purchase_forupdate"];
+	var importfile_purchase = params["#importfile_purchase"];
 
 	file.saveUploadFiles("upload");
 
@@ -32,59 +31,67 @@ updatepurchase.fire=function(params){
 
 	}else{
 
-	// 	var RC_labelX = ["F","G","H","I","J","K"];
-	// 	var RC_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
+		var RC_labelX = ["F","G","H","I","J","K"];
+		var RC_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
 
-	// 	var RC_labelY_from = 4;
-	// 	var RC_labelY_to = 30;
+		var RC_labelY_from = 4;
+		var RC_labelY_to = 30;
 
-	// 	var sheetName = "在庫情報（雨衣）";
+		var sheetName = "在庫情報（雨衣）";
 
-	// 	for(var y = RC_labelY_from;y <= RC_labelY_to;y++){
+		for(var y = RC_labelY_from;y <= RC_labelY_to;y++){
 
-	// 		for(var x = 0;x < RC_labelX.length;x ++){
+			for(var x = 0;x < RC_labelX.length;x ++){
 
-	// 			var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
-	// 			if(label == null || label.length == 0){
-	// 				continue;
-	// 			}
+				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
+				if(label == null || label.length == 0){
+					continue;
+				}
 
-	// 			var detailResult = db.select(
-	// 				"UPLOAD",
-	// 				"searchSKUASIN",
-	// 				{
-	// 					label:label,
-	// 					shop:shopname
-	// 				}
-	// 			).getArray();
-	// 			if(detailResult == null || detailResult.length <= 0){
-	// 				continue;
-	// 			}
+				var detailResult = db.select(
+					"UPLOAD",
+					"searchSKUASIN",
+					{
+						label:label,
+						shop:shopname
+					}
+				).getArray();
+				if(detailResult == null || detailResult.length <= 0){
+					continue;
+				}
 
-	// 			var sku = detailResult[0]["sku"];
-	// 			var asin = detailResult[0]["asin"];
+				var sku = detailResult[0]["sku"];
+				var asin = detailResult[0]["asin"];
 
-	// 			var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
-	// 			if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
-	// 				continue;
-	// 			}
+				var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
+				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
+					continue;
+				}
 
-	// 			var insResult = db.change(
-	// 				"PURCHASE",
-	// 				"insertPurchaseDetail",
-	// 				{
-	// 					"col0":purchaseNo,
-	// 					"col1":sku,
-	// 					"col2":asin,
-	// 					"col3":"10",
-	// 					"col4":purchase,
-	// 					"col5":purchase * 10
-	// 				}
-	// 			);
+				var delResult = db.change(
+					"UPLOAD",
+					"delLocalstock",
+					{
+						"col0":purchaseNo
+					}
+				);
 
-	// 		}
+				var insResult = db.change(
+					"PURCHASE",
+					"insertPurchaseDetail",
+					{
+						"col0":purchaseNo,
+						"col1":sku,
+						"col2":asin,
+						"col3":"10",
+						"col4":purchase,
+						"col5":purchase * 10
+					}
+				);
 
-	// 	}
+			}
+
+		}
 
 
 	// 	var PJ_labelX = ["F","G","H","I","J","K"];

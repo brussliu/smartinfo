@@ -130,39 +130,32 @@
 
         }
 
-        function update(obj){
+        function updatepurchase(){
 
 			//$("#importfile_purchase_forupdate").val($(obj).parent().prev().children(0));
 
-			alert($(obj).parent().parent().prev().children(0).html());
-			alert($("#importfile_purchase_forupdate"));
+			// alert($(obj).parent().parent().prev().children(0).html());
+			// alert($("#importfile_purchase_forupdate"));
 
-			Efw('updatepurchase', 
-				{
-					purchaseNo : $(obj).parent().parent().prev().children(0).html(), 
-					"importfile_purchase_forupdate" : $(obj).parent().prev().children(0)
-					//purchasefile : $(obj).parent().prev().children(0)
-				}
-			);
+			// Efw('updatepurchase', 
+			// 	{
+			// 		purchaseNo : $(obj).parent().parent().prev().children(0).html(), 
+			// 		"importfile_purchase_forupdate" : $(obj).parent().prev().children(0)
+			// 		//purchasefile : $(obj).parent().prev().children(0)
+			// 	}
+			// );
 
+			Efw('updatepurchase');
 
 		}
 
 		function selectitem(obj){
-
-			alert(obj);
 
 			var purchaseno = $(obj).parent().next().html();
 
 			var purchasename = $(obj).parent().next().next().html();
 
 			var status = $(obj).parent().next().next().next().next().next().html();
-
-			alert(purchaseno);
-
-			alert(purchasename);
-
-			alert(status);
 
 			if(status == "0：新規登録"){
 
@@ -249,24 +242,9 @@
 				$("#acceptance").attr("disabled", true);
 			}
 
+			$("#purchaseno").val($(obj).parent().next().html());
 
 			$("#purchasename").val($(obj).parent().next().next().html());
-
-
-			
-
-			//$("#importfile_purchase_forupdate").val($(obj).parent().prev().children(0));
-
-			// alert($(obj).parent().parent().prev().children(0).html());
-			// alert($("#importfile_purchase_forupdate"));
-
-			// Efw('updatepurchase', 
-			// 	{
-			// 		purchaseNo : $(obj).parent().parent().prev().children(0).html(), 
-			// 		"importfile_purchase_forupdate" : $(obj).parent().prev().children(0)
-			// 		//purchasefile : $(obj).parent().prev().children(0)
-			// 	}
-			// );
 
 
 		}
@@ -312,7 +290,7 @@
 			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="">
+			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="updatepurchase()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="仕入確定" style="width:100px;height: 32px;" id="confirm" disabled onclick="">
