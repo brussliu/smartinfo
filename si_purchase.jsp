@@ -150,6 +150,8 @@
 
 		function select(obj){
 
+			alert(obj);
+
 			var purchaseno = $(obj).parent().next().html();
 
 			var purchasename = $(obj).parent().next().next().html();
