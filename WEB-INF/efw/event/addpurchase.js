@@ -126,6 +126,9 @@ addpurchase.fire=function(params){
 
 		var sheetName = "在庫情報（居家服）";
 
+		var PJ_priceX = ["L","M","N","O","P","Q"];
+		var price_sheetName = "入荷見積（居家服）";
+
 		for(var y = PJ_labelY_from;y <= PJ_labelY_to;y++){
 
 			for(var x = 0;x < PJ_labelX.length;x ++){
@@ -155,6 +158,11 @@ addpurchase.fire=function(params){
 					continue;
 				}
 
+				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+				if(price == null || price.length == 0){
+					price = "0";
+				}
+
 				var insResult = db.change(
 					"PURCHASE",
 					"insertPurchaseDetail",
@@ -162,9 +170,9 @@ addpurchase.fire=function(params){
 						"col0":purchaseNo,
 						"col1":sku,
 						"col2":asin,
-						"col3":"10",
+						"col3":price,
 						"col4":purchase,
-						"col5":purchase * 10
+						"col5":purchase * price
 					}
 				);
 
@@ -180,6 +188,9 @@ addpurchase.fire=function(params){
 		var UB_labelY_to = 14;
 
 		var sheetName = "在庫情報（雨伞等）";
+
+		var UB_priceX = ["H"];
+		var price_sheetName = "入荷見積（雨伞等）";
 
 		for(var y = UB_labelY_from;y <= UB_labelY_to;y++){
 
@@ -210,6 +221,11 @@ addpurchase.fire=function(params){
 					continue;
 				}
 
+				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+				if(price == null || price.length == 0){
+					price = "0";
+				}
+
 				var insResult = db.change(
 					"PURCHASE",
 					"insertPurchaseDetail",
@@ -217,9 +233,9 @@ addpurchase.fire=function(params){
 						"col0":purchaseNo,
 						"col1":sku,
 						"col2":asin,
-						"col3":"10",
+						"col3":price,
 						"col4":purchase,
-						"col5":purchase * 10
+						"col5":purchase * price
 					}
 				);
 
@@ -235,6 +251,9 @@ addpurchase.fire=function(params){
 		var RB_labelY_to = 142;
 
 		var sheetName = "在庫情報（雨靴）";
+
+		var RB_priceX = ["J"];
+		var price_sheetName = "入荷見積（雨靴）";
 
 		for(var y = RB_labelY_from;y <= RB_labelY_to;y++){
 
@@ -265,6 +284,11 @@ addpurchase.fire=function(params){
 					continue;
 				}
 
+				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+				if(price == null || price.length == 0){
+					price = "0";
+				}
+
 				var insResult = db.change(
 					"PURCHASE",
 					"insertPurchaseDetail",
@@ -272,9 +296,9 @@ addpurchase.fire=function(params){
 						"col0":purchaseNo,
 						"col1":sku,
 						"col2":asin,
-						"col3":"10",
+						"col3":price,
 						"col4":purchase,
-						"col5":purchase * 10
+						"col5":purchase * price
 					}
 				);
 
@@ -290,6 +314,8 @@ addpurchase.fire=function(params){
 
 		var sheetName = "在庫情報（袜子）";
 
+		var RB_priceX = ["K"];
+		var price_sheetName = "入荷見積（袜子）";
 
 		for(var y = W_labelY_from;y <= 9999;y++){
 
@@ -319,9 +345,10 @@ addpurchase.fire=function(params){
 				continue;
 			}
 
-
-			var localstock = excelXSSF.getValue(sheetName, W_localStockX + y);
-			var onboardstock = excelXSSF.getValue(sheetName, W_onboardStockX + y);
+			var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+			if(price == null || price.length == 0){
+				price = "0";
+			}
 
 			var insResult = db.change(
 				"PURCHASE",
@@ -330,9 +357,9 @@ addpurchase.fire=function(params){
 					"col0":purchaseNo,
 					"col1":sku,
 					"col2":asin,
-					"col3":"10",
+					"col3":price,
 					"col4":purchase,
-					"col5":purchase * 10
+					"col5":purchase * price
 				}
 			);
 
