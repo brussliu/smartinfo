@@ -569,7 +569,7 @@ function returnNumber(decimalNumber){
 		return null;
 	}
 
-	return parseFloat(decimalNumber).toFixed(2);
+	return parseFloat(decimalNumber);
 }
 
 function setExcelValue(excel, sheetName, station, value){
