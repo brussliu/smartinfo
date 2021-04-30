@@ -107,9 +107,9 @@ addpurchase.fire=function(params){
 						"col0":purchaseNo,
 						"col1":sku,
 						"col2":asin,
-						"col3":price,
+						"col3":parseFloat(price).toFixed(2),
 						"col4":purchase,
-						"col5":purchase * price
+						"col5":(parseFloat(price) * purchase).toFixed(2)
 					}
 				);
 
@@ -170,9 +170,9 @@ addpurchase.fire=function(params){
 						"col0":purchaseNo,
 						"col1":sku,
 						"col2":asin,
-						"col3":price,
+						"col3":parseFloat(price).toFixed(2),
 						"col4":purchase,
-						"col5":purchase * price
+						"col5":(parseFloat(price) * purchase).toFixed(2)
 					}
 				);
 
@@ -233,9 +233,9 @@ addpurchase.fire=function(params){
 						"col0":purchaseNo,
 						"col1":sku,
 						"col2":asin,
-						"col3":price,
+						"col3":parseFloat(price).toFixed(2),
 						"col4":purchase,
-						"col5":purchase * price
+						"col5":(parseFloat(price) * purchase).toFixed(2)
 					}
 				);
 
@@ -296,9 +296,9 @@ addpurchase.fire=function(params){
 						"col0":purchaseNo,
 						"col1":sku,
 						"col2":asin,
-						"col3":price,
+						"col3":parseFloat(price).toFixed(2),
 						"col4":purchase,
-						"col5":purchase * price
+						"col5":(parseFloat(price) * purchase).toFixed(2)
 					}
 				);
 
@@ -349,9 +349,6 @@ addpurchase.fire=function(params){
 			if(price == null || price.length == 0){
 				price = "0";
 			}
-			price.debug("WWWWWWWWWWWWWW");
-
-			(parseFloat(purchase) * parseFloat(price)).toString().substr(0, 10).debug("ZZZZZZZZZZZZZ");
 
 			var insResult = db.change(
 				"PURCHASE",
@@ -362,7 +359,7 @@ addpurchase.fire=function(params){
 					"col2":asin,
 					"col3":parseFloat(price).toFixed(2),
 					"col4":purchase,
-					"col5":""
+					"col5":(parseFloat(price) * purchase).toFixed(2)
 				}
 			);
 
