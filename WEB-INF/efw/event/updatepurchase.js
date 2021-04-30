@@ -2,7 +2,8 @@ var updatepurchase={};
 updatepurchase.name="仕入新規登録";
 updatepurchase.paramsFormat={
 
-	purchasefile : "required:true;display-name:仕入内容;",
+	//purchasefile : "required:true;display-name:仕入内容;",
+	"#importfile_purchase_forupdate":"required:true;display-name:仕入内容;",
 	purchaseNo : null,
 	"#shop" : null
 };
@@ -16,9 +17,12 @@ updatepurchase.fire=function(params){
 	// 仕入No
 	var purchaseNo = params["purchaseNo"];
 
+	// 仕入内容
+	var importfile_purchase = params["#purchaseInfo"]["#importfile_purchase"];
+
 	file.saveUploadFiles("upload");
 
-	var fa = params["purchasefile"].split("\\");
+	var fa = importfile_purchase.split("\\");
 	var f = fa[fa.length-1];
 
 	// Excelファイル

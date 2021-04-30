@@ -132,7 +132,7 @@
 
         function update(obj){
 
-			//var file = $(obj).parent().prev().children(0);
+			$("#importfile_purchase_forupdate").val($(obj).parent().prev().children(0));
 
 			alert($(obj).parent().parent().prev().children(0).html());
 
@@ -185,7 +185,7 @@
 
 <span style="font-weight: bold;">仕入情報一覧</span>
 <br/>
-
+<input type="file" id="importfile_purchase_forupdate" style="width: 400px;display: none;">
 <table border="1">
 	<COLGROUP>
 		<COL WIDTH="150PX">
