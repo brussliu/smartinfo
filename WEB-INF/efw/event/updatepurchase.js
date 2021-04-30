@@ -18,7 +18,7 @@ updatepurchase.fire=function(params){
 	var purchaseNo = params["purchaseNo"];
 
 	// 仕入内容
-	var importfile_purchase = params["#importfile_purchase_forupdate"];
+	var importfile_purchase = params["importfile_purchase_forupdate"];
 
 	file.saveUploadFiles("upload");
 
