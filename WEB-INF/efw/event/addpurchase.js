@@ -158,7 +158,7 @@ addpurchase.fire=function(params){
 					continue;
 				}
 
-				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+				var price = excelXSSF.getValue(price_sheetName, PJ_priceX[x] + y);
 				if(price == null || price.length == 0){
 					price = "0";
 				}
@@ -221,7 +221,7 @@ addpurchase.fire=function(params){
 					continue;
 				}
 
-				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+				var price = excelXSSF.getValue(price_sheetName, UB_priceX[x] + y);
 				if(price == null || price.length == 0){
 					price = "0";
 				}
@@ -284,7 +284,7 @@ addpurchase.fire=function(params){
 					continue;
 				}
 
-				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+				var price = excelXSSF.getValue(price_sheetName, RB_priceX[x] + y);
 				if(price == null || price.length == 0){
 					price = "0";
 				}
@@ -314,7 +314,7 @@ addpurchase.fire=function(params){
 
 		var sheetName = "在庫情報（袜子）";
 
-		var RB_priceX = ["K"];
+		var W_priceX = ["K"];
 		var price_sheetName = "入荷見積（袜子）";
 
 		for(var y = W_labelY_from;y <= 9999;y++){
@@ -345,7 +345,7 @@ addpurchase.fire=function(params){
 				continue;
 			}
 
-			var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
+			var price = excelXSSF.getValue(price_sheetName, W_priceX[x] + y);
 			if(price == null || price.length == 0){
 				price = "0";
 			}
