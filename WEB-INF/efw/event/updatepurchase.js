@@ -22,7 +22,7 @@ updatepurchase.fire=function(params){
 	// 仕入管理テーブル登録
 	var updateResult = db.change(
 		"PURCHASE",
-		"updatePurchase1",
+		"updatePurchase0",
 		{
 			"shop":shopname,
 			"col0":purchaseno,
