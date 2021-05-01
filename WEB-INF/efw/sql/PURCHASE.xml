@@ -32,6 +32,8 @@
 		SET 
 			"ステータス" = :col1
 			,"仕入確定日" = :col2
+			,"確定数量" = (select sum("数量") from "仕入明細" where "仕入NO" = :col0)
+			,"確定金額" = (select sum("金額") from "仕入明細" where "仕入NO" = :col0)
 		WHERE 
 			"店舗名" = :shop
 			AND
@@ -65,6 +67,8 @@
 		SET 
 			"ステータス" = :col1
 			,"受取日" = :col2
+			,"受取数量" = (select sum("数量") from "仕入明細" where "仕入NO" = :col0)
+			,"受取金額" = (select sum("金額") from "仕入明細" where "仕入NO" = :col0)
 		WHERE 
 			"店舗名" = :shop
 			AND
