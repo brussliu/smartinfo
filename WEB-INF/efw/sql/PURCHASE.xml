@@ -19,13 +19,57 @@
 		)
 	</sql>
 
-	<sql id="updatePurchase0">
-		UPDATE "仕入管理" SET "仕入名称" = :col1
+	<sql id="selectPurchaseStatus">
+		SELECT 
+			"ステータス" as status
+		FROM "仕入管理"
 		WHERE 
 			"店舗名" = :shop
 			AND
 			"仕入NO" = :col0
 	</sql>
+
+	<sql id="updatePurchase00">
+		UPDATE "仕入管理" 
+		SET 
+			"仕入名称" = :col1
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchase01">
+		UPDATE "仕入管理" 
+		SET 
+			 "確定数量" = (select sum(to_number("数量",'9999')) from "仕入明細" where "仕入NO" = :col0)
+			,"確定金額" = (select sum(to_number("金額",'9999')) from "仕入明細" where "仕入NO" = :col0)
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchaseShipping1">
+		UPDATE "NEW_在庫情報"
+		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') - to_number(B."数量",'9999')
+		FROM "仕入明細" B
+		WHERE 
+		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
+		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
+		B."仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchaseShipping2">
+		UPDATE "NEW_在庫情報"
+		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') + to_number(B."数量",'9999')
+		FROM "仕入明細" B
+		WHERE 
+		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
+		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
+		B."仕入NO" = :col0
+	</sql>
+
 
 	<sql id="updatePurchase1">
 		UPDATE "仕入管理" 
