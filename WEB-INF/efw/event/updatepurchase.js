@@ -103,7 +103,7 @@ updatepurchase.fire=function(params){
 		);
 
 		// 3, 新しい仕入明細を挿入
-		uploadPurchaseDetail(importfile_purchase);
+		uploadPurchaseDetail(importfile_purchase, purchaseno);
 
 		// 4, 途中在庫に新しい仕入明細の数量を計上
 		var updateResult = db.change(
@@ -130,7 +130,7 @@ updatepurchase.fire=function(params){
 };
 
 
-function uploadPurchaseDetail(excelfile){
+function uploadPurchaseDetail(excelfile, purchaseno){
 
 	file.saveUploadFiles("upload");
 
