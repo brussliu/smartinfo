@@ -48,7 +48,7 @@
 			<br><br>
 			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:'Smart-Bear'})">
 			<br><br>
-			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_delivery.jsp',shop:'Smart-Bear'})">
+			<input type=button value="納品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_delivery.jsp',shop:'Smart-Bear'})">
 			<br><br>
 		</div></td>
 		<td><div style="text-align:center"><br>
@@ -62,7 +62,7 @@
 			<br><br>
 			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:'Smart-KM'})">
 			<br><br>
-			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_delivery.jsp',shop:'Smart-KM'})">
+			<input type=button value="納品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_delivery.jsp',shop:'Smart-KM'})">
 			<br><br>
 		</div></td>
 	</tr>
