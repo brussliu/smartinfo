@@ -320,7 +320,7 @@
 		<td >FBA15CPD4JQC</td>	
 		<td >FBA (2021/04/19 19:09) - 1</td>
 		<td >PLN1MV0GBR</td>
-		<td >Amazon.co.jp KIX4 FBA入庫係, 津堂4-435, 藤井寺市, 大阪府, JP, 583-8533</td>
+		<td >Amazon.co.jp</td>
 		<td >35</td>
 		<td >999</td>
 		<td >99/99</td>
