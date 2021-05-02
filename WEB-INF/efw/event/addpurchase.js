@@ -119,7 +119,7 @@ addpurchase.fire=function(params){
 
 
 		var PJ_labelX = ["F","G","H","I","J","K"];
-		var RJ_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
+		var PJ_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
 
 		var PJ_labelY_from = 4;
 		var PJ_labelY_to = 11;
@@ -153,7 +153,7 @@ addpurchase.fire=function(params){
 				var sku = detailResult[0]["sku"];
 				var asin = detailResult[0]["asin"];
 
-				var purchase = excelXSSF.getValue(sheetName, RJ_purchaseX[x] + y);
+				var purchase = excelXSSF.getValue(sheetName, PJ_purchaseX[x] + y);
 				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 					continue;
 				}

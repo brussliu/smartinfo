@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="insertDelivery">
+		INSERT INTO "納品管理"
+		(
+			"店舗名",
+			"納品NO",
+			"納品名称",
+			"ステータス",
+			"新規登録日"
+		)
+		VALUES (
+			:shop,--"店舗名"
+			:col0,--"納品NO"
+			:col1,--"納品名称"
+			:col2,--"ステータス"
+			:col3 --"新規登録日"
+		)
+	</sql>
+	<sql id="insertDeliveryDetail">
+		INSERT INTO "納品明細"
+		(
+			"納品NO",
+			"SKU番号",
+			"ASIN番号", 
+			"数量"
+		)
+		VALUES (
+			:col0,--"納品NO"
+			:col1,--"SKU番号"
+			:col2,--"ASIN番号"
+			:col3 --"数量"
+		)
+	</sql>
+
+	<sql id="selectDeliveryStatus">
+		SELECT 
+			"ステータス" as status
+		FROM "納品管理"
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"納品NO" = :col0
+	</sql>
+
+	<sql id="updateDelivery00">
+		UPDATE "納品管理" 
+		SET 
+			"納品名称" = :col1
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"納品NO" = :col0
+	</sql>
+
+	<sql id="updatePurchase01">
+		UPDATE "仕入管理" 
+		SET 
+			 "確定数量" = (select sum(to_number("数量",'9999')) from "仕入明細" where "仕入NO" = :col0)
+			,"確定金額" = (select sum(to_number("金額",'9999')) from "仕入明細" where "仕入NO" = :col0)
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchaseShipping1">
+		UPDATE "NEW_在庫情報"
+		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') - to_number(B."数量",'9999')
+		FROM "仕入明細" B
+		WHERE 
+		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
+		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
+		B."仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchaseShipping2">
+		UPDATE "NEW_在庫情報"
+		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') + to_number(B."数量",'9999')
+		FROM "仕入明細" B
+		WHERE 
+		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
+		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
+		B."仕入NO" = :col0
+	</sql>
+
+
+	<sql id="updateDelivery1">
+		UPDATE "納品管理" 
+		SET 
+			"ステータス" = :col1
+			,"納品確定日" = :col2
+			,"確定数量" = (select sum(to_number("数量",'9999')) from "納品明細" where "納品NO" = :col0)
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"納品NO" = :col0
+	</sql>
+
+	<sql id="updateDelivery2">
+		UPDATE "納品管理" 
+		SET 
+			"ステータス" = :col1
+			,"発送日" = :col2
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"納品NO" = :col0
+	</sql>
+
+	<sql id="updateDelivery3">
+		UPDATE "納品管理" 
+		SET 
+			"ステータス" = :col1
+			,"受領日" = :col2
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
+	<sql id="updateDelivery4">
+		UPDATE "納品管理" 
+		SET 
+			"ステータス" = :col1
+			,"完了日" = :col2
+			,"最終納品数量" = (select sum(to_number("数量",'9999')) from "納品明細" where "納品NO" = :col0)
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"納品NO" = :col0
+	</sql>
+
+	<sql id="updatePurchaseShipping">
+		UPDATE "NEW_在庫情報"
+		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') + to_number(B."数量",'9999')
+		FROM "仕入明細" B
+		WHERE 
+		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
+		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
+		B."仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchaseAcceptance1">
+		UPDATE "NEW_在庫情報"
+		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') - to_number(B."数量",'9999')
+		FROM "仕入明細" B
+		WHERE 
+		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
+		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
+		B."仕入NO" = :col0
+	</sql>
+
+	<sql id="updatePurchaseAcceptance2">
+		UPDATE "NEW_在庫情報"
+		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'9999') + to_number(B."数量",'9999')
+		FROM "仕入明細" B
+		WHERE 
+		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
+		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
+		B."仕入NO" = :col0
+	</sql>
+
+	<sql id="searchPurchase">
+		select
+			P1."仕入NO" as purchase_no,
+			P1."仕入名称" as purchase_name,
+			P1."確定数量" as confirm_quantity,
+			case 
+				when P1."ステータス" = '0：新規登録' then '-'
+				when P1."ステータス" = '1：仕入確定' then P1."確定数量"
+				when P1."ステータス" = '2：発送済み' then P1."確定数量"
+				when P1."ステータス" = '3：到着済み' then P1."確定数量"
+				when P1."ステータス" = '4：受取済み' then P1."受取数量"
+			end as quantity,
+			case 
+				when P1."ステータス" = '0：新規登録' then '-'
+				when P1."ステータス" = '1：仕入確定' then P1."確定金額"
+				when P1."ステータス" = '2：発送済み' then P1."確定金額"
+				when P1."ステータス" = '3：到着済み' then P1."確定金額"
+				when P1."ステータス" = '4：受取済み' then P1."受取金額"
+			end as amount,
+			P1."ステータス" as status,
+			P1."新規登録日" as registration_date,
+			P1."仕入確定日" as confirm_date,
+			P1."発送日" as shipping_date,
+			P1."到着日" as arrival_date,
+			P1."受取日" as acceptance_date,
+			case 
+				when P1."ステータス" = '0：新規登録' then ''
+				when P1."ステータス" = '1：仕入確定' then ''
+				when P1."ステータス" = '2：発送済み' then ''
+				when P1."ステータス" = '3：到着済み' then ''
+				when P1."ステータス" = '4：受取済み' then 'none'
+			end as file_display,
+			case 
+				when P1."ステータス" = '0：新規登録' then ''
+				when P1."ステータス" = '1：仕入確定' then ''
+				when P1."ステータス" = '2：発送済み' then ''
+				when P1."ステータス" = '3：到着済み' then ''
+				when P1."ステータス" = '4：受取済み' then 'none'
+			end as update_display,
+			case 
+				when P1."ステータス" = '0：新規登録' then ''
+				when P1."ステータス" = '1：仕入確定' then 'none'
+				when P1."ステータス" = '2：発送済み' then 'none'
+				when P1."ステータス" = '3：到着済み' then 'none'
+				when P1."ステータス" = '4：受取済み' then 'none'
+			end as confirm_display,
+			case 
+				when P1."ステータス" = '0：新規登録' then 'none'
+				when P1."ステータス" = '1：仕入確定' then ''
+				when P1."ステータス" = '2：発送済み' then 'none'
+				when P1."ステータス" = '3：到着済み' then 'none'
+				when P1."ステータス" = '4：受取済み' then 'none'
+			end as shipping_display,			
+			case 
+				when P1."ステータス" = '0：新規登録' then 'none'
+				when P1."ステータス" = '1：仕入確定' then 'none'
+				when P1."ステータス" = '2：発送済み' then ''
+				when P1."ステータス" = '3：到着済み' then 'none'
+				when P1."ステータス" = '4：受取済み' then 'none'
+			end as arrival_display,			
+			case 
+				when P1."ステータス" = '0：新規登録' then 'none'
+				when P1."ステータス" = '1：仕入確定' then 'none'
+				when P1."ステータス" = '2：発送済み' then 'none'
+				when P1."ステータス" = '3：到着済み' then ''
+				when P1."ステータス" = '4：受取済み' then 'none'
+			end as acceptance_display
+		from
+			"仕入管理" P1
+		where
+			P1."店舗名" = :shop
+		order by
+			P1."ステータス",
+			P1."仕入NO"
+	</sql>
+
+	<sql id="delDeliveryDetail">
+		DELETE FROM "納品明細"
+		WHERE "納品NO" = :col0
+	</sql>
+</sqls>

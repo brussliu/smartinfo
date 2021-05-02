@@ -37,9 +37,9 @@
 
 		});
 
-        function outputpurchase(){
+        function outputdelivery(){
 
-			Efw('outputpurchase');
+			Efw('outputdelivery');
 
         }
 
@@ -171,11 +171,11 @@
 </div>
 
 <input type="hidden" id="shop">
-<input type="hidden" id="purchaseno">
+<input type="hidden" id="deliveryno">
 
 <br/>
 <br/>
-<table id="purchaseInfo" border="0" style="">
+<table id="deliveryInfo" border="0" style="">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">
@@ -183,7 +183,7 @@
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 
-		<COL WIDTH="250PX">
+		<COL WIDTH="220PX">
 
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
@@ -192,22 +192,22 @@
 	</COLGROUP>
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			納品名称：<input type="text" id="purchasename" style="width: 300px;height: 32px;">
+			納品名称：<input type="text" id="deliveryname" style="width: 300px;height: 32px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			納品内容：<input type="file" id="importfile_purchase" style="width: 400px;">
+			納品内容：<input type="file" id="importfile_delivery" style="width: 400px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="新規登録" style="width:100px;height: 32px;" id="add" onclick="Efw('addpurchase')">
+			<input type=button value="新規登録" style="width:100px;height: 32px;" id="add" onclick="Efw('adddelivery')">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="outputpurchase()">
+			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="outputdelivery()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="updatepurchase()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="納品作成用ファイル出力" style="width:100px;height: 32px;" id="confirm" disabled onclick="updatepurchasestatus(1);">
+			<input type=button value="納品作成用ファイル出力" style="width:200px;height: 32px;" id="confirm" disabled onclick="updatepurchasestatus(1);">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="納品確定" style="width:100px;height: 32px;" id="confirm" disabled onclick="updatepurchasestatus(1);">

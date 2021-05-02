@@ -417,4 +417,205 @@
 		) TEMP
 		ORDER BY TO_NUMBER(TEMP."req_no",'9999')
 	</sql>
+
+	<sql id="selectstockAndDelivery">
+		SELECT
+			TEMP."req_no",
+			TEMP."商品管理番号" as productno,
+			TEMP."商品写真" as productpic,
+			TEMP."商品種別" as productdiv,
+			TEMP."色" as color,
+			CASE WHEN TEMP."商品種別" = '親商品' THEN 0
+			ELSE ROW_NUMBER() OVER(partition BY TEMP."商品管理番号",TEMP."商品種別",TEMP."色" ORDER BY TO_NUMBER(TEMP."req_no",'9999')) 
+			END AS sizeindex,
+			(
+			SELECT count(distinct coalesce("サイズ",'')) FROM "NEW_出品マスタ情報"
+			WHERE "商品管理番号" = TEMP."商品管理番号" AND "商品種別" = '子商品' AND coalesce("色",'') = coalesce(TEMP."色",'') AND "店舗名" = :shop
+			) as subcq,
+			(SELECT count(*) FROM  "NEW_出品マスタ情報" WHERE "商品管理番号" = TEMP."商品管理番号" AND "店舗名" = :shop) as subpq,
+			TEMP."サイズ" as size,
+			TEMP."SKU番号" as sku,
+			TEMP."ASIN番号" as asin,
+			TEMP."ラベル番号" as label,
+			TEMP."商品名" as productname,
+			TEMP."前日数量" as selled1,
+			TEMP."7日間数量" as selled7,
+			TEMP."30日間数量" as selled30,
+			TEMP."60日間数量" as selled60,
+			TEMP."90日間数量" as selled90,
+			ROUND(
+			(TEMP."前日数量" * 0.05 +
+			TEMP."7日間数量"/7 * 0.15 +
+			TEMP."30日間数量"/30 * 0.3 +
+			TEMP."60日間数量"/60 * 0.3 +
+			TEMP."90日間数量"/90 * 0.2) * 7, 2) as selledweek,
+			TEMP."FBM在庫数量" as fbm,
+			TEMP."FBA在庫数量" as fba,
+			TEMP."LOCAL在庫数量" as localstock,
+			TEMP."ONBOARD在庫数量" as onboard,
+			TEMP."価格" as price,
+			CASE WHEN 
+				TEMP."7日間数量" = 0 THEN 9999
+			ELSE
+				ROUND(TEMP."在庫合計" / TEMP."7日間数量" * 7)
+			END as onsell7,
+			CASE WHEN 
+				TEMP."30日間数量" = 0 THEN 9999
+			ELSE
+				ROUND(TEMP."在庫合計" / TEMP."30日間数量" * 30)
+			END as onsell30,
+			CASE WHEN 
+				TEMP."60日間数量" = 0 THEN 9999
+			ELSE
+				ROUND(TEMP."在庫合計" / TEMP."60日間数量" * 60)
+			END as onsell60,
+			CASE WHEN 
+				TEMP."90日間数量" = 0 THEN 9999
+			ELSE
+				ROUND(TEMP."在庫合計" / TEMP."90日間数量" * 90)
+			END as onsell90,
+			CASE WHEN 
+				TEMP."前日数量" = 0 and 
+				TEMP."7日間数量" = 0 and 
+				TEMP."30日間数量" = 0 and
+				TEMP."60日間数量" = 0 and
+				TEMP."90日間数量" = 0 THEN 9999
+			ELSE
+				ROUND(
+				TEMP."在庫合計" / 
+				(TEMP."前日数量" * 0.05 +
+				TEMP."7日間数量"/7 * 0.15 +
+				TEMP."30日間数量"/30 * 0.3 +
+				TEMP."60日間数量"/60 * 0.3 +
+				TEMP."90日間数量"/90 * 0.2),2)
+			END as onsellweek,
+			TEMP."納品数量" as delivery
+		FROM
+		(
+			SELECT
+				T0."req_no",
+				T0."商品管理番号",
+				P."商品写真",
+				T0."商品種別",
+				T0."色",
+				T0."サイズ",
+				DETAIL."出品者SKU" as "SKU番号",
+				DETAIL."ASIN 1" as "ASIN番号",
+				FBA."ラベル番号",
+				DETAIL."商品名",
+				COALESCE(T1."前日数量",0) as "前日数量",
+				COALESCE(T2."7日間数量",0) as "7日間数量",
+				COALESCE(T3."30日間数量",0) as "30日間数量",
+				COALESCE(T4."60日間数量",0) as "60日間数量",
+				COALESCE(T5."90日間数量",0) as "90日間数量",
+				DETAIL."数量" AS "FBM在庫数量",
+				FBA."在庫数量" AS "FBA在庫数量",
+				STOCK."LOCAL在庫数量" AS "LOCAL在庫数量",
+				STOCK."ONBOARD在庫数量" AS "ONBOARD在庫数量",
+				DETAIL."価格",
+				COALESCE(TO_NUMBER(DETAIL."数量",'9999'),0) + COALESCE(TO_NUMBER(FBA."在庫数量",'9999'),0) AS "在庫合計",
+				DD."数量" as "納品数量"
+			FROM
+				"INPUT_出品詳細情報" DETAIL
+				LEFT JOIN "NEW_出品マスタ情報" T0 ON T0."SKU番号" = DETAIL."出品者SKU" AND T0."ASIN番号" = DETAIL."ASIN 1"
+				LEFT JOIN "INPUT_FBA在庫情報" FBA ON T0."SKU番号" = FBA."SKU番号" AND T0."ASIN番号" = FBA."ASIN番号" AND FBA."販売可否状態" = 'SELLABLE'
+				LEFT JOIN "NEW_在庫情報" STOCK ON T0."SKU番号" = STOCK."SKU番号" AND T0."ASIN番号" = STOCK."ASIN番号"
+				LEFT JOIN "MASTER_写真情報" P ON P."商品管理番号" = T0."商品管理番号" AND P."色" = coalesce(T0."色",'') AND P."店舗名" = T0."店舗名"
+				LEFT JOIN
+				(
+					SELECT
+						T."SKU番号",
+						T."ASIN番号",
+						SUM(TO_NUMBER(T."数量",'9999')) as "前日数量"
+					FROM 
+						"INPUT_注文情報" T
+					WHERE
+						T."販売方" = 'Amazon.co.jp'
+						AND
+						T."店舗名" = :shop
+						AND
+						substring(T.注文日時,1,10) = TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '1 day','yyyy-mm-dd')
+					GROUP BY 
+						T."SKU番号",
+						T."ASIN番号"
+				) T1 ON T0."SKU番号" = T1."SKU番号" AND T0."ASIN番号" = T1."ASIN番号"
+				LEFT JOIN
+				(
+					SELECT
+						T."SKU番号",
+						T."ASIN番号",
+						SUM(TO_NUMBER(T."数量",'9999')) as "7日間数量"
+					FROM 
+						"INPUT_注文情報" T
+					WHERE
+						T."販売方" = 'Amazon.co.jp'
+						AND
+						T."店舗名" = :shop
+						AND
+						substring(T.注文日時,1,10) >= TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '7 day','yyyy-mm-dd')
+					GROUP BY 
+						T."SKU番号",
+						T."ASIN番号"
+				) T2 ON T0."SKU番号" = T2."SKU番号" AND T0."ASIN番号" = T2."ASIN番号"
+				LEFT JOIN
+				(
+					SELECT
+						T."SKU番号",
+						T."ASIN番号",
+						SUM(TO_NUMBER(T."数量",'9999')) as "30日間数量"
+					FROM 
+						"INPUT_注文情報" T
+					WHERE
+						T."販売方" = 'Amazon.co.jp'
+						AND
+						T."店舗名" = :shop
+						AND
+						substring(T.注文日時,1,10) >= TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '30 day','yyyy-mm-dd')
+					GROUP BY 
+						T."SKU番号",
+						T."ASIN番号"
+				) T3 ON T0."SKU番号" = T3."SKU番号" AND T0."ASIN番号" = T3."ASIN番号"
+				LEFT JOIN
+				(
+					SELECT
+						T."SKU番号",
+						T."ASIN番号",
+						SUM(TO_NUMBER(T."数量",'9999')) as "60日間数量"
+					FROM 
+						"INPUT_注文情報" T
+					WHERE
+						T."販売方" = 'Amazon.co.jp'
+						AND
+						T."店舗名" = :shop
+						AND
+						substring(T.注文日時,1,10) >= TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '60 day','yyyy-mm-dd')
+					GROUP BY 
+						T."SKU番号",
+						T."ASIN番号"
+				) T4 ON T0."SKU番号" = T4."SKU番号" AND T0."ASIN番号" = T4."ASIN番号"
+				LEFT JOIN
+				(
+					SELECT
+						T."SKU番号",
+						T."ASIN番号",
+						SUM(TO_NUMBER(T."数量",'9999')) as "90日間数量"
+					FROM 
+						"INPUT_注文情報" T
+					WHERE
+						T."販売方" = 'Amazon.co.jp'
+						AND
+						T."店舗名" = :shop
+						AND
+						substring(T.注文日時,1,10) >= TO_CHAR(TO_DATE(:basedate_order,'yyyy-mm-dd')-interval '90 day','yyyy-mm-dd')
+					GROUP BY 
+						T."SKU番号",
+						T."ASIN番号"
+				) T5 ON T0."SKU番号" = T5."SKU番号" AND T0."ASIN番号" = T5."ASIN番号"
+				LEFT JOIN "納品明細" DD ON T0."SKU番号" = DD."SKU番号" AND T0."ASIN番号" = DD."ASIN番号" AND DD."納品NO" = :deliveryno
+			WHERE
+				DETAIL."店舗名" = :shop 
+		) TEMP
+		ORDER BY TO_NUMBER(TEMP."req_no",'9999')
+	</sql>
+
 </sqls>

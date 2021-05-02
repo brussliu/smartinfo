@@ -49,12 +49,24 @@ updatepurchase.fire=function(params){
 
 	var status = detailResult[0]["status"];
 
-	// 受取済みの場合、明細は更新しない
-	if(status == "4：受取済み"){
-		return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	// 新規登録の場合、仕入明細テーブルを再度導入
+	if(status == "0:新規登録"){
+
+		// 2, 既存仕入明細を全件削除
+		var delResult = db.change(
+			"PURCHASE",
+			"delPurchaseDetail",
+			{
+				"col0":purchaseno
+			}
+		);
+
+		// 3, 新しい仕入明細を挿入
+		uploadPurchaseDetail(importfile_purchase);
+
 
 	}
-	// 
+	// 仕入確定の場合、仕入明細テーブルを再度導入し、仕入管理テーブルの確定数量及び確定金額を再計算
 	if(status == "1：仕入確定"){
 
 			// 2, 既存仕入明細を全件削除
@@ -123,6 +135,12 @@ updatepurchase.fire=function(params){
 				shop:shopname
 			}
 		);
+
+	}
+
+	// 受取済みの場合、明細は更新しない
+	if(status == "4：受取済み"){
+		return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
 
 	}
 
@@ -208,7 +226,7 @@ function uploadPurchaseDetail(excelfile, purchaseno){
 
 
 		var PJ_labelX = ["F","G","H","I","J","K"];
-		var RJ_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
+		var PJ_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
 
 		var PJ_labelY_from = 4;
 		var PJ_labelY_to = 11;
@@ -242,7 +260,7 @@ function uploadPurchaseDetail(excelfile, purchaseno){
 				var sku = detailResult[0]["sku"];
 				var asin = detailResult[0]["asin"];
 
-				var purchase = excelXSSF.getValue(sheetName, RJ_purchaseX[x] + y);
+				var purchase = excelXSSF.getValue(sheetName, PJ_purchaseX[x] + y);
 				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
 					continue;
 				}
