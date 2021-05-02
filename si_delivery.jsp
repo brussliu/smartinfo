@@ -259,12 +259,14 @@
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
+		<COL WIDTH="200PX">
+		<COL WIDTH="200PX">
+		<!--
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
+		-->
 	</COLGROUP>
 	<tr style="font-size: 14px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td ></td>
@@ -280,10 +282,12 @@
 		<td >AMZ<br/>納品番号</td>	
 		<td >AMZ<br/>納品名</td>
 		<td >AMZ<br/>納品プラン番号</td>
+		<!--
 		<td >AMZ<br/>納品先</td>
 		<td >AMZ<br/>SKU合計</td>
 		<td >AMZ<br/>商品合計数</td>
 		<td >AMZ<br/>輸送箱のリスト</td>
+		-->
 	</tr>
 </table>
 <table border="1" id="purchasenamelist" style="font-size: 14px;">
@@ -299,12 +303,14 @@
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
+		<COL WIDTH="200PX">
+		<COL WIDTH="200PX">
+		<!--
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
+		-->
 	</COLGROUP>
 	<tr style="height: 30px;">
 		<td ><input type="radio" name="purchaseitem"></td>
@@ -320,10 +326,12 @@
 		<td >FBA15CPD4JQC</td>	
 		<td >XXXXX</td>
 		<td >PLN1MV0GBR</td>
+		<!--
 		<td >Amazon.co.jp</td>
 		<td >35</td>
 		<td >999</td>
 		<td >99/99</td>
+		-->
 	</tr>
 </table>
 
