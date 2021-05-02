@@ -266,7 +266,7 @@
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 	</COLGROUP>
-	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
+	<tr style="font-size: 14px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td ></td>
 		<td >納品No</td>
 		<td >納品名称</td>
@@ -286,7 +286,7 @@
 		<td >AMZ輸送箱のリスト</td>
 	</tr>
 </table>
-<table border="1" id="purchasenamelist" style="font-size: 16px;">
+<table border="1" id="purchasenamelist" style="font-size: 14px;">
 	<COLGROUP>
 		<COL WIDTH="50PX">
 		<COL WIDTH="200PX">
