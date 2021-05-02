@@ -249,7 +249,7 @@
 <table border="1">
 	<COLGROUP>
 		<COL WIDTH="50PX">
-		<COL WIDTH="200PX">
+		<COL WIDTH="150PX">
 		<COL WIDTH="350PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="120PX">
@@ -257,7 +257,7 @@
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
-		<COL WIDTH="150PX">
+		<COL WIDTH="120PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="200PX">
 		<COL WIDTH="200PX">
@@ -293,7 +293,7 @@
 <table border="1" id="purchasenamelist" style="font-size: 14px;">
 	<COLGROUP>
 		<COL WIDTH="50PX">
-		<COL WIDTH="200PX">
+		<COL WIDTH="150PX">
 		<COL WIDTH="350PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="120PX">
@@ -301,7 +301,7 @@
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
-		<COL WIDTH="150PX">
+		<COL WIDTH="120PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="200PX">
 		<COL WIDTH="200PX">
