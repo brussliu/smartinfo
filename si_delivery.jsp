@@ -277,13 +277,13 @@
 		<td >発送日</td>
 		<td >受領日</td>
 		<td >完了日</td>
-		<td >AMZ-納品番号</td>	
-		<td >AMZ-納品名</td>
-		<td >AMZ-納品プラン番号</td>
-		<td >AMZ-納品先</td>
-		<td >AMZ-SKU合計</td>
-		<td >AMZ-商品合計数</td>
-		<td >AMZ輸送箱のリスト</td>
+		<td >AMZ<br/>納品番号</td>	
+		<td >AMZ<br/>納品名</td>
+		<td >AMZ<br/>納品プラン番号</td>
+		<td >AMZ<br/>納品先</td>
+		<td >AMZ<br/>SKU合計</td>
+		<td >AMZ<br/>商品合計数</td>
+		<td >AMZ<br/>輸送箱のリスト</td>
 	</tr>
 </table>
 <table border="1" id="purchasenamelist" style="font-size: 14px;">
@@ -318,7 +318,7 @@
 		<td >2021/12/31</td>
 		<td >2021/12/31</td>
 		<td >FBA15CPD4JQC</td>	
-		<td >FBA (2021/04/19 19:09) - 1</td>
+		<td >XXXXX</td>
 		<td >PLN1MV0GBR</td>
 		<td >Amazon.co.jp</td>
 		<td >35</td>
