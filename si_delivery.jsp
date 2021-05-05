@@ -62,11 +62,11 @@
 
 		function selectitem(obj){
 
-			var purchaseno = $(obj).parent().next().html();
+			var deliveryno = $(obj).parent().next().html();
 
-			var purchasename = $(obj).parent().next().next().html();
+			var deliveryname = $(obj).parent().next().next().html();
 
-			var status = $(obj).parent().next().next().next().next().next().html();
+			var status = $(obj).parent().next().next().next().next().html();
 
 			if(status == "0：新規登録"){
 
@@ -85,7 +85,7 @@
 				// 受取
 				$("#acceptance").attr("disabled", true);
 				
-			}else if(status == "1：仕入確定"){
+			}else if(status == "1：納品確定"){
 
 				// 新規登録
 				$("#add").attr("disabled", false);
@@ -102,7 +102,7 @@
 				// 受取
 				$("#acceptance").attr("disabled", true);
 
-			}else if(status == "2：発送済み"){
+			}else if(status == "2：納品発送"){
 
 				// 新規登録
 				$("#add").attr("disabled", false);
@@ -119,7 +119,7 @@
 				// 受取
 				$("#acceptance").attr("disabled", true);
 
-			}else if(status == "3：到着済み"){
+			}else if(status == "3：納品受領"){
 
 				// 新規登録
 				$("#add").attr("disabled", false);
@@ -136,7 +136,7 @@
 				// 受取
 				$("#acceptance").attr("disabled", false);
 
-			}else if(status == "4：受取済み"){
+			}else if(status == "4：納品完了"){
 				// 新規登録
 				$("#add").attr("disabled", false);
 				// 出力
@@ -153,9 +153,9 @@
 				$("#acceptance").attr("disabled", true);
 			}
 
-			$("#purchaseno").val($(obj).parent().next().html());
+			$("#deliveryno").val($(obj).parent().next().html());
 
-			$("#purchasename").val($(obj).parent().next().next().html());
+			$("#deliveryname").val($(obj).parent().next().next().html());
 
 
 		}
