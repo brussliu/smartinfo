@@ -49,9 +49,9 @@
 
         }
 
-        function updatepurchase(){
+        function updatedelivery(){
 
-			Efw('updatepurchase');
+			Efw('updatedelivery');
 
 		}
 
@@ -204,7 +204,7 @@
 			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="outputdelivery()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="updatepurchase()">
+			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="updatedelivery()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="納品作成用ファイル出力" style="width:200px;height: 32px;" id="confirm" disabled onclick="updatepurchasestatus(1);">
