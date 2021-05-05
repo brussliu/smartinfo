@@ -41,7 +41,13 @@
 
 			Efw('outputdelivery');
 
-        }
+		}
+		
+		function outputdeliveryfile(){
+
+			Efw('outputdeliveryfile');
+			
+		}
 
         function searchDelivery(){
 
@@ -207,7 +213,7 @@
 			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="updatedelivery()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="納品作成用ファイル出力" style="width:200px;height: 32px;" id="confirm" disabled onclick="updatepurchasestatus(1);">
+			<input type=button value="納品作成用ファイル出力" style="width:200px;height: 32px;" id="confirm" disabled onclick="outputdeliveryfile();">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="納品確定" style="width:100px;height: 32px;" id="confirm" disabled onclick="updatepurchasestatus(1);">
