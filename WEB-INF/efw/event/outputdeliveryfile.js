@@ -45,7 +45,7 @@ outputdeliveryfile.fire=function(params){
 	}else{
 
 		// テンプレートにより、EXCELオブジェクトを作成する
-		var csvWriter = new CSVWriter("templates/deliverytemplete.txt","\t");
+		var csvWriter = new CSVWriter("templates/deliverytemplete.txt","\t","Shift-JIS");
 
 		var ary = new Array(10);
 
@@ -59,6 +59,8 @@ outputdeliveryfile.fire=function(params){
 		ary[7] = "AddressPostalCode,1150051";
 		ary[8] = ",";
 		ary[9] = "MerchantSKU,Quantity";
+
+		ary.debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
 		csvWriter.writeLine(ary);
 
