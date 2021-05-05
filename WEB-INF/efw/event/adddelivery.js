@@ -217,7 +217,7 @@ function insertDeliveryDetail(label, delivery){
 		}
 	).getArray();
 	if(detailResult == null || detailResult.length <= 0){
-		continue;
+		return;
 	}
 
 	var sku = detailResult[0]["sku"];
