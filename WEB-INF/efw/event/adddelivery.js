@@ -78,7 +78,7 @@ adddelivery.fire=function(params){
 					continue;
 				}
 				
-				insertDeliveryDetail(label, delivery);
+				insertDeliveryDetail(label, delivery, deliveryno);
 
 			}
 
@@ -108,7 +108,7 @@ adddelivery.fire=function(params){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery);
+				insertDeliveryDetail(label, delivery, deliveryno);
 
 			}
 
@@ -138,7 +138,7 @@ adddelivery.fire=function(params){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery);
+				insertDeliveryDetail(label, delivery, deliveryno);
 
 			}
 
@@ -168,7 +168,7 @@ adddelivery.fire=function(params){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery);
+				insertDeliveryDetail(label, delivery, deliveryno);
 
 			}
 
@@ -195,7 +195,7 @@ adddelivery.fire=function(params){
 				continue;
 			}
 
-			insertDeliveryDetail(label, delivery);
+			insertDeliveryDetail(label, delivery, deliveryno);
 
 		}
 
@@ -206,7 +206,7 @@ adddelivery.fire=function(params){
 };
 
 
-function insertDeliveryDetail(label, delivery){
+function insertDeliveryDetail(label, delivery, deliveryno){
 
 	var detailResult = db.select(
 		"UPLOAD",
