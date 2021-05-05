@@ -1,0 +1,11 @@
+PlanName	testplan1
+AddressName	SmartBear
+AddressFieldOne	•‚ŠÔ‚R|‚P|‚R‚V
+AddressFieldTwo	ƒgƒ~ƒ“ƒ^ƒ[•‚ŠÔO’š–Ú411†º
+AddressCity	–k‹æ
+AddressCountryCode	JP
+AddressStateOrRegion	“Œ‹“s
+AddressPostalCode	1150051
+	
+MerchantSKU	Quantity
+EM-GSK7-J02B	123
