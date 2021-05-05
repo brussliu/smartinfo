@@ -164,9 +164,8 @@
 
 	<sql id="searchDelivery">
 		select
-			P1."納品NO" as purchase_no,
-			P1."納品名称" as purchase_name,
-			P1."確定数量" as confirm_quantity,
+			P1."納品NO" as delivery_no,
+			P1."納品名称" as delivery_name,
 			case 
 				when P1."ステータス" = '0：新規登録' then '-'
 				when P1."ステータス" = '1：納品確定' then P1."確定数量"
@@ -221,7 +220,10 @@
 				when P1."ステータス" = '2：納品発送' then 'none'
 				when P1."ステータス" = '3：納品受領' then ''
 				when P1."ステータス" = '4：納品完了' then 'none'
-			end as acceptance_display
+			end as acceptance_display,
+			"AMZ-納品番号" as amz_delivery_no,
+  			"AMZ-納品名" as amz_delivery_name,
+  			"AMZ-納品プラン番号" as amz_delivery_plan_no
 		from
 			"納品管理" P1
 		where

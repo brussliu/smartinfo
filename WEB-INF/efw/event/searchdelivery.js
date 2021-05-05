@@ -13,16 +13,18 @@ searchdelivery.fire=function(params){
 	var resultHTML = 
 	"<tr style='height: 28px;'>" +
 		"<td ><input type='radio' name='purchaseitem' onclick='selectitem(this);'></td>" +
-		"<td >{purchase_no}</td>" +
-		"<td >{purchase_name}</td>" +
+		"<td >{delivery_no}</td>" +
+		"<td >{delivery_name}</td>" +
 		"<td >{quantity}</td>" +
-		"<td >{amount}</td>" +
 		"<td >{status}</td>" +
 		"<td >{registration_date}</td>" +
 		"<td >{confirm_date}</td>" +
 		"<td >{shipping_date}</td>" +
 		"<td >{arrival_date}</td>" +
 		"<td >{acceptance_date}</td>" +
+		"<td >{amz_delivery_no}</td>" +
+		"<td >{amz_delivery_name}</td>" +
+		"<td >{amz_delivery_plan_no}</td>" +
 	"</tr>";
 
 	var selectResult = db.select(

@@ -202,7 +202,7 @@ adddelivery.fire=function(params){
 	}
 
 	return (new Result())
-	.eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	.eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
 };
 
 
