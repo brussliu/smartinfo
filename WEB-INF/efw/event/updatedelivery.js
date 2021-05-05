@@ -63,7 +63,7 @@ updatedelivery.fire=function(params){
 		);
 
 		// 3, 新しい仕入明細を挿入
-		uploadDeliveryDetail(importfile_delivery);
+		uploadDeliveryDetail(importfile_delivery, deliveryno);
 
 	}
 
