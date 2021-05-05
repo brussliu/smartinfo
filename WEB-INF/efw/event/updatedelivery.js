@@ -51,7 +51,7 @@ updatedelivery.fire=function(params){
 	var status = detailResult[0]["status"];
 
 	// 新規登録の場合、仕入明細テーブルを再度導入
-	if(status == "0:新規登録"){
+	if(status == "0：新規登録"){
 
 		// 2, 既存仕入明細を全件削除
 		var delResult = db.change(
@@ -68,7 +68,7 @@ updatedelivery.fire=function(params){
 	}
 
 	// 受取済みの場合、明細は更新しない
-	if(status == "3:納品受領" || status == "4:納品完了"){
+	if(status == "3：納品受領" || status == "4：納品完了"){
 		return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
 
 	}
