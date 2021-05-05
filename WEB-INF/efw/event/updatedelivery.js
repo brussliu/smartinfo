@@ -41,7 +41,7 @@ updatedelivery.fire=function(params){
 	// ステータス検索
 	var detailResult = db.select(
 		"DELIVERY",
-		"selectPurchaseStatus",
+		"selectDeliveryStatus",
 		{
 			col0:deliveryno,
 			shop:shopname
@@ -322,7 +322,7 @@ function insertDeliveryDetail(label, delivery, deliveryno){
 		}
 	).getArray();
 	if(detailResult == null || detailResult.length <= 0){
-		continue;
+		return;
 	}
 
 	var sku = detailResult[0]["sku"];
