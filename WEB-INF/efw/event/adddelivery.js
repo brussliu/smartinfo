@@ -32,7 +32,7 @@ adddelivery.fire=function(params){
 
 	// 仕入管理テーブル登録
 	var insertResult = db.change(
-		"DELIVERT",
+		"DELIVERY",
 		"insertDelivery",
 		{
 			"shop":shopname,
