@@ -25,7 +25,7 @@ outputdeliveryfile.fire=function(params){
 
 	// var orderBaseDate = orderArr[0]["basetime"];
 
-	// var deliveryno = params["#deliveryno"];
+	var deliveryno = params["#deliveryno"];
 
 	// var selectResult = db.select(
 	// 	"STOCK",
