@@ -47,7 +47,7 @@ outputdeliveryfile.fire=function(params){
 		shopname.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
 
 		// テンプレートにより、EXCELオブジェクトを作成する
-		var csvWriter = new CSVWriter("templates/deliverytemplete.txt","\t","Shift-JIS");
+		var csvWriter = new CSVWriter("templates/deliverytemplete.txt",",");
 
 		var ary = new Array(10);
 
