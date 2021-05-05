@@ -43,7 +43,7 @@ updatedelivery.fire=function(params){
 		"DELIVERY",
 		"selectPurchaseStatus",
 		{
-			col0:purchaseno,
+			col0:deliveryno,
 			shop:shopname
 		}
 	).getArray();
@@ -69,7 +69,7 @@ updatedelivery.fire=function(params){
 
 	// 受取済みの場合、明細は更新しない
 	if(status == "3:納品受領" || status == "4:納品完了"){
-		return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
 
 	}
 	// 
@@ -144,7 +144,7 @@ updatedelivery.fire=function(params){
 
 	// }
 
-	return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
 };
 
 
@@ -184,7 +184,7 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery);
+				insertDeliveryDetail(label, delivery, deliveryno);
 
 			}
 
@@ -213,7 +213,7 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery);
+				insertDeliveryDetail(label, delivery, deliveryno);
 
 			}
 
@@ -242,7 +242,7 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery);
+				insertDeliveryDetail(label, delivery, deliveryno);
 
 			}
 
@@ -271,7 +271,7 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery);
+				insertDeliveryDetail(label, delivery, deliveryno);
 
 			}
 
@@ -300,7 +300,7 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 				continue;
 			}
 
-			insertDeliveryDetail(label, delivery);
+			insertDeliveryDetail(label, delivery, deliveryno);
 
 		}
 
@@ -311,7 +311,7 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 }
 
 
-function insertDeliveryDetail(label, delivery){
+function insertDeliveryDetail(label, delivery, deliveryno){
 
 	var detailResult = db.select(
 		"UPLOAD",
