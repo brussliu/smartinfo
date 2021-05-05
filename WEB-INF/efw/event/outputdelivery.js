@@ -33,7 +33,7 @@ outputdelivery.fire=function(params){
 		{
 		shop : shopname,
 		basedate_order : orderBaseDate,
-		purchaseno : deliveryno
+		deliveryno : deliveryno
 		}
 	).getArray();
 
@@ -140,7 +140,7 @@ outputdelivery.fire=function(params){
 			var selled90 = returnQuantity(selectResult[i]["selled90"]);
 			var selledweek = returnNumber(selectResult[i]["selledweek"]);
 			var price = returnJPPrice(selectResult[i]["price"]);
-			var purchase = returnQuantity(selectResult[i]["purchase"]);
+			var delivery = returnQuantity(selectResult[i]["delivery"]);
 
 			// レインコート
 			if(productno == "T001" || productno == "T002" || productno == "T003" || productno == "T004" || productno == "T005" 
@@ -175,7 +175,7 @@ outputdelivery.fire=function(params){
 							// 販売数量(週間平均値)
 							setExcelValue(excel, sheetName, RC_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, RC_writePurchaseX[x]+y, purchase);
+							setExcelValue(excel, sheetName, RC_writePurchaseX[x]+y, delivery);
 							
 						}
 					}
@@ -215,7 +215,7 @@ outputdelivery.fire=function(params){
 							// 販売数量(週間平均値)
 							setExcelValue(excel, sheetName, PJ_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, PJ_writePurchaseX[x]+y, purchase);
+							setExcelValue(excel, sheetName, PJ_writePurchaseX[x]+y, delivery);
 							
 						}
 					}
@@ -256,7 +256,7 @@ outputdelivery.fire=function(params){
 							// 販売数量(週間平均値)
 							setExcelValue(excel, sheetName, UB_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, UB_writePurchaseX[x]+y, purchase);
+							setExcelValue(excel, sheetName, UB_writePurchaseX[x]+y, delivery);
 						}
 					}
 				}
@@ -296,7 +296,7 @@ outputdelivery.fire=function(params){
 							// 販売数量(週間平均値)
 							setExcelValue(excel, sheetName, RB_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, RB_writePurchaseX[x]+y, purchase);
+							setExcelValue(excel, sheetName, RB_writePurchaseX[x]+y, delivery);
 						}
 					}
 				}
@@ -335,7 +335,7 @@ outputdelivery.fire=function(params){
 
 							setExcelValue(excel, sheetName, W_writeSellWeekX+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, W_writePurchaseX+y, purchase);
+							setExcelValue(excel, sheetName, W_writePurchaseX+y, delivery);
 						}
 
 				}
@@ -348,7 +348,7 @@ outputdelivery.fire=function(params){
 		excel.setActiveSheet("在庫情報（雨衣）").save(tempFilePathName);
 
 		ret.attach(tempFilePathName)
-		.saveas("Smart-Bear納品情報_" + purchaseno + ".xlsx")
+		.saveas("Smart-Bear納品情報_" + deliveryno + ".xlsx")
 		.deleteAfterDownload();
 
 	}
