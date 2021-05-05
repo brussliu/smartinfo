@@ -62,7 +62,7 @@ outputdelivery.fire=function(params){
 		var RC_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
 		var RC_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
 
-		var RC_writePurchaseX = ["BN","BO","BP","BQ","BR","BS"];
+		var RC_writeDeliveryX = ["BN","BO","BP","BQ","BR","BS"];
 
 		var PJ_labelY_from = 4;
 		var PJ_labelY_to = 11;
@@ -77,7 +77,7 @@ outputdelivery.fire=function(params){
 		var PJ_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
 		var PJ_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
 
-		var PJ_writePurchaseX = ["BN","BO","BP","BQ","BR","BS"];
+		var PJ_writeDeliveryX = ["BN","BO","BP","BQ","BR","BS"];
 
 		// 傘
 		var UB_labelY_from = 4;
@@ -93,7 +93,7 @@ outputdelivery.fire=function(params){
 		var UB_writeSellWeekX = ["N"];
 		var UB_writePriceX = ["S"];
 
-		var UB_writePurchaseX = ["P"];
+		var UB_writeDeliveryX = ["P"];
 
 		// 雨靴
 		var RB_labelY_from = 4;
@@ -109,7 +109,7 @@ outputdelivery.fire=function(params){
 		var RB_writeSellWeekX = ["P"];
 		var RB_writePriceX = ["U"];
 
-		var RB_writePurchaseX = ["R"];
+		var RB_writeDeliveryX = ["R"];
 
 		// 靴下
 		var W_labelY_from = 4;
@@ -125,7 +125,7 @@ outputdelivery.fire=function(params){
 		var W_writeSell90X = "R";
 		var W_writeSellWeekX = "S";
 
-		var W_writePurchaseX = "U";
+		var W_writeDeliveryX = "U";
 
 		for(var i = 0;i < selectResult.length;i ++){
 
@@ -175,7 +175,7 @@ outputdelivery.fire=function(params){
 							// 販売数量(週間平均値)
 							setExcelValue(excel, sheetName, RC_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, RC_writePurchaseX[x]+y, delivery);
+							setExcelValue(excel, sheetName, RC_writeDeliveryX[x]+y, delivery);
 							
 						}
 					}
@@ -215,7 +215,7 @@ outputdelivery.fire=function(params){
 							// 販売数量(週間平均値)
 							setExcelValue(excel, sheetName, PJ_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, PJ_writePurchaseX[x]+y, delivery);
+							setExcelValue(excel, sheetName, PJ_writeDeliveryX[x]+y, delivery);
 							
 						}
 					}
@@ -256,7 +256,7 @@ outputdelivery.fire=function(params){
 							// 販売数量(週間平均値)
 							setExcelValue(excel, sheetName, UB_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, UB_writePurchaseX[x]+y, delivery);
+							setExcelValue(excel, sheetName, UB_writeDeliveryX[x]+y, delivery);
 						}
 					}
 				}
@@ -296,7 +296,7 @@ outputdelivery.fire=function(params){
 							// 販売数量(週間平均値)
 							setExcelValue(excel, sheetName, RB_writeSellWeekX[x]+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, RB_writePurchaseX[x]+y, delivery);
+							setExcelValue(excel, sheetName, RB_writeDeliveryX[x]+y, delivery);
 						}
 					}
 				}
@@ -335,7 +335,7 @@ outputdelivery.fire=function(params){
 
 							setExcelValue(excel, sheetName, W_writeSellWeekX+y, selledweek);
 							// 仕入数量
-							setExcelValue(excel, sheetName, W_writePurchaseX+y, delivery);
+							setExcelValue(excel, sheetName, W_writeDeliveryX+y, delivery);
 						}
 
 				}
