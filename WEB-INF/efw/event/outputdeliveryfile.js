@@ -79,7 +79,8 @@ outputdeliveryfile.fire=function(params){
 			["AddressStateOrRegion	東京都"],
 			["AddressPostalCode	1150051"],
 			["	"],
-			["MerchantSKU	Quantity"]
+			["MerchantSKU	Quantity"],
+			[""],
 		];
 
 		csvWriter.writeAllLines(ary);
