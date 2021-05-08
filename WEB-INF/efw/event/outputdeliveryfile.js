@@ -44,16 +44,11 @@ outputdeliveryfile.fire=function(params){
 
 	}else{
 
-		shopname.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZ111");
-
 		file.remove("output/test.txt");
 		file.makeFile("output/test.txt");
 
 		// テンプレートにより、EXCELオブジェクトを作成する
 		var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
-		//new CSVWriter("download/deliverytemplete.txt",",");
-
-		shopname.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZ222");
 
 		var ary = new Array(10 + 1);
 
@@ -70,17 +65,9 @@ outputdeliveryfile.fire=function(params){
 
 		ary[10] = "EM-GSK7-J02B	999";
 
-		ary.debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
 		csvWriter.writeLine(ary);
 
-		ary.debug("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-
-
-
-		var sheetName = "納品プランの作成";
-
-		csvWriter.close();
 
 
 		ret.attach("output/test.txt")
