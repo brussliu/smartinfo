@@ -79,7 +79,7 @@ outputdeliveryfile.fire=function(params){
 		
 
 
-		ret.attach("templates/deliverytemplete.txt")
+		ret.attach("output/test.txt")
 		.saveas("Smart-Bear納品用ファイル_" + deliveryno + ".txt");
 		//.deleteAfterDownload();
 
