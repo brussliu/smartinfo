@@ -46,6 +46,8 @@ outputdeliveryfile.fire=function(params){
 
 		shopname.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZ111");
 
+		file.makeFile("output/test.txt");
+
 		// テンプレートにより、EXCELオブジェクトを作成する
 		var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
 		//new CSVWriter("download/deliverytemplete.txt",",");
@@ -64,6 +66,7 @@ outputdeliveryfile.fire=function(params){
 		ary[7] = "AddressPostalCode	1150051";
 		ary[8] = "	";
 		ary[9] = "MerchantSKU	Quantity";
+
 		ary[10] = "EM-GSK7-J02B	999";
 
 		ary.debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
@@ -81,6 +84,9 @@ outputdeliveryfile.fire=function(params){
 
 		ret.attach("output/test.txt")
 		.saveas("Smart-Bear納品用ファイル_" + deliveryno + ".txt");
+
+		file.remove("output/test.txt");
+
 		//.deleteAfterDownload();
 
 	}
