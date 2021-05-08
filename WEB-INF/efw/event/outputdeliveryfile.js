@@ -3,7 +3,8 @@ outputdeliveryfile.name="納品作成用ファイル出力";
 outputdeliveryfile.paramsFormat={
 
 	"#shop":null,
-	"#deliveryno":"required:true;display-name:仕入No;",
+	"#deliveryno":"required:true;display-name:納品No;",
+	"#deliveryname":"required:true;display-name:納品名称;",
 
 };
 var shopname = "";
@@ -13,29 +14,17 @@ outputdeliveryfile.fire=function(params){
 
 	shopname = params["#shop"];
 
-	// // 注文基準日
-	// var selectResult = db.select(
-	// 	"STOCK",
-	// 	"searchhistory",
-	// 	{shop:shopname}
-	// );
-
-	// var orderArr = selectResult.seek("importtype","eq","order").getArray();
-
-
-	// var orderBaseDate = orderArr[0]["basetime"];
-
 	var deliveryno = params["#deliveryno"];
+	var deliveryname = params["#deliveryname"];
 
-	// var selectResult = db.select(
-	// 	"STOCK",
-	// 	"selectstockAndDelivery",
-	// 	{
-	// 	shop : shopname,
-	// 	basedate_order : orderBaseDate,
-	// 	deliveryno : deliveryno
-	// 	}
-	// ).getArray();
+
+	var skuResult = db.select(
+		"DELIVERY",
+		"selectSkuList",
+		{
+			col0:deliveryno
+		}
+	).getArray();
 
 
 	if(shopname == "Smart-KM"){
@@ -81,7 +70,7 @@ outputdeliveryfile.fire=function(params){
 		// csvWriter.writeLine(ary3);
 
 		var ary = [
-			["PlanName	aaa"],
+			["PlanName	" + deliveryname],
 			["AddressName	SmartBear"],
 			["AddressFieldOne	浮間３－１－３７－４１１号室"],
 			["AddressFieldTwo	"],
@@ -94,6 +83,13 @@ outputdeliveryfile.fire=function(params){
 		];
 
 		csvWriter.writeAllLines(ary);
+
+		for(var i = 0;i < skuResult.length;i ++){
+
+			csvWriter.writeLine(skuResult[i]["skuinfo"]);
+			
+
+		}
 
 
 

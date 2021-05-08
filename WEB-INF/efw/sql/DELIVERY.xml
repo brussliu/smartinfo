@@ -237,4 +237,13 @@
 		DELETE FROM "納品明細"
 		WHERE "納品NO" = :col0
 	</sql>
+
+	<sql id="selectSkuList">
+		select
+			"SKU番号" || "	" ||"数量" as skuinfo
+		from
+			"納品明細"
+		WHERE "納品NO" = :col0
+	</sql>
+
 </sqls>
