@@ -50,20 +50,20 @@ outputdeliveryfile.fire=function(params){
 		// テンプレートにより、EXCELオブジェクトを作成する
 		var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
 
-		var ary = new Array(10 + 1);
+		var ary = new Array(2);
 
-		ary[0] = "PlanName	aaa";
-		ary[1] = "AddressName	SmartBear";
-		ary[2] = "AddressFieldOne	浮間３－１－３７－４１１号室";
-		ary[3] = "AddressFieldTwo	";
-		ary[4] = "AddressCity	北区";
-		ary[5] = "AddressCountryCode	JP";
-		ary[6] = "AddressStateOrRegion	東京都";
-		ary[7] = "AddressPostalCode	1150051";
-		ary[8] = "	";
-		ary[9] = "MerchantSKU	Quantity";
+		ary[0] = "PlanName,aaa";
+		ary[1] = "AddressName,SmartBear";
+		// ary[2] = "AddressFieldOne	浮間３－１－３７－４１１号室";
+		// ary[3] = "AddressFieldTwo	";
+		// ary[4] = "AddressCity	北区";
+		// ary[5] = "AddressCountryCode	JP";
+		// ary[6] = "AddressStateOrRegion	東京都";
+		// ary[7] = "AddressPostalCode	1150051";
+		// ary[8] = "	";
+		// ary[9] = "MerchantSKU	Quantity";
 
-		ary[10] = "EM-GSK7-J02B	999";
+		// ary[10] = "EM-GSK7-J02B	999";
 
 
 		csvWriter.writeLine(ary);
