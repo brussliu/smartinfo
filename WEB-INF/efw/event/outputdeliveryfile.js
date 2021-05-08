@@ -66,7 +66,7 @@ outputdeliveryfile.fire=function(params){
 		ary[10] = "EM-GSK7-J02B	999";
 
 
-		csvWriter.writeLine(ary);
+		csvWriter.writeAllLines(ary);
 
 
 
