@@ -52,7 +52,7 @@ outputdeliveryfile.fire=function(params){
 
 		var ary = new Array(10 + 1);
 
-		ary[0] = "PlanName	" + "テストプラン名称";
+		ary[0] = "PlanName	aaa";
 		ary[1] = "AddressName	SmartBear";
 		ary[2] = "AddressFieldOne	浮間３－１－３７－４１１号室";
 		ary[3] = "AddressFieldTwo	";
@@ -66,7 +66,7 @@ outputdeliveryfile.fire=function(params){
 		ary[10] = "EM-GSK7-J02B	999";
 
 
-		csvWriter.writeAllLines(ary);
+		csvWriter.writeLine(ary);
 
 
 
