@@ -46,7 +46,7 @@ outputdeliveryfile.fire=function(params){
 
 		shopname.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZ111");
 
-		file.makeFile("output/test.txt");
+		file.remove("output/test.txt").makeFile("output/test.txt");
 
 		// テンプレートにより、EXCELオブジェクトを作成する
 		var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
@@ -84,8 +84,6 @@ outputdeliveryfile.fire=function(params){
 
 		ret.attach("output/test.txt")
 		.saveas("Smart-Bear納品用ファイル_" + deliveryno + ".txt");
-
-		file.remove("output/test.txt");
 
 		//.deleteAfterDownload();
 
