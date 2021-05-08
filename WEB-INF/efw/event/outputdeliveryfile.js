@@ -44,10 +44,12 @@ outputdeliveryfile.fire=function(params){
 
 	}else{
 
-		shopname.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
+		shopname.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZ111");
 
 		// テンプレートにより、EXCELオブジェクトを作成する
 		var csvWriter = new CSVWriter("templates/deliverytemplete.txt",",");
+
+		shopname.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZ222");
 
 		var ary = new Array(10);
 
@@ -65,6 +67,8 @@ outputdeliveryfile.fire=function(params){
 		ary.debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
 		csvWriter.writeLine(ary);
+
+		ary.debug("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 
 
 
