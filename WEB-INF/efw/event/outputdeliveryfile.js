@@ -44,29 +44,41 @@ outputdeliveryfile.fire=function(params){
 
 	}else{
 
-		//file.remove("output/test.txt");
-		//file.makeFile("output/test.txt");
+		file.remove("output/test.txt");
+		file.makeFile("output/test.txt");
 
 		// テンプレートにより、EXCELオブジェクトを作成する
 		var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
 
-		var ary = new Array(2);
+		var ary1 = new Array(1);
+		var ary2 = new Array(1);
+		var ary3 = new Array(1);
+		var ary4 = new Array(1);
+		var ary5 = new Array(1);
+		var ary6 = new Array(1);
+		var ary7 = new Array(1);
+		var ary8 = new Array(1);
+		var ary9 = new Array(1);
+		var ary10 = new Array(1);
 
-		ary[0] = "PlanName,aaa";
-		ary[1] = "AddressName,SmartBear";
-		// ary[2] = "AddressFieldOne	浮間３－１－３７－４１１号室";
-		// ary[3] = "AddressFieldTwo	";
-		// ary[4] = "AddressCity	北区";
-		// ary[5] = "AddressCountryCode	JP";
-		// ary[6] = "AddressStateOrRegion	東京都";
-		// ary[7] = "AddressPostalCode	1150051";
-		// ary[8] = "	";
-		// ary[9] = "MerchantSKU	Quantity";
+
+		ary1[0] = "PlanName	aaa";
+		ary2[0] = "AddressName	SmartBear";
+		ary3[0] = "AddressFieldOne	浮間３－１－３７－４１１号室";
+		ary4[0] = "AddressFieldTwo	";
+		ary5[0] = "AddressCity	北区";
+		ary6[0] = "AddressCountryCode	JP";
+		ary7[0] = "AddressStateOrRegion	東京都";
+		ary8[0] = "AddressPostalCode	1150051";
+		ary9[0] = "	";
+		ary10[0] = "MerchantSKU	Quantity";
 
 		// ary[10] = "EM-GSK7-J02B	999";
 
 
-		csvWriter.writeLine(ary);
+		csvWriter.writeLine(ary1);
+		csvWriter.writeLine(ary2);
+		csvWriter.writeLine(ary3);
 
 
 
