@@ -86,7 +86,10 @@ outputdeliveryfile.fire=function(params){
 
 		for(var i = 0;i < skuResult.length;i ++){
 
-			csvWriter.writeLine(skuResult[i]["skuinfo"]);
+			var dary = [skuResult[i]["skuinfo"]];
+
+
+			csvWriter.writeLine(dary);
 			
 
 		}
