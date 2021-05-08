@@ -44,8 +44,8 @@ outputdeliveryfile.fire=function(params){
 
 	}else{
 
-		file.remove("output/test.txt");
-		file.makeFile("output/test.txt");
+		//file.remove("output/test.txt");
+		//file.makeFile("output/test.txt");
 
 		// テンプレートにより、EXCELオブジェクトを作成する
 		var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
