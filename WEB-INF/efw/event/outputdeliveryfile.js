@@ -79,7 +79,7 @@ outputdeliveryfile.fire=function(params){
 
 		var sheetName = "納品プランの作成";
 
-		
+		csvWriter.close();
 
 
 		ret.attach("output/test.txt")
