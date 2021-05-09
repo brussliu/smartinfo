@@ -14,13 +14,13 @@ updatedelivery.fire=function(params){
 
 	shopname = params["#shop"];
 
-	// 仕入No
+	// 納品No
 	var deliveryno = params["#deliveryno"];
 
-	// 仕入名称
+	// 納品名称
 	var deliveryname = params["#deliveryname"];
 
-	// 仕入名称更新
+	// 納品名称更新
 	var updateResult = db.change(
 		"DELIVERY",
 		"updateDelivery00",
@@ -31,7 +31,7 @@ updatedelivery.fire=function(params){
 		}
 	);
 
-	// 仕入明細
+	// 納品明細
 	var importfile_delivery = params["#importfile_delivery"];
 
 	if(importfile_delivery == null || importfile_delivery.length == 0){
@@ -72,32 +72,32 @@ updatedelivery.fire=function(params){
 		return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
 
 	}
-	// 
-	// if(status == "1：仕入確定"){
-
-	// 		// 2, 既存仕入明細を全件削除
-	// 		var delResult = db.change(
-	// 			"PURCHASE",
-	// 			"delPurchaseDetail",
-	// 			{
-	// 				"col0":purchaseno
-	// 			}
-	// 		);
 	
-	// 		// 3, 新しい仕入明細を挿入
-	// 		uploadPurchaseDetail(importfile_purchase);
+	if(status == "1：納品確定"){
 
-	// 		// 5, 確定数量及び確定金額を再計算
-	// 		var updateResult = db.change(
-	// 			"PURCHASE",
-	// 			"updatePurchase01",
-	// 			{
-	// 				col0:purchaseno,
-	// 				shop:shopname
-	// 			}
-	// 		);
+		// 2, 既存仕入明細を全件削除
+		var delResult = db.change(
+			"DELIVERY",
+			"delDeliveryDetail",
+			{
+				"col0":deliveryno
+			}
+		);
 
-	// }
+		// 3, 新しい仕入明細を挿入
+		uploadDeliveryDetail(importfile_delivery, deliveryno);
+
+		// 5, 確定数量を再計算
+		var updateResult = db.change(
+			"DELIVERY",
+			"updateDelivery01",
+			{
+				col0:deliveryno,
+				shop:shopname
+			}
+		);
+
+	}
 
 	// // 発送済みまたは到着済みの場合、途中在庫へ計上する処理を行う
 	// if(status == "2：発送済み" || status == "3：到着済み"){

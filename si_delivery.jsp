@@ -88,10 +88,10 @@
 				$("#confirm").attr("disabled", false);
 				// 発送した
 				$("#shopping").attr("disabled", true);
-				// 到着した
-				$("#arrival").attr("disabled", true);
 				// 受取
 				$("#acceptance").attr("disabled", true);
+				// 完了
+				$("#over").attr("disabled", true);
 				
 			}else if(status == "1：納品確定"){
 
@@ -107,10 +107,10 @@
 				$("#confirm").attr("disabled", true);
 				// 発送した
 				$("#shopping").attr("disabled", false);
-				// 到着した
-				$("#arrival").attr("disabled", true);
 				// 受取
 				$("#acceptance").attr("disabled", true);
+				// 完了
+				$("#over").attr("disabled", true);
 
 			}else if(status == "2：納品発送"){
 
@@ -119,17 +119,17 @@
 				// 出力
 				$("#output").attr("disabled", false);
 				// 更新
-				$("#update").attr("disabled", false);
+				$("#update").attr("disabled", true);
 				// 納品用ファイル出力
-				$("#outputfile").attr("disabled", false);
+				$("#outputfile").attr("disabled", true);
 				// 仕入確定
 				$("#confirm").attr("disabled", true);
 				// 発送した
 				$("#shopping").attr("disabled", true);
-				// 到着した
-				$("#arrival").attr("disabled", false);
 				// 受取
-				$("#acceptance").attr("disabled", true);
+				$("#acceptance").attr("disabled", false);
+				// 完了
+				$("#over").attr("disabled", true);
 
 			}else if(status == "3：納品受領"){
 
@@ -138,17 +138,17 @@
 				// 出力
 				$("#output").attr("disabled", false);
 				// 更新
-				$("#update").attr("disabled", false);
+				$("#update").attr("disabled", true);
 				// 納品用ファイル出力
-				$("#outputfile").attr("disabled", false);
+				$("#outputfile").attr("disabled", true);
 				// 仕入確定
 				$("#confirm").attr("disabled", true);
 				// 発送した
 				$("#shopping").attr("disabled", true);
-				// 到着した
-				$("#arrival").attr("disabled", true);
 				// 受取
 				$("#acceptance").attr("disabled", false);
+				// 完了
+				$("#over").attr("disabled", false);
 
 			}else if(status == "4：納品完了"){
 				// 新規登録
@@ -158,15 +158,15 @@
 				// 更新
 				$("#update").attr("disabled", true);
 				// 納品用ファイル出力
-				$("#outputfile").attr("disabled", false);
+				$("#outputfile").attr("disabled", true);
 				// 仕入確定
 				$("#confirm").attr("disabled", true);
 				// 発送した
 				$("#shopping").attr("disabled", true);
-				// 到着した
-				$("#arrival").attr("disabled", true);
 				// 受取
 				$("#acceptance").attr("disabled", true);
+				// 完了
+				$("#over").attr("disabled", true);
 			}
 
 			$("#deliveryno").val($(obj).parent().next().html());
@@ -237,13 +237,13 @@
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			受領内容：<input type="file" id="importfile_purchase" style="width: 400px;">
+			受領内容：<input type="file" id="importfile_acceptance" style="width: 400px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="納品受領" style="width:100px;height: 32px;" id="arrival" disabled onclick="updatepurchasestatus(3);">
+			<input type=button value="納品受領" style="width:100px;height: 32px;" id="acceptance" disabled onclick="updatedeliverystatus(3);">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="納品完了" style="width:100px;height: 32px;" id="acceptance" disabled onclick="updatepurchasestatus(4);">
+			<input type=button value="納品完了" style="width:100px;height: 32px;" id="over" disabled onclick="updatedeliverystatus(4);">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 		</td>

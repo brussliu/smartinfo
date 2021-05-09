@@ -4,17 +4,19 @@ updatedeliverystatus.paramsFormat={
 
 	"#deliveryno":"required:true;display-name:納品No;",
 	"status":"required:true;display-name:納品ステータス;",
+	"#importfile_acceptance":null,
 	"#shop" : null
 };
 
 var shopname = "";
+var deliveryno = "";
 
 updatedeliverystatus.fire=function(params){
 
 	shopname = params["#shop"];
 
 	// 仕入No
-	var deliveryno = params["#deliveryno"];
+	deliveryno = params["#deliveryno"];
 	// 仕入ステータス
 	var status = params["status"];
 
@@ -34,10 +36,26 @@ updatedeliverystatus.fire=function(params){
 		sql = "updateDelivery2";
 
 	}else if(status == 3 || status == "3" ){
+
+		// 受領明細
+		var importfile_acceptance = params["#importfile_acceptance"];
+
+		if(importfile_acceptance == null || importfile_acceptance.length == 0){
+			return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+		}
+
 		statusStr = "3：納品受領";
 		sql = "updateDelivery3";
 
 	}else if(status == 4 || status == "4" ){
+
+		// 受領明細
+		var importfile_acceptance = params["#importfile_acceptance"];
+
+		if(importfile_acceptance == null || importfile_acceptance.length == 0){
+			return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+		}
+
 		statusStr = "4：納品完了";
 		sql = "updateDelivery4";
 	}
@@ -71,27 +89,52 @@ updatedeliverystatus.fire=function(params){
 	// }
 
 
-	// if(status == 4 || status == "4" ){
+	if(status == 3 || status == "3" ){
 
-	// 	// 途中数量から削減
-	// 	var updateResult1 = db.change(
-	// 		"PURCHASE",
-	// 		"updatePurchaseAcceptance1",
-	// 		{
-	// 			"col0":purchaseno
-	// 		}
-	// 	);
-	// 	// 家数量に計上
-	// 	var updateResult2 = db.change(
-	// 		"PURCHASE",
-	// 		"updatePurchaseAcceptance2",
-	// 		{
-	// 			"col0":purchaseno
-	// 		}
-	// 	);
-	// }
+		var fa = params["#importfile_acceptance"].split("\\");
+		var f = fa[fa.length-1];
+
+		var csvReader = new CSVReader("upload/" + f, "\t");
+
+		// データ全件導入
+		csvReader.loopAllLines(importAcceptance);
+
+	}
 
 
 
 	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+};
+
+
+function importAcceptance(aryField, index) {
+
+	if(index > 8){
+
+		// 家の在庫から削減
+		var insResult1 = db.change(
+			"DELIVERY",
+			"updateNewLocalstock",
+			{
+				"acceptance":aryField[9],
+				"sku":aryField[0],
+				"asin":aryField[2]
+			}
+		);
+
+		// 納品明細の受領数量を更新
+		var insResult2 = db.change(
+			"DELIVERY",
+			"updateDeliveryAcceptance",
+			{
+				"acceptance":aryField[9],
+				"sku":aryField[0],
+				"col0":deliveryno
+			}
+		);
+
+		insResult2.debug("KKKKKKKKKKKKKKKKKKKKKKKK");
+
+	}
+
 };
