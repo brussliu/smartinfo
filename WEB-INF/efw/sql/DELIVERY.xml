@@ -234,4 +234,20 @@
 			"ASIN番号" = :asin
 	</sql>
 
+	<sql id="insertAcceptanceDetail">
+		INSERT INTO "納品明細"
+		(
+			"納品NO",
+			"SKU番号",
+			"ASIN番号", 
+			"受領数量"
+		)
+		VALUES (
+			:col0,--"納品NO"
+			:col1,--"SKU番号"
+			:col2,--"ASIN番号"
+			:col3 --"受領数量"
+		)
+	</sql>
+
 </sqls>

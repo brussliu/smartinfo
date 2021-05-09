@@ -133,6 +133,20 @@ function importAcceptance(aryField, index) {
 			}
 		);
 
+		// 想定外納品
+		if(insResult2 == 0){
+			var insResult3 = db.change(
+				"DELIVERY",
+				"insertAcceptanceDetail",
+				{
+					"col0":deliveryno,
+					"col1":aryField[0],
+					"col2":aryField[2],
+					"col3":aryField[9]
+				}
+			);
+		}
+
 		insResult2.debug("KKKKKKKKKKKKKKKKKKKKKKKK");
 
 	}
