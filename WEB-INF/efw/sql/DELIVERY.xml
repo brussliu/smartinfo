@@ -116,7 +116,7 @@
 		WHERE 
 			"店舗名" = :shop
 			AND
-			"仕入NO" = :col0
+			"納品NO" = :col0
 	</sql>
 
 	<sql id="updateDelivery4">
@@ -135,7 +135,7 @@
 		UPDATE "納品明細"
 		SET "受領数量" = :acceptance
 		WHERE 
-		"NEW_在庫情報"."SKU番号" = :sku
+		"SKU番号" = :sku
 		AND 
 		"納品NO" = :col0
 	</sql>
