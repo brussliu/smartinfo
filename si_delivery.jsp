@@ -216,10 +216,10 @@
 			<input type=button value="納品作成用ファイル出力" style="width:200px;height: 32px;" id="confirm" disabled onclick="outputdeliveryfile();">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="納品確定" style="width:100px;height: 32px;" id="confirm" disabled onclick="updatepurchasestatus(1);">
+			<input type=button value="納品確定" style="width:100px;height: 32px;" id="confirm" disabled onclick="updatedeliverystatus(1);">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="納品発送" style="width:100px;height: 32px;" id="shopping" disabled onclick="updatepurchasestatus(2);">
+			<input type=button value="納品発送" style="width:100px;height: 32px;" id="shopping" disabled onclick="updatedeliverystatus(2);">
 		</td>
 
 	</tr>

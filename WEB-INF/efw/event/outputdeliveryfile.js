@@ -39,36 +39,6 @@ outputdeliveryfile.fire=function(params){
 		// テンプレートにより、EXCELオブジェクトを作成する
 		var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
 
-		// var ary1 = new Array(1);
-		// var ary2 = new Array(1);
-		// var ary3 = new Array(1);
-		// var ary4 = new Array(1);
-		// var ary5 = new Array(1);
-		// var ary6 = new Array(1);
-		// var ary7 = new Array(1);
-		// var ary8 = new Array(1);
-		// var ary9 = new Array(1);
-		// var ary10 = new Array(1);
-
-
-		// ary1[0] = "PlanName	aaa";
-		// ary2[0] = "AddressName	SmartBear";
-		// ary3[0] = "AddressFieldOne	浮間３－１－３７－４１１号室";
-		// ary4[0] = "AddressFieldTwo	";
-		// ary5[0] = "AddressCity	北区";
-		// ary6[0] = "AddressCountryCode	JP";
-		// ary7[0] = "AddressStateOrRegion	東京都";
-		// ary8[0] = "AddressPostalCode	1150051";
-		// ary9[0] = "	";
-		// ary10[0] = "MerchantSKU	Quantity";
-
-		// // ary[10] = "EM-GSK7-J02B	999";
-
-
-		// csvWriter.writeLine(ary1);
-		// csvWriter.writeLine(ary2);
-		// csvWriter.writeLine(ary3);
-
 		var ary = [
 			["PlanName	" + deliveryname],
 			["AddressName	SmartBear"],
@@ -89,19 +59,12 @@ outputdeliveryfile.fire=function(params){
 
 			var dary = [skuResult[i]["skuinfo"]];
 
-
 			csvWriter.writeLine(dary);
-			
 
 		}
 
-
-
-
 		ret.attach("output/test.txt")
-		.saveas("Smart-Bear納品用ファイル_" + deliveryno + ".txt");
-
-		//.deleteAfterDownload();
+		.saveas("納品用ファイル_" + deliveryno + ".txt");
 
 	}
 
