@@ -61,9 +61,9 @@
 
 		}
 
-		function updatepurchasestatus(no){
+		function updatedeliverystatus(no){
 
-			Efw('updatepurchasestatus',{status:no});
+			Efw('updatedeliverystatus',{status:no});
 		}
 
 		function selectitem(obj){
