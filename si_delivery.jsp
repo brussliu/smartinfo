@@ -82,6 +82,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", false);
+				// 納品用ファイル出力
+				$("#outputfile").attr("disabled", false);
 				// 仕入確定
 				$("#confirm").attr("disabled", false);
 				// 発送した
@@ -99,6 +101,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", false);
+				// 納品用ファイル出力
+				$("#outputfile").attr("disabled", false);
 				// 仕入確定
 				$("#confirm").attr("disabled", true);
 				// 発送した
@@ -116,6 +120,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", false);
+				// 納品用ファイル出力
+				$("#outputfile").attr("disabled", false);
 				// 仕入確定
 				$("#confirm").attr("disabled", true);
 				// 発送した
@@ -133,6 +139,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", false);
+				// 納品用ファイル出力
+				$("#outputfile").attr("disabled", false);
 				// 仕入確定
 				$("#confirm").attr("disabled", true);
 				// 発送した
@@ -149,6 +157,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", true);
+				// 納品用ファイル出力
+				$("#outputfile").attr("disabled", false);
 				// 仕入確定
 				$("#confirm").attr("disabled", true);
 				// 発送した
