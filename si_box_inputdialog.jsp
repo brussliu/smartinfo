@@ -365,9 +365,6 @@
 				return;
 			}
 
-
-			alert($("#scanInput").val());
-
 			// 商品情報取得
 			Efw('searchProductInfoByLabel',{"labelno" : $("#scanInput").val()});
 

@@ -25,8 +25,8 @@ searchProductInfoByLabel.fire=function(params){
 		}
 	).getArray();
 
-	var sku = detailResult[0]["sku"];
-	var asin = detailResult[0]["asin"];
+	var sku = selectResult[0]["sku"];
+	var asin = selectResult[0]["asin"];
 
 	var script = "displayToTable('" + sku + "','" + asin + "');";
 
