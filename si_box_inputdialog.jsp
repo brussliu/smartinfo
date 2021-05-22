@@ -326,6 +326,18 @@
 		// 	$("#addsub").attr("disabled",false);
 		// 	$("#delsub").attr("disabled",false);
 		// }
+		function addbox(){
+
+			var addboxcount = $("#maxboxcount").val() + 1;
+			$title_td = $("<TD>箱No." + addboxcount + "<input type='radio' name='boxno' value='" + addboxcount + "' onclick='' checked></TD>");
+			$data_td = $("<td></td>");
+			$("#boxinfo>thead>tr").append($title_td);
+			$("#boxinfo>tbody>tr").append($data_td);
+
+			$("#maxboxcount").val(addboxcount);
+			
+		}
+
 
 	</SCRIPT>
 	<style>
@@ -503,34 +515,29 @@
 		</TR>
 		-->
 	</TABLE>
-	<TABLE BORDER="1">
-		<COLGROUP>
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL>
-		</COLGROUP>
-		<TR style="height:40px;">
-			<TD>商品管理番号</TD>
-			<TD>色</TD>
-			<TD>サイズ</TD>
-			<TD>予定数量</TD>
-			<TD>実際数量</TD>
-			<TD>箱No.1<input type="radio" name="boxno" value="10" onclick="" checked></TD>
-		</TR>
-		<TR style="height:40px;">
-			<TD>T001</TD>
-			<TD>ピンク</TD>
-			<TD>XL</TD>
-			<TD>99</TD>
-			<TD>19</TD>
-			<TD>19</TD>
-		</TR>
+	<TABLE BORDER="1" id="boxinfo">
+		<thead>
+			<TR style="height:40px;background-color: aquamarine;">
+				<TD style="width: 100px;">商品管理番号</TD>
+				<TD style="width: 100px;">色</TD>
+				<TD style="width: 100px;">サイズ</TD>
+				<TD style="width: 100px;">予定数量</TD>
+				<TD style="width: 100px;">実際数量</TD>
+				<TD style="width: 100px;">箱No.1<input type="radio" name="boxno" value="10" onclick="" checked></TD>
+			</TR>
+		</thead>
+		<tbody>
+			<TR style="height:40px;">
+				<TD>T001</TD>
+				<TD>ピンク</TD>
+				<TD>XL</TD>
+				<TD>99</TD>
+				<TD>19</TD>
+				<TD>19</TD>
+			</TR>
+		</tbody>
 	</TABLE>
-
+	<INPUT TYPE="HIDDEN" id="maxboxcount" value="1">
 	<INPUT TYPE="HIDDEN" CLASS="action">
 	<BR>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
