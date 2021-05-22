@@ -347,9 +347,31 @@
 		        audioElement.setAttribute('src', 'facai.mp3');
 				audioElement.setAttribute('autoplay', 'autoplay');
 
-			alert(sku);
+			//alert(sku);
+			//alert(asin);
 
-			alert(asin);
+			$("#boxinfobody").find("tr").each(function(){
+
+				var tdArr = $(this).children();
+				
+			    var td_sku = tdArr.eq(3).html();
+				var td_asin = tdArr.eq(4).html();
+
+			    if(sku == td_sku || asin == td_asin){
+
+					// 箱詰め数量+1
+					var boxCol = 6 + parseInt($("input[name='boxno']:checked").val());
+					var td_q = tdArr.eq(boxCol).html().length <= 0 ? 0 : parseInt(tdArr.eq(boxCol).html());
+					tdArr.eq(boxCol).html(td_q + 1);
+
+					// 実際数量+1
+					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + 1);
+
+			    }
+			     
+			});
+
+
 
 		}
 
@@ -470,142 +492,6 @@
 				<input type="button" style="text-align: right;float: right;" value="箱増加" onclick="addbox();">
 			</TD>
 		</TR>
-		<!--
-		<TR style="height:40px;">
-			<TD>商品分類</TD>
-			<TD>
-				<select STYLE="WIDTH:200px;height:32px;" id="productdiv">
-					<option id="" class=""></option>	
-					<option id="01" class="newshop">01:レインコート</option>	
-					<option id="05" class="newshop">05:傘</option>
-					<option id="08" class="newshop">08:雨靴</option>
-					<option id="21" class="newshop">21:靴下（夏用）</option>
-					<option id="22" class="newshop">22:靴下（秋冬用）</option>
-					<option id="31" class="newshop">31:パジャマ</option>
-					<option id="41" class="newshop">41:バスタオル</option>
-					<option id="050" class="oldshop">050:スマホケース</option>
-					<option id="100" class="oldshop">100:スマホ保護フィルム</option>
-					<option id="150" class="oldshop">150:スマホカメラ保護フィルム</option>
-					<option id="180" class="oldshop">180:充電ケーブル</option>
-					<option id="190" class="oldshop">190:無線充電器</option>
-					<option id="200" class="oldshop">200:スポーツ用品</option>
-					<option id="210" class="oldshop">210:自撮りライト</option>
-					<option id="250" class="oldshop">250:スタンド</option>
-					<option id="300" class="oldshop">300:イヤホン</option>
-					<option id="350" class="oldshop">350:扇風機</option>
-					<option id="400" class="oldshop">400:タブレットケース</option>
-					<option id="500" class="oldshop">500:セクシー下着</option>
-					<option id="600" class="oldshop">600:レインコート</option>
-					<option id="900" class="oldshop">900:その他</option>
-				</select>
-			</TD>
-			<TD>商品名称</TD>
-			<TD colspan="3"><INPUT TYPE="TEXT" STYLE="WIDTH:100%;height:30px;" id="productname"></TD>
-		</TR>
-
-		<TR style="height:40px;">
-			<TD>子商品選択</TD>
-			<TD colspan="5">
-				<INPUT TYPE="TEXT" ID="txt_freeWord" STYLE="WIDTH:200px;height:30px;">
-				<input type="button" id="searchsubproduct" style="width: 80px;" value="検索" onclick="Efw('searchsubproduct')">
-			</TD>
-		</TR>
-		<TR>
-			<TD></TD>
-			<TD colspan="5">
-				<DIV style="height:200px;width:1200px;overflow:auto;background:#F1F1F1;">
-					<TABLE border="1" style="font-size: 12px;width: 100%">
-						<COLGROUP>
-							<COL WIDTH="50PX">
-							<COL WIDTH="100PX">
-							<COL WIDTH="100PX">
-							<COL>
-						</COLGROUP>
-						<TR>
-							<TH>選択</TH>
-							<TH>SKU番号</TH>
-							<TH>ASIN番号</TH>
-							<TH>商品名称</TH>
-						</TR>
-					</TABLE>
-					<TABLE border="1" style="font-size: 12px;width: 100%" id="subproduct">
-						<COLGROUP>
-							<COL WIDTH="50PX">
-							<COL WIDTH="100PX">
-							<COL WIDTH="100PX">
-							<COL>
-						</COLGROUP>
-					</TABLE>
-				</DIV>
-			</TD>
-		</TR>
-		<TR style="height:40px;">
-			<TD></TD>
-			<TD style="text-align: center;" colspan="5">
-				<input type="button" id="addsub" style="width: 80px;" value="▼" onclick="addsub()" disabled>
-				<input type="button" id="delsub" style="width: 80px;" value="▲" onclick="delsub()" disabled>
-				<div style="float: right;">
-					バリエーション種類：
-					<input type="radio" name="ptype" value="10" onclick="activebutton();">color
-					<input type="radio" name="ptype" value="20" onclick="activebutton();">size
-					<input type="radio" name="ptype" value="30" onclick="activebutton();">color-size
-					<input type="radio" name="ptype" value="40" onclick="activebutton();">size-color
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				</div>
-
-			</TD>
-		</TR>
-		<TR>
-			<TD style="text-align: center;">
-				<input type="button" style="text-align: center;width: 50px;" value="▲" onclick="moveup();">
-				<br/><br/>
-				<input type="button" style="text-align: center;width: 50px;" value="▼" onclick="movedown();">
-				<br/><br/>
-				<input type="button" style="text-align: center;width: 50px;" value="×" onclick="clearTR()">
-			</TD>
-			<TD colspan="5">
-				<DIV style="height:200px;width:1200px;overflow:auto;background:#F1F1F1;">
-					<TABLE border="1" style="font-size: 12px;width: 100%">
-						<COLGROUP>
-							<COL WIDTH="50PX">
-							<COL WIDTH="100PX">
-							<COL WIDTH="100PX">
-							<COL>
-							<COL WIDTH="150PX">
-							<COL WIDTH="150PX">
-						</COLGROUP>
-						<TR>
-							<TH>選択</TH>
-							<TH>SKU番号</TH>
-							<TH>ASIN番号</TH>
-							<TH>商品名称</TH>
-							<TH>color</TH>
-							<TH>size</TH>
-						</TR>
-					</TABLE>
-					<TABLE border="1" style="font-size: 12px;width: 100%" id="selectedsubproduct">
-						<COLGROUP>
-							<COL WIDTH="50PX">
-							<COL WIDTH="100PX">
-							<COL WIDTH="100PX">
-							<COL>
-							<COL WIDTH="150PX">
-							<COL WIDTH="150PX">
-						</COLGROUP>
-					</TABLE>
-				</DIV>
-				<input type="button" style="text-align: right;float: right;" value="確定" onclick="makepicarea();">
-			</TD>
-		</TR>
-		<TR style="height:220px;">
-			<TD>商品写真</TD>
-			<TD colspan="5">
-				<div style="display: inline;width: 100%;height: 100%" id="allpic">
-
-				</div>
-			</TD>
-		</TR>
-		-->
 	</TABLE>
 	<TABLE BORDER="1" id="boxinfo">
 		<thead>
