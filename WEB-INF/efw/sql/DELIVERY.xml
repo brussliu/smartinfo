@@ -64,24 +64,24 @@
 			"納品NO" = :col0
 	</sql>
 
-	<sql id="updatePurchaseShipping1">
+	<sql id="updateDeliveryShipping1">
 		UPDATE "NEW_在庫情報"
-		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') - to_number(B."数量",'9999')
-		FROM "仕入明細" B
+		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'9999') + to_number(B."受領数量",'9999')
+		FROM "納品明細" B
 		WHERE 
 		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
 		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
-		B."仕入NO" = :col0
+		B."納品NO" = :col0
 	</sql>
 
-	<sql id="updatePurchaseShipping2">
+	<sql id="updateDeliveryShipping2">
 		UPDATE "NEW_在庫情報"
-		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') + to_number(B."数量",'9999')
-		FROM "仕入明細" B
+		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'9999') - to_number(B."受領数量",'9999')
+		FROM "納品明細" B
 		WHERE 
 		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
 		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
-		B."仕入NO" = :col0
+		B."納品NO" = :col0
 	</sql>
 
 
@@ -136,6 +136,8 @@
 		SET "受領数量" = :acceptance
 		WHERE 
 		"SKU番号" = :sku
+		AND
+		"ASIN番号" = :asin
 		AND 
 		"納品NO" = :col0
 	</sql>
@@ -248,6 +250,16 @@
 			:col2,--"ASIN番号"
 			:col3 --"受領数量"
 		)
+	</sql>
+
+	<sql id="updateAcceptanceToLocal">
+		UPDATE "NEW_在庫情報"
+		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'9999') + to_number(coalesce(B."受領数量",B."数量"),'9999')
+		FROM "納品明細" B
+		WHERE 
+		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
+		"NEW_在庫情報"."ASIN番号" = B."ASIN番号" AND 
+		B."納品NO" = :col0
 	</sql>
 
 </sqls>

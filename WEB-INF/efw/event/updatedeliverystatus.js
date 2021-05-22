@@ -20,8 +20,23 @@ updatedeliverystatus.fire=function(params){
 	// 仕入ステータス
 	var status = params["status"];
 
+	// ステータス検索
+	var detailResult = db.select(
+		"DELIVERY",
+		"selectDeliveryStatus",
+		{
+			col0:deliveryno,
+			shop:shopname
+		}
+	).getArray();
+
+	var oldstatus = detailResult[0]["status"];
+
+
+
 	var statusStr = "";
 	var sql = "";
+
 
 	if(status == 0 || status == "0" ){
 
@@ -64,7 +79,7 @@ updatedeliverystatus.fire=function(params){
 
 	var dDate = today.format("yyyy/MM/dd");
 
-	// 仕入管理テーブル登録
+	// 仕入管理テーブル更新
 	var updateResult = db.change(
 		"DELIVERY",
 		sql,
@@ -88,9 +103,25 @@ updatedeliverystatus.fire=function(params){
 
 	// }
 
-
+	// 3：納品受領
 	if(status == 3 || status == "3" ){
 
+		// 現ステータスが納品受領の場合、前回の受領数量を家在庫へ戻る
+		if(oldstatus == "3：納品受領"){
+
+			var updateResult = db.change(
+				"DELIVERY",
+				"updateDeliveryShipping1",
+				{
+					"col0":deliveryno
+				}
+			);
+
+			
+
+		}
+
+		// 受領ファイルをループし、明細テーブルの受領数量を更新する
 		var fa = params["#importfile_acceptance"].split("\\");
 		var f = fa[fa.length-1];
 
@@ -99,8 +130,46 @@ updatedeliverystatus.fire=function(params){
 		// データ全件導入
 		csvReader.loopAllLines(importAcceptance);
 
+		// 家在庫から、最新の受領数量を削減
+		var updateResult = db.change(
+			"DELIVERY",
+			"updateDeliveryShipping2",
+			{
+				"col0":deliveryno
+			}
+		);
+
 	}
 
+	if(status == 4 || status == "4" ){
+
+		// 受領数量で、家の在庫を回復
+		var updateResult = db.change(
+			"DELIVERY",
+			"updateDeliveryShipping1",
+			{
+				"col0":deliveryno
+			}
+		);
+
+		var fa = params["#importfile_acceptance"].split("\\");
+		var f = fa[fa.length-1];
+
+		var csvReader = new CSVReader("upload/" + f, "\t");
+
+		// データ全件導入
+		csvReader.loopAllLines(importAcceptanceOver);
+
+		// 家在庫から、最新の受領数量を削減
+		var updateResult = db.change(
+			"DELIVERY",
+			"updateDeliveryShipping2",
+			{
+				"col0":deliveryno
+			}
+		);
+
+	}
 
 
 	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
@@ -111,16 +180,53 @@ function importAcceptance(aryField, index) {
 
 	if(index > 8){
 
-		// 家の在庫から削減
-		var insResult1 = db.change(
+		// // 家の在庫から削減
+		// var insResult1 = db.change(
+		// 	"DELIVERY",
+		// 	"updateNewLocalstock",
+		// 	{
+		// 		"acceptance":aryField[9],
+		// 		"sku":aryField[0],
+		// 		"asin":aryField[2]
+		// 	}
+		// );
+
+		// 納品明細の受領数量を更新
+		var insResult2 = db.change(
 			"DELIVERY",
-			"updateNewLocalstock",
+			"updateDeliveryAcceptance",
 			{
 				"acceptance":aryField[9],
 				"sku":aryField[0],
-				"asin":aryField[2]
+				"asin":aryField[2],
+				"col0":deliveryno
 			}
 		);
+
+		// // 想定外納品
+		// if(insResult2 == 0){
+		// 	var insResult3 = db.change(
+		// 		"DELIVERY",
+		// 		"insertAcceptanceDetail",
+		// 		{
+		// 			"col0":deliveryno,
+		// 			"col1":aryField[0],
+		// 			"col2":aryField[2],
+		// 			"col3":aryField[9]
+		// 		}
+		// 	);
+		// }
+
+		// insResult2.debug("KKKKKKKKKKKKKKKKKKKKKKKK");
+
+	}
+
+};
+
+function importAcceptanceOver(aryField, index) {
+
+	if(index > 8){
+
 
 		// 納品明細の受領数量を更新
 		var insResult2 = db.change(
@@ -147,7 +253,20 @@ function importAcceptance(aryField, index) {
 			);
 		}
 
-		insResult2.debug("KKKKKKKKKKKKKKKKKKKKKKKK");
+		// 家の在庫から最終受領数量を削減
+		var insResult1 = db.change(
+			"DELIVERY",
+			"updateNewLocalstock",
+			{
+				"acceptance":aryField[9],
+				"sku":aryField[0],
+				"asin":aryField[2]
+			}
+		);
+
+
+
+
 
 	}
 

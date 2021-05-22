@@ -73,7 +73,7 @@ updatedelivery.fire=function(params){
 
 	}
 	
-	if(status == "1：納品確定"){
+	if(status == "1：納品確定" || status == "2：納品発送"){
 
 		// 2, 既存仕入明細を全件削除
 		var delResult = db.change(
