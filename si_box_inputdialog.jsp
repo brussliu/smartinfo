@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <DIV CLASS="DIALOG" ID="si_box_inputdialog" STYLE="DISPLAY: NONE">
 	<SCRIPT>
-		var si_master_inputdialog = null;
+		var si_box_inputdialog = null;
 		$(function() {
-			si_master_inputdialog = $("#si_box_inputdialog").dialog({
+			si_box_inputdialog = $("#si_box_inputdialog").dialog({
 				title : "箱詰め",
 				autoOpen : false,
 				resizable : false,
@@ -503,7 +503,7 @@
 	<INPUT TYPE="HIDDEN" CLASS="action"> <BR>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savemaster()" >登録</BUTTON>
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_master_inputdialog.dialog('close');" >キャンセル</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_box_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
 </DIV>
 
