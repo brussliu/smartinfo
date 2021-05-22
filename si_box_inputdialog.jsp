@@ -343,13 +343,6 @@
 
 		function displayToTable(sku, asin){
 
-			var audioElement = document.createElement('audio');
-		        audioElement.setAttribute('src', 'facai.mp3');
-				audioElement.setAttribute('autoplay', 'autoplay');
-
-			//alert(sku);
-			//alert(asin);
-
 			$("#boxinfobody").find("tr").each(function(){
 
 				var tdArr = $(this).children();
@@ -359,6 +352,9 @@
 
 			    if(sku == td_sku || asin == td_asin){
 
+					alert(sku);
+					alert(asin);
+
 					// 箱詰め数量+1
 					var boxCol = 6 + parseInt($("input[name='boxno']:checked").val());
 					var td_q = tdArr.eq(boxCol).html().length <= 0 ? 0 : parseInt(tdArr.eq(boxCol).html());
@@ -367,9 +363,17 @@
 					// 実際数量+1
 					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + 1);
 
+					var audioElement = document.createElement('audio');
+		        	audioElement.setAttribute('src', 'facai.mp3');
+					audioElement.setAttribute('autoplay', 'autoplay');
+
+					return;
+
 			    }
 			     
 			});
+
+
 
 
 
