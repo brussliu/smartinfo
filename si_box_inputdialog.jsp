@@ -350,21 +350,20 @@
     </style>
 	<TABLE STYLE="WIDTH: 100%" BORDER="1">
 		<COLGROUP>
-			<COL WIDTH="150PX">
+			<COL WIDTH="100PX">
 			<COL WIDTH="250PX">
-			<COL WIDTH="150PX">
-			<COL WIDTH="250PX">
-			<COL WIDTH="150PX">
 			<COL>
 		</COLGROUP>
 		<TR style="height:40px;">
-			<TD>商品管理番号</TD>
+			<TD>スキャン欄</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productid"></TD>
-			<TD>SKU番号</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="sku"></TD>
-			<TD>ASIN番号</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="asin"></TD>
+			<TD>
+				<input type="radio" name="opttype" value="10" onclick="activebutton();">増加操作(+)
+				<input type="radio" name="opttype" value="20" onclick="activebutton();">減少操作(-)
+			</TD>
+
 		</TR>
+		<!--
 		<TR style="height:40px;">
 			<TD>商品分類</TD>
 			<TD>
@@ -499,10 +498,42 @@
 				</div>
 			</TD>
 		</TR>
+		-->
 	</TABLE>
-	<INPUT TYPE="HIDDEN" CLASS="action"> <BR>
+	<TABLE STYLE="WIDTH: 100%" BORDER="1">
+		<COLGROUP>
+			<COL WIDTH="100PX">
+			<COL WIDTH="100PX">
+			<COL WIDTH="100PX">
+			<COL WIDTH="100PX">
+			<COL WIDTH="100PX">
+			<COL WIDTH="100PX">
+			<COL>
+		</COLGROUP>
+		<TR style="height:40px;">
+			<TD>商品管理番号</TD>
+			<TD>色</TD>
+			<TD>サイズ</TD>
+			<TD>予定数量</TD>
+			<TD>実際数量</TD>
+			<TD>箱No.1</TD>
+			<TD><input type="button" style="text-align: right;float: right;" value="＋" onclick="addbox();"></TD>
+		</TR>
+		<TR style="height:40px;">
+			<TD>T001</TD>
+			<TD>ピンク</TD>
+			<TD>XL</TD>
+			<TD>99</TD>
+			<TD>19</TD>
+			<TD>19</TD>
+			<TD></TD>
+		</TR>
+	</TABLE>
+
+	<INPUT TYPE="HIDDEN" CLASS="action">
+	<BR>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savemaster()" >登録</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savebox()" >確定</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_box_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
 </DIV>
