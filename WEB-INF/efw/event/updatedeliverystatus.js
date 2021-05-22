@@ -153,7 +153,7 @@ updatedeliverystatus.fire=function(params){
 
 function importAcceptance(aryField, index) {
 
-	if(index > 8){
+	if(index >= 8){
 
 		// // 家の在庫から削減
 		// var insResult1 = db.change(
