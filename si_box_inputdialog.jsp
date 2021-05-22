@@ -355,7 +355,6 @@
 
 		function inputLabel(){
 
-			alert($("#scanInput").val());
 			if($("#scanInput").val().length != 10 || $("#scanInput").val().startsWith("X000")){
 			
 				// ダメの音声
@@ -367,10 +366,10 @@
 			}
 
 
-				//alert($(obj).val());
+			alert($("#scanInput").val());
 
-				// 商品情報取得
-				Efw('searchProductInfoByLabel',{"labelno" : $("#scanInput").val()});
+			// 商品情報取得
+			Efw('searchProductInfoByLabel',{"labelno" : $("#scanInput").val()});
 
 				// 画面表示
 				// 商品管理コード表示

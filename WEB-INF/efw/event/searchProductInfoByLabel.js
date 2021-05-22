@@ -13,6 +13,8 @@ searchProductInfoByLabel.fire=function(params){
 	shopname = params["#shop"];
 	var labelno = params["labelno"];
 
+	labelno.debug("HHHHHHHHHHHHHHHHHHHHHHHH");
+
 
 	var selectResult = db.select(
 		"DELIVERY",
