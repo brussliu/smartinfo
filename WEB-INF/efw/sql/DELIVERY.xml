@@ -285,7 +285,7 @@
 			B."サイズ"
 	</sql>
 
-	<sql id="searchDeliveryInfo">
+	<sql id="searchProductInfo">
 	select 
 		A."商品管理番号" as pno,
 		A."色" as color,
