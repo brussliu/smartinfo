@@ -1,6 +1,11 @@
 var addbox={};
 addbox.name="箱詰め";
-addbox.paramsFormat={};
+addbox.paramsFormat={
+
+	"#deliveryno":"required:true;display-name:仕入No;",
+	"#shop" : null
+
+};
 addbox.fire=function(params){
 
 	var ret = new Result();
