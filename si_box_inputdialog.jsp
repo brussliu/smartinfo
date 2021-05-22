@@ -355,6 +355,7 @@
 
 		function inputLabel(){
 
+			alert($("#scanInput").val());
 			if($("#scanInput").val().length != 10 || $("#scanInput").val().startsWith("X000")){
 			
 				// ダメの音声
