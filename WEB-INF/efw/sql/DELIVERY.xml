@@ -264,4 +264,25 @@
 		B."納品NO" = :col0
 	</sql>
 
+
+	<sql id="searchDeliveryInfo">
+		select 
+			B."商品管理番号" pno,
+			B."色" color,
+			B."サイズ" size,
+			A."SKU番号" sku,
+			A."ASIN番号" asin,
+			A."数量" as quantity
+		from
+		"納品明細" A
+		left join "NEW_出品マスタ情報" B
+		on A."SKU番号" = B."SKU番号" and A."ASIN番号" = B."ASIN番号"
+		where
+			"納品NO" = :col0
+		order by
+			B."商品管理番号",
+			B."色",
+			B."サイズ"
+	</sql>
+
 </sqls>

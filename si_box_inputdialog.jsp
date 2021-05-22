@@ -32,6 +32,8 @@
 				$(".oldshop").show();
 				$(".newshop").hide();
 			}
+
+			searchDeliveryInfo();
 		});
 
 		// function getstrcount(str1,str2){
@@ -328,7 +330,7 @@
 		// }
 		function addbox(){
 
-			var addboxcount = $("#maxboxcount").val() + 1;
+			var addboxcount = parseInt($("#maxboxcount").val()) + 1;
 			$title_td = $("<TD>箱No." + addboxcount + "<input type='radio' name='boxno' value='" + addboxcount + "' onclick='' checked></TD>");
 			$data_td = $("<td></td>");
 			$("#boxinfo>thead>tr").append($title_td);
@@ -339,26 +341,11 @@
 		}
 
 
+
+
 	</SCRIPT>
 	<style>
-		.img {
-		 height: 160px;
-		 width: 160px;
-		 display: none;
-		 //padding-left: 17px;
-		}
-		.SELECTED{
-			background-color: rgb(0,255,255);
-		}
 
-		.picdiv{
-			margin-left: 15px;
-			float: left; 
-			border-width: 1px;
-			border-style: solid;
-			width: 160px;height: 160px;
-			border-color: gray;
-		}
     </style>
 	<TABLE STYLE="WIDTH: 100%" BORDER="0">
 		<COLGROUP>
