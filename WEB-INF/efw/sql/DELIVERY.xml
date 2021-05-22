@@ -66,7 +66,7 @@
 
 	<sql id="updateDeliveryShipping1">
 		UPDATE "NEW_在庫情報"
-		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'9999') + to_number(B."受領数量",'9999')
+		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'9999') + to_number(coalesce(B."受領数量",'0'),'9999')
 		FROM "納品明細" B
 		WHERE 
 		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
@@ -76,7 +76,7 @@
 
 	<sql id="updateDeliveryShipping2">
 		UPDATE "NEW_在庫情報"
-		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'9999') - to_number(B."受領数量",'9999')
+		SET "LOCAL在庫数量" = to_number("LOCAL在庫数量",'9999') - to_number(coalesce(B."受領数量",'0'),'9999')
 		FROM "納品明細" B
 		WHERE 
 		"NEW_在庫情報"."SKU番号" = B."SKU番号" AND 
