@@ -272,6 +272,8 @@
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
+		</td>
 	</tr>
 </table>
 <span style="font-weight: bold;color: red;">※XXXXXXX</span>
