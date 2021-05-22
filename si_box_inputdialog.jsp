@@ -511,7 +511,7 @@
 				<TD style="width: 100px;">ASIN番号</TD>
 				<TD style="width: 100px;">予定数量</TD>
 				<TD style="width: 100px;">実際数量</TD>
-				<TD style="width: 100px;">箱No.1<input type="radio" name="boxno" value="10" onclick="" checked></TD>
+				<TD style="width: 100px;">箱No.1<input type="radio" name="boxno" value="1" onclick="" checked></TD>
 			</TR>
 		</thead>
 		<tbody id="boxinfobody">
