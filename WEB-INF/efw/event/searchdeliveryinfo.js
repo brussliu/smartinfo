@@ -31,9 +31,9 @@ searchdeliveryinfo.fire=function(params){
 	).getArray();
 
 
-	ret.runat("#boxinfo.tbody").remove("tr");
+	ret.runat("#boxinfo>tbody").remove("tr");
 
-	ret.runat("#boxinfo.tbody").append(resultHTML).withdata(selectResult);
+	ret.runat("#boxinfo>tbody").append(resultHTML).withdata(selectResult);
 
 
 	// 画面へ結果を返す
