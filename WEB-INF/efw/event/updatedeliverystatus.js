@@ -13,8 +13,6 @@ var deliveryno = "";
 
 updatedeliverystatus.fire=function(params){
 
-	file.saveUploadFiles("upload");
-
 	shopname = params["#shop"];
 
 	// 仕入No
@@ -54,6 +52,8 @@ updatedeliverystatus.fire=function(params){
 
 	}else if(status == 3 || status == "3" ){
 
+		file.saveUploadFiles("upload");
+
 		// 受領明細
 		var importfile_acceptance = params["#importfile_acceptance"];
 
@@ -70,6 +70,8 @@ updatedeliverystatus.fire=function(params){
 
 	}else if(status == 4 || status == "4" ){
 
+		file.saveUploadFiles("upload");
+		
 		// 受領明細
 		var importfile_acceptance = params["#importfile_acceptance"];
 
