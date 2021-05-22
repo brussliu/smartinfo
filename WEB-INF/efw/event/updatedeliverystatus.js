@@ -101,18 +101,6 @@ updatedeliverystatus.fire=function(params){
 		}
 	);
 
-	// if(status == 2 || status == "2" ){
-
-	// 	var updateResult1 = db.change(
-	// 		"PURCHASE",
-	// 		"updatePurchaseShipping",
-	// 		{
-	// 			"col0":purchaseno
-	// 		}
-	// 	);
-
-	// }
-
 	// 3：納品受領
 	if(status == 3 || status == "3" ){
 
@@ -178,6 +166,10 @@ function importAcceptance(aryField, index) {
 		// 	}
 		// );
 
+		aryField[0].debug("000000000000000000");
+		aryField[2].debug("222222222222222222");
+		aryField[9].debug("999999999999999999");
+
 		// 納品明細の受領数量を更新
 		var insResult2 = db.change(
 			"DELIVERY",
@@ -204,56 +196,7 @@ function importAcceptance(aryField, index) {
 		// 	);
 		// }
 
-		// insResult2.debug("KKKKKKKKKKKKKKKKKKKKKKKK");
-
-	}
-
-};
-
-function importAcceptanceOver(aryField, index) {
-
-	if(index > 8){
-
-
-		// 納品明細の受領数量を更新
-		var insResult2 = db.change(
-			"DELIVERY",
-			"updateDeliveryAcceptance",
-			{
-				"acceptance":aryField[9],
-				"sku":aryField[0],
-				"col0":deliveryno
-			}
-		);
-
-		// 想定外納品
-		if(insResult2 == 0){
-			var insResult3 = db.change(
-				"DELIVERY",
-				"insertAcceptanceDetail",
-				{
-					"col0":deliveryno,
-					"col1":aryField[0],
-					"col2":aryField[2],
-					"col3":aryField[9]
-				}
-			);
-		}
-
-		// 家の在庫から最終受領数量を削減
-		var insResult1 = db.change(
-			"DELIVERY",
-			"updateNewLocalstock",
-			{
-				"acceptance":aryField[9],
-				"sku":aryField[0],
-				"asin":aryField[2]
-			}
-		);
-
-
-
-
+		insResult2.debug("KKKKKKKKKKKKKKKKKKKKKKKK");
 
 	}
 
