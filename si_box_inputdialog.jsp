@@ -8,7 +8,7 @@
 				title : "箱詰め",
 				autoOpen : false,
 				resizable : false,
-				height : 1000,
+				height : 900,
 				width : 1400,
 				modal : true,
 				open : function(){
@@ -512,7 +512,7 @@
 				<TD style="width: 100px;">箱No.1<input type="radio" name="boxno" value="10" onclick="" checked></TD>
 			</TR>
 		</thead>
-		<tbody>
+		<tbody id="boxinfobody">
 			<TR style="height:40px;">
 				<TD>T001</TD>
 				<TD>ピンク</TD>
