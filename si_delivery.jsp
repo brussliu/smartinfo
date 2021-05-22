@@ -82,6 +82,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", false);
+				// 箱詰め
+				$("#box").attr("disabled", false);
 				// 納品用ファイル出力
 				$("#outputfile").attr("disabled", false);
 				// 仕入確定
@@ -100,7 +102,9 @@
 				// 出力
 				$("#output").attr("disabled", false);
 				// 更新
-				$("#update").attr("disabled", false);
+				$("#update").attr("disabled", true);
+				// 箱詰め
+				$("#box").attr("disabled", true);
 				// 納品用ファイル出力
 				$("#outputfile").attr("disabled", false);
 				// 仕入確定
@@ -120,6 +124,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", true);
+				// 箱詰め
+				$("#box").attr("disabled", true);
 				// 納品用ファイル出力
 				$("#outputfile").attr("disabled", true);
 				// 仕入確定
@@ -139,6 +145,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", true);
+				// 箱詰め
+				$("#box").attr("disabled", true);
 				// 納品用ファイル出力
 				$("#outputfile").attr("disabled", true);
 				// 仕入確定
@@ -157,6 +165,8 @@
 				$("#output").attr("disabled", false);
 				// 更新
 				$("#update").attr("disabled", true);
+				// 箱詰め
+				$("#box").attr("disabled", true);
 				// 納品用ファイル出力
 				$("#outputfile").attr("disabled", true);
 				// 仕入確定
@@ -175,6 +185,11 @@
 
 
 		}
+		function box(){
+
+			Efw('addbox');
+
+		}
 
   	</script>
     <style>
@@ -182,6 +197,7 @@
     </style>
 </head>
 <body style="background-color:ghostwhite;" onload="searchDelivery();">
+	<efw:Part path="si_box.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
@@ -221,6 +237,9 @@
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="更　　新" style="width:100px;height: 32px;" id="update" disabled onclick="updatedelivery()">
+		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
+			<input type=button value="箱詰め" style="width:100px;height: 32px;" id="box" disabled onclick="box()">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="納品作成用ファイル出力" style="width:200px;height: 32px;" id="outputfile" disabled onclick="outputdeliveryfile();">
