@@ -30,6 +30,8 @@ searchdeliveryinfo.fire=function(params){
 		}
 	).getArray();
 
+	selectResult.debug("ZZZZZZZZZZZZZZZZZZZZZZZ");
+
 
 	ret.runat("#boxinfobody").remove("tr");
 
