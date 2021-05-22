@@ -357,11 +357,15 @@
 
 					// 箱詰め数量+1
 					var boxCol = 6 + parseInt($("input[name='boxno']:checked").val());
+
+					alert(boxCol);
 					var td_q = tdArr.eq(boxCol).html().length <= 0 ? 0 : parseInt(tdArr.eq(boxCol).html());
+					alert(td_q);
 					tdArr.eq(boxCol).html(td_q + 1);
 
 					// 実際数量+1
 					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + 1);
+					alert(td_q);
 
 					var audioElement = document.createElement('audio');
 		        	audioElement.setAttribute('src', 'facai.mp3');
