@@ -353,15 +353,18 @@
 			<COL WIDTH="100PX">
 			<COL WIDTH="250PX">
 			<COL>
+			<COL WIDTH="100PX">
 		</COLGROUP>
 		<TR style="height:40px;">
 			<TD>スキャン欄</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productid"></TD>
 			<TD>
-				<input type="radio" name="opttype" value="10" onclick="activebutton();">増加操作(+)
-				<input type="radio" name="opttype" value="20" onclick="activebutton();">減少操作(-)
+				<input type="radio" name="opttype" value="10" onclick="" checked>増加操作(+)
+				<input type="radio" name="opttype" value="20" onclick="">減少操作(-)
 			</TD>
-
+			<TD>
+				<input type="button" style="text-align: right;float: right;" value="箱増加" onclick="addbox();">
+			</TD>
 		</TR>
 		<!--
 		<TR style="height:40px;">
@@ -516,8 +519,7 @@
 			<TD>サイズ</TD>
 			<TD>予定数量</TD>
 			<TD>実際数量</TD>
-			<TD>箱No.1</TD>
-			<TD><input type="button" style="text-align: right;float: right;" value="＋" onclick="addbox();"></TD>
+			<TD>箱No.1<input type="radio" name="boxno" value="10" onclick="" checked></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>T001</TD>
@@ -526,7 +528,6 @@
 			<TD>99</TD>
 			<TD>19</TD>
 			<TD>19</TD>
-			<TD></TD>
 		</TR>
 	</TABLE>
 
