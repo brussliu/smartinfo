@@ -129,20 +129,6 @@ updatedeliverystatus.fire=function(params){
 
 		}
 
-		var csvReader = new CSVReader("upload/" + f, "\t");
-
-		// データ全件導入
-		csvReader.loopAllLines(importAcceptance);
-
-		// 家在庫から、最新の受領数量を削減
-		var updateResult = db.change(
-			"DELIVERY",
-			"updateDeliveryShipping2",
-			{
-				"col0":deliveryno
-			}
-		);
-
 	}
 
 	if(status == 4 || status == "4" ){
@@ -156,21 +142,21 @@ updatedeliverystatus.fire=function(params){
 			}
 		);
 
-		var csvReader = new CSVReader("upload/" + f, "\t");
-
-		// データ全件導入
-		csvReader.loopAllLines(importAcceptanceOver);
-
-		// 家在庫から、最新の受領数量を削減
-		var updateResult = db.change(
-			"DELIVERY",
-			"updateDeliveryShipping2",
-			{
-				"col0":deliveryno
-			}
-		);
-
 	}
+
+	var csvReader = new CSVReader("upload/" + f, "\t");
+
+	// データ全件導入
+	csvReader.loopAllLines(importAcceptance);
+
+	// 家在庫から、最新の受領数量を削減
+	var updateResult = db.change(
+		"DELIVERY",
+		"updateDeliveryShipping2",
+		{
+			"col0":deliveryno
+		}
+	);
 
 
 	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
