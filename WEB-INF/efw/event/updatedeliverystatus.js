@@ -46,9 +46,41 @@ updatedeliverystatus.fire=function(params){
 		statusStr = "1：納品確定";
 		sql = "updateDelivery1";
 
+		var today = new Date();
+
+		var dDate = today.format("yyyy/MM/dd");
+	
+		// 仕入管理テーブル更新
+		var updateResult = db.change(
+			"DELIVERY",
+			sql,
+			{
+				"shop":shopname,
+				"col0":deliveryno,
+				"col1":statusStr,
+				"col2":dDate
+			}
+		);
+
 	}else if(status == 2 || status == "2" ){
 		statusStr = "2：納品発送";
 		sql = "updateDelivery2";
+
+		var today = new Date();
+
+		var dDate = today.format("yyyy/MM/dd");
+	
+		// 仕入管理テーブル更新
+		var updateResult = db.change(
+			"DELIVERY",
+			sql,
+			{
+				"shop":shopname,
+				"col0":deliveryno,
+				"col1":statusStr,
+				"col2":dDate
+			}
+		);
 
 	}else if(status == 3 || status == "3" ){
 
@@ -68,6 +100,49 @@ updatedeliverystatus.fire=function(params){
 		statusStr = "3：納品受領";
 		sql = "updateDelivery3";
 
+		var today = new Date();
+
+		var dDate = today.format("yyyy/MM/dd");
+	
+		// 仕入管理テーブル更新
+		var updateResult = db.change(
+			"DELIVERY",
+			sql,
+			{
+				"shop":shopname,
+				"col0":deliveryno,
+				"col1":statusStr,
+				"col2":dDate
+			}
+		);
+
+		// 現ステータスが納品受領の場合、前回の受領数量を家在庫へ戻る
+		if(oldstatus == "3：納品受領"){
+
+			var updateResult = db.change(
+				"DELIVERY",
+				"updateDeliveryShipping1",
+				{
+					"col0":deliveryno
+				}
+			);
+
+		}
+
+		var csvReader = new CSVReader("upload/" + f, "\t");
+
+		// データ全件導入
+		csvReader.loopAllLines(importAcceptance);
+	
+		// 家在庫から、最新の受領数量を削減
+		var updateResult = db.change(
+			"DELIVERY",
+			"updateDeliveryShipping2",
+			{
+				"col0":deliveryno
+			}
+		);
+
 	}else if(status == 4 || status == "4" ){
 
 		file.saveUploadFiles("upload");
@@ -85,43 +160,22 @@ updatedeliverystatus.fire=function(params){
 
 		statusStr = "4：納品完了";
 		sql = "updateDelivery4";
-	}
 
-	var today = new Date();
+		var today = new Date();
 
-	var dDate = today.format("yyyy/MM/dd");
-
-	// 仕入管理テーブル更新
-	var updateResult = db.change(
-		"DELIVERY",
-		sql,
-		{
-			"shop":shopname,
-			"col0":deliveryno,
-			"col1":statusStr,
-			"col2":dDate
-		}
-	);
-
-	// 3：納品受領
-	if(status == 3 || status == "3" ){
-
-		// 現ステータスが納品受領の場合、前回の受領数量を家在庫へ戻る
-		if(oldstatus == "3：納品受領"){
-
-			var updateResult = db.change(
-				"DELIVERY",
-				"updateDeliveryShipping1",
-				{
-					"col0":deliveryno
-				}
-			);
-
-		}
-
-	}
-
-	if(status == 4 || status == "4" ){
+		var dDate = today.format("yyyy/MM/dd");
+	
+		// 仕入管理テーブル更新
+		var updateResult = db.change(
+			"DELIVERY",
+			sql,
+			{
+				"shop":shopname,
+				"col0":deliveryno,
+				"col1":statusStr,
+				"col2":dDate
+			}
+		);
 
 		// 受領数量で、家の在庫を回復
 		var updateResult = db.change(
@@ -132,21 +186,20 @@ updatedeliverystatus.fire=function(params){
 			}
 		);
 
+		var csvReader = new CSVReader("upload/" + f, "\t");
+
+		// データ全件導入
+		csvReader.loopAllLines(importAcceptance);
+	
+		// 家在庫から、最新の受領数量を削減
+		var updateResult = db.change(
+			"DELIVERY",
+			"updateDeliveryShipping2",
+			{
+				"col0":deliveryno
+			}
+		);
 	}
-
-	var csvReader = new CSVReader("upload/" + f, "\t");
-
-	// データ全件導入
-	csvReader.loopAllLines(importAcceptance);
-
-	// 家在庫から、最新の受領数量を削減
-	var updateResult = db.change(
-		"DELIVERY",
-		"updateDeliveryShipping2",
-		{
-			"col0":deliveryno
-		}
-	);
 
 
 	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
