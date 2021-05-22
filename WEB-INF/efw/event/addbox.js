@@ -18,6 +18,8 @@ addbox.fire=function(params){
 		"<TD>{pno}</TD>" +
 		"<TD>{color}</TD>" +
 		"<TD>{size}</TD>" +
+		"<TD>{sku}</TD>" +
+		"<TD>{asin}</TD>" +
 		"<TD>{quantity}</TD>" +
 		"<TD>0</TD>" +
 		"<TD></TD>" +

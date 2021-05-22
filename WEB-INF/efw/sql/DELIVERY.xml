@@ -285,4 +285,21 @@
 			B."サイズ"
 	</sql>
 
+	<sql id="searchDeliveryInfo">
+	select 
+		A."商品管理番号" as pno,
+		A."色" as color,
+		A."サイズ" as size,
+		B."SKU番号" as sku,
+		B."ASIN番号" as asin
+	from
+	"NEW_出品マスタ情報" A
+	left join "INPUT_FBA在庫情報" B
+	on A."SKU番号" = B."SKU番号" and A."ASIN番号" = B."ASIN番号"
+	where
+	B."ラベル番号" = :labelno
+	and
+	B.店舗名 = :shop
+	</sql>
+
 </sqls>
