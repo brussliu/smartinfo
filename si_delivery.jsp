@@ -191,9 +191,9 @@
 
 		}
 		function searchDeliveryInfo(){
-			Efw('searchDeliveryinfo');
+			Efw('searchdeliveryinfo');
 		}
-		
+
   	</script>
     <style>
 
