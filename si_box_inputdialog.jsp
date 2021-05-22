@@ -33,7 +33,6 @@
 				$(".newshop").hide();
 			}
 
-			searchDeliveryInfo();
 		});
 
 		// function getstrcount(str1,str2){

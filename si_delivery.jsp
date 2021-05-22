@@ -190,9 +190,9 @@
 			Efw('addbox');
 
 		}
-		function searchDeliveryInfo(){
-			Efw('searchdeliveryinfo');
-		}
+		// function searchDeliveryInfo(){
+		// 	Efw('searchdeliveryinfo');
+		// }
 
   	</script>
     <style>
