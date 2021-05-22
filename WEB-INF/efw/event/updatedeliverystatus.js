@@ -13,6 +13,8 @@ var deliveryno = "";
 
 updatedeliverystatus.fire=function(params){
 
+	file.saveUploadFiles("upload");
+
 	shopname = params["#shop"];
 
 	// 仕入No
@@ -59,6 +61,10 @@ updatedeliverystatus.fire=function(params){
 			return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
 		}
 
+		// 受領ファイルをループし、明細テーブルの受領数量を更新する
+		var fa = importfile_acceptance.split("\\");
+		var f = fa[fa.length-1];
+
 		statusStr = "3：納品受領";
 		sql = "updateDelivery3";
 
@@ -70,6 +76,10 @@ updatedeliverystatus.fire=function(params){
 		if(importfile_acceptance == null || importfile_acceptance.length == 0){
 			return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
 		}
+
+		// 受領ファイルをループし、明細テーブルの受領数量を更新する
+		var fa = importfile_acceptance.split("\\");
+		var f = fa[fa.length-1];
 
 		statusStr = "4：納品完了";
 		sql = "updateDelivery4";
@@ -117,13 +127,7 @@ updatedeliverystatus.fire=function(params){
 				}
 			);
 
-			
-
 		}
-
-		// 受領ファイルをループし、明細テーブルの受領数量を更新する
-		var fa = params["#importfile_acceptance"].split("\\");
-		var f = fa[fa.length-1];
 
 		var csvReader = new CSVReader("upload/" + f, "\t");
 
@@ -151,9 +155,6 @@ updatedeliverystatus.fire=function(params){
 				"col0":deliveryno
 			}
 		);
-
-		var fa = params["#importfile_acceptance"].split("\\");
-		var f = fa[fa.length-1];
 
 		var csvReader = new CSVReader("upload/" + f, "\t");
 
