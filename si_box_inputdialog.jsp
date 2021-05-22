@@ -348,7 +348,7 @@
 			border-color: gray;
 		}
     </style>
-	<TABLE STYLE="WIDTH: 100%" BORDER="1">
+	<TABLE STYLE="WIDTH: 100%" BORDER="0">
 		<COLGROUP>
 			<COL WIDTH="100PX">
 			<COL WIDTH="250PX">
@@ -503,7 +503,7 @@
 		</TR>
 		-->
 	</TABLE>
-	<TABLE STYLE="WIDTH: 100%" BORDER="1">
+	<TABLE BORDER="1">
 		<COLGROUP>
 			<COL WIDTH="100PX">
 			<COL WIDTH="100PX">
