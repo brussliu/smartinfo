@@ -3,7 +3,6 @@ addbox.name="箱詰め";
 addbox.paramsFormat={};
 addbox.fire=function(params){
 
-
 	var ret = new Result();
 
 	shopname = params["#shop"];
@@ -27,10 +26,11 @@ addbox.fire=function(params){
 		}
 	).getArray();
 
+	selectResult.debug("ZZZZZZZZZZZZZZZZZZZZZZZ");
 
-	ret.runat("#boxinfo.tbody").remove("tr");
+	ret.runat("#boxinfobody").remove("tr");
 
-	ret.runat("#boxinfo.tbody").append(resultHTML).withdata(selectResult);
+	ret.runat("#boxinfobody").append(resultHTML).withdata(selectResult);
 
 
 
