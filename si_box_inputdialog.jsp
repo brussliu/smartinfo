@@ -402,6 +402,9 @@
 			// 操作対象箱
 			var boxno = parseInt($("input[name='boxno']:checked").val());
 
+			alert(boxq);
+			alert(boxno);
+
 			var boxhtml = "";
 			for(var i = 1;i <= boxq;i++){
 				if(boxq == boxno){
@@ -421,6 +424,9 @@
 					"<TD>1</TD>" +				// 実際数量
 					boxhtml +					// 箱No.1
 				"</TR>";
+			
+			alert(resultHTML);
+
 			$("#boxinfobody").append();
 
 			var audioElement = document.createElement('audio');
