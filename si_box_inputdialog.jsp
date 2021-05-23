@@ -250,7 +250,7 @@
 	<INPUT TYPE="HIDDEN" CLASS="action">
 	<BR>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savebox()" >確定</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savebox();" >確定</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_box_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
 </DIV>
