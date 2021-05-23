@@ -13,9 +13,6 @@ searchProductInfoByLabel.fire=function(params){
 	shopname = params["#shop"];
 	var labelno = params["labelno"];
 
-	labelno.debug("HHHHHHHHHHHHHHHHHHHHHHHH");
-
-
 	var selectResult = db.select(
 		"DELIVERY",
 		"searchProductInfo",
@@ -25,10 +22,14 @@ searchProductInfoByLabel.fire=function(params){
 		}
 	).getArray();
 
+	var pno = selectResult[0]["pno"];
+	var color = selectResult[0]["color"];
+	var size = selectResult[0]["size"];
+
 	var sku = selectResult[0]["sku"];
 	var asin = selectResult[0]["asin"];
 
-	var script = "displayToTable('" + sku + "','" + asin + "');";
+	var script = "displayToTable('" + pno + "','" + color + "','" + size + "','" + sku + "','" + asin + "');";
 
 	return ret.eval(script);
 

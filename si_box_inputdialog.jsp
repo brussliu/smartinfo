@@ -341,7 +341,7 @@
 			
 		}
 
-		function displayToTable(pno, sku, asin){
+		function displayToTable(pno, color, size, sku, asin){
 
 			var colq = 0;
 
@@ -359,9 +359,6 @@
 
 					// 箱詰め数量+1
 					var boxCol = 6 + parseInt($("input[name='boxno']:checked").val());
-					alert($("input[name='boxno']:checked").val());
-					alert(boxCol);
-					return;
 
 					var td_q = tdArr.eq(boxCol).html().length <= 0 ? 0 : parseInt(tdArr.eq(boxCol).html());
 					tdArr.eq(boxCol).html(td_q + 1);
@@ -369,13 +366,13 @@
 					// 実際数量+1
 					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + 1);
 
-					// // 予定数量
-					// if(parseInt(tdArr.eq(6).html()) < td_q){
-					// 	var audioElement = document.createElement('audio');
-		        	// 	audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
-					// 	audioElement.setAttribute('autoplay', 'autoplay');
-					// 	return;
-					// }
+					// 予定数量
+					if(parseInt(tdArr.eq(6).html()) < td_q){
+						var audioElement = document.createElement('audio');
+		        		audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
+						audioElement.setAttribute('autoplay', 'autoplay');
+						return;
+					}
 
 					var audioElement = document.createElement('audio');
 		        	audioElement.setAttribute('src', 'facai.mp3');
