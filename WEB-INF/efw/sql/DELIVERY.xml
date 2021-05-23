@@ -18,6 +18,12 @@
 			:col3 --"新規登録日"
 		)
 	</sql>
+	<sql id="delDeliveryDetail">
+		delete from "納品明細"
+		where
+			"納品NO" = :col0
+	</sql>
+
 	<sql id="insertDeliveryDetail">
 		INSERT INTO "納品明細"
 		(
