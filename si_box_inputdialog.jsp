@@ -152,6 +152,8 @@
 
 		function errorMsg(){
 
+			$("#scanInput").val("");
+
 			// ダメの音声
 			var audioElement = document.createElement('audio');
 			audioElement.setAttribute('src', 'damei.mp3');
