@@ -348,8 +348,11 @@
 			$("#boxinfobody").find("tr").each(function(){
 
 				var tdArr = $(this).children();
+
+				alert(tdArr);
 				// 列の数
 				colq = tdArr.length;
+				alert(colq);
 				
 			    var td_sku = tdArr.eq(3).html();
 				var td_asin = tdArr.eq(4).html();
@@ -358,6 +361,7 @@
 
 					// 箱詰め数量+1
 					var boxCol = 6 + parseInt($("input[name='boxno']:checked").val());
+					alert(boxCol);
 
 					var td_q = tdArr.eq(boxCol).html().length <= 0 ? 0 : parseInt(tdArr.eq(boxCol).html());
 					tdArr.eq(boxCol).html(td_q + 1);
