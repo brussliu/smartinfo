@@ -178,23 +178,25 @@
 			var asinArr = new Array();
 			var qArr = new Array();
 
-			alert("savebox");
-
-		// 	$("#boxinfobody").find("tr").each(function(){
-
-		// 		var tdArr = $(this).children();
-
-		// 		var td_sku = tdArr.eq(3).html();
-		// 		var td_asin = tdArr.eq(4).html();
-		// 		var td_q = tdArr.eq(6).html();
-
-		// 		if(parseInt(td_q) > 0){
-		// 			skuArr[skuArr.length] = td_sku;
-		// 			asinArr[asinArr.length] = td_asin;
-		// 			qArr[qArr.length] = td_q;
-		// 		}
 			
-		// 	});
+
+			$("#boxinfobody").find("tr").each(function(){
+
+				var tdArr = $(this).children();
+
+				var td_sku = tdArr.eq(3).html();
+				var td_asin = tdArr.eq(4).html();
+				var td_q = tdArr.eq(6).html();
+
+				if(parseInt(td_q) > 0){
+					skuArr[skuArr.length] = td_sku;
+					asinArr[asinArr.length] = td_asin;
+					qArr[qArr.length] = td_q;
+				}
+			
+			});
+
+			alert(skuArr);alert(asinArr);alert(qArr);
 
 		// 	Efw('saveBox',{"skuArr" : skuArr, "asinArr" : asinArr, "qArr" : qArr});
 		}
