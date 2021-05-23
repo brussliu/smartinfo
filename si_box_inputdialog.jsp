@@ -162,6 +162,7 @@
 		}
 		function inputLabel(){
 
+			console.log("input:" + $("#scanInput").val());
 			if($("#scanInput").val().length != 10 ){
 			
 				return;
