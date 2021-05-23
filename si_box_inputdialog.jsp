@@ -383,8 +383,6 @@
 		        	audioElement.setAttribute('src', 'facai.mp3');
 					audioElement.setAttribute('autoplay', 'autoplay');
 
-					$("#scanInput").val("");
-
 					overflg = true;
 
 					return;
@@ -394,16 +392,14 @@
 			});
 
 			if(overflg){
+				$("#scanInput").val("");
 				return;// 処理終了
 			}
 
 			// 箱部分の列数
-			var boxq = colq - 5;
+			var boxq = colq - 7;
 			// 操作対象箱
 			var boxno = parseInt($("input[name='boxno']:checked").val());
-
-			alert(boxq);
-			alert(boxno);
 
 			var boxhtml = "";
 			for(var i = 1;i <= boxq;i++){
@@ -427,11 +423,13 @@
 			
 			alert(resultHTML);
 
-			$("#boxinfobody").append();
+			$("#boxinfobody").append(resultHTML);
 
 			var audioElement = document.createElement('audio');
 		        	audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
 					audioElement.setAttribute('autoplay', 'autoplay');
+
+			$("#scanInput").val("");
 
 		}
 
