@@ -379,9 +379,16 @@
 						return;
 					}
 
-					var audioElement = document.createElement('audio');
-		        	audioElement.setAttribute('src', 'facai.mp3');
-					audioElement.setAttribute('autoplay', 'autoplay');
+					if(parseInt(tdArr.eq(5).html()) == 0){
+						var audioElement = document.createElement('audio');
+		        			audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
+							audioElement.setAttribute('autoplay', 'autoplay');
+
+					}else{
+						var audioElement = document.createElement('audio');
+		        		audioElement.setAttribute('src', 'facai.mp3');
+						audioElement.setAttribute('autoplay', 'autoplay');
+					}
 
 					overflg = true;
 
