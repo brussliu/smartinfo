@@ -416,12 +416,12 @@
 					"<TD>" + pno + "</TD>" +	// 商品管理番号
 					"<TD>" + color + "</TD>" +	// 色
 					"<TD>" + size + "</TD>" +	// サイズ
+					"<TD>" + sku + "</TD>" +	// SKU
+					"<TD>" + asin + "</TD>" +	// ASIN
 					"<TD>0</TD>" +				// 予定数量
 					"<TD>1</TD>" +				// 実際数量
 					boxhtml +					// 箱No.1
 				"</TR>";
-			
-			alert(resultHTML);
 
 			$("#boxinfobody").append(resultHTML);
 
