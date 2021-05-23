@@ -196,9 +196,9 @@
 			
 			});
 
-			alert(skuArr);alert(asinArr);alert(qArr);
+			//alert(skuArr);alert(asinArr);alert(qArr);
 
-		// 	Efw('saveBox',{"skuArr" : skuArr, "asinArr" : asinArr, "qArr" : qArr});
+			Efw('savebox',{"skuArr" : skuArr, "asinArr" : asinArr, "qArr" : qArr});
 		}
 
 	</SCRIPT>

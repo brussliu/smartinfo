@@ -1,7 +1,7 @@
-var saveBox={};
-saveBox.name="箱詰め情報保存";
+var savebox={};
+savebox.name="箱詰め情報保存";
 
-saveBox.paramsFormat={
+savebox.paramsFormat={
 
 	"#deliveryno":"required:true;display-name:仕入No;",
 	"#si_box_inputdialog":{
@@ -15,7 +15,7 @@ var shopname = "";
 /**
  * 新規或は修正の場合、保存イベント実行関数
  */
-saveBox.fire=function(params){
+savebox.fire=function(params){
 
 	var deliveryno = params["#deliveryno"];
 
