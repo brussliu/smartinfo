@@ -370,25 +370,27 @@
 
 					// 予定数量
 					if(parseInt(tdArr.eq(5).html()) < parseInt(tdArr.eq(6).html())){
-						var audioElement = document.createElement('audio');
-		        		audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
-						audioElement.setAttribute('autoplay', 'autoplay');
+
+						if(parseInt(tdArr.eq(5).html()) == 0){
+							var audioElement = document.createElement('audio');
+		        				audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
+								audioElement.setAttribute('autoplay', 'autoplay');
+
+						}else{
+							var audioElement = document.createElement('audio');
+		        				audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
+								audioElement.setAttribute('autoplay', 'autoplay');
+
+						}
 
 						overflg = true;
 
 						return;
 					}
-
-					if(parseInt(tdArr.eq(5).html()) == 0){
-						var audioElement = document.createElement('audio');
-		        			audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
-							audioElement.setAttribute('autoplay', 'autoplay');
-
-					}else{
-						var audioElement = document.createElement('audio');
-		        		audioElement.setAttribute('src', 'facai.mp3');
-						audioElement.setAttribute('autoplay', 'autoplay');
-					}
+					
+					var audioElement = document.createElement('audio');
+					audioElement.setAttribute('src', 'facai.mp3');
+					audioElement.setAttribute('autoplay', 'autoplay');
 
 					overflg = true;
 
