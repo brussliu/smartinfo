@@ -367,7 +367,7 @@
 					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + 1);
 
 					// 予定数量
-					if(parseInt(tdArr.eq(6).html()) < td_q){
+					if(parseInt(tdArr.eq(5).html()) < parseInt(tdArr.eq(6).html())){
 						var audioElement = document.createElement('audio');
 		        		audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
 						audioElement.setAttribute('autoplay', 'autoplay');
@@ -448,7 +448,7 @@
 		</COLGROUP>
 		<TR style="height:40px;">
 			<TD>スキャン欄</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="scanInput" oninput="inputLabel();" maxlength="10" onblur=""></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="scanInput" oninput="inputLabel();" maxlength="10" onblur="this.focus();"></TD>
 			<TD>
 				<input type="radio" name="opttype" value="10" onclick="" checked>増加操作(+)
 				<input type="radio" name="opttype" value="20" onclick="">減少操作(-)
