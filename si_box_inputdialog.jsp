@@ -364,7 +364,6 @@
 
 					// 実際数量+1
 					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + 1);
-					alert(td_q);
 
 					// 予定数量
 					if(parseInt(tdArr.eq(6).html()) < td_q){
@@ -386,35 +385,35 @@
 			     
 			});
 
-			// 箱部分の列数
-			var boxq = colq - 5;
-			// 操作対象箱
-			var boxno = parseInt($("input[name='boxno']:checked").val());
+			// // 箱部分の列数
+			// var boxq = colq - 5;
+			// // 操作対象箱
+			// var boxno = parseInt($("input[name='boxno']:checked").val());
 
-			var boxhtml = "";
-			for(var i = 1;i <= boxq;i++){
-				if(boxq == boxno){
-					boxhtml = boxhtml + "<TD>1</TD>";
-				}else{
-					boxhtml = boxhtml + "<TD></TD>";
-				}
+			// var boxhtml = "";
+			// for(var i = 1;i <= boxq;i++){
+			// 	if(boxq == boxno){
+			// 		boxhtml = boxhtml + "<TD>1</TD>";
+			// 	}else{
+			// 		boxhtml = boxhtml + "<TD></TD>";
+			// 	}
 				
-			}
+			// }
 
-			var resultHTML = 
-				"<TR style='height:40px;'>" +
-					"<TD>" + pno + "</TD>" +	// 商品管理番号
-					"<TD>" + color + "</TD>" +	// 色
-					"<TD>" + size + "</TD>" +	// サイズ
-					"<TD>0</TD>" +				// 予定数量
-					"<TD>1</TD>" +				// 実際数量
-					boxhtml +					// 箱No.1
-				"</TR>";
-			$("#boxinfobody").append();
+			// var resultHTML = 
+			// 	"<TR style='height:40px;'>" +
+			// 		"<TD>" + pno + "</TD>" +	// 商品管理番号
+			// 		"<TD>" + color + "</TD>" +	// 色
+			// 		"<TD>" + size + "</TD>" +	// サイズ
+			// 		"<TD>0</TD>" +				// 予定数量
+			// 		"<TD>1</TD>" +				// 実際数量
+			// 		boxhtml +					// 箱No.1
+			// 	"</TR>";
+			// $("#boxinfobody").append();
 
-			var audioElement = document.createElement('audio');
-		        	audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
-					audioElement.setAttribute('autoplay', 'autoplay');
+			// var audioElement = document.createElement('audio');
+		    //     	audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
+			// 		audioElement.setAttribute('autoplay', 'autoplay');
 
 		}
 
