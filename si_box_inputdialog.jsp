@@ -160,13 +160,16 @@
 			audioElement.setAttribute('autoplay', 'autoplay');
 
 		}
-		function inputLabel(){
+		function inputLabel(obj){
 
-			if($("#scanInput").val().length == 10 && $("#scanInput").val().startsWith("X000")){
+			if($(obj).val().length == 10 && $(obj).val().startsWith("X000")){
 			
 				// 商品情報取得
-				Efw('searchProductInfoByLabel',{"labelno" : $("#scanInput").val()});
+				Efw('searchProductInfoByLabel',{"labelno" : $(obj).val()});
 
+			}else{
+
+				return;
 			}
 
 		}
@@ -213,7 +216,7 @@
 		</COLGROUP>
 		<TR style="height:40px;">
 			<TD>スキャン欄</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;ime-mode:disabled;" id="scanInput" oninput="inputLabel();" maxlength="10" onblur="this.focus();"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;ime-mode:disabled;" id="scanInput" oninput="inputLabel(this);" maxlength="10" onblur="this.focus();"></TD>
 			<TD>
 				<input type="radio" name="opttype" value="10" onclick="" checked>増加操作(+)
 				<input type="radio" name="opttype" value="20" onclick="" disabled>減少操作(-)
