@@ -162,22 +162,12 @@
 		}
 		function inputLabel(){
 
-			console.log("input:" + $("#scanInput").val());
-			if($("#scanInput").val().length != 10 ){
+			if($("#scanInput").val().length == 10 && $("#scanInput").val().startsWith("X000")){
 			
-				return;
+				// 商品情報取得
+				Efw('searchProductInfoByLabel',{"labelno" : $("#scanInput").val()});
 
 			}
-
-			if(!$("#scanInput").val().startsWith("X000")){
-			
-				errorMsg();
-				return;
-
-			}
-
-			// 商品情報取得
-			Efw('searchProductInfoByLabel',{"labelno" : $("#scanInput").val()});
 
 		}
 
