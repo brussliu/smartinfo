@@ -345,6 +345,8 @@
 
 			var colq = 0;
 
+			var overflg = false;
+
 			$("#boxinfobody").find("tr").each(function(){
 
 				var tdArr = $(this).children();
@@ -371,6 +373,9 @@
 						var audioElement = document.createElement('audio');
 		        		audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
 						audioElement.setAttribute('autoplay', 'autoplay');
+
+						overflg = true;
+
 						return;
 					}
 
@@ -380,11 +385,17 @@
 
 					$("#scanInput").val("");
 
+					overflg = true;
+
 					return;
 
 			    }
 			     
 			});
+
+			if(overflg){
+				return;// 処理終了
+			}
 
 			// 箱部分の列数
 			var boxq = colq - 5;
