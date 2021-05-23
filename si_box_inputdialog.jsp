@@ -365,13 +365,13 @@
 					// 実際数量+1
 					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + 1);
 
-					// 予定数量
-					if(parseInt(tdArr.eq(6).html()) < td_q){
-						var audioElement = document.createElement('audio');
-		        		audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
-						audioElement.setAttribute('autoplay', 'autoplay');
-						return;
-					}
+					// // 予定数量
+					// if(parseInt(tdArr.eq(6).html()) < td_q){
+					// 	var audioElement = document.createElement('audio');
+		        	// 	audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
+					// 	audioElement.setAttribute('autoplay', 'autoplay');
+					// 	return;
+					// }
 
 					var audioElement = document.createElement('audio');
 		        	audioElement.setAttribute('src', 'facai.mp3');
