@@ -22,14 +22,20 @@ searchProductInfoByLabel.fire=function(params){
 		}
 	).getArray();
 
-	var pno = selectResult[0]["pno"];
-	var color = selectResult[0]["color"];
-	var size = selectResult[0]["size"];
+	if(selectResult.length > 0){
+		var pno = selectResult[0]["pno"];
+		var color = selectResult[0]["color"];
+		var size = selectResult[0]["size"];
+	
+		var sku = selectResult[0]["sku"];
+		var asin = selectResult[0]["asin"];
+	
+		var script = "displayToTable('" + pno + "','" + color + "','" + size + "','" + sku + "','" + asin + "');";
+	}else{
 
-	var sku = selectResult[0]["sku"];
-	var asin = selectResult[0]["asin"];
+		var script = "errorMsg();";
+	}
 
-	var script = "displayToTable('" + pno + "','" + color + "','" + size + "','" + sku + "','" + asin + "');";
 
 	return ret.eval(script);
 

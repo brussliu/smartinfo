@@ -386,48 +386,53 @@
 			     
 			});
 
-			// // 箱部分の列数
-			// var boxq = colq - 5;
-			// // 操作対象箱
-			// var boxno = parseInt($("input[name='boxno']:checked").val());
+			// 箱部分の列数
+			var boxq = colq - 5;
+			// 操作対象箱
+			var boxno = parseInt($("input[name='boxno']:checked").val());
 
-			// var boxhtml = "";
-			// for(var i = 1;i <= boxq;i++){
-			// 	if(boxq == boxno){
-			// 		boxhtml = boxhtml + "<TD>1</TD>";
-			// 	}else{
-			// 		boxhtml = boxhtml + "<TD></TD>";
-			// 	}
+			var boxhtml = "";
+			for(var i = 1;i <= boxq;i++){
+				if(boxq == boxno){
+					boxhtml = boxhtml + "<TD>1</TD>";
+				}else{
+					boxhtml = boxhtml + "<TD></TD>";
+				}
 				
-			// }
+			}
 
-			// var resultHTML = 
-			// 	"<TR style='height:40px;'>" +
-			// 		"<TD>" + pno + "</TD>" +	// 商品管理番号
-			// 		"<TD>" + color + "</TD>" +	// 色
-			// 		"<TD>" + size + "</TD>" +	// サイズ
-			// 		"<TD>0</TD>" +				// 予定数量
-			// 		"<TD>1</TD>" +				// 実際数量
-			// 		boxhtml +					// 箱No.1
-			// 	"</TR>";
-			// $("#boxinfobody").append();
+			var resultHTML = 
+				"<TR style='height:40px;'>" +
+					"<TD>" + pno + "</TD>" +	// 商品管理番号
+					"<TD>" + color + "</TD>" +	// 色
+					"<TD>" + size + "</TD>" +	// サイズ
+					"<TD>0</TD>" +				// 予定数量
+					"<TD>1</TD>" +				// 実際数量
+					boxhtml +					// 箱No.1
+				"</TR>";
+			$("#boxinfobody").append();
 
-			// var audioElement = document.createElement('audio');
-		    //     	audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
-			// 		audioElement.setAttribute('autoplay', 'autoplay');
+			var audioElement = document.createElement('audio');
+		        	audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
+					audioElement.setAttribute('autoplay', 'autoplay');
 
 		}
 
+		function errorMsg(){
+
+			// ダメの音声
+			var audioElement = document.createElement('audio');
+			audioElement.setAttribute('src', 'damei.mp3');
+			audioElement.setAttribute('autoplay', 'autoplay');
+
+		}
 		function inputLabel(){
 
 			if($("#scanInput").val().length != 10 || !$("#scanInput").val().startsWith("X000")){
 			
-				// ダメの音声
-				var audioElement = document.createElement('audio');
-		        audioElement.setAttribute('src', 'damei.mp3');
-				audioElement.setAttribute('autoplay', 'autoplay');
-				
+				errorMsg();
 				return;
+
 			}
 
 			// 商品情報取得
