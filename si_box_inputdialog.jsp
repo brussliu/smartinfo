@@ -160,9 +160,14 @@
 		}
 		function inputLabel(){
 
-			if($("#scanInput").val().length != 10 || !$("#scanInput").val().startsWith("X000")){
+			if($("#scanInput").val().length != 10 ){
 			
-				console.log("input:"+ $("#scanInput").val());
+				return;
+
+			}
+
+			if(!$("#scanInput").val().startsWith("X000")){
+			
 				errorMsg();
 				return;
 
