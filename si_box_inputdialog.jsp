@@ -162,6 +162,7 @@
 
 			if($("#scanInput").val().length != 10 || !$("#scanInput").val().startsWith("X000")){
 			
+				console.log("input:"+ $("#scanInput").val());
 				errorMsg();
 				return;
 
