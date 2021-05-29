@@ -73,12 +73,21 @@
 					var boxCol = 6 + parseInt($("input[name='boxno']:checked").val());
 
 					var td_q = tdArr.eq(boxCol).html().length <= 0 ? 0 : parseInt(tdArr.eq(boxCol).html());
+
+					var successflg = true;
 					// <0の場合、0で表示
-					tdArr.eq(boxCol).html((td_q + opttype) >= 0 ? (td_q + opttype) : 0);// AAA
+					if(td_q + opttype < 0){
+						tdArr.eq(boxCol).html(0);// 減少処理失敗
+						successflg =  false;
+					}else{
+						tdArr.eq(boxCol).html(td_q + opttype);// AAA
+					}
 					
 					// 実際数量+1
 					// <0の場合、0で表示
-					tdArr.eq(6).html((parseInt(tdArr.eq(6).html()) + opttype) >= 0 ? (parseInt(tdArr.eq(6).html()) + opttype) : 0);// AAA
+					if (successflg == false){
+						tdArr.eq(6).html((parseInt(tdArr.eq(6).html()) + opttype) > 0 ? (parseInt(tdArr.eq(6).html()) + opttype) : 0);// AAA
+					}
 
 					if(opttype > 0){
 
