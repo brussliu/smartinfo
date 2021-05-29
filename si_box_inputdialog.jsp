@@ -85,7 +85,7 @@
 					
 					// 実際数量+1
 					// <0の場合、0で表示
-					if (successflg == false){
+					if (successflg == true){
 						tdArr.eq(6).html((parseInt(tdArr.eq(6).html()) + opttype) > 0 ? (parseInt(tdArr.eq(6).html()) + opttype) : 0);// AAA
 					}
 
