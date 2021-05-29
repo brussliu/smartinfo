@@ -57,8 +57,6 @@
 
 			var opttype = parseInt($("input[name='opttype']:checked").val());
 
-			alert(opttype);
-
 			$("#boxinfobody").find("tr").each(function(){
 
 				var tdArr = $(this).children();
@@ -75,10 +73,12 @@
 					var boxCol = 6 + parseInt($("input[name='boxno']:checked").val());
 
 					var td_q = tdArr.eq(boxCol).html().length <= 0 ? 0 : parseInt(tdArr.eq(boxCol).html());
-					tdArr.eq(boxCol).html(td_q + opttype);// AAA
-
+					// <0の場合、0で表示
+					tdArr.eq(boxCol).html((td_q + opttype) >= 0 ? (td_q + opttype) : 0);// AAA
+					
 					// 実際数量+1
-					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + opttype);// AAA
+					// <0の場合、0で表示
+					tdArr.eq(6).html(parseInt((parseInt(tdArr.eq(6).html()) + opttype) >= 0 ? (parseInt(tdArr.eq(6).html()) + opttype) : 0);// AAA
 
 					if(opttype > 0){
 
@@ -101,15 +101,6 @@
 
 							return;
 						}
-
-					}else{
-
-						if(parseInt(tdArr.eq(6).html()) <= 0){
-
-							$(this).remove();
-
-						}
-
 
 					}
 
