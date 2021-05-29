@@ -55,6 +55,10 @@
 
 			var overflg = false;
 
+			var opttype = parseInt($("input[name='opttype']:checked").val());
+
+			alert(opttype);
+
 			$("#boxinfobody").find("tr").each(function(){
 
 				var tdArr = $(this).children();
@@ -219,8 +223,8 @@
 			<TD>スキャン欄</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;ime-mode:disabled;" autocomplete="off" id="scanInput" oninput="inputLabel(this);" maxlength="10" onblur="this.focus();"></TD>
 			<TD>
-				<input type="radio" name="opttype" value="10" onclick="" checked>増加操作(+)
-				<input type="radio" name="opttype" value="20" onclick="" disabled>減少操作(-)
+				<input type="radio" name="opttype" value="1" onclick="" checked>増加操作(+)
+				<input type="radio" name="opttype" value="-1" onclick="" >減少操作(-)
 			</TD>
 			<TD>
 				<DIV STYLE="TEXT-ALIGN: CENTER">
