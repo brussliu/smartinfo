@@ -211,6 +211,7 @@
 		<COLGROUP>
 			<COL WIDTH="100PX">
 			<COL WIDTH="250PX">
+			<COL WIDTH="350PX">
 			<COL>
 			<COL WIDTH="100PX">
 		</COLGROUP>
@@ -220,6 +221,12 @@
 			<TD>
 				<input type="radio" name="opttype" value="10" onclick="" checked>増加操作(+)
 				<input type="radio" name="opttype" value="20" onclick="" disabled>減少操作(-)
+			</TD>
+			<TD>
+				<DIV STYLE="TEXT-ALIGN: CENTER">
+					<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savebox();" >確定</BUTTON>
+					<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_box_inputdialog.dialog('close');" >キャンセル</BUTTON>
+				</DIV>
 			</TD>
 			<TD>
 				<input type="button" style="text-align: right;float: right;" value="箱増加" onclick="addbox();">
@@ -255,9 +262,5 @@
 	<INPUT TYPE="HIDDEN" id="maxboxcount" value="1">
 	<INPUT TYPE="HIDDEN" CLASS="action">
 	<BR>
-	<DIV STYLE="TEXT-ALIGN: CENTER">
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savebox();" >確定</BUTTON>
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_box_inputdialog.dialog('close');" >キャンセル</BUTTON>
-	</DIV>
 </DIV>
 
