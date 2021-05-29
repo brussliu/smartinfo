@@ -132,6 +132,7 @@
 			}
 
 			if(opttype < 0){
+				errorMsg();
 				return;// 処理終了
 			}
 
