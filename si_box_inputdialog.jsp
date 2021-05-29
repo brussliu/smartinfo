@@ -143,7 +143,7 @@
 
 			var boxhtml = "";
 			for(var i = 1;i <= boxq;i++){
-				if(boxq == boxno){
+				if(i == boxno){
 					boxhtml = boxhtml + "<TD>1</TD>";
 				}else{
 					boxhtml = boxhtml + "<TD></TD>";
