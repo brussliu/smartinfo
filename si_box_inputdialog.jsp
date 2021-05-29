@@ -75,30 +75,44 @@
 					var boxCol = 6 + parseInt($("input[name='boxno']:checked").val());
 
 					var td_q = tdArr.eq(boxCol).html().length <= 0 ? 0 : parseInt(tdArr.eq(boxCol).html());
-					tdArr.eq(boxCol).html(td_q + 1);
+					tdArr.eq(boxCol).html(td_q + opttype);// AAA
 
 					// 実際数量+1
-					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + 1);
+					tdArr.eq(6).html(parseInt(tdArr.eq(6).html()) + opttype);// AAA
 
-					// 予定数量
-					if(parseInt(tdArr.eq(5).html()) < parseInt(tdArr.eq(6).html())){
+					if(opttype > 0){
 
-						if(parseInt(tdArr.eq(5).html()) == 0){
-							var audioElement = document.createElement('audio');
-		        				audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
-								audioElement.setAttribute('autoplay', 'autoplay');
+						// 予定数量
+						if(parseInt(tdArr.eq(5).html()) < parseInt(tdArr.eq(6).html())){
 
-						}else{
-							var audioElement = document.createElement('audio');
-		        				audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
-								audioElement.setAttribute('autoplay', 'autoplay');
+							if(parseInt(tdArr.eq(5).html()) == 0){
+								var audioElement = document.createElement('audio');
+									audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
+									audioElement.setAttribute('autoplay', 'autoplay');
+
+							}else{
+								var audioElement = document.createElement('audio');
+									audioElement.setAttribute('src', 'shuliangchaoguo.mp3');
+									audioElement.setAttribute('autoplay', 'autoplay');
+
+							}
+
+							overflg = true;
+
+							return;
+						}
+
+					}else{
+
+						if(parseInt(tdArr.eq(6).html()) <= 0){
+
+							$(this).remove();
 
 						}
 
-						overflg = true;
 
-						return;
 					}
+
 					
 					var audioElement = document.createElement('audio');
 					audioElement.setAttribute('src', 'facai.mp3');
@@ -114,6 +128,10 @@
 
 			if(overflg){
 				$("#scanInput").val("");
+				return;// 処理終了
+			}
+
+			if(opttype < 0){
 				return;// 処理終了
 			}
 
