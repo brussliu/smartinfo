@@ -168,6 +168,13 @@
 				when P1."ステータス" = '3：到着済み' then P1."確定金額"
 				when P1."ステータス" = '4：受取済み' then P1."受取金額"
 			end as amount,
+			case 
+				when P1."ステータス" = '0：新規登録' then ''
+				when P1."ステータス" = '1：仕入確定' then 'burlywood'
+				when P1."ステータス" = '2：発送済み' then 'burlywood'
+				when P1."ステータス" = '3：到着済み' then 'pink'
+				when P1."ステータス" = '4：受取済み' then 'gray'
+			end as color,
 			P1."ステータス" as status,
 			P1."新規登録日" as registration_date,
 			P1."仕入確定日" as confirm_date,

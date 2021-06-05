@@ -11,7 +11,7 @@ searchpurchase.fire=function(params){
 	shopname = params["#shop"];
 
 	var resultHTML = 
-	"<tr style='height: 28px;'>" +
+	"<tr style='height: 28px;background-color: {color};'>" +
 		"<td ><input type='radio' name='purchaseitem' onclick='selectitem(this);'></td>" +
 		"<td >{purchase_no}</td>" +
 		"<td >{purchase_name}</td>" +
