@@ -95,6 +95,7 @@
 						if(parseInt(tdArr.eq(5).html()) < parseInt(tdArr.eq(6).html())){
 
 							if(parseInt(tdArr.eq(5).html()) == 0){
+
 								var audioElement = document.createElement('audio');
 									audioElement.setAttribute('src', 'chaochuzhonglei.mp3');
 									audioElement.setAttribute('autoplay', 'autoplay');
@@ -105,6 +106,8 @@
 									audioElement.setAttribute('autoplay', 'autoplay');
 
 							}
+
+							$(this).css("background-color", "pink");
 
 							overflg = true;
 
@@ -117,6 +120,8 @@
 					var audioElement = document.createElement('audio');
 					audioElement.setAttribute('src', 'facai.mp3');
 					audioElement.setAttribute('autoplay', 'autoplay');
+
+					$(this).css("background-color", "cornsilk");
 
 					overflg = true;
 
@@ -152,7 +157,7 @@
 			}
 
 			var resultHTML = 
-				"<TR style='height:40px;'>" +
+				"<TR style='height:40px;background-color:pink;'>" +
 					"<TD>" + pno + "</TD>" +	// 商品管理番号
 					"<TD>" + color + "</TD>" +	// 色
 					"<TD>" + size + "</TD>" +	// サイズ
