@@ -170,8 +170,8 @@
 			end as amount,
 			case 
 				when P1."ステータス" = '0：新規登録' then ''
-				when P1."ステータス" = '1：仕入確定' then 'burlywood'
-				when P1."ステータス" = '2：発送済み' then 'burlywood'
+				when P1."ステータス" = '1：仕入確定' then 'cornsilk'
+				when P1."ステータス" = '2：発送済み' then 'cornsilk'
 				when P1."ステータス" = '3：到着済み' then 'pink'
 				when P1."ステータス" = '4：受取済み' then 'gray'
 			end as color,
