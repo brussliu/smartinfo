@@ -62,7 +62,7 @@ updatepurchase.fire=function(params){
 		);
 
 		// 3, 新しい仕入明細を挿入
-		uploadPurchaseDetail(importfile_purchase);
+		uploadPurchaseDetail(importfile_purchase, purchaseno);
 
 
 	}
@@ -79,7 +79,7 @@ updatepurchase.fire=function(params){
 			);
 	
 			// 3, 新しい仕入明細を挿入
-			uploadPurchaseDetail(importfile_purchase);
+			uploadPurchaseDetail(importfile_purchase, purchaseno);
 
 			// 5, 確定数量及び確定金額を再計算
 			var updateResult = db.change(
@@ -473,26 +473,7 @@ function uploadPurchaseDetail(excelfile, purchaseno){
 		}
 
 
-
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
