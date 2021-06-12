@@ -50,9 +50,13 @@ updatedelivery.fire=function(params){
 
 	var status = detailResult[0]["status"];
 
+
+	deliveryno.debug("AAAAAAAAAAAAAAAAAAAAAaa");
+
 	// 新規登録の場合、仕入明細テーブルを再度導入
 	if(status == "0：新規登録"){
 
+		deliveryno.debug("DDDDDDDDDDDDDDDDDDDDDDDDD");
 		// 2, 既存仕入明細を全件削除
 		var delResult = db.change(
 			"DELIVERY",
@@ -62,6 +66,7 @@ updatedelivery.fire=function(params){
 			}
 		);
 
+		deliveryno.debug("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 		// 3, 新しい仕入明細を挿入
 		uploadDeliveryDetail(importfile_delivery, deliveryno);
 
@@ -300,6 +305,8 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 				continue;
 			}
 
+
+			deliveryno.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
 			insertDeliveryDetail(label, delivery, deliveryno);
 
 		}
@@ -328,6 +335,7 @@ function insertDeliveryDetail(label, delivery, deliveryno){
 	var sku = detailResult[0]["sku"];
 	var asin = detailResult[0]["asin"];
 
+	deliveryno.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
 	var insResult = db.change(
 		"DELIVERY",
 		"insertDeliveryDetail",
