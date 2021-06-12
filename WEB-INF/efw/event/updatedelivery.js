@@ -31,6 +31,7 @@ updatedelivery.fire=function(params){
 		}
 	);
 
+	deliveryno.debug("AAAAAAAAAAAAAAAAAAAAAaa");
 	// 納品明細
 	var importfile_delivery = params["#importfile_delivery"];
 
@@ -50,8 +51,6 @@ updatedelivery.fire=function(params){
 
 	var status = detailResult[0]["status"];
 
-
-	deliveryno.debug("AAAAAAAAAAAAAAAAAAAAAaa");
 
 	// 新規登録の場合、仕入明細テーブルを再度導入
 	if(status == "0：新規登録"){
