@@ -67,7 +67,7 @@ outputdelivery.fire=function(params){
 
 		var writeFBAFlgX = "V";
 
-
+		var writeDeliveryX = "S";
 
 		for(var i = 0;i < selectResult.length;i ++){
 
@@ -119,6 +119,8 @@ outputdelivery.fire=function(params){
 			var selled90 = selectResult[i]["selled90"];
 			var selledweek = selectResult[i]["selledweek"];
 
+			var delivery = selectResult[i]["delivery"];
+
 			var sheetNameList = [
 				"廃止予定", 		"スマホ保護フィルム",	"カメラ保護",
 				"スマホケース",		"花柄ケース",			"イヤホン",	
@@ -162,6 +164,8 @@ outputdelivery.fire=function(params){
 
 						excel.setCell(sheetName, writeFBAFlgX + y, fbaflg);
 
+						excel.setCell(sheetName, writeDeliveryX + y, delivery);
+
 						listedflg = true;
 
 					}
@@ -199,6 +203,8 @@ outputdelivery.fire=function(params){
 				excel.setCell("NEW", writeSellWeekX + newListY_from, selledweek);
 
 				excel.setCell("NEW", writeFBAFlgX + newListY_from, fbaflg);
+
+				excel.setCell("NEW", writeDeliveryX + newListY_from, delivery);
 
 				newListY_from = newListY_from + 1;
 
