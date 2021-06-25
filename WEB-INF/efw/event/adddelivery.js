@@ -53,6 +53,48 @@ adddelivery.fire=function(params){
 
 	if(shopname == "Smart-KM"){
 
+		var sheetNameArr = [
+			"スマホ保護フィルム","カメラ保護","スマホケース",
+			"花柄ケース","イヤホン","タブレットケース","スマホリング","その他"];
+
+		for(var i = 0;i < sheetNameArr.length;i ++){
+
+			var sheetName = sheetNameArr[i];
+
+			var skuX = "C";
+			var asinX = "D";
+
+			var deliveryX = "S";
+
+			var labelY_from = 4;
+			var labelY_to = 999;
+
+			for(var y = labelY_from;y <= labelY_to;y++){
+
+				var sku = excelXSSF.getValue(sheetName, skuX + y);
+				var asin = excelXSSF.getValue(sheetName, asinX + y);
+
+				if(sku != null && sku.length > 0 && asin != null && asin.length > 0){
+
+					var delivery = excelXSSF.getValue(sheetName, deliveryX + y);
+
+					if(delivery == null || delivery.length == 0){
+						delivery = "0";
+					}
+
+					insertDeliveryDetail(null, sku, asin, delivery, deliveryno);
+
+				}else{
+
+					break;
+
+				}
+
+			}
+
+		}
+
+
 	}else{
 
 		var RC_labelX = ["F","G","H","I","J","K"];
@@ -78,7 +120,7 @@ adddelivery.fire=function(params){
 					continue;
 				}
 				
-				insertDeliveryDetail(label, delivery, deliveryno);
+				insertDeliveryDetail(label, null, null, delivery, deliveryno);
 
 			}
 
@@ -108,7 +150,7 @@ adddelivery.fire=function(params){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery, deliveryno);
+				insertDeliveryDetail(label, null, null, delivery, deliveryno);
 
 			}
 
@@ -138,7 +180,7 @@ adddelivery.fire=function(params){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery, deliveryno);
+				insertDeliveryDetail(label, null, null, delivery, deliveryno);
 
 			}
 
@@ -168,7 +210,7 @@ adddelivery.fire=function(params){
 					continue;
 				}
 
-				insertDeliveryDetail(label, delivery, deliveryno);
+				insertDeliveryDetail(label, null, null, delivery, deliveryno);
 
 			}
 
@@ -195,7 +237,7 @@ adddelivery.fire=function(params){
 				continue;
 			}
 
-			insertDeliveryDetail(label, delivery, deliveryno);
+			insertDeliveryDetail(label, null, null, delivery, deliveryno);
 
 		}
 
@@ -206,22 +248,26 @@ adddelivery.fire=function(params){
 };
 
 
-function insertDeliveryDetail(label, delivery, deliveryno){
+function insertDeliveryDetail(label, sku, asin, delivery, deliveryno){
 
-	var detailResult = db.select(
-		"UPLOAD",
-		"searchSKUASIN",
-		{
-			label:label,
-			shop:shopname
+	if(label != null){
+
+		var detailResult = db.select(
+			"UPLOAD",
+			"searchSKUASIN",
+			{
+				label:label,
+				shop:shopname
+			}
+		).getArray();
+		if(detailResult == null || detailResult.length <= 0){
+			return;
 		}
-	).getArray();
-	if(detailResult == null || detailResult.length <= 0){
-		return;
-	}
+	
+		sku = detailResult[0]["sku"];
+		asin = detailResult[0]["asin"];
 
-	var sku = detailResult[0]["sku"];
-	var asin = detailResult[0]["asin"];
+	}
 
 	var insResult = db.change(
 		"DELIVERY",

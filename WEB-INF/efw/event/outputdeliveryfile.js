@@ -27,11 +27,11 @@ outputdeliveryfile.fire=function(params){
 	).getArray();
 
 
-	if(shopname == "Smart-KM"){
+	// if(shopname == "Smart-KM"){
 
 
 
-	}else{
+	// }else{
 
 		file.remove("output/test.txt");
 		file.makeFile("output/test.txt");
@@ -66,7 +66,7 @@ outputdeliveryfile.fire=function(params){
 		ret.attach("output/test.txt")
 		.saveas("納品用ファイル_" + deliveryno + ".txt");
 
-	}
+	// }
 
 	return (ret);
 

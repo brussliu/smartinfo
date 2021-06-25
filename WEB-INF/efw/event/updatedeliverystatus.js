@@ -221,11 +221,6 @@ function importAcceptance(aryField, index) {
 		// 	}
 		// );
 
-		aryField[0].debug("000000000000000000");
-		aryField[2].debug("222222222222222222");
-		aryField[9].debug("999999999999999999");
-
-		deliveryno.debug("888888888888888888");
 
 		// 納品明細の受領数量を更新
 		var insResult2 = db.change(
@@ -253,7 +248,6 @@ function importAcceptance(aryField, index) {
 			);
 		}
 
-		insResult2.debug("KKKKKKKKKKKKKKKKKKKKKKKK");
 
 	}
 

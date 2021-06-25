@@ -40,6 +40,177 @@ outputdelivery.fire=function(params){
 
 	if(shopname == "Smart-KM"){
 
+		// テンプレートにより、EXCELオブジェクトを作成する
+		var excel=new Excel("templates/output_stock_smartkm.xlsx");
+
+		var tempFilePathName=file.getTempFileName();
+
+		var Y_from = 4;
+
+		var sku_X = "C";
+		var asin_X = "D";
+
+		var productname_X = "G";
+
+		var writePriceX = "H";
+
+		var writeFBAX = "I";
+		var writeFBMX = "J";
+		var writeLocalStockX = "K";
+		var writeOnboardStockX = "L";
+
+		var writeSell7X = "M";
+		var writeSell30X = "N";
+		var writeSell60X = "O";
+		var writeSell90X = "P";
+		var writeSellWeekX = "Q";
+
+		var writeFBAFlgX = "V";
+
+
+
+		for(var i = 0;i < selectResult.length;i ++){
+
+			var sku = selectResult[i]["sku"];
+			var asin = selectResult[i]["asin"];
+			var labelno = selectResult[i]["label"];
+			var productname = selectResult[i]["productname"];
+
+			var price = selectResult[i]["price"];
+
+			var fbaflg = "";
+
+
+			var fba;
+			if(selectResult[i]["fba"] == null || selectResult[i]["fba"].length == 0){
+				fba = 0;
+				
+			}else{
+				fba = parseInt(selectResult[i]["fba"]);
+				fbaflg = "FBA";
+			}
+
+			var fbm;
+			if(selectResult[i]["fbm"] == null || selectResult[i]["fbm"].length == 0){
+				fbm = 0;
+				
+			}else{
+				fbm = parseInt(selectResult[i]["fbm"]);
+				fbaflg = "FBM";
+			}
+
+			var localstock;
+			if(selectResult[i]["localstock"] == null || selectResult[i]["localstock"].length == 0){
+				localstock = 0;
+			}else{
+				localstock = parseInt(selectResult[i]["localstock"]);
+			}
+
+			var onboardstock;
+			if(selectResult[i]["onboard"] == null || selectResult[i]["onboard"].length == 0){
+				onboardstock = 0;
+			}else{
+				onboardstock = parseInt(selectResult[i]["onboard"]);
+			}
+
+			var selled7 = selectResult[i]["selled7"];
+			var selled30 = selectResult[i]["selled30"];
+			var selled60 = selectResult[i]["selled60"];
+			var selled90 = selectResult[i]["selled90"];
+			var selledweek = selectResult[i]["selledweek"];
+
+			var sheetNameList = [
+				"廃止予定", 		"スマホ保護フィルム",	"カメラ保護",
+				"スマホケース",		"花柄ケース",			"イヤホン",	
+				"タブレットケース",	"スマホリング",			"その他"];
+
+			for(var sn = 0;sn < sheetNameList.length;sn ++){
+
+
+				var sheetName = sheetNameList[sn];
+
+				for(var y = Y_from;y <= 9999;y ++){
+
+					var excel_sku = excel.getValue(sheetName, sku_X + y);
+					var excel_asin = excel.getValue(sheetName, asin_X + y);
+
+					if(excel_sku == null || excel_sku.length <= 0 || excel_asin == null || excel_asin.length <= 0){
+						break;
+					}
+
+					if(excel_sku == sku && excel_asin == asin){
+
+						excel.setCell(sheetName, writePriceX + y, price);
+
+						excel.setCell(sheetName, writeFBAX + y, fba);
+
+						excel.setCell(sheetName, writeFBMX + y, fbm);
+
+						excel.setCell(sheetName, writeLocalStockX + y, localstock);
+
+						excel.setCell(sheetName, writeOnboardStockX + y, onboardstock);
+
+						excel.setCell(sheetName, writeSell7X + y, selled7);
+
+						excel.setCell(sheetName, writeSell30X + y, selled30);
+
+						excel.setCell(sheetName, writeSell60X + y, selled60);
+
+						excel.setCell(sheetName, writeSell90X + y, selled90);
+
+						excel.setCell(sheetName, writeSellWeekX + y, selledweek);
+
+						excel.setCell(sheetName, writeFBAFlgX + y, fbaflg);
+
+						listedflg = true;
+
+					}
+
+				}
+
+			}
+
+			if(listedflg == false){
+
+				excel.setCell("NEW", sku_X + newListY_from, sku);
+
+				excel.setCell("NEW", asin_X + newListY_from, asin);
+
+				excel.setCell("NEW", productname_X + newListY_from, productname);
+
+				excel.setCell("NEW", writePriceX + newListY_from, price);
+
+				excel.setCell("NEW", writeFBAX + newListY_from, fba);
+
+				excel.setCell("NEW", writeFBMX + newListY_from, fbm);
+
+				excel.setCell("NEW", writeLocalStockX + newListY_from, localstock);
+
+				excel.setCell("NEW", writeOnboardStockX + newListY_from, onboardstock);
+
+				excel.setCell("NEW", writeSell7X + newListY_from, selled7);
+
+				excel.setCell("NEW", writeSell30X + newListY_from, selled30);
+
+				excel.setCell("NEW", writeSell60X + newListY_from, selled60);
+
+				excel.setCell("NEW", writeSell90X + newListY_from, selled90);
+
+				excel.setCell("NEW", writeSellWeekX + newListY_from, selledweek);
+
+				excel.setCell("NEW", writeFBAFlgX + newListY_from, fbaflg);
+
+				newListY_from = newListY_from + 1;
+
+			}
+
+		}
+
+		excel.setActiveSheet(sheetNameList[0]).save(tempFilePathName);
+
+		ret.attach(tempFilePathName)
+		.saveas("Smart-KM在庫補足_" + (new Date()).format("yyyyMMdd")+".xlsx")
+		.deleteAfterDownload();
 
 
 	}else{
