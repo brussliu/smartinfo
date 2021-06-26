@@ -156,7 +156,7 @@ function importMasterList(f, shopname, sheetName){
 
 	// マスタデータ全件削除
 	var delResult = db.change(
-		"UPLOAD",
+		"MASTER",
 		"delAllMaster",
 		{shop:shopname}
 	);
@@ -195,7 +195,7 @@ function importMasterList(f, shopname, sheetName){
 		}
 
 		var insertResult = db.change(
-			"UPLOAD",
+			"MASTER",
 			"insertMaster",
 			{
 				"col0" : count,
