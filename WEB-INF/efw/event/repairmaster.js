@@ -24,13 +24,13 @@ repairmaster.fire=function(params){
 		}
 	);
 	// // 無効のマスタを削除する
-	// var delResult = db.change(
-	// 	"MASTER",
-	// 	"delbackupmaster",
-	// 	{
-	// 		"masterkey":masterkey
-	// 	}
-	// );
+	var delResult = db.change(
+		"MASTER",
+		"delbackupmaster",
+		{
+			"masterkey":masterkey
+		}
+	);
 	// 無効のマスタ(親)をバックアップする
 	var insertResult = db.change(
 		"MASTER",
@@ -40,13 +40,13 @@ repairmaster.fire=function(params){
 		}
 	);
 	// // 無効のマスタを削除する
-	// var delResult = db.change(
-	// 	"MASTER",
-	// 	"delbackupmaster",
-	// 	{
-	// 		"masterkey":masterkey
-	// 	}
-	// );
+	var delResult = db.change(
+		"MASTER",
+		"delbackupmaster",
+		{
+			"masterkey":masterkey
+		}
+	);
 
 	// マスタに登録する必要なデータを洗い出す
 	var selectResult1 = db.select(
