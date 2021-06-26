@@ -34,7 +34,7 @@ repairmaster.fire=function(params){
 	// 無効のマスタ(親)をバックアップする
 	var insertResult = db.change(
 		"MASTER",
-		"backupmaster",
+		"backupoyamaster",
 		{
 			"masterkey":masterkey
 		}
