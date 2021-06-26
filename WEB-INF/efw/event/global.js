@@ -665,49 +665,17 @@ function importProductInfoForSmartKM(excelXSSF, stockFlg, deliveryFlg, deliveryn
 
 		var sheetName = sheetNameArr[i];
 
-		var skuX = "C";
-		var asinX = "D";
+		var skuX = ["C"];
+		var asinX = ["D"];
 
-		var localStockX = "K";
-		var onboardStockX = "L";
-		var deliveryX = "S";
+		var localStockX = ["K"];
+		var onboardStockX = ["L"];
+		var deliveryX = ["S"];
 
 		var labelY_from = 4;
 		var labelY_to = null;
 
 		importProductInfo(excelXSSF, sheetName, labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, labelY_from, labelY_to, stockFlg, deliveryFlg, deliveryno);
-
-
-		for(var y = labelY_from;y <= labelY_to;y++){
-
-			var sku = excelXSSF.getValue(sheetName, skuX + y);
-			var asin = excelXSSF.getValue(sheetName, asinX + y);
-
-			if(sku == null || sku.length <= 0 || asin == null || asin.length <= 0){
-				break;
-			}
-
-			var localstock = excelXSSF.getValue(sheetName, localStockX + y);
-			var onboardstock = excelXSSF.getValue(sheetName, onboardStockX + y);
-			var delivery = excelXSSF.getValue(sheetName, deliveryX + y);
-
-			if(localstock == null || localstock.length == 0){
-				localstock = "0";
-			}
-			if(onboardstock == null || onboardstock.length == 0){
-				onboardstock = "0";
-			}
-			if(delivery == null || delivery.length == 0){
-				delivery = "0";
-			}
-
-			if(deliveryFlg){
-
-				insertDeliveryDetail(null, sku, asin, delivery, deliveryno);
-
-			}
-
-		}
 
 	}
 	
