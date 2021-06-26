@@ -489,11 +489,11 @@ function outputProductForSmartBear(selectResult, deliveryFlg){
 		|| productno == "T006" || productno == "T007" || productno == "T008" || productno == "T009" || productno == "T010" ){
 
 			// 情報設定
-			setInfoToExcel(selectResult[i], "在庫情報（雨衣）", 
+			setInfoToExcel(excel, selectResult[i], "在庫情報（雨衣）", 
 				RC_labelX, RC_labelY_from, RC_labelY_to,
 				RC_writeStockX, RC_writeLocalStockX, RC_writeOnboardStockX,
 				RC_writeSell7X, RC_writeSell30X, RC_writeSell60X, RC_writeSell90X, RC_writeSellWeekX,
-				RC_writePriceX, RC_writeDeliveryX
+				RC_writePriceX, RC_writeDeliveryX, deliveryFlg
 			);
 		}
 
@@ -501,11 +501,11 @@ function outputProductForSmartBear(selectResult, deliveryFlg){
 		if(productno == "P001" || productno == "P002"){
 
 			// 情報設定
-			setInfoToExcel(selectResult[i], "在庫情報（居家服）", 
+			setInfoToExcel(excel, selectResult[i], "在庫情報（居家服）", 
 				PJ_labelX, PJ_labelY_from, PJ_labelY_to,
 				PJ_writeStockX, PJ_writeLocalStockX, PJ_writeOnboardStockX,
 				PJ_writeSell7X, PJ_writeSell30X, PJ_writeSell60X, PJ_writeSell90X, PJ_writeSellWeekX,
-				PJ_writePriceX, PJ_writeDeliveryX
+				PJ_writePriceX, PJ_writeDeliveryX, deliveryFlg
 			);
 			
 		}
@@ -515,11 +515,11 @@ function outputProductForSmartBear(selectResult, deliveryFlg){
 		|| productno == "T209" || productno == "T101"){
 
 			// 情報設定
-			setInfoToExcel(selectResult[i], "在庫情報（雨伞等）", 
+			setInfoToExcel(excel, selectResult[i], "在庫情報（雨伞等）", 
 				UB_labelX, UB_labelY_from, UB_labelY_to,
 				UB_writeStockX, UB_writeLocalStockX, UB_writeOnboardStockX,
 				UB_writeSell7X, UB_writeSell30X, UB_writeSell60X, UB_writeSell90X, UB_writeSellWeekX,
-				UB_writePriceX, UB_writeDeliveryX
+				UB_writePriceX, UB_writeDeliveryX, deliveryFlg
 			);
 			
 		}
@@ -529,11 +529,11 @@ function outputProductForSmartBear(selectResult, deliveryFlg){
 		|| productno == "T306" || productno == "T308" || productno == "T309"){
 
 			// 情報設定
-			setInfoToExcel(selectResult[i], "在庫情報（雨靴）", 
+			setInfoToExcel(excel, selectResult[i], "在庫情報（雨靴）", 
 				RB_labelX, RB_labelY_from, RB_labelY_to,
 				RB_writeStockX, RB_writeLocalStockX, RB_writeOnboardStockX,
 				RB_writeSell7X, RB_writeSell30X, RB_writeSell60X, RB_writeSell90X, RB_writeSellWeekX,
-				RB_writePriceX, RB_writeDeliveryX
+				RB_writePriceX, RB_writeDeliveryX, deliveryFlg
 			);
 			
 		}
@@ -541,26 +541,26 @@ function outputProductForSmartBear(selectResult, deliveryFlg){
 		// 靴下
 		if(productno != null && productno.length > 0 && productno.substring(0,1) == "W"){
 
-				// 情報設定
-				setInfoToExcel(selectResult[i], "在庫情報（袜子）", 
-					W_labelX, W_labelY_from, W_labelY_to,
-					W_writeStockX, W_writeLocalStockX, W_writeOnboardStockX,
-					W_writeSell7X, W_writeSell30X, W_writeSell60X, W_writeSell90X, W_writeSellWeekX,
-					W_writePriceX, W_writeDeliveryX
-				);
+			// 情報設定
+			setInfoToExcel(excel, selectResult[i], "在庫情報（袜子）", 
+				W_labelX, W_labelY_from, W_labelY_to,
+				W_writeStockX, W_writeLocalStockX, W_writeOnboardStockX,
+				W_writeSell7X, W_writeSell30X, W_writeSell60X, W_writeSell90X, W_writeSellWeekX,
+				W_writePriceX, W_writeDeliveryX, deliveryFlg
+			);
 
 		}
-		
+
 	}
 
-		excel.setActiveSheet("在庫情報（雨衣）").save(tempFilePathName);
+	excel.setActiveSheet("在庫情報（雨衣）").save(tempFilePathName);
 
-		return tempFilePathName;
+	return tempFilePathName;
 
 }
 
-function setInfoToExcel(selectRecord, sheetName, labelX, labelY_from, labelY_to, writeStockX, writeLocalStockX, writeOnboardStockX,
-	writeSell7X, writeSell30X, writeSell60X, writeSell90X, writeSellWeekX, writePriceX, writeDeliveryX){
+function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, labelY_to, writeStockX, writeLocalStockX, writeOnboardStockX,
+	writeSell7X, writeSell30X, writeSell60X, writeSell90X, writeSellWeekX, writePriceX, writeDeliveryX, deliveryFlg){
 
 	var labelno = selectRecord["label"];
 	var localstock = returnQuantity(selectRecord["localstock"]);
