@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqls>
 <sqls>
+<sql id="backupmaster">
+INSERT INTO "OLD_出品マスタ情報"
+SELECT
+	:masterkey
+	,M.*
+FROM
+	"NEW_出品マスタ情報" M
+WHERE
+	NOT EXISTS(
+	select 1 from "INPUT_出品詳細情報" D 
+	where 
+	D."店舗名" = M."店舗名" and D."出品者SKU" = M."SKU番号" and D."ASIN 1" = M."ASIN番号"
+	)
+	AND M."商品種別" = '子商品'
+</sql>
+<sql id="delbackupmaster">
+DELETE FROM "NEW_出品マスタ情報" M
+WHERE
+	EXISTS(
+	select 1 from "OLD_出品マスタ情報" D 
+	where 
+	D."店舗名" = M."店舗名" and D."SKU番号" = M."SKU番号" and D."ASIN番号" = M."ASIN番号"
+	and
+	D."del_date" = :masterkey
+	)
+</sql>
+<sql id="backupoyamaster">
+insert into "OLD_出品マスタ情報"
+select 
+:masterkey
+,* 
+from "NEW_出品マスタ情報"
+where
+("店舗名","商品管理番号") in
+(
+SELECT
+	distinct "店舗名","商品管理番号"
+FROM (
+SELECT
+	"店舗名",
+	"商品管理番号",
+	"商品種別",
+	count(*) AS "商品数量"
+FROM
+	"NEW_出品マスタ情報" M
+GROUP BY 
+	"店舗名","商品管理番号","商品種別"
+) T
+WHERE T.商品種別 = '子商品' AND "商品数量" = 0
+)
+</sql>
+<sql id="selectnotmaster">
+	select
+		D."店舗名" as shopname,
+		'' as productno,
+		'' as productdiv,
+		'子商品' as producttype,
+		'' as color,
+		'' as size,
+		D."出品者SKU" as sku,
+		D."ASIN 1" as asin,
+		D."商品名" as productname
+	from
+	"INPUT_出品詳細情報" D
+	where 
+	not exists(
+	select 1 from "NEW_出品マスタ情報" M
+	where
+	M."店舗名" = D."店舗名" and M."SKU番号" = D."出品者SKU" and M."ASIN番号" = D."ASIN 1"
+	)
+	order by 
+	D."店舗名",
+	D."商品名"
+</sql>
 <sql id="selectmaster">
 		SELECT
 			M."店舗名" as shopname,
