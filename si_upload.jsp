@@ -82,7 +82,7 @@
 		</td>
 		<td colspan="3" style="text-align: right;">
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導出" onclick="Efw('outputmaster')">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'master',liststock:''})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('importmaster')">
 		</td>
 	</tr>
 </table>

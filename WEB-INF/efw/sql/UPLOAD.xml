@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqls>
 <sqls>
-	<sql id="delAllMaster">
-		DELETE FROM "NEW_出品マスタ情報" WHERE "店舗名" = :shop
-	</sql>
-	<sql id="insertMaster">
-		INSERT INTO "NEW_出品マスタ情報"
-		VALUES (
-			:col0,--REQ_NO
-			:col1,--店舗名
-			:col2,--商品管理番号
-			:col3,--商品分類
-			:col4,--商品種別
-			:col5,--色
-			:col6,--サイズ
-			:col7,--SKU番号
-			:col8 --ASIN番号
-		)
-	</sql>
 	<sql id="delAllProduct">
 		DELETE FROM "INPUT_出品詳細情報" WHERE "店舗名" = :shop
 	</sql>
