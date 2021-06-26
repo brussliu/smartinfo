@@ -76,11 +76,14 @@ repairmaster.fire=function(params){
 
 	outputMasterList(excel, selectResult3, "登録必要", true);
 
-	excel.setActiveSheet("新店").save(file.getTempFileName());
+	var tempFilePathName = file.getTempFileName();
+
+	excel.setActiveSheet("新店").save(tempFilePathName);
 
 	ret.attach(tempFilePathName)
 	.saveas("MASTER_INFO_" + (new Date()).format("yyyyMMdd-HHmmss")+".xlsx")
 	.deleteAfterDownload();
+
 
 	return ret;
 };
