@@ -5,17 +5,14 @@ importmaster.paramsFormat={
 	"#importfile_master":null,
 	"#shop":null
 };
-var shopname = "";
-var count = 0;
+
 importmaster.fire=function(params){
 
 	file.saveUploadFiles("upload");
 
-	shopname = params["#shop"];
+	var shopname = params["#shop"];
 
 	var ret = new Result();
-
-	count = 0;
 
 	var fa = params["#importfile_master"].split("\\");
 
@@ -28,7 +25,7 @@ importmaster.fire=function(params){
 		sheetName = "旧店";
 	}
 
-	importMasterList(f, sheetName, sheetName);
+	var count = importMasterList(f, shopname, sheetName);
 
 	var d = new Date().format("yyyy-MM-dd");
 

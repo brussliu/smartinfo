@@ -152,7 +152,7 @@ function outputMasterList(excel, selectResult, sheetName, productnameFlg){
 
 }
 
-function importMasterList(f, sheetName){
+function importMasterList(f, shopname, sheetName){
 
 	// マスタデータ全件削除
 	var delResult = db.change(
@@ -176,6 +176,8 @@ function importMasterList(f, sheetName){
 
 	var row_from = 2;
 	var row_to = 9999;
+
+	var count = 0;
 	
 	for(var y = row_from;y <= row_to;y++){
 
@@ -211,5 +213,7 @@ function importMasterList(f, sheetName){
 		count = count + 1;
 
 	}
+
+	return count;
 
 }
