@@ -543,7 +543,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg){
 
 			// 情報設定
 			setInfoToExcel(excel, selectResult[i], "在庫情報（袜子）", 
-				W_labelX, W_labelY_from, W_labelY_to,
+				W_labelX, W_labelY_from, null,
 				W_writeStockX, W_writeLocalStockX, W_writeOnboardStockX,
 				W_writeSell7X, W_writeSell30X, W_writeSell60X, W_writeSell90X, W_writeSellWeekX,
 				W_writePriceX, W_writeDeliveryX, deliveryFlg
@@ -574,13 +574,19 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 	var price = returnJPPrice(selectRecord["price"]);
 	var delivery = returnQuantity(selectRecord["delivery"]);
 
+	var y_to = labelY_to == null ? 9999 : labelY_to;
+
 	// 在庫情報シート
 	for(var x = 0;x < labelX.length;x ++){
-		for(var y = labelY_from;y <= labelY_to;y ++){
+		for(var y = labelY_from;y <= y_to;y ++){
 
 			var excellabelno = excel.getValue(sheetName, labelX[x] + y);
 			if(excellabelno == null){
-				continue;
+				if(labelY_to == null){
+					break;
+				}else{
+					continue;
+				}
 			}
 			if(excellabelno == labelno){
 				// 商品価格
@@ -645,5 +651,209 @@ function setExcelValue(excel, sheetName, station, value){
 	if(value != null){
 		excel.setCell(sheetName, station, value);
 	}
+
+}
+
+
+function importProductInfoForSmartKM(excelXSSF, stockFlg, deliveryFlg, deliveryno){
+
+	var sheetNameArr = [
+		"NEW","スマホ保護フィルム","カメラ保護","スマホケース",
+		"花柄ケース","イヤホン","タブレットケース","スマホリング","その他"];
+
+	for(var i = 0;i < sheetNameArr.length;i ++){
+
+		var sheetName = sheetNameArr[i];
+
+		var skuX = "C";
+		var asinX = "D";
+
+		var localStockX = "K";
+		var onboardStockX = "L";
+		var deliveryX = "S";
+
+		var labelY_from = 4;
+		var labelY_to = null;
+
+		importProductInfo(excelXSSF, sheetName, labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, labelY_from, labelY_to, stockFlg, deliveryFlg, deliveryno);
+
+
+		for(var y = labelY_from;y <= labelY_to;y++){
+
+			var sku = excelXSSF.getValue(sheetName, skuX + y);
+			var asin = excelXSSF.getValue(sheetName, asinX + y);
+
+			if(sku == null || sku.length <= 0 || asin == null || asin.length <= 0){
+				break;
+			}
+
+			var localstock = excelXSSF.getValue(sheetName, localStockX + y);
+			var onboardstock = excelXSSF.getValue(sheetName, onboardStockX + y);
+			var delivery = excelXSSF.getValue(sheetName, deliveryX + y);
+
+			if(localstock == null || localstock.length == 0){
+				localstock = "0";
+			}
+			if(onboardstock == null || onboardstock.length == 0){
+				onboardstock = "0";
+			}
+			if(delivery == null || delivery.length == 0){
+				delivery = "0";
+			}
+
+			if(deliveryFlg){
+
+				insertDeliveryDetail(null, sku, asin, delivery, deliveryno);
+
+			}
+
+		}
+
+	}
+	
+}
+
+
+function insertDeliveryDetail(label, sku, asin, delivery, deliveryno){
+
+	if(sku == null || sku.length <= 0 || asin == null || asin.length <= 0){
+
+		var detailResult = db.select(
+			"UPLOAD",
+			"searchSKUASIN",
+			{
+				label:label,
+				shop:shopname
+			}
+		).getArray();
+		if(detailResult == null || detailResult.length <= 0){
+			return;
+		}
+	
+		sku = detailResult[0]["sku"];
+		asin = detailResult[0]["asin"];
+
+	}
+
+	var insResult = db.change(
+		"DELIVERY",
+		"insertDeliveryDetail",
+		{
+			"col0":deliveryno,
+			"col1":sku,
+			"col2":asin,
+			"col3":delivery
+		}
+	);
+
+}
+
+function importProductInfo(excelXSSF, sheetName, labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, labelY_from, labelY_to, stockFlg, deliveryFlg, deliveryno){
+
+	var y_to = labelY_to == null ? 9999 : labelY_to;
+
+	for(var y = labelY_from;y <= y_to;y++){
+
+		for(var x = 0;x < labelX.length;x ++){
+
+			var label = excelXSSF.getValue(sheetName, labelX[x] + y);
+			var sku = excelXSSF.getValue(sheetName, skuX + y);
+			var asin = excelXSSF.getValue(sheetName, asinX + y);
+
+			if(sku == null && sku.length <= 0 && asin == null && asin.length <= 0 && label == null && label.length == 0){
+				if(labelY_to == null){
+					break;
+				}else{
+					continue;
+				}
+			}
+
+			var localstock = excelXSSF.getValue(sheetName, localStockX[x] + y);
+			var onboardstock = excelXSSF.getValue(sheetName, onboardStockX[x] + y);
+			var delivery = excelXSSF.getValue(sheetName, deliveryX[x] + y);
+
+			if(deliveryFlg){
+				if(delivery == null || delivery.length == 0 || delivery == 0 || delivery == "0"){
+					continue;
+				}
+	
+				insertDeliveryDetail(label, null, null, delivery, deliveryno);
+			}
+
+
+		}
+
+	}
+
+
+}
+
+function importProductInfoForSmartBear(excelXSSF, stockFlg, deliveryFlg, deliveryno){
+
+	var RC_labelX = ["F","G","H","I","J","K"];
+
+	var RC_localStockX = ["R","S","T","U","V","W"];
+	var RC_onboardStockX = ["X","Y","Z","AA","AB","AC"];
+	var RC_deliveryX = ["BN","BO","BP","BQ","BR","BS"];
+
+	var RC_labelY_from = 4;
+	var RC_labelY_to = 30;
+
+	importProductInfo(excelXSSF, "在庫情報（雨衣）", 
+		RC_labelX, RC_localStockX, RC_onboardStockX, RC_deliveryX, RC_labelY_from, RC_labelY_to, 
+		stockFlg, deliveryFlg, deliveryno);
+
+	var PJ_labelX = ["F","G","H","I","J","K"];
+
+	var PJ_localStockX = ["R","S","T","U","V","W"];
+	var PJ_onboardStockX = ["X","Y","Z","AA","AB","AC"];
+	var PJ_deliveryX = ["BN","BO","BP","BQ","BR","BS"];
+
+	var PJ_labelY_from = 4;
+	var PJ_labelY_to = 11;
+
+	importProductInfo(excelXSSF, "在庫情報（居家服）", 
+		PJ_labelX, PJ_localStockX, PJ_onboardStockX, PJ_deliveryX, PJ_labelY_from, PJ_labelY_to, 
+		stockFlg, deliveryFlg, deliveryno);
+
+
+	var UB_labelX = ["F"];
+
+	var UB_localStockX = ["H"];
+	var UB_onboardStockX = ["I"];
+	var UB_deliveryX = ["P"];
+
+	var UB_labelY_from = 4;
+	var UB_labelY_to = 14;
+
+	importProductInfo(excelXSSF, "在庫情報（雨伞等）", 
+		UB_labelX, UB_localStockX, UB_onboardStockX, UB_deliveryX, UB_labelY_from, UB_labelY_to, 
+		stockFlg, deliveryFlg, deliveryno);
+
+	var RB_labelX = ["H"];
+
+	var RB_localStockX = ["J"];
+	var RB_onboardStockX = ["K"];
+	var RB_deliveryX = ["R"];
+
+	var RB_labelY_from = 3;
+	var RB_labelY_to = 142;
+
+	importProductInfo(excelXSSF, "在庫情報（雨靴）", 
+	RB_labelX, RB_localStockX, RB_onboardStockX, RB_deliveryX, RB_labelY_from, RB_labelY_to, 
+	stockFlg, deliveryFlg, deliveryno);
+
+	var W_labelX = ["J"];
+
+	var W_localStockX = ["M"];
+	var W_onboardStockX = ["N"];
+	var W_deliveryX = ["U"];
+
+	var W_labelY_from = 4;
+	var W_labelY_to = null;
+
+	importProductInfo(excelXSSF, "在庫情報（袜子）", 
+	W_labelX, W_localStockX, W_onboardStockX, W_deliveryX, W_labelY_from, W_labelY_to, 
+	stockFlg, deliveryFlg, deliveryno);
 
 }
