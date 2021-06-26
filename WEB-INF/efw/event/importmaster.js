@@ -1,6 +1,8 @@
 var importmaster={};
 importmaster.name="マスタデータ導入";
 importmaster.paramsFormat={
+	// 商品マスタ情報
+	"#importfile_master":null,
 	"#shop":null
 };
 var shopname = "";
