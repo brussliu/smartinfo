@@ -553,6 +553,8 @@ function outputProductForSmartBear(selectResult, deliveryFlg){
 
 		excel.setActiveSheet("在庫情報（雨衣）").save(tempFilePathName);
 
+		return tempFilePathName;
+
 }
 
 function setInfoToExcel(selectRecord, sheetName, labelX, labelY_from, labelY_to, writeStockX, writeLocalStockX, writeOnboardStockX,
