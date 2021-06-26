@@ -399,147 +399,147 @@ function outputProductForSmartKM(selectResult, deliveryFlg){
 
 function outputProductForSmartBear(selectResult, deliveryFlg){
 
-		// テンプレートにより、EXCELオブジェクトを作成する
-		var excel=new Excel("templates/output_stock.xlsx");
+	// テンプレートにより、EXCELオブジェクトを作成する
+	var excel=new Excel("templates/output_stock.xlsx");
 
-		var tempFilePathName=file.getTempFileName();
+	var tempFilePathName=file.getTempFileName();
+
+	// レインコート
+	var RC_labelY_from = 4;
+	var RC_labelY_to = 48;
+	var RC_labelX = ["F","G","H","I","J","K"];
+	var RC_writeStockX = ["L","M","N","O","P","Q"];
+	var RC_writeLocalStockX = ["R","S","T","U","V","W"];
+	var RC_writeOnboardStockX = ["X","Y","Z","AA","AB","AC"];
+	var RC_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
+	var RC_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
+	var RC_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
+	var RC_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
+	var RC_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
+	var RC_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
+	var RC_writeDeliveryX = ["BN","BO","BP","BQ","BR","BS"];
+
+	// パジャマ
+	var PJ_labelY_from = 4;
+	var PJ_labelY_to = 11;
+	var PJ_labelX = ["F","G","H","I","J","K"];
+	var PJ_writeStockX = ["L","M","N","O","P","Q"];
+	var PJ_writeLocalStockX = ["R","S","T","U","V","W"];
+	var PJ_writeOnboardStockX = ["X","Y","Z","AA","AB","AC"];
+	var PJ_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
+	var PJ_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
+	var PJ_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
+	var PJ_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
+	var PJ_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
+	var PJ_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
+	var PJ_writeDeliveryX = ["BN","BO","BP","BQ","BR","BS"];
+
+	// 傘
+	var UB_labelY_from = 4;
+	var UB_labelY_to = 14;
+	var UB_labelX = ["F"];
+	var UB_writeStockX = ["G"];
+	var UB_writeLocalStockX = ["H"];
+	var UB_writeOnboardStockX = ["I"];
+	var UB_writeSell7X = ["J"];
+	var UB_writeSell30X = ["K"];
+	var UB_writeSell60X = ["L"];
+	var UB_writeSell90X = ["M"];
+	var UB_writeSellWeekX = ["N"];
+	var UB_writePriceX = ["S"];
+	var UB_writeDeliveryX = ["P"];
+
+	// 雨靴
+	var RB_labelY_from = 4;
+	var RB_labelY_to = 142;
+	var RB_labelX = ["H"];
+	var RB_writeStockX = ["I"];
+	var RB_writeLocalStockX = ["J"];
+	var RB_writeOnboardStockX = ["K"];
+	var RB_writeSell7X = ["L"];
+	var RB_writeSell30X = ["M"];
+	var RB_writeSell60X = ["N"];
+	var RB_writeSell90X = ["O"];
+	var RB_writeSellWeekX = ["P"];
+	var RB_writePriceX = ["U"];
+	var RB_writeDeliveryX = ["R"];
+
+	// 靴下
+	var W_labelY_from = 4;
+	var W_labelY_to = 9999;
+	var W_labelX = "J";
+	var W_writePriceX = "K";
+	var W_writeStockX = "L";
+	var W_writeLocalStockX = "M";
+	var W_writeOnboardStockX = "N";
+	var W_writeSell7X = "O";
+	var W_writeSell30X = "P";
+	var W_writeSell60X = "Q";
+	var W_writeSell90X = "R";
+	var W_writeSellWeekX = "S";
+	var W_writeDeliveryX = "U";
+
+	for(var i = 0;i < selectResult.length;i ++){
+
+		// 商品管理番号
+		var productno = selectResult[i]["productno"];
 
 		// レインコート
-		var RC_labelY_from = 4;
-		var RC_labelY_to = 48;
-		var RC_labelX = ["F","G","H","I","J","K"];
-		var RC_writeStockX = ["L","M","N","O","P","Q"];
-		var RC_writeLocalStockX = ["R","S","T","U","V","W"];
-		var RC_writeOnboardStockX = ["X","Y","Z","AA","AB","AC"];
-		var RC_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
-		var RC_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
-		var RC_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
-		var RC_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
-		var RC_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
-		var RC_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
-		var RC_writeDeliveryX = ["BN","BO","BP","BQ","BR","BS"];
+		if(productno == "T001" || productno == "T002" || productno == "T003" || productno == "T004" || productno == "T005" 
+		|| productno == "T006" || productno == "T007" || productno == "T008" || productno == "T009" || productno == "T010" ){
+
+			// 情報設定
+			setInfoToExcel(selectResult[i], "在庫情報（雨衣）", 
+				RC_labelX, RC_labelY_from, RC_labelY_to,
+				RC_writeStockX, RC_writeLocalStockX, RC_writeOnboardStockX,
+				RC_writeSell7X, RC_writeSell30X, RC_writeSell60X, RC_writeSell90X, RC_writeSellWeekX,
+				RC_writePriceX, RC_writeDeliveryX
+			);
+		}
 
 		// パジャマ
-		var PJ_labelY_from = 4;
-		var PJ_labelY_to = 11;
-		var PJ_labelX = ["F","G","H","I","J","K"];
-		var PJ_writeStockX = ["L","M","N","O","P","Q"];
-		var PJ_writeLocalStockX = ["R","S","T","U","V","W"];
-		var PJ_writeOnboardStockX = ["X","Y","Z","AA","AB","AC"];
-		var PJ_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
-		var PJ_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
-		var PJ_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
-		var PJ_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
-		var PJ_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
-		var PJ_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
-		var PJ_writeDeliveryX = ["BN","BO","BP","BQ","BR","BS"];
+		if(productno == "P001" || productno == "P002"){
+
+			// 情報設定
+			setInfoToExcel(selectResult[i], "在庫情報（居家服）", 
+				PJ_labelX, PJ_labelY_from, PJ_labelY_to,
+				PJ_writeStockX, PJ_writeLocalStockX, PJ_writeOnboardStockX,
+				PJ_writeSell7X, PJ_writeSell30X, PJ_writeSell60X, PJ_writeSell90X, PJ_writeSellWeekX,
+				PJ_writePriceX, PJ_writeDeliveryX
+			);
+			
+		}
 
 		// 傘
-		var UB_labelY_from = 4;
-		var UB_labelY_to = 14;
-		var UB_labelX = ["F"];
-		var UB_writeStockX = ["G"];
-		var UB_writeLocalStockX = ["H"];
-		var UB_writeOnboardStockX = ["I"];
-		var UB_writeSell7X = ["J"];
-		var UB_writeSell30X = ["K"];
-		var UB_writeSell60X = ["L"];
-		var UB_writeSell90X = ["M"];
-		var UB_writeSellWeekX = ["N"];
-		var UB_writePriceX = ["S"];
-		var UB_writeDeliveryX = ["P"];
+		if(productno == "T206" || productno == "T207" || productno == "T208" 
+		|| productno == "T209" || productno == "T101"){
+
+			// 情報設定
+			setInfoToExcel(selectResult[i], "在庫情報（雨伞等）", 
+				UB_labelX, UB_labelY_from, UB_labelY_to,
+				UB_writeStockX, UB_writeLocalStockX, UB_writeOnboardStockX,
+				UB_writeSell7X, UB_writeSell30X, UB_writeSell60X, UB_writeSell90X, UB_writeSellWeekX,
+				UB_writePriceX, UB_writeDeliveryX
+			);
+			
+		}
 
 		// 雨靴
-		var RB_labelY_from = 4;
-		var RB_labelY_to = 142;
-		var RB_labelX = ["H"];
-		var RB_writeStockX = ["I"];
-		var RB_writeLocalStockX = ["J"];
-		var RB_writeOnboardStockX = ["K"];
-		var RB_writeSell7X = ["L"];
-		var RB_writeSell30X = ["M"];
-		var RB_writeSell60X = ["N"];
-		var RB_writeSell90X = ["O"];
-		var RB_writeSellWeekX = ["P"];
-		var RB_writePriceX = ["U"];
-		var RB_writeDeliveryX = ["R"];
+		if(productno == "T301" || productno == "T302" || productno == "T303" 
+		|| productno == "T306" || productno == "T308" || productno == "T309"){
+
+			// 情報設定
+			setInfoToExcel(selectResult[i], "在庫情報（雨靴）", 
+				RB_labelX, RB_labelY_from, RB_labelY_to,
+				RB_writeStockX, RB_writeLocalStockX, RB_writeOnboardStockX,
+				RB_writeSell7X, RB_writeSell30X, RB_writeSell60X, RB_writeSell90X, RB_writeSellWeekX,
+				RB_writePriceX, RB_writeDeliveryX
+			);
+			
+		}
 
 		// 靴下
-		var W_labelY_from = 4;
-		var W_labelY_to = 9999;
-		var W_labelX = "J";
-		var W_writePriceX = "K";
-		var W_writeStockX = "L";
-		var W_writeLocalStockX = "M";
-		var W_writeOnboardStockX = "N";
-		var W_writeSell7X = "O";
-		var W_writeSell30X = "P";
-		var W_writeSell60X = "Q";
-		var W_writeSell90X = "R";
-		var W_writeSellWeekX = "S";
-		var W_writeDeliveryX = "U";
-
-		for(var i = 0;i < selectResult.length;i ++){
-
-			// 商品管理番号
-			var productno = selectResult[i]["productno"];
-
-			// レインコート
-			if(productno == "T001" || productno == "T002" || productno == "T003" || productno == "T004" || productno == "T005" 
-			|| productno == "T006" || productno == "T007" || productno == "T008" || productno == "T009" || productno == "T010" ){
-
-				// 情報設定
-				setInfoToExcel(selectResult[i], "在庫情報（雨衣）", 
-					RC_labelX, RC_labelY_from, RC_labelY_to,
-					RC_writeStockX, RC_writeLocalStockX, RC_writeOnboardStockX,
-					RC_writeSell7X, RC_writeSell30X, RC_writeSell60X, RC_writeSell90X, RC_writeSellWeekX,
-					RC_writePriceX, RC_writeDeliveryX
-				);
-			}
-
-			// パジャマ
-			if(productno == "P001" || productno == "P002"){
-
-				// 情報設定
-				setInfoToExcel(selectResult[i], "在庫情報（居家服）", 
-					PJ_labelX, PJ_labelY_from, PJ_labelY_to,
-					PJ_writeStockX, PJ_writeLocalStockX, PJ_writeOnboardStockX,
-					PJ_writeSell7X, PJ_writeSell30X, PJ_writeSell60X, PJ_writeSell90X, PJ_writeSellWeekX,
-					PJ_writePriceX, PJ_writeDeliveryX
-				);
-				
-			}
-
-			// 傘
-			if(productno == "T206" || productno == "T207" || productno == "T208" 
-			|| productno == "T209" || productno == "T101"){
-
-				// 情報設定
-				setInfoToExcel(selectResult[i], "在庫情報（雨伞等）", 
-					UB_labelX, UB_labelY_from, UB_labelY_to,
-					UB_writeStockX, UB_writeLocalStockX, UB_writeOnboardStockX,
-					UB_writeSell7X, UB_writeSell30X, UB_writeSell60X, UB_writeSell90X, UB_writeSellWeekX,
-					UB_writePriceX, UB_writeDeliveryX
-				);
-				
-			}
-
-			// 雨靴
-			if(productno == "T301" || productno == "T302" || productno == "T303" 
-			|| productno == "T306" || productno == "T308" || productno == "T309"){
-
-				// 情報設定
-				setInfoToExcel(selectResult[i], "在庫情報（雨靴）", 
-					RB_labelX, RB_labelY_from, RB_labelY_to,
-					RB_writeStockX, RB_writeLocalStockX, RB_writeOnboardStockX,
-					RB_writeSell7X, RB_writeSell30X, RB_writeSell60X, RB_writeSell90X, RB_writeSellWeekX,
-					RB_writePriceX, RB_writeDeliveryX
-				);
-				
-			}
-
-			// 靴下
-			if(productno != null && productno.length > 0 && productno.substring(0,1) == "W"){
+		if(productno != null && productno.length > 0 && productno.substring(0,1) == "W"){
 
 				// 情報設定
 				setInfoToExcel(selectResult[i], "在庫情報（袜子）", 
@@ -550,6 +550,8 @@ function outputProductForSmartBear(selectResult, deliveryFlg){
 				);
 
 		}
+		
+	}
 
 		excel.setActiveSheet("在庫情報（雨衣）").save(tempFilePathName);
 
