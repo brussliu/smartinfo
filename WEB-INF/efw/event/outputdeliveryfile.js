@@ -26,47 +26,37 @@ outputdeliveryfile.fire=function(params){
 		}
 	).getArray();
 
+	file.remove("output/test.txt");
+	file.makeFile("output/test.txt");
 
-	// if(shopname == "Smart-KM"){
+	var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
 
+	var ary = [
+		["PlanName	" + deliveryname],
+		["AddressName	" + shopname],
+		["AddressFieldOne	浮間３－１－３７－４１１号室"],
+		["AddressFieldTwo	"],
+		["AddressCity	北区"],
+		["AddressCountryCode	JP"],
+		["AddressStateOrRegion	東京都"],
+		["AddressPostalCode	1150051"],
+		["	"],
+		["MerchantSKU	Quantity"],
+		[""],
+	];
 
+	csvWriter.writeAllLines(ary);
 
-	// }else{
+	for(var i = 0;i < skuResult.length;i ++){
 
-		file.remove("output/test.txt");
-		file.makeFile("output/test.txt");
+		var dary = [skuResult[i]["skuinfo"]];
 
-		// テンプレートにより、EXCELオブジェクトを作成する
-		var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
+		csvWriter.writeLine(dary);
 
-		var ary = [
-			["PlanName	" + deliveryname],
-			["AddressName	SmartBear"],
-			["AddressFieldOne	浮間３－１－３７－４１１号室"],
-			["AddressFieldTwo	"],
-			["AddressCity	北区"],
-			["AddressCountryCode	JP"],
-			["AddressStateOrRegion	東京都"],
-			["AddressPostalCode	1150051"],
-			["	"],
-			["MerchantSKU	Quantity"],
-			[""],
-		];
+	}
 
-		csvWriter.writeAllLines(ary);
-
-		for(var i = 0;i < skuResult.length;i ++){
-
-			var dary = [skuResult[i]["skuinfo"]];
-
-			csvWriter.writeLine(dary);
-
-		}
-
-		ret.attach("output/test.txt")
-		.saveas("納品用ファイル_" + deliveryno + ".txt");
-
-	// }
+	ret.attach("output/test.txt")
+	.saveas("納品用ファイル_" + deliveryno + ".txt");
 
 	return (ret);
 

@@ -33,12 +33,9 @@ addbox.fire=function(params){
 		}
 	).getArray();
 
-	selectResult.debug("ZZZZZZZZZZZZZZZZZZZZZZZ");
-
 	ret.runat("#boxinfobody").remove("tr");
 
 	ret.runat("#boxinfobody").append(resultHTML).withdata(selectResult);
-
 
 
 	return ret.eval("si_box_inputdialog.dialog('open')");
