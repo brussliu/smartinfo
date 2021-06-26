@@ -655,7 +655,7 @@ function setExcelValue(excel, sheetName, station, value){
 }
 
 
-function importProductInfoForSmartKM(excelXSSF, stockFlg, deliveryFlg, deliveryno){
+function importProductInfoForSmartKM(shopname, excelXSSF, stockFlg, deliveryFlg, deliveryno){
 
 	var sheetNameArr = [
 		"NEW","スマホ保護フィルム","カメラ保護","スマホケース",
@@ -676,13 +676,13 @@ function importProductInfoForSmartKM(excelXSSF, stockFlg, deliveryFlg, deliveryn
 		var labelY_from = 4;
 		var labelY_to = null;
 
-		importProductInfo(excelXSSF, sheetName, labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, labelY_from, labelY_to, stockFlg, deliveryFlg, deliveryno);
+		importProductInfo(shopname, excelXSSF, sheetName, labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, labelY_from, labelY_to, stockFlg, deliveryFlg, deliveryno);
 
 	}
 	
 }
 
-function insertStockDetail(label, sku, asin, localstock, onboardstock){
+function insertStockDetail(shopname, label, sku, asin, localstock, onboardstock){
 
 	if(sku == null || sku.length <= 0 || asin == null || asin.length <= 0){
 
@@ -725,7 +725,7 @@ function insertStockDetail(label, sku, asin, localstock, onboardstock){
 
 }
 
-function insertDeliveryDetail(label, sku, asin, delivery, deliveryno){
+function insertDeliveryDetail(shopname, label, sku, asin, delivery, deliveryno){
 
 	if(sku == null || sku.length <= 0 || asin == null || asin.length <= 0){
 
@@ -759,7 +759,7 @@ function insertDeliveryDetail(label, sku, asin, delivery, deliveryno){
 
 }
 
-function importProductInfo(excelXSSF, sheetName, labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, labelY_from, labelY_to, stockFlg, deliveryFlg, deliveryno){
+function importProductInfo(shopname, excelXSSF, sheetName, labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, labelY_from, labelY_to, stockFlg, deliveryFlg, deliveryno){
 
 	var y_to = labelY_to == null ? 9999 : labelY_to;
 
@@ -790,14 +790,14 @@ function importProductInfo(excelXSSF, sheetName, labelX, skuX, asinX, localStock
 				if(onboardstock == null || onboardstock.length == 0){
 					onboardstock = "0";
 				}
-				insertStockDetail(label, sku, asin, localstock, onboardstock)
+				insertStockDetail(shopname, label, sku, asin, localstock, onboardstock)
 			}
 			if(deliveryFlg){
 				if(delivery == null || delivery.length == 0 || delivery == 0 || delivery == "0"){
 					continue;
 				}
 	
-				insertDeliveryDetail(label, null, null, delivery, deliveryno);
+				insertDeliveryDetail(shopname, label, null, null, delivery, deliveryno);
 			}
 
 
@@ -808,7 +808,7 @@ function importProductInfo(excelXSSF, sheetName, labelX, skuX, asinX, localStock
 
 }
 
-function importProductInfoForSmartBear(excelXSSF, stockFlg, deliveryFlg, deliveryno){
+function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFlg, deliveryno){
 
 	var RC_labelX = ["F","G","H","I","J","K"];
 	var RC_skuX = [null,null,null,null,null,null];
@@ -821,7 +821,7 @@ function importProductInfoForSmartBear(excelXSSF, stockFlg, deliveryFlg, deliver
 	var RC_labelY_from = 4;
 	var RC_labelY_to = 30;
 
-	importProductInfo(excelXSSF, "在庫情報（雨衣）", 
+	importProductInfo(shopname, excelXSSF, "在庫情報（雨衣）", 
 		RC_labelX, RC_skuX, RC_asinX, RC_localStockX, RC_onboardStockX, RC_deliveryX, RC_labelY_from, RC_labelY_to, 
 		stockFlg, deliveryFlg, deliveryno);
 
@@ -836,7 +836,7 @@ function importProductInfoForSmartBear(excelXSSF, stockFlg, deliveryFlg, deliver
 	var PJ_labelY_from = 4;
 	var PJ_labelY_to = 11;
 
-	importProductInfo(excelXSSF, "在庫情報（居家服）", 
+	importProductInfo(shopname, excelXSSF, "在庫情報（居家服）", 
 		PJ_labelX, PJ_skuX, PJ_asinX, PJ_localStockX, PJ_onboardStockX, PJ_deliveryX, PJ_labelY_from, PJ_labelY_to, 
 		stockFlg, deliveryFlg, deliveryno);
 
@@ -852,7 +852,7 @@ function importProductInfoForSmartBear(excelXSSF, stockFlg, deliveryFlg, deliver
 	var UB_labelY_from = 4;
 	var UB_labelY_to = 14;
 
-	importProductInfo(excelXSSF, "在庫情報（雨伞等）", 
+	importProductInfo(shopname, excelXSSF, "在庫情報（雨伞等）", 
 		UB_labelX, UB_skuX, UB_asinX, UB_localStockX, UB_onboardStockX, UB_deliveryX, UB_labelY_from, UB_labelY_to, 
 		stockFlg, deliveryFlg, deliveryno);
 
@@ -867,7 +867,7 @@ function importProductInfoForSmartBear(excelXSSF, stockFlg, deliveryFlg, deliver
 	var RB_labelY_from = 3;
 	var RB_labelY_to = 142;
 
-	importProductInfo(excelXSSF, "在庫情報（雨靴）", 
+	importProductInfo(shopname, excelXSSF, "在庫情報（雨靴）", 
 	RB_labelX, RB_skuX, RB_asinX, RB_localStockX, RB_onboardStockX, RB_deliveryX, RB_labelY_from, RB_labelY_to, 
 	stockFlg, deliveryFlg, deliveryno);
 
@@ -882,7 +882,7 @@ function importProductInfoForSmartBear(excelXSSF, stockFlg, deliveryFlg, deliver
 	var W_labelY_from = 4;
 	var W_labelY_to = null;
 
-	importProductInfo(excelXSSF, "在庫情報（袜子）", 
+	importProductInfo(shopname, excelXSSF, "在庫情報（袜子）", 
 	W_labelX, W_skuX, W_asinX, W_localStockX, W_onboardStockX, W_deliveryX, W_labelY_from, W_labelY_to, 
 	stockFlg, deliveryFlg, deliveryno);
 

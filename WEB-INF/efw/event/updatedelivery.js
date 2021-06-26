@@ -116,11 +116,11 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 
 	if(shopname == "Smart-KM"){
 
-		importProductInfoForSmartKM(excelXSSF, false, true, deliveryno);
+		importProductInfoForSmartKM(shopname, excelXSSF, false, true, deliveryno);
 
 	}else{
 
-		importProductInfoForSmartBear(excelXSSF, false, true, deliveryno);
+		importProductInfoForSmartBear(shopname, excelXSSF, false, true, deliveryno);
 
 	}
 
