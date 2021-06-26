@@ -95,3 +95,61 @@ function getStandardAddress(address){
 
 	return standardAddress;
 }
+
+function outputMasterList(excel, selectResult, sheetName, productnameFlg){
+
+	var shop_X = "B";
+	var p_no_X = "C";
+	var p_category_X = "D";
+	var p_type_X = "E";
+	var p_color_X = "F";
+	var p_size_X = "G";
+	var p_sku_X = "H";
+	var p_asin_X = "I";
+	var p_name_X = "J";
+
+	var row_from = 2;
+
+	for(var i = 0;i < selectResult.length;i ++){
+
+		var y = i + row_from;
+
+		var shopnm = selectResult[i]["shopname"];
+
+		var productno = selectResult[i]["productno"];
+		var productdiv = selectResult[i]["productdiv"];
+		var producttype = selectResult[i]["producttype"];
+
+		var color = selectResult[i]["color"];
+		var size = selectResult[i]["size"];
+
+		var sku = selectResult[i]["sku"];
+		var asin = selectResult[i]["asin"];
+
+		excel.setCell(sheetName, shop_X + y, shopnm);
+
+		excel.setCell(sheetName, p_no_X + y, productno);
+
+		excel.setCell(sheetName, p_category_X + y, productdiv);
+
+		excel.setCell(sheetName, p_type_X + y, producttype);
+
+		excel.setCell(sheetName, p_color_X + y, color);
+
+		excel.setCell(sheetName, p_size_X + y, size);
+
+		excel.setCell(sheetName, p_sku_X + y, sku);
+
+		excel.setCell(sheetName, p_asin_X + y, asin);
+
+		if(productnameFlg){
+			excel.setCell(sheetName, p_name_X + y, productname);
+		}
+
+	}
+
+
+
+
+
+}
