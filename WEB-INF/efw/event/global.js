@@ -771,7 +771,7 @@ function importProductInfo(excelXSSF, sheetName, labelX, skuX, asinX, localStock
 			var sku = excelXSSF.getValue(sheetName, skuX + y);
 			var asin = excelXSSF.getValue(sheetName, asinX + y);
 
-			if(sku == null && sku.length <= 0 && asin == null && asin.length <= 0 && label == null && label.length == 0){
+			if((sku == null || sku.length <= 0) && (asin == null && asin.length <= 0) && (label == null && label.length == 0)){
 				if(labelY_to == null){
 					break;
 				}else{
