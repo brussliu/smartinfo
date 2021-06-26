@@ -29,28 +29,37 @@
 	</sql>
 	<sql id="backupoyamaster">
 	insert into "OLD_出品マスタ情報"
-	select 
-	:masterkey
-	,* 
-	from "NEW_出品マスタ情報"
-	where
+	SELECT
+		:masterkey
+		,N.*
+	FROM "NEW_出品マスタ情報" N
+	WHERE
 	("店舗名","商品管理番号") in
 	(
 	SELECT
-		distinct "店舗名","商品管理番号"
-	FROM (
-	SELECT
-		"店舗名",
-		"商品管理番号",
-		"商品種別",
-		count(*) AS "商品数量"
+		T."店舗名",
+		T."商品管理番号"
 	FROM
-		"NEW_出品マスタ情報" M
-	GROUP BY 
-		"店舗名","商品管理番号","商品種別"
+	(
+	SELECT
+		M."店舗名",
+		M."商品管理番号",
+		(
+			select count(*) 
+			from "NEW_出品マスタ情報"
+			where 
+			"店舗名" = M."店舗名" and "商品管理番号" = M."商品管理番号" AND "商品種別" = '子商品'
+		) as "商品数量"
+	FROM
+		(SELECT distinct "店舗名","商品管理番号" FROM "NEW_出品マスタ情報") M
 	) T
-	WHERE T.商品種別 = '子商品' AND "商品数量" = 0
+	WHERE T."商品数量" = 0
 	)
+	ORDER BY
+		N."店舗名",
+		N."商品管理番号",
+		N."色",
+		N."サイズ"
 	</sql>
 	<sql id="selectnotmaster">
 		select
