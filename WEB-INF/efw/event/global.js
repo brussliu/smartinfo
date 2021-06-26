@@ -126,6 +126,8 @@ function outputMasterList(excel, selectResult, sheetName, productnameFlg){
 		var sku = selectResult[i]["sku"];
 		var asin = selectResult[i]["asin"];
 
+		var productname = selectResult[i]["productname"];
+
 		excel.setCell(sheetName, shop_X + y, shopnm);
 
 		excel.setCell(sheetName, p_no_X + y, productno);
