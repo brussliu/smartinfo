@@ -83,7 +83,7 @@ updatedelivery.fire=function(params){
 		// 5, 確定数量を再計算
 		var updateResult = db.change(
 			"DELIVERY",
-			"updateDelivery01",
+			"updateDeliveryCount",
 			{
 				col0:deliveryno,
 				shop:shopname

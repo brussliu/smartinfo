@@ -55,7 +55,7 @@
 			"納品NO" = :col0
 	</sql>
 
-	<sql id="updateDelivery01">
+	<sql id="updateDeliveryCount">
 		UPDATE "納品管理" 
 		SET 
 			 "確定数量" = (select sum(to_number("数量",'9999')) from "納品明細" where "納品NO" = :col0)
@@ -114,6 +114,7 @@
 		SET 
 			"ステータス" = :col1
 			,"受領日" = :col2
+			,"受領数量" = (select sum(to_number("数量",'9999')) from "納品明細" where "納品NO" = :col0)
 		WHERE 
 			"店舗名" = :shop
 			AND
