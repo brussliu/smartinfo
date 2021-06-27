@@ -842,7 +842,7 @@ function importProductInfo(shopname, excelXSSF, sheetName,
 			var onboardstock = excelXSSF.getValue(sheetName, onboardStockX[x] + y);
 			var delivery = excelXSSF.getValue(sheetName, deliveryX[x] + y);
 			var purchase = excelXSSF.getValue(sheetName, purchaseX[x] + y);
-			var price = excelXSSF.getValue(price_sheetName, priceX[x] + y);
+			var price = excelXSSF.getValue(sheetName, priceX[x] + y);
 
 			if(stockFlg){
 				if(localstock == null || localstock.length == 0){
