@@ -3,10 +3,8 @@ addpurchase.name="仕入新規登録";
 addpurchase.paramsFormat={
 
 	"#purchaseInfo":{
-
 		"#purchasename":"required:true;display-name:仕入名称;",
 		"#importfile_purchase":"required:true;display-name:仕入内容;",
-
 	},
 	"#shop":null
 };
@@ -23,20 +21,17 @@ addpurchase.fire=function(params){
 	var importfile_purchase = params["#purchaseInfo"]["#importfile_purchase"];
 
 	var today = new Date();
-
 	// 新規登録日
 	var registrationDate = today.format("yyyy/MM/dd");
-
 	// 仕入No
-	var purchaseNo = today.format("yyyyMMdd-HHmmss");
-
+	var purchaseno = today.format("yyyyMMdd-HHmmss");
 	// 仕入管理テーブル登録
 	var insertResult = db.change(
 		"PURCHASE",
 		"insertPurchase",
 		{
 			"shop":shopname,
-			"col0":purchaseNo,
+			"col0":purchaseno,
 			"col1":purchasename,
 			"col2":"0：新規登録",
 			"col3":registrationDate
@@ -53,320 +48,15 @@ addpurchase.fire=function(params){
 
 	if(shopname == "Smart-KM"){
 
+		//importProductInfoForSmartKM(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no);
+		importProductInfoForSmartKM(shopname, excelXSSF, false, false, true, purchaseno);
+
 	}else{
 
-		var RC_labelX = ["F","G","H","I","J","K"];
-		var RC_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
-
-		var RC_labelY_from = 4;
-		var RC_labelY_to = 30;
-
-		var sheetName = "在庫情報（雨衣）";
-
-		var RC_priceX = ["L","M","N","O","P","Q"];
-		var price_sheetName = "入荷見積（雨衣）";
-
-		for(var y = RC_labelY_from;y <= RC_labelY_to;y++){
-
-			for(var x = 0;x < RC_labelX.length;x ++){
-
-				var label = excelXSSF.getValue(sheetName, RC_labelX[x] + y);
-				if(label == null || label.length == 0){
-					continue;
-				}
-
-				var detailResult = db.select(
-					"UPLOAD",
-					"searchSKUASIN",
-					{
-						label:label,
-						shop:shopname
-					}
-				).getArray();
-				if(detailResult == null || detailResult.length <= 0){
-					continue;
-				}
-
-				var sku = detailResult[0]["sku"];
-				var asin = detailResult[0]["asin"];
-
-				var purchase = excelXSSF.getValue(sheetName, RC_purchaseX[x] + y);
-				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
-					continue;
-				}
-
-				var price = excelXSSF.getValue(price_sheetName, RC_priceX[x] + y);
-				if(price == null || price.length == 0){
-					price = "0";
-				}
-
-				var insResult = db.change(
-					"PURCHASE",
-					"insertPurchaseDetail",
-					{
-						"col0":purchaseNo,
-						"col1":sku,
-						"col2":asin,
-						"col3":parseFloat(price).toFixed(2),
-						"col4":purchase,
-						"col5":(parseFloat(price) * purchase).toFixed(2)
-					}
-				);
-
-			}
-
-		}
-
-
-		var PJ_labelX = ["F","G","H","I","J","K"];
-		var PJ_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
-
-		var PJ_labelY_from = 4;
-		var PJ_labelY_to = 11;
-
-		var sheetName = "在庫情報（居家服）";
-
-		var PJ_priceX = ["L","M","N","O","P","Q"];
-		var price_sheetName = "入荷見積（居家服）";
-
-		for(var y = PJ_labelY_from;y <= PJ_labelY_to;y++){
-
-			for(var x = 0;x < PJ_labelX.length;x ++){
-
-				var label = excelXSSF.getValue(sheetName, PJ_labelX[x] + y);
-				if(label == null || label.length == 0){
-					continue;
-				}
-
-				var detailResult = db.select(
-					"UPLOAD",
-					"searchSKUASIN",
-					{
-						label:label,
-						shop:shopname
-					}
-				).getArray();
-				if(detailResult == null || detailResult.length <= 0){
-					continue;
-				}
-
-				var sku = detailResult[0]["sku"];
-				var asin = detailResult[0]["asin"];
-
-				var purchase = excelXSSF.getValue(sheetName, PJ_purchaseX[x] + y);
-				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
-					continue;
-				}
-
-				var price = excelXSSF.getValue(price_sheetName, PJ_priceX[x] + y);
-				if(price == null || price.length == 0){
-					price = "0";
-				}
-
-				var insResult = db.change(
-					"PURCHASE",
-					"insertPurchaseDetail",
-					{
-						"col0":purchaseNo,
-						"col1":sku,
-						"col2":asin,
-						"col3":parseFloat(price).toFixed(2),
-						"col4":purchase,
-						"col5":(parseFloat(price) * purchase).toFixed(2)
-					}
-				);
-
-			}
-
-		}
-
-
-		var UB_labelX = ["F"];
-		var UB_purchaseX = ["P"];
-
-		var UB_labelY_from = 4;
-		var UB_labelY_to = 14;
-
-		var sheetName = "在庫情報（雨伞等）";
-
-		var UB_priceX = ["H"];
-		var price_sheetName = "入荷見積（雨伞等）";
-
-		for(var y = UB_labelY_from;y <= UB_labelY_to;y++){
-
-			for(var x = 0;x < UB_labelX.length;x ++){
-
-				var label = excelXSSF.getValue(sheetName, UB_labelX[x] + y);
-				if(label == null || label.length == 0){
-					continue;
-				}
-
-				var detailResult = db.select(
-					"UPLOAD",
-					"searchSKUASIN",
-					{
-						label:label,
-						shop:shopname
-					}
-				).getArray();
-				if(detailResult == null || detailResult.length <= 0){
-					continue;
-				}
-
-				var sku = detailResult[0]["sku"];
-				var asin = detailResult[0]["asin"];
-
-				var purchase = excelXSSF.getValue(sheetName, UB_purchaseX[x] + y);
-				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
-					continue;
-				}
-
-				var price = excelXSSF.getValue(price_sheetName, UB_priceX[x] + y);
-				if(price == null || price.length == 0){
-					price = "0";
-				}
-
-				var insResult = db.change(
-					"PURCHASE",
-					"insertPurchaseDetail",
-					{
-						"col0":purchaseNo,
-						"col1":sku,
-						"col2":asin,
-						"col3":parseFloat(price).toFixed(2),
-						"col4":purchase,
-						"col5":(parseFloat(price) * purchase).toFixed(2)
-					}
-				);
-
-			}
-
-		}
-
-
-		var RB_labelX = ["H"];
-		var RB_purchaseX = ["R"];
-
-		var RB_labelY_from = 3;
-		var RB_labelY_to = 142;
-
-		var sheetName = "在庫情報（雨靴）";
-
-		var RB_priceX = ["J"];
-		var price_sheetName = "入荷見積（雨靴）";
-
-		for(var y = RB_labelY_from;y <= RB_labelY_to;y++){
-
-			for(var x = 0;x < RB_labelX.length;x ++){
-
-				var label = excelXSSF.getValue(sheetName, RB_labelX[x] + y);
-				if(label == null || label.length == 0){
-					continue;
-				}
-
-				var detailResult = db.select(
-					"UPLOAD",
-					"searchSKUASIN",
-					{
-						label:label,
-						shop:shopname
-					}
-				).getArray();
-				if(detailResult == null || detailResult.length <= 0){
-					continue;
-				}
-
-				var sku = detailResult[0]["sku"];
-				var asin = detailResult[0]["asin"];
-
-				var purchase = excelXSSF.getValue(sheetName, RB_purchaseX[x] + y);
-				if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
-					continue;
-				}
-
-				var price = excelXSSF.getValue(price_sheetName, RB_priceX[x] + y);
-				if(price == null || price.length == 0){
-					price = "0";
-				}
-
-				var insResult = db.change(
-					"PURCHASE",
-					"insertPurchaseDetail",
-					{
-						"col0":purchaseNo,
-						"col1":sku,
-						"col2":asin,
-						"col3":parseFloat(price).toFixed(2),
-						"col4":purchase,
-						"col5":(parseFloat(price) * purchase).toFixed(2)
-					}
-				);
-
-			}
-
-		}
-
-
-		var W_labelX = "J";
-		var W_purchaseX = "U";
-
-		var W_labelY_from = 4;
-
-		var sheetName = "在庫情報（袜子）";
-
-		var W_priceX = "K";
-		var price_sheetName = "入荷見積（袜子）";
-
-		for(var y = W_labelY_from;y <= 9999;y++){
-
-			var label = excelXSSF.getValue(sheetName, W_labelX + y);
-
-			if(label == null || label.length <= 0){
-				break;
-			}
-
-			var detailResult = db.select(
-				"UPLOAD",
-				"searchSKUASIN",
-				{
-					label:label,
-					shop:shopname
-				}
-			).getArray();
-			if(detailResult == null || detailResult.length <= 0){
-				continue;
-			}
-
-			var sku = detailResult[0]["sku"];
-			var asin = detailResult[0]["asin"];
-
-			var purchase = excelXSSF.getValue(sheetName, W_purchaseX + y);
-			if(purchase == null || purchase.length == 0 || purchase == 0 || purchase == "0"){
-				continue;
-			}
-
-			var price = excelXSSF.getValue(price_sheetName, W_priceX + y);
-			if(price == null || price.length == 0){
-				price = "0";
-			}
-
-			var insResult = db.change(
-				"PURCHASE",
-				"insertPurchaseDetail",
-				{
-					"col0":purchaseNo,
-					"col1":sku,
-					"col2":asin,
-					"col3":parseFloat(price).toFixed(2),
-					"col4":purchase,
-					"col5":(parseFloat(price) * purchase).toFixed(2)
-				}
-			);
-
-		}
-
+		//importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no)
+		importProductInfoForSmartBear(shopname, excelXSSF, false, false, true, purchaseno);
 	}
 
-	return (new Result())
-	.eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+
 };

@@ -217,8 +217,8 @@
 		where
 			P1."店舗名" = :shop
 		order by
-			P1."ステータス",
-			P1."納品NO"
+			P1."ステータス" asc,
+			P1."納品NO" desc
 	</sql>
 
 	<sql id="delDeliveryDetail">

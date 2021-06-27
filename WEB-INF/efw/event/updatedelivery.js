@@ -16,10 +16,8 @@ updatedelivery.fire=function(params){
 
 	// 納品No
 	var deliveryno = params["#deliveryno"];
-
 	// 納品名称
 	var deliveryname = params["#deliveryname"];
-
 	// 納品名称更新
 	var updateResult = db.change(
 		"DELIVERY",
@@ -116,11 +114,13 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 
 	if(shopname == "Smart-KM"){
 
-		importProductInfoForSmartKM(shopname, excelXSSF, false, true, deliveryno);
+		//importProductInfoForSmartKM(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no);
+		importProductInfoForSmartKM(shopname, excelXSSF, false, true, false, deliveryno);
 
 	}else{
 
-		importProductInfoForSmartBear(shopname, excelXSSF, false, true, deliveryno);
+		//importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no)
+		importProductInfoForSmartBear(shopname, excelXSSF, false, true, false, deliveryno);
 
 	}
 

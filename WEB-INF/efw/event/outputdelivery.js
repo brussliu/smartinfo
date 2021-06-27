@@ -36,7 +36,7 @@ outputdelivery.fire=function(params){
 
 	if(shopname == "Smart-KM"){
 
-		var tempFilePathName = outputProductForSmartKM(selectResult, true);
+		var tempFilePathName = outputProductForSmartKM(selectResult, true, false);
 
 		ret.attach(tempFilePathName)
 		.saveas("Smart-KM納品情報_" + deliveryno + ".xlsx")
@@ -45,7 +45,7 @@ outputdelivery.fire=function(params){
 
 	}else{
 
-		var tempFilePathName = outputProductForSmartBear(selectResult, true);
+		var tempFilePathName = outputProductForSmartBear(selectResult, true, false);
 
 		ret.attach(tempFilePathName)
 		.saveas("Smart-Bear納品情報_" + deliveryno + ".xlsx")
