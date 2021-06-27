@@ -133,7 +133,6 @@ function importAcceptance(aryField, index) {
 
 	if(index == 0){
 		amz_delivery_no = aryField[1];
-		amz_delivery_no.debug("XXXXXXXXXXXXXXX1");
 		var updResult = db.change(
 			"DELIVERY",
 			"updateDeliveryAmz1",
@@ -145,7 +144,6 @@ function importAcceptance(aryField, index) {
 	}
 	if(index == 1){
 		amz_delivery_name = aryField[1];
-		amz_delivery_name.debug("XXXXXXXXXXXXXXX2");
 		var updResult = db.change(
 			"DELIVERY",
 			"updateDeliveryAmz2",
@@ -157,7 +155,6 @@ function importAcceptance(aryField, index) {
 	}
 	if(index == 2){
 		amz_delivery_plan = aryField[1];
-		amz_delivery_plan.debug("XXXXXXXXXXXXXXX3");
 		var updResult = db.change(
 			"DELIVERY",
 			"updateDeliveryAmz3",
