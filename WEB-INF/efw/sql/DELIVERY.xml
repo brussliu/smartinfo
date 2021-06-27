@@ -311,4 +311,24 @@
 	B.店舗名 = :shop
 	</sql>
 
+	<sql id="updateDeliveryAmz1">
+		UPDATE "納品管理"
+		SET "AMZ-納品番号" = :info
+		WHERE 
+		"納品NO" = :col0
+	</sql>
+	<sql id="updateDeliveryAmz2">
+		UPDATE "納品管理"
+		SET "AMZ-納品名" = :info
+		WHERE 
+		"納品NO" = :col0
+	</sql>
+	<sql id="updateDeliveryAmz3">
+		UPDATE "納品管理"
+		SET "AMZ-納品プラン番号" = :info
+		WHERE 
+		"納品NO" = :col0
+	</sql>
+
+
 </sqls>

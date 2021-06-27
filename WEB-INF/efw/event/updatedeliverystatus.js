@@ -127,10 +127,51 @@ updatedeliverystatus.fire=function(params){
 
 function importAcceptance(aryField, index) {
 
+	var amz_delivery_no = "";
+	var amz_delivery_name = "";
+	var amz_delivery_plan = "";
+
+	if(index == 0){
+		amz_delivery_no = aryField[1];
+		amz_delivery_no.debug("XXXXXXXXXXXXXXX1");
+		var updResult = db.change(
+			"DELIVERY",
+			"updateDeliveryAmz1",
+			{
+				"info":amz_delivery_no,
+				"col0":deliveryno
+			}
+		);
+	}
+	if(index == 1){
+		amz_delivery_name = aryField[1];
+		amz_delivery_name.debug("XXXXXXXXXXXXXXX2");
+		var updResult = db.change(
+			"DELIVERY",
+			"updateDeliveryAmz2",
+			{
+				"info":amz_delivery_name,
+				"col0":deliveryno
+			}
+		);
+	}
+	if(index == 2){
+		amz_delivery_plan = aryField[1];
+		amz_delivery_plan.debug("XXXXXXXXXXXXXXX3");
+		var updResult = db.change(
+			"DELIVERY",
+			"updateDeliveryAmz3",
+			{
+				"info":amz_delivery_plan,
+				"col0":deliveryno
+			}
+		);
+	}
+
 	if(index >= 8){
 
 		// 納品明細の受領数量を更新
-		var insResult2 = db.change(
+		var updResult = db.change(
 			"DELIVERY",
 			"updateDeliveryAcceptance",
 			{
@@ -142,7 +183,7 @@ function importAcceptance(aryField, index) {
 		);
 
 		// 想定外納品
-		if(insResult2 == 0 || insResult2 == "0"){
+		if(updResult == 0 || updResult == "0"){
 			var insResult3 = db.change(
 				"DELIVERY",
 				"insertAcceptanceDetail",
