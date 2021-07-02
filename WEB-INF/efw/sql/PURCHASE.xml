@@ -229,7 +229,7 @@
 			P1."店舗名" = :shop
 		order by
 			P1."ステータス",
-			P1."仕入NO"
+			P1."仕入NO" desc
 	</sql>
 	<sql id="insertPurchaseDetail">
 		INSERT INTO "仕入明細"
