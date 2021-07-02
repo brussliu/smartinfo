@@ -417,7 +417,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 	// レインコート
 	var RC_labelY_from = 4;
-	var RC_labelY_to = 48;
+	var RC_labelY_to = 30;
 	var RC_labelX = ["F","G","H","I","J","K"];
 	var RC_writeStockX = ["L","M","N","O","P","Q"];
 	var RC_writeLocalStockX = ["R","S","T","U","V","W"];
@@ -465,7 +465,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 	// 雨靴
 	var RB_labelY_from = 4;
-	var RB_labelY_to = 142;
+	var RB_labelY_to = 92;
 	var RB_labelX = ["H"];
 	var RB_writeStockX = ["I"];
 	var RB_writeLocalStockX = ["J"];
