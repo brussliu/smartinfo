@@ -303,7 +303,7 @@ outputstock.fire=function(params){
 
 		// 雨靴
 		var RB_labelY_from = 4;
-		var RB_labelY_to = 92;
+		var RB_labelY_to = 99;
 		var RB_labelX = ["H"];
 		var RB_writeStockX = ["I"];
 		var RB_writeLocalStockX = ["J"];
