@@ -44,7 +44,10 @@
 			<br><br>
 			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-Bear'})">
 			<br><br>
+			<!--
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-Bear'})">
+			-->
+			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('outputstock',{shop:'Smart-Bear'})">
 			<br><br>
 			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:'Smart-Bear'})">
 			<br><br>
@@ -58,7 +61,10 @@
 			<br><br>
 			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-KM'})">
 			<br><br>
+			<!--
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-KM'})">
+			-->
+			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('outputstock',{shop:'Smart-KM'})">
 			<br><br>
 			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:'Smart-KM'})">
 			<br><br>
