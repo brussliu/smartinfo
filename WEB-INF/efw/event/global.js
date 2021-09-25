@@ -511,10 +511,9 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				RC_writeSell7X, RC_writeSell30X, RC_writeSell60X, RC_writeSell90X, RC_writeSellWeekX,
 				RC_writePriceX, RC_writeDeliveryX, RC_writePurchaseX, deliveryFlg, purchaseFlg
 			);
-		}
 
 		// パジャマ
-		if(productno == "P001" || productno == "P002"){
+		}else if(productno == "P001" || productno == "P002"){
 
 			// 情報設定
 			setInfoToExcel(excel, selectResult[i], "在庫情報（居家服）", 
@@ -523,11 +522,9 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				PJ_writeSell7X, PJ_writeSell30X, PJ_writeSell60X, PJ_writeSell90X, PJ_writeSellWeekX,
 				PJ_writePriceX, PJ_writeDeliveryX, PJ_writePurchaseX, deliveryFlg, purchaseFlg
 			);
-			
-		}
-
+		
 		// 傘
-		if(productno == "T206" || productno == "T207" || productno == "T208" 
+		}else if(productno == "T206" || productno == "T207" || productno == "T208" 
 		|| productno == "T209" || productno == "T101"){
 
 			// 情報設定
@@ -538,10 +535,8 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				UB_writePriceX, UB_writeDeliveryX, UB_writePurchaseX, deliveryFlg, purchaseFlg
 			);
 			
-		}
-
 		// 雨靴
-		if(productno == "T301" || productno == "T302" || productno == "T303" 
+		}else if(productno == "T301" || productno == "T302" || productno == "T303" 
 		|| productno == "T306" || productno == "T308" || productno == "T309"){
 
 			// 情報設定
@@ -552,10 +547,8 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				RB_writePriceX, RB_writeDeliveryX, RB_writePurchaseX, deliveryFlg, purchaseFlg
 			);
 			
-		}
-
 		// 靴下
-		if(productno != null && productno.length > 0 && productno.substring(0,1) == "W"){
+		}else if(productno != null && productno.length > 0 && productno.substring(0,1) == "W"){
 
 			// 情報設定
 			setInfoToExcel(excel, selectResult[i], "在庫情報（袜子）", 
@@ -565,6 +558,9 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				W_writePriceX, W_writeDeliveryX, W_writePurchaseX, deliveryFlg, purchaseFlg
 			);
 
+		}else{
+			// 情報設定
+			setInfoToExcelBySkuAsin(excel, selectResult[i], "在庫情報（其他）");
 		}
 
 	}
@@ -574,6 +570,97 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	return tempFilePathName;
 
 }
+
+function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName){
+
+	var labelno = selectRecord["label"];
+	var sku = selectRecord["sku"];
+	var asin = selectRecord["asin"];
+	var localstock = returnQuantity(selectRecord["localstock"]);
+	var fba = returnQuantity(selectRecord["fba"]);
+	var fbm = returnQuantity(selectRecord["fbm"]);
+	var onboard = returnQuantity(selectRecord["onboard"]);
+	var selled7 = returnQuantity(selectRecord["selled7"]);
+	var selled30 = returnQuantity(selectRecord["selled30"]);
+	var selled60 = returnQuantity(selectRecord["selled60"]);
+	var selled90 = returnQuantity(selectRecord["selled90"]);
+	var selledweek = returnNumber(selectRecord["selledweek"]);
+	var price = returnJPPrice(selectRecord["price"]);
+	var delivery = returnQuantity(selectRecord["delivery"]);
+	var purchase = returnQuantity(selectRecord["purchase"]);
+
+	var fbaflg = fba != null ? "FBA" : "FBM";
+
+	var Y_from = 4;
+	var Y_to = 9999;
+
+	var sku_X = "C";
+	var asin_X = "D";
+
+	var writePriceX = "H";
+	var writeFBAX = "I";
+	var writeFBMX = "J";
+	var writeLocalStockX = "K";
+	var writeOnboardStockX = "L";
+
+	var writeSell7X = "M";
+	var writeSell30X = "N";
+	var writeSell60X = "O";
+	var writeSell90X = "P";
+	var writeSellWeekX = "Q";
+
+	var writeFBAFlgX = "V";
+	var writeDeliveryX = "S";
+	var writePurchaseX = "S";
+
+	// 在庫情報シート
+	for(var y = Y_from;y <= Y_to;y ++){
+
+		var excel_sku = excel.getValue(sheetName, sku_X + y);
+		var excel_asin = excel.getValue(sheetName, asin_X + y);
+
+		if(excel_sku == null || excel_sku.length <= 0 || excel_asin == null || excel_asin.length <= 0){
+			break;
+		}
+
+		if(excel_sku == sku && excel_asin == asin){
+
+			// 商品価格
+			excel.setCell(sheetName, writePriceX + y, price);
+			// FBA在庫数量
+			excel.setCell(sheetName, writeFBAX + y, fba);
+			// FBM在庫数量
+			excel.setCell(sheetName, writeFBMX + y, fbm);
+			// ローカル在庫
+			excel.setCell(sheetName, writeLocalStockX + y, localstock);
+			// ONBOARD在庫
+			excel.setCell(sheetName, writeOnboardStockX + y, onboard);
+			// 販売数量(直近70日間)
+			excel.setCell(sheetName, writeSell7X + y, selled7);
+			// 販売数量(直近30日間)
+			excel.setCell(sheetName, writeSell30X + y, selled30);
+			// 販売数量(直近60日間)
+			excel.setCell(sheetName, writeSell60X + y, selled60);
+			// 販売数量(直近90日間)
+			excel.setCell(sheetName, writeSell90X + y, selled90);
+			// 販売数量(週間平均値)
+			excel.setCell(sheetName, writeSellWeekX + y, selledweek);
+			// 販売方式
+			excel.setCell(sheetName, writeFBAFlgX + y, fbaflg);
+			// 仕入数量
+			if(deliveryFlg){
+				excel.setCell(sheetName, writeDeliveryX + y, delivery);
+			}
+			// 仕入数量
+			if(purchaseFlg){
+				excel.setCell(sheetName, writePurchaseX + y, purchase);
+			}
+
+		}
+
+	}
+
+} 
 
 function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, labelY_to, writeStockX, writeLocalStockX, writeOnboardStockX,
 	writeSell7X, writeSell30X, writeSell60X, writeSell90X, writeSellWeekX, writePriceX, writeDeliveryX, writePurchaseX, deliveryFlg, purchaseFlg){
