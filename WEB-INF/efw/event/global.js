@@ -559,10 +559,8 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 			);
 
 		}else{
-
-			"DDDDDDDDDDDDDDDDDDDDDDDDDDDDDD".debug(selectResult[i]["sku"]);
 			// 情報設定
-			setInfoToExcelBySkuAsin(excel, selectResult[i], "在庫情報（其他）");
+			setInfoToExcelBySkuAsin(excel, selectResult[i], "在庫情報（其他）", deliveryFlg, purchaseFlg);
 		}
 
 	}
@@ -573,7 +571,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 }
 
-function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName){
+function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, purchaseFlg){
 
 	var labelno = selectRecord["label"];
 	var sku = selectRecord["sku"];
@@ -630,8 +628,6 @@ function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName){
 		}
 
 		if(excel_sku == sku && excel_asin == asin){
-
-
 
 			// 商品価格
 			excel.setCell(sheetName, writePriceX + y, price);
