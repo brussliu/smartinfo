@@ -619,11 +619,17 @@ function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName){
 		var excel_sku = excel.getValue(sheetName, sku_X + y);
 		var excel_asin = excel.getValue(sheetName, asin_X + y);
 
+		excel_sku.debug("SSSSSSSSSSSSSS");
+		excel_asin.debug("AAAAAAAAAAAAAAA");
+
+
 		if(excel_sku == null || excel_sku.length <= 0 || excel_asin == null || excel_asin.length <= 0){
 			break;
 		}
 
 		if(excel_sku == sku && excel_asin == asin){
+
+			
 
 			// 商品価格
 			excel.setCell(sheetName, writePriceX + y, price);
