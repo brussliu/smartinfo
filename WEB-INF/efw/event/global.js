@@ -678,6 +678,13 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 	var delivery = returnQuantity(selectRecord["delivery"]);
 	var purchase = returnQuantity(selectRecord["purchase"]);
 
+
+	if(labelno == "X000R1AUDJ"){
+
+		selectRecord["selled30"].debug("BBBBBBBBBBBBBBBBBBBB");
+
+	}
+
 	var y_to = labelY_to == null ? 9999 : labelY_to;
 
 	// 在庫情報シート
@@ -693,6 +700,15 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 				}
 			}
 			if(excellabelno == labelno){
+
+				if(excellabelno == "X000R1AUDJ"){
+
+					selled30.debug("GGGGGGGGGGGGGGGGGGG");
+
+					(writeSell30X[x]+y).debug("ZZZZZZZZZZZZZZZZZZZZ");
+			
+				}
+
 				// 商品価格
 				setExcelValue(excel, sheetName, writePriceX[x]+y, price);
 				// FBA在庫数量
