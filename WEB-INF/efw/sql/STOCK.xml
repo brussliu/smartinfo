@@ -139,7 +139,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T1 ON T0."SKU番号" = T1."SKU番号" AND T0."ASIN番号" = T1."ASIN番号"
+				) T1 ON DETAIL."出品者SKU" = T1."SKU番号" AND DETAIL."ASIN 1" = T1."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -157,7 +157,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T2 ON T0."SKU番号" = T2."SKU番号" AND T0."ASIN番号" = T2."ASIN番号"
+				) T2 ON DETAIL."出品者SKU" = T2."SKU番号" AND DETAIL."ASIN 1" = T2."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -175,7 +175,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T3 ON T0."SKU番号" = T3."SKU番号" AND T0."ASIN番号" = T3."ASIN番号"
+				) T3 ON DETAIL."出品者SKU" = T3."SKU番号" AND DETAIL."ASIN 1" = T3."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -193,7 +193,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T4 ON T0."SKU番号" = T4."SKU番号" AND T0."ASIN番号" = T4."ASIN番号"
+				) T4 ON DETAIL."出品者SKU" = T4."SKU番号" AND DETAIL."ASIN 1" = T4."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -211,7 +211,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T5 ON T0."SKU番号" = T5."SKU番号" AND T0."ASIN番号" = T5."ASIN番号"
+				) T5 ON DETAIL."出品者SKU" = T5."SKU番号" AND DETAIL."ASIN 1" = T5."ASIN番号"
 			WHERE
 				DETAIL."店舗名" = :shop 
 		) TEMP
@@ -338,7 +338,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T1 ON T0."SKU番号" = T1."SKU番号" AND T0."ASIN番号" = T1."ASIN番号"
+				) T1 ON DETAIL."出品者SKU" = T1."SKU番号" AND DETAIL."ASIN 1" = T1."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -356,7 +356,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T2 ON T0."SKU番号" = T2."SKU番号" AND T0."ASIN番号" = T2."ASIN番号"
+				) T2 ON DETAIL."出品者SKU" = T2."SKU番号" AND DETAIL."ASIN 1" = T2."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -374,7 +374,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T3 ON T0."SKU番号" = T3."SKU番号" AND T0."ASIN番号" = T3."ASIN番号"
+				) T3 ON DETAIL."出品者SKU" = T3."SKU番号" AND DETAIL."ASIN 1" = T3."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -392,7 +392,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T4 ON T0."SKU番号" = T4."SKU番号" AND T0."ASIN番号" = T4."ASIN番号"
+				) T4 ON DETAIL."出品者SKU" = T4."SKU番号" AND DETAIL."ASIN 1" = T4."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -410,7 +410,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T5 ON T0."SKU番号" = T5."SKU番号" AND T0."ASIN番号" = T5."ASIN番号"
+				) T5 ON DETAIL."出品者SKU" = T5."SKU番号" AND DETAIL."ASIN 1" = T5."ASIN番号"
 				LEFT JOIN "仕入明細" PCD ON T0."SKU番号" = PCD."SKU番号" AND T0."ASIN番号" = PCD."ASIN番号" AND PCD."仕入NO" = :purchaseno
 			WHERE
 				DETAIL."店舗名" = :shop 
@@ -538,7 +538,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T1 ON T0."SKU番号" = T1."SKU番号" AND T0."ASIN番号" = T1."ASIN番号"
+				) T1 ON DETAIL."出品者SKU" = T1."SKU番号" AND DETAIL."ASIN 1" = T1."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -556,7 +556,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T2 ON T0."SKU番号" = T2."SKU番号" AND T0."ASIN番号" = T2."ASIN番号"
+				) T2 ON DETAIL."出品者SKU" = T2."SKU番号" AND DETAIL."ASIN 1" = T2."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -574,7 +574,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T3 ON T0."SKU番号" = T3."SKU番号" AND T0."ASIN番号" = T3."ASIN番号"
+				) T3 ON DETAIL."出品者SKU" = T3."SKU番号" AND DETAIL."ASIN 1" = T3."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -592,7 +592,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T4 ON T0."SKU番号" = T4."SKU番号" AND T0."ASIN番号" = T4."ASIN番号"
+				) T4 ON DETAIL."出品者SKU" = T4."SKU番号" AND DETAIL."ASIN 1" = T4."ASIN番号"
 				LEFT JOIN
 				(
 					SELECT
@@ -610,7 +610,7 @@
 					GROUP BY 
 						T."SKU番号",
 						T."ASIN番号"
-				) T5 ON T0."SKU番号" = T5."SKU番号" AND T0."ASIN番号" = T5."ASIN番号"
+				) T5 ON DETAIL."出品者SKU" = T5."SKU番号" AND DETAIL."ASIN 1" = T5."ASIN番号"
 				LEFT JOIN "納品明細" DD ON T0."SKU番号" = DD."SKU番号" AND T0."ASIN番号" = DD."ASIN番号" AND DD."納品NO" = :deliveryno
 			WHERE
 				DETAIL."店舗名" = :shop 
