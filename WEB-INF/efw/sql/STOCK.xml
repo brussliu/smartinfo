@@ -118,9 +118,9 @@
 				COALESCE(TO_NUMBER(DETAIL."数量",'9999'),0) + COALESCE(TO_NUMBER(FBA."在庫数量",'9999'),0) AS "在庫合計"
 			FROM
 				"INPUT_出品詳細情報" DETAIL
-				LEFT JOIN "NEW_出品マスタ情報" T0 ON T0."SKU番号" = DETAIL."出品者SKU" AND T0."ASIN番号" = DETAIL."ASIN 1"
-				LEFT JOIN "INPUT_FBA在庫情報" FBA ON T0."SKU番号" = FBA."SKU番号" AND T0."ASIN番号" = FBA."ASIN番号" AND FBA."販売可否状態" = 'SELLABLE'
-				LEFT JOIN "NEW_在庫情報" STOCK ON T0."SKU番号" = STOCK."SKU番号" AND T0."ASIN番号" = STOCK."ASIN番号"
+				LEFT JOIN "NEW_出品マスタ情報" T0 ON DETAIL."出品者SKU" = T0."SKU番号" AND DETAIL."ASIN 1" = T0."ASIN番号"
+				LEFT JOIN "INPUT_FBA在庫情報" FBA ON DETAIL."出品者SKU" = FBA."SKU番号" AND DETAIL."ASIN 1" = FBA."ASIN番号" AND FBA."販売可否状態" = 'SELLABLE'
+				LEFT JOIN "NEW_在庫情報" STOCK ON DETAIL."出品者SKU" = STOCK."SKU番号" AND DETAIL."ASIN 1" = STOCK."ASIN番号"
 				LEFT JOIN "MASTER_写真情報" P ON P."商品管理番号" = T0."商品管理番号" AND P."色" = coalesce(T0."色",'') AND P."店舗名" = T0."店舗名"
 				LEFT JOIN
 				(
@@ -317,9 +317,9 @@
 				PCD."数量" as "仕入数量"
 			FROM
 				"INPUT_出品詳細情報" DETAIL
-				LEFT JOIN "NEW_出品マスタ情報" T0 ON T0."SKU番号" = DETAIL."出品者SKU" AND T0."ASIN番号" = DETAIL."ASIN 1"
-				LEFT JOIN "INPUT_FBA在庫情報" FBA ON T0."SKU番号" = FBA."SKU番号" AND T0."ASIN番号" = FBA."ASIN番号" AND FBA."販売可否状態" = 'SELLABLE'
-				LEFT JOIN "NEW_在庫情報" STOCK ON T0."SKU番号" = STOCK."SKU番号" AND T0."ASIN番号" = STOCK."ASIN番号"
+				LEFT JOIN "NEW_出品マスタ情報" T0 ON DETAIL."出品者SKU" = T0."SKU番号" AND DETAIL."ASIN 1" = T0."ASIN番号"
+				LEFT JOIN "INPUT_FBA在庫情報" FBA ON DETAIL."出品者SKU" = FBA."SKU番号" AND DETAIL."ASIN 1" = FBA."ASIN番号" AND FBA."販売可否状態" = 'SELLABLE'
+				LEFT JOIN "NEW_在庫情報" STOCK ON DETAIL."出品者SKU" = STOCK."SKU番号" AND DETAIL."ASIN 1" = STOCK."ASIN番号"
 				LEFT JOIN "MASTER_写真情報" P ON P."商品管理番号" = T0."商品管理番号" AND P."色" = coalesce(T0."色",'') AND P."店舗名" = T0."店舗名"
 				LEFT JOIN
 				(
@@ -517,9 +517,9 @@
 				DD."数量" as "納品数量"
 			FROM
 				"INPUT_出品詳細情報" DETAIL
-				LEFT JOIN "NEW_出品マスタ情報" T0 ON T0."SKU番号" = DETAIL."出品者SKU" AND T0."ASIN番号" = DETAIL."ASIN 1"
-				LEFT JOIN "INPUT_FBA在庫情報" FBA ON T0."SKU番号" = FBA."SKU番号" AND T0."ASIN番号" = FBA."ASIN番号" AND FBA."販売可否状態" = 'SELLABLE'
-				LEFT JOIN "NEW_在庫情報" STOCK ON T0."SKU番号" = STOCK."SKU番号" AND T0."ASIN番号" = STOCK."ASIN番号"
+				LEFT JOIN "NEW_出品マスタ情報" T0 ON DETAIL."出品者SKU" = T0."SKU番号" AND DETAIL."ASIN 1" = T0."ASIN番号"
+				LEFT JOIN "INPUT_FBA在庫情報" FBA ON DETAIL."出品者SKU" = FBA."SKU番号" AND DETAIL."ASIN 1" = FBA."ASIN番号" AND FBA."販売可否状態" = 'SELLABLE'
+				LEFT JOIN "NEW_在庫情報" STOCK ON DETAIL."出品者SKU" = STOCK."SKU番号" AND DETAIL."ASIN 1" = STOCK."ASIN番号"
 				LEFT JOIN "MASTER_写真情報" P ON P."商品管理番号" = T0."商品管理番号" AND P."色" = coalesce(T0."色",'') AND P."店舗名" = T0."店舗名"
 				LEFT JOIN
 				(
