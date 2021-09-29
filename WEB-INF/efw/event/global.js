@@ -859,38 +859,56 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	W_labelX, W_skuX, W_asinX, W_localStockX, W_onboardStockX, W_deliveryX, W_purchaseX, W_priceX, W_labelY_from, W_labelY_to, 
 	stockFlg, deliveryFlg, purchaseFlg, no);
 
+	var labelX = [null];
+	var skuX = ["C"];
+	var asinX = ["D"];
+
+	var localStockX = ["K"];
+	var onboardStockX = ["L"];
+	var deliveryX = ["S"];
+	var purchaseX = ["S"];
+	var priceX = ["H"];
+
+	var labelY_from = 4;
+	var labelY_to = null;
+
+	importProductInfo(shopname, excelXSSF, "在庫情報（其他）", 
+		labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, purchaseX, priceX, labelY_from, labelY_to, 
+		stockFlg, deliveryFlg, purchaseFlg, no);
+
+
 }
 
-function importProductInfoForSmartKM(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no){
+// function importProductInfoForSmartKM(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no){
 
-	var sheetNameArr = [
-		"NEW","スマホ保護フィルム","カメラ保護","スマホケース",
-		"花柄ケース","イヤホン","タブレットケース","スマホリング","その他"];
+// 	var sheetNameArr = [
+// 		"NEW","スマホ保護フィルム","カメラ保護","スマホケース",
+// 		"花柄ケース","イヤホン","タブレットケース","スマホリング","その他"];
 
-	for(var i = 0;i < sheetNameArr.length;i ++){
+// 	for(var i = 0;i < sheetNameArr.length;i ++){
 
-		var sheetName = sheetNameArr[i];
+// 		var sheetName = sheetNameArr[i];
 
-		var labelX = [null];
-		var skuX = ["C"];
-		var asinX = ["D"];
+// 		var labelX = [null];
+// 		var skuX = ["C"];
+// 		var asinX = ["D"];
 
-		var localStockX = ["K"];
-		var onboardStockX = ["L"];
-		var deliveryX = ["S"];
-		var purchaseX = ["S"];
-		var priceX = ["H"];
+// 		var localStockX = ["K"];
+// 		var onboardStockX = ["L"];
+// 		var deliveryX = ["S"];
+// 		var purchaseX = ["S"];
+// 		var priceX = ["H"];
 
-		var labelY_from = 4;
-		var labelY_to = null;
+// 		var labelY_from = 4;
+// 		var labelY_to = null;
 
-		importProductInfo(shopname, excelXSSF, sheetName, 
-			labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, purchaseX, priceX, labelY_from, labelY_to, 
-			stockFlg, deliveryFlg, purchaseFlg, no);
+// 		importProductInfo(shopname, excelXSSF, sheetName, 
+// 			labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, purchaseX, priceX, labelY_from, labelY_to, 
+// 			stockFlg, deliveryFlg, purchaseFlg, no);
 
-	}
+// 	}
 	
-}
+// }
 
 
 function importProductInfo(shopname, excelXSSF, sheetName, 
