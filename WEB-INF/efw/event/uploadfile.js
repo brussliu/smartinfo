@@ -134,6 +134,8 @@ uploadfile.fire=function(params){
 
 	}else if(params["data"] == "localstock"){
 
+		"KKKKKKKKKKK1".debug("KKKKKKKKKKKKKKKKKKK1");
+
 		count = 0;
 
 		var fa = params["#importfile_localstock"].split("\\");
@@ -141,11 +143,15 @@ uploadfile.fire=function(params){
 
 		var excelXSSF = new Excel("upload/" + f);
 
+		"KKKKKKKKKKK2".debug("KKKKKKKKKKKKKKKKKKK2");
+
 		if(shopname == "Smart-KM"){
 
 			importProductInfoForSmartKM(shopname, excelXSSF, true, false, false, null);
 	
 		}else{
+
+			"KKKKKKKKKKK3".debug("KKKKKKKKKKKKKKKKKKK3");
 	
 			importProductInfoForSmartBear(shopname, excelXSSF, true, false, false, null);
 	
