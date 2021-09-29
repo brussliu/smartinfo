@@ -40,6 +40,7 @@ outputstock.fire=function(params){
 
 	}else{
 
+		"GGGGGGGGGGGGGGGGGGGGGGGGGGGGG".debug("GGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
 		var tempFilePathName = outputProductForSmartBear(selectResult, false, false);
 
 		ret.attach(tempFilePathName)
