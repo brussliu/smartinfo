@@ -872,8 +872,6 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var labelY_from = 4;
 	var labelY_to = null;
 
-	"WWWWWWWWWWWWWWWWWWWWWWWw".debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
-
 	importProductInfo(shopname, excelXSSF, "在庫情報（其他）", 
 		labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, purchaseX, priceX, labelY_from, labelY_to, 
 		stockFlg, deliveryFlg, purchaseFlg, no);
@@ -917,8 +915,6 @@ function importProductInfo(shopname, excelXSSF, sheetName,
 	labelX, skuX, asinX, localStockX, onboardStockX, deliveryX, purchaseX, priceX, labelY_from, labelY_to, 
 	stockFlg, deliveryFlg, purchaseFlg, no){
 
-	sheetName.debug("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-
 	var y_to = labelY_to == null ? 9999 : labelY_to;
 
 	for(var y = labelY_from;y <= y_to;y++){
@@ -943,10 +939,6 @@ function importProductInfo(shopname, excelXSSF, sheetName,
 			var purchase = excelXSSF.getValue(sheetName, purchaseX[x] + y);
 			var price = excelXSSF.getValue(sheetName, priceX[x] + y);
 
-			if(asin == "B096R252PL"){
-				localstock.debug("LLLLLLLLLLLLLLLLLLLLLLLL");
-			}
-
 			if(stockFlg){
 				if(localstock == null || localstock.length == 0){
 					localstock = "0";
@@ -954,9 +946,6 @@ function importProductInfo(shopname, excelXSSF, sheetName,
 				if(onboardstock == null || onboardstock.length == 0){
 					onboardstock = "0";
 				}
-
-				localstock.debug("XXXXXXXXXXXX");
-				onboardstock.debug("YYYYYYYYYYYY");
 
 				insertStockDetail(shopname, label, sku, asin, localstock, onboardstock)
 			}
