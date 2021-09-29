@@ -69,29 +69,19 @@ function getStandardAddress(address){
 	var address1 = address;
 	var address2 = "";
 
-	//addressList.length.debug("000000000000");
 	for(var i = 0; i < addressList.length; i ++){
 
 		if(address.indexOf(addressList[i]) >= 0){
-
-			//addressList[i].debug("TTTTTTTTTTTTT");
-			//i.debug("IIIIIIIIIIIIIIIIIII");
-
 			address1 = addressList[i];
 			break;
 		}
 
 	}
 
-	//address1.debug("111111111111111111");
-
 	address2 = address.substring(address1.length);
-	//address2.debug("222222222222222222");
 
 	standardAddress.push(address1);
 	standardAddress.push(address2);
-
-	//standardAddress.debug("999999999999999")
 
 	return standardAddress;
 }
@@ -219,193 +209,193 @@ function importMasterList(f, shopname, sheetName){
 }
 
 
-function outputProductForSmartKM(selectResult, deliveryFlg, purchaseFlg){
+// function outputProductForSmartKM(selectResult, deliveryFlg, purchaseFlg){
 
-		// テンプレートにより、EXCELオブジェクトを作成する
-		var excel = new Excel("templates/output_stock_smartkm.xlsx");
+// 		// テンプレートにより、EXCELオブジェクトを作成する
+// 		var excel = new Excel("templates/output_stock_smartkm.xlsx");
 
-		var tempFilePathName = file.getTempFileName();
+// 		var tempFilePathName = file.getTempFileName();
 
-		var Y_from = 4;
+// 		var Y_from = 4;
 
-		var sku_X = "C";
-		var asin_X = "D";
+// 		var sku_X = "C";
+// 		var asin_X = "D";
 
-		var productname_X = "G";
+// 		var productname_X = "G";
 
-		var writePriceX = "H";
-		var writeFBAX = "I";
-		var writeFBMX = "J";
-		var writeLocalStockX = "K";
-		var writeOnboardStockX = "L";
+// 		var writePriceX = "H";
+// 		var writeFBAX = "I";
+// 		var writeFBMX = "J";
+// 		var writeLocalStockX = "K";
+// 		var writeOnboardStockX = "L";
 
-		var writeSell7X = "M";
-		var writeSell30X = "N";
-		var writeSell60X = "O";
-		var writeSell90X = "P";
-		var writeSellWeekX = "Q";
+// 		var writeSell7X = "M";
+// 		var writeSell30X = "N";
+// 		var writeSell60X = "O";
+// 		var writeSell90X = "P";
+// 		var writeSellWeekX = "Q";
 
-		var writeFBAFlgX = "V";
-		var writeDeliveryX = "S";
-		var writePurchaseX = "S";
+// 		var writeFBAFlgX = "V";
+// 		var writeDeliveryX = "S";
+// 		var writePurchaseX = "S";
 
-		for(var i = 0;i < selectResult.length;i ++){
+// 		for(var i = 0;i < selectResult.length;i ++){
 
-			var sku = selectResult[i]["sku"];
-			var asin = selectResult[i]["asin"];
-			var productname = selectResult[i]["productname"];
-			var price = selectResult[i]["price"];
-			var fbaflg = "";
+// 			var sku = selectResult[i]["sku"];
+// 			var asin = selectResult[i]["asin"];
+// 			var productname = selectResult[i]["productname"];
+// 			var price = selectResult[i]["price"];
+// 			var fbaflg = "";
 
-			var fba;
-			if(selectResult[i]["fba"] == null || selectResult[i]["fba"].length == 0){
-				fba = 0;
+// 			var fba;
+// 			if(selectResult[i]["fba"] == null || selectResult[i]["fba"].length == 0){
+// 				fba = 0;
 				
-			}else{
-				fba = parseInt(selectResult[i]["fba"]);
-				fbaflg = "FBA";
-			}
+// 			}else{
+// 				fba = parseInt(selectResult[i]["fba"]);
+// 				fbaflg = "FBA";
+// 			}
 
-			var fbm;
-			if(selectResult[i]["fbm"] == null || selectResult[i]["fbm"].length == 0){
-				fbm = 0;
+// 			var fbm;
+// 			if(selectResult[i]["fbm"] == null || selectResult[i]["fbm"].length == 0){
+// 				fbm = 0;
 				
-			}else{
-				fbm = parseInt(selectResult[i]["fbm"]);
-				fbaflg = "FBM";
-			}
+// 			}else{
+// 				fbm = parseInt(selectResult[i]["fbm"]);
+// 				fbaflg = "FBM";
+// 			}
 
-			var localstock;
-			if(selectResult[i]["localstock"] == null || selectResult[i]["localstock"].length == 0){
-				localstock = 0;
-			}else{
-				localstock = parseInt(selectResult[i]["localstock"]);
-			}
+// 			var localstock;
+// 			if(selectResult[i]["localstock"] == null || selectResult[i]["localstock"].length == 0){
+// 				localstock = 0;
+// 			}else{
+// 				localstock = parseInt(selectResult[i]["localstock"]);
+// 			}
 
-			var onboardstock;
-			if(selectResult[i]["onboard"] == null || selectResult[i]["onboard"].length == 0){
-				onboardstock = 0;
-			}else{
-				onboardstock = parseInt(selectResult[i]["onboard"]);
-			}
+// 			var onboardstock;
+// 			if(selectResult[i]["onboard"] == null || selectResult[i]["onboard"].length == 0){
+// 				onboardstock = 0;
+// 			}else{
+// 				onboardstock = parseInt(selectResult[i]["onboard"]);
+// 			}
 
-			var selled7 = selectResult[i]["selled7"];
-			var selled30 = selectResult[i]["selled30"];
-			var selled60 = selectResult[i]["selled60"];
-			var selled90 = selectResult[i]["selled90"];
-			var selledweek = selectResult[i]["selledweek"];
+// 			var selled7 = selectResult[i]["selled7"];
+// 			var selled30 = selectResult[i]["selled30"];
+// 			var selled60 = selectResult[i]["selled60"];
+// 			var selled90 = selectResult[i]["selled90"];
+// 			var selledweek = selectResult[i]["selledweek"];
 
-			var delivery = selectResult[i]["delivery"];
+// 			var delivery = selectResult[i]["delivery"];
 
-			var purchase = selectResult[i]["purchase"];
+// 			var purchase = selectResult[i]["purchase"];
 
-			var sheetNameList = [
-				"廃止予定", 		"スマホ保護フィルム",	"カメラ保護",
-				"スマホケース",		"花柄ケース",			"イヤホン",
-				"タブレットケース",	"スマホリング",			"その他"];
+// 			var sheetNameList = [
+// 				"廃止予定", 		"スマホ保護フィルム",	"カメラ保護",
+// 				"スマホケース",		"花柄ケース",			"イヤホン",
+// 				"タブレットケース",	"スマホリング",			"その他"];
 
-			for(var sn = 0;sn < sheetNameList.length;sn ++){
+// 			for(var sn = 0;sn < sheetNameList.length;sn ++){
 
-				var sheetName = sheetNameList[sn];
+// 				var sheetName = sheetNameList[sn];
 
-				for(var y = Y_from;y <= 9999;y ++){
+// 				for(var y = Y_from;y <= 9999;y ++){
 
-					var excel_sku = excel.getValue(sheetName, sku_X + y);
-					var excel_asin = excel.getValue(sheetName, asin_X + y);
+// 					var excel_sku = excel.getValue(sheetName, sku_X + y);
+// 					var excel_asin = excel.getValue(sheetName, asin_X + y);
 
-					if(excel_sku == null || excel_sku.length <= 0 || excel_asin == null || excel_asin.length <= 0){
-						break;
-					}
+// 					if(excel_sku == null || excel_sku.length <= 0 || excel_asin == null || excel_asin.length <= 0){
+// 						break;
+// 					}
 
-					if(excel_sku == sku && excel_asin == asin){
+// 					if(excel_sku == sku && excel_asin == asin){
 
-						excel.setCell(sheetName, writePriceX + y, price);
+// 						excel.setCell(sheetName, writePriceX + y, price);
 
-						excel.setCell(sheetName, writeFBAX + y, fba);
+// 						excel.setCell(sheetName, writeFBAX + y, fba);
 
-						excel.setCell(sheetName, writeFBMX + y, fbm);
+// 						excel.setCell(sheetName, writeFBMX + y, fbm);
 
-						excel.setCell(sheetName, writeLocalStockX + y, localstock);
+// 						excel.setCell(sheetName, writeLocalStockX + y, localstock);
 
-						excel.setCell(sheetName, writeOnboardStockX + y, onboardstock);
+// 						excel.setCell(sheetName, writeOnboardStockX + y, onboardstock);
 
-						excel.setCell(sheetName, writeSell7X + y, selled7);
+// 						excel.setCell(sheetName, writeSell7X + y, selled7);
 
-						excel.setCell(sheetName, writeSell30X + y, selled30);
+// 						excel.setCell(sheetName, writeSell30X + y, selled30);
 
-						excel.setCell(sheetName, writeSell60X + y, selled60);
+// 						excel.setCell(sheetName, writeSell60X + y, selled60);
 
-						excel.setCell(sheetName, writeSell90X + y, selled90);
+// 						excel.setCell(sheetName, writeSell90X + y, selled90);
 
-						excel.setCell(sheetName, writeSellWeekX + y, selledweek);
+// 						excel.setCell(sheetName, writeSellWeekX + y, selledweek);
 
-						excel.setCell(sheetName, writeFBAFlgX + y, fbaflg);
+// 						excel.setCell(sheetName, writeFBAFlgX + y, fbaflg);
 
-						if(deliveryFlg){
-							excel.setCell(sheetName, writeDeliveryX + y, delivery);
-						}
+// 						if(deliveryFlg){
+// 							excel.setCell(sheetName, writeDeliveryX + y, delivery);
+// 						}
 
-						if(purchaseFlg){
-							excel.setCell(sheetName, writePurchaseX + y, purchase);
-						}
+// 						if(purchaseFlg){
+// 							excel.setCell(sheetName, writePurchaseX + y, purchase);
+// 						}
 
-						listedflg = true;
+// 						listedflg = true;
 
-					}
+// 					}
 
-				}
+// 				}
 
-			}
+// 			}
 
-			if(listedflg == false){
+// 			if(listedflg == false){
 
-				excel.setCell("NEW", sku_X + newListY_from, sku);
+// 				excel.setCell("NEW", sku_X + newListY_from, sku);
 
-				excel.setCell("NEW", asin_X + newListY_from, asin);
+// 				excel.setCell("NEW", asin_X + newListY_from, asin);
 
-				excel.setCell("NEW", productname_X + newListY_from, productname);
+// 				excel.setCell("NEW", productname_X + newListY_from, productname);
 
-				excel.setCell("NEW", writePriceX + newListY_from, price);
+// 				excel.setCell("NEW", writePriceX + newListY_from, price);
 
-				excel.setCell("NEW", writeFBAX + newListY_from, fba);
+// 				excel.setCell("NEW", writeFBAX + newListY_from, fba);
 
-				excel.setCell("NEW", writeFBMX + newListY_from, fbm);
+// 				excel.setCell("NEW", writeFBMX + newListY_from, fbm);
 
-				excel.setCell("NEW", writeLocalStockX + newListY_from, localstock);
+// 				excel.setCell("NEW", writeLocalStockX + newListY_from, localstock);
 
-				excel.setCell("NEW", writeOnboardStockX + newListY_from, onboardstock);
+// 				excel.setCell("NEW", writeOnboardStockX + newListY_from, onboardstock);
 
-				excel.setCell("NEW", writeSell7X + newListY_from, selled7);
+// 				excel.setCell("NEW", writeSell7X + newListY_from, selled7);
 
-				excel.setCell("NEW", writeSell30X + newListY_from, selled30);
+// 				excel.setCell("NEW", writeSell30X + newListY_from, selled30);
 
-				excel.setCell("NEW", writeSell60X + newListY_from, selled60);
+// 				excel.setCell("NEW", writeSell60X + newListY_from, selled60);
 
-				excel.setCell("NEW", writeSell90X + newListY_from, selled90);
+// 				excel.setCell("NEW", writeSell90X + newListY_from, selled90);
 
-				excel.setCell("NEW", writeSellWeekX + newListY_from, selledweek);
+// 				excel.setCell("NEW", writeSellWeekX + newListY_from, selledweek);
 
-				excel.setCell("NEW", writeFBAFlgX + newListY_from, fbaflg);
+// 				excel.setCell("NEW", writeFBAFlgX + newListY_from, fbaflg);
 
-				if(deliveryFlg){
-					excel.setCell("NEW", writeDeliveryX + newListY_from, delivery);
-				}
+// 				if(deliveryFlg){
+// 					excel.setCell("NEW", writeDeliveryX + newListY_from, delivery);
+// 				}
 
-				if(purchaseFlg){
-					excel.setCell("NEW", writePurchaseX + newListY_from, purchase);
-				}
+// 				if(purchaseFlg){
+// 					excel.setCell("NEW", writePurchaseX + newListY_from, purchase);
+// 				}
 
-				newListY_from = newListY_from + 1;
+// 				newListY_from = newListY_from + 1;
 
-			}
+// 			}
 
-		}
+// 		}
 
-		excel.setActiveSheet(sheetNameList[0]).save(tempFilePathName);
+// 		excel.setActiveSheet(sheetNameList[0]).save(tempFilePathName);
 
-		return tempFilePathName;
+// 		return tempFilePathName;
 
-}
+// }
 
 
 function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
@@ -626,34 +616,34 @@ function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, pu
 		if(excel_sku == sku && excel_asin == asin){
 
 			// 商品価格
-			excel.setCell(sheetName, writePriceX + y, price);
+			setExcelValue(excel, sheetName, writePriceX + y, price);
 			// FBA在庫数量
-			excel.setCell(sheetName, writeFBAX + y, fba);
+			setExcelValue(excel, sheetName, writeFBAX + y, fba);
 			// FBM在庫数量
-			excel.setCell(sheetName, writeFBMX + y, fbm);
+			setExcelValue(excel, sheetName, writeFBMX + y, fbm);
 			// ローカル在庫
-			excel.setCell(sheetName, writeLocalStockX + y, localstock);
+			setExcelValue(excel, sheetName, writeLocalStockX + y, localstock);
 			// ONBOARD在庫
-			excel.setCell(sheetName, writeOnboardStockX + y, onboard);
+			setExcelValue(excel, sheetName, writeOnboardStockX + y, onboard);
 			// 販売数量(直近70日間)
-			excel.setCell(sheetName, writeSell7X + y, selled7);
+			setExcelValue(excel, sheetName, writeSell7X + y, selled7);
 			// 販売数量(直近30日間)
-			excel.setCell(sheetName, writeSell30X + y, selled30);
+			setExcelValue(excel, sheetName, writeSell30X + y, selled30);
 			// 販売数量(直近60日間)
-			excel.setCell(sheetName, writeSell60X + y, selled60);
+			setExcelValue(excel, sheetName, writeSell60X + y, selled60);
 			// 販売数量(直近90日間)
-			excel.setCell(sheetName, writeSell90X + y, selled90);
+			setExcelValue(excel, sheetName, writeSell90X + y, selled90);
 			// 販売数量(週間平均値)
-			excel.setCell(sheetName, writeSellWeekX + y, selledweek);
+			setExcelValue(excel, sheetName, writeSellWeekX + y, selledweek);
 			// 販売方式
-			excel.setCell(sheetName, writeFBAFlgX + y, fbaflg);
+			setExcelValue(excel, sheetName, writeFBAFlgX + y, fbaflg);
 			// 仕入数量
 			if(deliveryFlg){
-				excel.setCell(sheetName, writeDeliveryX + y, delivery);
+				setExcelValue(excel, sheetName, writeDeliveryX + y, delivery);
 			}
 			// 仕入数量
 			if(purchaseFlg){
-				excel.setCell(sheetName, writePurchaseX + y, purchase);
+				setExcelValue(excel, sheetName, writePurchaseX + y, purchase);
 			}
 
 		}
