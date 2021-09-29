@@ -14,8 +14,6 @@ uploadfile.paramsFormat={
 	"#importfile_localstock":null,
 	// 在庫情報統計
 	"#importfile_liststock":null,
-	// 納品情報導入
-	"#importfile_delivery":null,
 
 	// アマゾン発送情報導入
 	"#importfile_ship_amazon":null,
@@ -426,6 +424,9 @@ uploadfile.fire=function(params){
 	//navigate(params["page"] + "?shop=" + params["shop"]);
 
 };
+
+
+
 function getContent(tablehtml,start_txt,end_txt){
 
 	var start_index = tablehtml.indexOf(start_txt) + start_txt.length;
