@@ -411,7 +411,7 @@
 						T."SKU番号",
 						T."ASIN番号"
 				) T5 ON DETAIL."出品者SKU" = T5."SKU番号" AND DETAIL."ASIN 1" = T5."ASIN番号"
-				LEFT JOIN "仕入明細" PCD ON T0."SKU番号" = PCD."SKU番号" AND T0."ASIN番号" = PCD."ASIN番号" AND PCD."仕入NO" = :purchaseno
+				LEFT JOIN "仕入明細" PCD ON DETAIL."出品者SKU" = PCD."SKU番号" AND DETAIL."ASIN 1" = PCD."ASIN番号" AND PCD."仕入NO" = :purchaseno
 			WHERE
 				DETAIL."店舗名" = :shop 
 		) TEMP
@@ -611,7 +611,7 @@
 						T."SKU番号",
 						T."ASIN番号"
 				) T5 ON DETAIL."出品者SKU" = T5."SKU番号" AND DETAIL."ASIN 1" = T5."ASIN番号"
-				LEFT JOIN "納品明細" DD ON T0."SKU番号" = DD."SKU番号" AND T0."ASIN番号" = DD."ASIN番号" AND DD."納品NO" = :deliveryno
+				LEFT JOIN "納品明細" DD ON DETAIL."出品者SKU" = DD."SKU番号" AND DETAIL."ASIN 1" = DD."ASIN番号" AND DD."納品NO" = :deliveryno
 			WHERE
 				DETAIL."店舗名" = :shop 
 		) TEMP
