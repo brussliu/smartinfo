@@ -584,8 +584,6 @@ function importProductInfo(aryField, index) {
 
 		count = count + 1;
 
-		count.debug("CCCCCCCCCCCCCCCCCCCCc");
-
 	}
 
 };
@@ -638,7 +636,7 @@ function importOrderInfo(aryField, index) {
 			{
 				"col0":aryField[0],
 				"col1":aryField[1],
-				"col2":aryField[2],
+				//"col2":aryField[2],
 				"col3":shopname
 			}
 		).getArray();
@@ -651,7 +649,7 @@ function importOrderInfo(aryField, index) {
 				{
 					"col0":aryField[0],
 					"col1":aryField[1],
-					"col2":aryField[2],
+					//"col2":aryField[2],
 					"col3":shopname
 				}
 			);
@@ -704,11 +702,6 @@ function importOrderInfo(aryField, index) {
 function importDelivery(aryField, index) {
 
 	if(index > 8){
-
-		aryField.debug("WWWWWWWWWWWWWWWWWWWWWW");
-		aryField[9].debug("qqqqqqqqqqqqqqqq1");
-		aryField[0].debug("qqqqqqqqqqqqqqqq2");
-		aryField[2].debug("qqqqqqqqqqqqqqqq3");
 
 		var insResult = db.change(
 			"UPLOAD",

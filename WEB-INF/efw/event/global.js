@@ -563,8 +563,6 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, purchaseFlg){
 
-	"DDDDDDDDD".debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
-
 	var labelno = selectRecord["label"];
 	var sku = selectRecord["sku"];
 	var asin = selectRecord["asin"];
@@ -604,10 +602,6 @@ function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, pu
 	var writeFBAFlgX = "V";
 	var writeDeliveryX = "S";
 	var writePurchaseX = "S";
-
-
-	asin.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
-
 
 	// 在庫情報シート
 	for(var y = Y_from;y <= Y_to;y ++){

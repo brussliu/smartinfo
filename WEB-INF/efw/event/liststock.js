@@ -28,8 +28,6 @@ liststock.fire=function(params){
 
 			var labelArr = groupLabelArr[s];
 
-			labelArr.debug("aaaaaaaaaaaaaaaaaaaaaaaa");
-
 			for(var i = 0;i < labelArr.length; i ++){
 
 				var insertResult = db.change(

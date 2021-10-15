@@ -15,7 +15,6 @@ uploadfile.fire=function(params){
 
 
 	var txtArray = txtReader.readAllLines();
-	txtArray.debug("HHHHHHHHHHHH");
 
 	return (new Result());
 
@@ -24,6 +23,5 @@ uploadfile.fire=function(params){
 function importFile(aryField, index) {
 
 
-	//aryField.length.debug("HHHHHHHHHHHH");
 
 };
