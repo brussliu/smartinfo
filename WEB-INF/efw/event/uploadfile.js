@@ -630,6 +630,14 @@ function importOrderInfo(aryField, index) {
 
 	if(index > 0){
 
+		if(aryField[12] == "B07F86WDQJ"){
+			aryField.debug("AAAAAAAAAAAAA");
+			aryField[0].debug("BBBBBBBBBBBBB0");
+			aryField[1].debug("BBBBBBBBBBBBB1");
+
+			aryField[3].debug("BBBBBBBBBBBBB3");
+
+		}
 		var selectResult = db.select(
 			"UPLOAD",
 			"selectOrder",
