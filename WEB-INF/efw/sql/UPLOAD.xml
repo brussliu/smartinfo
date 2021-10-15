@@ -80,8 +80,6 @@
 		WHERE
 			"Amazon注文番号" = :col0
 			AND
-			"商品注文番号"	= :col1
-			AND
 			"注文日時"	= :col2
 			AND
 			"店舗名" = :col3
@@ -90,8 +88,6 @@
 		DELETE FROM "INPUT_注文情報" 
 		WHERE
 			"Amazon注文番号" = :col0
-			AND
-			"商品注文番号"	= :col1
 			AND
 			"注文日時"	= :col2
 			AND
