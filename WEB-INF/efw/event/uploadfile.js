@@ -631,11 +631,11 @@ function importOrderInfo(aryField, index) {
 	if(index > 0){
 
 		if(aryField[12] == "B07F86WDQJ"){
-			aryField.debug("AAAAAAAAAAAAA");
-			aryField[0].debug("BBBBBBBBBBBBB0");
-			aryField[1].debug("BBBBBBBBBBBBB1");
+			// aryField.debug("AAAAAAAAAAAAA");
+			// aryField[0].debug("BBBBBBBBBBBBB0");
+			// aryField[1].debug("BBBBBBBBBBBBB1");
 
-			aryField[3].debug("BBBBBBBBBBBBB3");
+			// aryField[3].debug("BBBBBBBBBBBBB3");
 
 		}
 		var selectResult = db.select(
@@ -643,8 +643,8 @@ function importOrderInfo(aryField, index) {
 			"selectOrder",
 			{
 				"col0":aryField[0],
-				"col1":aryField[1],
-				//"col2":aryField[2],
+				//"col1":aryField[1],
+				"col2":aryField[2],
 				"col3":shopname
 			}
 		).getArray();
@@ -656,8 +656,8 @@ function importOrderInfo(aryField, index) {
 				"delOrder",
 				{
 					"col0":aryField[0],
-					"col1":aryField[1],
-					//"col2":aryField[2],
+					//"col1":aryField[1],
+					"col2":aryField[2],
 					"col3":shopname
 				}
 			);
