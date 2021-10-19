@@ -254,4 +254,8 @@
 		DELETE FROM "仕入明細"
 		WHERE "仕入NO" = :col0
 	</sql>
+	<sql id="delPurchase">
+		DELETE FROM "仕入管理"
+		WHERE "仕入NO" = :col0
+	</sql>
 </sqls>

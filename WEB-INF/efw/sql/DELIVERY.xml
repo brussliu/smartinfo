@@ -227,6 +227,11 @@
 		WHERE "納品NO" = :col0
 	</sql>
 
+	<sql id="delDelivery">
+		DELETE FROM "納品管理"
+		WHERE "納品NO" = :col0
+	</sql>
+
 	<sql id="selectSkuList">
 		select
 			"SKU番号" || '	' ||"数量" as skuinfo
