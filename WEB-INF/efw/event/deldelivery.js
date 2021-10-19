@@ -34,5 +34,5 @@ deldelivery.fire=function(params){
 
 
 
-	return ret;
+	return (new Result()).eval("window.location.href = '/smartinfo/'");
 };
