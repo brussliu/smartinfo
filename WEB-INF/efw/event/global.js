@@ -800,7 +800,7 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var PJ_deliveryX = ["BN","BO","BP","BQ","BR","BS"];
 	var PJ_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
 	//var PJ_priceX = ["CF","CG","CH","CI","CJ","CK"];
-	var RJ_priceX = ["L","M","N","O","P","Q"];
+	var PJ_priceX = ["L","M","N","O","P","Q"];
 
 	var PJ_labelY_from = 4;
 	var PJ_labelY_to = 11;
