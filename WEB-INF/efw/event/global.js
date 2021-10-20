@@ -781,7 +781,8 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var RC_onboardStockX = ["X","Y","Z","AA","AB","AC"];
 	var RC_deliveryX = ["BN","BO","BP","BQ","BR","BS"];
 	var RC_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
-	var RC_priceX = ["CF","CG","CH","CI","CJ","CK"];
+	//var RC_priceX = ["CF","CG","CH","CI","CJ","CK"];
+	var RC_priceX = ["L","M","N","O","P","Q"];
 
 	var RC_labelY_from = 4;
 	var RC_labelY_to = 30;
@@ -798,7 +799,8 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var PJ_onboardStockX = ["X","Y","Z","AA","AB","AC"];
 	var PJ_deliveryX = ["BN","BO","BP","BQ","BR","BS"];
 	var PJ_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
-	var PJ_priceX = ["CF","CG","CH","CI","CJ","CK"];
+	//var PJ_priceX = ["CF","CG","CH","CI","CJ","CK"];
+	var RJ_priceX = ["L","M","N","O","P","Q"];
 
 	var PJ_labelY_from = 4;
 	var PJ_labelY_to = 11;
@@ -816,7 +818,8 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var UB_onboardStockX = ["I"];
 	var UB_deliveryX = ["P"];
 	var UB_purchaseX = ["P"];
-	var UB_priceX = ["S"];
+	//var UB_priceX = ["S"];
+	var UB_priceX = ["H"];
 
 	var UB_labelY_from = 4;
 	var UB_labelY_to = 14;
@@ -833,7 +836,8 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var RB_onboardStockX = ["K"];
 	var RB_deliveryX = ["R"];
 	var RB_purchaseX = ["R"];
-	var RB_priceX = ["U"];
+	//var RB_priceX = ["U"];
+	var RB_priceX = ["J"];
 
 	var RB_labelY_from = 3;
 	var RB_labelY_to = null;
@@ -867,7 +871,8 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var onboardStockX = ["L"];
 	var deliveryX = ["S"];
 	var purchaseX = ["S"];
-	var priceX = ["H"];
+	//var priceX = ["H"];
+	var priceX = ["Z"];
 
 	var labelY_from = 4;
 	var labelY_to = null;
@@ -937,7 +942,7 @@ function importProductInfo(shopname, excelXSSF, sheetName,
 			var onboardstock = excelXSSF.getValue(sheetName, onboardStockX[x] + y);
 			var delivery = excelXSSF.getValue(sheetName, deliveryX[x] + y);
 			var purchase = excelXSSF.getValue(sheetName, purchaseX[x] + y);
-			var price = excelXSSF.getValue(sheetName, priceX[x] + y);
+			var price = excelXSSF.getValue(sheetName.replaceAll('在庫情報','入荷見積'), priceX[x] + y);
 
 			if(stockFlg){
 				if(localstock == null || localstock.length == 0){
