@@ -175,7 +175,7 @@
 
 <br/>
 <br/>
-<table id="purchaseInfo" border="0" style="">
+<table id="purchaseInfo" border="0">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">

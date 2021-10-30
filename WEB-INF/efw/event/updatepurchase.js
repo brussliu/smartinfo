@@ -49,7 +49,7 @@ updatepurchase.fire=function(params){
 	var status = detailResult[0]["status"];
 
 	// 新規登録の場合、仕入明細テーブルを再度導入
-	if(status == "0：新規登録"){
+	if(status == "0：新規登録" || status == "1：仕入確定"){
 
 		// 2, 既存仕入明細を全件削除
 		var delResult = db.change(
@@ -63,32 +63,15 @@ updatepurchase.fire=function(params){
 		// 3, 新しい仕入明細を挿入
 		uploadPurchaseDetail(importfile_purchase, purchaseno);
 
-
-	}
-	// 仕入確定の場合、仕入明細テーブルを再度導入し、仕入管理テーブルの確定数量及び確定金額を再計算
-	if(status == "1：仕入確定"){
-
-			// 2, 既存仕入明細を全件削除
-			var delResult = db.change(
-				"PURCHASE",
-				"delPurchaseDetail",
-				{
-					"col0":purchaseno
-				}
-			);
-	
-			// 3, 新しい仕入明細を挿入
-			uploadPurchaseDetail(importfile_purchase, purchaseno);
-
-			// 5, 確定数量及び確定金額を再計算
-			var updateResult = db.change(
-				"PURCHASE",
-				"updatePurchase01",
-				{
-					col0:purchaseno,
-					shop:shopname
-				}
-			);
+		// 5, 確定数量及び確定金額を再計算
+		var updateResult = db.change(
+			"PURCHASE",
+			"updatePurchase01",
+			{
+				col0:purchaseno,
+				shop:shopname
+			}
+		);
 
 	}
 
