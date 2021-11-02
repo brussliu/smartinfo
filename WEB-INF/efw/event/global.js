@@ -454,8 +454,8 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var UB_writePurchaseX = ["P"];
 
 	// 雨靴
-	var RB_labelY_from = 4;
-	var RB_labelY_to = 99;
+	var RB_labelY_from = 3;
+	var RB_labelY_to = null;
 	var RB_labelX = ["H"];
 	var RB_writeStockX = ["I"];
 	var RB_writeLocalStockX = ["J"];
@@ -828,19 +828,19 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	// 	UB_labelX, UB_skuX, UB_asinX, UB_localStockX, UB_onboardStockX, UB_deliveryX, UB_purchaseX, UB_priceX, UB_labelY_from, UB_labelY_to, 
 	// 	stockFlg, deliveryFlg, purchaseFlg, no);
 
-	// var RB_labelX = ["H"];
-	// var RB_skuX = [null];
-	// var RB_asinX = [null];
+	var RB_labelX = ["H"];
+	var RB_skuX = [null];
+	var RB_asinX = [null];
 
-	// var RB_localStockX = ["J"];
-	// var RB_onboardStockX = ["K"];
-	// var RB_deliveryX = ["R"];
-	// var RB_purchaseX = ["R"];
-	// //var RB_priceX = ["U"];
-	// var RB_priceX = ["J"];
+	var RB_localStockX = ["J"];
+	var RB_onboardStockX = ["K"];
+	var RB_deliveryX = ["R"];
+	var RB_purchaseX = ["R"];
+	//var RB_priceX = ["U"];
+	var RB_priceX = ["J"];
 
-	// var RB_labelY_from = 3;
-	// var RB_labelY_to = null;
+	var RB_labelY_from = 3;
+	var RB_labelY_to = null;
 
 	importProductInfo(shopname, excelXSSF, "在庫（雨靴等）", 
 	RB_labelX, RB_skuX, RB_asinX, RB_localStockX, RB_onboardStockX, RB_deliveryX, RB_purchaseX, RB_priceX, RB_labelY_from, RB_labelY_to, 
@@ -856,7 +856,7 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var W_purchaseX = ["U"];
 	var W_priceX = ["K"];
 
-	var W_labelY_from = 3;
+	var W_labelY_from = 4;
 	var W_labelY_to = null;
 
 	importProductInfo(shopname, excelXSSF, "在庫（袜子）", 
