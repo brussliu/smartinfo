@@ -839,8 +839,8 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	// //var RB_priceX = ["U"];
 	// var RB_priceX = ["J"];
 
-	var RB_labelY_from = 3;
-	var RB_labelY_to = null;
+	// var RB_labelY_from = 3;
+	// var RB_labelY_to = null;
 
 	importProductInfo(shopname, excelXSSF, "在庫（雨靴等）", 
 	RB_labelX, RB_skuX, RB_asinX, RB_localStockX, RB_onboardStockX, RB_deliveryX, RB_purchaseX, RB_priceX, RB_labelY_from, RB_labelY_to, 
@@ -856,7 +856,7 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var W_purchaseX = ["U"];
 	var W_priceX = ["K"];
 
-	var W_labelY_from = 4;
+	var W_labelY_from = 3;
 	var W_labelY_to = null;
 
 	importProductInfo(shopname, excelXSSF, "在庫（袜子）", 
