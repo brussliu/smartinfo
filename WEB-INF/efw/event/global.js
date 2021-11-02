@@ -455,7 +455,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 	// 雨靴
 	var RB_labelY_from = 3;
-	var RB_labelY_to = null;
+	var RB_labelY_to = 80;
 	var RB_labelX = ["H"];
 	var RB_writeStockX = ["I"];
 	var RB_writeLocalStockX = ["J"];
