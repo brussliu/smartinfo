@@ -423,19 +423,19 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 	// パジャマ
 	var PJ_labelY_from = 4;
-	var PJ_labelY_to = 11;
-	var PJ_labelX = ["F","G","H","I","J","K"];
-	var PJ_writeStockX = ["L","M","N","O","P","Q"];
-	var PJ_writeLocalStockX = ["R","S","T","U","V","W"];
-	var PJ_writeOnboardStockX = ["X","Y","Z","AA","AB","AC"];
-	var PJ_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
-	var PJ_writeSell30X = ["AJ","AK","AL","AM","AN","AO"];
-	var PJ_writeSell60X = ["AP","AQ","AR","AS","AT","AU"];
-	var PJ_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
-	var PJ_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
-	var PJ_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
-	var PJ_writeDeliveryX = ["BN","BO","BP","BQ","BR","BS"];
-	var PJ_writePurchaseX = ["BN","BO","BP","BQ","BR","BS"];
+	var PJ_labelY_to = 17;
+	var PJ_labelX = ["F","G","H","I","J","K","L"];
+	var PJ_writeStockX = ["M","N","O","P","Q","R","S"];
+	var PJ_writeLocalStockX = ["T","U","V","W","X","Y","Z"];
+	var PJ_writeOnboardStockX = ["AA","AB","AC","AD","AE","AF","AG"];
+	var PJ_writeSell7X = ["AH","AI","AJ","AK","AL","AM","AN"];
+	var PJ_writeSell30X = ["AO","AP","AQ","AR","AS","AT","AU"];
+	var PJ_writeSell60X = ["AV","AW","AX","AY","AZ","BA","BB"];
+	var PJ_writeSell90X = ["BC","BD","BE","BF","BG","BH","BI"];
+	var PJ_writeSellWeekX = ["BJ","BK","BL","BM","BN","BO","BP"];
+	var PJ_writePriceX = ["CS","CT","CU","CV","CW","CX","CY"];
+	var PJ_writeDeliveryX = ["BX","BY","BZ","CA","CB","CC","CD"];
+	var PJ_writePurchaseX = ["BX","BY","BZ","CA","CB","CC","CD"];
 
 	// 傘
 	var UB_labelY_from = 4;
@@ -791,16 +791,17 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 		RC_labelX, RC_skuX, RC_asinX, RC_localStockX, RC_onboardStockX, RC_deliveryX, RC_purchaseX, RC_priceX, RC_labelY_from, RC_labelY_to, 
 		stockFlg, deliveryFlg, purchaseFlg, no);
 
-	var PJ_labelX = ["F","G","H","I","J","K"];
-	var PJ_skuX = [null,null,null,null,null,null];
-	var PJ_asinX = [null,null,null,null,null,null];
 
-	var PJ_localStockX = ["R","S","T","U","V","W"];
-	var PJ_onboardStockX = ["X","Y","Z","AA","AB","AC"];
-	var PJ_deliveryX = ["BN","BO","BP","BQ","BR","BS"];
-	var PJ_purchaseX = ["BN","BO","BP","BQ","BR","BS"];
+	var PJ_labelX = ["F","G","H","I","J","K","L"];
+	var PJ_skuX = [null,null,null,null,null,null,null];
+	var PJ_asinX = [null,null,null,null,null,null,null];
+
+	var PJ_localStockX = ["T","U","V","W","X","Y","Z"];
+	var PJ_onboardStockX = ["AA","AB","AC","AD","AE","AF","AG"];
+	var PJ_deliveryX = ["BX","BY","BZ","CA","CB","CC","CD"];
+	var PJ_purchaseX = ["BX","BY","BZ","CA","CB","CC","CD"];
 	//var PJ_priceX = ["CF","CG","CH","CI","CJ","CK"];
-	var PJ_priceX = ["L","M","N","O","P","Q"];
+	var PJ_priceX = ["M","N","O","P","Q","R","S"];
 
 	var PJ_labelY_from = 4;
 	var PJ_labelY_to = 11;
