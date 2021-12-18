@@ -423,7 +423,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 	// パジャマ
 	var PJ_labelY_from = 4;
-	var PJ_labelY_to = 17;
+	var PJ_labelY_to = 18;
 	var PJ_labelX = ["F","G","H","I","J","K","L"];
 	var PJ_writeStockX = ["M","N","O","P","Q","R","S"];
 	var PJ_writeLocalStockX = ["T","U","V","W","X","Y","Z"];
@@ -804,7 +804,7 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var PJ_priceX = ["M","N","O","P","Q","R","S"];
 
 	var PJ_labelY_from = 4;
-	var PJ_labelY_to = 11;
+	var PJ_labelY_to = 18;
 
 	importProductInfo(shopname, excelXSSF, "在庫（居家服）", 
 		PJ_labelX, PJ_skuX, PJ_asinX, PJ_localStockX, PJ_onboardStockX, PJ_deliveryX, PJ_purchaseX, PJ_priceX, PJ_labelY_from, PJ_labelY_to, 
