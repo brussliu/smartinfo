@@ -573,6 +573,9 @@ function writeInfoToExcel(excel, selectRecord, sheetName, deliveryFlg, purchaseF
 
 	var sku = selectRecord["sku"];
 	var asin = selectRecord["asin"];
+	var color = selectRecord["color"];
+	var size = selectRecord["size"];
+	var productname = selectRecord["productname"];
 	var localstock = returnQuantity(selectRecord["localstock"]);
 	var fba = returnQuantity(selectRecord["fba"]);
 	var fbm = returnQuantity(selectRecord["fbm"]);
@@ -593,6 +596,11 @@ function writeInfoToExcel(excel, selectRecord, sheetName, deliveryFlg, purchaseF
 
 	var sku_X = "C";
 	var asin_X = "D";
+
+	var color_X = "E";
+	var size_X = "F";
+	
+	var writeProductNameX = "G";
 
 	var writePriceX = "H";
 	var writeFBAX = "I";
@@ -618,6 +626,16 @@ function writeInfoToExcel(excel, selectRecord, sheetName, deliveryFlg, purchaseF
 
 		if(excel_sku == null || excel_sku.length <= 0 || excel_asin == null || excel_asin.length <= 0){
 
+			// SKU
+			setExcelValue(excel, sheetName, sku_X + y, sku);
+			// ASIN
+			setExcelValue(excel, sheetName, asin_X + y, asin);
+			// 色
+			setExcelValue(excel, sheetName, color_X + y, color);
+			// サイズ
+			setExcelValue(excel, sheetName, size_X + y, size);
+			// 商品名称
+			setExcelValue(excel, sheetName, writeProductNameX + y, productname);
 			// 商品価格
 			setExcelValue(excel, sheetName, writePriceX + y, price);
 			// FBA在庫数量
