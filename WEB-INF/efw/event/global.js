@@ -485,7 +485,10 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var W_writeDeliveryX = ["U"];
 	var W_writePurchaseX = ["U"];
 
+
 	for(var i = 0;i < selectResult.length;i ++){
+
+		var outputflg = false;
 
 		// 商品管理番号
 		var productno = selectResult[i]["productno"];
@@ -495,7 +498,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 		|| productno == "T006" || productno == "T007" || productno == "T008" || productno == "T009" || productno == "T010" ){
 
 			// 情報設定
-			setInfoToExcel(excel, selectResult[i], "在庫（雨衣）", 
+			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（雨衣）", 
 				RC_labelX, RC_labelY_from, RC_labelY_to,
 				RC_writeStockX, RC_writeLocalStockX, RC_writeOnboardStockX,
 				RC_writeSell7X, RC_writeSell30X, RC_writeSell60X, RC_writeSell90X, RC_writeSellWeekX,
@@ -506,7 +509,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 		}else if(productno == "P001" || productno == "P002"){
 
 			// 情報設定
-			setInfoToExcel(excel, selectResult[i], "在庫（居家服）", 
+			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（居家服）", 
 				PJ_labelX, PJ_labelY_from, PJ_labelY_to,
 				PJ_writeStockX, PJ_writeLocalStockX, PJ_writeOnboardStockX,
 				PJ_writeSell7X, PJ_writeSell30X, PJ_writeSell60X, PJ_writeSell90X, PJ_writeSellWeekX,
@@ -530,7 +533,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 		|| productno == "T306" || productno == "T308" || productno == "T309"){
 
 			// 情報設定
-			setInfoToExcel(excel, selectResult[i], "在庫（雨靴等）", 
+			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（雨靴等）", 
 				RB_labelX, RB_labelY_from, RB_labelY_to,
 				RB_writeStockX, RB_writeLocalStockX, RB_writeOnboardStockX,
 				RB_writeSell7X, RB_writeSell30X, RB_writeSell60X, RB_writeSell90X, RB_writeSellWeekX,
@@ -541,7 +544,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 		}else if(productno != null && productno.length > 0 && productno.substring(0,1) == "W"){
 
 			// 情報設定
-			setInfoToExcel(excel, selectResult[i], "在庫（袜子）", 
+			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（袜子）", 
 				W_labelX, W_labelY_from, W_labelY_to,
 				W_writeStockX, W_writeLocalStockX, W_writeOnboardStockX,
 				W_writeSell7X, W_writeSell30X, W_writeSell60X, W_writeSell90X, W_writeSellWeekX,
@@ -550,8 +553,13 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 		}else{
 			// 情報設定
-			setInfoToExcelBySkuAsin(excel, selectResult[i], "在庫（其他）", deliveryFlg, purchaseFlg);
+			outputflg = setInfoToExcelBySkuAsin(excel, selectResult[i], "在庫（其他）", deliveryFlg, purchaseFlg);
 		}
+
+		if(outputflg == false){
+			writeInfoToExcel(excel, selectResult[i], "在庫（未登録）",  deliveryFlg, purchaseFlg);
+		}
+
 
 	}
 
@@ -560,6 +568,94 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	return tempFilePathName;
 
 }
+
+function writeInfoToExcel(excel, selectRecord, sheetName, deliveryFlg, purchaseFlg){
+
+	var sku = selectRecord["sku"];
+	var asin = selectRecord["asin"];
+	var localstock = returnQuantity(selectRecord["localstock"]);
+	var fba = returnQuantity(selectRecord["fba"]);
+	var fbm = returnQuantity(selectRecord["fbm"]);
+	var onboard = returnQuantity(selectRecord["onboard"]);
+	var selled7 = returnQuantity(selectRecord["selled7"]);
+	var selled30 = returnQuantity(selectRecord["selled30"]);
+	var selled60 = returnQuantity(selectRecord["selled60"]);
+	var selled90 = returnQuantity(selectRecord["selled90"]);
+	var selledweek = returnNumber(selectRecord["selledweek"]);
+	var price = returnJPPrice(selectRecord["price"]);
+	var delivery = returnQuantity(selectRecord["delivery"]);
+	var purchase = returnQuantity(selectRecord["purchase"]);
+
+	var fbaflg = fba != null ? "FBA" : "FBM";
+
+	var Y_from = 4;
+	var Y_to = 9999;
+
+	var sku_X = "C";
+	var asin_X = "D";
+
+	var writePriceX = "H";
+	var writeFBAX = "I";
+	var writeFBMX = "J";
+	var writeLocalStockX = "K";
+	var writeOnboardStockX = "L";
+
+	var writeSell7X = "M";
+	var writeSell30X = "N";
+	var writeSell60X = "O";
+	var writeSell90X = "P";
+	var writeSellWeekX = "Q";
+
+	var writeFBAFlgX = "V";
+	var writeDeliveryX = "S";
+	var writePurchaseX = "S";
+
+	// 在庫情報シート
+	for(var y = Y_from;y <= Y_to;y ++){
+
+		var excel_sku = excel.getValue(sheetName, sku_X + y);
+		var excel_asin = excel.getValue(sheetName, asin_X + y);
+
+		if(excel_sku == null || excel_sku.length <= 0 || excel_asin == null || excel_asin.length <= 0){
+
+			// 商品価格
+			setExcelValue(excel, sheetName, writePriceX + y, price);
+			// FBA在庫数量
+			setExcelValue(excel, sheetName, writeFBAX + y, fba);
+			// FBM在庫数量
+			setExcelValue(excel, sheetName, writeFBMX + y, fbm);
+			// ローカル在庫
+			setExcelValue(excel, sheetName, writeLocalStockX + y, localstock);
+			// ONBOARD在庫
+			setExcelValue(excel, sheetName, writeOnboardStockX + y, onboard);
+			// 販売数量(直近70日間)
+			setExcelValue(excel, sheetName, writeSell7X + y, selled7);
+			// 販売数量(直近30日間)
+			setExcelValue(excel, sheetName, writeSell30X + y, selled30);
+			// 販売数量(直近60日間)
+			setExcelValue(excel, sheetName, writeSell60X + y, selled60);
+			// 販売数量(直近90日間)
+			setExcelValue(excel, sheetName, writeSell90X + y, selled90);
+			// 販売数量(週間平均値)
+			setExcelValue(excel, sheetName, writeSellWeekX + y, selledweek);
+			// 販売方式
+			setExcelValue(excel, sheetName, writeFBAFlgX + y, fbaflg);
+			// 仕入数量
+			if(deliveryFlg){
+				setExcelValue(excel, sheetName, writeDeliveryX + y, delivery);
+			}
+			// 仕入数量
+			if(purchaseFlg){
+				setExcelValue(excel, sheetName, writePurchaseX + y, purchase);
+			}
+
+			break;
+		}
+
+	}
+
+} 
+
 
 function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, purchaseFlg){
 
@@ -645,10 +741,13 @@ function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, pu
 			if(purchaseFlg){
 				setExcelValue(excel, sheetName, writePurchaseX + y, purchase);
 			}
+			return true;
 
 		}
 
 	}
+
+	return false;
 
 } 
 
@@ -711,11 +810,13 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 					// 仕入数量
 					setExcelValue(excel, sheetName, writePurchaseX[x]+y, purchase);
 				}
+
+				return true;
 			}
 		}
 	}
 
-
+	return false;
 }
 
 
