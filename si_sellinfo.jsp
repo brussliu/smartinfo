@@ -41,19 +41,19 @@
 			$("#sellinfolist").find("td").each(function(){
 
 				// 評価数
-				if (this.hasClass(".topcol3")){
+				if ($(this).hasClass(".topcol3")){
 					
-				// 評価先
-				var value1 = tdArr[i].innerHTML.replaceAll('個','');
-				var value2 = tdArr[i].parent().next().children()[2].innerHTML.replaceAll('個','');
-				
-				if(parseFloat(value1) > parseFloat(value2)){
-					tdArr[i].css("background-color", "lightgreen");
-				}
+					// 評価先
+					var value1 = tdArr[i].innerHTML.replaceAll('個','');
+					var value2 = tdArr[i].parent().next().children()[2].innerHTML.replaceAll('個','');
+					
+					if(parseFloat(value1) > parseFloat(value2)){
+						tdArr[i].css("background-color", "lightgreen");
+					}
 
-				if(parseFloat(value1) < parseFloat(value2)){
-					tdArr[i].css("background-color", "khaki");
-				}
+					if(parseFloat(value1) < parseFloat(value2)){
+						tdArr[i].css("background-color", "khaki");
+					}
 
 				}
 
