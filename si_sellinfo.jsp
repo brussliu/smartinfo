@@ -121,6 +121,97 @@
 
 				}
 
+				// 最新評価1
+				if($(this).hasClass("topcol10")){
+
+					var value1 = $(this).html();
+
+					var obj = $(this).parent().next().children()[9];
+
+					var value2 = obj.innerHTML;
+
+					if(parseFloat(value1) > parseFloat(value2)){
+						$(this).css("background-color", "lightgreen");
+					}
+
+					if(parseFloat(value1) < parseFloat(value2)){
+						$(this).css("background-color", "khaki");
+					}
+
+				}
+				// 最新評価2
+				if($(this).hasClass("topcol11")){
+
+					var value1 = $(this).html();
+
+					var obj = $(this).parent().next().children()[10];
+
+					var value2 = obj.innerHTML;
+
+					if(parseFloat(value1) > parseFloat(value2)){
+						$(this).css("background-color", "lightgreen");
+					}
+
+					if(parseFloat(value1) < parseFloat(value2)){
+						$(this).css("background-color", "khaki");
+					}
+
+				}
+				// 最新評価3
+				if($(this).hasClass("topcol12")){
+
+					var value1 = $(this).html();
+
+					var obj = $(this).parent().next().children()[11];
+
+					var value2 = obj.innerHTML;
+
+					if(parseFloat(value1) > parseFloat(value2)){
+						$(this).css("background-color", "lightgreen");
+					}
+
+					if(parseFloat(value1) < parseFloat(value2)){
+						$(this).css("background-color", "khaki");
+					}
+
+				}
+				// 販売数量
+				if($(this).hasClass("topcol13")){
+
+					var value1 = $(this).html();
+
+					var obj = $(this).parent().next().children()[12];
+
+					var value2 = obj.innerHTML;
+
+					if(parseFloat(value1) > parseFloat(value2)){
+						$(this).css("background-color", "lightgreen");
+					}
+
+					if(parseFloat(value1) < parseFloat(value2)){
+						$(this).css("background-color", "khaki");
+					}
+
+				}
+
+				// 在库合計
+				if($(this).hasClass("topcol14")){
+
+					var value1 = $(this).html();
+
+					var obj = $(this).parent().next().children()[13];
+
+					var value2 = obj.innerHTML;
+
+					if(parseFloat(value1) < parseFloat(value2)){
+						$(this).css("background-color", "lightgreen");
+					}
+
+					if(parseFloat(value1) > parseFloat(value2)){
+						$(this).css("background-color", "khaki");
+					}
+
+				}
 
 
 			});
