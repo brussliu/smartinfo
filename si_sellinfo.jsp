@@ -123,7 +123,7 @@
 		<td style="font-size: 20px;font-weight: bold;height: 50px;"></td>
 		<td style="font-size: 20px;font-weight: bold;height: 50px;"></td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="比較" onclick="Efw('searchsellinfo')">
+			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="比較" onclick="searchSellinfo()">
 		</td>
 	</tr>
 </table>
