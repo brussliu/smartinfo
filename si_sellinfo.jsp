@@ -40,7 +40,10 @@
 
 			// 評価数
 			var tdArr = $("td.topcol3");
-			for(var i = 0;i < tdArr.length;i++){
+
+			alert(tdArr);
+			
+			for(var i = 0;i < tdArr.length;i ++){
 				// 評価先
 				var value1 = tdArr[i].innerHTML.replaceAll('個','');
 
