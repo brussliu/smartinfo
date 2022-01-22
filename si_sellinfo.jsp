@@ -43,7 +43,7 @@
 				// 評価数
 				if ($(this).hasClass(".topcol3")){
 
-					//alert($(this).html());
+					alert($(this).html());
 					
 					// 評価先
 					var value1 = $(this).html().replaceAll('個','');
