@@ -49,10 +49,11 @@
 
 					var value1 = $(this).html().replaceAll('個','');
 
-					alert($(this).parent().next().children()[2]);
-					alert(($(this).parent().next().children()[2]).html());
+					var obj = $(this).parent().next().children()[2];
 
-					var value2 = $(this).parent().next().children()[2].html().replaceAll('個','');
+					alert(obj.innerHTML);
+
+					var value2 = obj.innerHTML.replaceAll('個','');
 					//alert(value2);
 					
 					if(parseFloat(value1) > parseFloat(value2)){
