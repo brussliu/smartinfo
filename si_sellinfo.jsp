@@ -38,6 +38,11 @@
 
 			Efw('searchsellinfo');
 
+		}
+
+		function changeColor(){
+
+
 			$("#sellinfolist").find("tr").each(function(){
 
 				var tdArr = $(this).children();
@@ -66,24 +71,10 @@
 
 
 					}
+
 				}
-
-
-
-
-
-
 			});
-
 			
-			// for(var i = 0;i < tdArr.length;i ++){
-
-			// 	alert(tdArr[i].innerHTML);
-
-	
-			// }
-
-
 		}
 
 		

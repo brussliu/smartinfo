@@ -111,8 +111,8 @@ searchsellinfo.fire=function(params){
 	}
 
 
-	// var script = "$('#stocklist').show();changeColor();";
-	// ret.eval(script);
+	var script = "changeColor()";
+	ret.eval(script);
 
 	// 画面へ結果を返す
 	return ret;
