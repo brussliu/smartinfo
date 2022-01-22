@@ -41,7 +41,8 @@
 			// 評価数
 			var tdArr = $("td .topcol3");
 
-			//alert(tdArr);
+			alert("111");
+			alert(tdArr);
 			
 			for(var i = 0;i < tdArr.length;i ++){
 				// 評価先
