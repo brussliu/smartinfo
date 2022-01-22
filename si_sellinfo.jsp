@@ -51,10 +51,7 @@
 
 					var obj = $(this).parent().next().children()[2];
 
-					//alert(obj.innerHTML);
-
 					var value2 = obj.innerHTML.replaceAll('個','');
-					//alert(value2);
 					
 					if(parseFloat(value1) > parseFloat(value2)){
 						$(this).css("background-color", "lightgreen");
@@ -64,10 +61,30 @@
 						$(this).css("background-color", "khaki");
 					}
 
+				}
 
+				if($(this).hasClass("topcol4")){
 
+					var value1 = $(this).html();
+
+					var obj = $(this).parent().next().children()[2];
+
+					var value2 = obj.innerHTML;
+
+					if(parseFloat(value1) > parseFloat(value2)){
+						$(this).css("background-color", "lightgreen");
+					}
+
+					if(parseFloat(value1) < parseFloat(value2)){
+						$(this).css("background-color", "khaki");
+					}
 
 				}
+
+
+
+
+
 			});
 
 
