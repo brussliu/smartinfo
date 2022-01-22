@@ -92,11 +92,11 @@
 
 					var value2 = obj.innerHTML.replaceAll('位','').replaceAll(',','');
 
-					if(parseFloat(value1) > parseFloat(value2)){
+					if(parseFloat(value1) < parseFloat(value2)){
 						$(this).css("background-color", "lightgreen");
 					}
 
-					if(parseFloat(value1) < parseFloat(value2)){
+					if(parseFloat(value1) > parseFloat(value2)){
 						$(this).css("background-color", "khaki");
 					}
 
@@ -111,11 +111,11 @@
 
 					var value2 = obj.innerHTML.replaceAll('位','').replaceAll(',','');
 
-					if(parseFloat(value1) > parseFloat(value2)){
+					if(parseFloat(value1) < parseFloat(value2)){
 						$(this).css("background-color", "lightgreen");
 					}
 
-					if(parseFloat(value1) < parseFloat(value2)){
+					if(parseFloat(value1) > parseFloat(value2)){
 						$(this).css("background-color", "khaki");
 					}
 
