@@ -47,8 +47,6 @@
 
 				var tdArr = $(this).children();
 
-				alert(tdArr.length);
-
 				for(var i = 0;i < tdArr.length;i ++){
 
 					var tdAll = tdArr[i];
@@ -57,6 +55,7 @@
 					if(i == 2){
 
 						alert(tdAll.html());
+						alert(tdAll.innerHTML);
 
 						// var value1 = tdAll.html().replaceAll('個','');
 						// var value2 = tdAll.parent().next().children()[2].html().replaceAll('個','');
@@ -73,6 +72,7 @@
 					}
 
 				}
+				
 			});
 			
 		}
