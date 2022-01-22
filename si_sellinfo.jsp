@@ -48,9 +48,12 @@
 				if($(this).hasClass("topcol3")){
 
 					var value1 = $(this).html().replaceAll('個','');
-					alert(value1);
+
+					alert($(this).parent().next().children()[2]);
+					alert($(this).parent().next().children()[2].html());
+
 					var value2 = $(this).parent().next().children()[2].html().replaceAll('個','');
-					alert(value2);
+					//alert(value2);
 					
 					if(parseFloat(value1) > parseFloat(value2)){
 						$(this).css("background-color", "lightgreen");
