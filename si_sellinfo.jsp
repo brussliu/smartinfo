@@ -52,7 +52,7 @@
 					
 
 					// 評価数
-					if (tdArr[i].hasClass(".topcol3")){
+					if (tdArr[i].hasClass("topcol3")){
 							alert(tdArr[i]);
 							alert(tdArr[i].innerHTML);
 					}
