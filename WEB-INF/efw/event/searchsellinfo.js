@@ -16,7 +16,7 @@ searchsellinfo.fire=function(params){
 
 	if(datefrom == dateto){
 
-		var resultHTML = 
+		var resultHTML1 = 
 		"<tr >" +
 			"<td >{更新日}</td>" +
 			"<td >{商品管理番号}</td>" +
@@ -36,27 +36,79 @@ searchsellinfo.fire=function(params){
 
 			var selectResult = db.select(
 				"SELLINFO",
-				"selectSellinfo",
+				"selectSellinfo1",
 				{
 				shop:shopname,
 				datefrom: datefrom
 				}
 			).getArray();
 
-			ret.runat("#sellinfolist").remove("tr").append(resultHTML).withdata(selectResult);
+			ret.runat("#sellinfolist").remove("tr").append(resultHTML1).withdata(selectResult);
 
 	}else{
 
+		var resultHTML2 = 
+		"<tr >" +
+			"<td >{比較先-更新日}</td>" +
+			"<td >{商品管理番号}</td>" +
+			"<td >{比較先-評価数}</td>" +
+			"<td >{比較先-評価度}</td>" +
+			"<td >{比較先-レベル1種類}</td>" +
+			"<td >{比較先-レベル1数}</td>" +
+			"<td >{比較先-レベル2種類}</td>" +
+			"<td >{比較先-レベル2数}</td>" +
+			"<td >{比較先-質問数}</td>" +
+			"<td >{比較先-最新評価1}</td>" +
+			"<td >{比較先-最新評価2}</td>" +
+			"<td >{比較先-最新評価3}</td>" +
+			"<td >{比較先-販売数量(週間平均値)}</td>" +
+			"<td >{比較先-在库合計}</td>" +
+		"</tr>" +
+		"<tr >" +
+			"<td >{比較元-更新日}</td>" +
+			"<td >{商品管理番号}</td>" +
+			"<td >{比較元-評価数}</td>" +
+			"<td >{比較元-評価度}</td>" +
+			"<td >{比較元-レベル1種類}</td>" +
+			"<td >{比較元-レベル1数}</td>" +
+			"<td >{比較元-レベル2種類}</td>" +
+			"<td >{比較元-レベル2数}</td>" +
+			"<td >{比較元-質問数}</td>" +
+			"<td >{比較元-最新評価1}</td>" +
+			"<td >{比較元-最新評価2}</td>" +
+			"<td >{比較元-最新評価3}</td>" +
+			"<td >{比較元-販売数量(週間平均値)}</td>" +
+			"<td >{比較元-在库合計}</td>" +
+		"</tr>";
+
+
+		var selectResult = null;
+
+		if(datefrom > dateto){
+			selectResult = db.select(
+				"SELLINFO",
+				"selectSellinfo2",
+				{
+				shop:shopname,
+				datefrom: datefrom,
+				dateto: dateto
+				}
+			).getArray();
+		}else{
+			selectResult = db.select(
+				"SELLINFO",
+				"selectSellinfo2",
+				{
+				shop:shopname,
+				datefrom: dateto,
+				dateto: datefrom
+				}
+			).getArray();
+		}
+
+		ret.runat("#sellinfolist").remove("tr").append(resultHTML2).withdata(selectResult);
+
 	}
-
-
-
-
-
-
-
-
-
 
 
 	// var script = "$('#stocklist').show();changeColor();";
