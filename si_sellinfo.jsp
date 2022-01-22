@@ -38,34 +38,36 @@
 
 			Efw('searchsellinfo');
 
-			// 評価数
-			var tdArr = $(".topcol3");
+			$("#sellinfolist").find("td").each(function(){
 
-			alert(tdArr);
-			alert(tdArr.length);
-			alert(tdArr.innerHTML);
+				// 評価数
+				if (this.hasClass(".topcol3")){
+					
+				// 評価先
+				var value1 = tdArr[i].innerHTML.replaceAll('個','');
+				var value2 = tdArr[i].parent().next().children()[2].innerHTML.replaceAll('個','');
+				
+				if(parseFloat(value1) > parseFloat(value2)){
+					tdArr[i].css("background-color", "lightgreen");
+				}
+
+				if(parseFloat(value1) < parseFloat(value2)){
+					tdArr[i].css("background-color", "khaki");
+				}
+
+				}
+
+
+
+			});
 
 			
-			for(var i = 0;i < tdArr.length;i ++){
+			// for(var i = 0;i < tdArr.length;i ++){
 
-				alert(tdArr[i].innerHTML);
+			// 	alert(tdArr[i].innerHTML);
 
-				// // 評価先
-				// var value1 = tdArr[i].innerHTML.replaceAll('個','');
-
-				// var value2 = tdArr[i].parent().next().children()[2].innerHTML.replaceAll('個','');
-
-				
-
-				// if(parseFloat(value1) > parseFloat(value2)){
-				// 	tdArr[i].css("background-color", "lightgreen");
-				// }
-
-				// if(parseFloat(value1) < parseFloat(value2)){
-				// 	tdArr[i].css("background-color", "khaki");
-					
-				// }		
-			}
+	
+			// }
 
 
 		}
