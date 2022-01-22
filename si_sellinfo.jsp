@@ -47,9 +47,6 @@
 
 				if($(this).hasClass("topcol3")){
 
-					// alert($(this));
-					// alert($(this).html());
-
 					var value1 = $(this).html().replaceAll('個','');
 					var value2 = $(this).parent().next().children()[2].html().replaceAll('個','');
 					
