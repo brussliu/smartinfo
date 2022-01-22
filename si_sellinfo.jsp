@@ -42,6 +42,8 @@
 
 				var tdArr = $(this).children();
 
+				alert(tdArr.length);
+
 				for(var i = 0;i < tdArr.length;i ++){
 
 					var tdAll = tdArr[i];
@@ -49,16 +51,18 @@
 					// 評価数
 					if(i == 2){
 
-						var value1 = tdAll.html().replaceAll('個','');
-						var value2 = tdAll.parent().next().children()[2].html().replaceAll('個','');
-						
-						if(parseFloat(value1) > parseFloat(value2)){
-							tdAll.css("background-color", "lightgreen");
-						}
+						alert(tdAll.html());
 
-						if(parseFloat(value1) < parseFloat(value2)){
-							tdAll.css("background-color", "khaki");
-						}
+						// var value1 = tdAll.html().replaceAll('個','');
+						// var value2 = tdAll.parent().next().children()[2].html().replaceAll('個','');
+						
+						// if(parseFloat(value1) > parseFloat(value2)){
+						// 	tdAll.css("background-color", "lightgreen");
+						// }
+
+						// if(parseFloat(value1) < parseFloat(value2)){
+						// 	tdAll.css("background-color", "khaki");
+						// }
 
 
 					}
