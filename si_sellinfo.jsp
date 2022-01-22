@@ -43,11 +43,11 @@
 				// 評価数
 				if ($(this).hasClass(".topcol3")){
 
-					alert($(this).innerHTML);
+					//alert($(this).html());
 					
 					// 評価先
-					var value1 = $(this).innerHTML.replaceAll('個','');
-					var value2 = $(this).parent().next().children()[2].innerHTML.replaceAll('個','');
+					var value1 = $(this).html().replaceAll('個','');
+					var value2 = $(this).parent().next().children()[2].html().replaceAll('個','');
 					
 					if(parseFloat(value1) > parseFloat(value2)){
 						$(this).css("background-color", "lightgreen");
