@@ -44,7 +44,10 @@
 
   	</script>
     <style>
-
+	.bottomrow {
+		border-bottom-style: solid;
+		border-bottom-width: 2px;
+	}
     </style>
 </head>
 <body style="background-color:ghostwhite;" onload="initSellinfo();">
@@ -115,7 +118,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 	</COLGROUP>
-	<tr>
+	<tr style="border-bottom-style: solid;">
 		<td >更新日</td>
 		<td >商品管理番号</td>
 		<td >評価数</td>
@@ -132,7 +135,7 @@
 		<td >在库合計</td>
 	</tr>
 </table>
-<table border="1" id="sellinfolist" style="width: 100%">
+<table border="0" id="sellinfolist" style="width: 100%">
 	<COLGROUP>
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">

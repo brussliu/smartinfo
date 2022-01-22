@@ -48,7 +48,7 @@ searchsellinfo.fire=function(params){
 	}else{
 
 		var resultHTML2 = 
-		"<tr style='border-bottom-style: solid;'>" +
+		"<tr >" +
 			"<td >{比較先-更新日}</td>" +
 			"<td >{商品管理番号}</td>" +
 			"<td >{比較先-評価数}</td>" +
@@ -65,20 +65,20 @@ searchsellinfo.fire=function(params){
 			"<td >{比較先-在库合計}</td>" +
 		"</tr>" +
 		"<tr >" +
-			"<td >{比較元-更新日}</td>" +
-			"<td >{商品管理番号}</td>" +
-			"<td >{比較元-評価数}</td>" +
-			"<td >{比較元-評価度}</td>" +
-			"<td >{比較元-レベル1種類}</td>" +
-			"<td >{比較元-レベル1数}</td>" +
-			"<td >{比較元-レベル2種類}</td>" +
-			"<td >{比較元-レベル2数}</td>" +
-			"<td >{比較元-質問数}</td>" +
-			"<td >{比較元-最新評価1}</td>" +
-			"<td >{比較元-最新評価2}</td>" +
-			"<td >{比較元-最新評価3}</td>" +
-			"<td >{比較元-販売数量(週間平均値)}</td>" +
-			"<td >{比較元-在库合計}</td>" +
+			"<td class='bottomrow'>{比較元-更新日}</td>" +
+			"<td class='bottomrow'>{商品管理番号}</td>" +
+			"<td class='bottomrow'>{比較元-評価数}</td>" +
+			"<td class='bottomrow'>{比較元-評価度}</td>" +
+			"<td class='bottomrow'>{比較元-レベル1種類}</td>" +
+			"<td class='bottomrow'>{比較元-レベル1数}</td>" +
+			"<td class='bottomrow'>{比較元-レベル2種類}</td>" +
+			"<td class='bottomrow'>{比較元-レベル2数}</td>" +
+			"<td class='bottomrow'>{比較元-質問数}</td>" +
+			"<td class='bottomrow'>{比較元-最新評価1}</td>" +
+			"<td class='bottomrow'>{比較元-最新評価2}</td>" +
+			"<td class='bottomrow'>{比較元-最新評価3}</td>" +
+			"<td class='bottomrow'>{比較元-販売数量(週間平均値)}</td>" +
+			"<td class='bottomrow'>{比較元-在库合計}</td>" +
 		"</tr>";
 
 
