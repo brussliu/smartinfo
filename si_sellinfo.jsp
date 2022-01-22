@@ -42,17 +42,19 @@
 
 				// 評価数
 				if ($(this).hasClass(".topcol3")){
+
+					//alert($(this).innerHTML)
 					
 					// 評価先
-					var value1 = tdArr[i].innerHTML.replaceAll('個','');
-					var value2 = tdArr[i].parent().next().children()[2].innerHTML.replaceAll('個','');
+					var value1 = $(this).innerHTML.replaceAll('個','');
+					var value2 = $(this).parent().next().children()[2].innerHTML.replaceAll('個','');
 					
 					if(parseFloat(value1) > parseFloat(value2)){
-						tdArr[i].css("background-color", "lightgreen");
+						$(this).css("background-color", "lightgreen");
 					}
 
 					if(parseFloat(value1) < parseFloat(value2)){
-						tdArr[i].css("background-color", "khaki");
+						$(this).css("background-color", "khaki");
 					}
 
 				}
