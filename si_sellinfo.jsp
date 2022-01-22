@@ -45,6 +45,7 @@
 
 			$("#sellinfolist").find("td").each(function(){
 
+				// 評価数
 				if($(this).hasClass("topcol3")){
 
 					var value1 = $(this).html().replaceAll('個','');
@@ -63,11 +64,12 @@
 
 				}
 
+				// 評価度
 				if($(this).hasClass("topcol4")){
 
 					var value1 = $(this).html();
 
-					var obj = $(this).parent().next().children()[2];
+					var obj = $(this).parent().next().children()[3];
 
 					var value2 = obj.innerHTML;
 
@@ -81,7 +83,43 @@
 
 				}
 
+				// レベル1数
+				if($(this).hasClass("topcol6")){
 
+					var value1 = $(this).html().replaceAll('位','').replaceAll(',','');
+
+					var obj = $(this).parent().next().children()[5];
+
+					var value2 = obj.innerHTML.replaceAll('位','').replaceAll(',','');
+
+					if(parseFloat(value1) > parseFloat(value2)){
+						$(this).css("background-color", "lightgreen");
+					}
+
+					if(parseFloat(value1) < parseFloat(value2)){
+						$(this).css("background-color", "khaki");
+					}
+
+				}
+
+				// レベル2数
+				if($(this).hasClass("topcol8")){
+
+					var value1 = $(this).html().replaceAll('位','').replaceAll(',','');
+
+					var obj = $(this).parent().next().children()[7];
+
+					var value2 = obj.innerHTML.replaceAll('位','').replaceAll(',','');
+
+					if(parseFloat(value1) > parseFloat(value2)){
+						$(this).css("background-color", "lightgreen");
+					}
+
+					if(parseFloat(value1) < parseFloat(value2)){
+						$(this).css("background-color", "khaki");
+					}
+
+				}
 
 
 
