@@ -49,20 +49,20 @@ searchsellinfo.fire=function(params){
 
 		var resultHTML2 = 
 		"<tr >" +
-			"<td >{比較先-更新日}</td>" +
-			"<td >{商品管理番号}</td>" +
-			"<td >{比較先-評価数}</td>" +
-			"<td >{比較先-評価度}</td>" +
-			"<td >{比較先-レベル1種類}</td>" +
-			"<td >{比較先-レベル1数}</td>" +
-			"<td >{比較先-レベル2種類}</td>" +
-			"<td >{比較先-レベル2数}</td>" +
-			"<td >{比較先-質問数}</td>" +
-			"<td >{比較先-最新評価1}</td>" +
-			"<td >{比較先-最新評価2}</td>" +
-			"<td >{比較先-最新評価3}</td>" +
-			"<td >{比較先-販売数量(週間平均値)}</td>" +
-			"<td >{比較先-在库合計}</td>" +
+			"<td class='topcol1'>{比較先-更新日}</td>" +
+			"<td class='topcol2'>{商品管理番号}</td>" +
+			"<td class='topcol3'>{比較先-評価数}</td>" +
+			"<td class='topcol4'>{比較先-評価度}</td>" +
+			"<td class='topcol5'>{比較先-レベル1種類}</td>" +
+			"<td class='topcol6'>{比較先-レベル1数}</td>" +
+			"<td class='topcol7'>{比較先-レベル2種類}</td>" +
+			"<td class='topcol8'>{比較先-レベル2数}</td>" +
+			"<td class='topcol9'>{比較先-質問数}</td>" +
+			"<td class='topcol10'>{比較先-最新評価1}</td>" +
+			"<td class='topcol11'>{比較先-最新評価2}</td>" +
+			"<td class='topcol12'>{比較先-最新評価3}</td>" +
+			"<td class='topcol13'>{比較先-販売数量(週間平均値)}</td>" +
+			"<td class='topcol14'>{比較先-在库合計}</td>" +
 		"</tr>" +
 		"<tr >" +
 			"<td class='bottomrow'>{比較元-更新日}</td>" +
