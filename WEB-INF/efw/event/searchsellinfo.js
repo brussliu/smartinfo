@@ -48,7 +48,7 @@ searchsellinfo.fire=function(params){
 	}else{
 
 		var resultHTML2 = 
-		"<tr >" +
+		"<tr style='border-bottom-style: solid;'>" +
 			"<td >{比較先-更新日}</td>" +
 			"<td >{商品管理番号}</td>" +
 			"<td >{比較先-評価数}</td>" +

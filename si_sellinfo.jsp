@@ -98,7 +98,7 @@
 	</tr>
 </table>
 <hr>
-<table border="1" style="width: 100%">
+<table border="1" style="width: 100%;background-color: aquamarine;">
 	<COLGROUP>
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
