@@ -50,7 +50,7 @@
 					var value1 = $(this).html().replaceAll('個','');
 
 					alert($(this).parent().next().children()[2]);
-					alert($(this).parent().next().children()[2].html());
+					alert(($(this).parent().next().children()[2]).html());
 
 					var value2 = $(this).parent().next().children()[2].html().replaceAll('個','');
 					//alert(value2);
