@@ -48,7 +48,7 @@
 				if($(this).hasClass("topcol3")){
 
 					alert($(this));
-					alert($(this).innerHTML);
+					alert($(this).html());
 
 				}
 			});
