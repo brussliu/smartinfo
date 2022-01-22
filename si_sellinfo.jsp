@@ -39,9 +39,9 @@
 			Efw('searchsellinfo');
 
 			// 評価数
-			var tdArr = $("td.topcol3");
+			var tdArr = $("td .topcol3");
 
-			alert(tdArr);
+			//alert(tdArr);
 			
 			for(var i = 0;i < tdArr.length;i ++){
 				// 評価先
