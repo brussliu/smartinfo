@@ -40,15 +40,14 @@
 
 			// 評価数
 			var tdArr = $("td .topcol3");
-
-			alert("111");
-			alert(tdArr);
 			
 			for(var i = 0;i < tdArr.length;i ++){
 				// 評価先
 				var value1 = tdArr[i].innerHTML.replaceAll('個','');
 
 				var value2 = tdArr[i].parent().next().children()[2].innerHTML.replaceAll('個','');
+
+				alert(value1);alert(value2);
 
 				if(parseFloat(value1) > parseFloat(value2)){
 					tdArr[i].css("background-color", "lightgreen");
