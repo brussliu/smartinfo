@@ -51,7 +51,7 @@
 
 					var obj = $(this).parent().next().children()[2];
 
-					alert(obj.innerHTML);
+					//alert(obj.innerHTML);
 
 					var value2 = obj.innerHTML.replaceAll('個','');
 					//alert(value2);
