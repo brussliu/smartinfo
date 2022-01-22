@@ -40,6 +40,11 @@
 
 			// 評価数
 			var tdArr = $(".topcol3");
+
+			alert(tdArr);
+			alert(tdArr.length);
+			alert(tdArr.innerHTML);
+
 			
 			for(var i = 0;i < tdArr.length;i ++){
 
