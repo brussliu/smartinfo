@@ -39,7 +39,7 @@
 			Efw('searchsellinfo');
 
 			// 評価数
-			var tdArr = $("td .topcol3");
+			var tdArr = $(".topcol3");
 			
 			for(var i = 0;i < tdArr.length;i ++){
 
@@ -61,10 +61,6 @@
 					
 				// }		
 			}
-
-
-
-
 
 
 		}
