@@ -9,7 +9,7 @@ initsellinfo.fire=function(params){
 	var ret = new Result();
 	shopname = params["#shop"];
 	
-	var resultHTML = "<option id='W001'>{dt}</option>";
+	var resultHTML = "<option id='W001'>{更新日}</option>";
 
 	var selectResult = db.select(
 		"SELLINFO",
@@ -18,7 +18,7 @@ initsellinfo.fire=function(params){
 	).getArray();
 
 	ret.runat("#datefrom").remove("option").append(resultHTML).withdata(selectResult);
-	
+
 	ret.runat("#dateto").remove("option").append(resultHTML).withdata(selectResult);
 
 	// var script = "$('#productlist').show();";
