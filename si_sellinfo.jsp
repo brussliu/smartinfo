@@ -98,7 +98,6 @@
 	</tr>
 </table>
 <hr>
-<div style="height: 370px;overflow-y:scroll; overflow-x:scroll;border-style: solid;border-width: 1px;">
 <table border="1" style="width: 100%">
 	<COLGROUP>
 		<COL WIDTH="100PX">
@@ -151,7 +150,6 @@
 		<COL WIDTH="100PX">
 	</COLGROUP>
 </table>
-</div>
 
 
 </body>
