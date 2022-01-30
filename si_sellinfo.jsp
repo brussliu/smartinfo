@@ -34,6 +34,14 @@
 			Efw('initsellinfo');
 		}
 
+		function searchSellinfo(){
+
+			Efw('searchsellinfo');
+
+		}
+
+		
+
   	</script>
     <style>
 
