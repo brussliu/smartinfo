@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+	<sql id="selectDt">
+		select distinct "更新日" from "INPUT_販売情報" where "店舗名" = :shopname
+	</sql>
+
+</sqls>

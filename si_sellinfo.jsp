@@ -30,8 +30,8 @@
 		 
 		});
 
-		function searchMaster(){
-			Efw('searchmaster');
+		function initSellinfo(){
+			Efw('initsellinfo');
 		}
 
   	</script>
@@ -39,7 +39,7 @@
 
     </style>
 </head>
-<body style="background-color:ghostwhite;" onload1="searchMaster();">
+<body style="background-color:ghostwhite;" onload="initSellinfo();">
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
@@ -62,7 +62,7 @@
 			比較先
 		</td>
 		<td style="font-size: 16px;">
-			<select STYLE="WIDTH:150px;height:32px;" id="productdiv">
+			<select STYLE="WIDTH:150px;height:32px;" id="datefrom">
 				<option id=""></option>
 				<option id="W001">W001</option>	
 				<option id="W002">W002</option>
@@ -74,7 +74,7 @@
 			比較元
 		</td>
 		<td style="font-size: 16px;">
-			<select STYLE="WIDTH:150px;height:32px;" id="productdiv">
+			<select STYLE="WIDTH:150px;height:32px;" id="dateto">
 				<option id=""></option>
 				<option id="W001">W001</option>	
 				<option id="W002">W002</option>
