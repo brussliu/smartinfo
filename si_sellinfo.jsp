@@ -85,19 +85,22 @@
 		<td style="font-size: 20px;font-weight: bold;height: 50px;"></td>
 		<td style="font-size: 20px;font-weight: bold;height: 50px;"></td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="Efw('searchproduct')">
+			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="比較" onclick="Efw('searchsellinfo')">
 		</td>
 	</tr>
 </table>
 <hr>
-<div id="productlist" style="height: 370px;overflow-y:scroll; overflow-x:scroll;border-style: solid;border-width: 1px;display: none;">
+<div style="height: 370px;overflow-y:scroll; overflow-x:scroll;border-style: solid;border-width: 1px;">
 <table border="1" style="width: 100%">
 	<COLGROUP>
 		<COL WIDTH="100PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL >
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
@@ -106,29 +109,32 @@
 		<COL WIDTH="100PX">
 	</COLGROUP>
 	<tr>
-		<td rowspan="2">商品管理番号</td>
-		<td rowspan="2">SKU番号</td>
-		<td rowspan="2">ASIN番号</td>
-		<td rowspan="2">ラベル番号</td>
-		<td rowspan="2">商品名称</td>
-		<td colspan="3">在庫数量</td>
-		<td rowspan="2">価格</td>
-		<td rowspan="2">商品種別</td>
-		<td rowspan="2">出品タイプ</td>
-	</tr>
-	<tr>
-		<td>LOCAL</td>
-		<td>FBM</td>
-		<td>FBA</td>
+		<td >更新日</td>
+		<td >商品管理番号</td>
+		<td >評価数</td>
+		<td >評価度</td>
+		<td >レベル1種類</td>
+		<td >レベル1数</td>
+		<td >レベル2種類</td>
+		<td >レベル2数</td>
+		<td >質問数</td>
+		<td >最新評価1</td>
+		<td >最新評価2</td>
+		<td >最新評価3</td>
+		<td >販売数量</td>
+		<td >在库合計</td>
 	</tr>
 </table>
-<table border="1" id="producttable" style="width: 100%">
+<table border="1" id="sellinfolist" style="width: 100%">
 	<COLGROUP>
 		<COL WIDTH="100PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL >
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
@@ -136,19 +142,6 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 	</COLGROUP>
-	<tr>
-		<td>P001</td>
-		<td>SKU番号</td>
-		<td>ASIN番号</td>
-		<td>ラベル番号</td>
-		<td>商品名称</td>
-		<td>在庫数量1</td>
-		<td>在庫数量2</td>
-		<td>在庫数量3</td>
-		<td>価格</td>
-		<td>商品種別</td>
-		<td>出品タイプ</td>
-	</tr>
 </table>
 </div>
 
