@@ -45,7 +45,7 @@
 </div>
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="0" style="width: 100%;">
+<table class="productlist" border="1" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
@@ -57,33 +57,9 @@
 		<COL WIDTH="220PX">
 	</COLGROUP>
 	<tr>
-		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="7">
-			検索条件
-		</td>
-		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="Efw('searchproduct')">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			商品分類
-		</td>
-		<td style="font-size: 16px;" colspan="5">
-			<input type="checkbox" name="productdiv">&nbsp;レインコート
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;傘
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;靴下（夏用）
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;靴下（秋冬用）
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			商品番号
+		<td style="font-size: 20px;font-weight: bold;height: 50px;"></td>
+		<td style="font-size: 20px;font-weight: bold;height: 50px;">
+			比較先
 		</td>
 		<td style="font-size: 16px;">
 			<select STYLE="WIDTH:150px;height:32px;" id="productdiv">
@@ -94,170 +70,20 @@
 				<option id="W004">W004</option>
 			</select>
 		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			色
+		<td style="font-size: 20px;font-weight: bold;height: 50px;">
+			比較元
 		</td>
 		<td style="font-size: 16px;">
 			<select STYLE="WIDTH:150px;height:32px;" id="productdiv">
 				<option id=""></option>
-				<option id="花柄">花柄</option>
+				<option id="W001">W001</option>	
+				<option id="W002">W002</option>
+				<option id="W003">W003</option>
+				<option id="W004">W004</option>
 			</select>
 		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			サイズ
-		</td>
-		<td style="font-size: 16px;">
-			<select STYLE="WIDTH:150px;height:32px;" id="productdiv">
-				<option id=""></option>
-				<option id="S">S</option>
-			</select>
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			商品名称
-		</td>
-		<td style="font-size: 16px;" colspan="5">
-			<input type="text" id="productname" style="width: 600px;height: 32px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			発送方式
-		</td>
-		<td style="font-size: 16px;" colspan="3">
-			<input type="checkbox" name="productdiv">&nbsp;FBA
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;FBM
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			価格
-		</td>
-		<td style="font-size: 16px;" colspan="1">
-			<input type="text" id="price" style="width: 100px;height: 32px;">
-			&nbsp;～&nbsp;
-			<input type="text" id="price" style="width: 100px;height: 32px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			出品タイプ
-		</td>
-		<td style="font-size: 16px;" colspan="3">
-			<input type="checkbox" name="productdiv">&nbsp;自出品
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;並行出品
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			検索対象
-		</td>
-		<td style="font-size: 16px;" colspan="1">
-			<input type="checkbox" name="productdiv">&nbsp;親商品
-			<input type="checkbox" name="productdiv" style="margin-left: 30px;">&nbsp;子商品
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-	</tr>
-</table>
-<hr>
-<table class="productlist" border="0" style="width: 100%">
-	<COLGROUP>
-		<COL WIDTH="30PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="30PX">
-		<COL >
-	</COLGROUP>
-	<tr>
-		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="7">
-			表示項目
-		</td>
-		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="2">
-			表示順
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;商品番号
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;色
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;サイズ
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;在庫数量
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;価格
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;SKU番号
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;ASIN番号
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;ラベル番号
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;商品種別
-		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" name="productdiv">&nbsp;出品種別
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
-		</td>
-		<td style="font-size: 16px;">
+		<td style="font-size: 16px;text-align: right;">
+			<input type="button" id="searchproduct" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="Efw('searchproduct')">
 		</td>
 	</tr>
 </table>
