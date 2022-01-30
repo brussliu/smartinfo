@@ -17,9 +17,9 @@ initsellinfo.fire=function(params){
 		{shop:shopname}
 	).getArray();
 
-	//ret.runat("#datefrom").remove("option").append(resultHTML).withdata(selectResult);
-
-	//ret.runat("#dateto").remove("option").append(resultHTML).withdata(selectResult);
+	ret.runat("#datefrom").remove("option").append(resultHTML).withdata(selectResult);
+	
+	ret.runat("#dateto").remove("option").append(resultHTML).withdata(selectResult);
 
 	// var script = "$('#productlist').show();";
 	// ret.eval(script);
