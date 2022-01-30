@@ -17,6 +17,7 @@ searchsellinfo.fire=function(params){
 	if(datefrom == dateto){
 
 		var resultHTML = 
+		"<tr >" +
 			"<td >{更新日}</td>" +
 			"<td >{商品管理番号}</td>" +
 			"<td >{評価数}</td>" +
@@ -30,7 +31,8 @@ searchsellinfo.fire=function(params){
 			"<td >{最新評価2}</td>" +
 			"<td >{最新評価3}</td>" +
 			"<td >{販売数量(週間平均値)}</td>" +
-			"<td >{在库合計}</td>";
+			"<td >{在库合計}</td>" +
+		"</tr>";
 
 			var selectResult = db.select(
 				"SELLINFO",
