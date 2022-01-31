@@ -63,6 +63,7 @@ searchsellinfo.fire=function(params){
 			"<td class='topcol12'>{比較先-最新評価3}</td>" +
 			"<td class='topcol13'>{比較先-販売数量(週間平均値)}</td>" +
 			"<td class='topcol14'>{比較先-在库合計}</td>" +
+			"<td class='topcol15' rowspan='2'><a href='https://www.amazon.co.jp/gp/product/{ASIN番号}'>https://www.amazon.co.jp/gp/product/{ASIN番号}</a></td>" +
 		"</tr>" +
 		"<tr >" +
 			"<td class='bottomrow'>{比較元-更新日}</td>" +

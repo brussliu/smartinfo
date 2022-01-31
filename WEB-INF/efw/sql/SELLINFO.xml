@@ -11,6 +11,7 @@
 	<sql id="selectSellinfo2">
 		select
 			MAIN."商品管理番号",
+			MAIN."ASIN番号",
 			T1."評価数" as "比較先-評価数",
 			T1."評価度" as "比較先-評価度",
 			T1."レベル1種類" as "比較先-レベル1種類",
@@ -38,7 +39,7 @@
 			T2."在库合計" as "比較元-在库合計",
 			T2."更新日" as "比較元-更新日"
 		from
-		(select distinct "商品管理番号" from "INPUT_販売情報" order by "商品管理番号") MAIN
+		(select distinct "商品管理番号","ASIN番号" from "INPUT_販売情報" order by "商品管理番号") MAIN
 		LEFT JOIN 
 		(select * from "INPUT_販売情報" where "更新日" = :datefrom) T1 on T1."商品管理番号" = MAIN."商品管理番号"
 		LEFT JOIN 

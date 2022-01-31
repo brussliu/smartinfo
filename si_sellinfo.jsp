@@ -334,6 +334,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
+		<COL WIDTH="300PX">
 	</COLGROUP>
 	<tr style="border-bottom-style: solid;">
 		<td >更新日</td>
@@ -350,6 +351,7 @@
 		<td >最新評価3</td>
 		<td >販売数量</td>
 		<td >在库合計</td>
+		<td >URL</td>
 	</tr>
 </table>
 <table border="0" id="sellinfolist" style="width: 100%">
@@ -368,6 +370,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
+		<COL WIDTH="300PX">
 	</COLGROUP>
 </table>
 
