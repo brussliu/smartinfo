@@ -11,7 +11,7 @@
 	<sql id="selectSellinfo2">
 		select
 			MAIN."商品管理番号",
-			MAIN."ASIN番号",
+			MAIN."ASIN番号" as "ASIN番号",
 			T1."評価数" as "比較先-評価数",
 			T1."評価度" as "比較先-評価度",
 			T1."レベル1種類" as "比較先-レベル1種類",
