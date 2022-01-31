@@ -2,7 +2,7 @@
 <!DOCTYPE sqls>
 <sqls>
 	<sql id="selectDt">
-		select distinct "更新日" from "INPUT_販売情報"
+		select distinct "更新日" from "INPUT_販売情報" order by "更新日" desc
 	</sql>
 	<sql id="selectSellinfo1">
 		select * from "INPUT_販売情報" where "更新日" = :datefrom
@@ -44,6 +44,7 @@
 		(select * from "INPUT_販売情報" where "更新日" = :datefrom) T1 on T1."商品管理番号" = MAIN."商品管理番号"
 		LEFT JOIN 
 		(select * from "INPUT_販売情報" where "更新日" = :dateto) T2 on T2."商品管理番号" = MAIN."商品管理番号"
+		order by "商品管理番号"
 	</sql>
 
 </sqls>
