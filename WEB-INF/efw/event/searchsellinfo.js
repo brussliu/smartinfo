@@ -63,7 +63,7 @@ searchsellinfo.fire=function(params){
 			"<td class='topcol12'>{比較先-最新評価3}</td>" +
 			"<td class='topcol13'>{比較先-販売数量(週間平均値)}</td>" +
 			"<td class='topcol14'>{比較先-在库合計}</td>" +
-			"<td class='topcol15' rowspan='2'>{asin番号}}</td>" +
+			"<td class='topcol15' rowspan='2'><a href='https://www.amazon.co.jp/dp/{asin番号}'>●</a></td>" +
 		"</tr>" +
 		"<tr >" +
 			"<td class='bottomrow'>{比較元-更新日}</td>" +
@@ -106,8 +106,6 @@ searchsellinfo.fire=function(params){
 				}
 			).getArray();
 		}
-
-		selectResult.debug("------------------------")
 
 		ret.runat("#sellinfolist").remove("tr").append(resultHTML2).withdata(selectResult);
 

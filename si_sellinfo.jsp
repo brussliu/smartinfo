@@ -334,7 +334,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
-		<COL WIDTH="300PX">
+		<COL WIDTH="50PX">
 	</COLGROUP>
 	<tr style="border-bottom-style: solid;">
 		<td >更新日</td>
@@ -370,7 +370,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
-		<COL WIDTH="300PX">
+		<COL WIDTH="50PX">
 	</COLGROUP>
 </table>
 
