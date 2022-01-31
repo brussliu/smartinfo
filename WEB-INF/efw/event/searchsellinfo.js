@@ -107,6 +107,8 @@ searchsellinfo.fire=function(params){
 			).getArray();
 		}
 
+		selectResult.debug("------------------------")
+
 		ret.runat("#sellinfolist").remove("tr").append(resultHTML2).withdata(selectResult);
 
 	}
