@@ -50,7 +50,7 @@ searchsellinfo.fire=function(params){
 		var resultHTML2 = 
 		"<tr >" +
 			"<td class='topcol1'>{比較先-更新日}</td>" +
-			"<td class='topcol2'>{商品管理番号}</td>" +
+			"<td class='topcol2' style='background-color:{商品標示フラグ};'>{商品管理番号}</td>" +
 			"<td class='topcol3'>{比較先-評価数}</td>" +
 			"<td class='topcol4'>{比較先-評価度}</td>" +
 			"<td class='topcol5'>{比較先-レベル1種類}</td>" +
@@ -67,7 +67,7 @@ searchsellinfo.fire=function(params){
 		"</tr>" +
 		"<tr >" +
 			"<td class='bottomrow'>{比較元-更新日}</td>" +
-			"<td class='bottomrow'>{商品管理番号}</td>" +
+			"<td class='bottomrow' style='background-color:{商品標示フラグ};'>{商品管理番号}</td>" +
 			"<td class='bottomrow'>{比較元-評価数}</td>" +
 			"<td class='bottomrow'>{比較元-評価度}</td>" +
 			"<td class='bottomrow'>{比較元-レベル1種類}</td>" +

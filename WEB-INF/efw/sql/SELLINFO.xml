@@ -12,6 +12,7 @@
 		select
 			MAIN."商品管理番号",
 			MAIN."ASIN番号" as "ASIN番号",
+			case when T3."商品標示フラグ" = 'ON' then 'pink' else '' end as "商品標示フラグ",
 			T1."評価数" as "比較先-評価数",
 			T1."評価度" as "比較先-評価度",
 			T1."レベル1種類" as "比較先-レベル1種類",
@@ -44,6 +45,8 @@
 		(select * from "INPUT_販売情報" where "更新日" = :datefrom) T1 on T1."商品管理番号" = MAIN."商品管理番号"
 		LEFT JOIN 
 		(select * from "INPUT_販売情報" where "更新日" = :dateto) T2 on T2."商品管理番号" = MAIN."商品管理番号"
+		LEFT JOIN
+		"MASTER_商品標示情報" T3 on T3."商品管理番号" = MAIN."商品管理番号"
 		order by "商品管理番号"
 	</sql>
 
