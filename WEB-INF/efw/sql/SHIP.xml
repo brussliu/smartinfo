@@ -7,7 +7,7 @@
 			B."商品分類" as productdiv,
 			A."SKU番号" as sku,
 			B."ASIN番号" as asin,
-			B."ラベル番号" as label,
+			C."ラベル番号" as label,
 			A."商品名称" as productname,
 			B."色" as option1,
 			B."サイズ" as option2,
@@ -26,8 +26,11 @@
 				"SKU番号","商品名称"
 		) A
 		LEFT JOIN
-		"MASTER_出品マスタ情報" B
+		"NEW_出品マスタ情報" B
 		ON A."SKU番号" = B."SKU番号"
+		LEFT JOIN
+		"INPUT_FBA在庫情報" C
+		ON A."SKU番号" = C."SKU番号"
 
 		union all
 
@@ -146,7 +149,7 @@
 		WHERE
 			A."発送状態" = '発送済'
 			AND
-			substring(A."支払時間",1,10) >= TO_CHAR(current_date -interval '7 day','yyyy-mm-dd')
+			substring(A."支払時間",1,10) >= TO_CHAR(current_date -interval '30 day','yyyy-mm-dd')
 		GROUP BY
 			A."注文番号",
 			A."支払時間",
