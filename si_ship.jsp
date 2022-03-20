@@ -207,6 +207,20 @@
 		<td style="font-size: 16px;text-align: right;">
 		</td>
 	</tr>
+	<tr>
+		<td style="font-size: 16px;font-weight: bold;height: 40px;">
+		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 40px;">
+			出力方式
+		</td>
+		<td style="font-size: 16px;" colspan="5" id="orderTerm">
+			<input type="radio" name="outputType" value="old" disabled>旧：インクジェットプリンター
+			<input type="radio" name="outputType" value="new" checked>新：サーマルプリンター
+		</td>
+		<td style="font-size: 16px;text-align: right;">
+			<input type="button" id="outputship" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputship()">
+		</td>
+	</tr>
 </table>
 <br/>
 <hr>
