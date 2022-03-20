@@ -97,6 +97,9 @@ outputship.fire=function(params){
 	}
 
 
+	outputType.debug("AAAAAAAAAAAAA");
+
+
 	if(outputType == "new"){
 
 		for(var i = 1; i <= shipCount; i ++){
