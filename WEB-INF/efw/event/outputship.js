@@ -260,6 +260,8 @@ outputship.fire=function(params){
 
 	var sheetArr = excel.getSheetNames();
 
+	sheetArr.debug("HHHHHHHHHHHHHHHH");
+
 	for(var k = 0;k < sheetArr.length;k ++){
 
 		if(sheetArr[k].indexOf("TEMP") >= 0){
