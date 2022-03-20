@@ -261,19 +261,19 @@ outputship.fire=function(params){
 	}
 
 
-	var sheetArr = excel.getSheetNames();
+	// var sheetArr = excel.getSheetNames();
 
-	sheetArr.debug("HHHHHHHHHHHHHHHH");
+	// sheetArr.debug("HHHHHHHHHHHHHHHH");
 
-	for(var k = 0;k < sheetArr.length;k ++){
+	// for(var k = 0;k < sheetArr.length;k ++){
 
-		if(sheetArr[k].indexOf("TEMP") >= 0){
+	// 	if(sheetArr[k].indexOf("TEMP") >= 0){
 
-			excel.hideSheet(sheetArr[k]);
+	// 		excel.hideSheet(sheetArr[k]);
 
-		}
+	// 	}
 
-	}
+	// }
 
 
 	excel.setActiveSheet("Product").save(tempFilePathName);
