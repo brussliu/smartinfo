@@ -99,7 +99,7 @@ outputship.fire=function(params){
 
 	if(outputType == "new"){
 
-		for(var i = 0; i < shipCount; i ++){
+		for(var i = 1; i <= shipCount; i ++){
 
 			var postno = postnoArr[i];
 
@@ -112,15 +112,17 @@ outputship.fire=function(params){
 
 			var content = contentArr[i];
 
-			excel.setCell("SHIPLIST", "A" + i+1, postno);
+			excel.setCell("SHIPLIST", "A" + i, "〒" + postno);
 
-			excel.setCell("SHIPLIST", "B" + i+1, standardAddressArr[0]);
+			excel.setCell("SHIPLIST", "B" + i, standardAddressArr[0]);
 
-			excel.setCell("SHIPLIST", "C" + i+1, standardAddressArr[1]);
+			excel.setCell("SHIPLIST", "C" + i, standardAddressArr[1]);
 
-			excel.setCell("SHIPLIST", "D" + i+1, receiver);
+			excel.setCell("SHIPLIST", "D" + i, "");
 
-			excel.setCell("SHIPLIST", "E" + i+1, content);
+			excel.setCell("SHIPLIST", "E" + i, receiver);
+
+			excel.setCell("SHIPLIST", "F" + i, content);
 
 		}
 
