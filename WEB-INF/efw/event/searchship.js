@@ -11,7 +11,7 @@ searchship.fire=function(params){
 	shopname = params["#shop"];
 
 	var resultHTML1 = 
-	"<tr>" +
+	"<tr class='content'>" +
 		"<td class='content' style='width: 100px;'>{productno}</td>" +
 		"<td class='content' style='width: 120px;'>{productdiv}</td>" +
 		"<td class='content' style='width: 120px;'>{sku}</td>" +
@@ -38,7 +38,7 @@ searchship.fire=function(params){
 	ret.runat("#shipinfotable").remove(".content");
 
 	var resultHTML2 = 
-	"<tr>" +
+	"<tr class='content'>" +
 		"<td class='content' style='width: 50px;'><input type='checkbox' name='orderselect' value='{orderno}' checked></td>" +
 		"<td class='content' style='width: 80px;'>{div}</td>" +
 		"<td class='content' style='width: 80px;'>{shipstatus}</td>" +
@@ -65,7 +65,7 @@ searchship.fire=function(params){
 	ret.runat("#shipinfotable").append(resultHTML2).withdata(selectResult2);
 
 	var resultHTML3 = 
-	"<tr style='background-color: rgb(195,195,195);'>" +
+	"<tr class='content' style='background-color: rgb(195,195,195);'>" +
 		"<td class='content' style='width: 50px;'></td>" +
 		"<td class='content' style='width: 80px;'>{div}</td>" +
 		"<td class='content' style='width: 80px;'>{shipstatus}</td>" +
