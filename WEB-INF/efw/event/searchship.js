@@ -77,7 +77,7 @@ searchship.fire=function(params){
 		"<td class='content' style='width: 100px;'>{postno}</td>" +
 		"<td class='content' style='width: 400px;'>{address}</td>" +
 		"<td class='content' style='width: 150px;'>{buyer_tel}</td>" +
-		"<td class='content' style='width: 150px;'><input type='button' style='' value='数量回復' onclick='upship(this)'></td>" +
+		"<td class='content' style='width: 150px;'>発送済</td>" +
 	"</tr>";
 
 	var selectResult3 = db.select(
