@@ -112,15 +112,15 @@ outputship.fire=function(params){
 
 			var content = contentArr[i];
 
-			excel.setCell("SHIPLIST", "A" + i, postno);
+			excel.setCell("SHIPLIST", "A" + i+1, postno);
 
-			excel.setCell("SHIPLIST", "B" + i, standardAddressArr[0]);
+			excel.setCell("SHIPLIST", "B" + i+1, standardAddressArr[0]);
 
-			excel.setCell("SHIPLIST", "C" + i, standardAddressArr[1]);
+			excel.setCell("SHIPLIST", "C" + i+1, standardAddressArr[1]);
 
-			excel.setCell("SHIPLIST", "D" + i, receiver);
+			excel.setCell("SHIPLIST", "D" + i+1, receiver);
 
-			excel.setCell("SHIPLIST", "E" + i, content);
+			excel.setCell("SHIPLIST", "E" + i+1, content);
 
 		}
 
