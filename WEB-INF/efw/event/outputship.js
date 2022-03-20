@@ -102,7 +102,7 @@ outputship.fire=function(params){
 
 	if(outputType == "new"){
 
-		for(var i = 1; i <= shipCount; i ++){
+		for(var i = 0; i < shipCount; i ++){
 
 			var postno = postnoArr[i];
 
@@ -115,17 +115,17 @@ outputship.fire=function(params){
 
 			var content = contentArr[i];
 
-			excel.setCell("SHIPLIST", "A" + i, "〒" + postno);
+			excel.setCell("SHIPLIST", "A" + (i+1), "〒" + postno);
 
-			excel.setCell("SHIPLIST", "B" + i, standardAddressArr[0]);
+			excel.setCell("SHIPLIST", "B" + (i+1), standardAddressArr[0]);
 
-			excel.setCell("SHIPLIST", "C" + i, standardAddressArr[1]);
+			excel.setCell("SHIPLIST", "C" + (i+1), standardAddressArr[1]);
 
-			excel.setCell("SHIPLIST", "D" + i, "");
+			excel.setCell("SHIPLIST", "D" + (i+1), "");
 
-			excel.setCell("SHIPLIST", "E" + i, receiver);
+			excel.setCell("SHIPLIST", "E" + (i+1), receiver);
 
-			excel.setCell("SHIPLIST", "F" + i, content);
+			excel.setCell("SHIPLIST", "F" + (i+1), content);
 
 		}
 
@@ -261,19 +261,17 @@ outputship.fire=function(params){
 	}
 
 
-	// var sheetArr = excel.getSheetNames();
+	var sheetArr = excel.getSheetNames();
 
-	// sheetArr.debug("HHHHHHHHHHHHHHHH");
+	for(var k = 0;k < sheetArr.length;k ++){
 
-	// for(var k = 0;k < sheetArr.length;k ++){
+		if(sheetArr[k].indexOf("TEMP") >= 0){
 
-	// 	if(sheetArr[k].indexOf("TEMP") >= 0){
+			excel.hideSheet(sheetArr[k]);
 
-	// 		excel.hideSheet(sheetArr[k]);
+		}
 
-	// 	}
-
-	// }
+	}
 
 
 	excel.setActiveSheet("Product").save(tempFilePathName);
