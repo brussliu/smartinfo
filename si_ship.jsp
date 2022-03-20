@@ -121,7 +121,10 @@
         		
     		});
 
-        	Efw('outputship',{'shipno': shipnoArr, 'postno': postnoArr, 'shipaddress': shipaddressArr, 'receiver': receiverArr});
+
+			outputType = $('input:radio[name=outputType]:checked').val();
+
+        	Efw('outputship',{'shipno': shipnoArr, 'postno': postnoArr, 'shipaddress': shipaddressArr, 'receiver': receiverArr, 'outputType': outputType});
         }
 
         function searchship(){
@@ -213,7 +216,7 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			出力方式
 		</td>
-		<td style="font-size: 16px;" colspan="5" id="orderTerm">
+		<td style="font-size: 16px;" colspan="5">
 			<input type="radio" name="outputType" value="old" disabled>旧：インクジェットプリンター
 			<input type="radio" name="outputType" value="new" checked>新：サーマルプリンター
 		</td>

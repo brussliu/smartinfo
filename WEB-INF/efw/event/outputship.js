@@ -6,7 +6,7 @@ outputship.paramsFormat={
 	"postno":null,
 	"shipaddress":null,
 	"receiver":null,
-	"#outputType":null
+	"outputType":null
 };
 
 var shopname = "";
@@ -26,7 +26,7 @@ outputship.fire=function(params){
 
 	var contentArr = new Array();
 
-	var outputType = params["#outputType"];
+	var outputType = params["outputType"];
 
 
 	for(var i = 0; i < shipCount; i ++){
