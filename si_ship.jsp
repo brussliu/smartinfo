@@ -186,9 +186,9 @@
 			注文期間
 		</td>
 		<td style="font-size: 16px;" colspan="5" id="orderTerm">
-			<input type="radio" checked name="orderTerm01" value="7" disabled>7日以内
-			<input type="radio" checked name="orderTerm01" value="30" checked>30日以内
-			<input type="radio" checked name="orderTerm01" value="999" disabled>すべて
+			<input type="radio" name="orderTerm01" value="7" disabled>7日以内
+			<input type="radio" name="orderTerm01" value="30" checked>30日以内
+			<input type="radio" name="orderTerm01" value="999" disabled>すべて
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputship" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputship()">
