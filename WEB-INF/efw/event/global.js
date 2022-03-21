@@ -86,7 +86,11 @@ function getStandardAddress(address){
 
 		var lastAddress = address.substring(address1.length);
 
+		"BBBBBBBBBBBBBB".debug("BBBBBBBBBBBBBB");
+
 		address2 = shrinkAddress(lastAddress);
+
+		"CCCCCCCCCCCCCC".debug("CCCCCCCCCCCCCC");
 
 		address3 = lastAddress.substring(address2.length);
 
@@ -114,8 +118,8 @@ function shrinkAddress(address){
     //if(!address) return ""
 
     // 番地っぽい文字列を抽出する正規表現
-    let pattern = /([0-9０-９]+|[一二三四五六七八九十百千万]+)*(([0-9０-９]+|[一二三四五六七八九十百千万]+)|(丁目|丁|番地|番|号|-|－|‐|ー|−|の|東|西|南|北){1,2})*(([0-9０-９]+|[一二三四五六七八九十百千万]}+)|(丁目|丁|番地|番|号){1,2})/;
-    let result = address.match(pattern);
+    var pattern = /([0-9０-９]+|[一二三四五六七八九十百千万]+)*(([0-9０-９]+|[一二三四五六七八九十百千万]+)|(丁目|丁|番地|番|号|-|－|‐|ー|−|の|東|西|南|北){1,2})*(([0-9０-９]+|[一二三四五六七八九十百千万]}+)|(丁目|丁|番地|番|号){1,2})/;
+    var result = address.match(pattern);
 	// 番地っぽい文字列を抽出する
 	var c = result[0];
 	var p = address.indexOf(c) + c.length;
