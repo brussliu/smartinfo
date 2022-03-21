@@ -97,8 +97,6 @@ outputship.fire=function(params){
 	}
 
 
-	outputType.debug("AAAAAAAAAAAAA");
-
 
 	if(outputType == "new"){
 
@@ -110,7 +108,7 @@ outputship.fire=function(params){
 
 			var receiver = receiverArr[i];
 			if(receiver.substring(receiver.length-1) != "様"){
-				receiver = receiver + "　様"
+				receiver = receiver.replaceAll(' ','').replaceAll('　','') + "　様"
 			}
 
 			var content = contentArr[i];
@@ -121,7 +119,7 @@ outputship.fire=function(params){
 
 			excel.setCell("SHIPLIST", "C" + (i+1), standardAddressArr[1]);
 
-			excel.setCell("SHIPLIST", "D" + (i+1), "");
+			excel.setCell("SHIPLIST", "D" + (i+1), standardAddressArr[2]);
 
 			excel.setCell("SHIPLIST", "E" + (i+1), receiver);
 
@@ -150,7 +148,7 @@ outputship.fire=function(params){
 	
 			var receiver = receiverArr[i];
 			if(receiver.substring(receiver.length-1) != "様"){
-				receiver = receiver + "　様"
+				receiver = receiver.replaceAll(' ','').replaceAll('　','') + "　様"
 			}
 	
 			var content = contentArr[i];
@@ -183,6 +181,7 @@ outputship.fire=function(params){
 				// shipaddress
 				excel.setCell(sheetName, "E3", standardAddressArr[0]);
 				excel.setCell(sheetName, "E4", standardAddressArr[1]);
+				excel.setCell(sheetName, "E5", standardAddressArr[2]);
 				// receiver
 				excel.setCell(sheetName, "E6", receiver);
 				// content
@@ -196,6 +195,7 @@ outputship.fire=function(params){
 				// shipaddress
 				excel.setCell(sheetName, "W3", standardAddressArr[0]);
 				excel.setCell(sheetName, "W4", standardAddressArr[1]);
+				excel.setCell(sheetName, "W5", standardAddressArr[2]);
 				// receiverArr
 				excel.setCell(sheetName, "W6", receiver);
 				// content
@@ -209,6 +209,7 @@ outputship.fire=function(params){
 				// shipaddress
 				excel.setCell(sheetName, "E23", standardAddressArr[0]);
 				excel.setCell(sheetName, "E24", standardAddressArr[1]);
+				excel.setCell(sheetName, "E25", standardAddressArr[2]);
 				// receiverArr
 				excel.setCell(sheetName, "E26", receiver);
 				// content
@@ -222,6 +223,7 @@ outputship.fire=function(params){
 				// shipaddress
 				excel.setCell(sheetName, "W23", standardAddressArr[0]);
 				excel.setCell(sheetName, "W24", standardAddressArr[1]);
+				excel.setCell(sheetName, "W25", standardAddressArr[2]);
 				// receiverArr
 				excel.setCell(sheetName, "W26", receiver);
 				// content
@@ -235,6 +237,7 @@ outputship.fire=function(params){
 				// shipaddress
 				excel.setCell(sheetName, "E43", standardAddressArr[0]);
 				excel.setCell(sheetName, "E44", standardAddressArr[1]);
+				excel.setCell(sheetName, "E45", standardAddressArr[2]);
 				// receiverArr
 				excel.setCell(sheetName, "E46", receiver);
 				// content
@@ -248,6 +251,7 @@ outputship.fire=function(params){
 				// shipaddress
 				excel.setCell(sheetName, "W43", standardAddressArr[0]);
 				excel.setCell(sheetName, "W44", standardAddressArr[1]);
+				excel.setCell(sheetName, "W45", standardAddressArr[2]);
 				// receiverArr
 				excel.setCell(sheetName, "W46", receiver);
 				// content

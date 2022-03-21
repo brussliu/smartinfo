@@ -68,22 +68,60 @@ function getStandardAddress(address){
 
 	var address1 = address;
 	var address2 = "";
+	var address3 = "";
+
+	var flg1 = false;
 
 	for(var i = 0; i < addressList.length; i ++){
 
 		if(address.indexOf(addressList[i]) >= 0){
 			address1 = addressList[i];
+			flg1 = true;
 			break;
 		}
 
 	}
 
-	address2 = address.substring(address1.length);
+	if(flg1 == true){
+
+		var lastAddress = address.substring(address1.length);
+
+		address2 = shrinkAddress(lastAddress);
+
+		address3 = lastAddress.substring(address2.length);
+
+
+
+	}else{
+
+		address1 = shrinkAddress(address1);
+
+		address2 = address.substring(address1.length);
+
+
+	}
+	
 
 	standardAddress.push(address1);
 	standardAddress.push(address2);
+	standardAddress.push(address3);
 
 	return standardAddress;
+}
+
+function shrinkAddress(address){
+    // nullは空文字で返却
+    if(!address) return ""
+
+    // 番地っぽい文字列を抽出する正規表現
+    let pattern = /([0-9０-９]+|[一二三四五六七八九十百千万]+)*(([0-9０-９]+|[一二三四五六七八九十百千万]+)|(丁目|丁|番地|番|号|-|－|‐|ー|−|の|東|西|南|北){1,2})*(([0-9０-９]+|[一二三四五六七八九十百千万]}+)|(丁目|丁|番地|番|号){1,2})/
+    let result = address.match(pattern)
+	// 番地っぽい文字列を抽出する
+	var c = result[0]
+	var p = address.indexOf(c)+c.length
+
+	// 番地っぽい文字列までを返却する
+    return address.substring(0, p)
 }
 
 function outputMasterList(excel, selectResult, sheetName, productnameFlg){
