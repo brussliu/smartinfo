@@ -279,13 +279,13 @@ outputship.fire=function(params){
 
 
 	excel.setActiveSheet("Product").save(tempFilePathName);
-	excel.setActiveSheet("Product").save("D:\\01.KM\\21.発送情報\\test.xlsx");
+	excel.setActiveSheet("Product").save("shipinfo\\発送情報.xlsx");
 
-	tempFilePathName.debug("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+	//tempFilePathName.debug("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
 
-	var absPath = file.getStorageFolder();
+	//var absPath = file.getStorageFolder();
 
-	absPath.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+	//absPath.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
 
 	ret.attach(tempFilePathName)
 	.saveas("発送情報_" + (new Date()).format("yyyyMMdd")+".xlsx")
