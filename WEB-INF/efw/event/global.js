@@ -86,11 +86,7 @@ function getStandardAddress(address){
 
 		var lastAddress = address.substring(address1.length);
 
-		"BBBBBBBBBBBBBB".debug("BBBBBBBBBBBBBB");
-
 		address2 = shrinkAddress(lastAddress);
-
-		"CCCCCCCCCCCCCC".debug("CCCCCCCCCCCCCC");
 
 		address3 = lastAddress.substring(address2.length);
 
