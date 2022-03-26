@@ -259,9 +259,9 @@
 		<td style="width: 75px;">金額合計</td>
 		<td style="width: 100px;">お客様名称</td>
 		<td style="width: 80px;">郵便番号</td>
-		<td style="width: 500px;">住所</td>
+		<td style="width: 550px;">住所</td>
 		<td style="width: 120px;">電話番号</td>
-		<td style="width: 100px;">発送</td>
+		<td style="width: 80px;">発送</td>
 	</tr>
 </table>
 <!--
