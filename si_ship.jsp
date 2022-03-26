@@ -177,9 +177,10 @@
 	<tr>
 		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="7">
 			検索条件
+			<input type="file" id="importfile_ship_amazon" style="width: 400px;height: 30px;">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchship" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchship()">
+			<input type="button" id="import" style="width: 200px;height: 40px;font-size: 20px;" value="導入" onclick="Efw('uploadfile',{data:'ship_amazon',liststock:''})">
 		</td>
 	</tr>
 	<tr>
@@ -194,7 +195,7 @@
 			<input type="radio" name="orderTerm01" value="999" disabled>すべて
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="outputship" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputship()">
+			<input type="button" id="searchship" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchship()">
 		</td>
 	</tr>
 	<tr>
@@ -249,17 +250,18 @@
 <table border="1" id="shipinfotable" style="font-size: 14px;">
 	<tr style="font-weight: bold;background-color: rgb(128,255,255);">
 		<td style="width: 50px;">選択</td>
-		<td style="width: 80px;">状態</td>
-		<td style="width: 80px;">区分</td>
-		<td style="width: 200px;">注文番号</td>
-		<td style="width: 250px;">注文時間</td>
-		<td style="width: 100px;">注文数量合計</td>
-		<td style="width: 100px;">注文金額合計</td>
+		<td style="width: 75px;">区分</td>
+		<td style="width: 75px;">状態</td>
+		<td style="width: 180px;">注文番号</td>
+		<td style="width: 180px;">注文時間</td>
+		<td style="width: 120px;">商品分類</td>
+		<td style="width: 75px;">数量合計</td>
+		<td style="width: 75px;">金額合計</td>
 		<td style="width: 100px;">お客様名称</td>
-		<td style="width: 100px;">郵便番号</td>
+		<td style="width: 80px;">郵便番号</td>
 		<td style="width: 400px;">住所</td>
-		<td style="width: 150px;">電話番号</td>
-		<td style="width: 150px;">発送</td>
+		<td style="width: 120px;">電話番号</td>
+		<td style="width: 100px;">発送</td>
 	</tr>
 </table>
 <!--
