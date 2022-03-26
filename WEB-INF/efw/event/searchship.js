@@ -49,7 +49,7 @@ searchship.fire=function(params){
 		"<td class='content' style='width: 75px;'>{amount}</td>" +
 		"<td class='content' style='width: 100px;'>{receiver}</td>" +
 		"<td class='content' style='width: 80px;'>{postno}</td>" +
-		"<td class='content' style='width: 400px;'>{address}</td>" +
+		"<td class='content' style='width: 500px;'>{address}</td>" +
 		"<td class='content' style='width: 120px;'>{buyer_tel}</td>" +
 		"<td class='content' style='width: 100px;'><input type='button' value='発送' onclick='ship(this)'></td>" +
 	"</tr>";
@@ -77,7 +77,7 @@ searchship.fire=function(params){
 		"<td class='content' style='width: 75px;'>{amount}</td>" +
 		"<td class='content' style='width: 100px;'>{receiver}</td>" +
 		"<td class='content' style='width: 80px;'>{postno}</td>" +
-		"<td class='content' style='width: 400px;'>{address}</td>" +
+		"<td class='content' style='width: 500px;'>{address}</td>" +
 		"<td class='content' style='width: 120px;'>{buyer_tel}</td>" +
 		"<td class='content' style='width: 100px;'>発送済</td>" +
 	"</tr>";
