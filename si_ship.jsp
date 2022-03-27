@@ -250,18 +250,18 @@
 <table border="1" id="shipinfotable" style="font-size: 14px;">
 	<tr style="font-weight: bold;background-color: rgb(128,255,255);">
 		<td style="width: 50px;">選択</td>
-		<td style="width: 75px;">区分</td>
-		<td style="width: 75px;">状態</td>
-		<td style="width: 180px;">注文番号</td>
-		<td style="width: 180px;">注文時間</td>
+		<td style="width: 70px;">区分</td>
+		<td style="width: 70px;">状態</td>
+		<td style="width: 170px;">注文番号</td>
+		<td style="width: 170px;">注文時間</td>
 		<td style="width: 120px;">商品分類</td>
-		<td style="width: 75px;">数量合計</td>
-		<td style="width: 75px;">金額合計</td>
-		<td style="width: 100px;">お客様名称</td>
+		<td style="width: 70px;">数量合計</td>
+		<td style="width: 70px;">金額合計</td>
+		<td style="width: 120px;">お客様名称</td>
 		<td style="width: 80px;">郵便番号</td>
 		<td style="width: 600px;">住所</td>
 		<td style="width: 120px;">電話番号</td>
-		<td style="width: 80px;">発送</td>
+		<td style="width: 70px;">発送</td>
 	</tr>
 </table>
 <!--

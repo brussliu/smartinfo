@@ -40,18 +40,18 @@ searchship.fire=function(params){
 	var resultHTML2 = 
 	"<tr class='content'>" +
 		"<td class='content' style='width: 50px;'><input type='checkbox' name='orderselect' value='{orderno}' checked></td>" +
-		"<td class='content' style='width: 75px;'>{div}</td>" +
-		"<td class='content' style='width: 75px;'>{shipstatus}</td>" +
-		"<td class='content' style='width: 180px;'>{orderno}</td>" +
-		"<td class='content' style='width: 180px;'>{shipdate}</td>" +
+		"<td class='content' style='width: 70px;'>{div}</td>" +
+		"<td class='content' style='width: 70px;'>{shipstatus}</td>" +
+		"<td class='content' style='width: 170px;'>{orderno}</td>" +
+		"<td class='content' style='width: 170px;'>{shipdate}</td>" +
 		"<td class='content' style='width: 120px;'>{productdiv}</td>" +
-		"<td class='content' style='width: 75px;'>{count}</td>" +
-		"<td class='content' style='width: 75px;'>{amount}</td>" +
-		"<td class='content' style='width: 100px;'>{receiver}</td>" +
+		"<td class='content' style='width: 70px;'>{count}</td>" +
+		"<td class='content' style='width: 70px;'>{amount}</td>" +
+		"<td class='content' style='width: 120px;'>{receiver}</td>" +
 		"<td class='content' style='width: 80px;'>{postno}</td>" +
 		"<td class='content' style='width: 600px;'>{address}</td>" +
 		"<td class='content' style='width: 120px;'>{buyer_tel}</td>" +
-		"<td class='content' style='width: 80px;'><input type='button' value='発送' onclick='ship(this)'></td>" +
+		"<td class='content' style='width: 70px;'><input type='button' value='発送' onclick='ship(this)'></td>" +
 	"</tr>";
 
 	var selectResult2 = db.select(
@@ -68,18 +68,18 @@ searchship.fire=function(params){
 	var resultHTML3 = 
 	"<tr class='content' style='background-color: rgb(195,195,195);'>" +
 		"<td class='content' style='width: 50px;'></td>" +
-		"<td class='content' style='width: 75px;'>{div}</td>" +
-		"<td class='content' style='width: 75px;'>{shipstatus}</td>" +
-		"<td class='content' style='width: 180px;'>{orderno}</td>" +
-		"<td class='content' style='width: 180px;'>{shipdate}</td>" +
+		"<td class='content' style='width: 70px;'>{div}</td>" +
+		"<td class='content' style='width: 70px;'>{shipstatus}</td>" +
+		"<td class='content' style='width: 170px;'>{orderno}</td>" +
+		"<td class='content' style='width: 170px;'>{shipdate}</td>" +
 		"<td class='content' style='width: 120px;'>{productdiv}</td>" +
-		"<td class='content' style='width: 75px;'>{count}</td>" +
-		"<td class='content' style='width: 75px;'>{amount}</td>" +
-		"<td class='content' style='width: 100px;'>{receiver}</td>" +
+		"<td class='content' style='width: 70px;'>{count}</td>" +
+		"<td class='content' style='width: 70px;'>{amount}</td>" +
+		"<td class='content' style='width: 120px;'>{receiver}</td>" +
 		"<td class='content' style='width: 80px;'>{postno}</td>" +
 		"<td class='content' style='width: 600px;'>{address}</td>" +
 		"<td class='content' style='width: 120px;'>{buyer_tel}</td>" +
-		"<td class='content' style='width: 80px;'>発送済</td>" +
+		"<td class='content' style='width: 70px;'>発送済</td>" +
 	"</tr>";
 
 	var selectResult3 = db.select(
