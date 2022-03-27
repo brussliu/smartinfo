@@ -177,10 +177,10 @@
 	<tr>
 		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="7">
 			検索条件
-			<input type="file" id="importfile_ship_amazon" style="width: 400px;height: 30px;">
+			<input type="file" id="importfile_ship_info" style="width: 400px;height: 30px;">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="import" style="width: 200px;height: 40px;font-size: 20px;" value="導入" onclick="Efw('uploadfile',{data:'ship_amazon',liststock:''})">
+			<input type="button" id="import" style="width: 200px;height: 40px;font-size: 20px;" value="導入" onclick="Efw('uploadship',{data:'ship_amazon'})">
 		</td>
 	</tr>
 	<tr>
