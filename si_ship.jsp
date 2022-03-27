@@ -140,7 +140,7 @@
 
         function ship(obj){
 
-        	var shipno = $(obj).parent().prev().prev().prev().prev().prev().prev().prev().prev().html();
+        	var shipno = $(obj).parent().prev().prev().prev().prev().prev().prev().prev().prev().prev().html();
 
         	
 
