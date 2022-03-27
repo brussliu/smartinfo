@@ -93,6 +93,8 @@
 			coalesce(A."宛先住所２",'') || 
 			coalesce(A."宛先住所３",''),
 			A."発送状態"
+		ORDER BY
+			A."支払時間" desc
 
 		UNION ALL
 
@@ -123,7 +125,8 @@
 			Q."郵便番号",
 			Q."お届け先",
 			Q."発送状態"
-
+		ORDER BY
+			Q."発送日" desc
 	</sql>
 
 	<sql id="searchShipAddressShipped">
@@ -168,6 +171,8 @@
 			coalesce(A."宛先住所２",'') || 
 			coalesce(A."宛先住所３",''),
 			A."発送状態"
+		ORDER BY
+			A."支払時間" desc
 
 		UNION ALL
 
@@ -200,7 +205,8 @@
 			Q."郵便番号",
 			Q."お届け先",
 			Q."発送状態"
-
+		ORDER BY
+			Q."発送日" desc
 	</sql>
 
 	<sql id="selectProductKindToCheck">
