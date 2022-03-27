@@ -93,8 +93,6 @@
 			coalesce(A."宛先住所２",'') || 
 			coalesce(A."宛先住所３",''),
 			A."発送状態"
-		ORDER BY
-			shipdate desc
 
 		UNION ALL
 
@@ -171,8 +169,6 @@
 			coalesce(A."宛先住所２",'') || 
 			coalesce(A."宛先住所３",''),
 			A."発送状態"
-		ORDER BY
-			shipdate desc
 
 		UNION ALL
 
