@@ -115,9 +115,9 @@
 
         		shipnoArr.push($(this).val());
 
-        		postnoArr.push($(this).parent().next().next().next().next().next().next().next().next().html());
-        		shipaddressArr.push($(this).parent().next().next().next().next().next().next().next().next().next().html());
-        		receiverArr.push($(this).parent().next().next().next().next().next().next().next().html());
+        		postnoArr.push($(this).parent().next().next().next().next().next().next().next().next().next().html());
+        		shipaddressArr.push($(this).parent().next().next().next().next().next().next().next().next().next().next().html());
+        		receiverArr.push($(this).parent().next().next().next().next().next().next().next().next().html());
         		
     		});
 
