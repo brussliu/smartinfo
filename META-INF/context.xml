@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Context>
 <Context>
+
 	<Resource
 		name			=	"jdbc/efw"
 		auth			=	"Container"
 		type			=	"javax.sql.DataSource"
 		driverClassName	=	"org.postgresql.Driver"
-		url				=	"jdbc:postgresql://192.168.10.5:5432/postgres"
+		url				=	"jdbc:postgresql://192.168.3.5:5432/smartinfo"
 		username		=	"postgres"
 		password		=	"12345678"
+		maxActive		=	"100"
+		maxIdle			=	"20"
+		maxWait			=	"10"
+	/>
+
+	<Resource
+		name			=	"jdbc/efw2"
+		auth			=	"Container"
+		type			=	"javax.sql.DataSource"
+		driverClassName	=	"com.mysql.cj.jdbc.Driver"
+		url				=	"jdbc:mysql://rm-6wea2hgv255a4r0kuxo.mysql.japan.rds.aliyuncs.com:3306/smartinfo"
+		username		=	"smartuser"
+		password		=	"Smartuser2022"
 		maxActive		=	"100"
 		maxIdle			=	"20"
 		maxWait			=	"10"
