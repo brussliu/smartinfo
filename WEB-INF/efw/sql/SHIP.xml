@@ -280,5 +280,29 @@
 		WHERE "カート番号" = :shipno
 	</sql>
 
+
+
+	<sql id="insertShipLabel">
+		INSERT INTO TEMP_発送情報
+		VALUES (
+			:col0, --注文番号
+			:col1,--宛先郵便番号
+			:col2,--宛先住所１
+			:col3,--宛先住所２
+			:col4,--宛先住所３
+			:col5,--宛先名称
+
+			:col6 --発送内容
+		)
+	</sql>
+
+
+
+
+
+
+
+
+
 </sqls>
 

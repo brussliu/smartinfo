@@ -102,6 +102,8 @@ outputship.fire=function(params){
 
 		for(var i = 0; i < shipCount; i ++){
 
+			var shipno = shipnoArr[i];
+
 			var postno = postnoArr[i];
 
 			var standardAddressArr = getStandardAddress(shipaddressArr[i]);
@@ -124,6 +126,26 @@ outputship.fire=function(params){
 			excel.setCell("SHIPLIST", "E" + (i+1), receiver);
 
 			excel.setCell("SHIPLIST", "F" + (i+1), content);
+
+
+
+			// TODO
+			var insertResult = db.change(
+				"SHIP",
+				"insertShipLabel",
+				{
+					"col0":shipno,
+					"col1":"〒" + postno,
+					"col2":standardAddressArr[0],
+					"col3":standardAddressArr[1],
+					"col4":standardAddressArr[2],
+					"col5":receiver,
+					"col6":content
+				},
+				"jdbc/efw2"
+			);
+
+
 
 		}
 
@@ -279,13 +301,7 @@ outputship.fire=function(params){
 
 
 	excel.setActiveSheet("Product").save(tempFilePathName);
-	excel.setActiveSheet("Product").save("shipinfo\\発送情報.xlsx");
-
-	//tempFilePathName.debug("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-
-	//var absPath = file.getStorageFolder();
-
-	//absPath.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+	//excel.setActiveSheet("Product").save("shipinfo\\発送情報.xlsx");
 
 	ret.attach(tempFilePathName)
 	.saveas("発送情報_" + (new Date()).format("yyyyMMdd")+".xlsx")
