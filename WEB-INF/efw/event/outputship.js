@@ -301,7 +301,7 @@ outputship.fire=function(params){
 
 
 	excel.setActiveSheet("Product").save(tempFilePathName);
-	//excel.setActiveSheet("Product").save("shipinfo\\発送情報.xlsx");
+	excel.setActiveSheet("Product").save("shipinfo\\発送情報.xlsx");
 
 	ret.attach(tempFilePathName)
 	.saveas("発送情報_" + (new Date()).format("yyyyMMdd")+".xlsx")
