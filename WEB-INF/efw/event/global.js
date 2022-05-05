@@ -473,7 +473,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var PJ_writeSell90X = ["BC","BD","BE","BF","BG","BH","BI"];
 	var PJ_writeSellWeekX = ["BJ","BK","BL","BM","BN","BO","BP"];
 	var PJ_writePriceX = ["CS","CT","CU","CV","CW","CX","CY"];
-	var PJ_writeFBAFlgX = ["CZ","DA","DB","DC","DD","DE"];
+	var PJ_writeFBAFlgX = ["CZ","DA","DB","DC","DD","DE","DF"];
 	var PJ_writeDeliveryX = ["BX","BY","BZ","CA","CB","CC","CD"];
 	var PJ_writePurchaseX = ["BX","BY","BZ","CA","CB","CC","CD"];
 
@@ -866,7 +866,7 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 				// 販売数量(週間平均値)
 				setExcelValue(excel, sheetName, writeSellWeekX[x]+y, selledweek);
 				// 販売方式
-				setExcelValue(excel, sheetName, writeFBAFlgX[x] + y, fbaflg);
+				setExcelValue(excel, sheetName, writeFBAFlgX[x]+y, fbaflg);
 				if(deliveryFlg){
 					// 仕入数量
 					setExcelValue(excel, sheetName, writeDeliveryX[x]+y, delivery);
