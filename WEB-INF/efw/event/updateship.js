@@ -30,11 +30,14 @@ updateship.fire=function(params){
 		}
 	);
 
-	//ret.runat("#ship_productinfo").append(resultHTML1).withdata(selectResult1);
-
-
-
-
+	var deleteLabelInfo = db.change(
+		"SHIP",
+		"deleteLabelInfo",
+		{
+		shipno:shipno
+		},
+		"jdbc/efw2"
+	);
 
 
 
