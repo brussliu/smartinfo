@@ -631,7 +631,20 @@ function writeInfoToExcel(excel, selectRecord, sheetName, deliveryFlg, purchaseF
 	var delivery = returnQuantity(selectRecord["delivery"]);
 	var purchase = returnQuantity(selectRecord["purchase"]);
 
-	var fbaflg = fba != null ? "FBA" : "FBM";
+	var fbaflg = "FBM";
+	if (selectRecord["fba"] == null && selectRecord["fbm"] != null){
+		fbaflg = "FBM";
+	}else if (selectRecord["fba"] != null && selectRecord["fbm"] == null){
+		fbaflg = "FBA";
+	}else{
+		if (parseInt(selectRecord["fba"]) > 0 && parseInt(selectRecord["fbm"]) == 0){
+			fbaflg = "FBA";
+		}else if (parseInt(selectRecord["fba"]) == 0 && parseInt(selectRecord["fbm"]) > 0){
+			fbaflg = "FBM";
+		}
+	}
+
+	// var fbaflg = selectRecord["fba"] == null ? "FBM" : "FBM";
 
 	var Y_from = 4;
 	var Y_to = 9999;
@@ -735,7 +748,20 @@ function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, pu
 	var delivery = returnQuantity(selectRecord["delivery"]);
 	var purchase = returnQuantity(selectRecord["purchase"]);
 
-	var fbaflg = fba != null ? "FBA" : "FBM";
+	var fbaflg = "FBM";
+	if (selectRecord["fba"] == null && selectRecord["fbm"] != null){
+		fbaflg = "FBM";
+	}else if (selectRecord["fba"] != null && selectRecord["fbm"] == null){
+		fbaflg = "FBA";
+	}else{
+		if (parseInt(selectRecord["fba"]) > 0 && parseInt(selectRecord["fbm"]) == 0){
+			fbaflg = "FBA";
+		}else if (parseInt(selectRecord["fba"]) == 0 && parseInt(selectRecord["fbm"]) > 0){
+			fbaflg = "FBM";
+		}
+	}
+
+	//var fbaflg = fba != null ? "FBA" : "FBM";
 
 	var Y_from = 4;
 	var Y_to = 9999;
@@ -830,7 +856,20 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 
 	var y_to = labelY_to == null ? 9999 : labelY_to;
 
-	var fbaflg = fba != null ? "FBA" : "FBM";
+	var fbaflg = "FBM";
+	if (selectRecord["fba"] == null && selectRecord["fbm"] != null){
+		fbaflg = "FBM";
+	}else if (selectRecord["fba"] != null && selectRecord["fbm"] == null){
+		fbaflg = "FBA";
+	}else{
+		if (parseInt(selectRecord["fba"]) > 0 && parseInt(selectRecord["fbm"]) == 0){
+			fbaflg = "FBA";
+		}else if (parseInt(selectRecord["fba"]) == 0 && parseInt(selectRecord["fbm"]) > 0){
+			fbaflg = "FBM";
+		}
+	}
+
+	//var fbaflg = fba != null ? "FBA" : "FBM";
 
 	//var writeFBAFlgX = "V";
 
