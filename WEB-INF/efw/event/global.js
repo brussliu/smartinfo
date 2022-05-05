@@ -456,6 +456,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var RC_writeSell90X = ["AV","AW","AX","AY","AZ","BA"];
 	var RC_writeSellWeekX = ["BB","BC","BD","BE","BF","BG"];
 	var RC_writePriceX = ["CF","CG","CH","CI","CJ","CK"];
+	var RC_writeFBAFlgX = ["CL","CM","CN","CO","CP","CQ"];
 	var RC_writeDeliveryX = ["BN","BO","BP","BQ","BR","BS"];
 	var RC_writePurchaseX = ["BN","BO","BP","BQ","BR","BS"];
 
@@ -472,6 +473,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var PJ_writeSell90X = ["BC","BD","BE","BF","BG","BH","BI"];
 	var PJ_writeSellWeekX = ["BJ","BK","BL","BM","BN","BO","BP"];
 	var PJ_writePriceX = ["CS","CT","CU","CV","CW","CX","CY"];
+	var PJ_writeFBAFlgX = ["CZ","DA","DB","DC","DD","DE"];
 	var PJ_writeDeliveryX = ["BX","BY","BZ","CA","CB","CC","CD"];
 	var PJ_writePurchaseX = ["BX","BY","BZ","CA","CB","CC","CD"];
 
@@ -504,6 +506,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var RB_writeSell90X = ["O"];
 	var RB_writeSellWeekX = ["P"];
 	var RB_writePriceX = ["U"];
+	var RB_writeFBAFlgX = ["V"];
 	var RB_writeDeliveryX = ["R"];
 	var RB_writePurchaseX = ["R"];
 
@@ -520,6 +523,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var W_writeSell60X = ["Q"];
 	var W_writeSell90X = ["R"];
 	var W_writeSellWeekX = ["S"];
+	var W_writeFBAFlgX = ["X"];
 	var W_writeDeliveryX = ["U"];
 	var W_writePurchaseX = ["U"];
 
@@ -540,7 +544,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				RC_labelX, RC_labelY_from, RC_labelY_to,
 				RC_writeStockX, RC_writeLocalStockX, RC_writeOnboardStockX,
 				RC_writeSell7X, RC_writeSell30X, RC_writeSell60X, RC_writeSell90X, RC_writeSellWeekX,
-				RC_writePriceX, RC_writeDeliveryX, RC_writePurchaseX, deliveryFlg, purchaseFlg
+				RC_writePriceX, RC_writeDeliveryX, RC_writePurchaseX, RC_writeFBAFlgX, deliveryFlg, purchaseFlg
 			);
 
 		// パジャマ
@@ -551,7 +555,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				PJ_labelX, PJ_labelY_from, PJ_labelY_to,
 				PJ_writeStockX, PJ_writeLocalStockX, PJ_writeOnboardStockX,
 				PJ_writeSell7X, PJ_writeSell30X, PJ_writeSell60X, PJ_writeSell90X, PJ_writeSellWeekX,
-				PJ_writePriceX, PJ_writeDeliveryX, PJ_writePurchaseX, deliveryFlg, purchaseFlg
+				PJ_writePriceX, PJ_writeDeliveryX, PJ_writePurchaseX, PJ_writeFBAFlgX, deliveryFlg, purchaseFlg
 			);
 		
 		// // 傘
@@ -575,7 +579,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				RB_labelX, RB_labelY_from, RB_labelY_to,
 				RB_writeStockX, RB_writeLocalStockX, RB_writeOnboardStockX,
 				RB_writeSell7X, RB_writeSell30X, RB_writeSell60X, RB_writeSell90X, RB_writeSellWeekX,
-				RB_writePriceX, RB_writeDeliveryX, RB_writePurchaseX, deliveryFlg, purchaseFlg
+				RB_writePriceX, RB_writeDeliveryX, RB_writePurchaseX, RB_writeFBAFlgX, deliveryFlg, purchaseFlg
 			);
 			
 		// 靴下
@@ -586,7 +590,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 				W_labelX, W_labelY_from, W_labelY_to,
 				W_writeStockX, W_writeLocalStockX, W_writeOnboardStockX,
 				W_writeSell7X, W_writeSell30X, W_writeSell60X, W_writeSell90X, W_writeSellWeekX,
-				W_writePriceX, W_writeDeliveryX, W_writePurchaseX, deliveryFlg, purchaseFlg
+				W_writePriceX, W_writeDeliveryX, W_writePurchaseX, W_writeFBAFlgX, deliveryFlg, purchaseFlg
 			);
 
 		}else{
@@ -808,11 +812,12 @@ function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, pu
 } 
 
 function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, labelY_to, writeStockX, writeLocalStockX, writeOnboardStockX,
-	writeSell7X, writeSell30X, writeSell60X, writeSell90X, writeSellWeekX, writePriceX, writeDeliveryX, writePurchaseX, deliveryFlg, purchaseFlg){
+	writeSell7X, writeSell30X, writeSell60X, writeSell90X, writeSellWeekX, writePriceX, writeDeliveryX, writePurchaseX, writeFBAFlgX, deliveryFlg, purchaseFlg){
 
 	var labelno = selectRecord["label"];
 	var localstock = returnQuantity(selectRecord["localstock"]);
 	var fba = returnQuantity(selectRecord["fba"]);
+	var fbm = returnQuantity(selectRecord["fbm"]);
 	var onboard = returnQuantity(selectRecord["onboard"]);
 	var selled7 = returnQuantity(selectRecord["selled7"]);
 	var selled30 = returnQuantity(selectRecord["selled30"]);
@@ -824,6 +829,10 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 	var purchase = returnQuantity(selectRecord["purchase"]);
 
 	var y_to = labelY_to == null ? 9999 : labelY_to;
+
+	var fbaflg = fba != null ? "FBA" : "FBM";
+
+	//var writeFBAFlgX = "V";
 
 	// 在庫情報シート
 	for(var x = 0;x < labelX.length;x ++){
@@ -856,7 +865,8 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 				setExcelValue(excel, sheetName, writeSell90X[x]+y, selled90);
 				// 販売数量(週間平均値)
 				setExcelValue(excel, sheetName, writeSellWeekX[x]+y, selledweek);
-
+				// 販売方式
+				setExcelValue(excel, sheetName, writeFBAFlgX[x] + y, fbaflg);
 				if(deliveryFlg){
 					// 仕入数量
 					setExcelValue(excel, sheetName, writeDeliveryX[x]+y, delivery);
