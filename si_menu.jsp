@@ -56,23 +56,8 @@
 			<input type=button value="販売情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_sellinfo.jsp',shop:'Smart-Bear'})">
 			<br><br>
 		</div></td>
-		<td><div style="text-align:center;display: none;"><br>
-			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_upload.jsp',shop:'Smart-KM'})">
-			<br><br>
-			<input type=button value="商品情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_product.jsp',shop:'Smart-KM'})">
-			<br><br>
-			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-KM'})">
-			<br><br>
-			<!--
-			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_stock.jsp',shop:'Smart-KM'})">
-			-->
-			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('outputstock',{shop:'Smart-KM'})">
-			<br><br>
-			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_purchase.jsp',shop:'Smart-KM'})">
-			<br><br>
-			<input type=button value="納品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_delivery.jsp',shop:'Smart-KM'})">
-			<br><br>
-			<input type=button value="販売情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_sellinfo.jsp',shop:'Smart-KM'})">
+		<td><div style="text-align:center;"><br>
+			<input type=button value="代行発送管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'shipinfo.jsp',shop:'Smart-Bear'})">
 			<br><br>
 		</div></td>
 	</tr>
