@@ -531,7 +531,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var W_writeSell60X = ["R"];
 	var W_writeSell90X = ["S"];
 	var W_writeSellWeekX = ["T"];
-	var W_writeFBAFlgX = ["U"];
+	var W_writeFBAFlgX = ["Y"];
 	var W_writeDeliveryX = ["V"];
 	var W_writePurchaseX = ["V"];
 
