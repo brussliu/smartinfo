@@ -311,7 +311,8 @@
 			"SHIP_COUNT" as shipcount,
 			case when "SHIP_DIV" = 'C' then 'クリックポスト'
 			     when "SHIP_DIV" = 'Y' then 'ゆうパケット'
-				 when "SHIP_DIV" = 'S' then 'その他' as shipdiv,
+				 when "SHIP_DIV" = 'S' then 'その他' 
+			end as shipdiv,
 			"BIKO" as biko,
 			"TRACKING_NO" as trackingno,
 			case when "PAY_STATUS" = '1' then '已支付'
