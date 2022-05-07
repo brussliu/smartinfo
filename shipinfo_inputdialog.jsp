@@ -8,7 +8,7 @@
 				title : "发送请求录入",
 				autoOpen : false,
 				resizable : false,
-				height : 450,
+				height : 550,
 				width : 1000,
 				modal : true,
 				open : function(){
@@ -31,7 +31,7 @@
 
 		}
 
-		function cancelshipinfo(status){
+		function cancelshipinfo(){
 			Efw('cancelshipinfo');
 		}
 
@@ -87,11 +87,29 @@
 			<TD>备考</TD>
 			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_biko" STYLE="WIDTH:600px;height:30px;"></TD>
 		</TR>
+		<TR style="height:40px;">
+			<TD>发送方式</TD>
+			<TD>
+				<select STYLE="WIDTH:280px;height:32px;" id="ship_div"></select>
+			</TD>
+			<TD>发送费用（日元）</TD>
+			<TD><INPUT TYPE="TEXT" ID="txt_fee" STYLE="WIDTH:200px;height:30px;"></TD>
+		</TR>
+		<TR style="height:40px;">
+			<TD>追踪番号</TD>
+			<TD>
+				<INPUT TYPE="TEXT" ID="txt_trackingno" STYLE="WIDTH:200px;height:30px;">
+			</TD>
+			<TD>合计费用（人民币）</TD>
+			<TD><INPUT TYPE="TEXT" ID="txt_amount" STYLE="WIDTH:200px;height:30px;"></TD>
+		</TR>
 	</TABLE>
 	<br>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
-		<BUTTON style="width: 150px;background-color: blue;color: white;display: none;" ONCLICK="cancelshipinfo(9)" id="cancelbutton">请求取消</BUTTON>
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="saveshipinfo()" id="savebutton">保存</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="cancelshipinfo()" id="cancelbutton">请求取消</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="acceptshipinfo()" id="acceptbutton">接受</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="sendshipinfo()" id="sendbutton">已发送</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="payshipinfo()" id="paybutton">已支付</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="shipinfo_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
 </DIV>

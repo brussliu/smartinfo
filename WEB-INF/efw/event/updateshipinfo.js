@@ -28,6 +28,8 @@ updateshipinfo.fire=function(params){
 		}
 	).getArray();
 
+	var status = selectResult[0]["status"];
+
 	var js0 = "$('#txt_shipno').val('"+(selectResult[0]["shipno"]==null?'':selectResult[0]["shipno"])+"');";
 
 	var js1 = "$('#txt_postno').val('"+(selectResult[0]["postno"]==null?'':selectResult[0]["postno"])+"');";
@@ -41,6 +43,11 @@ updateshipinfo.fire=function(params){
 	var js6 = "$('#product_name').find(\"option:contains('" + selectResult[0]["shipcontent"] + "')\").attr('selected',true);";
 	var js7 = "$('#product_count').find(\"option:contains('" + selectResult[0]["shipcount"] + "')\").attr('selected',true);";
 
+	var js8 = "$('#ship_div').find(\"option:contains('" + selectResult[0]["shipdiv"] + "')\").attr('selected',true);";
+	var js9 = "$('#txt_fee').val('"+(selectResult[0]["fee"]==null?'':selectResult[0]["fee"])+"');";
+	var js10= "$('#txt_trackingno').val('"+(selectResult[0]["trackingno"]==null?'':selectResult[0]["trackingno"])+"');";
+	var js11= "$('#txt_amount').val('"+(selectResult[0]["amount"]==null?'':selectResult[0]["amount"])+"');";
+
 	ret.eval(js0);
 	ret.eval(js1);
 	ret.eval(js2);
@@ -49,9 +56,32 @@ updateshipinfo.fire=function(params){
 	ret.eval(js5);
 	ret.eval(js6);
 	ret.eval(js7);
-
-	ret.eval("$('#cancelbutton').show()");
-	ret.eval("$('#savebutton').html('更新')");
+	ret.eval(js8);
+	ret.eval(js9);
+	ret.eval(js10);
+	ret.eval(js11);
+	var js12 = ""
+	if(status == 0 || status == "0"){
+		js12 = 
+		"$('#cancelbutton').show()" +
+		"$('#acceptbutton').show()" +
+		"$('#sendbutton').hide()" +
+		"$('#paybutton').hide()";
+	}else if(status == 5 || status == "5"){
+		js12 = 
+		"$('#cancelbutton').show()" +
+		"$('#acceptbutton').hide()" +
+		"$('#sendbutton').show()" +
+		"$('#paybutton').hide()";
+		
+	}else if(status == 8 || status == "8"){
+		js12 = 
+		"$('#cancelbutton').hide()" +
+		"$('#acceptbutton').hide()" +
+		"$('#sendbutton').hide()" +
+		"$('#paybutton').show()";
+	}
+	ret.eval(js12);
 
 	return ret.eval("shipinfo_inputdialog.dialog('open')");
 
