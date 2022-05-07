@@ -18,6 +18,9 @@ acceptshipinfo.fire=function(params){
 	var fee = parseInt(params["#txt_fee"]);
 	var trackingno = params["#txt_trackingno"];
 	var amount = parseInt(params["#txt_amount"]);
+
+
+	shipdiv.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
 	
 	var updateResult = db.change(
 		"SHIP",

@@ -102,9 +102,9 @@
 			<TD>发送方式</TD>
 			<TD>
 				<select STYLE="WIDTH:280px;height:32px;" id="ship_div">
-					<option>クリックポスト</option>
-					<option>ゆうパケット</option>
-					<option>その他</option>
+					<option value="C">クリックポスト</option>
+					<option value="Y">ゆうパケット</option>
+					<option value="S">その他</option>
 				</select>
 			</TD>
 			<TD>发送费用（日元）</TD>
