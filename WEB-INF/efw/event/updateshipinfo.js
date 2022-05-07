@@ -61,20 +61,20 @@ updateshipinfo.fire=function(params){
 	ret.eval(js10);
 	ret.eval(js11);
 	var js12 = ""
-	if(status == 0 || status == "0"){
+	if(status == "请求中"){
 		js12 = 
 		"$('#cancelbutton').show();" +
 		"$('#acceptbutton').show();" +
 		"$('#sendbutton').hide();" +
 		"$('#paybutton').hide();";
-	}else if(status == 5 || status == "5"){
+	}else if(status == "准备中"){
 		js12 = 
 		"$('#cancelbutton').show();" +
 		"$('#acceptbutton').hide();" +
 		"$('#sendbutton').show();" +
 		"$('#paybutton').hide();";
 		
-	}else if(status == 8 || status == "8"){
+	}else if("已发送"){
 		js12 = 
 		"$('#cancelbutton').hide();" +
 		"$('#acceptbutton').hide();" +
