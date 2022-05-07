@@ -35,6 +35,17 @@
 			Efw('cancelshipinfo');
 		}
 
+		function acceptshipinfo(){
+			Efw('acceptshipinfo');
+		}
+
+		function sendshipinfo(){
+			Efw('sendshipinfo');
+		}
+		function payshipinfo(){
+			Efw('payshipinfo');
+		}
+		
 
 	</SCRIPT>
 	<style>
@@ -90,7 +101,11 @@
 		<TR style="height:40px;">
 			<TD>发送方式</TD>
 			<TD>
-				<select STYLE="WIDTH:280px;height:32px;" id="ship_div"></select>
+				<select STYLE="WIDTH:280px;height:32px;" id="ship_div">
+					<option>クリックポスト</option>
+					<option>ゆうパケット</option>
+					<option>その他</option>
+				</select>
 			</TD>
 			<TD>发送费用（日元）</TD>
 			<TD><INPUT TYPE="TEXT" ID="txt_fee" STYLE="WIDTH:200px;height:30px;"></TD>

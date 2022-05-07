@@ -27,6 +27,8 @@
 
         	Efw('searchshipinfo');
 
+			$("#updateship").hide();
+
         }
 
         function addshipinfo(){

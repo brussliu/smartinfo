@@ -406,5 +406,37 @@
 		WHERE "NO" = :no
 	</sql>
 
+	<sql id="updateShipinfoStatus5">
+		UPDATE "TEMP_発送情報" SET
+			 "SHIP_DIV" = :shipdiv
+			,"TRACKING_NO" = :trackingno
+			,"FEE" = :fee
+			,"AMOUNT" = :amount
+			,"STATUS" = '5'
+
+		WHERE "NO" = :no
+	</sql>
+
+	<sql id="updateShipinfoStatus8">
+		UPDATE "TEMP_発送情報" SET
+			 "SHIP_DIV" = :shipdiv
+			,"TRACKING_NO" = :trackingno
+			,"FEE" = :fee
+			,"AMOUNT" = :amount
+			,"STATUS" = '8'
+
+		WHERE "NO" = :no
+	</sql>
+
+	<sql id="updateShipinfoPaystatus">
+		UPDATE "TEMP_発送情報" SET
+			 "PAY_STATUS" = '1'
+
+		WHERE "NO" = :no
+	</sql>
+
+
+
+
 </sqls>
 
