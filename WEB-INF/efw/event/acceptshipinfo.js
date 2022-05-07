@@ -31,15 +31,6 @@ acceptshipinfo.fire=function(params){
 		}
 	);
 
-	var updateResult = db.change(
-		"SHIP",
-		"updateShipinfoStatus5",
-		{
-			"no":shipno
-		}
-	);
-
-
 	ret.eval("shipinfo_inputdialog.dialog('close');");
 
 	return ret.navigate("shipinfo.jsp");
