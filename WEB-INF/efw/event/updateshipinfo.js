@@ -63,23 +63,23 @@ updateshipinfo.fire=function(params){
 	var js12 = ""
 	if(status == 0 || status == "0"){
 		js12 = 
-		"$('#cancelbutton').show()" +
-		"$('#acceptbutton').show()" +
-		"$('#sendbutton').hide()" +
-		"$('#paybutton').hide()";
+		"$('#cancelbutton').show();" +
+		"$('#acceptbutton').show();" +
+		"$('#sendbutton').hide();" +
+		"$('#paybutton').hide();";
 	}else if(status == 5 || status == "5"){
 		js12 = 
-		"$('#cancelbutton').show()" +
-		"$('#acceptbutton').hide()" +
-		"$('#sendbutton').show()" +
-		"$('#paybutton').hide()";
+		"$('#cancelbutton').show();" +
+		"$('#acceptbutton').hide();" +
+		"$('#sendbutton').show();" +
+		"$('#paybutton').hide();";
 		
 	}else if(status == 8 || status == "8"){
 		js12 = 
-		"$('#cancelbutton').hide()" +
-		"$('#acceptbutton').hide()" +
-		"$('#sendbutton').hide()" +
-		"$('#paybutton').show()";
+		"$('#cancelbutton').hide();" +
+		"$('#acceptbutton').hide();" +
+		"$('#sendbutton').hide();" +
+		"$('#paybutton').show();";
 	}
 	ret.eval(js12);
 
