@@ -15,10 +15,10 @@ sendshipinfo.fire=function(params){
 	var shipno = params["#txt_shipno"];
 
 	var shipdiv = params["#ship_div"];
-	var fee = params["#txt_fee"]==null ? null : parseInt(params["#txt_fee"]);
+	var fee = params["#txt_fee"] == "" ? null : parseInt(params["#txt_fee"]);
 
 	var trackingno = params["#txt_trackingno"];
-	var amount = params["#txt_amount"]==null ? null : parseInt(params["#txt_amount"]);
+	var amount = params["#txt_amount"] == "" ? null : parseInt(params["#txt_amount"]);
 	
 	var updateResult = db.change(
 		"SHIP",
