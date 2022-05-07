@@ -73,7 +73,7 @@
 <efw:Part path="shipinfo_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	发送管理
-	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/shipinfo/'">
+	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
 
 <br/>
