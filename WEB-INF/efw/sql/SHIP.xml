@@ -299,5 +299,112 @@
 		WHERE ORDER_NO = :shipno
 	</sql>
 
+	<sql id="searchShipInfo">
+		SELECT
+			"NO" as shipno,
+			"POST_NO" as postno,
+			"ADDRESS1" as address1,
+			"ADDRESS2" as address2,
+			"ADDRESS3" as address3,
+			"SHIP_CONTENT_DIV" as shipcontentdiv,
+			"SHIP_CONTENT" as shipcontent,
+			"SHIP_COUNT" as shipcount,
+			"SHIP_DIV" as shipdiv,
+			"BIKO" as biko,
+			"TRACKING_NO" as trackingno,
+			case when "PAY_STATUS" = '1' then '已支付'
+			when "STATUS" = '0' then '请求中'
+			when "STATUS" = '5' then '准备中'
+			when "STATUS" = '8' then '已发送'
+			when "STATUS" = '9' then '已取消'
+			end as status,
+			"PAY_STATUS" as paystatus,
+			"FEE" as fee,
+			"FEE_DIV" as feediv,
+			"AMOUNT" as amount,
+			case when "PAY_STATUS" = '1' then 4
+				when "STATUS" = '0' then 1
+				when "STATUS" = '5' then 2
+				when "STATUS" = '8' then 3
+				when "STATUS" = '9' then 9
+			end as sortkey
+		FROM
+			"TEMP_発送情報"
+		WHERE
+			substring("NO",1,8) >= TO_CHAR(current_date-interval '30 day','yyyymmdd')
+		ORDER BY
+			sortkey
+	</sql>
+	<sql id="insertShipinfo">
+		INSERT INTO "TEMP_発送情報" VALUES (
+			 :no --"NO"
+			,:postno --"POST_NO"
+			,:address1 --"ADDRESS1"
+			,:address2 --"ADDRESS2"
+			,:address3 --"ADDRESS3"
+			,null --"SHIP_CONTENT_DIV"
+			,:shipcontent --"SHIP_CONTENT"
+			,:shipcount --"SHIP_COUNT"
+			,null --"SHIP_DIV"
+			,:biko --"BIKO"
+			,null --"TRACKING_NO"
+			,'0' --"STATUS"
+			,'0' --"PAY_STATUS"
+			,null --"FEE"
+			,null --"FEE_DIV"
+			,null --"AMOUNT"
+		)
+	</sql>
+	<sql id="searchShipInfoByShipno">
+		SELECT
+			"NO" as shipno,
+			"POST_NO" as postno,
+			"ADDRESS1" as address1,
+			"ADDRESS2" as address2,
+			"ADDRESS3" as address3,
+			"SHIP_CONTENT_DIV" as shipcontentdiv,
+			"SHIP_CONTENT" as shipcontent,
+			"SHIP_COUNT" as shipcount,
+			"SHIP_DIV" as shipdiv,
+			"BIKO" as biko,
+			"TRACKING_NO" as trackingno,
+			case when "PAY_STATUS" = '1' then '已支付'
+			when "STATUS" = '0' then '请求中'
+			when "STATUS" = '5' then '准备中'
+			when "STATUS" = '8' then '已发送'
+			when "STATUS" = '9' then '已取消'
+			end as status,
+			"PAY_STATUS" as paystatus,
+			"FEE" as fee,
+			"FEE_DIV" as feediv,
+			"AMOUNT" as amount
+		FROM
+			"TEMP_発送情報"
+		WHERE
+			"NO"= :shipno
+	</sql>
+
+	<sql id="updateShipinfo">
+		UPDATE "TEMP_発送情報" SET
+			 "POST_NO" = :postno --"POST_NO"
+			,"ADDRESS1" = :address1 --"ADDRESS1"
+			,"ADDRESS2" = :address2 --"ADDRESS2"
+			,"ADDRESS3" = :address3 --"ADDRESS3"
+
+			,"SHIP_CONTENT" = :shipcontent --"SHIP_CONTENT"
+			,"SHIP_COUNT" = :shipcount --"SHIP_COUNT"
+
+			,"BIKO" = :biko --"BIKO"
+
+		WHERE "NO" = :no
+	</sql>
+
+	<sql id="updateShipinfoStatus9">
+		UPDATE "TEMP_発送情報" SET
+			 "STATUS" = '9' --"POST_NO"
+
+		WHERE "NO" = :no
+	</sql>
+
 </sqls>
 

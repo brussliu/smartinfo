@@ -441,4 +441,14 @@
 			:col2 --写真
 		)
 	</sql>
+	<sql id="selectProductMst">
+		SELECT
+			"P_ID" as pid,
+			"NAME_CN" as namecn,
+			"NAME_JP" as namejp,
+			"COUNT" as ct
+		FROM
+			"MASTER_発送商品マスタ情報" A
+		ORDER BY "P_ID"
+	</sql>
 </sqls>
