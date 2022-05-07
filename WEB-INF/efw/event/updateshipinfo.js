@@ -43,7 +43,8 @@ updateshipinfo.fire=function(params){
 	var js6 = "$('#product_name').find(\"option:contains('" + selectResult[0]["shipcontent"] + "')\").attr('selected',true);";
 	var js7 = "$('#product_count').find(\"option:contains('" + selectResult[0]["shipcount"] + "')\").attr('selected',true);";
 
-	var js8 = "$('#ship_div').find(\"option:contains('" + selectResult[0]["shipdiv"] + "')\").attr('selected',true);";
+	var js8 = "$('#ship_div').val('" + selectResult[0]["shipdiv"] +"');";
+	//var js8 = "$('#ship_div').find(\"option:contains('" + selectResult[0]["shipdiv"] + "')\").attr('selected',true);";
 	var js9 = "$('#txt_fee').val('"+(selectResult[0]["fee"]==null?'':selectResult[0]["fee"])+"');";
 	var js10= "$('#txt_trackingno').val('"+(selectResult[0]["trackingno"]==null?'':selectResult[0]["trackingno"])+"');";
 	var js11= "$('#txt_amount').val('"+(selectResult[0]["amount"]==null?'':selectResult[0]["amount"])+"');";

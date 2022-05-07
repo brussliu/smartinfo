@@ -309,7 +309,9 @@
 			"SHIP_CONTENT_DIV" as shipcontentdiv,
 			"SHIP_CONTENT" as shipcontent,
 			"SHIP_COUNT" as shipcount,
-			"SHIP_DIV" as shipdiv,
+			case when "SHIP_DIV" = 'C' then 'クリックポスト'
+			     when "SHIP_DIV" = 'Y' then 'ゆうパケット'
+				 when "SHIP_DIV" = 'S' then 'その他' as shipdiv,
 			"BIKO" as biko,
 			"TRACKING_NO" as trackingno,
 			case when "PAY_STATUS" = '1' then '已支付'
