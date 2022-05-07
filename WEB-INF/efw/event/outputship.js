@@ -138,7 +138,7 @@ outputship.fire=function(params){
 					"col1":"〒" + postno,
 					"col2":standardAddressArr[0],
 					"col3":standardAddressArr[1],
-					"col4":standardAddressArr[2],
+					"col4":standardAddressArr[2]==null?"":standardAddressArr[2],
 					"col5":receiver,
 					"col6":content
 				},

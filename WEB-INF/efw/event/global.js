@@ -447,7 +447,9 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var RC_labelY_from = 4;
 	var RC_labelY_to = 30;
 	var RC_labelX = ["F","G","H","I","J","K"];
-	var RC_writeStockX = ["L","M","N","O","P","Q"];
+	var RC_writeFBAStockX = ["L","M","N","O","P","Q"];
+	var RC_writeFBMStockX = ["L","M","N","O","P","Q"];
+
 	var RC_writeLocalStockX = ["R","S","T","U","V","W"];
 	var RC_writeOnboardStockX = ["X","Y","Z","AA","AB","AC"];
 	var RC_writeSell7X = ["AD","AE","AF","AG","AH","AI"];
@@ -464,7 +466,9 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var PJ_labelY_from = 4;
 	var PJ_labelY_to = 18;
 	var PJ_labelX = ["F","G","H","I","J","K","L"];
-	var PJ_writeStockX = ["M","N","O","P","Q","R","S"];
+	var PJ_writeFBAStockX = ["M","N","O","P","Q","R","S"];
+	var PJ_writeFBMStockX = null;
+
 	var PJ_writeLocalStockX = ["T","U","V","W","X","Y","Z"];
 	var PJ_writeOnboardStockX = ["AA","AB","AC","AD","AE","AF","AG"];
 	var PJ_writeSell7X = ["AH","AI","AJ","AK","AL","AM","AN"];
@@ -497,7 +501,9 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var RB_labelY_from = 3;
 	var RB_labelY_to = 80;
 	var RB_labelX = ["H"];
-	var RB_writeStockX = ["I"];
+	var RB_writeFBAStockX = ["I"];
+	var RB_writeFBMStockX = null;
+
 	var RB_writeLocalStockX = ["J"];
 	var RB_writeOnboardStockX = ["K"];
 	var RB_writeSell7X = ["L"];
@@ -515,17 +521,19 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 	var W_labelY_to = null;
 	var W_labelX = ["J"];
 	var W_writePriceX = ["K"];
-	var W_writeStockX = ["L"];
-	var W_writeLocalStockX = ["M"];
-	var W_writeOnboardStockX = ["N"];
-	var W_writeSell7X = ["O"];
-	var W_writeSell30X = ["P"];
-	var W_writeSell60X = ["Q"];
-	var W_writeSell90X = ["R"];
-	var W_writeSellWeekX = ["S"];
-	var W_writeFBAFlgX = ["X"];
-	var W_writeDeliveryX = ["U"];
-	var W_writePurchaseX = ["U"];
+	var W_writeFBAStockX = ["L"];
+	var W_writeFBMStockX = ["M"];
+
+	var W_writeLocalStockX = ["N"];
+	var W_writeOnboardStockX = ["O"];
+	var W_writeSell7X = ["P"];
+	var W_writeSell30X = ["Q"];
+	var W_writeSell60X = ["R"];
+	var W_writeSell90X = ["S"];
+	var W_writeSellWeekX = ["T"];
+	var W_writeFBAFlgX = ["U"];
+	var W_writeDeliveryX = ["V"];
+	var W_writePurchaseX = ["V"];
 
 
 	for(var i = 0;i < selectResult.length;i ++){
@@ -542,7 +550,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 			// 情報設定
 			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（雨衣）", 
 				RC_labelX, RC_labelY_from, RC_labelY_to,
-				RC_writeStockX, RC_writeLocalStockX, RC_writeOnboardStockX,
+				RC_writeFBAStockX, RC_writeFBMStockX, RC_writeLocalStockX, RC_writeOnboardStockX,
 				RC_writeSell7X, RC_writeSell30X, RC_writeSell60X, RC_writeSell90X, RC_writeSellWeekX,
 				RC_writePriceX, RC_writeDeliveryX, RC_writePurchaseX, RC_writeFBAFlgX, deliveryFlg, purchaseFlg
 			);
@@ -553,7 +561,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 			// 情報設定
 			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（居家服）", 
 				PJ_labelX, PJ_labelY_from, PJ_labelY_to,
-				PJ_writeStockX, PJ_writeLocalStockX, PJ_writeOnboardStockX,
+				PJ_writeFBAStockX, PJ_writeFBMStockX, PJ_writeLocalStockX, PJ_writeOnboardStockX,
 				PJ_writeSell7X, PJ_writeSell30X, PJ_writeSell60X, PJ_writeSell90X, PJ_writeSellWeekX,
 				PJ_writePriceX, PJ_writeDeliveryX, PJ_writePurchaseX, PJ_writeFBAFlgX, deliveryFlg, purchaseFlg
 			);
@@ -577,7 +585,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 			// 情報設定
 			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（雨靴等）", 
 				RB_labelX, RB_labelY_from, RB_labelY_to,
-				RB_writeStockX, RB_writeLocalStockX, RB_writeOnboardStockX,
+				RB_writeFBAStockX, RB_writeFBMStockX, RB_writeLocalStockX, RB_writeOnboardStockX,
 				RB_writeSell7X, RB_writeSell30X, RB_writeSell60X, RB_writeSell90X, RB_writeSellWeekX,
 				RB_writePriceX, RB_writeDeliveryX, RB_writePurchaseX, RB_writeFBAFlgX, deliveryFlg, purchaseFlg
 			);
@@ -588,7 +596,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 			// 情報設定
 			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（袜子）", 
 				W_labelX, W_labelY_from, W_labelY_to,
-				W_writeStockX, W_writeLocalStockX, W_writeOnboardStockX,
+				W_writeFBAStockX, W_writeFBMStockX, W_writeLocalStockX, W_writeOnboardStockX,
 				W_writeSell7X, W_writeSell30X, W_writeSell60X, W_writeSell90X, W_writeSellWeekX,
 				W_writePriceX, W_writeDeliveryX, W_writePurchaseX, W_writeFBAFlgX, deliveryFlg, purchaseFlg
 			);
@@ -837,7 +845,7 @@ function setInfoToExcelBySkuAsin(excel, selectRecord, sheetName, deliveryFlg, pu
 
 } 
 
-function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, labelY_to, writeStockX, writeLocalStockX, writeOnboardStockX,
+function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, labelY_to, writeFBAStockX, writeFBMStockX, writeLocalStockX, writeOnboardStockX,
 	writeSell7X, writeSell30X, writeSell60X, writeSell90X, writeSellWeekX, writePriceX, writeDeliveryX, writePurchaseX, writeFBAFlgX, deliveryFlg, purchaseFlg){
 
 	var labelno = selectRecord["label"];
@@ -889,7 +897,13 @@ function setInfoToExcel(excel, selectRecord, sheetName, labelX, labelY_from, lab
 				// 商品価格
 				setExcelValue(excel, sheetName, writePriceX[x]+y, price);
 				// FBA在庫数量
-				setExcelValue(excel, sheetName, writeStockX[x]+y, fba);
+				setExcelValue(excel, sheetName, writeFBAStockX[x]+y, fba);
+
+				if(writeFBMStockX != null){
+					// FBM在庫数量
+					setExcelValue(excel, sheetName, writeFBMStockX[x]+y, fbm);
+				}
+
 				// ローカル在庫
 				setExcelValue(excel, sheetName, writeLocalStockX[x]+y, localstock);
 				// ONBOARD在庫
