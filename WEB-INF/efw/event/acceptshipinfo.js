@@ -21,7 +21,7 @@ acceptshipinfo.fire=function(params){
 	var amount = params["#txt_amount"]==null ? null : parseInt(params["#txt_amount"]);
 
 
-	shipdiv.debug("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
+	fee.debug("WWWWWWWWWWWWWWWWWWWWW");
 	
 	var updateResult = db.change(
 		"SHIP",
