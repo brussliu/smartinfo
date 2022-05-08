@@ -446,34 +446,25 @@
 	</sql>
 
 	<sql id="searchShipInfoToCSV">
+
+	"お届け先郵便番号","お届け先氏名","お届け先敬称","お届け先住所1行目","お届け先住所2行目","お届け先住所3行目","お届け先住所4行目","内容品"
 		SELECT
-			"NO" as shipno,
-			"POST_NO" as postno,
-			"ADDRESS1" as address1,
-			"ADDRESS2" as address2,
-			"ADDRESS3" as address3,
-			"NAME" as name,
-			"TEL" as tel,
-			"SHIP_CONTENT_DIV" as shipcontentdiv,
-			"SHIP_CONTENT" as shipcontent,
-			"SHIP_COUNT" as shipcount,
-			"SHIP_DIV" as shipdiv,
-			"BIKO" as biko,
-			"TRACKING_NO" as trackingno,
-			case when "PAY_STATUS" = '1' then '已支付'
-			when "STATUS" = '0' then '请求中'
-			when "STATUS" = '5' then '准备中'
-			when "STATUS" = '8' then '已发送'
-			when "STATUS" = '9' then '已取消'
-			end as status,
-			"PAY_STATUS" as paystatus,
-			"FEE" as fee,
-			"FEE_DIV" as feediv,
-			"AMOUNT" as amount
+			A."POST_NO" as postno,
+			A."NAME" as name,
+			'様' as sama,
+			A."ADDRESS1" as address1,
+			A."ADDRESS2" as address2,
+			A."ADDRESS3" as address3,
+			'' as address4,
+			B."NAME_JP" as shipcontent,
 		FROM
-			"TEMP_発送情報"
+			"TEMP_発送情報" A
+			LEFT JOIN "MASTER_発送商品マスタ情報" B
+			ON A."SHIP_CONTENT" = B."NAME_CN"
 		WHERE
 			"STATUS" = '5'
+			AND
+			"SHIP_DIV" = 'C'
 	</sql>
 
 
