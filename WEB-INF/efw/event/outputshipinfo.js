@@ -26,6 +26,9 @@ outputshipinfo.fire=function(params){
 
 	//csvWriter.writeAllLines(selectResult);
 
+	selectResult.debug("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTt");
+	
+
 
 	for(var i = 0;i < selectResult.length;i ++){
 
