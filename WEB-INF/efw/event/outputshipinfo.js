@@ -27,13 +27,11 @@ outputshipinfo.fire=function(params){
 	//csvWriter.writeAllLines(selectResult);
 
 
-	// for(var i = 0;i < skuResult.length;i ++){
+	for(var i = 0;i < selectResult.length;i ++){
 
-	// 	var dary = [skuResult[i]["skuinfo"]];
+		csvWriter.writeLine(selectResult[i]["skuinfo"]);
 
-	// 	csvWriter.writeLine(dary);
-
-	// }
+	}
 
 	ret.attach("output/clickpost.csv").saveas("クリックポスト作成用.csv");
 
