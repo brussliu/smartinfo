@@ -454,7 +454,7 @@
 			A."ADDRESS2" as address2,
 			A."ADDRESS3" as address3,
 			'' as address4,
-			B."NAME_JP" as shipcontent,
+			B."NAME_JP" as shipcontent
 		FROM
 			"TEMP_発送情報" A
 			LEFT JOIN "MASTER_発送商品マスタ情報" B
