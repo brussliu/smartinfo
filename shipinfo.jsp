@@ -33,7 +33,7 @@
 
         function addshipinfo(){
 
-        	Efw('addshipinfo')
+        	Efw('addshipinfo');
 
         }
 
@@ -49,6 +49,10 @@
 
 			Efw('updateshipinfo',{'shipno': shipno})
 
+		}
+
+		function outputshipinfo(){
+			Efw('outputshipinfo');
 		}
 
 		function changeColor(){
@@ -95,7 +99,7 @@
 			检索条件
 		</td>
 		<td style="text-align: right;" colspan="1">
-			<input type="button" style="width: 200px;height: 40px;font-size: 20px;" value="发送请求" onclick="addshipinfo()">
+			<input type="button" id="searchship" style="width: 200px;height: 40px;font-size: 20px;" value="检索" onclick="searchshipinfo()">
 		</td>
 	</tr>
 	<tr>
@@ -110,7 +114,7 @@
 			<input type="radio" name="orderTerm01" value="999" disabled>すべて
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchship" style="width: 200px;height: 40px;font-size: 20px;" value="检索" onclick="searchshipinfo()">
+			<input type="button" id="searchship" style="width: 200px;height: 40px;font-size: 20px;" value="CSV出力" onclick="outputshipinfo()">
 		</td>
 	</tr>
 	<tr>
