@@ -62,7 +62,7 @@
 		<TR style="height:40px;">
 			<TD>NO</TD>
 			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_shipno" STYLE="WIDTH:200px;height:30px;background-color: lightgray;" readonly="readonly"></TD>
-			<TD rowspan="9">NO</TD>
+			<TD rowspan="9"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>发送商品</TD>
@@ -118,7 +118,7 @@
 				</select>
 			</TD>
 			<TD>发送费用（日元）</TD>
-			<TD><INPUT TYPE="TEXT" ID="txt_fee" STYLE="WIDTH:150px;height:30px;"></TD>
+			<TD colspan="2"><INPUT TYPE="TEXT" ID="txt_fee" STYLE="WIDTH:150px;height:30px;"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>追踪番号</TD>
@@ -126,7 +126,7 @@
 				<INPUT TYPE="TEXT" ID="txt_trackingno" STYLE="WIDTH:200px;height:30px;">
 			</TD>
 			<TD>合计费用（人民币）</TD>
-			<TD><INPUT TYPE="TEXT" ID="txt_amount" STYLE="WIDTH:150px;height:30px;"></TD>
+			<TD colspan="2"><INPUT TYPE="TEXT" ID="txt_amount" STYLE="WIDTH:150px;height:30px;"></TD>
 		</TR>
 	</TABLE>
 	<br>
