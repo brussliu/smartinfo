@@ -40,6 +40,9 @@ updateshipinfo.fire=function(params){
 
 	var js5 = "$('#txt_biko').val('"+(selectResult[0]["biko"]==null?'':selectResult[0]["biko"])+"');";
 
+	var js13 = "$('#txt_name').val('"+(selectResult[0]["name"]==null?'':selectResult[0]["name"])+"');";
+	var js14 = "$('#txt_tel').val('"+(selectResult[0]["tel"]==null?'':selectResult[0]["tel"])+"');";
+
 	var js6 = "$('#product_name').find(\"option:contains('" + selectResult[0]["shipcontent"] + "')\").attr('selected',true);";
 	var js7 = "$('#product_count').find(\"option:contains('" + selectResult[0]["shipcount"] + "')\").attr('selected',true);";
 
@@ -61,6 +64,10 @@ updateshipinfo.fire=function(params){
 	ret.eval(js9);
 	ret.eval(js10);
 	ret.eval(js11);
+
+	ret.eval(js13);
+	ret.eval(js14);
+
 	var js12 = ""
 	if(status == "请求中"){
 		js12 = 

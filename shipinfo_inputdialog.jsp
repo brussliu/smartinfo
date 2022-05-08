@@ -8,7 +8,7 @@
 				title : "发送请求录入",
 				autoOpen : false,
 				resizable : false,
-				height : 550,
+				height : 600,
 				width : 1000,
 				modal : true,
 				open : function(){
@@ -93,6 +93,14 @@
 		<TR style="height:40px;">
 			<TD>住所3</TD>
 			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_address3" STYLE="WIDTH:600px;height:30px;"></TD>
+		</TR>
+		<TR style="height:40px;">
+			<TD>姓名</TD>
+			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_name" STYLE="WIDTH:200px;height:30px;"></TD>
+		</TR>
+		<TR style="height:40px;">
+			<TD>电话号码</TD>
+			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_tel" STYLE="WIDTH:200px;height:30px;"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>备考</TD>

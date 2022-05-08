@@ -306,6 +306,8 @@
 			"ADDRESS1" as address1,
 			"ADDRESS2" as address2,
 			"ADDRESS3" as address3,
+			"NAME" as name,
+			"TEL" as tel,
 			"SHIP_CONTENT_DIV" as shipcontentdiv,
 			"SHIP_CONTENT" as shipcontent,
 			"SHIP_COUNT" as shipcount,
@@ -345,6 +347,8 @@
 			,:address1 --"ADDRESS1"
 			,:address2 --"ADDRESS2"
 			,:address3 --"ADDRESS3"
+			,:name --"NAME"
+			,:tel --"TEL"
 			,null --"SHIP_CONTENT_DIV"
 			,:shipcontent --"SHIP_CONTENT"
 			,:shipcount --"SHIP_COUNT"
@@ -365,6 +369,8 @@
 			"ADDRESS1" as address1,
 			"ADDRESS2" as address2,
 			"ADDRESS3" as address3,
+			"NAME" as name,
+			"TEL" as tel,
 			"SHIP_CONTENT_DIV" as shipcontentdiv,
 			"SHIP_CONTENT" as shipcontent,
 			"SHIP_COUNT" as shipcount,
@@ -393,7 +399,8 @@
 			,"ADDRESS1" = :address1 --"ADDRESS1"
 			,"ADDRESS2" = :address2 --"ADDRESS2"
 			,"ADDRESS3" = :address3 --"ADDRESS3"
-
+			,"NAME" = :name --"ADDRESS3"
+			,"TEL" = :tel --"ADDRESS3"
 			,"SHIP_CONTENT" = :shipcontent --"SHIP_CONTENT"
 			,"SHIP_COUNT" = :shipcount --"SHIP_COUNT"
 
