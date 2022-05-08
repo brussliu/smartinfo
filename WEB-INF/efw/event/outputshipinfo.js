@@ -32,6 +32,8 @@ outputshipinfo.fire=function(params){
 
 	for(var i = 0;i < selectResult.length;i ++){
 
+		var ary = new Array(1);
+
 		var line = selectResult[i]["postno"] + "," +
 		selectResult[i]["name"] + "," +
 		selectResult[i]["sama"] + "," +
@@ -40,6 +42,8 @@ outputshipinfo.fire=function(params){
 		selectResult[i]["address3"] + "," +
 		selectResult[i]["address4"] + "," +
 		selectResult[i]["shipcontent"];
+
+		ary[0] = line;
 
 		csvWriter.writeLine(line);
 
