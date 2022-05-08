@@ -26,9 +26,7 @@ outputshipinfo.fire=function(params){
 
 	//csvWriter.writeAllLines(selectResult);
 
-	selectResult.debug("TTTTTTTTTTTTTTTTTTTTTTTTTTT");
-
-	selectResult.length.debug("SSSSSSSSSSSSSSSSSSSSSSSSSS");
+	selectResult[0].debug("SSSSSSSSSSSSSSSSSSSSSSSSSS");
 
 
 
