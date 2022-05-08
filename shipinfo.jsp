@@ -67,9 +67,36 @@
 					$(this).css("background-color", "gray");
 
 				}
+				if($(this).children().eq(2).html()=="已支付"){
 
+					$(this).children().eq(0).children().eq(0).hide();
+
+					$(this).css("background-color", "lightgray");
+
+				}
+				if($(this).children().eq(2).html()=="请求中"){
+
+					//$(this).children().eq(0).children().eq(0).hide();
+
+					$(this).css("background-color", "pink");
+
+				}
+				if($(this).children().eq(2).html()=="准备中"){
+
+					//$(this).children().eq(0).children().eq(0).hide();
+
+					$(this).css("background-color", "lightpink");
+
+				}
+				if($(this).children().eq(2).html()=="已发送"){
+
+					$(this).children().eq(0).children().eq(0).hide();
+
+					$(this).css("background-color", "lightblue");
+
+				}
 			});
-			
+
 		}
 
   	</script>
