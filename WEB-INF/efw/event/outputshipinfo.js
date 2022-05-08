@@ -35,7 +35,7 @@ outputshipinfo.fire=function(params){
 
 	// }
 
-	ret.attach("output/clickpost.csv").saveas("クリックポスト作成用.txt");
+	ret.attach("output/clickpost.csv").saveas("クリックポスト作成用.csv");
 
 	return ret;
 
