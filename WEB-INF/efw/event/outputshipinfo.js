@@ -24,7 +24,7 @@ outputshipinfo.fire=function(params){
 
 	csvWriter.writeAllLines(ary);
 
-	csvWriter.writeAllLines(selectResult);
+	//csvWriter.writeAllLines(selectResult);
 
 
 	// for(var i = 0;i < skuResult.length;i ++){
