@@ -54,22 +54,24 @@
 	<TABLE STYLE="WIDTH: 100%" BORDER="1" id="shipinfotable">
 		<COLGROUP>
 			<COL WIDTH="150PX">
-			<COL WIDTH="300PX">
+			<COL WIDTH="250PX">
 			<COL WIDTH="150PX">
+			<COL WIDTH="100PX">
 			<COL>
 		</COLGROUP>
 		<TR style="height:40px;">
 			<TD>NO</TD>
 			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_shipno" STYLE="WIDTH:200px;height:30px;background-color: lightgray;" readonly="readonly"></TD>
+			<TD rowspan="9">NO</TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>发送商品</TD>
 			<TD>
-				<select STYLE="WIDTH:280px;height:32px;" id="product_name"></select>
+				<select STYLE="WIDTH:250px;height:32px;" id="product_name"></select>
 			</TD>
 			<TD>数量</TD>
 			<TD>
-				<select STYLE="WIDTH:150px;height:32px;" id="product_count">
+				<select STYLE="WIDTH:100px;height:32px;" id="product_count">
 					<option>1</option>
 					<option>2</option>	
 					<option>3</option>
@@ -84,15 +86,15 @@
 		</TR>
 		<TR style="height:40px;">
 			<TD>住所1</TD>
-			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_address1" STYLE="WIDTH:600px;height:30px;"></TD>
+			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_address1" STYLE="WIDTH:500px;height:30px;"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>住所2</TD>
-			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_address2" STYLE="WIDTH:600px;height:30px;"></TD>
+			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_address2" STYLE="WIDTH:500px;height:30px;"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>住所3</TD>
-			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_address3" STYLE="WIDTH:600px;height:30px;"></TD>
+			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_address3" STYLE="WIDTH:500px;height:30px;"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>姓名</TD>
@@ -104,19 +106,19 @@
 		</TR>
 		<TR style="height:40px;">
 			<TD>备考</TD>
-			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_biko" STYLE="WIDTH:600px;height:30px;"></TD>
+			<TD colspan="3"><INPUT TYPE="TEXT" ID="txt_biko" STYLE="WIDTH:500px;height:30px;"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>发送方式</TD>
 			<TD>
-				<select STYLE="WIDTH:280px;height:32px;" id="ship_div">
+				<select STYLE="WIDTH:250px;height:32px;" id="ship_div">
 					<option value="C">クリックポスト</option>
 					<option value="Y">ゆうパケット</option>
 					<option value="S">その他</option>
 				</select>
 			</TD>
 			<TD>发送费用（日元）</TD>
-			<TD><INPUT TYPE="TEXT" ID="txt_fee" STYLE="WIDTH:200px;height:30px;"></TD>
+			<TD><INPUT TYPE="TEXT" ID="txt_fee" STYLE="WIDTH:150px;height:30px;"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>追踪番号</TD>
@@ -124,7 +126,7 @@
 				<INPUT TYPE="TEXT" ID="txt_trackingno" STYLE="WIDTH:200px;height:30px;">
 			</TD>
 			<TD>合计费用（人民币）</TD>
-			<TD><INPUT TYPE="TEXT" ID="txt_amount" STYLE="WIDTH:200px;height:30px;"></TD>
+			<TD><INPUT TYPE="TEXT" ID="txt_amount" STYLE="WIDTH:150px;height:30px;"></TD>
 		</TR>
 	</TABLE>
 	<br>
