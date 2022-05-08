@@ -24,11 +24,6 @@ outputshipinfo.fire=function(params){
 
 	csvWriter.writeAllLines(ary);
 
-	//csvWriter.writeAllLines(selectResult);
-
-	selectResult[0].debug("SSSSSSSSSSSSSSSSSSSSSSSSSS");
-
-
 
 	for(var i = 0;i < selectResult.length;i ++){
 
@@ -45,7 +40,7 @@ outputshipinfo.fire=function(params){
 
 		ary[0] = line;
 
-		csvWriter.writeLine(line);
+		csvWriter.writeLine(ary);
 
 	}
 
