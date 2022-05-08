@@ -32,7 +32,16 @@ outputshipinfo.fire=function(params){
 
 	for(var i = 0;i < selectResult.length;i ++){
 
-		csvWriter.writeLine(selectResult[i]);
+		var line = selectResult[i]["postno"] + "," +
+		selectResult[i]["name"] + "," +
+		selectResult[i]["sama"] + "," +
+		selectResult[i]["address1"] + "," +
+		selectResult[i]["address2"] + "," +
+		selectResult[i]["address3"] + "," +
+		selectResult[i]["address4"] + "," +
+		selectResult[i]["shipcontent"];
+
+		csvWriter.writeLine(line);
 
 	}
 
