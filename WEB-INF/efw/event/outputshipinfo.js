@@ -26,13 +26,15 @@ outputshipinfo.fire=function(params){
 
 	//csvWriter.writeAllLines(selectResult);
 
-	selectResult.debug("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTt");
-	
+	selectResult.debug("TTTTTTTTTTTTTTTTTTTTTTTTTTT");
+
+	selectResult.length.debug("SSSSSSSSSSSSSSSSSSSSSSSSSS");
+
 
 
 	for(var i = 0;i < selectResult.length;i ++){
 
-		csvWriter.writeLine(selectResult[i]["skuinfo"]);
+		csvWriter.writeLine(selectResult[i]);
 
 	}
 
