@@ -18,11 +18,9 @@ outputshipinfo.fire=function(params){
 
 	var csvWriter = new CSVWriter("output/clickpost.csv", ",", "\"", "MS932");
 
-	var ary = [
-		["お届け先郵便番号","お届け先氏名","お届け先敬称","お届け先住所1行目","お届け先住所2行目","お届け先住所3行目","お届け先住所4行目","内容品"],
-	];
+	var ary = ["お届け先郵便番号,お届け先氏名,お届け先敬称,お届け先住所1行目,お届け先住所2行目,お届け先住所3行目,お届け先住所4行目,内容品"];
 
-	csvWriter.writeAllLines(ary);
+	csvWriter.writeLine(ary);
 
 
 	for(var i = 0;i < selectResult.length;i ++){
