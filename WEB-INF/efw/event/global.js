@@ -1071,10 +1071,10 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var W_skuX = [null];
 	var W_asinX = [null];
 
-	var W_localStockX = ["M"];
-	var W_onboardStockX = ["N"];
-	var W_deliveryX = ["U"];
-	var W_purchaseX = ["U"];
+	var W_localStockX = ["N"];
+	var W_onboardStockX = ["O"];
+	var W_deliveryX = ["V"];
+	var W_purchaseX = ["V"];
 	var W_priceX = ["K"];
 
 	var W_labelY_from = 4;
