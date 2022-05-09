@@ -90,7 +90,7 @@
 				}
 				if($(this).children().eq(2).html()=="已发送"){
 
-					$(this).children().eq(0).children().eq(0).hide();
+					//$(this).children().eq(0).children().eq(0).hide();
 
 					$(this).css("background-color", "lightblue");
 
