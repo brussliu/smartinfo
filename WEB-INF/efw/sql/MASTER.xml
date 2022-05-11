@@ -451,7 +451,7 @@
 			"MASTER_発送商品マスタ情報" A
 		ORDER BY "P_ID"
 	</sql>
-	<sql id="selectshipmaster">
+	<sql id="searchshipmaster">
 		SELECT
 			"P_ID" as pid,
 			"DIV" as div,
