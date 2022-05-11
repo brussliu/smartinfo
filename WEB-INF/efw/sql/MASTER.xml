@@ -451,4 +451,20 @@
 			"MASTER_発送商品マスタ情報" A
 		ORDER BY "P_ID"
 	</sql>
+	<sql id="selectshipmaster">
+		SELECT
+			"P_ID" as pid,
+			"DIV" as div,
+			"NAME_CN" as namecn,
+			"NAME_JP" as namejp,
+			"COLOR" as color,
+			"SIZE" as size,
+			"COUNT" as ct,
+			"PIC" as pic
+		FROM
+			"MASTER_発送商品マスタ情報3" A
+		WHERE
+			"DEL_FLG" <> '1'
+		ORDER BY "P_ID"
+	</sql>
 </sqls>

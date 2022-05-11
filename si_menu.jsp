@@ -57,6 +57,8 @@
 			<br><br>
 		</div></td>
 		<td><div style="text-align:center;"><br>
+			<input type=button value="発送商品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_ship_master.jsp',shop:'Smart-Bear'})">
+			<br><br>
 			<input type=button value="代行発送管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'shipinfo.jsp',shop:'Smart-Bear'})">
 			<br><br>
 		</div></td>
