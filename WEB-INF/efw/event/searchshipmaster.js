@@ -18,6 +18,7 @@ searchshipmaster.fire=function(params){
 		"<td>{color}</td>" +
 		"<td>{size}</td>" +
 		"<td>{ct}</td>" +
+		"<td>{biko}</td>" +
 		"<td><img src='{pic}' width='150px;'></td>" +
 	"</tr>";
 

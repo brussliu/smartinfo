@@ -76,6 +76,9 @@
 			数量
 		</td>
 		<td style="font-size: 14px;font-weight: bold;">
+			備考
+		</td>
+		<td style="font-size: 14px;font-weight: bold;">
 			商品写真
 		</td>
 	</tr>
