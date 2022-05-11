@@ -9,7 +9,7 @@
 				autoOpen : false,
 				resizable : false,
 				height : 500,
-				width : 1000,
+				width : 1010,
 				modal : true,
 				open : function(){
 					setTimeout(function(){});
