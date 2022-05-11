@@ -465,7 +465,7 @@
 		FROM
 			"MASTER_発送商品マスタ情報2" A
 		WHERE
-			"DEL_FLG" <> '1'
+			"DEL_FLG" != '1'
 		ORDER BY "P_ID"
 	</sql>
 </sqls>
