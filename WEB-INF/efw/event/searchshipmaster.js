@@ -1,5 +1,5 @@
 var searchshipmaster={};
-searchshipmaster.name="マスタ一覧検索";
+searchshipmaster.name="発送商品マスタ検索";
 searchshipmaster.paramsFormat={
 
 };

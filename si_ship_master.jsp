@@ -31,7 +31,7 @@
   	</script>
 </head>
 <body style="background-color:ghostwhite;" onload="searchShipMaster();">
-<efw:Part path="si_master_inputdialog.jsp"/>
+<efw:Part path="si_ship_master_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	発送商品マスタ情報
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
