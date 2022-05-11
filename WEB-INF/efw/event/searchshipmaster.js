@@ -1,10 +1,10 @@
-var searchmaster={};
-searchmaster.name="マスタ一覧検索";
-searchmaster.paramsFormat={
+var searchshipmaster={};
+searchshipmaster.name="マスタ一覧検索";
+searchshipmaster.paramsFormat={
 
 };
 
-searchmaster.fire=function(params){
+searchshipmaster.fire=function(params){
 	
 	var ret = new Result();
 
