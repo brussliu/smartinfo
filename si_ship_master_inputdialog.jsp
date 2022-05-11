@@ -340,11 +340,11 @@
     </style>
 	<TABLE STYLE="WIDTH: 100%" BORDER="1">
 		<COLGROUP>
-			<COL WIDTH="150PX">
+			<COL WIDTH="100PX">
 			<COL WIDTH="250PX">
-			<COL WIDTH="150PX">
+			<COL WIDTH="100PX">
 			<COL WIDTH="250PX">
-			<COL WIDTH="150PX">
+			<COL WIDTH="100PX">
 			<COL>
 		</COLGROUP>
 		<TR style="height:40px;">
