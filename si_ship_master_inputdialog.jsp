@@ -8,8 +8,8 @@
 				title : "発送商品登録",
 				autoOpen : false,
 				resizable : false,
-				height : 1000,
-				width : 1400,
+				height : 500,
+				width : 1000,
 				modal : true,
 				open : function(){
 					setTimeout(function(){});
@@ -350,9 +350,9 @@
 		<TR style="height:40px;">
 			<TD>商品管理番号</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productid"></TD>
-			<TD>SKU番号</TD>
+			<TD>色</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="sku"></TD>
-			<TD>ASIN番号</TD>
+			<TD>サイズ</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="asin"></TD>
 		</TR>
 		<TR style="height:40px;">
@@ -367,11 +367,12 @@
 				</select>
 			</TD>
 			<TD>商品名称</TD>
-			<TD colspan="3"><INPUT TYPE="TEXT" STYLE="WIDTH:100%;height:30px;" id="productname"></TD>
+			<TD colspan="3"><INPUT TYPE="TEXT" STYLE="WIDTH:500px;height:30px;" id="productname"></TD>
 		</TR>
 		<TR>
-			<TD colspan="6">
-				<INPUT TYPE="TEXT" STYLE="WIDTH:100%;height:30px;" id="biko">
+			<TD>備考</TD>
+			<TD colspan="5">
+				<INPUT TYPE="TEXT" STYLE="WIDTH:500px;height:30px;" id="biko">
 			</TD>
 		</TR>
 
