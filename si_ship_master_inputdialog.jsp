@@ -16,7 +16,7 @@
 				},
 				close : function(){
 					setTimeout(function(){
-						Efw('menu_goto',{page:'si_ship_master.jsp'})
+						Efw('menu_goto',{page:'si_ship_master.jsp',shop:"Smart-Bear"})
 						},
 						100
 						);
@@ -179,7 +179,7 @@
 			});
 
 
-			Efw('savemaster',{"subsku": skuArr ,"subasin": asinArr,"subcolor": colorArr,"subsize": sizeArr,"picStr":picArr,"picColor":picColorArr });
+			Efw('saveshipmaster',{"picColor":picColorArr });
 
 		}
 
@@ -351,9 +351,9 @@
 			<TD>商品管理番号</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productid"></TD>
 			<TD>色</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="sku"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="color"></TD>
 			<TD>サイズ</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="asin"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="size"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>商品分類</TD>
@@ -366,14 +366,18 @@
 					<option id="D" class="newshop">D:その他</option>
 				</select>
 			</TD>
-			<TD>商品名称</TD>
-			<TD colspan="3"><INPUT TYPE="TEXT" STYLE="WIDTH:500px;height:30px;" id="productname"></TD>
+			<TD>商品名称(日本語)</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productnamejp"></TD>
+			<TD>商品名称(中国語)</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productnamecn"></TD>
 		</TR>
 		<TR>
 			<TD>備考</TD>
-			<TD colspan="5">
+			<TD colspan="3">
 				<INPUT TYPE="TEXT" STYLE="WIDTH:500px;height:30px;" id="biko">
 			</TD>
+			<TD>数量</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productcount"></TD>
 		</TR>
 
 		<TR style="height:220px;">

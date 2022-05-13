@@ -463,7 +463,7 @@
 			"BIKO" as biko,
 			"PIC" as pic
 		FROM
-			"MASTER_発送商品マスタ情報2" A
+			"MASTER_発送商品マスタ情報5" A
 		WHERE
 			"DEL_FLG" != '1'
 		ORDER BY "P_ID"
