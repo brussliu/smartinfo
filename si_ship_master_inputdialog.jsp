@@ -349,7 +349,7 @@
 		</COLGROUP>
 		<TR style="height:40px;">
 			<TD>商品管理番号</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productid"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productid" readonly="readonly"></TD>
 			<TD>色</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="color"></TD>
 			<TD>サイズ</TD>
@@ -374,7 +374,7 @@
 		<TR>
 			<TD>備考</TD>
 			<TD colspan="3">
-				<INPUT TYPE="TEXT" STYLE="WIDTH:500px;height:30px;" id="biko">
+				<INPUT TYPE="TEXT" STYLE="WIDTH:550px;height:30px;" id="biko">
 			</TD>
 			<TD>数量</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productcount"></TD>

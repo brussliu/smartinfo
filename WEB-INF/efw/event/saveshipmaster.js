@@ -17,7 +17,7 @@ savemaster.fire=function(params){
 
 	// 親商品情報登録
 	// 商品管理番号
-	var productid = params["#si_ship_master_inputdialog"]["#productid"];
+	//var productid = params["#si_ship_master_inputdialog"]["#productid"];
 	// 商品分類
 	var productdiv = params["#si_ship_master_inputdialog"]["#productdiv"];
 	// 色
@@ -41,7 +41,7 @@ savemaster.fire=function(params){
 		"MASTER",
 		"insertShipMaster",
 		{
-			"col0":productid,
+			
 			"col1":productdiv,
 			"col2":productnamecn,
 			"col3":productnamejp,
