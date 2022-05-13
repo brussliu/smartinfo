@@ -468,4 +468,19 @@
 			"DEL_FLG" != '1'
 		ORDER BY "P_ID"
 	</sql>
+
+	<sql id="insertShipMaster">
+		INSERT INTO "MASTER_発送商品マスタ情報5"
+		VALUES (
+			:col1,
+			:col2,
+			:col3,
+			:col4,
+			:col5,
+			:col6,
+			:col7,
+			:col8
+		)
+	</sql>
+
 </sqls>
