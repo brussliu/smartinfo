@@ -472,6 +472,7 @@
 	<sql id="insertShipMaster">
 		INSERT INTO "MASTER_発送商品マスタ情報5"
 		VALUES (
+			DEFAULT,
 			:col1,
 			:col2,
 			:col3,

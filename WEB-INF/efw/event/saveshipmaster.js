@@ -10,6 +10,7 @@ saveshipmaster.name="発送商品マスタ情報保存";
 		"#size":null,
 		"#productnamejp":null,
 		"#productnamecn":null,
+		"#productcount":null,
 		"#biko":null,
 		"#productpicStr":null
 
