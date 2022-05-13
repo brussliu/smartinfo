@@ -452,7 +452,7 @@
 			'様' as sama,
 			A."ADDRESS1" as address1,
 			A."ADDRESS2" as address2,
-			A."ADDRESS3" as address3,
+			COALESCE(A."ADDRESS3", '') as address3,
 			'' as address4,
 			B."NAME_JP" as shipcontent
 		FROM

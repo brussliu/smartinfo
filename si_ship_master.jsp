@@ -20,13 +20,20 @@
 			Efw('searchshipmaster');
 		}
 
-		function delMaster(productno){
-			Efw('delmaster',{"productno" : productno});
+		function activebutton(){
+
+			$("#updateship").show();
+
 		}
 
 		function addShipMaster(){
 			Efw('addshipmaster')
 		}
+
+		function updateshipMaster(){
+			
+		}
+
 
   	</script>
 </head>
@@ -38,10 +45,11 @@
 </div>
 <br/>
 <input type="button" id="addmaster" style="width: 170px;height: 30px;" value="親商品登録" onclick="addShipMaster()">
+<input type="button" id="updateshipmaster" style="width: 170px;height: 30px;display: none;" value="更新" onclick="updateshipMaster()">
 <br/><br/>
 <table id="productlist" border="1" style="width: 100%">
 	<COLGROUP>
-		<COL WIDTH="100PX">
+		<COL WIDTH="50PX">
 		<COL WIDTH="200PX">
 		<COL WIDTH="200PX">
 		<COL WIDTH="200PX">
