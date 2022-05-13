@@ -1,19 +1,18 @@
-var savemaster={};
-savemaster.name="マスタ情報保存";
+var saveshipmaster={};
+saveshipmaster.name="発送商品マスタ情報保存";
 /**
  * パラメーターフォーマット
  */
-savemaster.paramsFormat={
+ saveshipmaster.paramsFormat={
 	"#si_ship_master_inputdialog":{
 
 
 	}
 };
-var shopname = "";
 /**
  * 新規或は修正の場合、保存イベント実行関数
  */
-savemaster.fire=function(params){
+ saveshipmaster.fire=function(params){
 
 	// 親商品情報登録
 	// 商品管理番号
