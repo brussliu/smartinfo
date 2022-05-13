@@ -35,7 +35,7 @@ saveshipmaster.name="発送商品マスタ情報保存";
 	// 商品名称_中国語
 	var productnamecn = params["#si_ship_master_inputdialog"]["#productnamecn"];
 	// 数量
-	var productcount = params["#si_ship_master_inputdialog"]["#productcount"];
+	var productcount = parseInt(params["#si_ship_master_inputdialog"]["#productcount"]);
 	// 備考
 	var biko = params["#si_ship_master_inputdialog"]["#biko"];
 
