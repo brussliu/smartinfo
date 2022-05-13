@@ -9,7 +9,7 @@
 				autoOpen : false,
 				resizable : false,
 				height : 500,
-				width : 1010,
+				width : 1210,
 				modal : true,
 				open : function(){
 					setTimeout(function(){});
@@ -342,9 +342,9 @@
 		<COLGROUP>
 			<COL WIDTH="100PX">
 			<COL WIDTH="220PX">
-			<COL WIDTH="100PX">
+			<COL WIDTH="150PX">
 			<COL WIDTH="220PX">
-			<COL WIDTH="100PX">
+			<COL WIDTH="150PX">
 			<COL>
 		</COLGROUP>
 		<TR style="height:40px;">
