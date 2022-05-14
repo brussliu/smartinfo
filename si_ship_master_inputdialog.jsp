@@ -46,32 +46,31 @@
 
 		function changepic(obj) {
 		
-			//$("#prompt3").css("display", "none");
 			$(obj).parent().css("display", "none");
 
 			
 			var reads = new FileReader();
-			//f = document.getElementById('productpic').files[0];
+
 			f = $(obj)[0].files[0];
 
 			reads.readAsDataURL(f);
 			reads.onload = function(e) {
-				//document.getElementById('img3').src = this.result;
 
 				$(obj).parent().next().attr("src",this.result);
-
 				$(obj).parent().next().css("display", "block");
-				//$("#productpicStr").val(reads.result);
 
 				var image = new Image();
         		image.src=e.target.result;
         		image.onload = function(){
-          			square = 0.2,   //定义画布的大小，也就是图片压缩之后的像素
-                	canvas = document.createElement('canvas'), //创建canvas元素
-                	context = canvas.getContext('2d'),
-                	imageWidth = Math.round(square*image.width),    //压缩图片的大小
-                	imageHeight = Math.round(square*image.height),
-                	data = '';
+
+          			//square = 0.2;   //定义画布的大小，也就是图片压缩之后的像素
+					square = 500 / image.height;
+
+                	canvas = document.createElement('canvas'); //创建canvas元素
+                	context = canvas.getContext('2d');
+
+                	imageWidth = Math.round(square*image.width);    //压缩图片的大小
+                	imageHeight = Math.round(square*image.height);
 
         			canvas.width = imageWidth;
         			canvas.height = imageHeight;
