@@ -101,7 +101,7 @@
     </style>
 	<TABLE STYLE="WIDTH: 100%" BORDER="1">
 		<COLGROUP>
-			<COL WIDTH="100PX">
+			<COL WIDTH="150PX">
 			<COL WIDTH="220PX">
 			<COL WIDTH="150PX">
 			<COL WIDTH="220PX">
@@ -109,8 +109,21 @@
 			<COL>
 		</COLGROUP>
 		<TR style="height:40px;">
-			<TD>商品管理番号</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productid" readonly="readonly"></TD>
+			<TD>管理番号</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;background-color: gray;" id="productid" readonly="readonly"></TD>
+			<TD>表示名称</TD>
+			<TD colspan="3" id="displayname">
+			</TD>
+		</TR>
+		<TR style="height:40px;">
+			<TD>商品名称(中国語)</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productnamecn"></TD>
+			<TD>色(中国語)</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="color"></TD>
+			<TD>サイズ(中国語)</TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="size"></TD>
+		</TR>
+		<TR style="height:40px;">
 			<TD>商品分類</TD>
 			<TD>
 				<select STYLE="WIDTH:200px;height:32px;" id="productdiv">
@@ -123,24 +136,15 @@
 			</TD>
 			<TD>数量</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productcount"></TD>
-		</TR>
-		<TR style="height:40px;">
-			<TD>商品名称(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productnamecn"></TD>
-			<TD>色(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="color"></TD>
-			<TD>サイズ(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="size"></TD>
-		</TR>
-		<TR>
 			<TD>商品名称(日本語)</TD>
 			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productnamejp"></TD>
+		</TR>
+		<TR>
 			<TD>備考</TD>
-			<TD colspan="3">
+			<TD colspan="5">
 				<INPUT TYPE="TEXT" STYLE="WIDTH:550px;height:30px;" id="biko">
 			</TD>
 		</TR>
-
 		<TR style="height:220px;">
 			<TD>商品写真</TD>
 			<TD colspan="3">
