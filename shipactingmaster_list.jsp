@@ -54,12 +54,14 @@
 <table id="productlist" border="1" style="width: 100%">
 	<COLGROUP>
 		<COL WIDTH="50PX">
-		<COL WIDTH="200PX">
-		<COL WIDTH="200PX">
-		<COL WIDTH="200PX">
-		<COL WIDTH="200PX">
-		<COL WIDTH="200PX">
 		<COL WIDTH="100PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="200PX">
+		<COL WIDTH="200PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="200PX">
 		<COL>
 	</COLGROUP>
 	<tr>
@@ -67,7 +69,7 @@
 			操作
 		</td>
 		<td style="font-size: 14px;font-weight: bold;">
-			商品管理番号
+			管理番号
 		</td>
 		<td style="font-size: 14px;font-weight: bold;">
 			商品分類
