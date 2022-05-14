@@ -8,7 +8,7 @@ updateshipmasterinfo.fire=function(params){
 
 	var ret = new Result();
 
-	var shipmasterno = params["shipmasterno"];
+	var shipmasterno = parseInt(params["shipmasterno"]);
 
 	var selectResult = db.select(
 		"MASTER",
