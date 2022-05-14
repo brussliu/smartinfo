@@ -31,6 +31,13 @@
 			Efw('saveshipmaster');
 
 		}
+
+		function delmaster(){
+
+			Efw('delshipmaster');
+
+		}
+
 		function uplaodPic(obj){
 
 			$(obj).next().click();
@@ -161,6 +168,7 @@
 	<INPUT TYPE="HIDDEN" CLASS="action"> <BR>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
 		<BUTTON style="width: 150px;background-color: blue;color: white;" id="savebutton" ONCLICK="savemaster()" >保存</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;display: none;" id="delbutton" ONCLICK="delmaster()" >删除</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_ship_master_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
 </DIV>

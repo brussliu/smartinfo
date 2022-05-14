@@ -514,4 +514,12 @@
 		WHERE "P_ID" = :col0
 	</sql>
 
+	<sql id="delShipMaster">
+		UPDATE "MASTER_発送商品マスタ情報5"
+		SET "DEL_FLG" = '1'
+		WHERE "P_ID" = :col0
+	</sql>
+
+
+
 </sqls>

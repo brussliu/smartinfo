@@ -34,7 +34,9 @@ updateshipmasterinfo.fire=function(params){
 
 	var js8 = "$('#productpicStr').val('" + selectResult[0]["pic"] +"');";
 
-	var js9 = "$('#imgtodisplay').attr('src','" + selectResult[0]["pic"]+ "');$('#imgtodisplay').show()"
+	var js9 = "$('#imgtodisplay').attr('src','" + selectResult[0]["pic"]+ "');$('#imgtodisplay').show();"
+
+	var js10 = "$('#delbutton').show();"
 
 	ret.eval(js0);
 	ret.eval(js1);
@@ -46,6 +48,7 @@ updateshipmasterinfo.fire=function(params){
 	ret.eval(js7);
 	ret.eval(js8);
 	ret.eval(js9);
+	ret.eval(js10);
 
 	return ret.eval("si_ship_master_inputdialog.dialog('open')");
 
