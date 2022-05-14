@@ -1,10 +1,10 @@
-var updatemastershipinfo={};
-updatemastershipinfo.name="発送商品マスタ更新";
-updatemastershipinfo.paramsFormat={
+var updateshipmasterinfo={};
+updateshipmasterinfo.name="発送商品マスタ更新";
+updateshipmasterinfo.paramsFormat={
 
 	"shipmasterno":null,
 };
-updatemastershipinfo.fire=function(params){
+updateshipmasterinfo.fire=function(params){
 
 	var ret = new Result();
 
