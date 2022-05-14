@@ -22,7 +22,7 @@
 
 		function activebutton(){
 
-			$("#updateship").show();
+			$("#updateshipmaster").show();
 
 		}
 
