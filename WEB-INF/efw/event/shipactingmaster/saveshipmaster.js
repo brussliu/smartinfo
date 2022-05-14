@@ -22,7 +22,7 @@ saveshipmaster.name="発送商品マスタ情報保存";
  */
  saveshipmaster.fire=function(params){
 
-	params.debug("HHHHHHHHHHHH");
+	
 
 	// 親商品情報登録
 	// 商品管理番号
@@ -47,6 +47,8 @@ saveshipmaster.name="発送商品マスタ情報保存";
 
 	if(productid == null || productid == ""){
 
+		"AAAAAAAAAAAAAAA1".debug("AAAAAAAAAAAAAAA1");
+
 		var insertResult = db.change(
 			"SHIPACTINGMASTER",
 			"insertShipMaster",
@@ -65,7 +67,11 @@ saveshipmaster.name="発送商品マスタ情報保存";
 			}
 		);
 
+		"AAAAAAAAAAAAAAA2".debug("AAAAAAAAAAAAAAA2");
+
 	}else{
+
+		"AAAAAAAAAAAAAAA3".debug("AAAAAAAAAAAAAAA3");
 
 		var updateResult = db.change(
 			"SHIPACTINGMASTER",
