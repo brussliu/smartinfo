@@ -34,7 +34,7 @@ updateshipmasterinfo.fire=function(params){
 
 	var js8 = "$('#productpicStr').val('" + selectResult[0]["pic"] +"');";
 
-	var js9 = "$('#img').attr('src','" + selectResult[0]["pic"]+ "');"
+	var js9 = "$('#imgtodisplay').attr('src','" + selectResult[0]["pic"]+ "');$('#imgtodisplay').show()"
 
 	ret.eval(js0);
 	ret.eval(js1);

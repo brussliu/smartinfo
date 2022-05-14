@@ -141,11 +141,11 @@
 
 		<TR style="height:220px;">
 			<TD>商品写真</TD>
-			<TD colspan="5">
+			<TD colspan="3">
 				<div style="display: inline;width: 100%;height: 100%" id="allpic">
 			    	<div id='imgPreview' class='picdiv'>
 						<div id='prompt' style='text-align: center;'>
-							<img src='img/pic.png' style='width: 100px;height: 100px;padding-top: 30px;' onclick='uplaodPic(this);'>
+							<img src='img/pic.png' id="icon" style='width: 100px;height: 100px;padding-top: 30px;' onclick='uplaodPic(this);'>
 							<input type='file' id='productpic' style='display: none;' onchange='changepic(this)'>
 						</div>
 						<img src='#' id='img' class='img'/>
@@ -153,11 +153,14 @@
 					</div>";
 				</div>
 			</TD>
+			<TD colspan="2">
+				<img src='#' id='imgtodisplay' class='img'/>
+			</TD>
 		</TR>
 	</TABLE>
 	<INPUT TYPE="HIDDEN" CLASS="action"> <BR>
 	<DIV STYLE="TEXT-ALIGN: CENTER">
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="savemaster()" >登録</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" id="savebutton" ONCLICK="savemaster()" >保存</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_ship_master_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
 </DIV>

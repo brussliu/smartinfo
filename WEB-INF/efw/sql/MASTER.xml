@@ -500,4 +500,18 @@
 		WHERE
 			"P_ID" = :pid
 	</sql>
+
+	<sql id="insertShipMaster">
+		UPDATE "MASTER_発送商品マスタ情報5"
+		SET "DIV" = :col1
+		, "NAME_CN" = :col2
+		, "NAME_JP" = :col3
+		, "COLOR" = :col4
+		, "SIZE" = :col5
+		, "COUNT" = :col6
+		, "BIKO" = :col7
+		, "PIC" = :col8
+		WHERE "P_ID" = :col0
+	</sql>
+
 </sqls>

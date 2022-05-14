@@ -23,7 +23,7 @@ saveshipmaster.name="発送商品マスタ情報保存";
 
 	// 親商品情報登録
 	// 商品管理番号
-	//var productid = params["#si_ship_master_inputdialog"]["#productid"];
+	var productid = params["#si_ship_master_inputdialog"]["#productid"];
 	// 商品分類
 	var productdiv = params["#si_ship_master_inputdialog"]["#productdiv"];
 	// 色
@@ -38,29 +38,51 @@ saveshipmaster.name="発送商品マスタ情報保存";
 	var productcount = parseInt(params["#si_ship_master_inputdialog"]["#productcount"]);
 	// 備考
 	var biko = params["#si_ship_master_inputdialog"]["#biko"];
-
-
+	// 画像
 	var pic = params["#si_ship_master_inputdialog"]["#productpicStr"];
 
 
-	var insertResult = db.change(
-		"MASTER",
-		"insertShipMaster",
-		{
-			
-			"col1":productdiv,
-			"col2":productnamecn,
-			"col3":productnamejp,
+	if(productid == null || productid == ""){
 
-			"col4":color,
-			"col5":size,
-			"col6":productcount,
-			"col7":biko,
+		var insertResult = db.change(
+			"MASTER",
+			"insertShipMaster",
+			{
+				
+				"col1":productdiv,
+				"col2":productnamecn,
+				"col3":productnamejp,
 
-			"col8":pic,
-		}
-	);
+				"col4":color,
+				"col5":size,
+				"col6":productcount,
+				"col7":biko,
 
+				"col8":pic,
+			}
+		);
+
+	}else{
+
+		var updateResult = db.change(
+			"MASTER",
+			"updateShipMaster",
+			{
+				"col0":productid,
+				"col1":productdiv,
+				"col2":productnamecn,
+				"col3":productnamejp,
+
+				"col4":color,
+				"col5":size,
+				"col6":productcount,
+				"col7":biko,
+
+				"col8":pic,
+			}
+		);
+		
+	}
 
 
 
