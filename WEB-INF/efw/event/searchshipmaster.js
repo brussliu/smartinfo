@@ -10,7 +10,7 @@ searchshipmaster.fire=function(params){
 
 	var resultHTML = 
 	"<tr class='content'>" +
-		"<td><input type='radio' name='selectshipno' value='{pid}' onclick='activebutton();'></input></td>" +
+		"<td><input type='radio' name='selectshipmasterno' value='{pid}' onclick='activebutton();'></input></td>" +
 		"<td>{pid}</td>" +
 		"<td>{div}</td>" +
 		"<td>{namecn}</td>" +

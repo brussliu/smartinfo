@@ -31,7 +31,11 @@
 		}
 
 		function updateshipMaster(){
-			
+
+			var shipmasterno = $('input:radio[name=selectshipmasterno]:checked').val();
+
+			Efw('updateshipmasterinfo',{'shipmasterno': shipmasterno})
+
 		}
 
 

@@ -483,5 +483,21 @@
 			:col8
 		)
 	</sql>
-
+	<sql id="searchShipInfoByShipno">
+		SELECT
+			"P_ID" as pid
+			, "DIV" as productdiv
+			, "NAME_CN" as productnamecn
+			, "NAME_JP" as productnamejp
+			, "COLOR" as color
+			, "SIZE" as size
+			, "COUNT" as productcount
+			, "BIKO" as biko
+			, "PIC" as pic
+			, "DEL_FLG" as delflg
+		FROM
+			"MASTER_発送商品マスタ情報" A
+		WHERE
+			"P_ID" = :pid
+	</sql>
 </sqls>
