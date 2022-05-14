@@ -12,7 +12,7 @@ updateshipinfo.fire=function(params){
 	var html = "<option id='{pid}'>{namecn}</option>";
 
 	var selectResult = db.select(
-		"MASTER",
+		"SHIPACTINGMASTER",
 		"selectProductMst",
 		{}
 	).getArray();

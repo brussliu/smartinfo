@@ -46,7 +46,7 @@ saveshipmaster.name="発送商品マスタ情報保存";
 	if(productid == null || productid == ""){
 
 		var insertResult = db.change(
-			"MASTER",
+			"SHIPACTINGMASTER",
 			"insertShipMaster",
 			{
 				
@@ -66,7 +66,7 @@ saveshipmaster.name="発送商品マスタ情報保存";
 	}else{
 
 		var updateResult = db.change(
-			"MASTER",
+			"SHIPACTINGMASTER",
 			"updateShipMaster",
 			{
 				"col0":productid,

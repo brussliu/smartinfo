@@ -11,7 +11,7 @@ updateshipmasterinfo.fire=function(params){
 	var shipmasterno = parseInt(params["shipmasterno"]);
 
 	var selectResult = db.select(
-		"MASTER",
+		"SHIPACTINGMASTER",
 		"searchShipMasterInfoBypno",
 		{
 			"pid":shipmasterno

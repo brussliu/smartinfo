@@ -23,7 +23,7 @@ searchshipmaster.fire=function(params){
 	"</tr>";
 
 	var selectResult = db.select(
-		"MASTER",
+		"SHIPACTINGMASTER",
 		"selectshipmaster",
 		{}
 	).getArray();
