@@ -8,7 +8,7 @@
 				title : "発送商品登録",
 				autoOpen : false,
 				resizable : false,
-				height : 500,
+				height : 550,
 				width : 1210,
 				modal : true,
 				open : function(){
@@ -129,11 +129,11 @@
 		</TR>
 		<TR style="height:40px;">
 			<TD>商品名称(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" onchange="display();" id="productnamecn"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" oninput="display();" id="productnamecn"></TD>
 			<TD>色(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" onchange="display();" id="color"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" oninput="display();" id="color"></TD>
 			<TD>サイズ(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" onchange="display();" id="size"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" oninput="display();" id="size"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>商品分類</TD>
