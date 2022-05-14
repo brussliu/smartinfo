@@ -28,19 +28,19 @@
 
 		function savemaster(){
 
-			$("#allpic").find("input").each(function(){
+			// $("#allpic").find("input").each(function(){
 
-				if($(this).attr("type") == "hidden"){
-					var picsrc = $(this).val();
-					var piccolor = $(this).next().html();
-					//picColorArr.push(piccolor);
-					//picArr.push(picsrc);
-				}
+			// 	if($(this).attr("type") == "hidden"){
+			// 		var picsrc = $(this).val();
+			// 		var piccolor = $(this).next().html();
+			// 		picColorArr.push(piccolor);
+			// 		//picArr.push(picsrc);
+			// 	}
 
-			});
+			// });
 
 
-			Efw('saveshipmaster',{"picColor":piccolor });
+			Efw('saveshipmaster');
 
 		}
 		function uplaodPic(obj){
@@ -87,8 +87,6 @@
 
 			};
 		}
-
-
 
 
 	</SCRIPT>
