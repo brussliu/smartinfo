@@ -8,7 +8,7 @@ outputshipinfo.fire=function(params){
 	var ret = new Result();
 
 	var selectResult = db.select(
-		"SHIP",
+		"SHIPACTING",
 		"searchShipInfoToCSV",
 		{}
 	).getArray();

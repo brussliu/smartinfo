@@ -41,12 +41,12 @@
 
 			var shipno = $('input:radio[name=selectshipno]:checked').val();
 
-			Efw('updateshipinfo',{'shipno': shipno})
+			Efw('shipacting/updateshipinfo',{'shipno': shipno})
 
 		}
 
 		function outputshipinfo(){
-			Efw('outputshipinfo');
+			Efw('shipacting/outputshipinfo');
 		}
 
 		function changeColor(){

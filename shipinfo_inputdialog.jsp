@@ -15,35 +15,28 @@
 					setTimeout(function(){});
 				},
 				close : function(){
-					// setTimeout(function(){
-					// 	Efw('menu_goto',{page:'si_ship.jsp',shop:$("#shop").val()})
-					// 	},
-					// 	100
-					// 	);
 				},
 			});
 
 		});
 
 		function saveshipinfo(){
-
-			Efw('saveshipinfo');
-
+			Efw('shipacting/saveshipinfo');
 		}
 
 		function cancelshipinfo(){
-			Efw('cancelshipinfo');
+			Efw('shipacting/cancelshipinfo');
 		}
 
 		function acceptshipinfo(){
-			Efw('acceptshipinfo');
+			Efw('shipacting/acceptshipinfo');
 		}
 
 		function sendshipinfo(){
-			Efw('sendshipinfo');
+			Efw('shipacting/sendshipinfo');
 		}
 		function payshipinfo(){
-			Efw('payshipinfo');
+			Efw('shipacting/payshipinfo');
 		}
 		
 

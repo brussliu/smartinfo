@@ -32,7 +32,7 @@ saveshipinfo.fire=function(params){
 		var biko = params["#txt_biko"];
 	
 		var updateResult = db.change(
-			"SHIP",
+			"SHIPACTING",
 			"insertShipinfo",
 			{
 				"no":shipno,
@@ -57,7 +57,7 @@ saveshipinfo.fire=function(params){
 		var biko = params["#txt_biko"];
 	
 		var updateResult = db.change(
-			"SHIP",
+			"SHIPACTING",
 			"updateShipinfo",
 			{
 				"no":shipno,

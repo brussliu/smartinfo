@@ -1,13 +1,11 @@
 var searchshipinfo={};
 searchshipinfo.name="发送情报检索";
 searchshipinfo.paramsFormat={
-	"#product_name":null,
 };
 
 searchshipinfo.fire=function(params){
 	
 	var ret = new Result();
-	//shopname = params["#shop"];
 
 	var resultHTML = 
 	"<tr class='content' style=''>" +
@@ -30,7 +28,7 @@ searchshipinfo.fire=function(params){
 	"</tr>";
 
 	var selectResult = db.select(
-		"SHIP",
+		"SHIPACTING",
 		"searchShipInfo",
 		{}
 	).getArray();

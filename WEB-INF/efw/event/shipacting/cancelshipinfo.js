@@ -1,21 +1,20 @@
-var payshipinfo={};
-payshipinfo.name="发送情报支付";
-payshipinfo.paramsFormat={
+var cancelshipinfo={};
+cancelshipinfo.name="发送情报取消";
+cancelshipinfo.paramsFormat={
 	"#txt_shipno":null,
 };
 
-payshipinfo.fire=function(params){
+cancelshipinfo.fire=function(params){
 	
 	var ret = new Result();
 
 	var shipno = params["#txt_shipno"];
-
-
+	
 	var updateResult = db.change(
-		"SHIP",
-		"updateShipinfoPaystatus",
+		"SHIPACTING",
+		"updateShipinfoStatus9",
 		{
-			"no":shipno,
+			"no":shipno
 		}
 	);
 
