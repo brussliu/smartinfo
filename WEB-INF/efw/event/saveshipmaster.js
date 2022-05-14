@@ -5,6 +5,7 @@ saveshipmaster.name="発送商品マスタ情報保存";
  */
  saveshipmaster.paramsFormat={
 	"#si_ship_master_inputdialog":{
+		"#productid":null,
 		"#productdiv":null,
 		"#color":null,
 		"#size":null,
