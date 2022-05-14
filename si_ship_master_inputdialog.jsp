@@ -28,18 +28,6 @@
 
 		function savemaster(){
 
-			// $("#allpic").find("input").each(function(){
-
-			// 	if($(this).attr("type") == "hidden"){
-			// 		var picsrc = $(this).val();
-			// 		var piccolor = $(this).next().html();
-			// 		picColorArr.push(piccolor);
-			// 		//picArr.push(picsrc);
-			// 	}
-
-			// });
-
-
 			Efw('saveshipmaster');
 
 		}
