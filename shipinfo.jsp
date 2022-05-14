@@ -25,7 +25,7 @@
 
         function searchshipinfo(){
 
-        	Efw('../shipacting/searchshipinfo');
+        	Efw('shipacting/searchshipinfo');
 
 			$("#updateship").hide();
 
