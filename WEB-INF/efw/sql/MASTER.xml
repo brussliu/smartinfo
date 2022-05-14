@@ -496,7 +496,7 @@
 			, "PIC" as pic
 			, "DEL_FLG" as delflg
 		FROM
-			"MASTER_発送商品マスタ情報" A
+			"MASTER_発送商品マスタ情報5" A
 		WHERE
 			"P_ID" = :pid
 	</sql>
