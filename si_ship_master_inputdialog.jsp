@@ -43,6 +43,10 @@
 			Efw('saveshipmaster',{"picColor":piccolor });
 
 		}
+		function uplaodPic(obj){
+
+			$(obj).next().click();
+		}
 
 		function changepic(obj) {
 		
