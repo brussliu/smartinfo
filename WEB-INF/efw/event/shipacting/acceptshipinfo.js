@@ -71,8 +71,8 @@ acceptshipinfo.fire=function(params){
 		}
 	);
 
-	ret.eval("shipinfo_inputdialog.dialog('close');");
+	ret.eval("shipacting_inputdialog.dialog('close');");
 
-	return ret.navigate("shipinfo.jsp");
+	return ret.navigate("shipacting_list.jsp");
 
 };

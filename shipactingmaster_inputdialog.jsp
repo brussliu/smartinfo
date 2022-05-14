@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<DIV CLASS="DIALOG" ID="si_ship_master_inputdialog" STYLE="DISPLAY: NONE">
+<DIV CLASS="DIALOG" ID="shipactingmaster_inputdialog" STYLE="DISPLAY: NONE">
 	<SCRIPT>
-		var si_ship_master_inputdialog = null;
+		var shipactingmaster_inputdialog = null;
 		$(function() {
-			si_ship_master_inputdialog = $("#si_ship_master_inputdialog").dialog({
+			shipactingmaster_inputdialog = $("#shipactingmaster_inputdialog").dialog({
 				title : "発送商品登録",
 				autoOpen : false,
 				resizable : false,
@@ -15,11 +15,6 @@
 					setTimeout(function(){});
 				},
 				close : function(){
-					setTimeout(function(){
-						Efw('menu_goto',{page:'si_ship_master.jsp',shop:"Smart-Bear"})
-						},
-						100
-						);
 				},
 			});
 
@@ -28,13 +23,13 @@
 
 		function savemaster(){
 
-			Efw('saveshipmaster');
+			Efw('shipactingmaster/saveshipmaster');
 
 		}
 
 		function delmaster(){
 
-			Efw('delshipmaster');
+			Efw('shipactingmaster/delshipmaster');
 
 		}
 
@@ -169,7 +164,7 @@
 	<DIV STYLE="TEXT-ALIGN: CENTER">
 		<BUTTON style="width: 150px;background-color: blue;color: white;" id="savebutton" ONCLICK="savemaster()" >保存</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;display: none;" id="delbutton" ONCLICK="delmaster()" >删除</BUTTON>
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="si_ship_master_inputdialog.dialog('close');" >キャンセル</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="shipactingmaster_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
 </DIV>
 

@@ -50,6 +50,6 @@ updateshipmasterinfo.fire=function(params){
 	ret.eval(js9);
 	ret.eval(js10);
 
-	return ret.eval("si_ship_master_inputdialog.dialog('open')");
+	return ret.eval("shipactingmaster_inputdialog.dialog('open')");
 
 };

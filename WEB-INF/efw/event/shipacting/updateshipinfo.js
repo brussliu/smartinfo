@@ -90,6 +90,6 @@ updateshipinfo.fire=function(params){
 	}
 	ret.eval(js12);
 
-	return ret.eval("shipinfo_inputdialog.dialog('open')");
+	return ret.eval("shipacting_inputdialog.dialog('open')");
 
 };

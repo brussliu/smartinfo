@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<DIV CLASS="DIALOG" ID="shipinfo_inputdialog" STYLE="DISPLAY: NONE">
+<DIV CLASS="DIALOG" ID="shipacting_inputdialog" STYLE="DISPLAY: NONE">
 	<SCRIPT>
-		var shipinfo_inputdialog = null;
+		var shipacting_inputdialog = null;
 		$(function() {
-			shipinfo_inputdialog = $("#shipinfo_inputdialog").dialog({
+			shipacting_inputdialog = $("#shipacting_inputdialog").dialog({
 				title : "发送请求录入",
 				autoOpen : false,
 				resizable : false,
@@ -128,7 +128,7 @@
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="acceptshipinfo()" id="acceptbutton">接受</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="sendshipinfo()" id="sendbutton">已发送</BUTTON>
 		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="payshipinfo()" id="paybutton">已支付</BUTTON>
-		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="shipinfo_inputdialog.dialog('close');" >キャンセル</BUTTON>
+		<BUTTON style="width: 150px;background-color: blue;color: white;" ONCLICK="shipacting_inputdialog.dialog('close');" >キャンセル</BUTTON>
 	</DIV>
 </DIV>
 

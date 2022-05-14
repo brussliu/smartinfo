@@ -17,7 +17,7 @@
 
 		function searchShipMaster(){
 
-			Efw('searchshipmaster');
+			Efw('shipactingmaster/searchshipmaster');
 		}
 
 		function activebutton(){
@@ -27,14 +27,14 @@
 		}
 
 		function addShipMaster(){
-			Efw('addshipmaster')
+			Efw('shipactingmaster/addshipmaster')
 		}
 
 		function updateshipMaster(){
 
 			var shipmasterno = $('input:radio[name=selectshipmasterno]:checked').val();
 
-			Efw('updateshipmasterinfo',{'shipmasterno': shipmasterno})
+			Efw('shipactingmaster/updateshipmasterinfo',{'shipmasterno': shipmasterno})
 
 		}
 
@@ -42,7 +42,7 @@
   	</script>
 </head>
 <body style="background-color:ghostwhite;" onload="searchShipMaster();">
-<efw:Part path="si_ship_master_inputdialog.jsp"/>
+<efw:Part path="shipactingmaster_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	発送商品マスタ情報
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">

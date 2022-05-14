@@ -4,7 +4,7 @@ saveshipmaster.name="発送商品マスタ情報保存";
  * パラメーターフォーマット
  */
  saveshipmaster.paramsFormat={
-	"#si_ship_master_inputdialog":{
+	"#shipactingmaster_inputdialog":{
 		"#productid":null,
 		"#productdiv":null,
 		"#color":null,
@@ -24,23 +24,23 @@ saveshipmaster.name="発送商品マスタ情報保存";
 
 	// 親商品情報登録
 	// 商品管理番号
-	var productid = parseInt(params["#si_ship_master_inputdialog"]["#productid"]);
+	var productid = parseInt(params["#shipactingmaster_inputdialog"]["#productid"]);
 	// 商品分類
-	var productdiv = params["#si_ship_master_inputdialog"]["#productdiv"];
+	var productdiv = params["#shipactingmaster_inputdialog"]["#productdiv"];
 	// 色
-	var color = params["#si_ship_master_inputdialog"]["#color"];
+	var color = params["#shipactingmaster_inputdialog"]["#color"];
 	// サイズ
-	var size = params["#si_ship_master_inputdialog"]["#size"];
+	var size = params["#shipactingmaster_inputdialog"]["#size"];
 	// 商品名称_日本語
-	var productnamejp = params["#si_ship_master_inputdialog"]["#productnamejp"];
+	var productnamejp = params["#shipactingmaster_inputdialog"]["#productnamejp"];
 	// 商品名称_中国語
-	var productnamecn = params["#si_ship_master_inputdialog"]["#productnamecn"];
+	var productnamecn = params["#shipactingmaster_inputdialog"]["#productnamecn"];
 	// 数量
-	var productcount = parseInt(params["#si_ship_master_inputdialog"]["#productcount"]);
+	var productcount = parseInt(params["#shipactingmaster_inputdialog"]["#productcount"]);
 	// 備考
-	var biko = params["#si_ship_master_inputdialog"]["#biko"];
+	var biko = params["#shipactingmaster_inputdialog"]["#biko"];
 	// 画像
-	var pic = params["#si_ship_master_inputdialog"]["#productpicStr"];
+	var pic = params["#shipactingmaster_inputdialog"]["#productpicStr"];
 
 
 	if(productid == null || productid == ""){
@@ -87,6 +87,6 @@ saveshipmaster.name="発送商品マスタ情報保存";
 
 
 
-	return (new Result()).eval("si_ship_master_inputdialog.dialog('close')");
+	return (new Result()).eval("shipactingmaster_inputdialog.dialog('close')");
 
 };
