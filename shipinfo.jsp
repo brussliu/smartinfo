@@ -25,15 +25,9 @@
 
         function searchshipinfo(){
 
-        	Efw('searchshipinfo');
+        	Efw('../shipacting/searchshipinfo');
 
 			$("#updateship").hide();
-
-        }
-
-        function addshipinfo(){
-
-        	Efw('addshipinfo');
 
         }
 
