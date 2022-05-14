@@ -77,7 +77,19 @@
 
 			};
 		}
+	
+	function display(){
 
+		var displayname = 
+					$("#productnamecn").val().replaceAll(' ','') + " " + 
+					$("#color").val().replaceAll(' ','') + " " + 
+					$("#size").val().replaceAll(' ','');
+
+		$("#displayname").html(displayname);
+					
+		
+
+	}
 
 	</SCRIPT>
 	<style>
@@ -117,11 +129,11 @@
 		</TR>
 		<TR style="height:40px;">
 			<TD>商品名称(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="productnamecn"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" onchange="display();" id="productnamecn"></TD>
 			<TD>色(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="color"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" onchange="display();" id="color"></TD>
 			<TD>サイズ(中国語)</TD>
-			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" id="size"></TD>
+			<TD><INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" onchange="display();" id="size"></TD>
 		</TR>
 		<TR style="height:40px;">
 			<TD>商品分類</TD>
