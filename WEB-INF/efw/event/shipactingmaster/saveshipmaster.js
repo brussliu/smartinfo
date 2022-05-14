@@ -22,6 +22,8 @@ saveshipmaster.name="発送商品マスタ情報保存";
  */
  saveshipmaster.fire=function(params){
 
+	params.debug("HHHHHHHHHHHH");
+
 	// 親商品情報登録
 	// 商品管理番号
 	var productid = parseInt(params["#shipactingmaster_inputdialog"]["#productid"]);
