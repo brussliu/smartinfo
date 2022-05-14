@@ -8,11 +8,13 @@ updateshipmasterinfo.fire=function(params){
 
 	var ret = new Result();
 
+	var shipmasterno = params["shipmasterno"];
+
 	var selectResult = db.select(
 		"MASTER",
-		"searchShipInfoByShipno",
+		"searchShipMasterInfoBypno",
 		{
-			"shipno":shipno
+			"pid":shipmasterno
 		}
 	).getArray();
 

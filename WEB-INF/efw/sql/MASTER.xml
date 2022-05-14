@@ -483,7 +483,7 @@
 			:col8
 		)
 	</sql>
-	<sql id="searchShipInfoByShipno">
+	<sql id="searchShipMasterInfoBypno">
 		SELECT
 			"P_ID" as pid
 			, "DIV" as productdiv
