@@ -87,7 +87,8 @@ saveshipmaster.name="発送商品マスタ情報保存";
 	}
 
 
+	ret.eval("shipactingmaster_inputdialog.dialog('close');");
 
-	return (new Result()).eval("shipactingmaster_inputdialog.dialog('close')");
+	return ret.navigate("shipactingmaster_list.jsp");
 
 };
