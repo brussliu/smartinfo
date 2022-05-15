@@ -67,8 +67,8 @@ function getStandardAddress(address){
 	var standardAddress = new Array();
 
 	var address1 = address;
-	var address2 = "";
-	var address3 = "";
+	var address2 = " ";
+	var address3 = " ";
 
 	var flg1 = false;
 
