@@ -100,13 +100,13 @@ function getStandardAddress(address){
 
 	}
 	
-	if(address1 = null || address1 == ""){
+	if(address1 == null || address1 == ""){
 		address1 = " ";
 	}
-	if(address2 = null || address2 == ""){
+	if(address2 == null || address2 == ""){
 		address2 = " ";
 	}
-	if(address3 = null || address3 == ""){
+	if(address3 == null || address3 == ""){
 		address3 = " ";
 	}
 
