@@ -21,6 +21,8 @@ delshipmaster.name="発送商品マスタ情報削除";
  */
  delshipmaster.fire=function(params){
 
+	var ret = new Result();
+	
 	// 親商品情報登録
 	// 商品管理番号
 	var productid = parseInt(params["#si_ship_master_inputdialog"]["#productid"]);
@@ -94,7 +96,8 @@ delshipmaster.name="発送商品マスタ情報削除";
 	// }
 
 
+	ret.eval("shipactingmaster_inputdialog.dialog('close');");
 
-	return (new Result()).eval("si_ship_master_inputdialog.dialog('close')");
+	return ret.navigate("shipactingmaster_list.jsp");
 
 };

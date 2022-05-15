@@ -44,7 +44,6 @@ saveshipmaster.name="発送商品マスタ情報保存";
 	// 画像
 	var pic = params["#shipactingmaster_inputdialog"]["#productpicStr"];
 
-	productid.debug("BBBBBBBBBB");
 
 	if(productid == null || productid == ""){
 

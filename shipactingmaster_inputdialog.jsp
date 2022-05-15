@@ -168,7 +168,7 @@
 						</div>
 						<img src='#' id='img' class='img'/>
 						<input type='hidden' id='productpicStr'>
-					</div>";
+					</div>
 				</div>
 			</TD>
 			<TD colspan="2">
