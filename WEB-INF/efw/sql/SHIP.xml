@@ -66,11 +66,11 @@
 			A."購入者電話番号" as buyer_tel,
 			A."宛先名称" as receiver,
 			A."宛先郵便番号" as postno,
-			coalesce(A."宛先都道府県",'') || 
+			REPLACE(REPLACE(coalesce(A."宛先都道府県",'') || 
 			coalesce(A."宛先住所市",'') || 
 			coalesce(A."宛先住所１",'') || 
 			coalesce(A."宛先住所２",'') || 
-			coalesce(A."宛先住所３",'') as address,
+			coalesce(A."宛先住所３",''),'　',''),' ','') as address,
 			SUM(to_number(A."商品数量",'99999')) as count,
 			SUM(to_number(A."商品数量",'99999') * to_number(B."価格",'99999')) as amount
 		FROM
