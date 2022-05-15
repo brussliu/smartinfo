@@ -128,8 +128,16 @@ outputship.fire=function(params){
 			excel.setCell("SHIPLIST", "F" + (i+1), content);
 
 
+			var delResult = db.change(
+				"SHIP",
+				"deleteLabelInfo",
+				{
+					"shipno":shipno,
+				},
+				"jdbc/efw2"
+			);
 
-			// TODO
+
 			var insertResult = db.change(
 				"SHIP",
 				"insertShipLabel",
@@ -138,14 +146,12 @@ outputship.fire=function(params){
 					"col1":"〒" + postno,
 					"col2":standardAddressArr[0],
 					"col3":standardAddressArr[1],
-					"col4":standardAddressArr[2]==null?"":standardAddressArr[2],
+					"col4":standardAddressArr[2]==null?" ":standardAddressArr[2],
 					"col5":receiver,
 					"col6":content
 				},
 				"jdbc/efw2"
 			);
-
-
 
 		}
 
