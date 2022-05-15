@@ -4,7 +4,7 @@ delshipmaster.name="発送商品マスタ情報削除";
  * パラメーターフォーマット
  */
  delshipmaster.paramsFormat={
-	"#si_ship_master_inputdialog":{
+	"#shipactingmaster_inputdialog":{
 		"#productid":null,
 		// "#productdiv":null,
 		// "#color":null,
@@ -22,10 +22,10 @@ delshipmaster.name="発送商品マスタ情報削除";
  delshipmaster.fire=function(params){
 
 	var ret = new Result();
-	
+
 	// 親商品情報登録
 	// 商品管理番号
-	var productid = parseInt(params["#si_ship_master_inputdialog"]["#productid"]);
+	var productid = parseInt(params["#shipactingmaster_inputdialog"]["#productid"]);
 	// // 商品分類
 	// var productdiv = params["#si_ship_master_inputdialog"]["#productdiv"];
 	// // 色
