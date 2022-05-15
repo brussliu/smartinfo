@@ -45,7 +45,7 @@ delshipmaster.name="発送商品マスタ情報削除";
 
 
 	var updateResult = db.change(
-		"MASTER",
+		"SHIPACTINGMASTER",
 		"delShipMaster",
 		{
 			"col0":productid,
