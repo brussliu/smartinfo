@@ -56,9 +56,7 @@
 		<COL WIDTH="50PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="150PX">
-		<COL WIDTH="200PX">
-		<COL WIDTH="200PX">
-		<COL WIDTH="150PX">
+		<COL WIDTH="300PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="200PX">
@@ -75,16 +73,10 @@
 			商品分類
 		</td>
 		<td style="font-size: 14px;font-weight: bold;">
-			名称（中国語）
+			名称/色/サイズ（中国語）
 		</td>
 		<td style="font-size: 14px;font-weight: bold;">
 			名称（日本語）
-		</td>
-		<td style="font-size: 14px;font-weight: bold;">
-			色（中国語）
-		</td>
-		<td style="font-size: 14px;font-weight: bold;">
-			サイズ（中国語）
 		</td>
 		<td style="font-size: 14px;font-weight: bold;">
 			数量

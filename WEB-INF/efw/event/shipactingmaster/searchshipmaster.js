@@ -13,10 +13,8 @@ searchshipmaster.fire=function(params){
 		"<td><input type='radio' name='selectshipmasterno' value='{pid}' onclick='activebutton();'></input></td>" +
 		"<td>{pid}</td>" +
 		"<td>{div}</td>" +
-		"<td>{namecn}</td>" +
+		"<td>{namecn}&nbsp;{color}&nbsp;{size}</td>" +
 		"<td>{namejp}</td>" +
-		"<td>{color}</td>" +
-		"<td>{size}</td>" +
 		"<td>{ct}</td>" +
 		"<td>{biko}</td>" +
 		"<td><img src='{pic}' width='150px;'></td>" +
