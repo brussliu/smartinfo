@@ -42,7 +42,8 @@ updateshipinfo.fire=function(params){
 	var js13 = "$('#txt_name').val('"+(selectResult[0]["name"]==null?'':selectResult[0]["name"])+"');";
 	var js14 = "$('#txt_tel').val('"+(selectResult[0]["tel"]==null?'':selectResult[0]["tel"])+"');";
 
-	var js6 = "$('#product_name').find(\"option:contains('" + selectResult[0]["shipcontent"] + "')\").attr('selected',true);";
+	//var js6 = "$('#product_name').find(\"option:contains('" + selectResult[0]["shipcontent"] + "')\").attr('selected',true);";
+	var js6 = "$('#shipcontent').val('"+(selectResult[0]["shipcontent"]==null?'':selectResult[0]["shipcontent"])+"');";
 	var js7 = "$('#product_count').find(\"option:contains('" + selectResult[0]["shipcount"] + "')\").attr('selected',true);";
 
 	var js8 = "$('#ship_div').val('" + selectResult[0]["shipdiv"] +"');";
@@ -89,6 +90,29 @@ updateshipinfo.fire=function(params){
 		"$('#paybutton').show();";
 	}
 	ret.eval(js12);
+
+	var selectResult = db.select(
+		"MASTER",
+		"searchShipMasterInfoBypno",
+		{
+			"pid":parseInt(selectResult[0]["shipcontent"])
+		}
+	).getArray();
+
+	var t = "【管理番号】 " + selectResult[0]["pid"] +
+	"【商品分类】" + selectResult[0]["productdiv"] +
+	"【商品名称】" + selectResult[0]["productnamecn"] + " " + selectResult[0]["color"] + " " + selectResult[0]["size"] +
+	"【数量】" + selectResult[0]["productcount"] +
+	"【备考】" + selectResult[0]["biko"];
+
+	var js15 = "$('#img').attr('src','" + selectResult[0]["pic"]+ "');$('#img').show();"
+
+	var js16 = "$('#detailinfo').val('" + t + "');$('#showdetailbutton').show();"
+
+
+	ret.eval(js15);
+	ret.eval(js16);
+
 
 	return ret.eval("shipacting_inputdialog.dialog('open')");
 
