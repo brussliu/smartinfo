@@ -3,10 +3,10 @@ acceptshipinfo.name="发送情报接受";
 acceptshipinfo.paramsFormat={
 	"#txt_shipno":		"required:true;max-length:20 ;display-name:NO;",
 	"#ship_div":		"required:true;max-length:100 ;display-name:発送方式;",
-	"#txt_trackingno":	"required:true;max-length:20 ;display-name:発送方式;",
+	"#txt_trackingno":	"              max-length:20 ;display-name:発送方式;",
 
-	"#txt_fee":			"required:true;format:#,##0;min:1;max:99999;display-name:発送料金;",
-	"#txt_amount":		"required:true;format:#,##0;min:1;max:9999;display-name:合計費用;",
+	"#txt_fee":			"              format:#,##0;min:1;max:99999;display-name:発送料金;",
+	"#txt_amount":		"              format:#,##0;min:1;max:9999;display-name:合計費用;",
 
 	"#product_name":	"required:true;max-length:100;display-name:発送商品;",
 	"#product_count":	"required:true;max-length:10; display-name:数量;",

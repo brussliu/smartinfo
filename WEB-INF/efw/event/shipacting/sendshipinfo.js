@@ -1,12 +1,6 @@
 var sendshipinfo={};
 sendshipinfo.name="发送";
 sendshipinfo.paramsFormat={
-	"#txt_shipno":null,
-	"#ship_div":null,
-	"#txt_fee":null,
-	"#txt_trackingno":null,
-	"#txt_amount":null,
-
 	"#txt_shipno":		"required:true;max-length:20 ;display-name:NO;",
 	"#ship_div":		"required:true;max-length:100 ;display-name:発送方式;",
 	"#txt_trackingno":	"required:true;max-length:20 ;display-name:発送方式;",
