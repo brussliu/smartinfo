@@ -4,14 +4,23 @@
 
 	<sql id="selectProductMst">
 		SELECT
-			"P_ID" as pid,
-			"NAME_CN" as namecn,
-			"NAME_JP" as namejp,
-			"COUNT" as ct
+			"P_ID" as pid
+			, "DIV" as productdiv
+			, "NAME_CN" as productnamecn
+			, "NAME_JP" as productnamejp
+			, "COLOR" as color
+			, "SIZE" as size
+			, "COUNT" as productcount
+			, "BIKO" as biko
+			, "PIC" as pic
+			, "DEL_FLG" as delflg
 		FROM
-			"MASTER_発送商品マスタ情報" A
+			"MASTER_発送商品マスタ情報5" A
+		WHERE
+			"DEL_FLG" != '1'
 		ORDER BY "P_ID"
 	</sql>
+	
 	<sql id="selectshipmaster">
 		SELECT
 			"P_ID" as pid,
