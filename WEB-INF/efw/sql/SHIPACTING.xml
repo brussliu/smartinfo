@@ -4,40 +4,42 @@
 
 	<sql id="searchShipInfo">
 		SELECT
-			"NO" as shipno,
-			"POST_NO" as postno,
-			"ADDRESS1" as address1,
-			"ADDRESS2" as address2,
-			"ADDRESS3" as address3,
-			"NAME" as name,
-			"TEL" as tel,
-			"SHIP_CONTENT_DIV" as shipcontentdiv,
-			"SHIP_CONTENT" as shipcontent,
-			"SHIP_COUNT" as shipcount,
-			case when "SHIP_DIV" = 'C' then 'クリックポスト'
-			     when "SHIP_DIV" = 'Y' then 'ゆうパケット'
-				 when "SHIP_DIV" = 'S' then 'その他' 
+			T."NO" as shipno,
+			T."POST_NO" as postno,
+			T."ADDRESS1" as address1,
+			T."ADDRESS2" as address2,
+			T."ADDRESS3" as address3,
+			T."NAME" as name,
+			T."TEL" as tel,
+			T."SHIP_CONTENT_DIV" as shipcontentdiv,
+			COALESCE(M."NAME_CN",'') || ' ' || COALESCE(M."COLOR",'') || ' ' || COALESCE(M."SIZE",'') as shipcontent,
+			T."SHIP_COUNT" as shipcount,
+			case when T."SHIP_DIV" = 'C' then 'クリックポスト'
+			     when T."SHIP_DIV" = 'Y' then 'ゆうパケット'
+				 when T."SHIP_DIV" = 'S' then 'その他' 
 			end as shipdiv,
-			"BIKO" as biko,
-			"TRACKING_NO" as trackingno,
-			case when "PAY_STATUS" = '1' then '已支付'
-			when "STATUS" = '0' then '请求中'
-			when "STATUS" = '5' then '准备中'
-			when "STATUS" = '8' then '已发送'
-			when "STATUS" = '9' then '已取消'
+			T."BIKO" as biko,
+			T."TRACKING_NO" as trackingno,
+			case when T."PAY_STATUS" = '1' then '已支付'
+			when T."STATUS" = '0' then '请求中'
+			when T."STATUS" = '5' then '准备中'
+			when T."STATUS" = '8' then '已发送'
+			when T."STATUS" = '9' then '已取消'
 			end as status,
-			"PAY_STATUS" as paystatus,
-			"FEE" as fee,
-			"FEE_DIV" as feediv,
-			"AMOUNT" as amount,
-			case when "PAY_STATUS" = '1' then 4
-				when "STATUS" = '0' then 1
-				when "STATUS" = '5' then 2
-				when "STATUS" = '8' then 3
-				when "STATUS" = '9' then 9
+			T."PAY_STATUS" as paystatus,
+			T."FEE" as fee,
+			T."FEE_DIV" as feediv,
+			T."AMOUNT" as amount,
+			case when T."PAY_STATUS" = '1' then 4
+				when T."STATUS" = '0' then 1
+				when T."STATUS" = '5' then 2
+				when T."STATUS" = '8' then 3
+				when T."STATUS" = '9' then 9
 			end as sortkey
 		FROM
-			"TEMP_発送情報"
+			"TEMP_発送情報" T
+		LEFT JOIN "MASTER_発送商品マスタ情報5" M
+			ON cast(T."SHIP_CONTENT" as smallint) = M."P_ID"
 		WHERE
 			substring("NO",1,8) >= TO_CHAR(current_date-interval '30 day','yyyymmdd')
 		ORDER BY
