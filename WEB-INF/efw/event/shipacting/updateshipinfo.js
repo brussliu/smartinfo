@@ -9,7 +9,7 @@ updateshipinfo.fire=function(params){
 
 	var shipno = params["shipno"];
 
-	var html = "<option id='{pid}'>{namecn}</option>";
+	var html = "<option class='c' value='{pid}'>{productnamecn}&nbsp;{color}&nbsp;{size}</option>";
 
 	var selectResult = db.select(
 		"SHIPACTINGMASTER",
@@ -17,7 +17,7 @@ updateshipinfo.fire=function(params){
 		{}
 	).getArray();
 
-	ret.runat("#product_name").remove("option").append(html).withdata(selectResult);
+	ret.runat("#product_name").remove(".c").append(html).withdata(selectResult);
 
 	var selectResult = db.select(
 		"SHIPACTING",
