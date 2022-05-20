@@ -22,4 +22,23 @@
 			N."商品管理番号",
 			to_number(N."req_no",'9999')
 	</sql>
+
+	<sql id="insertProductLabel">
+		INSERT INTO HON_TEMP_LABELINFO
+		VALUES (
+			:col0,--商品管理番号
+			:col1,--商品名称
+			:col2,--色
+			:col3,--サイズ
+			:col4,--ラベル番号
+			:col5,--ASIN番号
+			:col6, --SKU番号
+			:col7 --順番
+		)
+	</sql>
+
+
+	<sql id="deleteAllLabelInfo">
+		DELETE FROM HON_TEMP_LABELINFO
+	</sql>
 </sqls>
