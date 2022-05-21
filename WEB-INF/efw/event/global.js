@@ -453,7 +453,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 
 	// レインコート
 	var RC_labelY_from = 4;
-	var RC_labelY_to = 30;
+	var RC_labelY_to = 35;
 	var RC_labelX = ["F","G","H","I","J","K"];
 	var RC_writeFBAStockX = ["L","M","N","O","P","Q"];
 	var RC_writeFBMStockX = ["L","M","N","O","P","Q"];
@@ -1013,7 +1013,7 @@ function importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFl
 	var RC_priceX = ["L","M","N","O","P","Q"];
 
 	var RC_labelY_from = 4;
-	var RC_labelY_to = 30;
+	var RC_labelY_to = 35;
 
 	importProductInfo(shopname, excelXSSF, "在庫（雨衣）", 
 		RC_labelX, RC_skuX, RC_asinX, RC_localStockX, RC_onboardStockX, RC_deliveryX, RC_purchaseX, RC_priceX, RC_labelY_from, RC_labelY_to, 
