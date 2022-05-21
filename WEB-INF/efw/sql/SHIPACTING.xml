@@ -162,12 +162,12 @@
 			B."NAME_JP" as shipcontent
 		FROM
 			"TEMP_発送情報" A
-			LEFT JOIN "MASTER_発送商品マスタ情報" B
-			ON A."SHIP_CONTENT" = B."NAME_CN"
+			LEFT JOIN "MASTER_発送商品マスタ情報5" B
+			ON cast(A."SHIP_CONTENT" as smallint) = B."P_ID"
 		WHERE
-			"STATUS" = '5'
+			A."STATUS" = '5'
 			AND
-			"SHIP_DIV" = 'C'
+			A."SHIP_DIV" = 'C'
 	</sql>
 
 
