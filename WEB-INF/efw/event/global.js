@@ -552,8 +552,9 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 		var productno = selectResult[i]["productno"];
 
 		// レインコート
-		if(productno == "T001" || productno == "T002" || productno == "T003" || productno == "T004" || productno == "T005" 
-		|| productno == "T006" || productno == "T007" || productno == "T008" || productno == "T009" || productno == "T010" ){
+		if(productno == "T001" || productno == "T002" || productno == "T003" || productno == "T004" 
+		|| productno == "T005" || productno == "T006" || productno == "T007" || productno == "T008" 
+		|| productno == "T009" || productno == "T010" || productno == "T011" || productno == "T012" ){
 
 			// 情報設定
 			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（雨衣）", 
