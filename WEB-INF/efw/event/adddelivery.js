@@ -59,5 +59,16 @@ adddelivery.fire=function(params){
 
 	}
 
+			// 5, 確定数量を再計算
+			var updateResult = db.change(
+				"DELIVERY",
+				"updateDeliveryCount",
+				{
+					col0:deliveryno,
+					shop:shopname
+				}
+			);
+			
+
 	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
 };

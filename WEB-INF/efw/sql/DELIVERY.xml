@@ -149,7 +149,7 @@
 			P1."納品NO" as delivery_no,
 			P1."納品名称" as delivery_name,
 			case 
-				when P1."ステータス" = '0：新規登録' then '-'
+				when P1."ステータス" = '0：新規登録' then P1."確定数量"
 				when P1."ステータス" = '1：納品確定' then P1."確定数量"
 				when P1."ステータス" = '2：納品発送' then P1."確定数量"
 				when P1."ステータス" = '3：納品受領' then P1."受領数量"

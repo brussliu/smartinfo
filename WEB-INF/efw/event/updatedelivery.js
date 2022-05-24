@@ -64,6 +64,16 @@ updatedelivery.fire=function(params){
 		// 3, 新しい仕入明細を挿入
 		uploadDeliveryDetail(importfile_delivery, deliveryno);
 
+		// 5, 確定数量を再計算
+		var updateResult = db.change(
+			"DELIVERY",
+			"updateDeliveryCount",
+			{
+				col0:deliveryno,
+				shop:shopname
+			}
+		);
+
 	}
 
 	if(status == "1：納品確定" || status == "2：納品発送"){
