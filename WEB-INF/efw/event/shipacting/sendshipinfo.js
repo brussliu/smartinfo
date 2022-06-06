@@ -57,8 +57,8 @@ sendshipinfo.fire=function(params){
 		"SHIPACTINGMASTER",
 		"updateShipMasterCount",
 		{
-			"col0":searchResult[0]["shipcontent"],
-			"col1":searchResult[0]["shipcount"]
+			"col0":parseInt(searchResult[0]["shipcontent"]),
+			"col1":parseInt(searchResult[0]["shipcount"])
 			
 		}
 	);
