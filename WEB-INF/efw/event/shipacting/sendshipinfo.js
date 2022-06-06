@@ -44,7 +44,7 @@ sendshipinfo.fire=function(params){
 		}
 	);
 
-	var searchResult = db.change(
+	var searchResult = db.select(
 		"SHIPACTING",
 		"searchShipInfoByShipno",
 		{
