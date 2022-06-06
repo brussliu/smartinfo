@@ -48,7 +48,7 @@ sendshipinfo.fire=function(params){
 		"SHIPACTING",
 		"searchShipInfoByShipno",
 		{
-			"no":shipno
+			"shipno":shipno
 		}
 	);
 
