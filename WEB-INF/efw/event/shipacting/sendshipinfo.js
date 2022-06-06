@@ -50,7 +50,7 @@ sendshipinfo.fire=function(params){
 		{
 			"shipno":shipno
 		}
-	);
+	).getArray();
 
 	// 数量減らす
 	var updateResult = db.change(
