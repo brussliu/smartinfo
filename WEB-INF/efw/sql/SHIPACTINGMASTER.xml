@@ -92,7 +92,7 @@
 
 	<sql id="updateShipMasterCount">
 		UPDATE "MASTER_発送商品マスタ情報5"
-		SET "COUNT" = "COUNT" - 1
+		SET "COUNT" = "COUNT" - :col1
 		WHERE "P_ID" = :col0
 	</sql>
 
