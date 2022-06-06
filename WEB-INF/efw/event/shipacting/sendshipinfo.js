@@ -44,6 +44,22 @@ sendshipinfo.fire=function(params){
 		}
 	);
 
+	var searchResult = db.change(
+		"SHIPACTING",
+		"searchShipInfoByShipno",
+		{
+			"no":shipno
+		}
+	);
+
+	// 数量減らす
+	var updateResult = db.change(
+		"SHIPACTINGMASTER",
+		"updateShipMasterCount",
+		{
+			"col0":searchResult[0]["shipcontent"]
+		}
+	);
 
 	ret.eval("shipacting_inputdialog.dialog('close');");
 
