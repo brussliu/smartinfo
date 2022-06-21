@@ -190,7 +190,7 @@
 		}
 		function inputLabel(obj){
 
-			if($(obj).val().length == 10 && $(obj).val().startsWith("X000")){
+			if($(obj).val().length == 10 && $(obj).val().startsWith("X00")){
 			
 				// 商品情報取得
 				Efw('searchProductInfoByLabel',{"labelno" : $(obj).val()});
