@@ -43,7 +43,7 @@
 		WHERE
 			substring("NO",1,8) >= TO_CHAR(current_date-interval '30 day','yyyymmdd')
 		ORDER BY
-			sortkey
+			sortkey,shipno
 	</sql>
 	<sql id="insertShipinfo">
 		INSERT INTO "TEMP_発送情報" VALUES (
