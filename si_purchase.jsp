@@ -218,7 +218,7 @@
 	</tr>
 </table>
 <span style="font-weight: bold;color: red;">※発送した際に、在庫情報一覧の途中欄に計上</span>
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span>物流方式：</span><input type="text" id="product_amount" style="width: 100px;height: 32px;">
 <span>為替レート：</span><input type="text" id="product_amount" style="width: 100px;height: 32px;">
 <span>商品費用：</span><input type="text" id="purchasename" style="width: 100px;height: 32px;">
