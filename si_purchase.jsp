@@ -163,7 +163,7 @@
 			var test = $(obj).parent().next().next().next().next().next().next().next().next().next().next().html();
 			alert(test);
 			alert(test.split('<br>'));
-			alert((test.split('<br>'))(0));
+			alert((test.split('<br>'))[0]);
 
 			//var productamount = ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('\r\n'))(0); // 1
 			//var shipamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('\r\n'))(1); // 2
