@@ -239,6 +239,8 @@
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
 	</COLGROUP>
 	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td ></td>
