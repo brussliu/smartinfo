@@ -229,17 +229,17 @@
 <table border="1">
 	<COLGROUP>
 		<COL WIDTH="50PX">
-		<COL WIDTH="200PX">
-		<COL WIDTH="400PX">
+		<COL WIDTH="170PX">
+		<COL WIDTH="320PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
 		<COL WIDTH="150PX">
+		<COL WIDTH="140PX">
+		<COL WIDTH="140PX">
 		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="140PX">
 		<COL WIDTH="150PX">
 	</COLGROUP>
 	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
@@ -261,17 +261,17 @@
 <table border="1" id="purchasenamelist" style="font-size: 16px;">
 	<COLGROUP>
 		<COL WIDTH="50PX">
-		<COL WIDTH="200PX">
-		<COL WIDTH="400PX">
+		<COL WIDTH="170PX">
+		<COL WIDTH="320PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
 		<COL WIDTH="150PX">
+		<COL WIDTH="140PX">
+		<COL WIDTH="140PX">
 		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="150PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="140PX">
 		<COL WIDTH="150PX">
 	</COLGROUP>
 	<tr style="height: 30px;">
