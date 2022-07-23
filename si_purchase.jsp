@@ -163,9 +163,9 @@
 			//var test = $(obj).parent().next().next().next().next().next().next().next().next().next().next().html();
 
 
-			var productamount = ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))(0); // 1
-			var shipamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))(1); // 2
-			var faxamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))(2); // 3
+			var productamount = $(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>')(0); // 1
+			var shipamount =    $(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>')(1); // 2
+			var faxamount =    $(obj).parent().next().next().next().next().next().next().next().next().next().next().next().html().split('<br>')(2); // 3
 
 			$(".ship").show();
 			$(".rate").show();
