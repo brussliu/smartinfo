@@ -160,20 +160,15 @@
 			var ship = $(obj).parent().next().next().next().next().next().next().next().next().html();
 			var rate = $(obj).parent().next().next().next().next().next().next().next().next().next().html();
 
-			var test = $(obj).parent().next().next().next().next().next().next().next().next().next().next().html();
-			alert(test);
-			alert(test.split('<br>'));
-			alert((test.split('<br>'))[0]);
+			var productamount = ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))[0]; // 1
+			var shipamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))[1]; // 2
+			var faxamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))[2]; // 3
 
-			//var productamount = ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('\r\n'))(0); // 1
-			//var shipamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('\r\n'))(1); // 2
-			//var faxamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().next().html().split('\r\n'))(2); // 3
-
-			$(".ship").show();
-			$(".rate").show();
-			$(".productamount").show();
-			$(".shipamount").show();
-			$(".faxamount").show();
+			$(".ship").show();$(".ship").val(ship);
+			$(".rate").show();$(".rate").val(rate);
+			$(".productamount").show();$(".productamount").val(productamount);
+			$(".shipamount").show();$(".shipamount").val(shipamount);
+			$(".faxamount").show();$(".faxamount").val(faxamount);
 			
 		}
 
@@ -242,7 +237,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <span class="ship" style="display: none;">物流方式：</span><input type="text" class="ship" id="product_amount" style="width: 100px;height: 32px;display: none;">
 <span class="rate" style="display: none;">為替レート：</span><input type="text" class="rate" id="product_amount" style="width: 100px;height: 32px;display: none;">
