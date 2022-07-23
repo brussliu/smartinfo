@@ -160,13 +160,12 @@
 			var ship = $(obj).parent().next().next().next().next().next().next().next().next().html();
 			var rate = $(obj).parent().next().next().next().next().next().next().next().next().next().html();
 
-			var test = $(obj).parent().next().next().next().next().next().next().next().next().next().next().html();
-			alert(test);
-			alert(test.split('\r\n'));
+			//var test = $(obj).parent().next().next().next().next().next().next().next().next().next().next().html();
 
-			//var productamount = ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('\r\n'))(0); // 1
-			//var shipamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('\r\n'))(1); // 2
-			//var faxamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().next().html().split('\r\n'))(2); // 3
+
+			var productamount = ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))(0); // 1
+			var shipamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))(1); // 2
+			var faxamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))(2); // 3
 
 			$(".ship").show();
 			$(".rate").show();
