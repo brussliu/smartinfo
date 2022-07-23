@@ -81,7 +81,7 @@
 			<input type=button value="マスタ修復" style="width:400px;height: 40px;" onclick="Efw('repairmaster')">
 			<br><br>
 			<input type="text" id="delno" style="width: 190px;height: 32px;">
-			<input type=button value="仕入削除" style="width:100px;height: 40px;" onclick="Efw('delpurchase')">
+			<input type=button value="仕入削除" style="width:100px;height: 40px;" onclick="Efw('purchase/delpurchase')">
 			<input type=button value="納品削除" style="width:100px;height: 40px;" onclick="Efw('deldelivery')">
 			<br><br>
 		</div></td>

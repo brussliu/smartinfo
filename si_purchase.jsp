@@ -39,25 +39,25 @@
 
         function outputpurchase(){
 
-			Efw('outputpurchase');
+			Efw('purchase/outputpurchase');
 
         }
 
         function searchPurchase(){
 
-			Efw('searchpurchase');
+			Efw('purchase/searchpurchase');
 
         }
 
         function updatepurchase(){
 
-			Efw('updatepurchase');
+			Efw('purchase/updatepurchase');
 
 		}
 
 		function updatepurchasestatus(no){
 
-			Efw('updatepurchasestatus',{status:no});
+			Efw('purchase/updatepurchasestatus',{status:no});
 		}
 
 		function selectitem(obj){
@@ -195,7 +195,7 @@
 			仕入内容：<input type="file" id="importfile_purchase" style="width: 400px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="新規登録" style="width:100px;height: 32px;" id="add" onclick="Efw('addpurchase')">
+			<input type=button value="新規登録" style="width:100px;height: 32px;" id="add" onclick="Efw('purchase/addpurchase')">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="outputpurchase()">
@@ -247,11 +247,13 @@
 		<td >数量</td>
 		<td >金额</td>
 		<td >ステータス</td>
-		<td >新規登録日</td>
-		<td >仕入確定日</td>
-		<td >発送日</td>
-		<td >届く日</td>
-		<td >受取日</td>
+		<td >新規登録日<br>仕入確定日</td>
+		<td >商品発送日<br>商品届く日<br>商品受取日</td>
+		<td >発送方式</td>
+		<td >為替レート</td>
+		<td >商品費用<br>物流費用<br>税金</td>
+		<td >商品費用(円)<br>物流費用(円)<br>税金(円)</td>
+		<td >合計仕入費用<br>合計仕入費用(円)</td>
 	</tr>
 </table>
 <table border="1" id="purchasenamelist" style="font-size: 16px;">
@@ -259,6 +261,8 @@
 		<COL WIDTH="50PX">
 		<COL WIDTH="200PX">
 		<COL WIDTH="400PX">
+		<COL WIDTH="150PX">
+		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="150PX">
@@ -275,11 +279,13 @@
 		<td >999</td>
 		<td >999,999,999</td>
 		<td >0:新規登録</td>
-		<td >2021/12/31</td>
-		<td >2021/12/31</td>
-		<td >2021/12/31</td>
-		<td >2021/12/31</td>
-		<td >2021/12/31</td>
+		<td >2021/12/31<br>2021/12/31</td>
+		<td >2021/12/31<br>2021/12/31<br>2021/12/31</td>
+		<td >1:空輸(EMS)</td>
+		<td >5</td>
+		<td >123456789<br>123456789<br>123456789</td>
+		<td >123456789<br>123456789<br>123456789</td>
+		<td >123456789<br>123456789</td>
 	</tr>
 </table>
 
