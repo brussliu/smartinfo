@@ -218,14 +218,22 @@
 	</tr>
 </table>
 <span style="font-weight: bold;color: red;">※発送した際に、在庫情報一覧の途中欄に計上</span>
+
+
+<div>物流方式：<input type="text" id="product_amount" style="width: 100px;height: 32px;"></div>
+<div>為替レート：<input type="text" id="product_amount" style="width: 100px;height: 32px;"></div>
+<div>商品費用：<input type="text" id="purchasename" style="width: 100px;height: 32px;"></div>
+<div>物流費用：<input type="text" id="purchasename" style="width: 100px;height: 32px;"></div>
+<div>税金（円）：<input type="text" id="purchasename" style="width: 100px;height: 32px;"></div>
+
 <br/>
 <span style="font-weight: bold;color: red;">※受取した際に、在庫情報一覧の家欄に計上</span>
+
 <hr>
 
 <span style="font-weight: bold;">仕入情報一覧</span>
 <br/>
-<br/>
-<br/>
+
 <table border="1">
 	<COLGROUP>
 		<COL WIDTH="50PX">
