@@ -274,7 +274,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="140PX">
-		<COL WIDTH="150PX">
+		<COL WIDTH="155PX">
 	</COLGROUP>
 	<tr style="font-size: 18px;font-weight: bold;background-color:rgb(128,255,255);height: 30px;">
 		<td ></td>
@@ -306,7 +306,7 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="140PX">
-		<COL WIDTH="150PX">
+		<COL WIDTH="155PX">
 	</COLGROUP>
 	<tr style="height: 30px;">
 		<td ><input type="radio" name="purchaseitem"></td>
