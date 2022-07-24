@@ -238,7 +238,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <span class="ship" style="display: none;">物流方式：</span>
 <select class="ship" style="WIDTH:150px;height:32px;display: none;" id="ship">
@@ -248,9 +248,9 @@
 	<option>9:その他</option>
 </select>
 <span class="rate" style="display: none;">為替レート：</span><input type="text" class="rate" id="rate" style="width: 100px;height: 32px;display: none;">
-<span class="productamount" style="display: none;">商品費用：</span><input type="text" class="productamount" id="purchasename" style="width: 100px;height: 32px;display: none;">
-<span class="shipamount" style="display: none;">物流費用：</span><input type="text" class="shipamount" id="purchasename" style="width: 100px;height: 32px;display: none;">
-<span class="faxamount" style="display: none;">税金（円）：</span><input type="text" class="faxamount" id="purchasename" style="width: 100px;height: 32px;display: none;">
+<span class="productamount" style="display: none;">商品費用：</span><input type="text" class="productamount" id="productamount" style="width: 100px;height: 32px;display: none;">
+<span class="shipamount" style="display: none;">物流費用：</span><input type="text" class="shipamount" id="shipamount" style="width: 100px;height: 32px;display: none;">
+<span class="faxamount" style="display: none;">税金（円）：</span><input type="text" class="faxamount" id="faxamount" style="width: 100px;height: 32px;display: none;">
 
 <br/>
 <span style="font-weight: bold;color: red;">※受取した際に、在庫情報一覧の家欄に計上</span>
