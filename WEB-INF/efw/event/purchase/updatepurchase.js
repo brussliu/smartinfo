@@ -1,4 +1,4 @@
-\\\\\0\20var updatepurchase={};
+var updatepurchase={};
 updatepurchase.name="仕入情報更新";
 updatepurchase.paramsFormat={
 
@@ -41,7 +41,7 @@ updatepurchase.fire=function(params){
 	var ship = params["#ship"];
 
 	ship.debug("GGGGGGGGGGGGGGGGGGGGGGg");
-	
+
 	// 為替レート
 	var rate = parseFloat(params["#rate"]);
 
@@ -81,9 +81,6 @@ updatepurchase.fire=function(params){
 			"col7":all_amount_jp
 		}
 	);
-
-
-
 
 	// 仕入明細
 	var importfile_purchase = params["#importfile_purchase"];
