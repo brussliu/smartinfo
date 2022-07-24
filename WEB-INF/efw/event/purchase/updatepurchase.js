@@ -48,23 +48,19 @@ updatepurchase.fire=function(params){
 	// 商品費用（円）
 	var productamount_jp = (productamount * 100 / rate).toFixed(2);
 
-	productamount_jp.debug("aaaaaaaaaaaaaaaaaaaaa");
-
 	// 物流費用
 	var shipamount = parseFloat(params["#shipamount"]).toFixed(2);
 	// 物流費用（円）
 	var shipamount_jp = (shipamount * 100 / rate).toFixed(2);
-
-	shipamount_jp.debug("bbbbbbbbbbbbbbbbb");
 
 	// 税金（円）
 	var faxamount_jp = parseFloat(params["#faxamount"]).toFixed(2);
 	// 税金
 	var faxamount = (faxamount_jp * rate / 100).toFixed(2);
 	// 合計仕入費用
-	var all_amount = productamount + shipamount + faxamount;
+	var all_amount = parseFloat(productamount) + parseFloat(shipamount) + parseFloat(faxamount);
 	// 合計仕入費用円貨
-	var all_amount_jp = productamount_jp + shipamount_jp + faxamount_jp;
+	var all_amount_jp = parseFloat(productamount_jp) + parseFloat(shipamount_jp) + parseFloat(faxamount_jp);
 
 
 	// 仕入名称更新
