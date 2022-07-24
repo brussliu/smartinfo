@@ -40,25 +40,23 @@ updatepurchase.fire=function(params){
 	// 物流方式
 	var ship = params["#ship"];
 
-	ship.debug("GGGGGGGGGGGGGGGGGGGGGGg");
-
 	// 為替レート
-	var rate = parseFloat(params["#rate"]);
+	var rate = parseFloat(params["#rate"]).toFixed(2);
 
 	// 商品費用
-	var productamount = parseFloat(params["#productamount"]);
+	var productamount = parseFloat(params["#productamount"]).toFixed(2);
 	// 商品費用（円）
-	var productamount_jp = productamount * 100 / rate;
+	var productamount_jp = (productamount * 100 / rate).toFixed(2);
 
 	// 物流費用
-	var shipamount = parseFloat(params["#shipamount"]);
+	var shipamount = parseFloat(params["#shipamount"]).toFixed(2);
 	// 物流費用（円）
-	var shipamount_jp = shipamount * 100 / rate;
+	var shipamount_jp = (shipamount * 100 / rate).toFixed(2);
 
 	// 税金（円）
-	var faxamount_jp = parseFloat(params["#faxamount"]);
+	var faxamount_jp = parseFloat(params["#faxamount"]).toFixed(2);
 	// 税金
-	var faxamount = faxamount_jp * rate / 100;
+	var faxamount = (faxamount_jp * rate / 100).toFixed(2);
 	// 合計仕入費用
 	var all_amount = productamount + shipamount + faxamount;
 	// 合計仕入費用円貨
