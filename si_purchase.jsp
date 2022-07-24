@@ -165,8 +165,7 @@
 			var faxamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))[2]; // 3
 
 			$(".ship").show();
-			alert(ship);
-			alert($("#ship option[text='" + ship + "']").html());
+			$('#ship').find("option:contains('" + ship + "')").attr('selected',true);
 
 
 			$("#ship option[text='" + ship + "']").attr("selected", true); 
