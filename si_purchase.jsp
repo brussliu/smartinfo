@@ -164,7 +164,7 @@
 			var shipamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))[1]; // 2
 			var faxamount =    ($(obj).parent().next().next().next().next().next().next().next().next().next().next().next().html().split('<br>'))[2]; // 3
 
-			$("#ship option[text='" + ship + "']").attr("selected", true); 
+			$(".ship").show();$("#ship option[text='" + ship + "']").attr("selected", true); 
 
 			$(".rate").show();$(".rate").val(rate);
 			$(".productamount").show();$(".productamount").val(productamount);
