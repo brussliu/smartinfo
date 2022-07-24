@@ -48,10 +48,14 @@ updatepurchase.fire=function(params){
 	// 商品費用（円）
 	var productamount_jp = (productamount * 100 / rate).toFixed(2);
 
+	productamount_jp.debug("aaaaaaaaaaaaaaaaaaaaa");
+
 	// 物流費用
 	var shipamount = parseFloat(params["#shipamount"]).toFixed(2);
 	// 物流費用（円）
 	var shipamount_jp = (shipamount * 100 / rate).toFixed(2);
+
+	shipamount_jp.debug("bbbbbbbbbbbbbbbbb");
 
 	// 税金（円）
 	var faxamount_jp = parseFloat(params["#faxamount"]).toFixed(2);
