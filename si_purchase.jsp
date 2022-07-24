@@ -166,7 +166,7 @@
 
 			$(".ship").show();
 			alert(ship);
-			alert($("#ship option[text='" + ship + "']"));
+			alert($("#ship option[text='" + ship + "']").html());
 
 
 			$("#ship option[text='" + ship + "']").attr("selected", true); 
