@@ -73,7 +73,7 @@ updatepurchase.fire=function(params){
 			"col2":rate,
 			"col3":productamount,
 			"col4":shipamount,
-			"col5":faxamount,
+			"col5":faxamount_jp,
 			"col6":all_amount,
 			"col7":all_amount_jp
 		}
