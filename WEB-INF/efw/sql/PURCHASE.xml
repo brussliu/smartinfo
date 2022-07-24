@@ -192,11 +192,11 @@
 				when P1."ステータス" = '4：受取済み' then 'gray'
 			end as color,
 			P1."ステータス" as status,
-			coalesce(P1."新規登録日",'----/--/--') as registration_date,
-			coalesce(P1."仕入確定日",'----/--/--') as confirm_date,
-			coalesce(P1."発送日",'----/--/--') as shipping_date,
-			coalesce(P1."到着日",'----/--/--') as arrival_date,
-			coalesce(P1."受取日",'----/--/--') as acceptance_date,
+			coalesce(P1."新規登録日",'--------') as registration_date,
+			coalesce(P1."仕入確定日",'--------') as confirm_date,
+			coalesce(P1."発送日",'--------') as shipping_date,
+			coalesce(P1."到着日",'--------') as arrival_date,
+			coalesce(P1."受取日",'--------') as acceptance_date,
 			case 
 				when P1."ステータス" = '0：新規登録' then ''
 				when P1."ステータス" = '1：仕入確定' then ''
