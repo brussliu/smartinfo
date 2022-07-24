@@ -50,6 +50,22 @@
 			"仕入NO" = :col0
 	</sql>
 
+	<sql id="updatePurchase02">
+		UPDATE "仕入管理" 
+		SET 
+			 "物流方式" = :col1
+			,"為替レート" = :col2
+			,"商品費用" = :col3
+			,"物流費用" = :col4
+			,"税金" = :col5
+			,"合計仕入費用" = :col6
+			,"合計仕入費用円貨" = :col7
+		WHERE 
+			"店舗名" = :shop
+			AND
+			"仕入NO" = :col0
+	</sql>
+
 	<sql id="updatePurchaseShipping1">
 		UPDATE "NEW_在庫情報"
 		SET "ONBOARD在庫数量" = to_number("ONBOARD在庫数量",'9999') - to_number(B."数量",'9999')

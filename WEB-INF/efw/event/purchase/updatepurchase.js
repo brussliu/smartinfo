@@ -1,11 +1,18 @@
-var updatepurchase={};
+\\\\\0\20var updatepurchase={};
 updatepurchase.name="仕入情報更新";
 updatepurchase.paramsFormat={
 
 	"#purchaseno":"required:true;display-name:仕入No;",
 	"#purchasename":"required:true;display-name:仕入名称;",
+
+	"#ship":null,
+	"#rate":null,
+	"#productamount":null,
+	"#shipamount":null,
+	"#faxamount":null,
+
 	"#importfile_purchase":null,
-	"#shop" : null
+	"#shop" : null,
 };
 
 var shopname = "";
@@ -18,6 +25,7 @@ updatepurchase.fire=function(params){
 	var purchaseno = params["#purchaseno"];
 	// 仕入名称
 	var purchasename = params["#purchasename"];
+
 	// 仕入名称更新
 	var updateResult = db.change(
 		"PURCHASE",
@@ -28,6 +36,54 @@ updatepurchase.fire=function(params){
 			"col1":purchasename
 		}
 	);
+
+	// 物流方式
+	var ship = params["#ship"];
+
+	ship.debug("GGGGGGGGGGGGGGGGGGGGGGg");
+	
+	// 為替レート
+	var rate = parseFloat(params["#rate"]);
+
+	// 商品費用
+	var productamount = parseFloat(params["#productamount"]);
+	// 商品費用（円）
+	var productamount_jp = productamount * 100 / rate;
+
+	// 物流費用
+	var shipamount = parseFloat(params["#shipamount"]);
+	// 物流費用（円）
+	var shipamount_jp = shipamount * 100 / rate;
+
+	// 税金（円）
+	var faxamount_jp = parseFloat(params["#faxamount"]);
+	// 税金
+	var faxamount = faxamount_jp * rate / 100;
+	// 合計仕入費用
+	var all_amount = productamount + shipamount + faxamount;
+	// 合計仕入費用円貨
+	var all_amount_jp = productamount_jp + shipamount_jp + faxamount_jp;
+
+
+	// 仕入名称更新
+	var updateResult = db.change(
+		"PURCHASE",
+		"updatePurchase02",
+		{
+			"shop":shopname,
+			"col0":purchaseno,
+			"col1":ship,
+			"col2":rate,
+			"col3":productamount,
+			"col4":shipamount,
+			"col5":faxamount,
+			"col6":all_amount,
+			"col7":all_amount_jp
+		}
+	);
+
+
+
 
 	// 仕入明細
 	var importfile_purchase = params["#importfile_purchase"];
