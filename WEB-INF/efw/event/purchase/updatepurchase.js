@@ -58,10 +58,9 @@ updatepurchase.fire=function(params){
 	// 税金
 	var faxamount = (faxamount_jp * rate / 100).toFixed(2);
 	// 合計仕入費用
-	var all_amount = parseFloat(productamount) + parseFloat(shipamount) + parseFloat(faxamount);
+	var all_amount = (parseFloat(productamount) + parseFloat(shipamount) + parseFloat(faxamount)).toFixed(2);
 	// 合計仕入費用円貨
-	var all_amount_jp = parseFloat(productamount_jp) + parseFloat(shipamount_jp) + parseFloat(faxamount_jp);
-
+	var all_amount_jp = (parseFloat(productamount_jp) + parseFloat(shipamount_jp) + parseFloat(faxamount_jp)).toFixed(2);
 
 	// 仕入名称更新
 	var updateResult = db.change(
