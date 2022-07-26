@@ -142,7 +142,7 @@
 				// 出力
 				$("#output").attr("disabled", false);
 				// 更新
-				$("#update").attr("disabled", true);
+				$("#update").attr("disabled", false);
 				// 仕入確定
 				$("#confirm").attr("disabled", true);
 				// 発送した
