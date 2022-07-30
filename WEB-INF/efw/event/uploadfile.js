@@ -265,7 +265,7 @@ function importEarnings(aryField, index) {
 
 	aryField.debug("AAAAAAAAAAAAAAAAAAAAAAAAA");
 
-	if(index > 8){
+	if(index >= 8){
 
 		var selectResult = db.select(
 			"EARNINGS",
