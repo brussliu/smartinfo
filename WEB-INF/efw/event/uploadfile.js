@@ -59,16 +59,7 @@ uploadfile.fire=function(params){
 		//"出品詳細レポート+01-26-2020.txt"
 		var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
 
-		var historyResult = db.change(
-			"UPLOAD",
-			"insertHistory",
-			{
-				"col0":shopname,
-				"col1":"product",
-				"col2":d,
-				"col3":count
-			}
-		);
+		saveHistory(shopname, params["data"], d, count);
 
 	}else if(params["data"] == "fba"){
 
@@ -93,16 +84,7 @@ uploadfile.fire=function(params){
 		//"FBA在庫レポート+01-26-2020.txt"
 		var d = f.substring(16,20) + "-" + f.substring(10,12) + "-" + f.substring(13,15);
 
-		var historyResult = db.change(
-			"UPLOAD",
-			"insertHistory",
-			{
-				"col0":shopname,
-				"col1":"fba",
-				"col2":d,
-				"col3":count
-			}
-		);
+		saveHistory(shopname, params["data"], d, count);
 
 	}else if(params["data"] == "order"){
 
@@ -120,16 +102,7 @@ uploadfile.fire=function(params){
 		//"3630501660018292.txt"
 		var d = new Date().format("yyyy-MM-dd");
 
-		var historyResult = db.change(
-			"UPLOAD",
-			"insertHistory",
-			{
-				"col0":shopname,
-				"col1":"order",
-				"col2":d,
-				"col3":count
-			}
-		);
+		saveHistory(shopname, params["data"], d, count);
 
 	}else if(params["data"] == "localstock"){
 
@@ -149,6 +122,8 @@ uploadfile.fire=function(params){
 			importProductInfoForSmartBear(shopname, excelXSSF, true, false, false, null);
 	
 		}
+
+		saveHistory(shopname, params["data"], null, count);
 
 
 	}else if(params["data"] == "earnings"){
@@ -633,22 +608,3 @@ function importOrderInfo(aryField, index) {
 	}
 
 };
-
-// function importDelivery(aryField, index) {
-
-// 	if(index > 8){
-
-// 		var insResult = db.change(
-// 			"UPLOAD",
-// 			"updateNewLocalstock",
-// 			{
-// 				"delivery":aryField[9],
-// 				"sku":aryField[0],
-// 				"asin":aryField[2]
-// 			}
-// 		);
-
-// 		count = count + 1;
-
-// 	}
-// };

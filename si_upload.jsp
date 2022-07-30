@@ -105,13 +105,30 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="file" id="importfile_product" style="width: 400px;height: 30px;">
+			出品詳細レポート<input type="file" id="importfile_product" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'product',liststock:''})">
+			<!--<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'product',liststock:''})">-->
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			FBA在庫レポート<input type="file" id="importfile_fba" style="width: 400px;height: 30px;">
+		</td>
+		<td colspan="3" style="text-align: right;">
+			<!--<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'fba',liststock:''})">-->
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			全注文レポート<input type="file" id="importfile_order" style="width: 400px;height: 30px;">
+		</td>
+		<td colspan="3" style="text-align: right;">
+			<!--<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'order',liststock:''})">-->
 		</td>
 	</tr>
 </table>
+<!--
 <br/>
 <table class="upfile" id="fbatable">
 	<tr>
@@ -164,6 +181,7 @@
 		</td>
 	</tr>
 </table>
+-->
 <br/>
 <table class="upfile" id="localstocktable">
 	<tr>
