@@ -528,299 +528,299 @@ uploadfile.fire=function(params){
 
 // };
 
-function getContent(tablehtml,start_txt,end_txt){
+// function getContent(tablehtml,start_txt,end_txt){
 
-	var start_index = tablehtml.indexOf(start_txt) + start_txt.length;
+// 	var start_index = tablehtml.indexOf(start_txt) + start_txt.length;
 
-	var txt_temp = tablehtml.substring(start_index);
+// 	var txt_temp = tablehtml.substring(start_index);
 
-	var end_index = start_index + txt_temp.indexOf(end_txt);
+// 	var end_index = start_index + txt_temp.indexOf(end_txt);
 
-	var content = tablehtml.substring(start_index,   end_index);
+// 	var content = tablehtml.substring(start_index,   end_index);
 
-	return content;
+// 	return content;
 
-};
+// };
 
-function importShipQoo10ProductInfo(aryField, index) {
+// function importShipQoo10ProductInfo(aryField, index) {
 
-	if(index > 0){
+// 	if(index > 0){
 
-		var selectResult = db.select(
-			"UPLOAD",
-			"selectShipQoo10Product",
-			{
-				"orderno":aryField[1],
-				"cartno":aryField[2]
-			}
-		);
+// 		var selectResult = db.select(
+// 			"UPLOAD",
+// 			"selectShipQoo10Product",
+// 			{
+// 				"orderno":aryField[1],
+// 				"cartno":aryField[2]
+// 			}
+// 		);
 
-		if(selectResult.length == 0){
+// 		if(selectResult.length == 0){
 
-			var insertResult = db.change(
-				"UPLOAD",
-				"insertShipQoo10Product",
-				{
-					"col0":aryField[0],
-					"col1":aryField[1],
-					"col2":aryField[2],
-					"col3":aryField[3],
-					"col4":aryField[4],
-					"col5":aryField[5],
-					"col6":aryField[6],
-					"col7":aryField[7],
-					"col8":aryField[8],
-					"col9":aryField[9],
-					"col10":aryField[10],
-					"col11":aryField[11],
-					"col12":aryField[12],
-					"col13":aryField[13]
-				}
-			);
+// 			var insertResult = db.change(
+// 				"UPLOAD",
+// 				"insertShipQoo10Product",
+// 				{
+// 					"col0":aryField[0],
+// 					"col1":aryField[1],
+// 					"col2":aryField[2],
+// 					"col3":aryField[3],
+// 					"col4":aryField[4],
+// 					"col5":aryField[5],
+// 					"col6":aryField[6],
+// 					"col7":aryField[7],
+// 					"col8":aryField[8],
+// 					"col9":aryField[9],
+// 					"col10":aryField[10],
+// 					"col11":aryField[11],
+// 					"col12":aryField[12],
+// 					"col13":aryField[13]
+// 				}
+// 			);
 		
-			count = count + 1;
+// 			count = count + 1;
 
-		}
+// 		}
 
 
-	}
+// 	}
 
-};
+// };
 
-function importShipAmazonInfo(aryField, index) {
+// function importShipAmazonInfo(aryField, index) {
 
-	if(index > 0){
+// 	if(index > 0){
 
-		var selectResult = db.select(
-			"UPLOAD",
-			"selectShipAmazon",
-			{
-				"orderno":aryField[0],
-				"orderitemno":aryField[1]
-			}
-		);
+// 		var selectResult = db.select(
+// 			"UPLOAD",
+// 			"selectShipAmazon",
+// 			{
+// 				"orderno":aryField[0],
+// 				"orderitemno":aryField[1]
+// 			}
+// 		);
 
-		if(selectResult.length == 0){
+// 		if(selectResult.length == 0){
 
-			var insertResult = db.change(
-				"UPLOAD",
-				"insertShipAmazon",
-				{
-					"col0":aryField[0],
-					"col1":aryField[1],
-					"col2":aryField[2],
-					"col3":aryField[3],
-					"col4":aryField[4],
-					"col5":aryField[5],
-					"col6":aryField[6],
-					"col7":aryField[7],
-					"col8":aryField[8],
-					"col9":aryField[9],
-					"col10":aryField[10],
-					"col11":aryField[11],
-					"col12":aryField[12],
-					"col13":aryField[13],
-					"col14":aryField[14],
-					"col15":aryField[15],
-					"col16":aryField[16],
-					"col17":aryField[17],
-					"col18":aryField[18],
-					"col19":aryField[19],
-					"col20":aryField[20],
-					"col21":aryField[21],
-					"col22":aryField[22],
-					"col23":aryField[23]
-				}
-			);
+// 			var insertResult = db.change(
+// 				"UPLOAD",
+// 				"insertShipAmazon",
+// 				{
+// 					"col0":aryField[0],
+// 					"col1":aryField[1],
+// 					"col2":aryField[2],
+// 					"col3":aryField[3],
+// 					"col4":aryField[4],
+// 					"col5":aryField[5],
+// 					"col6":aryField[6],
+// 					"col7":aryField[7],
+// 					"col8":aryField[8],
+// 					"col9":aryField[9],
+// 					"col10":aryField[10],
+// 					"col11":aryField[11],
+// 					"col12":aryField[12],
+// 					"col13":aryField[13],
+// 					"col14":aryField[14],
+// 					"col15":aryField[15],
+// 					"col16":aryField[16],
+// 					"col17":aryField[17],
+// 					"col18":aryField[18],
+// 					"col19":aryField[19],
+// 					"col20":aryField[20],
+// 					"col21":aryField[21],
+// 					"col22":aryField[22],
+// 					"col23":aryField[23]
+// 				}
+// 			);
 		
-			count = count + 1;
+// 			count = count + 1;
 
-		}
+// 		}
 
 
-	}
+// 	}
 
-};
+// };
 
-function importProductInfo(aryField, index) {
+// function importProductInfo(aryField, index) {
 
-	if(index > 0){
-		var insertResult = db.change(
-			"UPLOAD",
-			"insertProduct",
-			{
-				"col0":aryField[0],
-				"col1":aryField[1],
-				"col2":aryField[2],
-				"col3":aryField[3],
-				"col4":aryField[4],
-				"col5":aryField[5],
-				"col6":aryField[6],
-				"col7":aryField[7],
-				"col8":aryField[8],
-				"col9":aryField[9],
-				"col10":aryField[10],
-				"col11":aryField[11],
-				"col12":aryField[12],
-				"col13":aryField[13],
-				"col14":aryField[14],
-				"col15":aryField[15],
-				"col16":aryField[16],
-				"col17":aryField[17],
-				"col18":aryField[18],
-				"col19":aryField[19],
-				"col20":aryField[20],
-				"col21":aryField[21],
-				"col22":shopname
-			}
-		);
+// 	if(index > 0){
+// 		var insertResult = db.change(
+// 			"UPLOAD",
+// 			"insertProduct",
+// 			{
+// 				"col0":aryField[0],
+// 				"col1":aryField[1],
+// 				"col2":aryField[2],
+// 				"col3":aryField[3],
+// 				"col4":aryField[4],
+// 				"col5":aryField[5],
+// 				"col6":aryField[6],
+// 				"col7":aryField[7],
+// 				"col8":aryField[8],
+// 				"col9":aryField[9],
+// 				"col10":aryField[10],
+// 				"col11":aryField[11],
+// 				"col12":aryField[12],
+// 				"col13":aryField[13],
+// 				"col14":aryField[14],
+// 				"col15":aryField[15],
+// 				"col16":aryField[16],
+// 				"col17":aryField[17],
+// 				"col18":aryField[18],
+// 				"col19":aryField[19],
+// 				"col20":aryField[20],
+// 				"col21":aryField[21],
+// 				"col22":shopname
+// 			}
+// 		);
 
-		var updateResult = db.change(
-			"UPLOAD",
-			"updateProduct",
-			{
-				"col0":aryField[0],
-				"col1":aryField[1],
-				"col2":aryField[2],
-				"col5":aryField[5],
-				"col6":aryField[6],
-				"col22":shopname
-			}
-		);
+// 		var updateResult = db.change(
+// 			"UPLOAD",
+// 			"updateProduct",
+// 			{
+// 				"col0":aryField[0],
+// 				"col1":aryField[1],
+// 				"col2":aryField[2],
+// 				"col5":aryField[5],
+// 				"col6":aryField[6],
+// 				"col22":shopname
+// 			}
+// 		);
 
-		count = count + 1;
+// 		count = count + 1;
 
-	}
+// 	}
 
-};
+// };
 
-function importFbaInfo(aryField, index) {
+// function importFbaInfo(aryField, index) {
 
-	if(index > 0){
-		var insertResult = db.change(
-			"UPLOAD",
-			"insertFba",
-			{
-				"col0":aryField[0],
-				"col1":aryField[1],
-				"col2":aryField[2],
-				"col3":aryField[3],
-				"col4":aryField[4],
-				"col5":aryField[5],
-				"col6":shopname
-			}
-		);
+// 	if(index > 0){
+// 		var insertResult = db.change(
+// 			"UPLOAD",
+// 			"insertFba",
+// 			{
+// 				"col0":aryField[0],
+// 				"col1":aryField[1],
+// 				"col2":aryField[2],
+// 				"col3":aryField[3],
+// 				"col4":aryField[4],
+// 				"col5":aryField[5],
+// 				"col6":shopname
+// 			}
+// 		);
 
-		if(aryField[4] == "SELLABLE"){
-			var updateResult = db.change(
-				"UPLOAD",
-				"updateFba",
-				{
-					"col0":aryField[0],
-					"col1":aryField[1],
-					"col2":aryField[2],
-					// "col3":aryField[3],
-					// "col4":aryField[4],
-					"col5":aryField[5],
-					"col6":shopname
-				}
-			);
-		}
+// 		if(aryField[4] == "SELLABLE"){
+// 			var updateResult = db.change(
+// 				"UPLOAD",
+// 				"updateFba",
+// 				{
+// 					"col0":aryField[0],
+// 					"col1":aryField[1],
+// 					"col2":aryField[2],
+// 					// "col3":aryField[3],
+// 					// "col4":aryField[4],
+// 					"col5":aryField[5],
+// 					"col6":shopname
+// 				}
+// 			);
+// 		}
 		
-		count = count + 1;
-	}
+// 		count = count + 1;
+// 	}
 
-};
+// };
 
-function importOrderInfo(aryField, index) {
+// function importOrderInfo(aryField, index) {
 
-	if(index > 0){
+// 	if(index > 0){
 
-		var selectResult = db.select(
-			"UPLOAD",
-			"selectOrder",
-			{
-				"col0":aryField[0],
-				//"col1":aryField[1],
-				"col2":aryField[2],
-				"col3":shopname
-			}
-		).getArray();
+// 		var selectResult = db.select(
+// 			"UPLOAD",
+// 			"selectOrder",
+// 			{
+// 				"col0":aryField[0],
+// 				//"col1":aryField[1],
+// 				"col2":aryField[2],
+// 				"col3":shopname
+// 			}
+// 		).getArray();
 
-		if(selectResult[0].count > 0){
+// 		if(selectResult[0].count > 0){
 
-			var insertResult = db.change(
-				"UPLOAD",
-				"delOrder",
-				{
-					"col0":aryField[0],
-					//"col1":aryField[1],
-					"col2":aryField[2],
-					"col3":shopname
-				}
-			);
-		}
+// 			var insertResult = db.change(
+// 				"UPLOAD",
+// 				"delOrder",
+// 				{
+// 					"col0":aryField[0],
+// 					//"col1":aryField[1],
+// 					"col2":aryField[2],
+// 					"col3":shopname
+// 				}
+// 			);
+// 		}
 
-		var insertResult = db.change(
-			"UPLOAD",
-			"insertOrder",
-			{
-				"col0":aryField[0],
-				"col1":aryField[1],
-				"col2":aryField[2],
-				"col3":aryField[3],
-				"col4":aryField[4],
-				"col5":aryField[5],
-				"col6":aryField[6],
-				"col7":aryField[7],
-				"col8":aryField[8],
-				"col9":aryField[9],
-				"col10":aryField[10],
-				"col11":aryField[11],
-				"col12":aryField[12],
-				"col13":aryField[13],
-				"col14":aryField[14],
-				"col15":aryField[15],
-				"col16":aryField[16],
-				"col17":aryField[17],
-				"col18":aryField[18],
-				"col19":aryField[19],
-				"col20":aryField[20],
-				"col21":aryField[21],
-				"col22":aryField[22],
-				"col23":aryField[23],
-				"col24":aryField[24],
-				"col25":aryField[25],
-				"col26":aryField[26],
-				"col27":aryField[27],
-				"col28":aryField[28],
-				"col29":shopname
-			}
-		);
+// 		var insertResult = db.change(
+// 			"UPLOAD",
+// 			"insertOrder",
+// 			{
+// 				"col0":aryField[0],
+// 				"col1":aryField[1],
+// 				"col2":aryField[2],
+// 				"col3":aryField[3],
+// 				"col4":aryField[4],
+// 				"col5":aryField[5],
+// 				"col6":aryField[6],
+// 				"col7":aryField[7],
+// 				"col8":aryField[8],
+// 				"col9":aryField[9],
+// 				"col10":aryField[10],
+// 				"col11":aryField[11],
+// 				"col12":aryField[12],
+// 				"col13":aryField[13],
+// 				"col14":aryField[14],
+// 				"col15":aryField[15],
+// 				"col16":aryField[16],
+// 				"col17":aryField[17],
+// 				"col18":aryField[18],
+// 				"col19":aryField[19],
+// 				"col20":aryField[20],
+// 				"col21":aryField[21],
+// 				"col22":aryField[22],
+// 				"col23":aryField[23],
+// 				"col24":aryField[24],
+// 				"col25":aryField[25],
+// 				"col26":aryField[26],
+// 				"col27":aryField[27],
+// 				"col28":aryField[28],
+// 				"col29":shopname
+// 			}
+// 		);
 
-		count = count + 1;
+// 		count = count + 1;
 
 
-	}
+// 	}
 
-};
+// };
 
-function importDelivery(aryField, index) {
+// function importDelivery(aryField, index) {
 
-	if(index > 8){
+// 	if(index > 8){
 
-		var insResult = db.change(
-			"UPLOAD",
-			"updateNewLocalstock",
-			{
-				"delivery":aryField[9],
-				"sku":aryField[0],
-				"asin":aryField[2]
-			}
-		);
+// 		var insResult = db.change(
+// 			"UPLOAD",
+// 			"updateNewLocalstock",
+// 			{
+// 				"delivery":aryField[9],
+// 				"sku":aryField[0],
+// 				"asin":aryField[2]
+// 			}
+// 		);
 
-		count = count + 1;
+// 		count = count + 1;
 
-	}
+// 	}
 
-};
+// };
