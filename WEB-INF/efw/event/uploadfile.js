@@ -36,404 +36,402 @@ var count = 0;
 
 uploadfile.fire=function(params){
 
-	"aaaaa".debug("HHHHHHHHHHHHHHHHH");
-
 	file.saveUploadFiles("upload");
 
 	shopname = params["#shop"];
 
 	var ret = new Result();
 
-	if(params["data"] == "product"){
+	// if(params["data"] == "product"){
 
-		count = 0;
-		var fa = params["#importfile_product"].split("\\");
-		var f = fa[fa.length-1];
-
-
-		var csvReader = new CSVReader("upload/" + f, "\t");
-
-		// データ全件削除
-		var delResult = db.change(
-			"UPLOAD",
-			"delAllProduct",
-			{shop:shopname}
-		);
-
-		// データ全件導入
-		csvReader.loopAllLines(importProductInfo);
-
-		//"出品詳細レポート+01-26-2020.txt"
-		var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
-
-		var historyResult = db.change(
-			"UPLOAD",
-			"insertHistory",
-			{
-				"col0":shopname,
-				"col1":"product",
-				"col2":d,
-				"col3":count
-			}
-		);
-
-	}else if(params["data"] == "fba"){
-
-		count = 0;
-
-		var fa = params["#importfile_fba"].split("\\");
-		var f = fa[fa.length-1];
+	// 	count = 0;
+	// 	var fa = params["#importfile_product"].split("\\");
+	// 	var f = fa[fa.length-1];
 
 
-		var csvReader = new CSVReader("upload/" + f, "\t");
+	// 	var csvReader = new CSVReader("upload/" + f, "\t");
 
-		// データ全件削除
-		var delResult = db.change(
-			"UPLOAD",
-			"delAllFba",
-			{shop:params["#shop"]}
-		);
+	// 	// データ全件削除
+	// 	var delResult = db.change(
+	// 		"UPLOAD",
+	// 		"delAllProduct",
+	// 		{shop:shopname}
+	// 	);
 
-		// データ全件導入
-		csvReader.loopAllLines(importFbaInfo);
+	// 	// データ全件導入
+	// 	csvReader.loopAllLines(importProductInfo);
 
-		//"FBA在庫レポート+01-26-2020.txt"
-		var d = f.substring(16,20) + "-" + f.substring(10,12) + "-" + f.substring(13,15);
+	// 	//"出品詳細レポート+01-26-2020.txt"
+	// 	var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
 
-		var historyResult = db.change(
-			"UPLOAD",
-			"insertHistory",
-			{
-				"col0":shopname,
-				"col1":"fba",
-				"col2":d,
-				"col3":count
-			}
-		);
+	// 	var historyResult = db.change(
+	// 		"UPLOAD",
+	// 		"insertHistory",
+	// 		{
+	// 			"col0":shopname,
+	// 			"col1":"product",
+	// 			"col2":d,
+	// 			"col3":count
+	// 		}
+	// 	);
 
-	}else if(params["data"] == "order"){
+	// }else if(params["data"] == "fba"){
 
-		count = 0;
+	// 	count = 0;
 
-		var fa = params["#importfile_order"].split("\\");
-		var f = fa[fa.length-1];
+	// 	var fa = params["#importfile_fba"].split("\\");
+	// 	var f = fa[fa.length-1];
 
 
-		var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
+	// 	var csvReader = new CSVReader("upload/" + f, "\t");
 
-		// データ全件導入
-		csvReader.loopAllLines(importOrderInfo);
+	// 	// データ全件削除
+	// 	var delResult = db.change(
+	// 		"UPLOAD",
+	// 		"delAllFba",
+	// 		{shop:params["#shop"]}
+	// 	);
 
-		//"3630501660018292.txt"
-		var d = new Date().format("yyyy-MM-dd");
+	// 	// データ全件導入
+	// 	csvReader.loopAllLines(importFbaInfo);
 
-		var historyResult = db.change(
-			"UPLOAD",
-			"insertHistory",
-			{
-				"col0":shopname,
-				"col1":"order",
-				"col2":d,
-				"col3":count
-			}
-		);
+	// 	//"FBA在庫レポート+01-26-2020.txt"
+	// 	var d = f.substring(16,20) + "-" + f.substring(10,12) + "-" + f.substring(13,15);
 
-	}else if(params["data"] == "localstock"){
+	// 	var historyResult = db.change(
+	// 		"UPLOAD",
+	// 		"insertHistory",
+	// 		{
+	// 			"col0":shopname,
+	// 			"col1":"fba",
+	// 			"col2":d,
+	// 			"col3":count
+	// 		}
+	// 	);
 
-		count = 0;
+	// }else if(params["data"] == "order"){
 
-		var fa = params["#importfile_localstock"].split("\\");
-		var f = fa[fa.length-1];
+	// 	count = 0;
 
-		var excelXSSF = new Excel("upload/" + f);
+	// 	var fa = params["#importfile_order"].split("\\");
+	// 	var f = fa[fa.length-1];
 
-		if(shopname == "Smart-KM"){
 
-			importProductInfoForSmartKM(shopname, excelXSSF, true, false, false, null);
+	// 	var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
+
+	// 	// データ全件導入
+	// 	csvReader.loopAllLines(importOrderInfo);
+
+	// 	//"3630501660018292.txt"
+	// 	var d = new Date().format("yyyy-MM-dd");
+
+	// 	var historyResult = db.change(
+	// 		"UPLOAD",
+	// 		"insertHistory",
+	// 		{
+	// 			"col0":shopname,
+	// 			"col1":"order",
+	// 			"col2":d,
+	// 			"col3":count
+	// 		}
+	// 	);
+
+	// }else if(params["data"] == "localstock"){
+
+	// 	count = 0;
+
+	// 	var fa = params["#importfile_localstock"].split("\\");
+	// 	var f = fa[fa.length-1];
+
+	// 	var excelXSSF = new Excel("upload/" + f);
+
+	// 	if(shopname == "Smart-KM"){
+
+	// 		importProductInfoForSmartKM(shopname, excelXSSF, true, false, false, null);
 	
-		}else{
+	// 	}else{
 	
-			importProductInfoForSmartBear(shopname, excelXSSF, true, false, false, null);
+	// 		importProductInfoForSmartBear(shopname, excelXSSF, true, false, false, null);
 	
-		}
+	// 	}
 
-	}else if(params["data"] == "earnings"){
+	// }else if(params["data"] == "earnings"){
 
-		count = 0;
+	// 	count = 0;
 
-		var fa = params["#importfile_earnings"].split("\\");
-		var f = fa[fa.length-1];
+	// 	var fa = params["#importfile_earnings"].split("\\");
+	// 	var f = fa[fa.length-1];
 
-		var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
+	// 	var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
 
-		// データ全件導入
-		//csvReader.loopAllLines(importEarnings);
+	// 	// データ全件導入
+	// 	//csvReader.loopAllLines(importEarnings);
 
-		//saveHistory(shopname, params["data"], null, count);
+	// 	//saveHistory(shopname, params["data"], null, count);
 
-	}else if(params["data"] == "liststock"){
+	// }else if(params["data"] == "liststock"){
 
-		// count = 0;
+	// 	// count = 0;
 
-		// var opt = params["liststock"];
+	// 	// var opt = params["liststock"];
 
-		// var fa = params["#importfile_liststock"].split("\\");
-		// var f = fa[fa.length-1];
+	// 	// var fa = params["#importfile_liststock"].split("\\");
+	// 	// var f = fa[fa.length-1];
 
-		// var excelXSSF = new Excel("upload/" + f);
-		// var sheetArry = excelXSSF.getSheetNames();
+	// 	// var excelXSSF = new Excel("upload/" + f);
+	// 	// var sheetArry = excelXSSF.getSheetNames();
 
-		// var inputAll = new Array();
-		// var inputOneSheet = new Array();
+	// 	// var inputAll = new Array();
+	// 	// var inputOneSheet = new Array();
 
-		// var excel = new Excel("templates/input_stock.xlsx");
+	// 	// var excel = new Excel("templates/input_stock.xlsx");
 
-		// var tempFilePathName = file.getTempFileName();
+	// 	// var tempFilePathName = file.getTempFileName();
 
-		// for(var s = 0;s < sheetArry.length; s ++){
+	// 	// for(var s = 0;s < sheetArry.length; s ++){
 
-		// 	inputOneSheet = new Array();
+	// 	// 	inputOneSheet = new Array();
 
-		// 	var sheetName = sheetArry[s];
+	// 	// 	var sheetName = sheetArry[s];
 
-		// 	for(var r1 = 1;r1 < 9999; r1 ++){
+	// 	// 	for(var r1 = 1;r1 < 9999; r1 ++){
 
-		// 		var code = excelXSSF.getValue(sheetName, "A" + r1);
+	// 	// 		var code = excelXSSF.getValue(sheetName, "A" + r1);
 
-		// 		if(code == null || code.length <= 0){
-		// 			break;
-		// 		}
+	// 	// 		if(code == null || code.length <= 0){
+	// 	// 			break;
+	// 	// 		}
 
-		// 		var insertResult = db.change(
-		// 			"UPLOAD",
-		// 			"insertLabel",
-		// 			{
-		// 				"col0":shopname,
-		// 				"col1":code,
-		// 				"col2":sheetName
-		// 			}
-		// 		);
+	// 	// 		var insertResult = db.change(
+	// 	// 			"UPLOAD",
+	// 	// 			"insertLabel",
+	// 	// 			{
+	// 	// 				"col0":shopname,
+	// 	// 				"col1":code,
+	// 	// 				"col2":sheetName
+	// 	// 			}
+	// 	// 		);
 
-		// 	}
+	// 	// 	}
 
-		// 	// シート別集計情報Excel生成
-		// 	var selectResult = db.select(
-		// 		"UPLOAD",
-		// 		"selectLabel",
-		// 		{
-		// 			"col0":shopname,
-		// 			"col1":sheetName
-		// 		}
-		// 	).getArray();
+	// 	// 	// シート別集計情報Excel生成
+	// 	// 	var selectResult = db.select(
+	// 	// 		"UPLOAD",
+	// 	// 		"selectLabel",
+	// 	// 		{
+	// 	// 			"col0":shopname,
+	// 	// 			"col1":sheetName
+	// 	// 		}
+	// 	// 	).getArray();
 
-		// 	excel.createSheet(sheetName, "TEMP");
+	// 	// 	excel.createSheet(sheetName, "TEMP");
 
-		// 	for(var r2 = 0;r2 < selectResult.length; r2 ++){
+	// 	// 	for(var r2 = 0;r2 < selectResult.length; r2 ++){
 
-		// 		var countInfo = selectResult[r2];
+	// 	// 		var countInfo = selectResult[r2];
 
-		// 		excel.setCell(sheetName, "B" + (r2 + 5), countInfo["productno"]);
-		// 		excel.setCell(sheetName, "C" + (r2 + 5), countInfo["productdiv"]);
-		// 		excel.setCell(sheetName, "D" + (r2 + 5), countInfo["sku"]);
-		// 		excel.setCell(sheetName, "E" + (r2 + 5), countInfo["asin"]);
-		// 		excel.setCell(sheetName, "F" + (r2 + 5), countInfo["label"]);
-		// 		excel.setCell(sheetName, "G" + (r2 + 5), countInfo["productname"]);
-		// 		excel.setCell(sheetName, "H" + (r2 + 5), countInfo["color"]);
-		// 		excel.setCell(sheetName, "I" + (r2 + 5), countInfo["size"]);
-		// 		excel.setCell(sheetName, "J" + (r2 + 5), countInfo["count"]);
+	// 	// 		excel.setCell(sheetName, "B" + (r2 + 5), countInfo["productno"]);
+	// 	// 		excel.setCell(sheetName, "C" + (r2 + 5), countInfo["productdiv"]);
+	// 	// 		excel.setCell(sheetName, "D" + (r2 + 5), countInfo["sku"]);
+	// 	// 		excel.setCell(sheetName, "E" + (r2 + 5), countInfo["asin"]);
+	// 	// 		excel.setCell(sheetName, "F" + (r2 + 5), countInfo["label"]);
+	// 	// 		excel.setCell(sheetName, "G" + (r2 + 5), countInfo["productname"]);
+	// 	// 		excel.setCell(sheetName, "H" + (r2 + 5), countInfo["color"]);
+	// 	// 		excel.setCell(sheetName, "I" + (r2 + 5), countInfo["size"]);
+	// 	// 		excel.setCell(sheetName, "J" + (r2 + 5), countInfo["count"]);
 
-		// 	}
+	// 	// 	}
 			
-		// }
+	// 	// }
 
-		// // 全体集計情報Excel生成
-		// var selectResultAll = db.select(
-		// 	"UPLOAD",
-		// 	"selectAllLabel",
-		// 	{
-		// 		"col0":shopname,
-		// 		"col1":sheetName
-		// 	}
-		// ).getArray();
+	// 	// // 全体集計情報Excel生成
+	// 	// var selectResultAll = db.select(
+	// 	// 	"UPLOAD",
+	// 	// 	"selectAllLabel",
+	// 	// 	{
+	// 	// 		"col0":shopname,
+	// 	// 		"col1":sheetName
+	// 	// 	}
+	// 	// ).getArray();
 
-		// if(opt == "updateAll"){
+	// 	// if(opt == "updateAll"){
 
-		// 	var updateResult0 = db.change(
-		// 		"UPLOAD",
-		// 		"updateAllLocalStock",
-		// 		{
-		// 			"col0":shopname
-		// 		}
-		// 	);
-		// }
+	// 	// 	var updateResult0 = db.change(
+	// 	// 		"UPLOAD",
+	// 	// 		"updateAllLocalStock",
+	// 	// 		{
+	// 	// 			"col0":shopname
+	// 	// 		}
+	// 	// 	);
+	// 	// }
 
-		// excel.createSheet("ALL", "TEMP");
+	// 	// excel.createSheet("ALL", "TEMP");
 
-		// for(var r2 = 0;r2 < selectResultAll.length; r2 ++){
+	// 	// for(var r2 = 0;r2 < selectResultAll.length; r2 ++){
 
-		// 	var countInfo = selectResultAll[r2];
+	// 	// 	var countInfo = selectResultAll[r2];
 
-		// 	excel.setCell("ALL", "B" + (r2 + 5), countInfo["productno"]);
-		// 	excel.setCell("ALL", "C" + (r2 + 5), countInfo["productdiv"]);
-		// 	excel.setCell("ALL", "D" + (r2 + 5), countInfo["sku"]);
-		// 	excel.setCell("ALL", "E" + (r2 + 5), countInfo["asin"]);
-		// 	excel.setCell("ALL", "F" + (r2 + 5), countInfo["label"]);
-		// 	excel.setCell("ALL", "G" + (r2 + 5), countInfo["productname"]);
-		// 	excel.setCell("ALL", "H" + (r2 + 5), countInfo["color"]);
-		// 	excel.setCell("ALL", "I" + (r2 + 5), countInfo["size"]);
-		// 	excel.setCell("ALL", "J" + (r2 + 5), countInfo["count"]);
+	// 	// 	excel.setCell("ALL", "B" + (r2 + 5), countInfo["productno"]);
+	// 	// 	excel.setCell("ALL", "C" + (r2 + 5), countInfo["productdiv"]);
+	// 	// 	excel.setCell("ALL", "D" + (r2 + 5), countInfo["sku"]);
+	// 	// 	excel.setCell("ALL", "E" + (r2 + 5), countInfo["asin"]);
+	// 	// 	excel.setCell("ALL", "F" + (r2 + 5), countInfo["label"]);
+	// 	// 	excel.setCell("ALL", "G" + (r2 + 5), countInfo["productname"]);
+	// 	// 	excel.setCell("ALL", "H" + (r2 + 5), countInfo["color"]);
+	// 	// 	excel.setCell("ALL", "I" + (r2 + 5), countInfo["size"]);
+	// 	// 	excel.setCell("ALL", "J" + (r2 + 5), countInfo["count"]);
 
-		// 	if(opt == "output"){
+	// 	// 	if(opt == "output"){
 
-		// 	}else if(opt == "updatePart"){
+	// 	// 	}else if(opt == "updatePart"){
 
-		// 		var updateResult = db.change(
-		// 			"UPLOAD",
-		// 			"updateLocalStock",
-		// 			{
-		// 				"col0":shopname,
-		// 				"col1":countInfo["label"],
-		// 				"col2":countInfo["count"]
-		// 			}
-		// 		);
+	// 	// 		var updateResult = db.change(
+	// 	// 			"UPLOAD",
+	// 	// 			"updateLocalStock",
+	// 	// 			{
+	// 	// 				"col0":shopname,
+	// 	// 				"col1":countInfo["label"],
+	// 	// 				"col2":countInfo["count"]
+	// 	// 			}
+	// 	// 		);
 
-		// 	}else if(opt == "updateAll"){
+	// 	// 	}else if(opt == "updateAll"){
 
-		// 		var updateResult = db.change(
-		// 			"UPLOAD",
-		// 			"updateLocalStock",
-		// 			{
-		// 				"col0":shopname,
-		// 				"col1":countInfo["label"],
-		// 				"col2":countInfo["count"]
-		// 			}
-		// 		);
+	// 	// 		var updateResult = db.change(
+	// 	// 			"UPLOAD",
+	// 	// 			"updateLocalStock",
+	// 	// 			{
+	// 	// 				"col0":shopname,
+	// 	// 				"col1":countInfo["label"],
+	// 	// 				"col2":countInfo["count"]
+	// 	// 			}
+	// 	// 		);
 
-		// 	}else if(opt == "add"){
+	// 	// 	}else if(opt == "add"){
 
-		// 		var updateResult = db.change(
-		// 			"UPLOAD",
-		// 			"addLocalStock",
-		// 			{
-		// 				"col0":shopname,
-		// 				"col1":countInfo["label"],
-		// 				"col2":countInfo["count"]
-		// 			}
-		// 		);
+	// 	// 		var updateResult = db.change(
+	// 	// 			"UPLOAD",
+	// 	// 			"addLocalStock",
+	// 	// 			{
+	// 	// 				"col0":shopname,
+	// 	// 				"col1":countInfo["label"],
+	// 	// 				"col2":countInfo["count"]
+	// 	// 			}
+	// 	// 		);
 
-		// 	}
+	// 	// 	}
 
-		// }
+	// 	// }
 
-		// excel.hideSheet("TEMP");
+	// 	// excel.hideSheet("TEMP");
 
-		// excel.setActiveSheet("ALL").save(tempFilePathName);
+	// 	// excel.setActiveSheet("ALL").save(tempFilePathName);
 
-		// ret.attach(tempFilePathName)
-		// .saveas("在庫確認_" + (new Date()).format("yyyyMMdd")+".xlsx")
-		// .deleteAfterDownload();
-
-
-		// // データ削除
-		// var deleteResult = db.change(
-		// 	"UPLOAD",
-		// 	"deleteLabel",
-		// 	{
-		// 		"col0":shopname
-		// 	}
-		// );
+	// 	// ret.attach(tempFilePathName)
+	// 	// .saveas("在庫確認_" + (new Date()).format("yyyyMMdd")+".xlsx")
+	// 	// .deleteAfterDownload();
 
 
-
-	}else if(params["data"] == "ship_amazon"){
-
-		count = 0;
-
-		var fa = params["#importfile_ship_amazon"].split("\\");
-		var f = fa[fa.length-1];
-
-
-		//var csvReader = new CSVReader("upload/" + f, "\t");
-		var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
-
-		// データ全件導入
-		csvReader.loopAllLines(importShipAmazonInfo);
+	// 	// // データ削除
+	// 	// var deleteResult = db.change(
+	// 	// 	"UPLOAD",
+	// 	// 	"deleteLabel",
+	// 	// 	{
+	// 	// 		"col0":shopname
+	// 	// 	}
+	// 	// );
 
 
-	}else if(params["data"] == "ship_qoo10_order"){
 
-		count = 0;
+	// }else if(params["data"] == "ship_amazon"){
 
-		var fa = params["#importfile_ship_qoo10_order"].split("\\");
-		var f = fa[fa.length-1];
+	// 	count = 0;
 
-		var txt = file.readAllLines("upload/" + f).split("\r\n");
-
-		for(var i = 1;i < txt.length - 1;i ++){
-
-			var rowArr = txt[i].substring(1,txt[i].length-2).split("\",\"");
-
-			importShipQoo10ProductInfo(rowArr,i);
-		}
-
-	}else if(params["data"] == "ship_qoo10_ship"){
-
-		count = 0;
-
-		var fa = params["#importfile_ship_qoo10_ship"].split("\\");
-		var f = fa[fa.length-1];
-
-		var txt = file.readAllLines("upload/" + f).split("発注書発行日 : ");
-
-		for(var i = 1;i < txt.length;i ++){
+	// 	var fa = params["#importfile_ship_amazon"].split("\\");
+	// 	var f = fa[fa.length-1];
 
 
-				var tablehtml = txt[i].substring(txt[i].indexOf("<table"), txt[i].indexOf("</table>")+8);
+	// 	//var csvReader = new CSVReader("upload/" + f, "\t");
+	// 	var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
 
-				var orderno_start = "注文番号</td><td class='content'>";
-				var orderno_end = "</td>";
-				var orderno = getContent(tablehtml, orderno_start, orderno_end);
+	// 	// データ全件導入
+	// 	csvReader.loopAllLines(importShipAmazonInfo);
 
-				var buyername_start = "購入者名</td><td class='content'>";
-				var buyername_end = "</td>";
-				var buyername = getContent(tablehtml, buyername_start, buyername_end);
 
-				var buyertel_start = "購入者電話番号</td><td class='content'>&nbsp; /";
-				var buyertel_end = "</td>";
-				var buyertel = getContent(tablehtml, buyertel_start, buyertel_end);
+	// }else if(params["data"] == "ship_qoo10_order"){
 
-				var recievename_start = "受取人名</td><td class='content'>";
-				var recievename_end = "</td>";
-				var recievename = getContent(tablehtml, recievename_start, recievename_end);
+	// 	count = 0;
 
-				var recievetel_start = "受取人電話番号</td><td class='content'>";
-				var recievetel_end = "</td>";
-				var recievetel = getContent(tablehtml, recievetel_start, recievetel_end);
+	// 	var fa = params["#importfile_ship_qoo10_order"].split("\\");
+	// 	var f = fa[fa.length-1];
 
-				var postno_start = "郵便番号</td><td class='content'>";
-				var postno_end = "</td>";
-				var postno = getContent(tablehtml, postno_start, postno_end);
+	// 	var txt = file.readAllLines("upload/" + f).split("\r\n");
 
-				var address_start = "住所</td><td style='width:760px;' colspan='3'>";
-				var address_end = "</td>";
-				var address = getContent(tablehtml, address_start, address_end);
+	// 	for(var i = 1;i < txt.length - 1;i ++){
 
-				var updateResult = db.change(
-					"UPLOAD",
-					"updateShipQoo10ShipInfo",
-					{
-						"orderno":orderno,
-						"col0":buyername,
-						"col1":recievename,
-						"col2":postno,
-						"col3":address,
-						"col4":recievetel,
-						"col5":recievetel
-					}
-				);
-		}
+	// 		var rowArr = txt[i].substring(1,txt[i].length-2).split("\",\"");
 
-	}
+	// 		importShipQoo10ProductInfo(rowArr,i);
+	// 	}
+
+	// }else if(params["data"] == "ship_qoo10_ship"){
+
+	// 	count = 0;
+
+	// 	var fa = params["#importfile_ship_qoo10_ship"].split("\\");
+	// 	var f = fa[fa.length-1];
+
+	// 	var txt = file.readAllLines("upload/" + f).split("発注書発行日 : ");
+
+	// 	for(var i = 1;i < txt.length;i ++){
+
+
+	// 			var tablehtml = txt[i].substring(txt[i].indexOf("<table"), txt[i].indexOf("</table>")+8);
+
+	// 			var orderno_start = "注文番号</td><td class='content'>";
+	// 			var orderno_end = "</td>";
+	// 			var orderno = getContent(tablehtml, orderno_start, orderno_end);
+
+	// 			var buyername_start = "購入者名</td><td class='content'>";
+	// 			var buyername_end = "</td>";
+	// 			var buyername = getContent(tablehtml, buyername_start, buyername_end);
+
+	// 			var buyertel_start = "購入者電話番号</td><td class='content'>&nbsp; /";
+	// 			var buyertel_end = "</td>";
+	// 			var buyertel = getContent(tablehtml, buyertel_start, buyertel_end);
+
+	// 			var recievename_start = "受取人名</td><td class='content'>";
+	// 			var recievename_end = "</td>";
+	// 			var recievename = getContent(tablehtml, recievename_start, recievename_end);
+
+	// 			var recievetel_start = "受取人電話番号</td><td class='content'>";
+	// 			var recievetel_end = "</td>";
+	// 			var recievetel = getContent(tablehtml, recievetel_start, recievetel_end);
+
+	// 			var postno_start = "郵便番号</td><td class='content'>";
+	// 			var postno_end = "</td>";
+	// 			var postno = getContent(tablehtml, postno_start, postno_end);
+
+	// 			var address_start = "住所</td><td style='width:760px;' colspan='3'>";
+	// 			var address_end = "</td>";
+	// 			var address = getContent(tablehtml, address_start, address_end);
+
+	// 			var updateResult = db.change(
+	// 				"UPLOAD",
+	// 				"updateShipQoo10ShipInfo",
+	// 				{
+	// 					"orderno":orderno,
+	// 					"col0":buyername,
+	// 					"col1":recievename,
+	// 					"col2":postno,
+	// 					"col3":address,
+	// 					"col4":recievetel,
+	// 					"col5":recievetel
+	// 				}
+	// 			);
+	// 	}
+
+	// }
 	
 	return ret.navigate("si_upload.jsp?shop=" + shopname);
 
