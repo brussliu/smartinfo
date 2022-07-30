@@ -280,7 +280,7 @@ function importEarnings(aryField, index) {
 			}
 		).getArray();
 
-		if(selectResult[0].count > 0){
+		if(selectResult.length > 0){
 
 			var delResult = db.change(
 				"EARNINGS",
