@@ -33,6 +33,7 @@ uploadfile.paramsFormat={
 };
 var shopname = "";
 var count = 0;
+
 uploadfile.fire=function(params){
 
 	"aaaaa".debug("HHHHHHHHHHHHHHHHH");
@@ -168,7 +169,7 @@ uploadfile.fire=function(params){
 		// データ全件導入
 		csvReader.loopAllLines(importEarnings);
 
-		saveHistory(shopname, params["data"], null, count);
+		//saveHistory(shopname, params["data"], null, count);
 
 	}else if(params["data"] == "liststock"){
 
@@ -435,7 +436,6 @@ uploadfile.fire=function(params){
 	}
 	
 	return ret.navigate("si_upload.jsp?shop=" + shopname);
-	//navigate(params["page"] + "?shop=" + params["shop"]);
 
 };
 
@@ -515,20 +515,20 @@ function importEarnings(aryField, index) {
 
 };
 
-function saveHistory(sn, type, baseday, ct){
+// function saveHistory(sn, type, baseday, ct){
 
-	var historyResult = db.change(
-		"UPLOAD",
-		"insertHistory",
-		{
-			"col0" : sn,
-			"col1" : type,
-			"col2" : baseday,
-			"col3" : ct
-		}
-	);
+// 	var historyResult = db.change(
+// 		"UPLOAD",
+// 		"insertHistory",
+// 		{
+// 			"col0" : sn,
+// 			"col1" : type,
+// 			"col2" : baseday,
+// 			"col3" : ct
+// 		}
+// 	);
 
-};
+// };
 
 function getContent(tablehtml,start_txt,end_txt){
 
@@ -643,7 +643,6 @@ function importShipAmazonInfo(aryField, index) {
 	}
 
 };
-
 
 function importProductInfo(aryField, index) {
 
