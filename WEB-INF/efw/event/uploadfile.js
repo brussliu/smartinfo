@@ -265,7 +265,7 @@ function importEarnings(aryField, index) {
 				"col2":aryField[2],
 				"col3":aryField[3] == null || aryField[3] == "" ? ' ' : aryField[3],
 				"col4":aryField[4] == null || aryField[4] == "" ? ' ' : aryField[4],
-				"col27":aryField[27]
+				"col27":formatNumber(aryField[27])
 			}
 		).getArray();
 
@@ -280,7 +280,7 @@ function importEarnings(aryField, index) {
 					"col2":aryField[2],
 					"col3":aryField[3] == null || aryField[3] == "" ? ' ' : aryField[3],
 					"col4":aryField[4] == null || aryField[4] == "" ? ' ' : aryField[4],
-					"col27":aryField[27]
+					"col27":formatNumber(aryField[27])
 				}
 			);
 		}
@@ -295,28 +295,28 @@ function importEarnings(aryField, index) {
 				"col3":aryField[3] == null || aryField[3] == "" ? ' ' : aryField[3],
 				"col4":aryField[4] == null || aryField[4] == "" ? ' ' : aryField[4],
 				"col5":aryField[5],
-				"col6":aryField[6],
+				"col6":formatNumber(aryField[6]),
 				"col7":aryField[7],
 				"col8":aryField[8],
 				"col9":aryField[9],
 				"col10":aryField[10],
 				"col11":aryField[11],
-				"col12":aryField[12],
-				"col13":aryField[13],
-				"col14":aryField[14],
-				"col15":aryField[15],
-				"col16":aryField[16],
-				"col17":aryField[17],
-				"col18":aryField[18],
-				"col19":aryField[19],
-				"col20":aryField[20],
-				"col21":aryField[21],
-				"col22":aryField[22],
-				"col23":aryField[23],
-				"col24":aryField[24],
-				"col25":aryField[25],
-				"col26":aryField[26],
-				"col27":aryField[27]
+				"col12":formatNumber(aryField[12]),
+				"col13":formatNumber(aryField[13]),
+				"col14":formatNumber(aryField[14]),
+				"col15":formatNumber(aryField[15]),
+				"col16":formatNumber(aryField[16]),
+				"col17":formatNumber(aryField[17]),
+				"col18":formatNumber(aryField[18]),
+				"col19":formatNumber(aryField[19]),
+				"col20":formatNumber(aryField[20]),
+				"col21":formatNumber(aryField[21]),
+				"col22":formatNumber(aryField[22]),
+				"col23":formatNumber(aryField[23]),
+				"col24":formatNumber(aryField[24]),
+				"col25":formatNumber(aryField[25]),
+				"col26":formatNumber(aryField[26]),
+				"col27":formatNumber(aryField[27])
 			}
 		);
 
@@ -617,4 +617,13 @@ function importOrderInfo(aryField, index) {
 
 	}
 
+};
+function formatNumber(str) {
+
+	if(str == null || str == ""){
+		return str;
+	}else{
+		return str.replaceAll(",","");
+	}
+	
 };

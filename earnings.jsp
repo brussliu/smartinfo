@@ -36,6 +36,12 @@
 
 		});
 
+        function searchearningslistinfo(){
+
+			Efw('earnings/searchearningslist');
+		}
+
+
 
         function changeColor(){
 
@@ -113,16 +119,7 @@
         	Efw('searchstock',{'productdiv': productdivArr});
         }
 
-        function outputstock(){
 
-        	var productdivArr = new Array();
-
-        	$('#productdiv input:checkbox:checked').each(function (index, item) {
-        		productdivArr.push($(this).val());
-    		});
-
-			Efw('outputstock',{'productdiv': productdivArr});
-        }
 
         function initstock(){
         	Efw('initstock');
@@ -171,7 +168,7 @@
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="8"></td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="検    索" style="width:100px;height: 32px;" id="acceptance" onclick="updatepurchasestatus(4);">
+			<input type=button value="検    索" style="width:100px;height: 32px;" id="acceptance" onclick="searchearningslistinfo();">
 		</td>
 	</tr>
 </table>
@@ -190,7 +187,7 @@
 		<td style="width: 150px;">振込金額</td>
 		<td style="width: 150px;">仕入金額</td>
 		<td style="width: 150px;">その他</td>
-		<td style="width: 10px;">純利益</td>
+		<td style="width: 150px;">純利益</td>
 	</tr>
 	<tr style="height:40px">
 		<td style="text-align: right">2021年01月</td>
