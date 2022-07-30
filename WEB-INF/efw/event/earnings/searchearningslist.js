@@ -11,27 +11,25 @@ searchearningslist.fire=function(params){
 	shopname = params["#shop"];
 
 	var resultHTML = 
-	"<tr style='height:40px'>" +
-	"	<td style='text-align: right'>2021年01月</td>" +
-	"	<td style='text-align: right'>999個</td>" +
-	"	<td style='text-align: right'>99999999円</td>" +
-	"	<td style='text-align: right'>99999999円</td>" +
-	"	<td style='text-align: right'>99999999円</td>" +
-	"	<td style='text-align: right'>-99999999円</td>" +
-	"	<td style='text-align: right'>-99999999円</td>" +
-	"	<td style='text-align: right'>-99999999円</td>" +
-	"	<td style='text-align: right'>99999999円</td>" +
-	"	<td style='text-align: right'>-99999999円</td>" +
-	"	<td style='text-align: right'>-99999999円</td>" +
-	"	<td style='text-align: right'>99999999円</td>" +
+	"<tr style='height:40px'> class='content'" +
+	"	<td style='text-align: right'>{yyyymm}</td>" +
+	"	<td style='text-align: right'>{ordercount}個</td>" +
+	"	<td style='text-align: right'>{orderprofit}円</td>" +
+	"	<td style='text-align: right'>{monthlyfee}円</td>" +
+	"	<td style='text-align: right'>{adfee}円</td>" +
+	"	<td style='text-align: right'>{ruturnfee}円</td>" +
+	"	<td style='text-align: right'>{fbashipfee}円</td>" +
+	"	<td style='text-align: right'>{fbastockfee}円</td>" +
+	"	<td style='text-align: right'>{remittance}円</td>" +
+	"	<td style='text-align: right'>{purchase}円</td>" +
+	"	<td style='text-align: right'>{others}円</td>" +
+	"	<td style='text-align: right'>{profit}円</td>" +
 	"</tr>";
 
 	var selectResult = db.select(
-		"PURCHASE",
-		"searchPurchase",
-		{
-			"shop":shopname,
-		}
+		"EARNINGS",
+		"searchearningslist",
+		{}
 	).getArray();
 
 

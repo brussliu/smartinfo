@@ -102,5 +102,150 @@
 		WHERE "FLG" = '1'
 	</sql>
 
+	<sql id="searchearningslist">
+		select
+			"年月" as yyyymm
+			, "注文数量" as ordercount
+			, "注文粗利益" as orderprofit
+			, "月額登録料" as monthlyfee
+			, "広告費用" as adfee
+			, "返品損失金額" as ruturnfee
+			, "FBA入庫料金" as fbashipfee
+			, "FBA保管料金" as fbastockfee
+			, "振込金額" as remittance
+			, "仕入費用" as purchase
+			, "その他" as others
+			, 0 - "振込金額" + "仕入費用" + "その他" as profit
+		from
+			( 
+				select
+					substr("仕入確定日", 1, 4) || '年' || substr("仕入確定日", 6, 2) || '月' as "年月"
+					, 0 as "注文数量"
+					, 0 as "注文粗利益"
+					, 0 as "月額登録料"
+					, 0 as "広告費用"
+					, 0 as "返品損失金額"
+					, 0 as "FBA入庫料金"
+					, 0 as "FBA保管料金"
+					, 0 as "振込金額"
+					, case 
+						when sum(cast("合計仕入費用円貨" as float)) is not null 
+							then 0 - sum(cast("合計仕入費用円貨" as float)) 
+						else 0 
+						end as 仕入費用
+					, 0 as "その他" 
+				from
+					"仕入管理" 
+				group by
+					"年月" 
+				union all 
+				select
+					"年月"
+					, sum( 
+						case 
+							when "トランザクションの種類" = '注文' 
+								then "注文数量" 
+							else 0 
+							end
+					) as "注文数量"
+					, sum( 
+						case 
+							when "トランザクションの種類" = '注文' 
+								then "合計" 
+							else 0 
+							end
+					) as "注文粗利益"
+					, sum( 
+						case 
+							when "トランザクションの種類" = '注文外料金' 
+							and "説明" = '月額登録料' 
+								then "合計" 
+							else 0 
+							end
+					) as "月額登録料"
+					, sum( 
+						case 
+							when "トランザクションの種類" = '注文外料金' 
+							and "説明" = '広告費用' 
+								then "合計" 
+							else 0 
+							end
+					) as "広告費用"
+					, sum( 
+						case 
+							when "トランザクションの種類" <> '注文' 
+							and "説明" = '注文' 
+								then "合計" 
+							else 0 
+							end
+					) as "返品損失金額"
+					, sum( 
+						case 
+							when "トランザクションの種類" = 'FBA 在庫関連の手数料' 
+							and "説明" = 'FBAパートナーキャリアの配送料: ' 
+								then "合計" 
+							else 0 
+							end
+					) as "FBA入庫料金"
+					, sum( 
+						case 
+							when "トランザクションの種類" = 'FBA 在庫関連の手数料' 
+							and ( 
+								"説明" = 'FBA保管手数料：' 
+								or "説明" = 'FBA長期在庫保管手数料' 
+								or "説明" = 'FBA在庫の廃棄手数料'
+							) 
+								then "合計" 
+							else 0 
+							end
+					) as "FBA保管料金"
+					, sum( 
+						case 
+							when "トランザクションの種類" = '振込み' 
+								then "合計" 
+							else 0 
+							end
+					) as "振込金額"
+					, 0 as "仕入金額"
+					, 0 as "その他" 
+				from
+					( 
+						select
+							"年月"
+							, "トランザクションの種類"
+							, "説明"
+							, sum("注文数量") as "注文数量"
+							, sum("合計") as "合計" 
+						FROM
+							( 
+								select
+									substr("日付時間", 1, 4) || '年' || substr("日付時間", 6, 2) || '月' as "年月"
+									, "日付時間"
+									, "トランザクションの種類"
+									, "注文番号"
+									, "SKU"
+									, case 
+										when length(trim("注文番号")) > 10 
+											then '注文' 
+										else "説明" 
+										end as "説明"
+									, cast("数量" as float) as "注文数量"
+									, cast("合計" as float) as "合計" 
+								from
+									"INPUT_売上詳細情報"
+							) TEMP1 
+						group by
+							"年月"
+							, "トランザクションの種類"
+							, "説明"
+					) TEMP2 
+				group by
+					"年月"
+			) DATA 
+		order by
+			"年月" desc
+
+	</sql>
+
 
 </sqls>

@@ -189,6 +189,7 @@
 		<td style="width: 150px;">その他</td>
 		<td style="width: 150px;">純利益</td>
 	</tr>
+	<!--
 	<tr style="height:40px">
 		<td style="text-align: right">2021年01月</td>
 		<td style="text-align: right">999個</td>
@@ -203,6 +204,7 @@
 		<td style="text-align: right">-99999999円</td>
 		<td style="text-align: right">99999999円</td>
 	</tr>
+	-->
 </table>
 
 </body>
