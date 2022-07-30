@@ -165,6 +165,12 @@ uploadfile.fire=function(params){
 
 		saveHistory(shopname, params["data"], null, count);
 
+		var updateResult = db.change(
+			"EARNINGS",
+			"updateearnings",
+			{}
+		);
+
 
 	}else if(params["data"] == "ship_amazon"){
 

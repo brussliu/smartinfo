@@ -14,6 +14,7 @@
 			and "注文番号" = :col3
 			and "SKU" = :col4
 			and "合計" = :col27
+			and "FLG" is null
 	</sql>
 
 	<sql id="deleteearnings">
@@ -26,6 +27,7 @@
 			and "注文番号" = :col3
 			and "SKU" = :col4
 			and "合計" = :col27
+			and "FLG" is null
 	</sql>
 
 	<sql id="insertearnings">
@@ -59,6 +61,7 @@
 			, "トランザクションに関するその他の手数料"
 			, "その他"
 			, "合計"
+			, "FLG"
 		)
 		VALUES (
 			:col0,
@@ -88,10 +91,16 @@
 			:col24,
 			:col25,
 			:col26,
-			:col27
+			:col27,
+			'1'
 		)
 	</sql>
 
+	<sql id="updateearnings">
+		UPDATE "INPUT_売上詳細情報"
+		SET "FLG" = null 
+		WHERE "FLG" = '1'
+	</sql>
 
 
 </sqls>
