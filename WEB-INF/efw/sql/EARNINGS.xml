@@ -113,9 +113,9 @@
 			, "FBA入庫料金" as fbashipfee
 			, "FBA保管料金" as fbastockfee
 			, "振込金額" as remittance
-			, "仕入費用" as purchase
+			, round("仕入費用",0) as purchase
 			, "その他" as others
-			, 0 - "振込金額" + "仕入費用" + "その他" as profit
+			, 0 - "振込金額" + round("仕入費用",0) + "その他" as profit
 		from
 			( 
 				select
