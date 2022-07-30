@@ -327,8 +327,7 @@ function importEarnings(aryField, index) {
 				"col24":aryField[24],
 				"col25":aryField[25],
 				"col26":aryField[26],
-				"col27":aryField[27],
-				"col28":aryField[28]
+				"col27":aryField[27]
 			}
 		);
 
