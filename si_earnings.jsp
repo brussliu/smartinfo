@@ -179,32 +179,32 @@
 <br/>
 <table border="1" id="earningslisttable" style="font-size: 16px;">
 	<tr style="background-color: aqua;height:40px;font-weight: bold;">
-		<td style="width: 100px;">年月</td>
+		<td style="width: 120px;">年月</td>
 		<td style="width: 100px;">注文数量</td>
-		<td style="width: 100px;">注文粗利益</td>
-		<td style="width: 100px;">月額登録料</td>
-		<td style="width: 100px;">広告費用</td>
-		<td style="width: 100px;">返品損失金額</td>
-		<td style="width: 100px;">FBA入庫料金</td>
-		<td style="width: 100px;">FBA保管料金</td>
-		<td style="width: 100px;">振込金額</td>
-		<td style="width: 100px;">仕入金額</td>
-		<td style="width: 100px;">その他</td>
-		<td style="width: 100px;">純利益</td>
+		<td style="width: 120px;">注文粗利益</td>
+		<td style="width: 120px;">月額登録料</td>
+		<td style="width: 120px;">広告費用</td>
+		<td style="width: 120px;">返品損失金額</td>
+		<td style="width: 120px;">FBA入庫料金</td>
+		<td style="width: 120px;">FBA保管料金</td>
+		<td style="width: 120px;">振込金額</td>
+		<td style="width: 120px;">仕入金額</td>
+		<td style="width: 120px;">その他</td>
+		<td style="width: 120px;">純利益</td>
 	</tr>
 	<tr style="height:40px">
-		<td style="width: 100px;">2021年01月</td>
-		<td style="width: 100px;">999</td>
-		<td style="width: 100px;">99999999円</td>
-		<td style="width: 100px;">99999999円</td>
-		<td style="width: 100px;">99999999円</td>
-		<td style="width: 100px;">-99999999円</td>
-		<td style="width: 100px;">-99999999円</td>
-		<td style="width: 100px;">-99999999円</td>
-		<td style="width: 100px;">99999999円</td>
-		<td style="width: 100px;">-99999999円</td>
-		<td style="width: 100px;">-99999999円</td>
-		<td style="width: 100px;">99999999円</td>
+		<td style="width: 100px;text-align: right;">2021年01月</td>
+		<td style="width: 100px;text-align: right">999</td>
+		<td style="width: 100px;text-align: right">99999999円</td>
+		<td style="width: 100px;text-align: right">99999999円</td>
+		<td style="width: 100px;text-align: right">99999999円</td>
+		<td style="width: 100px;text-align: right">-99999999円</td>
+		<td style="width: 100px;text-align: right">-99999999円</td>
+		<td style="width: 100px;text-align: right">-99999999円</td>
+		<td style="width: 100px;text-align: right">99999999円</td>
+		<td style="width: 100px;text-align: right">-99999999円</td>
+		<td style="width: 100px;text-align: right">-99999999円</td>
+		<td style="width: 100px;text-align: right">99999999円</td>
 	</tr>
 </table>
 
