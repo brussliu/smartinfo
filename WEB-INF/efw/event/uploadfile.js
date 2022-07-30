@@ -14,6 +14,8 @@ uploadfile.paramsFormat={
 	"#importfile_localstock":null,
 	// 在庫情報統計
 	"#importfile_liststock":null,
+	// 売上詳細情報導入
+	"#importfile_earnings":null,
 
 	// アマゾン発送情報導入
 	"#importfile_ship_amazon":null,
@@ -322,7 +324,7 @@ uploadfile.fire=function(params){
 			}
 		);
 
-
+	}else if(params["data"] == "earnings"){
 
 	}else if(params["data"] == "ship_amazon"){
 
