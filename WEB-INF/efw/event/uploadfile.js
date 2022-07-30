@@ -15,7 +15,7 @@ uploadfile.paramsFormat={
 	// 在庫情報統計
 	"#importfile_liststock":null,
 	// 売上詳細情報導入
-	"#importfile_earnings":null,
+	//"#importfile_earnings":null,
 
 	// アマゾン発送情報導入
 	"#importfile_ship_amazon":null,
