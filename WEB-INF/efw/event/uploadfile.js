@@ -528,7 +528,7 @@ function saveHistory(sn, type, baseday, ct){
 		}
 	);
 
-}
+};
 
 function getContent(tablehtml,start_txt,end_txt){
 
@@ -542,7 +542,7 @@ function getContent(tablehtml,start_txt,end_txt){
 
 	return content;
 
-}
+};
 
 function importShipQoo10ProductInfo(aryField, index) {
 
