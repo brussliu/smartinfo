@@ -19,7 +19,7 @@ uploadfile.paramsFormat={
 
 	// 売上詳細情報導入
 	"#importfile_earnings":null,
-	
+
 	// アマゾン発送情報導入
 	"#importfile_ship_amazon":null,
 	// Qoo10発送情報導入
@@ -34,6 +34,8 @@ uploadfile.paramsFormat={
 var shopname = "";
 var count = 0;
 uploadfile.fire=function(params){
+
+	"aaaaa".debug("HHHHHHHHHHHHHHHHH");
 
 	file.saveUploadFiles("upload");
 
