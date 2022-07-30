@@ -158,7 +158,7 @@ uploadfile.fire=function(params){
 		var fa = params["#importfile_earnings"].split("\\");
 		var f = fa[fa.length-1];
 
-		var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
+		var csvReader = new CSVReader("upload/" + f, ",", "\"", "MS932");
 
 		// データ全件導入
 		csvReader.loopAllLines(importEarnings);
