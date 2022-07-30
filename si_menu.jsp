@@ -33,7 +33,7 @@
 			<div class="menuHeader">&nbsp;Smart-Bear(新店)メニュー</div>
 		</td>
 		<td>
-			<div class="menuHeader">&nbsp;Smart-KM(旧店)メニュー</div>
+			<div class="menuHeader">&nbsp;代発送メニュー</div>
 		</td>
 	</tr>
 	<tr>
@@ -54,6 +54,8 @@
 			<input type=button value="納品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_delivery.jsp',shop:'Smart-Bear'})">
 			<br><br>
 			<input type=button value="販売情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_sellinfo.jsp',shop:'Smart-Bear'})">
+			<br><br>
+			<input type=button value="売上情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_earnings.jsp',shop:'Smart-Bear'})">
 			<br><br>
 		</div></td>
 		<td><div style="text-align:center;"><br>
