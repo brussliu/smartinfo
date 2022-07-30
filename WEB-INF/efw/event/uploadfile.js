@@ -327,13 +327,18 @@ uploadfile.fire=function(params){
 
 	}else if(params["data"] == "earnings"){
 
+		count = 0;
 
+		var fa = params["#importfile_earnings"].split("\\");
+		var f = fa[fa.length-1];
 
+		var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
 
+		データ全件導入
+		csvReader.loopAllLines(importEarnings);
 
+		saveHistory(shopname, params["data"], null, count);
 
-
-		
 
 	}else if(params["data"] == "ship_amazon"){
 
@@ -426,11 +431,99 @@ uploadfile.fire=function(params){
 	}
 	
 	return ret.navigate("si_upload.jsp?shop=" + shopname);
-	//navigate(params["page"] + "?shop=" + params["shop"]);
 
 };
 
 
+function importEarnings(aryField, index) {
+
+	if(index > 8){
+
+		var selectResult = db.select(
+			"UPLOAD",
+			"selectearnings",
+			{
+				"col0":aryField[0],
+				"col1":aryField[1],
+				"col2":aryField[2],
+				"col3":aryField[3],
+				"col4":aryField[4],
+				"col5":aryField[5]
+			}
+		).getArray();
+
+		if(selectResult[0].count > 0){
+
+			var delResult = db.change(
+				"UPLOAD",
+				"deleteearnings",
+				{
+					"col0":aryField[0],
+					"col1":aryField[1],
+					"col2":aryField[2],
+					"col3":aryField[3],
+					"col4":aryField[4],
+					"col5":aryField[5]
+				}
+			);
+		}
+
+		var insertResult = db.change(
+			"UPLOAD",
+			"insertearnings",
+			{
+				"col0":aryField[0],
+				"col1":aryField[1],
+				"col2":aryField[2],
+				"col3":aryField[3],
+				"col4":aryField[4],
+				"col5":aryField[5],
+				"col6":aryField[6],
+				"col7":aryField[7],
+				"col8":aryField[8],
+				"col9":aryField[9],
+				"col10":aryField[10],
+				"col11":aryField[11],
+				"col12":aryField[12],
+				"col13":aryField[13],
+				"col14":aryField[14],
+				"col15":aryField[15],
+				"col16":aryField[16],
+				"col17":aryField[17],
+				"col18":aryField[18],
+				"col19":aryField[19],
+				"col20":aryField[20],
+				"col21":aryField[21],
+				"col22":aryField[22],
+				"col23":aryField[23],
+				"col24":aryField[24],
+				"col25":aryField[25],
+				"col26":aryField[26],
+				"col27":aryField[27],
+				"col28":aryField[28]
+			}
+		);
+
+		count = count + 1;
+
+
+	}
+
+};
+
+function saveHistory(sn, type, baseday, ct){
+
+	var historyResult = db.change(
+		"UPLOAD",
+		"insertHistory",
+		{
+			"col0" : sn,
+			"col1" : type,
+			"col2" : baseday,
+			"col3" : ct
+		}
+	);
+};
 
 function getContent(tablehtml,start_txt,end_txt){
 
