@@ -104,7 +104,7 @@
 
 	<sql id="searchearningslist">
 		select
-			"年月" as yyyymm
+			"年月" as yearmonth
 			, "注文数量" as ordercount
 			, "注文粗利益" as orderprofit
 			, "月額登録料" as monthlyfee
