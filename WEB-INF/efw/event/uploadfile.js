@@ -4,12 +4,14 @@ uploadfile.paramsFormat={
 
 	// 商品マスタ情報
 	"#importfile_master":null,
+
 	// 出品詳細情報
 	"#importfile_product":null,
 	// FBA在庫情報
 	"#importfile_fba":null,
 	// 全注文情報
 	"#importfile_order":null,
+
 	// 在庫情報導入
 	"#importfile_localstock":null,
 
@@ -21,8 +23,6 @@ uploadfile.paramsFormat={
 	// Qoo10発送情報導入
 	"#importfile_ship_qoo10_order":null,
 	"#importfile_ship_qoo10_ship":null,
-
-	"liststock":null,
 
 	"data":null,
 	"#shop":null
@@ -37,12 +37,12 @@ uploadfile.fire=function(params){
 
 	var ret = new Result();
 
-	if(params["data"] == "product"){
+	if(params["data"] == "pfo"){
 
+		// -----------------------商品詳細-----------------------
 		count = 0;
 		var fa = params["#importfile_product"].split("\\");
 		var f = fa[fa.length-1];
-
 
 		var csvReader = new CSVReader("upload/" + f, "\t");
 
@@ -57,12 +57,9 @@ uploadfile.fire=function(params){
 		csvReader.loopAllLines(importProductInfo);
 
 		//"出品詳細レポート+01-26-2020.txt"
-		var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
+		//var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
 
-		saveHistory(shopname, params["data"], d, count);
-
-	}else if(params["data"] == "fba"){
-
+		// -----------------------FBA-----------------------
 		count = 0;
 
 		var fa = params["#importfile_fba"].split("\\");
@@ -82,12 +79,9 @@ uploadfile.fire=function(params){
 		csvReader.loopAllLines(importFbaInfo);
 
 		//"FBA在庫レポート+01-26-2020.txt"
-		var d = f.substring(16,20) + "-" + f.substring(10,12) + "-" + f.substring(13,15);
+		//var d = f.substring(16,20) + "-" + f.substring(10,12) + "-" + f.substring(13,15);
 
-		saveHistory(shopname, params["data"], d, count);
-
-	}else if(params["data"] == "order"){
-
+		// -----------------------注文-----------------------
 		count = 0;
 
 		var fa = params["#importfile_order"].split("\\");
@@ -100,9 +94,17 @@ uploadfile.fire=function(params){
 		csvReader.loopAllLines(importOrderInfo);
 
 		//"3630501660018292.txt"
-		var d = new Date().format("yyyy-MM-dd");
+		//var d = new Date().format("yyyy-MM-dd");
 
-		saveHistory(shopname, params["data"], d, count);
+		saveHistory(shopname, params["data"], null, count);
+
+	// }else if(params["data"] == "fba"){
+
+	// 	saveHistory(shopname, params["data"], d, count);
+
+	// }else if(params["data"] == "order"){
+
+	// 	saveHistory(shopname, params["data"], d, count);
 
 	}else if(params["data"] == "localstock"){
 

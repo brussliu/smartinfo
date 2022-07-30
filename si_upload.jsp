@@ -90,7 +90,7 @@
 <table class="upfile" id="producttable">
 	<tr>
 		<td style="width: 350px;font-size: 20px;font-weight: bold;">
-			出品詳細レポート
+			出品、在庫、注文インポート
 		</td>
 		<td style="width: 120px;font-size: 16px;">
 			前回導入日時：
@@ -105,7 +105,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			出品詳細レポート<input type="file" id="importfile_product" style="width: 400px;height: 30px;">
+			<span style="font-weight: bold;">出品詳細レポート</span><input type="file" id="importfile_product" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
 			<!--<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'product',liststock:''})">-->
@@ -113,7 +113,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			FBA在庫レポート<input type="file" id="importfile_fba" style="width: 400px;height: 30px;">
+			<span style="font-weight: bold;">FBA在庫レポート</span><input type="file" id="importfile_fba" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
 			<!--<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'fba',liststock:''})">-->
@@ -121,10 +121,10 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			全注文レポート<input type="file" id="importfile_order" style="width: 400px;height: 30px;">
+			<span style="font-weight: bold;">全注文レポート</span><input type="file" id="importfile_order" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
-			<!--<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'order',liststock:''})">-->
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'pfo'})">
 		</td>
 	</tr>
 </table>
@@ -204,7 +204,7 @@
 			<input type="file" id="importfile_localstock" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'localstock',liststock:''})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'localstock'})">
 		</td>
 	</tr>
 </table>
@@ -230,7 +230,7 @@
 			<input type="file" id="importfile_earnings" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'earnings',liststock:''})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'earnings'})">
 		</td>
 	</tr>
 </table>
@@ -256,7 +256,7 @@
 			<input type="file" id="importfile_ship_amazon" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_amazon',liststock:''})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_amazon'})">
 		</td>
 	</tr>
 </table>
@@ -283,7 +283,7 @@
 			<input type="file" id="importfile_ship_qoo10_order" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_order',liststock:''})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_order'})">
 		</td>
 	</tr>
 	<tr>
@@ -292,7 +292,7 @@
 			<input type="file" id="importfile_ship_qoo10_ship" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_ship',liststock:''})">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_ship'})">
 		</td>
 	</tr>
 </table>

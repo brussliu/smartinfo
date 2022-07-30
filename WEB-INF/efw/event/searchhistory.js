@@ -17,9 +17,12 @@ searchhistory.fire=function(params){
 	);
 
 	var masterArr = historyResult.seek("importtype","eq","master").getArray();
-	var productArr = historyResult.seek("importtype","eq","product").getArray();
-	var fbaArr = historyResult.seek("importtype","eq","fba").getArray();
-	var orderArr = historyResult.seek("importtype","eq","order").getArray();
+	// var productArr = historyResult.seek("importtype","eq","product").getArray();
+	// var fbaArr = historyResult.seek("importtype","eq","fba").getArray();
+	// var orderArr = historyResult.seek("importtype","eq","order").getArray();
+
+	var pfoArr = historyResult.seek("importtype","eq","pfo").getArray();
+
 	var localstockArr = historyResult.seek("importtype","eq","localstock").getArray();
 	var onboardstockArr = historyResult.seek("importtype","eq","onboardstock").getArray();
 	var deliveryArr = historyResult.seek("importtype","eq","delivery").getArray();
@@ -30,35 +33,44 @@ searchhistory.fire=function(params){
 				".importtime": masterArr[0].importtime,
 				".importcount": masterArr[0].importcount
 			}
-	);
-}
-
-	if(productArr.length > 0){
-			ret.runat("#producttable").withdata(
-				{
-					".importtime": productArr[0].importtime,
-					".importcount": productArr[0].importcount
-				}
 		);
 	}
 
-	if(fbaArr.length > 0){
-		ret.runat("#fbatable").withdata(
+	if(pfoArr.length > 0){
+		ret.runat("#producttable").withdata(
 			{
-				".importtime": fbaArr[0].importtime,
-				".importcount": fbaArr[0].importcount
+				".importtime": pfoArr[0].importtime,
+				".importcount": pfoArr[0].importcount
 			}
 		);
 	}
 
-	if(orderArr.length > 0){
-		ret.runat("#ordertable").withdata(
-			{
-				".importtime": orderArr[0].importtime,
-				".importcount": orderArr[0].importcount
-			}
-		);
-	}
+	// if(productArr.length > 0){
+	// 		ret.runat("#producttable").withdata(
+	// 			{
+	// 				".importtime": productArr[0].importtime,
+	// 				".importcount": productArr[0].importcount
+	// 			}
+	// 	);
+	// }
+
+	// if(fbaArr.length > 0){
+	// 	ret.runat("#fbatable").withdata(
+	// 		{
+	// 			".importtime": fbaArr[0].importtime,
+	// 			".importcount": fbaArr[0].importcount
+	// 		}
+	// 	);
+	// }
+
+	// if(orderArr.length > 0){
+	// 	ret.runat("#ordertable").withdata(
+	// 		{
+	// 			".importtime": orderArr[0].importtime,
+	// 			".importcount": orderArr[0].importcount
+	// 		}
+	// 	);
+	// }
 
 	if(localstockArr.length > 0){
 		ret.runat("#localstocktable").withdata(
