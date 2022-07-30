@@ -191,42 +191,6 @@
 	</tr>
 </table>
 <br/>
-<!--
-<table class="upfile" id="liststocktable">
-	<tr>
-		<td style="width: 350px;font-size: 20px;font-weight: bold;">
-			在庫情報統計
-		</td>
-		<td style="width: 120px;font-size: 16px;">
-			前回導入日時：
-		</td>
-		<td style="width: 220px;font-size: 16px;" class="importtime">
-		</td>
-		<td style="width: 120px;font-size: 16px;">
-			前回導入件数：
-		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<input type="file" id="importfile_liststock" style="width: 400px;height: 30px;">
-		</td>
-		<td colspan="3" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="importData();">
-		</td>
-	</tr>
-	<tr>
-		<td colspan="5" style="font-size: 14px;">
-			<input type="radio" name="opt_type" value="output" checked>情報出力のみ　　
-			<input type="radio" name="opt_type" value="updatePart" >在庫数量リフレッシュ(統計対象のみ) ↻　　
-			<input type="radio" name="opt_type" value="updateAll" >在庫数量リフレッシュ(店舗全体) ↻　　
-			<input type="radio" name="opt_type" value="add" >在庫数量カウントアップ ↑
-		</td>
-	</tr>
-</table>
-<br/>
--->
 <table class="upfile" id="earningstable">
 	<tr>
 		<td style="width: 350px;font-size: 20px;font-weight: bold;">
