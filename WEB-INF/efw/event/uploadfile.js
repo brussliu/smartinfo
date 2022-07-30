@@ -263,8 +263,6 @@ uploadfile.fire=function(params){
 
 function importEarnings(aryField, index) {
 
-	aryField.debug("AAAAAAAAAAAAAAAAAAAAAAAAA");
-
 	if(index >= 8){
 
 		var selectResult = db.select(
@@ -276,7 +274,7 @@ function importEarnings(aryField, index) {
 				"col2":aryField[2],
 				"col3":aryField[3],
 				"col4":aryField[4],
-				"col5":aryField[5]
+				"col27":aryField[27]
 			}
 		).getArray();
 
@@ -291,7 +289,7 @@ function importEarnings(aryField, index) {
 					"col2":aryField[2],
 					"col3":aryField[3],
 					"col4":aryField[4],
-					"col5":aryField[5]
+					"col27":aryField[27]
 				}
 			);
 		}

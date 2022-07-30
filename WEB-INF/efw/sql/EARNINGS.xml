@@ -13,6 +13,7 @@
 			and "トランザクションの種類" = :col2
 			and "注文番号" = :col3
 			and "SKU" = :col4
+			and "合計" = :col27
 	</sql>
 
 	<sql id="deleteearnings">
@@ -24,6 +25,7 @@
 			and "トランザクションの種類" = :col2
 			and "注文番号" = :col3
 			and "SKU" = :col4
+			and "合計" = :col27
 	</sql>
 
 	<sql id="insertearnings">
