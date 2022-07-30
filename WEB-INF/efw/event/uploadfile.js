@@ -13,7 +13,10 @@ uploadfile.paramsFormat={
 	// 在庫情報導入
 	"#importfile_localstock":null,
 	// 在庫情報統計
-	"#importfile_liststock":null,
+	//"#importfile_liststock":null,
+
+	// 売上詳細情報導入
+	"#importfile_earnings":null,
 
 	// アマゾン発送情報導入
 	"#importfile_ship_amazon":null,
@@ -322,7 +325,15 @@ uploadfile.fire=function(params){
 			}
 		);
 
+	}else if(params["data"] == "earnings"){
 
+
+
+
+
+
+
+		
 
 	}else if(params["data"] == "ship_amazon"){
 
@@ -699,21 +710,21 @@ function importOrderInfo(aryField, index) {
 
 };
 
-function importDelivery(aryField, index) {
+// function importDelivery(aryField, index) {
 
-	if(index > 8){
+// 	if(index > 8){
 
-		var insResult = db.change(
-			"UPLOAD",
-			"updateNewLocalstock",
-			{
-				"delivery":aryField[9],
-				"sku":aryField[0],
-				"asin":aryField[2]
-			}
-		);
+// 		var insResult = db.change(
+// 			"UPLOAD",
+// 			"updateNewLocalstock",
+// 			{
+// 				"delivery":aryField[9],
+// 				"sku":aryField[0],
+// 				"asin":aryField[2]
+// 			}
+// 		);
 
-		count = count + 1;
+// 		count = count + 1;
 
-	}
-};
+// 	}
+// };
