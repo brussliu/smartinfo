@@ -23,7 +23,7 @@ updatepurchasestatus.fire=function(params){
 
 	if(status == 0 || status == "0" ){
 
-		return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 
 	}else if(status == 1 || status == "1" ){
 		statusStr = "1：仕入確定";
@@ -93,5 +93,5 @@ updatepurchasestatus.fire=function(params){
 
 
 
-	return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 };

@@ -83,7 +83,7 @@ updatepurchase.fire=function(params){
 	var importfile_purchase = params["#importfile_purchase"];
 
 	if(importfile_purchase == null || importfile_purchase.length == 0){
-		return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 	}
 
 	// ステータス検索
@@ -172,11 +172,11 @@ updatepurchase.fire=function(params){
 
 	// 受取済みの場合、明細は更新しない
 	if(status == "4：受取済み"){
-		return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 
 	}
 
-	return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 };
 
 

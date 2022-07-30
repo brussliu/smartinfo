@@ -57,6 +57,6 @@ addpurchase.fire=function(params){
 		importProductInfoForSmartBear(shopname, excelXSSF, false, false, true, purchaseno);
 	}
 
-	return (new Result()).eval("Efw('menu_goto',{page:'si_purchase.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 
 };
