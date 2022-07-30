@@ -39,6 +39,8 @@ uploadfile.fire=function(params){
 
 	if(params["data"] == "pfo"){
 
+		var ct = "";
+
 		// -----------------------商品詳細-----------------------
 		count = 0;
 		var fa = params["#importfile_product"].split("\\");
@@ -55,6 +57,8 @@ uploadfile.fire=function(params){
 
 		// データ全件導入
 		csvReader.loopAllLines(importProductInfo);
+
+		ct = ct + "/"+ count;
 
 		//"出品詳細レポート+01-26-2020.txt"
 		//var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
@@ -78,6 +82,8 @@ uploadfile.fire=function(params){
 		// データ全件導入
 		csvReader.loopAllLines(importFbaInfo);
 
+		ct = ct + "/"+ count;
+
 		//"FBA在庫レポート+01-26-2020.txt"
 		//var d = f.substring(16,20) + "-" + f.substring(10,12) + "-" + f.substring(13,15);
 
@@ -93,10 +99,12 @@ uploadfile.fire=function(params){
 		// データ全件導入
 		csvReader.loopAllLines(importOrderInfo);
 
+		ct = ct + "/"+ count;
+
 		//"3630501660018292.txt"
 		//var d = new Date().format("yyyy-MM-dd");
 
-		saveHistory(shopname, params["data"], null, count);
+		saveHistory(shopname, params["data"], null, ct);
 
 	// }else if(params["data"] == "fba"){
 
