@@ -32,6 +32,8 @@ var shopname = "";
 var count = 0;
 uploadfile.fire=function(params){
 
+	"XXXXXXXXXXXXXXXXX".debug("GGGGGGGGGGGGGG");
+
 	file.saveUploadFiles("upload");
 
 	shopname = params["#shop"];
