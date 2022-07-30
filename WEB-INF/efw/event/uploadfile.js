@@ -272,8 +272,8 @@ function importEarnings(aryField, index) {
 				"col0":aryField[0],
 				"col1":aryField[1],
 				"col2":aryField[2],
-				"col3":aryField[3],
-				"col4":aryField[4],
+				"col3":aryField[3] == null ? '' : aryField[3],
+				"col4":aryField[4] == null ? '' : aryField[4],
 				"col27":aryField[27]
 			}
 		).getArray();
@@ -287,8 +287,8 @@ function importEarnings(aryField, index) {
 					"col0":aryField[0],
 					"col1":aryField[1],
 					"col2":aryField[2],
-					"col3":aryField[3],
-					"col4":aryField[4],
+					"col3":aryField[3] == null ? '' : aryField[3],
+					"col4":aryField[4] == null ? '' : aryField[4],
 					"col27":aryField[27]
 				}
 			);
@@ -301,8 +301,8 @@ function importEarnings(aryField, index) {
 				"col0":aryField[0],
 				"col1":aryField[1],
 				"col2":aryField[2],
-				"col3":aryField[3],
-				"col4":aryField[4],
+				"col3":aryField[3] == null ? '' : aryField[3],
+				"col4":aryField[4] == null ? '' : aryField[4],
 				"col5":aryField[5],
 				"col6":aryField[6],
 				"col7":aryField[7],
