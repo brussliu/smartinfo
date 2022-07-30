@@ -177,8 +177,8 @@
 </table>
 
 <br/>
-<table border="1" id="earningslisttable" style="font-size: 14px;">
-	<tr>
+<table border="1" id="earningslisttable" style="font-size: 16px;">
+	<tr style="background-color: aqua;height:40px;font-weight: bold;">
 		<td style="width: 100px;">年月</td>
 		<td style="width: 100px;">注文数量</td>
 		<td style="width: 100px;">注文粗利益</td>
@@ -192,7 +192,7 @@
 		<td style="width: 100px;">その他</td>
 		<td style="width: 100px;">純利益</td>
 	</tr>
-	<tr>
+	<tr style="height:40px">
 		<td style="width: 100px;">2021年01月</td>
 		<td style="width: 100px;">999</td>
 		<td style="width: 100px;">99999999円</td>
