@@ -73,7 +73,7 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		<td style="width: 120px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>
@@ -100,7 +100,7 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		<td style="width: 120px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>
@@ -196,7 +196,7 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		<td style="width: 120px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>
@@ -222,7 +222,7 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		<td style="width: 120px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>
@@ -248,7 +248,7 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		<td style="width: 120px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>
@@ -274,7 +274,7 @@
 		<td style="width: 120px;font-size: 16px;">
 			前回導入件数：
 		</td>
-		<td style="width: 80px;font-size: 16px;text-align: right;" class="importcount">
+		<td style="width: 120px;font-size: 16px;text-align: right;" class="importcount">
 		</td>
 	</tr>
 	<tr>

@@ -58,7 +58,7 @@ uploadfile.fire=function(params){
 		// データ全件導入
 		csvReader.loopAllLines(importProductInfo);
 
-		ct = ct + "/"+ count;
+		ct = ct + count;
 
 		//"出品詳細レポート+01-26-2020.txt"
 		//var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
