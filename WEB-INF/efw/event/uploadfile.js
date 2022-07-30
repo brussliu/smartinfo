@@ -268,7 +268,7 @@ function importEarnings(aryField, index) {
 	if(index > 8){
 
 		var selectResult = db.select(
-			"UPLOAD",
+			"EARNINGS",
 			"selectearnings",
 			{
 				"col0":aryField[0],
@@ -283,7 +283,7 @@ function importEarnings(aryField, index) {
 		if(selectResult[0].count > 0){
 
 			var delResult = db.change(
-				"UPLOAD",
+				"EARNINGS",
 				"deleteearnings",
 				{
 					"col0":aryField[0],
@@ -297,7 +297,7 @@ function importEarnings(aryField, index) {
 		}
 
 		var insertResult = db.change(
-			"UPLOAD",
+			"EARNINGS",
 			"insertearnings",
 			{
 				"col0":aryField[0],
