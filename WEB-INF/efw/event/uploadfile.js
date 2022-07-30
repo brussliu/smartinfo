@@ -4,17 +4,22 @@ uploadfile.paramsFormat={
 
 	// 商品マスタ情報
 	"#importfile_master":null,
+
 	// 出品詳細情報
 	"#importfile_product":null,
 	// FBA在庫情報
 	"#importfile_fba":null,
 	// 全注文情報
 	"#importfile_order":null,
+
 	// 在庫情報導入
 	"#importfile_localstock":null,
 	// 在庫情報統計
 	"#importfile_liststock":null,
 
+	// 売上詳細情報導入
+	"#importfile_earnings":null,
+	
 	// アマゾン発送情報導入
 	"#importfile_ship_amazon":null,
 	// Qoo10発送情報導入
