@@ -31,7 +31,7 @@ initstock.fire=function(params){
 		"STOCK",
 		"searchproductdiv",
 		{}
-	);
+	).getArray();
 
 	var resultHTML = "<input type='checkbox' checked value='{value}'>&nbsp;{text}";
 
