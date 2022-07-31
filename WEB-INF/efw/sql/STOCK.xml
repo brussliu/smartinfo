@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqls>
 <sqls>
+	<sql id="searchproductdiv">
+		select
+			distinct "商品分類" as value,
+			substr("商品分類",4) as text
+		from 
+			"NEW_出品マスタ情報"
+		order by
+			"商品分類"
+	</sql>
 	<sql id="searchhistory">
 		select
 			TEMP."データ種別" as importtype,

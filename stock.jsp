@@ -99,9 +99,9 @@
 
         }
 
-        function showstock(){
-        	$(".stock0").hide();
-        }
+        // function showstock(){
+        // 	$(".stock0").hide();
+        // }
 
         function searchstock(){
 
@@ -114,19 +114,19 @@
         	Efw('searchstock',{'productdiv': productdivArr});
         }
 
-        function outputstock(){
+        // function outputstock(){
 
-        	var productdivArr = new Array();
+        // 	var productdivArr = new Array();
 
-        	$('#productdiv input:checkbox:checked').each(function (index, item) {
-        		productdivArr.push($(this).val());
-    		});
+        // 	$('#productdiv input:checkbox:checked').each(function (index, item) {
+        // 		productdivArr.push($(this).val());
+    	// 	});
 
-			Efw('outputstock',{'productdiv': productdivArr});
-        }
+		// 	Efw('outputstock',{'productdiv': productdivArr});
+        // }
 
         function initstock(){
-        	Efw('initstock');
+        	Efw('stock/initstock');
         }
 
         function showless(){
