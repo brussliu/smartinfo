@@ -183,12 +183,6 @@
 			商品分類
 		</td>
 		<td style="font-size: 16px;" colspan="5" id="productdiv">
-			<input type="checkbox" checked id="productdiv01" value="01:レインコート">&nbsp;レインコート
-			<input type="checkbox" checked id="productdiv05" value="05:傘" style="margin-left: 30px;">&nbsp;傘
-			<input type="checkbox" checked id="productdiv21" value="21:靴下（夏用）" style="margin-left: 30px;">&nbsp;靴下（夏用）
-			<input type="checkbox" checked id="productdiv22" value="22:靴下（秋冬用）" style="margin-left: 30px;">&nbsp;靴下（秋冬用）
-			<input type="checkbox" checked id="productdiv31" value="31:パジャマ" style="margin-left: 30px;">&nbsp;パジャマ
-			<input type="checkbox" checked id="productdiv41" value="41:バスタオル" style="margin-left: 30px;">&nbsp;バスタオル
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
