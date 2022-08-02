@@ -33,7 +33,7 @@ initstock.fire=function(params){
 		{}
 	).getArray();
 
-	var resultHTML = "<input type='checkbox' class='productdiv' id='productdiv' checked value='{value}'>&nbsp;{text}";
+	var resultHTML = "<input type='checkbox' class='productdiv' checked value='{value}'>&nbsp;{text}";
 
 	ret.runat("#productdivtd").remove("*").append(resultHTML).withdata(selectResult);
 

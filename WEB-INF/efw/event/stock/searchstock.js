@@ -5,19 +5,16 @@ searchstock.paramsFormat={
 	"#basedate_order_hidden":null,
 	"#basedate_stock_hidden":null,
 	"productdiv":null,
-	"#productdiv":null
+
+
+
+
 };
 var shopname = "";
 searchstock.fire=function(params){
 	
 	var ret = new Result();
 	shopname = params["#shop"];
-
-	params["#productdiv"].debug("AAAAAAAAAAAAAAAAAA");
-
-	params["productdiv"].debug("BBBBBBBBBBBBBBBBBB");
-
-	params[".productdiv"].debug("CCCCCCCCCCCCCCCCCC");
 
 	// var resultHTML0 = 
 	// "<tr style='background-color: rgb(205,255,255);height:42px;'>" +
@@ -100,33 +97,35 @@ searchstock.fire=function(params){
 	// 	"<td style='width:100px;'>{onsellweek}</td>" +
 	// "</tr>";
 
-	// var pdArr = params["productdiv"];
+	var pdArr = params["productdiv"];
 
-	// var productdivstr1 = "";
-	// var productdivstr2 = "";
-	// var productdivstr3 = "";
-	// var productdivstr4 = "";
-	// var productdivstr5 = "";
-	// var productdivstr6 = "";
+	pdArr.debug("WWWWWWWWWWWWWWWWWWW")
 
-	// if(pdArr.length > 0){
-	// 	productdivstr1 = pdArr[0];
-	// }
-	// if(pdArr.length > 1){
-	// 	productdivstr2 = pdArr[1];
-	// }
-	// if(pdArr.length > 2){
-	// 	productdivstr3 = pdArr[2];
-	// }
-	// if(pdArr.length > 3){
-	// 	productdivstr4 = pdArr[3];
-	// }
-	// if(pdArr.length > 4){
-	// 	productdivstr5 = pdArr[4];
-	// }
-	// if(pdArr.length > 5){
-	// 	productdivstr6 = pdArr[5];
-	// }
+	var productdivstr1 = "";
+	var productdivstr2 = "";
+	var productdivstr3 = "";
+	var productdivstr4 = "";
+	var productdivstr5 = "";
+	var productdivstr6 = "";
+
+	if(pdArr.length > 0){
+		productdivstr1 = pdArr[0];
+	}
+	if(pdArr.length > 1){
+		productdivstr2 = pdArr[1];
+	}
+	if(pdArr.length > 2){
+		productdivstr3 = pdArr[2];
+	}
+	if(pdArr.length > 3){
+		productdivstr4 = pdArr[3];
+	}
+	if(pdArr.length > 4){
+		productdivstr5 = pdArr[4];
+	}
+	if(pdArr.length > 5){
+		productdivstr6 = pdArr[5];
+	}
 
 	// var selectResult = db.select(
 	// 	"STOCK",
