@@ -111,7 +111,7 @@
         		productdivArr.push($(this).val());
     		});
 
-        	Efw('searchstock',{'productdiv': productdivArr});
+        	Efw('stock/searchstock',{'productdiv': productdivArr});
         }
 
         // function outputstock(){
