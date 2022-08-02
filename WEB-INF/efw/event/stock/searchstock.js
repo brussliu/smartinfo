@@ -17,6 +17,8 @@ searchstock.fire=function(params){
 
 	params["productdiv"].debug("BBBBBBBBBBBBBBBBBB");
 
+	params[".productdiv"].debug("CCCCCCCCCCCCCCCCCC");
+
 	// var resultHTML0 = 
 	// "<tr style='background-color: rgb(205,255,255);height:42px;'>" +
 	// 	"<td style='width: 50px;'><input type='checkbox'></td>" +

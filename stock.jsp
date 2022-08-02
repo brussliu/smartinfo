@@ -182,7 +182,7 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" colspan="5" id="productdiv">
+		<td style="font-size: 16px;" colspan="5" id="productdivtd">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
