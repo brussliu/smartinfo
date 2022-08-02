@@ -35,7 +35,7 @@ initstock.fire=function(params){
 
 	var resultHTML = "<input type='checkbox' class='productdiv' checked value='{value}'>&nbsp;{text}";
 
-	ret.runat("#productdivtd").remove("*").append(resultHTML).withdata(selectResult);
+	ret.runat("#productdiv").remove("*").append(resultHTML).withdata(selectResult);
 
 	// 画面へ結果を返す
 	return ret;
