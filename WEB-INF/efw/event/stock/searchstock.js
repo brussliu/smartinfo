@@ -127,20 +127,14 @@ searchstock.fire=function(params){
 		productdivstr6 = pdArr[5];
 	}
 
-	// var selectResult = db.select(
-	// 	"STOCK",
-	// 	"selectstock",
-	// 	{
-	// 	shop:shopname,
-	// 	basedate_order:params["#basedate_order_hidden"],
-	// 	productdiv1:productdivstr1,
-	// 	productdiv2:productdivstr2,
-	// 	productdiv3:productdivstr3,
-	// 	productdiv4:productdivstr4,
-	// 	productdiv5:productdivstr5,
-	// 	productdiv6:productdivstr6
-	// 	}
-	// ).getArray();
+	var selectResult = db.select(
+		"STOCK",
+		"selectstock",
+		{
+			shop : shopname,
+			productdiv : pdArr
+		}
+	).getArray();
 
 	// ret.runat("#stocktable").remove("tr");
 
