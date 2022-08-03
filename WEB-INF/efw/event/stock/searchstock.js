@@ -16,32 +16,32 @@ searchstock.fire=function(params){
 	var ret = new Result();
 	shopname = params["#shop"];
 
-	// var resultHTML0 = 
-	// "<tr style='background-color: rgb(205,255,255);height:42px;'>" +
-	// 	"<td style='width: 50px;'><input type='checkbox'></td>" +
-	// 	"<td style='width:100px;'>{productno}</td>" +
-	// 	"<td style='width:100px;display:none;'>{productdiv}</td>" +
-	// 	"<td style='width:100px;'>{color}</td>" +
-	// 	"<td style='width:100px;'>{size}</td>" +
-	// 	"<td style='width:100px;' class='moreinfo'>{sku}</td>" +
-	// 	"<td style='width:100px;' class='moreinfo'>{asin}</td>" +
-	// 	"<td style='width:100px;' class='moreinfo'>{label}</td>" +
-	// 	"<td style='width:750px;' class='moreinfo'>{productname}</td>" +
-	// 	"<td style='width:100px;'>{selled1}</td>" +
-	// 	"<td style='width:100px;'>{selled7}</td>" +
-	// 	"<td style='width:100px;'>{selled30}</td>" +
-	// 	"<td style='width:100px;'>{selled60}</td>" +
-	// 	"<td style='width:100px;'>{selled90}</td>" +
-	// 	"<td style='width:100px;'>{selledweek}</td>" +
-	// 	"<td style='width:80px;'>{localstock}</td>" +
-	// 	"<td style='width:80px;'>{fbm}</td>" +
-	// 	"<td style='width:80px;'>{fba}</td>" +
-	// 	"<td style='width:100px;'>{onsell7}</td>" +
-	// 	"<td style='width:100px;'>{onsell30}</td>" +
-	// 	"<td style='width:100px;'>{onsell60}</td>" +
-	// 	"<td style='width:100px;'>{onsell90}</td>" +
-	// 	"<td style='width:100px;'>{onsellweek}</td>" +
-	// "</tr>";
+	var resultHTML0 = 
+	"<tr style='background-color: rgb(205,255,255);height:42px;'>" +
+		"<td style='width: 50px;'><input type='checkbox'></td>" +
+		"<td style='width:100px;'>{productno}</td>" +
+		"<td style='width:100px;'>{productdiv}</td>" +
+		"<td style='width:100px;'>{color}</td>" +
+		"<td style='width:100px;'>{size}</td>" +
+		"<td style='width:100px;' class='moreinfo'>{sku}</td>" +
+		"<td style='width:100px;' class='moreinfo'>{asin}</td>" +
+		"<td style='width:100px;' class='moreinfo'>{label}</td>" +
+		"<td style='width:750px;' class='moreinfo'>{productname}</td>" +
+		"<td style='width:80px;'>{fba}</td>" +
+		"<td style='width:80px;'>{fbm}</td>" +
+		"<td style='width:80px;'>{localstock}</td>" +
+		"<td style='width:80px;'>{onboard}</td>" +
+		"<td style='width:80px;'>{stockonsell}</td>" +
+		"<td style='width:80px;'>{stockprepare}</td>" +
+		"<td style='width:80px;'>{stockall}</td>" +
+		"<td style='width:100px;'>{selled1}</td>" +
+		"<td style='width:100px;'>{selled7}</td>" +
+		"<td style='width:100px;'>{selled30}</td>" +
+		"<td style='width:100px;'>{selled60}</td>" +
+		"<td style='width:100px;'>{selled90}</td>" +
+		"<td style='width:100px;'>{selledweek}</td>" +
+		"<td style='width:100px;'>{onsellweek}</td>" +
+	"</tr>";
 
 	// var resultHTML1 = 
 	// "<tr style='background-color: rgb(205,255,255);height:42px;'>" +

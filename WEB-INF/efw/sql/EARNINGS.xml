@@ -105,17 +105,17 @@
 	<sql id="searchearningslist">
 		select
 			"年月" as yearmonth
-			, "注文数量" as ordercount
-			, "注文粗利益" as orderprofit
-			, "月額登録料" as monthlyfee
-			, "広告費用" as adfee
-			, "返品損失金額" as ruturnfee
-			, "FBA入庫料金" as fbashipfee
-			, "FBA保管料金" as fbastockfee
-			, "振込金額" as remittance
-			, cast("仕入費用" as int) as purchase
-			, "その他" as others
-			, 0 - "振込金額" + cast("仕入費用" as int) + "その他" as profit
+			, sum("注文数量") as ordercount
+			, sum("注文粗利益") as orderprofit
+			, sum("月額登録料") as monthlyfee
+			, sum("広告費用") as adfee
+			, sum("返品損失金額") as ruturnfee
+			, sum("FBA入庫料金") as fbashipfee
+			, sum("FBA保管料金") as fbastockfee
+			, sum("振込金額") as remittance
+			, sum(cast("仕入費用" as int)) as purchase
+			, sum("その他") as others
+			, sum(0 - "振込金額" + cast("仕入費用" as int) + "その他") as profit
 		from
 			( 
 				select
@@ -129,10 +129,7 @@
 					, 0 as "FBA保管料金"
 					, 0 as "振込金額"
 					, case 
-						when sum(cast("合計仕入費用円貨" as float)) is not null 
-							then 0 - sum(cast("合計仕入費用円貨" as float)) 
-						else 0 
-						end as 仕入費用
+						when sum(cast("合計仕入費用円貨" as float)) is not null then 0 - sum(cast("合計仕入費用円貨" as float)) else 0 end as 仕入費用
 					, 0 as "その他" 
 				from
 					"仕入管理" 
@@ -141,71 +138,16 @@
 				union all 
 				select
 					"年月"
-					, sum( 
-						case 
-							when "トランザクションの種類" = '注文' 
-								then "注文数量" 
-							else 0 
-							end
-					) as "注文数量"
-					, sum( 
-						case 
-							when "トランザクションの種類" = '注文' 
-								then "合計" 
-							else 0 
-							end
-					) as "注文粗利益"
-					, sum( 
-						case 
-							when "トランザクションの種類" = '注文外料金' 
-							and "説明" = '月額登録料' 
-								then "合計" 
-							else 0 
-							end
-					) as "月額登録料"
-					, sum( 
-						case 
-							when "トランザクションの種類" = '注文外料金' 
-							and "説明" = '広告費用' 
-								then "合計" 
-							else 0 
-							end
-					) as "広告費用"
-					, sum( 
-						case 
-							when "トランザクションの種類" &lt;&gt; '注文' 
-							and "説明" = '注文' 
-								then "合計" 
-							else 0 
-							end
-					) as "返品損失金額"
-					, sum( 
-						case 
-							when "トランザクションの種類" = 'FBA 在庫関連の手数料' 
-							and substr("説明",1,16 ) = 'FBAパートナーキャリアの配送料' 
-								then "合計" 
-							else 0 
-							end
-					) as "FBA入庫料金"
-					, sum( 
-						case 
-							when "トランザクションの種類" = 'FBA 在庫関連の手数料' 
-							and ( 
-								substr("説明",1,8 ) = 'FBA保管手数料' 
-								or "説明" = 'FBA長期在庫保管手数料' 
-								or "説明" = 'FBA在庫の廃棄手数料'
-							) 
-								then "合計" 
-							else 0 
-							end
-					) as "FBA保管料金"
-					, sum( 
-						case 
-							when "トランザクションの種類" = '振込み' 
-								then "合計" 
-							else 0 
-							end
-					) as "振込金額"
+					, sum( case when "トランザクションの種類" = '注文' then "注文数量" else 0 end) as "注文数量"
+					, sum( case when "トランザクションの種類" = '注文' then "合計" else 0 end) as "注文粗利益"
+					, sum( case when "トランザクションの種類" = '注文外料金' and "説明" = '月額登録料' then "合計" else 0 end) as "月額登録料"
+					, sum( case when "トランザクションの種類" = '注文外料金' and "説明" = '広告費用' then "合計" else 0 end) as "広告費用"
+					, sum( case when "トランザクションの種類" <> '注文' and "説明" = '注文' then "合計" else 0 end) as "返品損失金額"
+					, sum( case when "トランザクションの種類" = 'FBA 在庫関連の手数料' and 
+                            substr("説明",1,16 ) = 'FBAパートナーキャリアの配送料' then "合計" else 0 end) as "FBA入庫料金"
+					, sum( case when "トランザクションの種類" = 'FBA 在庫関連の手数料' and 
+                            ( substr("説明",1,8 ) = 'FBA保管手数料' or "説明" = 'FBA長期在庫保管手数料' or "説明" = 'FBA在庫の廃棄手数料') then "合計" else 0 end) as "FBA保管料金"
+					, sum( case when "トランザクションの種類" = '振込み' then "合計" else 0 end) as "振込金額"
 					, 0 as "仕入金額"
 					, 0 as "その他" 
 				from
@@ -224,11 +166,7 @@
 									, "トランザクションの種類"
 									, "注文番号"
 									, "SKU"
-									, case 
-										when length(trim("注文番号")) > 10 
-											then '注文' 
-										else "説明" 
-										end as "説明"
+									, case when length(trim("注文番号")) > 10 then '注文' else "説明" end as "説明"
 									, cast("数量" as float) as "注文数量"
 									, cast("合計" as float) as "合計" 
 								from
@@ -242,9 +180,8 @@
 				group by
 					"年月"
 			) DATA 
-		order by
-			"年月" desc
-
+        group by "年月"
+		order by "年月" desc
 	</sql>
 
 
