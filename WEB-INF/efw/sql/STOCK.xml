@@ -61,10 +61,10 @@
 			, V_SELL."90日間数量" as selled90
 			, ROUND( 
 				(   V_SELL."前日数量" * 0.05 + 
-					V_SELL."7日間数量" / 7::numeric * 0.15 + 
-					V_SELL."30日間数量" / 30::numeric * 0.3 + 
-					V_SELL."60日間数量" / 60::numeric * 0.3 + 
-					V_SELL."90日間数量" / 90::numeric * 0.2
+					V_SELL."7日間数量" / 7 * 0.15 + 
+					V_SELL."30日間数量" / 30 * 0.3 + 
+					V_SELL."60日間数量" / 60 * 0.3 + 
+					V_SELL."90日間数量" / 90 * 0.2
 				) * 7
 				, 2
 			) as selledweek
@@ -72,10 +72,10 @@
 				ELSE ROUND( 
 					V_STOCK."販売中在庫合計" / ( 
 						V_SELL."前日数量" * 0.05 + 
-						V_SELL."7日間数量" / 7::numeric * 0.15 + 
-						V_SELL."30日間数量" / 30::numeric * 0.3 + 
-						V_SELL."60日間数量" / 60::numeric * 0.3 + 
-						V_SELL."90日間数量" / 90::numeric * 0.2
+						V_SELL."7日間数量" / 7 * 0.15 + 
+						V_SELL."30日間数量" / 30 * 0.3 + 
+						V_SELL."60日間数量" / 60 * 0.3 + 
+						V_SELL."90日間数量" / 90 * 0.2
 					) 
 					, 2
 				) 
