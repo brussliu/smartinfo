@@ -251,26 +251,25 @@
 		<td style="width: 50px;">選択</td>
 		<td style="width: 100px;">商品管理番号</td>
 		<td style="width: 100px;display:none;">商品種別</td>
-		<td style="width: 100px;">写真</td>
 		<td style="width: 100px;">色</td>
 		<td style="width: 100px;">サイズ</td>
 		<td style="width: 100px;" class="moreinfo">SKU番号</td>
 		<td style="width: 100px;" class="moreinfo">ASIN番号</td>
 		<td style="width: 100px;" class="moreinfo">ラベル番号</td>
 		<td style="width: 750px;" class="moreinfo">商品名称</td>
+		<td style="width: 80px;">FBA在庫</td>
+		<td style="width: 80px;">FBM在庫</td>
+		<td style="width: 80px;">LOCAL在庫</td>
+		<td style="width: 80px;">ONBOARD在庫</td>
+		<td style="width: 80px;">販売中在庫合計</td>
+		<td style="width: 80px;">予備在庫合計</td>
+		<td style="width: 80px;">全体在庫合計</td>
 		<td style="width: 100px;">販売数量<br/>(昨日)</td>
 		<td style="width: 100px;">販売数量<br/>(直近7日間)</td>
 		<td style="width: 100px;">販売数量<br/>(直近30日間)</td>
 		<td style="width: 100px;">販売数量<br/>(直近60日間)</td>
 		<td style="width: 100px;">販売数量<br/>(直近90日間)</td>
 		<td style="width: 100px;">販売数量<br/>(週間平均値)</td>
-		<td style="width: 80px;">LOCAL在庫</td>
-		<td style="width: 80px;">FBM在庫</td>
-		<td style="width: 80px;">FBA在庫</td>
-		<td style="width: 100px;">販売可能期間<br/>(7)</td>
-		<td style="width: 100px;">販売可能期間<br/>(30)</td>
-		<td style="width: 100px;">販売可能期間<br/>(60)</td>
-		<td style="width: 100px;">販売可能期間<br/>(90)</td>
 		<td style="width: 100px;">販売可能期間<br/>(平均値)</td>
 	</tr>
 </table>
