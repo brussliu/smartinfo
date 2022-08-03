@@ -37,8 +37,9 @@
 			, V_MST."subpq"
 			, V_MST."subcq"
 			, V_MST."sizeindex"
+			, V_MST."商品分類" as productdiv
 			, V_MST."商品管理番号" as productno
-			, V_MST."商品種別" as productdiv
+			, V_MST."商品種別" as productkinds
 			, V_MST."色" as color
 			, V_MST."サイズ" as size
 			, V_MST."SKU番号" as sku

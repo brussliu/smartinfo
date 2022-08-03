@@ -165,8 +165,9 @@ searchstock.fire=function(params){
 		resultHTML =
 			"<tr style='background-color: rgb(205,255,255);height:42px;'>" +
 				"<td style='width: 50px;'><input type='checkbox'></td>" +
-				"<td style='width:100px;'>{productno}</td>" +
 				"<td style='width:100px;'>{productdiv}</td>" +
+				"<td style='width:100px;'>{productno}</td>" +
+				"<td style='width:100px;'>{productkinds}</td>" +
 				//picHTML +
 				colorHTML +
 				"<td style='width:100px;'>{size}</td>" +
