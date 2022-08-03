@@ -142,7 +142,7 @@
 					, sum( case when "トランザクションの種類" = '注文' then "合計" else 0 end) as "注文粗利益"
 					, sum( case when "トランザクションの種類" = '注文外料金' and "説明" = '月額登録料' then "合計" else 0 end) as "月額登録料"
 					, sum( case when "トランザクションの種類" = '注文外料金' and "説明" = '広告費用' then "合計" else 0 end) as "広告費用"
-					, sum( case when "トランザクションの種類" <> '注文' and "説明" = '注文' then "合計" else 0 end) as "返品損失金額"
+					, sum( case when "トランザクションの種類" &lt;&gt; '注文' and "説明" = '注文' then "合計" else 0 end) as "返品損失金額"
 					, sum( case when "トランザクションの種類" = 'FBA 在庫関連の手数料' and 
                             substr("説明",1,16 ) = 'FBAパートナーキャリアの配送料' then "合計" else 0 end) as "FBA入庫料金"
 					, sum( case when "トランザクションの種類" = 'FBA 在庫関連の手数料' and 
