@@ -132,7 +132,7 @@ searchstock.fire=function(params){
 		"selectstock",
 		{
 			shop : shopname,
-			productdiv : "'01:レインコート','08:雨靴','21:靴下（夏用）','22:靴下（秋冬用）','23:膝当て','31:パジャマ','41:バスタオル','99.その他'"
+			productdiv : "'01:レインコート'"
 		}
 	).getArray();
 
