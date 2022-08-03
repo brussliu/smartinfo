@@ -136,6 +136,9 @@ searchstock.fire=function(params){
 		}
 	).getArray();
 
+
+	selectResult.debug("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+
 	ret.runat("#stocktable").remove("tr");
 
 	for(var i = 0;i < selectResult.length;i ++){
