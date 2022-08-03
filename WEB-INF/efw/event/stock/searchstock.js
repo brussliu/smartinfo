@@ -132,7 +132,7 @@ searchstock.fire=function(params){
 		"selectstock",
 		{
 			shop : shopname,
-			productdiv : "'01:レインコート'"
+			productdiv : "01:レインコート"
 		}
 	).getArray();
 
