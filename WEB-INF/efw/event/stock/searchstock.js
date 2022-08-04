@@ -125,14 +125,14 @@ searchstock.fire=function(params){
 		"selectstock",
 		{
 			shop : shopname,
-			productdivstr1 : "aaa",
-			productdivstr2 : "aaa",
-			productdivstr3 : "aaa",
-			productdivstr4 : "aaa",
-			productdivstr5 : "aaa",
-			productdivstr6 : "aaa",
-			productdivstr7 : "aaa",
-			productdivstr8 : "aaa",
+			productdivstr1 : productdivstr1,
+			productdivstr2 : productdivstr2,
+			productdivstr3 : productdivstr3,
+			productdivstr4 : productdivstr4,
+			productdivstr5 : productdivstr5,
+			productdivstr6 : productdivstr6,
+			productdivstr7 : productdivstr7,
+			productdivstr8 : productdivstr8,
 		}
 	).getArray();
 
