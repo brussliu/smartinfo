@@ -107,32 +107,32 @@ searchstock.fire=function(params){
 	var productdivstr4 = "";
 	var productdivstr5 = "";
 	var productdivstr6 = "";
+	var productdivstr7 = "";
+	var productdivstr8 = "";
 
-	if(pdArr.length > 0){
-		productdivstr1 = pdArr[0];
-	}
-	if(pdArr.length > 1){
-		productdivstr2 = pdArr[1];
-	}
-	if(pdArr.length > 2){
-		productdivstr3 = pdArr[2];
-	}
-	if(pdArr.length > 3){
-		productdivstr4 = pdArr[3];
-	}
-	if(pdArr.length > 4){
-		productdivstr5 = pdArr[4];
-	}
-	if(pdArr.length > 5){
-		productdivstr6 = pdArr[5];
-	}
+	if(pdArr.length > 0){	productdivstr1 = pdArr[0];	}
+	if(pdArr.length > 1){	productdivstr2 = pdArr[1];	}
+	if(pdArr.length > 2){	productdivstr3 = pdArr[2];	}
+	if(pdArr.length > 3){	productdivstr4 = pdArr[3];	}
+	if(pdArr.length > 4){	productdivstr5 = pdArr[4];	}
+	if(pdArr.length > 5){	productdivstr6 = pdArr[5];	}
+	if(pdArr.length > 6){	productdivstr7 = pdArr[6];	}
+	if(pdArr.length > 7){	productdivstr8 = pdArr[7];	}
+
 
 	var selectResult = db.select(
 		"STOCK",
 		"selectstock",
 		{
 			shop : shopname,
-			productdiv : "01:レインコート"
+			productdivstr1 : productdivstr1,
+			productdivstr2 : productdivstr2,
+			productdivstr3 : productdivstr3,
+			productdivstr4 : productdivstr4,
+			productdivstr5 : productdivstr5,
+			productdivstr6 : productdivstr6,
+			productdivstr7 : productdivstr7,
+			productdivstr8 : productdivstr8,
 		}
 	).getArray();
 
