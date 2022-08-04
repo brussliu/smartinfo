@@ -119,7 +119,7 @@ searchstock.fire=function(params){
 	if(pdArr.length > 6){	productdivstr7 = pdArr[6];	}
 	if(pdArr.length > 7){	productdivstr8 = pdArr[7];	}
 
-
+	productdivstr1.debug("VVVVVVVVVVVVVVVVVVVVVVVVV");
 	var selectResult = db.select(
 		"STOCK",
 		"selectstock",
