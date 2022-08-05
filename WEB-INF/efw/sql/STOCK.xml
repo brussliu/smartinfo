@@ -75,8 +75,10 @@
 		LEFT JOIN "VIEW_商品在庫情報" V_STOCK ON V_MST."SKU番号" = V_STOCK."SKU番号" AND V_MST."ASIN番号" = V_STOCK."ASIN番号"
 		LEFT JOIN "VIEW_商品販売情報" V_SELL ON V_MST."SKU番号" = V_SELL."SKU番号" AND V_MST."ASIN番号" = V_SELL."ASIN番号"
 		WHERE 
-			1 = 1 
+			1 AND 1 
 			<if exists="productdivstr1"> AND (</if>
+
+			<if notexists="productdivstr1">V_MST."商品分類" is NULL</if>
 
 			<if exists="productdivstr1">   V_MST."商品分類" = !productdivstr1</if>
 			<if exists="productdivstr2">OR V_MST."商品分類" = !productdivstr2</if>
