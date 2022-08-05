@@ -157,7 +157,7 @@
 </div>
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="0" style="width: 100%;">
+<table class="productlist" border="1" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
@@ -180,7 +180,7 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" colspan="3" id="productdiv">
+		<td style="font-size: 16px;" id="productdiv">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品番号
