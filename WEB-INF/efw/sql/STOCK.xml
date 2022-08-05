@@ -109,10 +109,10 @@
 			<if exists="productdivstr8">OR V_MST."商品分類" = !productdivstr8</if>
 			<if exists="productdivstr1">     )</if>
 						
-			<if exists="productno"> AND (</if>
-			<if istrue="productno == 'マスタ未登録'"> V_MST."商品管理番号" is NULL </if>
-			<if istrue="productno == null"> V_MST."商品管理番号" = !productno </if>
-			<if exists="productno">     )</if>
+
+			<if istrue="productno == 'マスタ未登録'"> AND V_MST."商品管理番号" is NULL </if>
+			<if istrue="productno != null and productno != 'マスタ未登録'"> AND V_MST."商品管理番号" = !productno </if>
+
 
 
 		ORDER BY V_MST."req_no"
