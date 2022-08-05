@@ -2,10 +2,8 @@ var searchstock={};
 searchstock.name="在庫一覧検索";
 searchstock.paramsFormat={
 	"#shop":null,
-	"#basedate_order_hidden":null,
-	"#basedate_stock_hidden":null,
 	"productdiv":null,
-
+	"#productno":null,
 
 
 
@@ -99,8 +97,6 @@ searchstock.fire=function(params){
 
 	var pdArr = params["productdiv"];
 
-	pdArr.debug("WWWWWWWWWWWWWWWWWWW")
-
 	var productdivstr1 = "";
 	var productdivstr2 = "";
 	var productdivstr3 = "";
@@ -119,9 +115,8 @@ searchstock.fire=function(params){
 	if(pdArr.length > 6){	productdivstr7 = pdArr[6];	}
 	if(pdArr.length > 7){	productdivstr8 = pdArr[7];	}
 
-	productdivstr8.debug("VVVVVVVVVVVVVVVVVVVVVVVVV");
+	var productno = params["#productno"];
 
-	
 	var selectResult = db.select(
 		"STOCK",
 		"selectstock",
@@ -135,11 +130,9 @@ searchstock.fire=function(params){
 			productdivstr6 : productdivstr6,
 			productdivstr7 : productdivstr7,
 			productdivstr8 : productdivstr8,
+			productno : productno
 		}
 	).getArray();
-
-
-	selectResult.debug("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
 
 	ret.runat("#stocktable").remove("tr");
 

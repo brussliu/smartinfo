@@ -197,7 +197,7 @@
 		<td style="font-size: 16px;">
 			<select STYLE="WIDTH:150px;height:32px;" id="productno">
 				<option id=""></option>
-				<option id="XXXX"></option>
+				<option id="マスタ未登録">マスタ未登録</option>
 			</select>
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
@@ -221,7 +221,6 @@
 		<td style="font-size: 16px;" id="basedate_order">
 			
 		</td>
-		<input type="hidden" id="basedate_order_hidden">
 	</tr>
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
@@ -239,7 +238,6 @@
 		<td style="font-size: 16px;" id="basedate_stock">
 			
 		</td>
-		<input type="hidden" id="basedate_stock_hidden">
 	</tr>
 </table>
 <hr>
