@@ -178,7 +178,7 @@ searchstock.fire=function(params){
 				"<td style='width:120px;' class='moreinfo'>{sku}</td>" +
 				"<td style='width:120px;' class='moreinfo'>{asin}</td>" +
 				"<td style='width:120px;' class='moreinfo'>{label}</td>" +
-				"<td style='width:750px;' class='moreinfo'>{productname}</td>" +
+				"<td style=''             class='moreinfo'>{productname}</td>" +
 				"<td style='width: 80px;'>{fba}</td>" +
 				"<td style='width: 80px;'>{fbm}</td>" +
 				"<td style='width: 80px;'>{localstock}</td>" +
