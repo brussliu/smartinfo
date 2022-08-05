@@ -249,22 +249,22 @@
 <table border="1" id="stocktablehead" style="width: 3500px;font-size: 14px;">
 	<tr>
 		<td style="width: 50px;">選択</td>
-		<td style="width: 100px;">商品分類</td>
+		<td style="width: 120px;">商品分類</td>
 		<td style="width: 100px;">商品管理番号</td>
-		<td style="width: 100px;">商品種別</td>
+		<td style="width: 50px;">商品種別</td>
 		<td style="width: 100px;">色</td>
-		<td style="width: 100px;">サイズ</td>
-		<td style="width: 100px;" class="moreinfo">SKU番号</td>
-		<td style="width: 100px;" class="moreinfo">ASIN番号</td>
-		<td style="width: 100px;" class="moreinfo">ラベル番号</td>
+		<td style="width: 150px;">サイズ</td>
+		<td style="width: 120px;" class="moreinfo">SKU番号</td>
+		<td style="width: 120px;" class="moreinfo">ASIN番号</td>
+		<td style="width: 120px;" class="moreinfo">ラベル番号</td>
 		<td style="width: 750px;" class="moreinfo">商品名称</td>
 		<td style="width: 80px;">FBA在庫</td>
 		<td style="width: 80px;">FBM在庫</td>
-		<td style="width: 80px;">LOCAL在庫</td>
-		<td style="width: 80px;">ONBOARD在庫</td>
-		<td style="width: 80px;">販売中在庫合計</td>
-		<td style="width: 80px;">予備在庫合計</td>
-		<td style="width: 80px;">全体在庫合計</td>
+		<td style="width: 80px;">LOCAL<br>在庫</td>
+		<td style="width: 80px;">ONBOARD<br>在庫</td>
+		<td style="width: 80px;">販売中<br>在庫合計</td>
+		<td style="width: 80px;">予備<br>在庫合計</td>
+		<td style="width: 80px;">全体<br>在庫合計</td>
 		<td style="width: 100px;">販売数量<br/>(昨日)</td>
 		<td style="width: 100px;">販売数量<br/>(直近7日間)</td>
 		<td style="width: 100px;">販売数量<br/>(直近30日間)</td>
