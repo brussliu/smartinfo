@@ -111,7 +111,7 @@
 						
 
 			<if istrue="productno == 'マスタ未登録'"> AND V_MST."商品管理番号" is NULL </if>
-			<if istrue="productno != null and productno != 'マスタ未登録'"> AND V_MST."商品管理番号" = !productno </if>
+			<if istrue="productno != null & productno != 'マスタ未登録'"> AND V_MST."商品管理番号" = !productno </if>
 
 
 
