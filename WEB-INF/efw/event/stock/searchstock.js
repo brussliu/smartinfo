@@ -89,9 +89,7 @@ searchstock.fire=function(params){
 				"<td style='width:120px;'>{productdiv}</td>" +
 				"<td style='width:100px;'>{productno}</td>" +
 				"<td style='width:70px;'>{productkinds}</td>" +
-				//picHTML +
 				"<td style='width:100px;'>{color}</td>" +
-				//colorHTML +
 				"<td style='width:150px;'>{size}</td>" +
 				"<td style='width:120px;' class='moreinfo'>{sku}</td>" +
 				"<td style='width:120px;' class='moreinfo'>{asin}</td>" +
