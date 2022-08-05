@@ -45,7 +45,7 @@ initstock.fire=function(params){
 		{}
 	).getArray();
 
-	var resultHTML = "<option id='{value}' class='content'>{text}</option>";
+	var resultHTML = "<option value='{value}' class='content'>{text}</option>";
 
 	ret.runat("#productno").remove("option .content").append(resultHTML).withdata(selectResult);
 	

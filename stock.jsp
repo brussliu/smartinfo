@@ -196,8 +196,8 @@
 		</td>
 		<td style="font-size: 16px;">
 			<select STYLE="WIDTH:150px;height:32px;" id="productno">
-				<option id=""></option>
-				<option id="マスタ未登録">マスタ未登録</option>
+				<option value=""></option>
+				<option value="マスタ未登録">マスタ未登録</option>
 			</select>
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
