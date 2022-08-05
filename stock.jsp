@@ -182,14 +182,7 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" colspan="5" id="productdiv">
-		</td>
-		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
+		<td style="font-size: 16px;" colspan="3" id="productdiv">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品番号
@@ -200,26 +193,8 @@
 				<option value="マスタ未登録">マスタ未登録</option>
 			</select>
 		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			色
-		</td>
-		<td style="font-size: 16px;">
-			<select STYLE="WIDTH:150px;height:32px;" id="productdiv">
-				<option id=""></option>
-				<option id="花柄">花柄</option>
-			</select>
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			サイズ
-		</td>
-		<td style="font-size: 16px;">
-			<select STYLE="WIDTH:150px;height:32px;" id="productdiv">
-				<option id=""></option>
-				<option id="S">S</option>
-			</select>
-		</td>
-		<td style="font-size: 16px;" id="basedate_order">
-			
+		<td style="font-size: 16px;text-align: right;">
+			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
 		</td>
 	</tr>
 	<tr>

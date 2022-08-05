@@ -98,16 +98,17 @@
 		LEFT JOIN "VIEW_商品販売情報" V_SELL ON V_MST."SKU番号" = V_SELL."SKU番号" AND V_MST."ASIN番号" = V_SELL."ASIN番号"
 		WHERE 
 			1 = 1 
-			<if exists="productdivstr1"> AND (</if>
-			<if exists="productdivstr1">   V_MST."商品分類" = !productdivstr1</if>
-			<if exists="productdivstr2">OR V_MST."商品分類" = !productdivstr2</if>
-			<if exists="productdivstr3">OR V_MST."商品分類" = !productdivstr3</if>
-			<if exists="productdivstr4">OR V_MST."商品分類" = !productdivstr4</if>
-			<if exists="productdivstr5">OR V_MST."商品分類" = !productdivstr5</if>
-			<if exists="productdivstr6">OR V_MST."商品分類" = !productdivstr6</if>
-			<if exists="productdivstr7">OR V_MST."商品分類" = !productdivstr7</if>
-			<if exists="productdivstr8">OR V_MST."商品分類" = !productdivstr8</if>
-			<if exists="productdivstr1">     )</if>
+			<if exists="productdivstr1"> AND (
+				<if exists="productdivstr1">   V_MST."商品分類" = !productdivstr1</if>
+				<if exists="productdivstr2">OR V_MST."商品分類" = !productdivstr2</if>
+				<if exists="productdivstr3">OR V_MST."商品分類" = !productdivstr3</if>
+				<if exists="productdivstr4">OR V_MST."商品分類" = !productdivstr4</if>
+				<if exists="productdivstr5">OR V_MST."商品分類" = !productdivstr5</if>
+				<if exists="productdivstr6">OR V_MST."商品分類" = !productdivstr6</if>
+				<if exists="productdivstr7">OR V_MST."商品分類" = !productdivstr7</if>
+				<if exists="productdivstr8">OR V_MST."商品分類" = !productdivstr8</if>
+				)
+			</if>
 						
 			<if exists="productno"> AND (
 				<if istrue="productno == 'マスタ未登録'"> V_MST."商品管理番号" is NULL </if>
