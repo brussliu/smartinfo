@@ -116,6 +116,7 @@ searchstock.fire=function(params){
 	if(pdArr.length > 7){	productdivstr8 = pdArr[7];	}
 
 	var productno = params["#productno"];
+	productno.debug("zzzzzzz");
 
 	var selectResult = db.select(
 		"STOCK",
