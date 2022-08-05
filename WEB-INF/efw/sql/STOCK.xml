@@ -79,14 +79,14 @@
 			<if istrue="productdivstr1.length + productdivstr2.length + productdivstr3.length + productdivstr4.length + 
 						productdivstr5.length + productdivstr6.length + productdivstr7.length + productdivstr8.length > 0"> AND (</if>
 
-			<if istrue="productdivstr1.length > 0">V_MST."商品分類" = !productdivstr1</if>
-			<if istrue="productdivstr2.length > 0">V_MST."商品分類" = !productdivstr2</if>
-			<if istrue="productdivstr3.length > 0">V_MST."商品分類" = !productdivstr3</if>
-			<if istrue="productdivstr4.length > 0">V_MST."商品分類" = !productdivstr4</if>
-			<if istrue="productdivstr5.length > 0">V_MST."商品分類" = !productdivstr5</if>
-			<if istrue="productdivstr6.length > 0">V_MST."商品分類" = !productdivstr6</if>
-			<if istrue="productdivstr7.length > 0">V_MST."商品分類" = !productdivstr7</if>
-			<if istrue="productdivstr8.length > 0">V_MST."商品分類" = !productdivstr8</if>
+			<if istrue="productdivstr1.length > 0">   V_MST."商品分類" = !productdivstr1</if>
+			<if istrue="productdivstr2.length > 0">OR V_MST."商品分類" = !productdivstr2</if>
+			<if istrue="productdivstr3.length > 0">OR V_MST."商品分類" = !productdivstr3</if>
+			<if istrue="productdivstr4.length > 0">OR V_MST."商品分類" = !productdivstr4</if>
+			<if istrue="productdivstr5.length > 0">OR V_MST."商品分類" = !productdivstr5</if>
+			<if istrue="productdivstr6.length > 0">OR V_MST."商品分類" = !productdivstr6</if>
+			<if istrue="productdivstr7.length > 0">OR V_MST."商品分類" = !productdivstr7</if>
+			<if istrue="productdivstr8.length > 0">OR V_MST."商品分類" = !productdivstr8</if>
 
 			<if istrue="productdivstr1.length + productdivstr2.length + productdivstr3.length + productdivstr4.length + 
 						productdivstr5.length + productdivstr6.length + productdivstr7.length + productdivstr8.length > 0">     )</if>
