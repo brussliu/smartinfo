@@ -111,6 +111,7 @@
 						
 			<if exists="productno"> AND (</if>
 				<if istrue="productno == 'マスタ未登録'"> V_MST."商品管理番号" is NULL </if>
+				<if istrue="productno != 'マスタ未登録'"> V_MST."商品管理番号" = !productno </if>
 			<if exists="productno">     )</if>
 
 		ORDER BY V_MST."req_no"
