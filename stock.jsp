@@ -167,7 +167,7 @@
 		<COL WIDTH="220PX">
 	</COLGROUP>
 	<tr>
-		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="7">
+		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="5">
 			検索条件
 		</td>
 		<td style="font-size: 16px;text-align: right;">
