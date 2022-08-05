@@ -116,6 +116,10 @@
 			    )
 			</if>
 
+			<if exists="productname"> AND (
+					UPPER(V_MST."商品名") LIKE concat('%', !productname ,'%')
+			    )
+			</if>
 
 
 		ORDER BY V_MST."req_no"
