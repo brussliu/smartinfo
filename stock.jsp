@@ -197,10 +197,7 @@
 		<td style="font-size: 16px;">
 			<select STYLE="WIDTH:150px;height:32px;" id="productno">
 				<option id=""></option>
-				<option id="W001">W001</option>	
-				<option id="W002">W002</option>
-				<option id="W003">W003</option>
-				<option id="W004">W004</option>
+				<option id="XXXX"></option>
 			</select>
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
