@@ -251,7 +251,7 @@
 		<td style="width: 50px;">選択</td>
 		<td style="width: 120px;">商品分類</td>
 		<td style="width: 100px;">商品管理番号</td>
-		<td style="width: 50px;">商品種別</td>
+		<td style="width: 70px;">商品種別</td>
 		<td style="width: 100px;">色</td>
 		<td style="width: 150px;">サイズ</td>
 		<td style="width: 120px;" class="moreinfo">SKU番号</td>

@@ -119,7 +119,9 @@ searchstock.fire=function(params){
 	if(pdArr.length > 6){	productdivstr7 = pdArr[6];	}
 	if(pdArr.length > 7){	productdivstr8 = pdArr[7];	}
 
-	productdivstr1.debug("VVVVVVVVVVVVVVVVVVVVVVVVV");
+	productdivstr8.debug("VVVVVVVVVVVVVVVVVVVVVVVVV");
+
+	
 	var selectResult = db.select(
 		"STOCK",
 		"selectstock",
@@ -170,7 +172,7 @@ searchstock.fire=function(params){
 				"<td style='width: 50px;'><input type='checkbox'></td>" +
 				"<td style='width:120px;'>{productdiv}</td>" +
 				"<td style='width:100px;'>{productno}</td>" +
-				"<td style='width:50px;'>{productkinds}</td>" +
+				"<td style='width:70px;'>{productkinds}</td>" +
 				//picHTML +
 				"<td style='width:100px;'>{color}</td>" +
 				//colorHTML +
