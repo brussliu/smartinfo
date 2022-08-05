@@ -27,15 +27,28 @@ initstock.fire=function(params){
 	// ret.eval(script1);
 	// ret.eval(script2);
 
+	// 商品分類
 	var selectResult = db.select(
 		"STOCK",
 		"searchproductdiv",
 		{}
 	).getArray();
 
-	var resultHTML = "<input type='checkbox' class='productdiv' checked value='{value}'>&nbsp;{text}";
+	var resultHTML = "<input type='checkbox' class='content' checked value='{value}'>&nbsp;{text}";
 
 	ret.runat("#productdiv").remove("*").append(resultHTML).withdata(selectResult);
+
+	// 商品管理番号
+	var selectResult = db.select(
+		"STOCK",
+		"searchproducno",
+		{}
+	).getArray();
+
+	var resultHTML = "<option id='{value}' class='content'>{text}</option>";
+
+	ret.runat("#productno").remove("option .content").append(resultHTML).withdata(selectResult);
+	
 
 	// 画面へ結果を返す
 	return ret;

@@ -10,6 +10,17 @@
 		order by
 			"商品分類"
 	</sql>
+	
+	<sql id="searchproducno">
+		select 
+			distinct "商品管理番号" as value,
+			"商品管理番号" as text
+		from
+			"VIEW_商品詳細情報" V_MST 
+		order by
+			"商品管理番号"
+	</sql>
+
 	<sql id="searchhistory">
 		select
 			TEMP."データ種別" as importtype,
@@ -77,9 +88,6 @@
 		WHERE 
 			1 AND 1 
 			<if exists="productdivstr1"> AND (</if>
-
-			<if notexists="productdivstr1">V_MST."商品分類" is NULL</if>
-
 			<if exists="productdivstr1">   V_MST."商品分類" = !productdivstr1</if>
 			<if exists="productdivstr2">OR V_MST."商品分類" = !productdivstr2</if>
 			<if exists="productdivstr3">OR V_MST."商品分類" = !productdivstr3</if>
@@ -88,7 +96,6 @@
 			<if exists="productdivstr6">OR V_MST."商品分類" = !productdivstr6</if>
 			<if exists="productdivstr7">OR V_MST."商品分類" = !productdivstr7</if>
 			<if exists="productdivstr8">OR V_MST."商品分類" = !productdivstr8</if>
-
 			<if exists="productdivstr1">     )</if>
 						
 
