@@ -129,10 +129,36 @@
         	Efw('stock/initstock');
         }
 
+
+
+		// $(document).ready(function(){
+
+		// 	scrollToLocation();
+
+		// });
+
+		// function scrollToLocation() {
+
+		// 	var mainContainer = $('#thisMainPanel'),
+
+		// 	scrollToContainer = mainContainer.find('.son-panel:last');//滚动到<div id="thisMainPanel">中类名为son-panel的最后一个div处
+
+		// 	mainContainer.animate({
+
+		// 		scrollTop: scrollToContainer.offset().top - mainContainer.offset().top + mainContainer.scrollTop()
+
+		// 	}, 
+		// 	2000);//2秒滑动到指定位置
+
+
+
+
+
 		function scrollHead(obj){
 
-			var p = $(obj).offset().left;
-			$("#stocklisthead").offset().left = p;
+			var p = $(obj).scrollLeft;
+
+			$("#stocklisthead").scrollLeft = p;
 
 		}
 
