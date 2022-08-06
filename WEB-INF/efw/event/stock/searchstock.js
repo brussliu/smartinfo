@@ -74,7 +74,7 @@ searchstock.fire=function(params){
 		"<td " + subhtml +      " class='display2'>{productname}</td>" +
 		"<td style='width: 80px;' class='display3'>{fba}</td>" +
 		"<td style='width: 80px;' class='display3'>{fbm}</td>" +
-		"<td style='width: 80px;' class='display3'><input type='text' style='width: 50px;height: 28px;' value='{localstock}'></td>" +
+		"<td style='width: 80px;' class='display3'><input type='text' style='width: 50px;height: 28px;{displayflg}' value='{localstock}'></td>" +
 		"<td style='width: 80px;' class='display3'>{onboard}</td>" +
 		"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +
 		"<td style='width: 80px;' class='display3'>{stockprepare}</td>" +
