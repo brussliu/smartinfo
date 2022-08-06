@@ -180,8 +180,7 @@
 			
 			});
 
-			if(alllocalArr.size > 0){
-				alert("ssss");
+			if(alllocalArr.length > 0){
 				Efw('stock/updatestock',{'localtoupdate': alllocalArr});
 			}
 			
