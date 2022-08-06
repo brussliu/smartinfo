@@ -159,14 +159,21 @@
 
 				if(tdArr.eq(0).children().get(0).checked) {
 
-					alert("ddd");
+					// SKU番号
+					var sku = tdArr.eq(6).html();
+					// ASIN番号
+					var asin = tdArr.eq(7).html();
+					// LOCAL在庫
+					var local = tdArr.eq(11).children().get(0).val();
+
+					alert(sku);
+					alert(asin);
+					alert(local);
+
 				}
 
 
-				// // 商品管理番号
-				// var newproductno = tdArr.eq(2).html();
-				// // 商品種別
-				// var productkinds = tdArr.eq(3).html();
+
 
 
 			
