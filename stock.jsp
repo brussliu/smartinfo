@@ -71,14 +71,14 @@
 
 			    if(productkinds == "子商品"){
 
-					// 商品管理番号変わる
-					if(flg){
-						oyflg = false;
-					}
-					// チェックボックス列の色を変更
-					if(oyflg){
-						tdArr.eq(0).css({"background": "rgb(153,217,234)"});
-					}
+					// // 商品管理番号変わる
+					// if(flg){
+					// 	oyflg = false;
+					// }
+					// // チェックボックス列の色を変更
+					// if(oyflg){
+					// 	tdArr.eq(0).css({"background": "rgb(153,217,234)"});
+					// }
 					
 
 
