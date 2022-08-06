@@ -186,6 +186,11 @@
 				$(".display4").hide();
 			}
 
+			console.log(flg1);
+			console.log(flg2);
+			console.log(flg3);
+			console.log(flg4);
+
 		}
 
         function showless(){
