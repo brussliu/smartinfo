@@ -111,6 +111,11 @@
         		productdivArr.push($(this).val());
     		});
 
+			$(".display1").show();
+			$(".display2").show();
+			$(".display3").show();
+			$(".display4").show();
+
         	Efw('stock/searchstock',{'productdiv': productdivArr});
         }
 
