@@ -157,7 +157,7 @@
 </div>
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="0" style="width: 100%;">
+<table class="productlist" border="1" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
@@ -203,8 +203,9 @@
 		</td>
 		<td style="font-size: 16px;" colspan="5">
 			<input type="text" id="productname" style="width: 600px;height: 32px;">
-			<input type="button" id="aaa" style="width: 200px;height: 40px;font-size: 20px;" value="補足対象のみ" onclick="showstock()">
-
+			<!--
+				<input type="button" id="aaa" style="width: 200px;height: 40px;font-size: 20px;" value="補足対象のみ" onclick="showstock()">
+			-->
 			<input type="button" id="showmore" value="▶" onclick="showmore();" style="display: none;float: right;">
 			<input type="button" id="showless" value="◀" onclick="showless();" style="float: right;">
 		</td>
