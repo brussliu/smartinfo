@@ -52,7 +52,10 @@
 				// 商品種別
 			    var productkinds = tdArr.eq(3).html();
 
-				var flg = !(newproductno == oldproductno);
+				var flg = false;
+				if(newproductno != oldproductno){
+					flg = true;
+				}
 
 			    if(productkinds == "親商品"){
 
