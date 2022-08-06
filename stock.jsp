@@ -129,6 +129,13 @@
         	Efw('stock/initstock');
         }
 
+		function scrollHead(obj){
+
+			var p = $(obj).offset().left;
+			$("#stocklisthead").offset().left = p;
+
+		}
+
         function showless(){
         	$(".moreinfo").hide();
 
@@ -250,7 +257,7 @@
 	</tr>
 </table>
 </div>
-<div id="stocklist" style="height: 685px; width:1900px; overflow:auto;border: none;">
+<div id="stocklist" style="height: 685px; width:1900px; overflow:auto;border: none;" onscroll="scrollHead(this);">
 <table border="1" id="stocktable" style="width: 3200px; font-size: 10px;">
 </table>
 
