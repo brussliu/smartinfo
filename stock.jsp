@@ -194,8 +194,8 @@
 			}
 			console.log("------------------");
 				
-			console.log($("#stocktablehead").width);
-			console.log($("#stocktable").width);
+			console.log($("#stocktablehead").width());
+			console.log($("#stocktable").width());
 
 
 		}
