@@ -40,23 +40,45 @@
 
         function changeColor(){
 
+			var oyflg = false;
+			var oldproductno = "";
+
 			$("#stocktable").find("tr").each(function(){
 
 			    var tdArr = $(this).children();
 
-				// 親商品
-			    var html = tdArr.eq(3).html();
-			    if(html == "親商品"){
+				// 商品管理番号
+				var newproductno = tdArr.eq(2).html();
+				// 商品種別
+			    var productkinds = tdArr.eq(3).html();
+
+				var flg = !(newproductno == oldproductno);
+
+			    if(productkinds == "親商品"){
 
 					// チェックボックス非表示
 			    	tdArr.eq(0).children().hide();
 					// 行の色を変更
 					$(this).css({"background": "rgb(153,217,234)"});
+					// 商品管理番号
+					productno = tdArr.eq(2).html();
 
-
+					oyflg == ture;
 			    }
 
-			    // if(html == "子商品"){
+			    if(productkinds == "子商品"){
+
+					// 商品管理番号変わる
+					if(flg){
+						oyflg = false;
+					}
+					// チェックボックス列の色を変更
+					if(oyflg){
+						tdArr.eq(0).css({"background": "rgb(153,217,234)"});
+					}
+					
+
+
 			    // 	//alert($(this));
 			    // 	for(var i=3;i < tdArr.length;i ++){
 			    // 		tdArr.eq(i).css({"background": "rgb(255,255,205)"});
@@ -100,7 +122,7 @@
 			    // 		$(this).addClass("stock0");
 			    // 	}
 
-			    // }
+			    }
 			     
 			});
 
