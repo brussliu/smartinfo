@@ -193,10 +193,10 @@
 			</select>
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			商品名称
+			キーワード
 		</td>
 		<td style="font-size: 16px;">
-			<input type="text" id="productname" style="width: 400px;height: 32px;">
+			<input type="text" id="keyword" style="width: 400px;height: 32px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			表示項目

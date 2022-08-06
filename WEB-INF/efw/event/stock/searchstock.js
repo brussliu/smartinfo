@@ -4,7 +4,7 @@ searchstock.paramsFormat={
 	"#shop":null,
 	"productdiv":null,
 	"#productno":null,
-	"#productname":null,
+	"#keyword":null,
 
 
 
@@ -37,7 +37,7 @@ searchstock.fire=function(params){
 	if(pdArr.length > 7){	productdivstr8 = pdArr[7];	}
 
 	var productno = params["#productno"];
-	var productname = params["#productname"].toUpperCase();
+	var keyword = params["#keyword"].toUpperCase();
 
 	var selectResult = db.select(
 		"STOCK",
@@ -53,7 +53,7 @@ searchstock.fire=function(params){
 			productdivstr7 : productdivstr7,
 			productdivstr8 : productdivstr8,
 			productno : productno,
-			productname : productname
+			keyword : keyword
 		}
 	).getArray();
 
