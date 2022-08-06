@@ -265,7 +265,7 @@
 </div>
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="0" style="width: 100%;">
+<table class="productlist" border="1" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
@@ -274,7 +274,7 @@
 		<COL WIDTH="450PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="600PX">
-		<COL WIDTH="220PX">
+		<COL WIDTH="400PX">
 	</COLGROUP>
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
@@ -285,7 +285,8 @@
 		<td style="font-size: 16px;" id="productdiv" colspan="5">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchstock" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchstock()">
+			<input type="button" id="updatestock" style="width: 150px;height: 35px;font-size: 18px;" value="更新" onclick="searchstock()">
+			<input type="button" id="searchstock" style="width: 150px;height: 35px;font-size: 18px;" value="検索" onclick="searchstock()">
 		</td>
 	</tr>
 	<tr>
@@ -316,7 +317,7 @@
 			<input type="checkbox" checked value="販売情報" id="display4" disabled>&nbsp;販売情報
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
+			<input type="button" id="outputstock" style="width: 150px;height: 35px;font-size: 18px;" value="出力" onclick="outputstock()">
 		</td>
 		<!--
 		<td style="font-size: 16px;" colspan="5">
