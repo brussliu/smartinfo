@@ -102,11 +102,7 @@ searchstock.fire=function(params){
 				"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +
 				"<td style='width: 80px;' class='display3'>{stockprepare}</td>" +
 				"<td style='width: 80px;' class='display3'>{stockall}</td>" +
-				"<td style='width:100px;' class='display4'>{selled1}</td>" +
-				"<td style='width:100px;' class='display4'>{selled7}</td>" +
-				"<td style='width:100px;' class='display4'>{selled30}</td>" +
-				"<td style='width:100px;' class='display4'>{selled60}</td>" +
-				"<td style='width:100px;' class='display4'>{selled90}</td>" +
+				"<td style='width:300px;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
 				"<td style='width:100px;' class='display4'>{selledweek}</td>" +
 				"<td style='width:100px;' class='display4'>{onsellweek}</td>" +
 			"</tr>";
