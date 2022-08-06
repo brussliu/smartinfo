@@ -151,6 +151,30 @@
         	Efw('stock/searchstock',{'productdiv': productdivArr, 'displayflg2':displayflg2});
         }
 
+		function updatestock(){
+
+			$("#stocktable").find("tr").each(function(){
+
+				var tdArr = $(this).children();
+
+				if(tdArr.eq(0).children().get(0).checked) {
+
+					alert("ddd");
+				}
+
+
+				// // 商品管理番号
+				// var newproductno = tdArr.eq(2).html();
+				// // 商品種別
+				// var productkinds = tdArr.eq(3).html();
+
+
+			
+			});
+
+
+		}
+
         // function outputstock(){
 
         // 	var productdivArr = new Array();
@@ -171,42 +195,6 @@
 			var p = $(obj).get(0).scrollLeft;
 
 			$("#stocklisthead").get(0).scrollLeft = p;
-
-		}
-
-		function displayResult(){
-
-			var flg2 = false;
-
-        	$('#displayitem input:checkbox:checked').each(function (index, item) {
-
-				if($(this).val() == '商品名称'){
-					$(".display2").show();
-					flg2 = true;
-
-					$("#stocktablehead").width($("#stocktablehead").width() + 1030);
-					$("#stocktable").width($("#stocktable").width() + 1030);
-				}
-
-			});
-
-			if(flg1 == false){
-				$(".display1").hide();
-			}
-			if(flg2 == false){
-
-				$(".display2").hide();
-
-				$("#stocktablehead").width($("#stocktablehead").width() - 1030);
-				$("#stocktable").width($("#stocktable").width() - 1030);
-			}
-			if(flg3 == false){
-				$(".display3").hide();
-			}		
-			if(flg4 == false){
-				$(".display4").hide();
-			}
-
 
 		}
 
@@ -237,24 +225,6 @@
 
 		}
 
-        function showless(){
-        	$(".moreinfo").hide();
-
-        	$("#stocktablehead").css("width","1870px");
-        	$("#stocktable").css("width","1870px");
-
-        	$("#showmore").show();
-        	$("#showless").hide();
-        }
-        function showmore(){
-        	$(".moreinfo").show();
-        	$("#stocktablehead").css("width","3054px");
-        	$("#stocktable").css("width","3054px");
-
-			$("#showmore").hide();
-			$("#showless").show();
-
-        }
 
   	</script>
 </head>
@@ -285,7 +255,7 @@
 		<td style="font-size: 16px;" id="productdiv" colspan="5">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="updatestock" style="width: 150px;height: 35px;font-size: 18px;" value="更新" onclick="searchstock()">
+			<input type="button" id="updatestock" style="width: 150px;height: 35px;font-size: 18px;" value="更新" onclick="updatestock()">
 			<input type="button" id="searchstock" style="width: 150px;height: 35px;font-size: 18px;" value="検索" onclick="searchstock()">
 		</td>
 	</tr>
