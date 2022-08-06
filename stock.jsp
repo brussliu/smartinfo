@@ -81,7 +81,7 @@
 					
 			    }
 
-				newproductno = oldproductno;
+				oldproductno = newproductno;
 			     
 			});
 
