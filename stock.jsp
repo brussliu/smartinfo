@@ -220,7 +220,7 @@
 	</tr>
 </table>
 <hr>
-<table border="1" id="stocktablehead" style="width: 3500px; font-size: 12px;">
+<table border="1" id="stocktablehead" style="width: 3200px; font-size: 12px;">
 	<tr>
 		<td style="width: 50px;">選択</td>
 		<td style="width: 120px;">商品分類</td>
@@ -248,8 +248,8 @@
 		<td style="width: 100px;">販売可能期間<br/>(平均値)</td>
 	</tr>
 </table>
-<div id="stocklist" style="height: 600px; width:4000px; overflow:auto;border-style: solid;border-width: 1px;">
-<table border="1" id="stocktable" style="width: 3500px; font-size: 10px;">
+<div id="stocklist" style="height: 600px; width:3250px; overflow:auto;border-style: solid;border-width: 1px;">
+<table border="1" id="stocktable" style="width: 3200px; font-size: 10px;">
 </table>
 
 </div>
