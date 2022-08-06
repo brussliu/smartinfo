@@ -164,10 +164,10 @@
 					// ASIN番号
 					var asin = tdArr.eq(7).html();
 					// LOCAL在庫
-					var local = tdArr.eq(11).html();
-					var local1 = tdArr.eq(11).children();
-					var local2 = tdArr.eq(11).children().get(0);
-					var local3 = tdArr.eq(11).children().eq(0);
+					var local = tdArr.eq(12).html();
+					var local1 = tdArr.eq(12).children();
+					var local2 = tdArr.eq(12).children().get(0);
+					var local3 = tdArr.eq(12).children().eq(0);
 
 					alert(local);
 					alert(local1);
