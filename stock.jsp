@@ -298,13 +298,13 @@
 	<tr>
 		<td style="width: 50px;">選択</td>
 		<td style="width: 120px;" class="display1">商品分類</td>
-		<td style="width: 100px;" class="display1">商品管理番号</td>
-		<td style="width: 70px;"  class="display1">商品種別</td>
+		<td style="width: 80px;" class="display1">商品管理番号</td>
+		<td style="width: 60px;"  class="display1">商品種別</td>
 		<td style="width: 100px;" class="display1">色</td>
-		<td style="width: 150px;" class="display1">サイズ</td>
-		<td style="width: 120px;" class="display1">SKU番号</td>
-		<td style="width: 120px;" class="display1">ASIN番号</td>
-		<td style="width: 120px;" class="display1">ラベル番号</td>
+		<td style="width: 100px;" class="display1">サイズ</td>
+		<td style="width: 100px;" class="display1">SKU番号</td>
+		<td style="width: 100px;" class="display1">ASIN番号</td>
+		<td style="width: 100px;" class="display1">ラベル番号</td>
 		<td                       class="display2">商品名称</td>
 		<td style="width: 80px;" class="display3">FBA在庫</td>
 		<td style="width: 80px;" class="display3">FBM在庫</td>
@@ -313,7 +313,7 @@
 		<td style="width: 80px;" class="display3">販売中<br>在庫合計</td>
 		<td style="width: 80px;" class="display3">予備<br>在庫合計</td>
 		<td style="width: 80px;" class="display3">全体<br>在庫合計</td>
-		<td style="width: 200px;" class="display4">販売数量<br/>昨日/7日間/30日間/60日間/90日間</td>
+		<td style="width: 150px;" class="display4">販売数量<br/>昨日/7日/30日/60日/90日</td>
 		<td style="width: 100px;" class="display4">販売数量<br/>(週間平均値)</td>
 		<td style="width: 100px;" class="display4">販売可能期間<br/>(平均値)</td>
 	</tr>

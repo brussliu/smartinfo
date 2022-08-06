@@ -87,13 +87,13 @@ searchstock.fire=function(params){
 			"<tr style='background-color: rgb(205,255,255);height:42px;'>" +
 				"<td style='width: 50px;'><input type='checkbox'></td>" +
 				"<td style='width:120px;' class='display1'>{productdiv}</td>" +
-				"<td style='width:100px;' class='display1'>{productno}</td>" +
-				"<td style='width:70px;'  class='display1'>{productkinds}</td>" +
+				"<td style='width:80px;' class='display1'>{productno}</td>" +
+				"<td style='width:60px;'  class='display1'>{productkinds}</td>" +
 				"<td style='width:100px;' class='display1'>{color}</td>" +
-				"<td style='width:150px;' class='display1'>{size}</td>" +
-				"<td style='width:120px;' class='display1'>{sku}</td>" +
-				"<td style='width:120px;' class='display1'>{asin}</td>" +
-				"<td style='width:120px;' class='display1'>{label}</td>" +
+				"<td style='width:100px;' class='display1'>{size}</td>" +
+				"<td style='width:100px;' class='display1'>{sku}</td>" +
+				"<td style='width:100px;' class='display1'>{asin}</td>" +
+				"<td style='width:100px;' class='display1'>{label}</td>" +
 				"<td                      class='display2'>{productname}</td>" +
 				"<td style='width: 80px;' class='display3'>{fba}</td>" +
 				"<td style='width: 80px;' class='display3'>{fbm}</td>" +
@@ -102,7 +102,7 @@ searchstock.fire=function(params){
 				"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +
 				"<td style='width: 80px;' class='display3'>{stockprepare}</td>" +
 				"<td style='width: 80px;' class='display3'>{stockall}</td>" +
-				"<td style='width:200px;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
+				"<td style='width:150px;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
 				"<td style='width:100px;' class='display4'>{selledweek}</td>" +
 				"<td style='width:100px;' class='display4'>{onsellweek}</td>" +
 			"</tr>";
