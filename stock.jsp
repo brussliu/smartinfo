@@ -198,14 +198,14 @@
 		<td style="font-size: 16px;">
 			<input type="text" id="productname" style="width: 400px;height: 32px;">
 		</td>
-		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
-		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			表示項目
 		</td>
 		<td style="font-size: 16px;">
 			テスト
+		</td>
+		<td style="font-size: 16px;text-align: right;">
+			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
 		</td>
 		<!--
 		<td style="font-size: 16px;" colspan="5">
