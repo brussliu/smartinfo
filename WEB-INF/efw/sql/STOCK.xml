@@ -116,8 +116,13 @@
 			    )
 			</if>
 
-			<if exists="productname"> AND (
-					UPPER(V_MST."商品名") LIKE concat('%', !productname ,'%')
+			<if exists="keyword"> AND (
+					UPPER(V_MST."商品名") LIKE concat('%', !keyword ,'%') OR
+					UPPER(V_MST."色") LIKE concat('%', !keyword ,'%') OR
+					UPPER(V_MST."サイズ") LIKE concat('%', !keyword ,'%') OR
+					UPPER(V_MST."SKU番号") LIKE concat('%', !keyword ,'%') OR
+					UPPER(V_MST."ASIN番号") LIKE concat('%', !keyword ,'%') OR
+					UPPER(V_MST."ラベル番号") LIKE concat('%', !keyword ,'%')
 			    )
 			</if>
 
