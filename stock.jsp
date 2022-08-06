@@ -64,21 +64,21 @@
 					// 行の色を変更
 					$(this).css({"background": "rgb(153,217,234)"});
 
-					//oyflg = ture;
+					oyflg = true;
 			    }
 
-			    // if(productkinds == "子商品"){
+			    if(productkinds == "子商品"){
 
-				// 	// 商品管理番号変わる
-				// 	if(flg){
-				// 		oyflg = false;
-				// 	}
-				// 	// チェックボックス列の色を変更
-				// 	if(oyflg){
-				// 		tdArr.eq(0).css({"background": "rgb(153,217,234)"});
-				// 	}
+					// 商品管理番号変わる
+					if(flg){
+						oyflg = false;
+					}
+					// チェックボックス列の色を変更
+					if(oyflg){
+						tdArr.eq(0).css({"background": "rgb(153,217,234)"});
+					}
 					
-			    // }
+			    }
 			     
 			});
 
