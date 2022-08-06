@@ -60,7 +60,7 @@
 				if(flg){
 					oyflg = false;
 				}
-				
+
 			    if(productkinds == "親商品"){
 
 					// チェックボックス非表示
@@ -73,9 +73,9 @@
 
 			    if(productkinds == "子商品"){
 
-
 					// チェックボックス列の色を変更
 					if(oyflg){
+						alert(newproductno);
 						tdArr.eq(0).css({"background": "rgb(153,217,234)"});
 					}
 					
