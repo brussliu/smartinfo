@@ -111,11 +111,6 @@
         		productdivArr.push($(this).val());
     		});
 
-			$(".display1").show();
-			$(".display2").show();
-			$(".display3").show();
-			$(".display4").show();
-
         	Efw('stock/searchstock',{'productdiv': productdivArr});
         }
 
@@ -222,7 +217,7 @@
 			});
 
 			if(flg2 == false){
-				
+
 				$(".display2").hide();
 
 				$("#stocktablehead").width($("#stocktablehead").width() - 1030);
