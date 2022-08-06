@@ -139,13 +139,13 @@
 
 		function displayResult(){
 
-			var flg1 = $("#display1").val();
+			var flg1 = $("#display1").attr("checked");
 			alert(flg1);
-			var flg2 = $("#display2").val();
+			var flg2 = $("#display2").attr("checked");
 			alert(flg2);
-			var flg3 = $("#display3").val();
+			var flg3 = $("#display3").attr("checked");
 			alert(flg3);
-			var flg4 = $("#display4").val();
+			var flg4 = $("#display4").attr("checked");
 			alert(flg4);
 
 		}
