@@ -153,6 +153,8 @@
 
 		function updatestock(){
 
+			var alllocalArr = new Array();
+
 			$("#stocktable").find("tr").each(function(){
 
 				var tdArr = $(this).children();
@@ -164,32 +166,21 @@
 					// ASIN番号
 					var asin = tdArr.eq(7).html();
 					// LOCAL在庫
-					var local = tdArr.eq(12).html();
-					alert(local);
-					
-					var local1 = tdArr.eq(12).children().val();
-					alert(local1);
+					var local = tdArr.eq(12).children().val();
 
-					var local2 = tdArr.eq(12).children().get(0).val();
-					alert(local2);
+					var localArr = new Array();
 
-					var local3 = tdArr.eq(12).children().eq(0).val();
-					alert(local3);
-					
-					
-					
-					
+					localArr.push(sku);
+					localArr.push(asin);
+					localArr.push(local);
 
+					alllocalArr.push(localArr);
 
 				}
-
-
-
-
-
 			
 			});
 
+			Efw('stock/updatestock',{'localtoupdate': alllocalArr});
 
 		}
 

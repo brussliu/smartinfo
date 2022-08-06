@@ -86,24 +86,6 @@ searchstock.fire=function(params){
 
 	ret.runat("#stocktable").remove("tr").append(resultHTML).withdata(selectResult);
 
-
-	// for(var i = 0;i < selectResult.length;i ++){
-
-	// 	var data = new Array(selectResult[i]);
-
-	// 	var colorHTML = "";
-	// 	//var picHTML = "";
-
-	// 	if(selectResult[i]["productdiv"] == "親商品"){
-	// 		colorHTML = "<td style='width:100px;'>{color}</td>";
-	// 		//picHTML = "<td style='width:100px;'></td>";
-	// 	}else if(selectResult[i]["sizeindex"] == 1){
-	// 		colorHTML = "<td style='width:100px;' rowspan='{subcq}'>{color}</td>";
-	// 		//picHTML = "<td style='width:100px;' rowspan='{subcq}'><img src='{productpic}' width='100px;'/></td>";
-	// 	}
-
-	// }
-
 	var script = "$('#stocklist').show();changeColor();";
 	ret.eval(script);
 
