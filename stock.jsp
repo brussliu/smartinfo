@@ -248,7 +248,7 @@
 		<td style="width: 100px;">販売可能期間<br/>(平均値)</td>
 	</tr>
 </table>
-<div id="stocklist" style="height: 600px; width:3250px; overflow:auto;border-style: solid;border-width: 1px;">
+<div id="stocklist" style="height: 680px; width:1920px; overflow:auto;border-style: solid;border-width: 1px;">
 <table border="1" id="stocktable" style="width: 3200px; font-size: 10px;">
 </table>
 
