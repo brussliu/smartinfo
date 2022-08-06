@@ -164,7 +164,7 @@
 					// ASIN番号
 					var asin = tdArr.eq(7).html();
 					// LOCAL在庫
-					var local = tdArr.eq(11).children().eq(0).html();
+					var local = tdArr.eq(11).children().val();
 
 					alert(sku);
 					alert(asin);
