@@ -14,9 +14,22 @@ updatestock.fire=function(params){
 
 	var localtoupdate = params["localtoupdate"];
 
-	localtoupdate.debug("WWWWWWWWWWWWWWWWWWWWWWW");
+	
 
+	for(var i = 0; i < localtoupdate.length; i ++){
 
+		var localinfo = localtoupdate[i];
+		localinfo.debug("WWWWWWWWWWWWWWWWWWWWWWW");
+
+		var sku = localinfo[0];
+		var asin = localinfo[1];
+		var local = localinfo[2];
+
+		sku.debug("AAAAAAAAAAAAAAAAAA");
+		asin.debug("BBBBBBBBBBBBBBBBBBB");
+		local.debug("CCCCCCCCCCCCCCCCCCC");
+
+	}
 
 	// var selectResult = db.select(
 	// 	"STOCK",
