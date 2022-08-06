@@ -177,7 +177,11 @@
 			});
 
 			if(flg1 == false){
+
 				$(".display1").hide();
+
+				
+
 			}
 			if(flg2 == false){
 				$(".display2").hide();
@@ -189,10 +193,10 @@
 				$(".display4").hide();
 			}
 			console.log("------------------");
-			console.log(flg1);
-			console.log(flg2);
-			console.log(flg3);
-			console.log(flg4);
+				
+			console.log($("#stocktablehead").width);
+			console.log($("#stocktable").width);
+
 
 		}
 
