@@ -64,7 +64,7 @@
 					// 行の色を変更
 					$(this).css({"background": "rgb(153,217,234)"});
 
-					oyflg = ture;
+					//oyflg = ture;
 			    }
 
 			    // if(productkinds == "子商品"){
