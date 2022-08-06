@@ -57,15 +57,15 @@
 					flg = true;
 				}
 
-			    // if(productkinds == "親商品"){
+			    if(productkinds == "親商品"){
 
-				// 	// チェックボックス非表示
-			    // 	tdArr.eq(0).children().hide();
-				// 	// 行の色を変更
-				// 	$(this).css({"background": "rgb(153,217,234)"});
+					// チェックボックス非表示
+			    	tdArr.eq(0).children().hide();
+					// 行の色を変更
+					$(this).css({"background": "rgb(153,217,234)"});
 
-				// 	oyflg = ture;
-			    // }
+					oyflg = ture;
+			    }
 
 			    // if(productkinds == "子商品"){
 
