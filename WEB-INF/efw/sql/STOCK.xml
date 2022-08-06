@@ -66,11 +66,11 @@
 			, V_STOCK."販売中在庫合計" as stockonsell
 			, V_STOCK."予備在庫合計" as stockprepare
 			, V_STOCK."全体在庫合計" as stockall
-			, REPLACE(RIGHT('   ' || cast(V_SELL."前日数量" as varchar), 3), ' ', '&nbsp;') as selled1
-			, REPLACE(RIGHT('   ' || cast(V_SELL."7日間数量" as varchar), 3), ' ', '&nbsp;') as selled7
-			, REPLACE(RIGHT('   ' || cast(V_SELL."30日間数量" as varchar), 3), ' ', '&nbsp;') as selled30
-			, REPLACE(RIGHT('   ' || cast(V_SELL."60日間数量" as varchar), 3), ' ', '&nbsp;') as selled60
-			, REPLACE(RIGHT('   ' || cast(V_SELL."90日間数量" as varchar), 3), ' ', '&nbsp;') as selled90
+			, RIGHT('   ' || cast(V_SELL."前日数量" as varchar), 3) as selled1
+			, RIGHT('   ' || cast(V_SELL."7日間数量" as varchar), 3) as selled7
+			, RIGHT('   ' || cast(V_SELL."30日間数量" as varchar), 3) as selled30
+			, RIGHT('   ' || cast(V_SELL."60日間数量" as varchar), 3) as selled60
+			, RIGHT('   ' || cast(V_SELL."90日間数量" as varchar), 3) as selled90
 			, ROUND( 
 				(   V_SELL."前日数量" * 0.05 + 
 					V_SELL."7日間数量" / 7::numeric * 0.15 + 
