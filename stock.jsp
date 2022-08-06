@@ -111,7 +111,17 @@
         		productdivArr.push($(this).val());
     		});
 
-        	Efw('stock/searchstock',{'productdiv': productdivArr});
+			var displayflg2 = "0";
+			$('#displayitem input:checkbox:checked').each(function (index, item) {
+
+				if($(this).val() == '商品名称'){
+					displayflg2 = "1";
+				}
+
+			});
+
+
+        	Efw('stock/searchstock',{'productdiv': productdivArr, 'displayflg2':displayflg2});
         }
 
         // function outputstock(){
@@ -197,7 +207,6 @@
 				$("#stocktablehead").width($("#stocktablehead").width() - 1030);
 				$("#stocktable").width($("#stocktable").width() - 1030);
 			}
-
 
 		}
 

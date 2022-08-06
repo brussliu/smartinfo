@@ -5,7 +5,7 @@ searchstock.paramsFormat={
 	"productdiv":null,
 	"#productno":null,
 	"#keyword":null,
-
+	"displayflg2":null
 
 
 };
@@ -38,6 +38,7 @@ searchstock.fire=function(params){
 
 	var productno = params["#productno"];
 	var keyword = params["#keyword"].toUpperCase();
+	var displayflg2 = params["displayflg2"];
 
 	var selectResult = db.select(
 		"STOCK",
@@ -57,60 +58,51 @@ searchstock.fire=function(params){
 		}
 	).getArray();
 
-	ret.runat("#stocktable").remove("tr");
+	var subhtml = displayflg2 == "1" ? "" : "style='display: none;'";
 
-	for(var i = 0;i < selectResult.length;i ++){
+	var resultHTML =
+	"<tr style='background-color: rgb(205,255,255);height:42px;'>" +
+		"<td style='width: 50px;'><input type='checkbox'></td>" +
+		"<td style='width:120px;' class='display1'>{productdiv}</td>" +
+		"<td style='width:80px;' class='display1'>{productno}</td>" +
+		"<td style='width:60px;'  class='display1'>{productkinds}</td>" +
+		"<td style='width:100px;' class='display1'>{color}</td>" +
+		"<td style='width:120px;word-break:break-all;' class='display1'>{size}</td>" +
+		"<td style='width:110px;' class='display1'>{sku}</td>" +
+		"<td style='width:100px;' class='display1'>{asin}</td>" +
+		"<td style='width:100px;' class='display1'>{label}</td>" +
+		"<td " + subhtml +      " class='display2'>{productname}</td>" +
+		"<td style='width: 80px;' class='display3'>{fba}</td>" +
+		"<td style='width: 80px;' class='display3'>{fbm}</td>" +
+		"<td style='width: 80px;' class='display3'>{localstock}</td>" +
+		"<td style='width: 80px;' class='display3'>{onboard}</td>" +
+		"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +
+		"<td style='width: 80px;' class='display3'>{stockprepare}</td>" +
+		"<td style='width: 80px;' class='display3'>{stockall}</td>" +
+		"<td style='width:150px;white-space:pre-wrap;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
+		"<td style='width:100px;' class='display4'>{selledweek}</td>" +
+		"<td style='width:100px;' class='display4'>{onsellweek}</td>" +
+	"</tr>";
 
-		var data = new Array(selectResult[i]);
-
-		var resultHTML = "";
-		var colorHTML = "";
-		//var picHTML = "";
-
-
-
-		if(selectResult[i]["productdiv"] == "親商品"){
-
-			colorHTML = "<td style='width:100px;'>{color}</td>";
-			//picHTML = "<td style='width:100px;'></td>";
-
-		}else if(selectResult[i]["sizeindex"] == 1){
-
-			colorHTML = "<td style='width:100px;' rowspan='{subcq}'>{color}</td>";
-			//picHTML = "<td style='width:100px;' rowspan='{subcq}'><img src='{productpic}' width='100px;'/></td>";
-
-		}else{
-			
-		}
-
-		resultHTML =
-			"<tr style='background-color: rgb(205,255,255);height:42px;'>" +
-				"<td style='width: 50px;'><input type='checkbox'></td>" +
-				"<td style='width:120px;' class='display1'>{productdiv}</td>" +
-				"<td style='width:80px;' class='display1'>{productno}</td>" +
-				"<td style='width:60px;'  class='display1'>{productkinds}</td>" +
-				"<td style='width:100px;' class='display1'>{color}</td>" +
-				"<td style='width:120px;word-break:break-all;' class='display1'>{size}</td>" +
-				"<td style='width:110px;' class='display1'>{sku}</td>" +
-				"<td style='width:100px;' class='display1'>{asin}</td>" +
-				"<td style='width:100px;' class='display1'>{label}</td>" +
-				"<td                      class='display2'>{productname}</td>" +
-				"<td style='width: 80px;' class='display3'>{fba}</td>" +
-				"<td style='width: 80px;' class='display3'>{fbm}</td>" +
-				"<td style='width: 80px;' class='display3'>{localstock}</td>" +
-				"<td style='width: 80px;' class='display3'>{onboard}</td>" +
-				"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +
-				"<td style='width: 80px;' class='display3'>{stockprepare}</td>" +
-				"<td style='width: 80px;' class='display3'>{stockall}</td>" +
-				"<td style='width:150px;white-space:pre-wrap;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
-				"<td style='width:100px;' class='display4'>{selledweek}</td>" +
-				"<td style='width:100px;' class='display4'>{onsellweek}</td>" +
-			"</tr>";
+	ret.runat("#stocktable").remove("tr").append(resultHTML).withdata(selectResult);
 
 
-		ret.runat("#stocktable").append(resultHTML).withdata(data);
+	// for(var i = 0;i < selectResult.length;i ++){
 
-	}
+	// 	var data = new Array(selectResult[i]);
+
+	// 	var colorHTML = "";
+	// 	//var picHTML = "";
+
+	// 	if(selectResult[i]["productdiv"] == "親商品"){
+	// 		colorHTML = "<td style='width:100px;'>{color}</td>";
+	// 		//picHTML = "<td style='width:100px;'></td>";
+	// 	}else if(selectResult[i]["sizeindex"] == 1){
+	// 		colorHTML = "<td style='width:100px;' rowspan='{subcq}'>{color}</td>";
+	// 		//picHTML = "<td style='width:100px;' rowspan='{subcq}'><img src='{productpic}' width='100px;'/></td>";
+	// 	}
+
+	// }
 
 	var script = "$('#stocklist').show();";
 	ret.eval(script);
