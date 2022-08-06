@@ -294,7 +294,7 @@
 </table>
 <hr>
 <div id="stocklisthead" style="height: 40px; width:1883px; overflow:auto;overflow: hidden; border: none;">
-<table border="1" id="stocktablehead" style="width: 2800px; font-size: 12px;">
+<table border="1" id="stocktablehead" style="width: 2900px; font-size: 12px;">
 	<tr>
 		<td style="width: 50px;">選択</td>
 		<td style="width: 120px;" class="display1">商品分類</td>
@@ -320,7 +320,7 @@
 </table>
 </div>
 <div id="stocklist" style="height: 685px; width:1900px; overflow:auto;border: none;display: none;" onscroll="scrollHead(this);">
-<table border="1" id="stocktable" style="width: 2800px; font-size: 10px;">
+<table border="1" id="stocktable" style="width: 2900px; font-size: 10px;">
 </table>
 
 </div>
