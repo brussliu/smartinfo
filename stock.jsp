@@ -43,65 +43,68 @@
 			$("#stocktable").find("tr").each(function(){
 
 			    var tdArr = $(this).children();
-			    var html = tdArr.eq(2).html();
+
+				// 親商品
+			    var html = tdArr.eq(3).html();
 			    if(html == "親商品"){
+
+					// チェックボックス非表示
 			    	tdArr.eq(0).children().hide();
+					// 行の色を変更
+					this.css({"background": "rgb(153,217,234)"});
+
+
 			    }
 
+			    // if(html == "子商品"){
+			    // 	//alert($(this));
+			    // 	for(var i=3;i < tdArr.length;i ++){
+			    // 		tdArr.eq(i).css({"background": "rgb(255,255,205)"});
+			    // 	}
 
-			    if(html == "子商品"){
-			    	//alert($(this));
-			    	for(var i=3;i < tdArr.length;i ++){
-			    		tdArr.eq(i).css({"background": "rgb(255,255,205)"});
-			    	}
+			    // 	// 販売数量（週間平均値）
+			    // 	var num1 = parseFloat(tdArr.eq(14).html());
+			    // 	if(num1 < 0.2){
+			    // 		tdArr.eq(14).css({"background": "rgb(255,153,255)"});
+			    // 	}else if(num1 >= 0.2 && num1 < 0.5){
+			    // 		tdArr.eq(14).css({"background": "rgb(255,204,255)"});
+			    // 	}else if(num1 >= 0.5 && num1 < 1){
+			    // 		tdArr.eq(14).css({"background": "rgb(204,255,255)"});
+			    // 	}else if(num1 >= 1 && num1 < 2){
+			    // 		tdArr.eq(14).css({"background": "rgb(153,255,153)"});
+			    // 	}else if(num1 >= 2 && num1 < 5){
+			    // 		tdArr.eq(14).css({"background": "rgb(102,255,102)"});
+			    // 	}else if(num1 >= 5){
+			    // 		tdArr.eq(14).css({"background": "rgb(0,255,255)"});
+			    // 	}	
 
-			    	// 販売数量（週間平均値）
-			    	var num1 = parseFloat(tdArr.eq(14).html());
-			    	if(num1 < 0.2){
-			    		tdArr.eq(14).css({"background": "rgb(255,153,255)"});
-			    	}else if(num1 >= 0.2 && num1 < 0.5){
-			    		tdArr.eq(14).css({"background": "rgb(255,204,255)"});
-			    	}else if(num1 >= 0.5 && num1 < 1){
-			    		tdArr.eq(14).css({"background": "rgb(204,255,255)"});
-			    	}else if(num1 >= 1 && num1 < 2){
-			    		tdArr.eq(14).css({"background": "rgb(153,255,153)"});
-			    	}else if(num1 >= 2 && num1 < 5){
-			    		tdArr.eq(14).css({"background": "rgb(102,255,102)"});
-			    	}else if(num1 >= 5){
-			    		tdArr.eq(14).css({"background": "rgb(0,255,255)"});
-			    	}	
+			    // 	// 在庫
+			    // 	var num2 = parseFloat(tdArr.eq(16).html());
+			    // 	if(num2 < 5){
+			    // 		tdArr.eq(16).css({"background": "rgb(102,153,255)"});
+			    // 	}else if(num2 >= 5 && num2 < 10){
+			    // 		tdArr.eq(16).css({"background": "rgb(153,204,255)"});
+			    // 	}else if(num2 >= 10){
+			    // 		tdArr.eq(16).css({"background": "rgb(204,236,255)"});
+			    // 	}
 
-			    	// 在庫
-			    	var num2 = parseFloat(tdArr.eq(16).html());
-			    	if(num2 < 5){
-			    		tdArr.eq(16).css({"background": "rgb(102,153,255)"});
-			    	}else if(num2 >= 5 && num2 < 10){
-			    		tdArr.eq(16).css({"background": "rgb(153,204,255)"});
-			    	}else if(num2 >= 10){
-			    		tdArr.eq(16).css({"background": "rgb(204,236,255)"});
-			    	}
+			    // 	// 販売可能期間
+			    // 	var num3 = parseFloat(tdArr.eq(21).html());
+			    // 	if(num2 == 0 || num3 < 10){
+			    // 		tdArr.eq(21).css({"background": "rgb(255,153,255)"});
+			    // 		$(this).addClass("stock1");
+			    // 	}else if(num3 >= 10 && num3 < 30){
+			    // 		tdArr.eq(21).css({"background": "rgb(255,204,255)"});
+			    // 		$(this).addClass("stock2");
+			    // 	}else{
+			    // 		$(this).addClass("stock0");
+			    // 	}
 
-			    	// 販売可能期間
-			    	var num3 = parseFloat(tdArr.eq(21).html());
-			    	if(num2 == 0 || num3 < 10){
-			    		tdArr.eq(21).css({"background": "rgb(255,153,255)"});
-			    		$(this).addClass("stock1");
-			    	}else if(num3 >= 10 && num3 < 30){
-			    		tdArr.eq(21).css({"background": "rgb(255,204,255)"});
-			    		$(this).addClass("stock2");
-			    	}else{
-			    		$(this).addClass("stock0");
-			    	}
-
-			    }
+			    // }
 			     
 			});
 
         }
-
-        // function showstock(){
-        // 	$(".stock0").hide();
-        // }
 
         function searchstock(){
 

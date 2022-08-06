@@ -104,7 +104,7 @@ searchstock.fire=function(params){
 
 	// }
 
-	var script = "$('#stocklist').show();";
+	var script = "$('#stocklist').show();changeColor();";
 	ret.eval(script);
 
 	// 画面へ結果を返す
