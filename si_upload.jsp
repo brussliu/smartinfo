@@ -181,7 +181,7 @@
 		</td>
 	</tr>
 </table>
--->
+
 <br/>
 <table class="upfile" id="localstocktable">
 	<tr>
@@ -208,6 +208,7 @@
 		</td>
 	</tr>
 </table>
+-->
 <br/>
 <table class="upfile" id="earningstable">
 	<tr>
