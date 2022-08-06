@@ -161,9 +161,9 @@
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
-		<COL >
+		<COL WIDTH="120PX">
 		<COL WIDTH="100PX">
-		<COL WIDTH="400PX">
+		<COL >
 		<COL WIDTH="220PX">
 	</COLGROUP>
 	<tr>
@@ -172,11 +172,10 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" id="productdiv">
+		<td style="font-size: 16px;" id="productdiv" colspan="3">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="searchstock" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchstock()">
-			
 		</td>
 	</tr>
 	<tr>
@@ -186,7 +185,7 @@
 			商品番号
 		</td>
 		<td style="font-size: 16px;">
-			<select STYLE="WIDTH:150px;height:32px;" id="productno">
+			<select STYLE="WIDTH:120px;height:32px;" id="productno">
 				<option value=""></option>
 				<option value="マスタ未登録">マスタ未登録</option>
 			</select>
@@ -195,7 +194,7 @@
 			商品名称
 		</td>
 		<td style="font-size: 16px;">
-			<input type="text" id="productname" style="width: 600px;height: 32px;">
+			<input type="text" id="productname" style="width: 400px;height: 32px;">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
