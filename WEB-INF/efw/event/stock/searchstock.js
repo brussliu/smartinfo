@@ -90,8 +90,8 @@ searchstock.fire=function(params){
 				"<td style='width:80px;' class='display1'>{productno}</td>" +
 				"<td style='width:60px;'  class='display1'>{productkinds}</td>" +
 				"<td style='width:100px;' class='display1'>{color}</td>" +
-				"<td style='width:100px;' class='display1'>{size}</td>" +
-				"<td style='width:100px;' class='display1'>{sku}</td>" +
+				"<td style='width:100px;word-break:break-all;' class='display1'>{size}</td>" +
+				"<td style='width:110px;' class='display1'>{sku}</td>" +
 				"<td style='width:100px;' class='display1'>{asin}</td>" +
 				"<td style='width:100px;' class='display1'>{label}</td>" +
 				"<td                      class='display2'>{productname}</td>" +
@@ -102,7 +102,7 @@ searchstock.fire=function(params){
 				"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +
 				"<td style='width: 80px;' class='display3'>{stockprepare}</td>" +
 				"<td style='width: 80px;' class='display3'>{stockall}</td>" +
-				"<td style='width:150px;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
+				"<td style='width:150px;white-space:pre-wrap;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
 				"<td style='width:100px;' class='display4'>{selledweek}</td>" +
 				"<td style='width:100px;' class='display4'>{onsellweek}</td>" +
 			"</tr>";

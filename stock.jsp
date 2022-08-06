@@ -302,7 +302,7 @@
 		<td style="width: 60px;"  class="display1">商品種別</td>
 		<td style="width: 100px;" class="display1">色</td>
 		<td style="width: 100px;" class="display1">サイズ</td>
-		<td style="width: 100px;" class="display1">SKU番号</td>
+		<td style="width: 110px;" class="display1">SKU番号</td>
 		<td style="width: 100px;" class="display1">ASIN番号</td>
 		<td style="width: 100px;" class="display1">ラベル番号</td>
 		<td                       class="display2">商品名称</td>
