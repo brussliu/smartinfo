@@ -57,28 +57,30 @@
 					flg = true;
 				}
 
-			    if(productkinds == "親商品"){
+			    // if(productkinds == "親商品"){
 
-					// チェックボックス非表示
-			    	tdArr.eq(0).children().hide();
-					// 行の色を変更
-					$(this).css({"background": "rgb(153,217,234)"});
+				// 	// チェックボックス非表示
+			    // 	tdArr.eq(0).children().hide();
+				// 	// 行の色を変更
+				// 	$(this).css({"background": "rgb(153,217,234)"});
 
-					oyflg = ture;
-			    }
+				// 	oyflg = ture;
+			    // }
 
-			    if(productkinds == "子商品"){
+			    // if(productkinds == "子商品"){
 
-					// 商品管理番号変わる
-					if(flg){
-						oyflg = false;
-					}
-					// チェックボックス列の色を変更
-					if(oyflg){
-						tdArr.eq(0).css({"background": "rgb(153,217,234)"});
-					}
+				// 	// 商品管理番号変わる
+				// 	if(flg){
+				// 		oyflg = false;
+				// 	}
+				// 	// チェックボックス列の色を変更
+				// 	if(oyflg){
+				// 		tdArr.eq(0).css({"background": "rgb(153,217,234)"});
+				// 	}
 					
-
+			    // }
+			     
+			});
 
 			    // 	//alert($(this));
 			    // 	for(var i=3;i < tdArr.length;i ++){
@@ -122,10 +124,6 @@
 			    // 	}else{
 			    // 		$(this).addClass("stock0");
 			    // 	}
-
-			    }
-			     
-			});
 
         }
 
