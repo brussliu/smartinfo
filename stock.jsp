@@ -313,7 +313,7 @@
 		<td style="width: 110px;" class="display1">SKU番号</td>
 		<td style="width: 100px;" class="display1">ASIN番号</td>
 		<td style="width: 100px;" class="display1">ラベル番号</td>
-		<td                       class="display2">商品名称</td>
+		<td style="display: none;" class="display2">商品名称</td>
 		<td style="width: 80px;" class="display3">FBA在庫</td>
 		<td style="width: 80px;" class="display3">FBM在庫</td>
 		<td style="width: 80px;" class="display3">LOCAL<br>在庫</td>
