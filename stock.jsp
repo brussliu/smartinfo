@@ -163,7 +163,9 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="100PX">
-		<COL >
+		<COL WIDTH="450PX">
+		<COL WIDTH="100PX">
+		<COL WIDTH="600PX">
 		<COL WIDTH="220PX">
 	</COLGROUP>
 	<tr>
@@ -172,7 +174,7 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" id="productdiv" colspan="3">
+		<td style="font-size: 16px;" id="productdiv" colspan="5">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="searchstock" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchstock()">
@@ -199,7 +201,12 @@
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
 		</td>
-
+		<td style="font-size: 16px;font-weight: bold;height: 40px;">
+			表示項目
+		</td>
+		<td style="font-size: 16px;">
+			テスト
+		</td>
 		<!--
 		<td style="font-size: 16px;" colspan="5">
 			<input type="button" id="showmore" value="▶" onclick="showmore();" style="display: none;float: right;">
