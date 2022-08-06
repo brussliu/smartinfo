@@ -165,14 +165,20 @@
 					var asin = tdArr.eq(7).html();
 					// LOCAL在庫
 					var local = tdArr.eq(12).html();
-					var local1 = tdArr.eq(12).children().val();
-					var local2 = tdArr.eq(12).children().get(0).val();
-					var local3 = tdArr.eq(12).children().eq(0).val();
-
 					alert(local);
+					
+					var local1 = tdArr.eq(12).children().val();
 					alert(local1);
+
+					var local2 = tdArr.eq(12).children().get(0).val();
 					alert(local2);
+
+					var local3 = tdArr.eq(12).children().eq(0).val();
 					alert(local3);
+					
+					
+					
+					
 
 
 				}
