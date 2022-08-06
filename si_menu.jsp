@@ -44,10 +44,12 @@
 			<br><br>
 			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-Bear'})">
 			<br><br>
-			<input type=button value="在庫情報テスト" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'stock.jsp',shop:'Smart-Bear'})">
+			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'stock.jsp',shop:'Smart-Bear'})">
 			<br><br>
+			<!--
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('outputstock',{shop:'Smart-Bear'})">
 			<br><br>
+			-->
 			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'purchase.jsp',shop:'Smart-Bear'})">
 			<br><br>
 			<input type=button value="納品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_delivery.jsp',shop:'Smart-Bear'})">
