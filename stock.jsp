@@ -129,38 +129,24 @@
         	Efw('stock/initstock');
         }
 
-
-
-		// $(document).ready(function(){
-
-		// 	scrollToLocation();
-
-		// });
-
-		// function scrollToLocation() {
-
-		// 	var mainContainer = $('#thisMainPanel'),
-
-		// 	scrollToContainer = mainContainer.find('.son-panel:last');//滚动到<div id="thisMainPanel">中类名为son-panel的最后一个div处
-
-		// 	mainContainer.animate({
-
-		// 		scrollTop: scrollToContainer.offset().top - mainContainer.offset().top + mainContainer.scrollTop()
-
-		// 	}, 
-		// 	2000);//2秒滑动到指定位置
-
-
-
-
-
 		function scrollHead(obj){
 
 			var p = $(obj).get(0).scrollLeft;
-			console.log('GGGGGGGGGGGGGGG');
-			console.log(p);
 
 			$("#stocklisthead").get(0).scrollLeft = p;
+
+		}
+
+		function displayResult(){
+
+			var flg1 = $("#display1").val();
+			alert(flg1);
+			var flg2 = $("#display2").val();
+			alert(flg2);
+			var flg3 = $("#display3").val();
+			alert(flg3);
+			var flg4 = $("#display4").val();
+			alert(flg4);
 
 		}
 
@@ -237,10 +223,10 @@
 			表示項目
 		</td>
 		<td style="font-size: 16px;">
-			<input type="checkbox" checked value="基本情報">&nbsp;基本情報
-			<input type="checkbox" checked value="商品名称">&nbsp;商品名称
-			<input type="checkbox" checked value="在庫情報">&nbsp;在庫情報
-			<input type="checkbox" checked value="販売情報">&nbsp;販売情報
+			<input type="checkbox" checked value="基本情報" id="display1">&nbsp;基本情報
+			<input type="checkbox"         value="商品名称" id="display2">&nbsp;商品名称
+			<input type="checkbox" checked value="在庫情報" id="display3">&nbsp;在庫情報
+			<input type="checkbox" checked value="販売情報" id="display4">&nbsp;販売情報
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
@@ -285,7 +271,7 @@
 	</tr>
 </table>
 </div>
-<div id="stocklist" style="height: 685px; width:1900px; overflow:auto;border: none;" onscroll="scrollHead(this);">
+<div id="stocklist" style="height: 685px; width:1900px; overflow:auto;border: none;display: none;" onscroll="scrollHead(this);">
 <table border="1" id="stocktable" style="width: 3200px; font-size: 10px;">
 </table>
 
