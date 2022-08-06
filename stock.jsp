@@ -180,7 +180,10 @@
 			
 			});
 
-			Efw('stock/updatestock',{'localtoupdate': alllocalArr});
+			if(alllocalArr.length > 0){
+				Efw('stock/updatestock',{'localtoupdate': alllocalArr});
+			}
+			
 
 		}
 

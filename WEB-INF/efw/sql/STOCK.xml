@@ -131,6 +131,15 @@
 		ORDER BY V_MST."req_no"
 	</sql>
 
+	<sql id="updatelocalstock">
+		update "NEW_在庫情報" 
+		set "LOCAL在庫数量" = :local
+		where "SKU番号" = :sku
+		and "ASIN番号" = :asin
+	</sql>
+
+
+
 	<sql id="selectstockAndPurchase">
 		SELECT
 			TEMP."req_no",
