@@ -157,6 +157,8 @@
 		function scrollHead(obj){
 
 			var p = $(obj).scrollLeft;
+			console.log('GGGGGGGGGGGGGGG');
+			console.log(p);
 
 			$("#stocklisthead").scrollLeft = p;
 
