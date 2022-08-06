@@ -63,8 +63,6 @@
 			    	tdArr.eq(0).children().hide();
 					// 行の色を変更
 					$(this).css({"background": "rgb(153,217,234)"});
-					// 商品管理番号
-					productno = tdArr.eq(2).html();
 
 					oyflg = ture;
 			    }
