@@ -187,16 +187,18 @@
 
 		}
 
-        // function outputstock(){
+        function outputstock(){
 
-        // 	var productdivArr = new Array();
+        	// var productdivArr = new Array();
 
-        // 	$('#productdiv input:checkbox:checked').each(function (index, item) {
-        // 		productdivArr.push($(this).val());
-    	// 	});
+        	// $('#productdiv input:checkbox:checked').each(function (index, item) {
+        	// 	productdivArr.push($(this).val());
+    		// });
 
-		// 	Efw('outputstock',{'productdiv': productdivArr});
-        // }
+			// Efw('outputstock',{'productdiv': productdivArr});
+
+			Efw('stock/outputstock',{shop:'Smart-Bear'})
+        }
 
         function initstock(){
         	Efw('stock/initstock');
