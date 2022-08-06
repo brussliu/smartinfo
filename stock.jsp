@@ -140,13 +140,29 @@
 		function displayResult(){
 
 			var flg1 = $("#display1").attr("checked");
-			alert(flg1);
+			if(flg1 == "checked"){
+				$(".display1").show();
+			}else{
+				$(".display1").hide();
+			}
 			var flg2 = $("#display2").attr("checked");
-			alert(flg2);
+			if(flg2 == "checked"){
+				$(".display2").show();
+			}else{
+				$(".display2").hide();
+			}
 			var flg3 = $("#display3").attr("checked");
-			alert(flg3);
+			if(flg3 == "checked"){
+				$(".display3").show();
+			}else{
+				$(".display3").hide();
+			}
 			var flg4 = $("#display4").attr("checked");
-			alert(flg4);
+			if(flg4 == "checked"){
+				$(".display4").show();
+			}else{
+				$(".display4").hide();
+			}
 
 		}
 
@@ -245,29 +261,29 @@
 <table border="1" id="stocktablehead" style="width: 3200px; font-size: 12px;">
 	<tr>
 		<td style="width: 50px;">選択</td>
-		<td style="width: 120px;">商品分類</td>
-		<td style="width: 100px;">商品管理番号</td>
-		<td style="width: 70px;">商品種別</td>
-		<td style="width: 100px;">色</td>
-		<td style="width: 150px;">サイズ</td>
-		<td style="width: 120px;" class="moreinfo">SKU番号</td>
-		<td style="width: 120px;" class="moreinfo">ASIN番号</td>
-		<td style="width: 120px;" class="moreinfo">ラベル番号</td>
-		<td style=""              class="moreinfo">商品名称</td>
-		<td style="width: 80px;">FBA在庫</td>
-		<td style="width: 80px;">FBM在庫</td>
-		<td style="width: 80px;">LOCAL<br>在庫</td>
-		<td style="width: 80px;">ONBOARD<br>在庫</td>
-		<td style="width: 80px;">販売中<br>在庫合計</td>
-		<td style="width: 80px;">予備<br>在庫合計</td>
-		<td style="width: 80px;">全体<br>在庫合計</td>
-		<td style="width: 100px;">販売数量<br/>(昨日)</td>
-		<td style="width: 100px;">販売数量<br/>(直近7日間)</td>
-		<td style="width: 100px;">販売数量<br/>(直近30日間)</td>
-		<td style="width: 100px;">販売数量<br/>(直近60日間)</td>
-		<td style="width: 100px;">販売数量<br/>(直近90日間)</td>
-		<td style="width: 100px;">販売数量<br/>(週間平均値)</td>
-		<td style="width: 100px;">販売可能期間<br/>(平均値)</td>
+		<td style="width: 120px;" class="display1">商品分類</td>
+		<td style="width: 100px;" class="display1">商品管理番号</td>
+		<td style="width: 70px;"  class="display1">商品種別</td>
+		<td style="width: 100px;" class="display1">色</td>
+		<td style="width: 150px;" class="display1">サイズ</td>
+		<td style="width: 120px;" class="display1">SKU番号</td>
+		<td style="width: 120px;" class="display1">ASIN番号</td>
+		<td style="width: 120px;" class="display1">ラベル番号</td>
+		<td                       class="display2">商品名称</td>
+		<td style="width: 80px;" class="display3">FBA在庫</td>
+		<td style="width: 80px;" class="display3">FBM在庫</td>
+		<td style="width: 80px;" class="display3">LOCAL<br>在庫</td>
+		<td style="width: 80px;" class="display3">ONBOARD<br>在庫</td>
+		<td style="width: 80px;" class="display3">販売中<br>在庫合計</td>
+		<td style="width: 80px;" class="display3">予備<br>在庫合計</td>
+		<td style="width: 80px;" class="display3">全体<br>在庫合計</td>
+		<td style="width: 100px;" class="display4">販売数量<br/>(昨日)</td>
+		<td style="width: 100px;" class="display4">販売数量<br/>(直近7日間)</td>
+		<td style="width: 100px;" class="display4">販売数量<br/>(直近30日間)</td>
+		<td style="width: 100px;" class="display4">販売数量<br/>(直近60日間)</td>
+		<td style="width: 100px;" class="display4">販売数量<br/>(直近90日間)</td>
+		<td style="width: 100px;" class="display4">販売数量<br/>(週間平均値)</td>
+		<td style="width: 100px;" class="display4">販売可能期間<br/>(平均値)</td>
 	</tr>
 </table>
 </div>

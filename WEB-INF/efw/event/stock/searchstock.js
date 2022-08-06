@@ -86,29 +86,29 @@ searchstock.fire=function(params){
 		resultHTML =
 			"<tr style='background-color: rgb(205,255,255);height:42px;'>" +
 				"<td style='width: 50px;'><input type='checkbox'></td>" +
-				"<td style='width:120px;'>{productdiv}</td>" +
-				"<td style='width:100px;'>{productno}</td>" +
-				"<td style='width:70px;'>{productkinds}</td>" +
-				"<td style='width:100px;'>{color}</td>" +
-				"<td style='width:150px;'>{size}</td>" +
-				"<td style='width:120px;' class='moreinfo'>{sku}</td>" +
-				"<td style='width:120px;' class='moreinfo'>{asin}</td>" +
-				"<td style='width:120px;' class='moreinfo'>{label}</td>" +
-				"<td style=''             class='moreinfo'>{productname}</td>" +
-				"<td style='width: 80px;'>{fba}</td>" +
-				"<td style='width: 80px;'>{fbm}</td>" +
-				"<td style='width: 80px;'>{localstock}</td>" +
-				"<td style='width: 80px;'>{onboard}</td>" +
-				"<td style='width: 80px;'>{stockonsell}</td>" +
-				"<td style='width: 80px;'>{stockprepare}</td>" +
-				"<td style='width: 80px;'>{stockall}</td>" +
-				"<td style='width:100px;'>{selled1}</td>" +
-				"<td style='width:100px;'>{selled7}</td>" +
-				"<td style='width:100px;'>{selled30}</td>" +
-				"<td style='width:100px;'>{selled60}</td>" +
-				"<td style='width:100px;'>{selled90}</td>" +
-				"<td style='width:100px;'>{selledweek}</td>" +
-				"<td style='width:100px;'>{onsellweek}</td>" +
+				"<td style='width:120px;' class='display1'>{productdiv}</td>" +
+				"<td style='width:100px;' class='display1'>{productno}</td>" +
+				"<td style='width:70px;'  class='display1'>{productkinds}</td>" +
+				"<td style='width:100px;' class='display1'>{color}</td>" +
+				"<td style='width:150px;' class='display1'>{size}</td>" +
+				"<td style='width:120px;' class='display1'>{sku}</td>" +
+				"<td style='width:120px;' class='display1'>{asin}</td>" +
+				"<td style='width:120px;' class='display1'>{label}</td>" +
+				"<td                      class='display2'>{productname}</td>" +
+				"<td style='width: 80px;' class='display3'>{fba}</td>" +
+				"<td style='width: 80px;' class='display3'>{fbm}</td>" +
+				"<td style='width: 80px;' class='display3'>{localstock}</td>" +
+				"<td style='width: 80px;' class='display3'>{onboard}</td>" +
+				"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +
+				"<td style='width: 80px;' class='display3'>{stockprepare}</td>" +
+				"<td style='width: 80px;' class='display3'>{stockall}</td>" +
+				"<td style='width:100px;' class='display4'>{selled1}</td>" +
+				"<td style='width:100px;' class='display4'>{selled7}</td>" +
+				"<td style='width:100px;' class='display4'>{selled30}</td>" +
+				"<td style='width:100px;' class='display4'>{selled60}</td>" +
+				"<td style='width:100px;' class='display4'>{selled90}</td>" +
+				"<td style='width:100px;' class='display4'>{selledweek}</td>" +
+				"<td style='width:100px;' class='display4'>{onsellweek}</td>" +
 			"</tr>";
 
 
