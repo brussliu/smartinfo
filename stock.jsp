@@ -150,6 +150,9 @@
 			var flg4 = false;
 
         	$('#displayitem input:checkbox:checked').each(function (index, item) {
+
+				console.log($(this).val());
+
         		
 				if($(this).val() == '基本情報'){
 					$(".display1").show();
@@ -185,7 +188,7 @@
 			if(flg4 = false){
 				$(".display4").hide();
 			}
-
+			console.log("------------------");
 			console.log(flg1);
 			console.log(flg2);
 			console.log(flg3);
