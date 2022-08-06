@@ -176,16 +176,16 @@
 
 			});
 
-			if(flg1 = false){
+			if(flg1 == false){
 				$(".display1").hide();
 			}
-			if(flg2 = false){
+			if(flg2 == false){
 				$(".display2").hide();
 			}
-			if(flg3 = false){
+			if(flg3 == false){
 				$(".display3").hide();
 			}		
-			if(flg4 = false){
+			if(flg4 == false){
 				$(".display4").hide();
 			}
 			console.log("------------------");
