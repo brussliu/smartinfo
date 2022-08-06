@@ -144,36 +144,45 @@
 
 		function displayResult(){
 
-			var flg1 = $("#display1").attr("checked");
-			if(flg1 == "checked"){
-				console.log("111");
-				$(".display1").show();
-			}else{
-				console.log("222");
+			var flg1 = false;
+			var flg2 = false;
+			var flg3 = false;
+			var flg4 = false;
+
+        	$('#displayitem input:checkbox:checked').each(function (index, item) {
+        		
+				if($(this).val() == '基本情報'){
+					$(".display1").show();
+					flg1 = true;
+				}
+
+				if($(this).val() == '商品名称'){
+					$(".display2").show();
+					flg2 = true;
+				}
+
+				if($(this).val() == '在庫情報'){
+					$(".display3").show();
+					flg3 = true;
+				}
+
+				if($(this).val() == '販売情報'){
+					$(".display4").show();
+					flg4 = true;
+				}
+
+			});
+
+			if(flg1 = false){
 				$(".display1").hide();
 			}
-			var flg2 = $("#display2").attr("checked");
-			if(flg2 == "checked"){
-				console.log("333");
-				$(".display2").show();
-			}else{
-				console.log("444");
+			if(flg2 = false){
 				$(".display2").hide();
 			}
-			var flg3 = $("#display3").attr("checked");
-			if(flg3 == "checked"){
-				console.log("555");
-				$(".display3").show();
-			}else{
-				console.log("666");
+			if(flg3 = false){
 				$(".display3").hide();
-			}
-			var flg4 = $("#display4").attr("checked");
-			if(flg4 == "checked"){
-				console.log("777");
-				$(".display4").show();
-			}else{
-				console.log("888");
+			}		
+			if(flg4 = false){
 				$(".display4").hide();
 			}
 
@@ -251,11 +260,11 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			表示項目
 		</td>
-		<td style="font-size: 16px;">
-			<input type="checkbox" checked="checked" value="基本情報" id="display1">&nbsp;基本情報
-			<input type="checkbox" checked="" value="商品名称" id="display2">&nbsp;商品名称
-			<input type="checkbox" checked="checked" value="在庫情報" id="display3">&nbsp;在庫情報
-			<input type="checkbox" checked="checked" value="販売情報" id="display4">&nbsp;販売情報
+		<td style="font-size: 16px;" id="displayitem">
+			<input type="checkbox" checked value="基本情報" id="display1">&nbsp;基本情報
+			<input type="checkbox" checked value="商品名称" id="display2">&nbsp;商品名称
+			<input type="checkbox" checked value="在庫情報" id="display3">&nbsp;在庫情報
+			<input type="checkbox" checked value="販売情報" id="display4">&nbsp;販売情報
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
