@@ -255,7 +255,7 @@
 	</tr>
 </table>
 <hr>
-<div id="stocklisthead" style="height: 40px; width:1900px; overflow:auto;overflow: hidden; border: none;">
+<div id="stocklisthead" style="height: 40px; width:1890px; overflow:auto;overflow: hidden; border: none;">
 <table border="1" id="stocktablehead" style="width: 3200px; font-size: 12px;">
 	<tr>
 		<td style="width: 50px;">選択</td>
