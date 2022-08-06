@@ -185,19 +185,21 @@
 
 				$(".display2").hide();
 
-				$("#stocktablehead").width($("#stocktablehead").width() - 850);
-				$("#stocktable").width($("#stocktable").width() - 850);
+				$("#stocktablehead").width($("#stocktablehead").width() - 1030);
+				$("#stocktable").width($("#stocktable").width() - 1030);
 			}
 			if(flg3 == false){
 				$(".display3").hide();
+
+				$("#stocktablehead").width($("#stocktablehead").width() - 84*7);
+				$("#stocktable").width($("#stocktable").width() - 84*7);
 			}		
 			if(flg4 == false){
 				$(".display4").hide();
+
+				$("#stocktablehead").width($("#stocktablehead").width() - 154 - 104 - 104);
+				$("#stocktable").width($("#stocktable").width() - 154 - 104 - 104);
 			}
-			console.log("------------------");
-				
-			console.log($("#stocktablehead").width());
-			console.log($("#stocktable").width());
 
 
 		}
@@ -275,7 +277,7 @@
 			表示項目
 		</td>
 		<td style="font-size: 16px;" id="displayitem">
-			<input type="checkbox" checked value="基本情報" id="display1">&nbsp;基本情報
+			<input type="checkbox" checked value="基本情報" id="display1" disabled>&nbsp;基本情報
 			<input type="checkbox" checked value="商品名称" id="display2">&nbsp;商品名称
 			<input type="checkbox" checked value="在庫情報" id="display3">&nbsp;在庫情報
 			<input type="checkbox" checked value="販売情報" id="display4">&nbsp;販売情報
