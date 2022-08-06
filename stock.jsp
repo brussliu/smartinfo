@@ -212,18 +212,21 @@
 
 				if($(this).val() == '商品名称'){
 
-					alert("on");
-					//$(".display2").show();
+					$(".display2").show();
 					flg2 = true;
 
-					//$("#stocktablehead").width($("#stocktablehead").width() + 1030);
-					//$("#stocktable").width($("#stocktable").width() + 1030);
+					$("#stocktablehead").width($("#stocktablehead").width() + 1030);
+					$("#stocktable").width($("#stocktable").width() + 1030);
 				}
 
 			});
 
 			if(flg2 == false){
-				alert("off");
+				
+				$(".display2").hide();
+
+				$("#stocktablehead").width($("#stocktablehead").width() - 1030);
+				$("#stocktable").width($("#stocktable").width() - 1030);
 			}
 
 
