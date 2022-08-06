@@ -284,7 +284,7 @@
 		</td>
 		<td style="font-size: 16px;" id="displayitem">
 			<input type="checkbox" checked value="基本情報" id="display1" disabled>&nbsp;基本情報
-			<input type="checkbox" checked value="商品名称" id="display2" onclick="showitem(this);">&nbsp;商品名称
+			<input type="checkbox"         value="商品名称" id="display2" onclick="showitem(this);">&nbsp;商品名称
 			<input type="checkbox" checked value="在庫情報" id="display3" disabled>&nbsp;在庫情報
 			<input type="checkbox" checked value="販売情報" id="display4" disabled>&nbsp;販売情報
 		</td>
