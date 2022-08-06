@@ -73,9 +73,12 @@
 
 			    if(productkinds == "子商品"){
 
+					alert(newproductno);
+					return;
+
 					// チェックボックス列の色を変更
 					if(oyflg){
-						alert(newproductno);
+						
 						tdArr.eq(0).css({"background": "rgb(153,217,234)"});
 					}
 					
