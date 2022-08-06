@@ -250,7 +250,7 @@
 	</tr>
 </table>
 </div>
-<div id="stocklist" style="height: 680px; width:1900px; overflow:auto;border: none;">
+<div id="stocklist" style="height: 700px; width:1900px; overflow:auto;border: none;">
 <table border="1" id="stocktable" style="width: 3200px; font-size: 10px;">
 </table>
 
