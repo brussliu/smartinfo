@@ -185,8 +185,8 @@
 
 				$(".display2").hide();
 
-				$("#stocktablehead").width() = $("#stocktablehead").width() - 850;
-				$("#stocktable").width() = $("#stocktable").width() - 850;
+				$("#stocktablehead").width($("#stocktablehead").width() - 850);
+				$("#stocktable").width($("#stocktable").width() - 850);
 			}
 			if(flg3 == false){
 				$(".display3").hide();
