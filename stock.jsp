@@ -313,7 +313,7 @@
 		<td style="width: 80px;" class="display3">販売中<br>在庫合計</td>
 		<td style="width: 80px;" class="display3">予備<br>在庫合計</td>
 		<td style="width: 80px;" class="display3">全体<br>在庫合計</td>
-		<td style="width: 300px;" class="display4">販売数量<br/>昨日/直近7日間/直近30日間/直近60日間/直近90日間</td>
+		<td style="width: 200px;" class="display4">販売数量<br/>昨日/7日間/30日間/60日間/90日間</td>
 		<td style="width: 100px;" class="display4">販売数量<br/>(週間平均値)</td>
 		<td style="width: 100px;" class="display4">販売可能期間<br/>(平均値)</td>
 	</tr>
