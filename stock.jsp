@@ -202,7 +202,10 @@
 			表示項目
 		</td>
 		<td style="font-size: 16px;">
-			テスト
+			<input type="checkbox" checked value="基本情報">&nbsp;基本情報
+			<input type="checkbox" checked value="商品名称">&nbsp;商品名称
+			<input type="checkbox" checked value="在庫情報">&nbsp;在庫情報
+			<input type="checkbox" checked value="販売情報">&nbsp;販売情報
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
