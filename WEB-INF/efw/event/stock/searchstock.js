@@ -112,7 +112,7 @@ searchstock.fire=function(params){
 
 	}
 
-	var script = "$('#stocklist').show();displayResult();";
+	var script = "$('#stocklist').show();";
 	ret.eval(script);
 
 	// 画面へ結果を返す

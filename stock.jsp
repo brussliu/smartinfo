@@ -139,17 +139,9 @@
 
 		function displayResult(){
 
-			var flg1 = false;
 			var flg2 = false;
-			var flg3 = false;
-			var flg4 = false;
 
         	$('#displayitem input:checkbox:checked').each(function (index, item) {
-
-				if($(this).val() == '基本情報'){
-					$(".display1").show();
-					flg1 = true;
-				}
 
 				if($(this).val() == '商品名称'){
 					$(".display2").show();
@@ -159,22 +151,10 @@
 					$("#stocktable").width($("#stocktable").width() + 1030);
 				}
 
-				if($(this).val() == '在庫情報'){
-					$(".display3").show();
-					flg3 = true;
-				}
-
-				if($(this).val() == '販売情報'){
-					$(".display4").show();
-					flg4 = true;
-				}
-
 			});
 
 			if(flg1 == false){
-
 				$(".display1").hide();
-
 			}
 			if(flg2 == false){
 
@@ -185,15 +165,9 @@
 			}
 			if(flg3 == false){
 				$(".display3").hide();
-
-				$("#stocktablehead").width($("#stocktablehead").width() - 84*7);
-				$("#stocktable").width($("#stocktable").width() - 84*7);
 			}		
 			if(flg4 == false){
 				$(".display4").hide();
-
-				$("#stocktablehead").width($("#stocktablehead").width() - 154 - 104 - 104);
-				$("#stocktable").width($("#stocktable").width() - 154 - 104 - 104);
 			}
 
 
