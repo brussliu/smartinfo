@@ -75,7 +75,7 @@
 
 					// チェックボックス列の色を変更
 					if(oyflg){
-						alert(oyflg);
+						//alert(oyflg);
 						tdArr.eq(0).css({"background": "rgb(153,217,234)"});
 					}
 					
