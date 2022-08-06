@@ -151,9 +151,6 @@
 
         	$('#displayitem input:checkbox:checked').each(function (index, item) {
 
-				console.log($(this).val());
-
-        		
 				if($(this).val() == '基本情報'){
 					$(".display1").show();
 					flg1 = true;
@@ -162,6 +159,9 @@
 				if($(this).val() == '商品名称'){
 					$(".display2").show();
 					flg2 = true;
+
+					$("#stocktablehead").width($("#stocktablehead").width() + 1030);
+					$("#stocktable").width($("#stocktable").width() + 1030);
 				}
 
 				if($(this).val() == '在庫情報'){
@@ -279,8 +279,8 @@
 		<td style="font-size: 16px;" id="displayitem">
 			<input type="checkbox" checked value="基本情報" id="display1" disabled>&nbsp;基本情報
 			<input type="checkbox" checked value="商品名称" id="display2">&nbsp;商品名称
-			<input type="checkbox" checked value="在庫情報" id="display3">&nbsp;在庫情報
-			<input type="checkbox" checked value="販売情報" id="display4">&nbsp;販売情報
+			<input type="checkbox" checked value="在庫情報" id="display3" disabled>&nbsp;在庫情報
+			<input type="checkbox" checked value="販売情報" id="display4" disabled>&nbsp;販売情報
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
