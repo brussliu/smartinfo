@@ -156,11 +156,11 @@
 
 		function scrollHead(obj){
 
-			var p = $(obj).scrollLeft;
+			var p = $(obj).get(0).scrollLeft;
 			console.log('GGGGGGGGGGGGGGG');
 			console.log(p);
 
-			$("#stocklisthead").scrollLeft = p;
+			$("#stocklisthead").get(0).scrollLeft = p;
 
 		}
 
