@@ -146,26 +146,34 @@
 
 			var flg1 = $("#display1").attr("checked");
 			if(flg1 == "checked"){
+				console.log("111");
 				$(".display1").show();
 			}else{
+				console.log("222");
 				$(".display1").hide();
 			}
 			var flg2 = $("#display2").attr("checked");
 			if(flg2 == "checked"){
+				console.log("333");
 				$(".display2").show();
 			}else{
+				console.log("444");
 				$(".display2").hide();
 			}
 			var flg3 = $("#display3").attr("checked");
 			if(flg3 == "checked"){
+				console.log("555");
 				$(".display3").show();
 			}else{
+				console.log("666");
 				$(".display3").hide();
 			}
 			var flg4 = $("#display4").attr("checked");
 			if(flg4 == "checked"){
+				console.log("777");
 				$(".display4").show();
 			}else{
+				console.log("888");
 				$(".display4").hide();
 			}
 
