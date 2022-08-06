@@ -167,20 +167,20 @@
 		<COL WIDTH="220PX">
 	</COLGROUP>
 	<tr>
-		<td style="font-size: 20px;font-weight: bold;height: 50px;" colspan="5">
-			検索条件
-		</td>
-		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="searchstock" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchstock()">
-		</td>
-	</tr>
-	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
 		<td style="font-size: 16px;" id="productdiv">
+		</td>
+		<td style="font-size: 16px;text-align: right;">
+			<input type="button" id="searchstock" style="width: 200px;height: 40px;font-size: 20px;" value="検索" onclick="searchstock()">
+			
+		</td>
+	</tr>
+	<tr>
+		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品番号
@@ -191,27 +191,23 @@
 				<option value="マスタ未登録">マスタ未登録</option>
 			</select>
 		</td>
-		<td style="font-size: 16px;text-align: right;">
-			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
-		</td>
-	</tr>
-	<tr>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品名称
 		</td>
-		<td style="font-size: 16px;" colspan="5">
+		<td style="font-size: 16px;">
 			<input type="text" id="productname" style="width: 600px;height: 32px;">
-			<!--
-				<input type="button" id="aaa" style="width: 200px;height: 40px;font-size: 20px;" value="補足対象のみ" onclick="showstock()">
-			-->
+		</td>
+		<td style="font-size: 16px;text-align: right;">
+			<input type="button" id="outputstock" style="width: 200px;height: 40px;font-size: 20px;" value="出力" onclick="outputstock()">
+		</td>
+
+		<!--
+		<td style="font-size: 16px;" colspan="5">
 			<input type="button" id="showmore" value="▶" onclick="showmore();" style="display: none;float: right;">
 			<input type="button" id="showless" value="◀" onclick="showless();" style="float: right;">
 		</td>
-		<td style="font-size: 16px;" id="basedate_stock">
-			
-		</td>
+		-->
+
 	</tr>
 </table>
 <hr>
