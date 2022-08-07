@@ -97,21 +97,18 @@
 			    	if(num1 < 0.2){
 						//tdArr.eq(17).css({"background": "rgb(255,153,255)"});
 			    		//tdArr.eq(18).css({"background": "rgb(255,153,255)"});
-			    	}else if(num1 >= 0.2 && num1 < 0.5){
-						//tdArr.eq(17).css({"background": "rgb(255,204,255)"});
-			    		//tdArr.eq(18).css({"background": "rgb(255,204,255)"});
-			    	}else if(num1 >= 0.5 && num1 < 1){
-						//tdArr.eq(17).css({"background": "rgb(204,255,255)"});
-			    		//tdArr.eq(18).css({"background": "rgb(204,255,255)"});
+			    	}else if(num1 >= 0.2 && num1 < 1){
+						tdArr.eq(17).css({"background": "rgb(202,255,202)"});
+			    		tdArr.eq(18).css({"background": "rgb(202,255,202)"});
 			    	}else if(num1 >= 1 && num1 < 2){
-						tdArr.eq(17).css({"background": "rgb(153,255,153)"});
-			    		tdArr.eq(18).css({"background": "rgb(153,255,153)"});
+						tdArr.eq(17).css({"background": "rgb(152,255,152)"});
+			    		tdArr.eq(18).css({"background": "rgb(152,255,152)"});
 			    	}else if(num1 >= 2 && num1 < 5){
 						tdArr.eq(17).css({"background": "rgb(102,255,102)"});
 			    		tdArr.eq(18).css({"background": "rgb(102,255,102)"});
 			    	}else if(num1 >= 5){
-						tdArr.eq(17).css({"background": "rgb(0,255,255)"});
-			    		tdArr.eq(18).css({"background": "rgb(0,255,255)"});
+						tdArr.eq(17).css({"background": "rgb(52,255,52)"});
+			    		tdArr.eq(18).css({"background": "rgb(52,255,52)"});
 			    	}	
 
 
