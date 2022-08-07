@@ -95,14 +95,14 @@
 			    	// 販売数量（週間平均値）
 			    	var num1 = parseFloat(tdArr.eq(18).html());
 			    	if(num1 < 0.2){
-						tdArr.eq(17).css({"background": "rgb(255,153,255)"});
-			    		tdArr.eq(18).css({"background": "rgb(255,153,255)"});
+						//tdArr.eq(17).css({"background": "rgb(255,153,255)"});
+			    		//tdArr.eq(18).css({"background": "rgb(255,153,255)"});
 			    	}else if(num1 >= 0.2 && num1 < 0.5){
-						tdArr.eq(17).css({"background": "rgb(255,204,255)"});
-			    		tdArr.eq(18).css({"background": "rgb(255,204,255)"});
+						//tdArr.eq(17).css({"background": "rgb(255,204,255)"});
+			    		//tdArr.eq(18).css({"background": "rgb(255,204,255)"});
 			    	}else if(num1 >= 0.5 && num1 < 1){
-						tdArr.eq(17).css({"background": "rgb(204,255,255)"});
-			    		tdArr.eq(18).css({"background": "rgb(204,255,255)"});
+						//tdArr.eq(17).css({"background": "rgb(204,255,255)"});
+			    		//tdArr.eq(18).css({"background": "rgb(204,255,255)"});
 			    	}else if(num1 >= 1 && num1 < 2){
 						tdArr.eq(17).css({"background": "rgb(153,255,153)"});
 			    		tdArr.eq(18).css({"background": "rgb(153,255,153)"});
