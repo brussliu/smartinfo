@@ -114,7 +114,7 @@
 
 			    	// 販売中在庫販売可能期間
 			    	var num3 = parseFloat(tdArr.eq(19).html());
-			    	if(num2 == 0 || num3 < 10){
+			    	if(num3 < 10){
 			    		tdArr.eq(21).css({"background": "rgb(255,153,255)"});
 
 			    	}else if(num3 >= 10 && num3 < 30){
