@@ -84,7 +84,26 @@
 						$(this).css({"background": "rgb(159,252,253)"});
 					}
 					
+					// 販売中在庫
+					var stockonsell = parseFloat(tdArr.eq(14).html());
+
+					if(stockonsell == 0){
+						tdArr.eq(10).css({"background": "rgb(255,0,0)"});
+						tdArr.eq(11).css({"background": "rgb(255,0,0)"});
+					}
+
+
+
+
+
+
+
+					
+
 			    }
+
+
+
 
 				oldproductno = newproductno;
 			     
@@ -111,15 +130,7 @@
 			    // 		tdArr.eq(14).css({"background": "rgb(0,255,255)"});
 			    // 	}	
 
-			    // 	// 在庫
-			    // 	var num2 = parseFloat(tdArr.eq(16).html());
-			    // 	if(num2 < 5){
-			    // 		tdArr.eq(16).css({"background": "rgb(102,153,255)"});
-			    // 	}else if(num2 >= 5 && num2 < 10){
-			    // 		tdArr.eq(16).css({"background": "rgb(153,204,255)"});
-			    // 	}else if(num2 >= 10){
-			    // 		tdArr.eq(16).css({"background": "rgb(204,236,255)"});
-			    // 	}
+
 
 			    // 	// 販売可能期間
 			    // 	var num3 = parseFloat(tdArr.eq(21).html());
