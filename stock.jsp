@@ -75,8 +75,13 @@
 
 					// チェックボックス列の色を変更
 					if(oyflg){
-						//alert(oyflg);
+
 						tdArr.eq(0).css({"background": "rgb(153,217,234)"});
+
+					}else{
+
+						// 行の色を変更
+						$(this).css({"background": "rgb(159,252,253)"});
 					}
 					
 			    }
@@ -249,7 +254,7 @@
 </div>
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="1" style="width: 100%;">
+<table class="productlist" border="0" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
@@ -313,7 +318,7 @@
 	</tr>
 </table>
 <hr>
-<div id="stocklisthead" style="height: 40px; width:1883px; overflow:auto;overflow: hidden; border: none;">
+<div id="stocklisthead" style="height: 40px; width:1883px; overflow:auto;overflow: hidden; border: none;display: none;">
 <table border="1" id="stocktablehead" style="width: 1870px; font-size: 12px;">
 	<tr>
 		<td style="width: 50px;">選択</td>

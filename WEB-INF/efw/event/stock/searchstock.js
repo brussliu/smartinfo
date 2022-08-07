@@ -86,7 +86,7 @@ searchstock.fire=function(params){
 
 	ret.runat("#stocktable").remove("tr").append(resultHTML).withdata(selectResult);
 
-	var script = "$('#stocklist').show();changeColor();";
+	var script = "$('#stocklisthead').show();$('#stocklist').show();changeColor();";
 	ret.eval(script);
 
 	// 画面へ結果を返す
