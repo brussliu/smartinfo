@@ -112,40 +112,25 @@
 			    	}	
 
 
+			    	// 販売中在庫販売可能期間
+			    	var num3 = parseFloat(tdArr.eq(19).html());
+			    	if(num2 == 0 || num3 < 10){
+			    		tdArr.eq(21).css({"background": "rgb(255,153,255)"});
 
+			    	}else if(num3 >= 10 && num3 < 30){
+			    		tdArr.eq(21).css({"background": "rgb(255,204,255)"});
 
+			    	}else{
 
-
+			    	}
 
 			    }
-
-
 
 
 				oldproductno = newproductno;
 			     
 			});
 
-			    // 	//alert($(this));
-			    // 	for(var i=3;i < tdArr.length;i ++){
-			    // 		tdArr.eq(i).css({"background": "rgb(255,255,205)"});
-			    // 	}
-
-
-
-
-
-			    // 	// 販売可能期間
-			    // 	var num3 = parseFloat(tdArr.eq(21).html());
-			    // 	if(num2 == 0 || num3 < 10){
-			    // 		tdArr.eq(21).css({"background": "rgb(255,153,255)"});
-			    // 		$(this).addClass("stock1");
-			    // 	}else if(num3 >= 10 && num3 < 30){
-			    // 		tdArr.eq(21).css({"background": "rgb(255,204,255)"});
-			    // 		$(this).addClass("stock2");
-			    // 	}else{
-			    // 		$(this).addClass("stock0");
-			    // 	}
 
         }
 
