@@ -92,13 +92,33 @@
 						tdArr.eq(11).css({"background": "rgb(255,0,0)"});
 					}
 
+			    	// 販売数量（週間平均値）
+			    	var num1 = parseFloat(tdArr.eq(18).html());
+			    	if(num1 < 0.2){
+						tdArr.eq(17).css({"background": "rgb(255,153,255)"});
+			    		tdArr.eq(18).css({"background": "rgb(255,153,255)"});
+			    	}else if(num1 >= 0.2 && num1 < 0.5){
+						tdArr.eq(17).css({"background": "rgb(255,204,255)"});
+			    		tdArr.eq(18).css({"background": "rgb(255,204,255)"});
+			    	}else if(num1 >= 0.5 && num1 < 1){
+						tdArr.eq(17).css({"background": "rgb(204,255,255)"});
+			    		tdArr.eq(18).css({"background": "rgb(204,255,255)"});
+			    	}else if(num1 >= 1 && num1 < 2){
+						tdArr.eq(17).css({"background": "rgb(153,255,153)"});
+			    		tdArr.eq(18).css({"background": "rgb(153,255,153)"});
+			    	}else if(num1 >= 2 && num1 < 5){
+						tdArr.eq(17).css({"background": "rgb(102,255,102)"});
+			    		tdArr.eq(18).css({"background": "rgb(102,255,102)"});
+			    	}else if(num1 >= 5){
+						tdArr.eq(17).css({"background": "rgb(0,255,255)"});
+			    		tdArr.eq(18).css({"background": "rgb(0,255,255)"});
+			    	}	
 
 
 
 
 
 
-					
 
 			    }
 
@@ -114,21 +134,7 @@
 			    // 		tdArr.eq(i).css({"background": "rgb(255,255,205)"});
 			    // 	}
 
-			    // 	// 販売数量（週間平均値）
-			    // 	var num1 = parseFloat(tdArr.eq(14).html());
-			    // 	if(num1 < 0.2){
-			    // 		tdArr.eq(14).css({"background": "rgb(255,153,255)"});
-			    // 	}else if(num1 >= 0.2 && num1 < 0.5){
-			    // 		tdArr.eq(14).css({"background": "rgb(255,204,255)"});
-			    // 	}else if(num1 >= 0.5 && num1 < 1){
-			    // 		tdArr.eq(14).css({"background": "rgb(204,255,255)"});
-			    // 	}else if(num1 >= 1 && num1 < 2){
-			    // 		tdArr.eq(14).css({"background": "rgb(153,255,153)"});
-			    // 	}else if(num1 >= 2 && num1 < 5){
-			    // 		tdArr.eq(14).css({"background": "rgb(102,255,102)"});
-			    // 	}else if(num1 >= 5){
-			    // 		tdArr.eq(14).css({"background": "rgb(0,255,255)"});
-			    // 	}	
+
 
 
 
