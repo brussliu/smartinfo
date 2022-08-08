@@ -257,8 +257,7 @@
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
-		<COL WIDTH="150PX">
-		<COL WIDTH="100PX">
+
 		<COL >
 		<COL WIDTH="100PX">
 		<COL WIDTH="450PX">
@@ -270,7 +269,7 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" id="productdiv" colspan="3">
+		<td style="font-size: 16px;" id="productdiv" >
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			表示項目
