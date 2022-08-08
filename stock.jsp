@@ -292,19 +292,22 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品番号
 		</td>
-		<td style="font-size: 16px;">
+		<td style="font-size: 16px;" colspan="3">
 			<select STYLE="WIDTH:120px;height:32px;" id="productno">
 				<option value=""></option>
 				<option value="マスタ未登録">マスタ未登録</option>
 			</select>
-		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			キーワード
+			<input type="text" id="keyword" style="width: 250px;height: 32px;">
+		</td>
+		<!--
+		<td style="font-size: 16px;font-weight: bold;height: 40px;">
+			
 		</td>
 		<td style="font-size: 16px;">
-			<input type="text" id="keyword" style="width: 400px;height: 32px;">
+			
 		</td>
-		
+		-->
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 150px;height: 35px;font-size: 18px;" value="出力" onclick="outputstock()">
 		</td>
