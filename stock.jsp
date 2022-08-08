@@ -257,8 +257,10 @@
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
-
+		<COL WIDTH="150PX">
+		<COL WIDTH="100PX">
 		<COL >
+		<COL WIDTH="100PX">
 		<COL WIDTH="100PX">
 		<COL WIDTH="450PX">
 		<COL WIDTH="350PX">
@@ -269,7 +271,7 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" id="productdiv" >
+		<td style="font-size: 16px;" id="productdiv" colspan="4">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			表示項目
@@ -292,24 +294,24 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品番号
 		</td>
-		<td style="font-size: 16px;" colspan="3">
+		<td style="font-size: 16px;">
 			<select STYLE="WIDTH:120px;height:32px;" id="productno">
 				<option value=""></option>
 				<option value="マスタ未登録">マスタ未登録</option>
 			</select>
-			&nbsp;&nbsp;
-			<span style="font-size: 16px;font-weight: bold;">キーワード</span>
-			&nbsp;&nbsp;
-			<input type="text" id="keyword" style="width: 250px;height: 32px;">
 		</td>
-		<!--
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			
+		<td style="font-size: 16px;font-weight: bold;">
+			キーワード
 		</td>
 		<td style="font-size: 16px;">
-			
+			<input type="text" id="keyword" style="width: 250px;height: 32px;">
 		</td>
-		-->
+		<td style="font-size: 16px;font-weight: bold;">
+			高級機能
+		</td>
+		<td style="font-size: 16px;" colspan="2">
+
+		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 150px;height: 35px;font-size: 18px;" value="出力" onclick="outputstock()">
 		</td>
