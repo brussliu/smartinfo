@@ -13,7 +13,7 @@ uploadfile.paramsFormat={
 	"#importfile_order":null,
 
 	// 在庫情報導入
-	"#importfile_localstock":null,
+	//"#importfile_localstock":null,
 
 	// 売上詳細情報導入
 	"#importfile_earnings":null,
@@ -60,9 +60,6 @@ uploadfile.fire=function(params){
 
 		ct = ct + count;
 
-		//"出品詳細レポート+01-26-2020.txt"
-		//var d = f.substring(15,19) + "-" + f.substring(9,11) + "-" + f.substring(12,14);
-
 		// -----------------------FBA-----------------------
 		count = 0;
 
@@ -84,9 +81,6 @@ uploadfile.fire=function(params){
 
 		ct = ct + "/"+ count;
 
-		//"FBA在庫レポート+01-26-2020.txt"
-		//var d = f.substring(16,20) + "-" + f.substring(10,12) + "-" + f.substring(13,15);
-
 		// -----------------------注文-----------------------
 		count = 0;
 
@@ -101,18 +95,8 @@ uploadfile.fire=function(params){
 
 		ct = ct + "/"+ count;
 
-		//"3630501660018292.txt"
-		//var d = new Date().format("yyyy-MM-dd");
-
 		saveHistory(shopname, params["data"], null, ct);
 
-	// }else if(params["data"] == "fba"){
-
-	// 	saveHistory(shopname, params["data"], d, count);
-
-	// }else if(params["data"] == "order"){
-
-	// 	saveHistory(shopname, params["data"], d, count);
 
 	}else if(params["data"] == "localstock"){
 
@@ -164,8 +148,6 @@ uploadfile.fire=function(params){
 		var fa = params["#importfile_ship_amazon"].split("\\");
 		var f = fa[fa.length-1];
 
-
-		//var csvReader = new CSVReader("upload/" + f, "\t");
 		var csvReader = new CSVReader("upload/" + f, "\t", "\"", "MS932");
 
 		// データ全件導入
