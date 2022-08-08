@@ -127,6 +127,10 @@
 			    )
 			</if>
 
+			<if exists="csvflg"> AND (
+				<if istrue="csvflg == '1'"> V_MST."商品種別" = '子商品' </if>
+			    )
+			</if>
 
 		ORDER BY V_MST."req_no"
 	</sql>

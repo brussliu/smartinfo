@@ -12,21 +12,21 @@ outputstock.fire=function(params){
 
 	shopname = params["shop"];
 
-	// 注文基準日
-	var selectResult = db.select(
-		"STOCK",
-		"searchhistory",
-		{shop:shopname}
-	);
-	var orderArr = selectResult.seek("importtype","eq","order").getArray();
-	var orderBaseDate = orderArr[0]["basetime"];
+	// // 注文基準日
+	// var selectResult = db.select(
+	// 	"STOCK",
+	// 	"searchhistory",
+	// 	{shop:shopname}
+	// );
+	// var orderArr = selectResult.seek("importtype","eq","order").getArray();
+	// var orderBaseDate = orderArr[0]["basetime"];
 
 	var selectResult = db.select(
 		"STOCK",
 		"selectstock",
 		{
-		shop:shopname,
-		basedate_order:orderBaseDate,
+		shop : shopname,
+		csvflg : "1"
 		}
 	).getArray();
 
