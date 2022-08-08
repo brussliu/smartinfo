@@ -286,6 +286,7 @@
 			<input type="button" id="searchstock" style="width: 150px;height: 35px;font-size: 18px;" value="検索" onclick="searchstock()">
 		</td>
 	</tr>
+	<!--
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 		</td>
@@ -310,6 +311,7 @@
 		</td>
 
 	</tr>
+	-->
 </table>
 <hr>
 <div id="stocklisthead" style="height: 40px; width:1883px; overflow:auto;overflow: hidden; border: none;display: none;">
