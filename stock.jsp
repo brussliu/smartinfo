@@ -259,10 +259,10 @@
 		<COL WIDTH="100PX">
 		<COL WIDTH="150PX">
 		<COL WIDTH="100PX">
-		<COL WIDTH="450PX">
+		<COL >
 		<COL WIDTH="100PX">
-		<COL WIDTH="600PX">
-		<COL WIDTH="400PX">
+		<COL WIDTH="450PX">
+		<COL WIDTH="350PX">
 	</COLGROUP>
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
@@ -270,7 +270,16 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" id="productdiv" colspan="5">
+		<td style="font-size: 16px;" id="productdiv" colspan="3">
+		</td>
+		<td style="font-size: 16px;font-weight: bold;height: 40px;">
+			表示項目
+		</td>
+		<td style="font-size: 16px;" id="displayitem">
+			<input type="checkbox" checked value="基本情報" id="display1" disabled>&nbsp;基本情報
+			<input type="checkbox"         value="商品名称" id="display2" onclick="showitem(this);">&nbsp;商品名称
+			<input type="checkbox" checked value="在庫情報" id="display3" disabled>&nbsp;在庫情報
+			<input type="checkbox" checked value="販売情報" id="display4" disabled>&nbsp;販売情報
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="updatestock" style="width: 150px;height: 35px;font-size: 18px;" value="更新" onclick="updatestock()">
@@ -292,27 +301,13 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			キーワード
 		</td>
-		<td style="font-size: 16px;">
+		<td style="font-size: 16px;" colspan="3">
 			<input type="text" id="keyword" style="width: 400px;height: 32px;">
 		</td>
-		<td style="font-size: 16px;font-weight: bold;height: 40px;">
-			表示項目
-		</td>
-		<td style="font-size: 16px;" id="displayitem">
-			<input type="checkbox" checked value="基本情報" id="display1" disabled>&nbsp;基本情報
-			<input type="checkbox"         value="商品名称" id="display2" onclick="showitem(this);">&nbsp;商品名称
-			<input type="checkbox" checked value="在庫情報" id="display3" disabled>&nbsp;在庫情報
-			<input type="checkbox" checked value="販売情報" id="display4" disabled>&nbsp;販売情報
-		</td>
+		
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 150px;height: 35px;font-size: 18px;" value="出力" onclick="outputstock()">
 		</td>
-		<!--
-		<td style="font-size: 16px;" colspan="5">
-			<input type="button" id="showmore" value="▶" onclick="showmore();" style="display: none;float: right;">
-			<input type="button" id="showless" value="◀" onclick="showless();" style="float: right;">
-		</td>
-		-->
 
 	</tr>
 </table>
