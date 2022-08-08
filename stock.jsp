@@ -271,7 +271,7 @@
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			商品分類
 		</td>
-		<td style="font-size: 16px;" id="productdiv" colspan="4">
+		<td style="font-size: 12px;" id="productdiv" colspan="4">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 40px;">
 			表示項目
