@@ -297,7 +297,9 @@
 				<option value=""></option>
 				<option value="マスタ未登録">マスタ未登録</option>
 			</select>
-			キーワード
+			&nbsp;&nbsp;
+			<span style="font-size: 16px;">キーワード</span>
+			&nbsp;&nbsp;
 			<input type="text" id="keyword" style="width: 250px;height: 32px;">
 		</td>
 		<!--
