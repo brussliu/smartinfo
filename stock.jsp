@@ -253,7 +253,7 @@
 </div>
 <input type="hidden" id="shop">
 <br/>
-<table class="productlist" border="0" style="width: 100%;">
+<table class="productlist" border="1" style="width: 100%;">
 	<COLGROUP>
 		<COL WIDTH="30PX">
 		<COL WIDTH="100PX">
