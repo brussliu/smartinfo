@@ -167,6 +167,8 @@
 			</if>
 
 			<if istrue="highsearch == 'deliverycount'"> AND (
+				(V_STOCK."FBA在庫数量" > 0 OR V_STOCK."FBM在庫数量" is NULL OR V_STOCK."FBM在庫数量" = 0)
+				AND
 					CASE WHEN 
 							V_SELL."前日数量" = 0 and V_SELL."7日間数量" = 0 and V_SELL."30日間数量" = 0 and 
 							V_SELL."60日間数量" = 0 and V_SELL."90日間数量" = 0 THEN 9999 
