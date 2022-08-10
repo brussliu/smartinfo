@@ -158,10 +158,10 @@
 					WHERE
 						1 = 1
 						<if exists="sellfrom">
-							and selledweek >= !sellfrom 
+							and selledweek >= cast(!sellfrom as float) 
 						</if>
 						<if exists="sellto">
-							and selledweek >= !sellto 
+							and selledweek >= cast(!sellto  as float) 
 						</if>
 					)
 				)
