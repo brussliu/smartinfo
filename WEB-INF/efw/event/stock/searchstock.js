@@ -110,11 +110,11 @@ searchstock.fire=function(params){
 		"<td " + subhtml +      " class='display2'>{productname}</td>" +
 		"<td style='width: 60px;' class='display3'>{fba}</td>" +
 		"<td style='width: 60px;' class='display3'>{fbm}</td>" +
-		"<td style='width: 80px;' class='display3'><input type='text' style='width: 50px;height: 28px;{displayflg}' value='{localstock}'></td>" +
-		"<td style='width: 80px;' class='display3'>{onboard}</td>" +
-		"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +
-		"<td style='width: 80px;' class='display3'>{stockprepare}</td>" +
-		"<td style='width: 80px;' class='display3'>{stockall}</td>" +
+		"<td style='width: 70px;' class='display3'><input type='text' style='width: 50px;height: 28px;{displayflg}' value='{localstock}'></td>" +
+		"<td style='width: 70px;' class='display3'>{onboard}</td>" +
+		"<td style='width: 70px;' class='display3'>{stockonsell}</td>" +
+		"<td style='width: 70px;' class='display3'>{stockprepare}</td>" +
+		"<td style='width: 70px;' class='display3'>{stockall}</td>" +
 		"<td style='width:150px;white-space:pre-wrap;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
 		"<td style='width:100px;' class='display4'>{selledweek}</td>" +
 		"<td style='width:100px;' class='display4'>{onsellweek}</td>" +
