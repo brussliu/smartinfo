@@ -324,7 +324,7 @@
 			販売日数≦
 			<input type="text" id="selldayfordelivery" style="width: 50px;height: 32px;">
 			&nbsp;&nbsp;
-			<input type="radio" name="highsearch" value="purchasecount">入庫
+			<input type="radio" name="highsearch" value="purchasecount">仕入
 			販売日数≦
 			<input type="text" id="selldayforpurchase" style="width: 50px;height: 32px;">
 		</td>
