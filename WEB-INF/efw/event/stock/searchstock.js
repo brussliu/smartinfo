@@ -52,6 +52,13 @@ searchstock.fire=function(params){
 	var selldayford = params["#selldayfordelivery"];
 	var selldayforp = params["#selldayforpurchase"];
 
+	highsearch.debug("AAAAAAAAAAAA");
+	sellfrom.debug("BBBBBBBBBBB");
+	sellto.debug("CCCCCCCCCCC");
+	selldayford.debug("DDDDDDDDDDDD");
+	selldayforp.debug("EEEEEEEEEEEE");
+
+
 	if(highsearch = "sellcount" && sellfrom == "" && sellto == ""){
 		highsearch = "";
 	}
