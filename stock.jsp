@@ -314,9 +314,11 @@
 			<input type="text" id="sellfrom" style="width: 50px;height: 32px;">
 			～
 			<input type="text" id="sellto" style="width: 50px;height: 32px;">
-			<input type="radio" name="highsearch" value="deliverycount">入庫
+			&nbsp;&nbsp;
+			input type="radio" name="highsearch" value="deliverycount">入庫
 			販売日数≦
 			<input type="text" id="selldayfordelivery" style="width: 50px;height: 32px;">
+			&nbsp;&nbsp;
 			<input type="radio" name="highsearch" value="purchasecount">入庫
 			販売日数≦
 			<input type="text" id="selldayforpurchase" style="width: 50px;height: 32px;">
