@@ -296,7 +296,7 @@
             		, 2
         		) 
         	END as onsellweekall 
-            , PCD."仕入数量" as purchase
+            , PCD."数量" as purchase
 		FROM
 		"VIEW_商品詳細情報" V_MST
 		LEFT JOIN "VIEW_商品在庫情報" V_STOCK ON V_MST."SKU番号" = V_STOCK."SKU番号" AND V_MST."ASIN番号" = V_STOCK."ASIN番号"
