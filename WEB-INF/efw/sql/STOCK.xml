@@ -180,7 +180,7 @@
 								) 
 							, 2
 						) 
-					END <= cast(!selldayfordelivery as float) 
+					END &lt;= cast(!selldayfordelivery as float) 
 				)
 			</if>
 		ORDER BY V_MST."req_no"
