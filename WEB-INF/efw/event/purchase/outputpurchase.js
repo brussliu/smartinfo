@@ -13,18 +13,6 @@ outputpurchase.fire=function(params){
 
 	shopname = params["#shop"];
 
-	// 注文基準日
-	var selectResult = db.select(
-		"STOCK",
-		"searchhistory",
-		{shop:shopname}
-	);
-
-	var orderArr = selectResult.seek("importtype","eq","order").getArray();
-
-
-	var orderBaseDate = orderArr[0]["basetime"];
-
 	var purchaseno = params["#purchaseno"];
 
 	var selectResult = db.select(
@@ -32,7 +20,6 @@ outputpurchase.fire=function(params){
 		"selectstockAndPurchase",
 		{
 		shop : shopname,
-		basedate_order : orderBaseDate,
 		purchaseno : purchaseno
 		}
 	).getArray();
