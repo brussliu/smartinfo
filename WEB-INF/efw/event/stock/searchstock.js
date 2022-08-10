@@ -52,6 +52,7 @@ searchstock.fire=function(params){
 	var selldayfordelivery = params["#selldayfordelivery"];
 	var selldayforpurchase = params["#selldayforpurchase"];
 
+	"77777777777777777".debug("777777777777777777");
 	highsearch.debug("AAAAAAAAAAAAAAAAA");
 	sellfrom.debug("BBBBBBBBBBBBBBBB");
 	sellto.debug("CCCCCCCCCCCCCC");
