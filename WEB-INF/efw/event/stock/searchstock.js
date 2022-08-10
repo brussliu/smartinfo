@@ -5,7 +5,13 @@ searchstock.paramsFormat={
 	"productdiv":null,
 	"#productno":null,
 	"#keyword":null,
-	"displayflg2":null
+	"displayflg2":null,
+
+	"highsearch" : null,
+	"#sellfrom" : null,
+	"#sellto" : null,
+	"#selldayfordelivery" : null,
+	"#selldayforpurchase" : null,
 
 
 };
@@ -39,6 +45,20 @@ searchstock.fire=function(params){
 	var productno = params["#productno"];
 	var keyword = params["#keyword"].toUpperCase();
 	var displayflg2 = params["displayflg2"];
+
+	var highsearch = params["highsearch"];
+	var sellfrom = params["#sellfrom"];
+	var sellto = params["#sellto"];
+	var selldayfordelivery = params["#selldayfordelivery"];
+	var selldayforpurchase = params["#selldayforpurchase"];
+
+	highsearch.debug("AAAAAAAAAAAAAAAAA");
+	sellfrom.debug("BBBBBBBBBBBBBBBB");
+	sellto.debug("CCCCCCCCCCCCCC");
+	selldayfordelivery.debug("DDDDDDDDDDDDDDDD");
+	selldayforpurchase.debug("EEEEEEEEEEEEEEEE");
+
+
 
 	var selectResult = db.select(
 		"STOCK",

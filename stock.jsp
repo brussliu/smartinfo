@@ -151,8 +151,9 @@
 
 			});
 
+			var highsearch = $("input[name='highsearch']:checked").val();
 
-        	Efw('stock/searchstock',{'productdiv': productdivArr, 'displayflg2':displayflg2});
+        	Efw('stock/searchstock',{'productdiv': productdivArr, 'displayflg2':displayflg2, 'highsearch': highsearch});
         }
 
 		function updatestock(){
