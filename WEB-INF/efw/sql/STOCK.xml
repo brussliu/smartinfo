@@ -93,6 +93,18 @@
             		, 2
         		) 
         	END as onsellweek 
+    		, CASE WHEN V_SELL."前日数量" = 0 and V_SELL."7日間数量" = 0 and V_SELL."30日間数量" = 0 and V_SELL."60日間数量" = 0 and V_SELL."90日間数量" = 0 THEN 9999 
+        		ELSE ROUND( 
+					V_STOCK."全体在庫合計" / ( 
+						V_SELL."前日数量" * 0.05 + 
+						V_SELL."7日間数量" / 7::numeric * 0.15 + 
+						V_SELL."30日間数量" / 30::numeric * 0.3 + 
+						V_SELL."60日間数量" / 60::numeric * 0.3 + 
+						V_SELL."90日間数量" / 90::numeric * 0.2
+            			) 
+            		, 2
+        		) 
+        	END as onsellweekall 
 		FROM
 		"VIEW_商品詳細情報" V_MST
 		LEFT JOIN "VIEW_商品在庫情報" V_STOCK ON V_MST."SKU番号" = V_STOCK."SKU番号" AND V_MST."ASIN番号" = V_STOCK."ASIN番号"

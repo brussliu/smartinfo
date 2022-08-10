@@ -358,7 +358,8 @@
 		<td style="width: 80px;" class="display3">全体<br>在庫合計</td>
 		<td style="width: 150px;" class="display4">販売数量<br/>昨日/7日/30日/60日/90日</td>
 		<td style="width: 100px;" class="display4">販売数量<br/>(週間平均値)</td>
-		<td style="width: 100px;" class="display4">販売可能期間<br/>(平均値)</td>
+		<td style="width: 100px;" class="display4">販売可能期間<br/>(販売中)</td>
+		<td style="width: 100px;" class="display4">販売可能期間<br/>(全体)</td>
 	</tr>
 </table>
 </div>

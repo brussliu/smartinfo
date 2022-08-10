@@ -118,6 +118,7 @@ searchstock.fire=function(params){
 		"<td style='width:150px;white-space:pre-wrap;' class='display4'>{selled1} / {selled7} / {selled30} / {selled60} / {selled90}</td>" +
 		"<td style='width:100px;' class='display4'>{selledweek}</td>" +
 		"<td style='width:100px;' class='display4'>{onsellweek}</td>" +
+		"<td style='width:100px;' class='display4'>{onsellweekall}</td>" +
 	"</tr>";
 
 	ret.runat("#stocktable").remove("tr").append(resultHTML).withdata(selectResult);
