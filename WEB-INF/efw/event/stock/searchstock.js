@@ -49,16 +49,16 @@ searchstock.fire=function(params){
 	var highsearch = params["highsearch"];
 	var sellfrom = params["#sellfrom"];
 	var sellto = params["#sellto"];
-	var selldayfordelivery = params["#selldayfordelivery"];
-	var selldayforpurchase = params["#selldayforpurchase"];
+	var selldayford = params["#selldayfordelivery"];
+	var selldayforp = params["#selldayforpurchase"];
 
 	if(highsearch = "sellcount" && sellfrom == "" && sellto == ""){
 		highsearch = "";
 	}
-	if(highsearch = "deliverycount" && selldayfordelivery == ""){
+	if(highsearch = "deliverycount" && selldayford == ""){
 		highsearch = "";
 	}
-	if(highsearch = "purchasecount" && selldayforpurchase == ""){
+	if(highsearch = "purchasecount" && selldayforp == ""){
 		highsearch = "";
 	}
 
@@ -80,8 +80,8 @@ searchstock.fire=function(params){
 			highsearch : highsearch,
 			sellfrom : sellfrom,
 			sellto : sellto,
-			selldayfordelivery : selldayfordelivery,
-			selldayforpurchase : selldayforpurchase
+			selldayford : selldayford,
+			selldayforp : selldayforp
 		}
 	).getArray();
 
