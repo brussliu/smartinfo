@@ -52,11 +52,11 @@ searchstock.fire=function(params){
 	var selldayford = params["#selldayfordelivery"];
 	var selldayforp = params["#selldayforpurchase"];
 
-	highsearch.debug("AAAAAAAAAAAA");
-	sellfrom.debug("BBBBBBBBBBB");
-	sellto.debug("CCCCCCCCCCC");
-	selldayford.debug("DDDDDDDDDDDD");
-	selldayforp.debug("EEEEEEEEEEEE");
+	// highsearch.debug("AAAAAAAAAAAA");
+	// sellfrom.debug("BBBBBBBBBBB");
+	// sellto.debug("CCCCCCCCCCC");
+	// selldayford.debug("DDDDDDDDDDDD");
+	// selldayforp.debug("EEEEEEEEEEEE");
 
 
 	if(highsearch == "sellcount" && sellfrom == "" && sellto == ""){
@@ -92,7 +92,7 @@ searchstock.fire=function(params){
 		}
 	).getArray();
 
-	selectResult.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+	// selectResult.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWW");
 
 	var subhtml = displayflg2 == "1" ? "" : "style='display: none;'";
 
