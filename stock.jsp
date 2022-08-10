@@ -310,10 +310,16 @@
 			高級機能
 		</td>
 		<td style="font-size: 16px;" colspan="2">
-			<input type="radio" name="highsearch">販売数量
+			<input type="radio" name="highsearch" value="sellcount">販売数量
 			<input type="text" id="sellfrom" style="width: 50px;height: 32px;">
 			～
 			<input type="text" id="sellto" style="width: 50px;height: 32px;">
+			<input type="radio" name="highsearch" value="deliverycount">入庫
+			販売日数≦
+			<input type="text" id="selldayfordelivery" style="width: 50px;height: 32px;">
+			<input type="radio" name="highsearch" value="purchasecount">入庫
+			販売日数≦
+			<input type="text" id="selldayforpurchase" style="width: 50px;height: 32px;">
 		</td>
 		<td style="font-size: 16px;text-align: right;">
 			<input type="button" id="outputstock" style="width: 150px;height: 35px;font-size: 18px;" value="出力" onclick="outputstock()">
