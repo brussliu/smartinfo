@@ -54,7 +54,7 @@
 			-->
 			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'purchase.jsp',shop:'Smart-Bear'})">
 			<br><br>
-			<input type=button value="納品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_delivery.jsp',shop:'Smart-Bear'})">
+			<input type=button value="納品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'delivery.jsp',shop:'Smart-Bear'})">
 			<br><br>
 			<input type=button value="販売情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_sellinfo.jsp',shop:'Smart-Bear'})">
 			<br><br>
@@ -87,7 +87,7 @@
 			<br><br>
 			<input type="text" id="delno" style="width: 190px;height: 32px;">
 			<input type=button value="仕入削除" style="width:100px;height: 40px;" onclick="Efw('purchase/delpurchase')">
-			<input type=button value="納品削除" style="width:100px;height: 40px;" onclick="Efw('deldelivery')">
+			<input type=button value="納品削除" style="width:100px;height: 40px;" onclick="Efw('delivery/deldelivery')">
 			<br><br>
 		</div></td>
 	</tr>

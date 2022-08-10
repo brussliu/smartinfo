@@ -39,31 +39,31 @@
 
         function outputdelivery(){
 
-			Efw('outputdelivery');
+			Efw('delivery/outputdelivery');
 
 		}
 		
 		function outputdeliveryfile(){
 
-			Efw('outputdeliveryfile');
+			Efw('delivery/outputdeliveryfile');
 			
 		}
 
         function searchDelivery(){
 
-			Efw('searchdelivery');
+			Efw('delivery/searchdelivery');
 
         }
 
         function updatedelivery(){
 
-			Efw('updatedelivery');
+			Efw('delivery/updatedelivery');
 
 		}
 
 		function updatedeliverystatus(no){
 
-			Efw('updatedeliverystatus',{status:no});
+			Efw('delivery/updatedeliverystatus',{status:no});
 		}
 
 		function selectitem(obj){
@@ -190,9 +190,7 @@
 			Efw('addbox');
 
 		}
-		// function searchDeliveryInfo(){
-		// 	Efw('searchdeliveryinfo');
-		// }
+
 
   	</script>
     <style>
@@ -233,7 +231,7 @@
 			納品内容：<input type="file" id="importfile_delivery" style="width: 400px;">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="新規登録" style="width:100px;height: 32px;" id="add" onclick="Efw('adddelivery')">
+			<input type=button value="新規登録" style="width:100px;height: 32px;" id="add" onclick="Efw('delivery/adddelivery')">
 		</td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
 			<input type=button value="出　　力" style="width:100px;height: 32px;" id="output" disabled onclick="outputdelivery()">
