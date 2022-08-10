@@ -26,7 +26,8 @@ outputstock.fire=function(params){
 		"selectstock",
 		{
 		shop : shopname,
-		csvflg : "1"
+		csvflg : "1",
+		highsearch : ""
 		}
 	).getArray();
 
