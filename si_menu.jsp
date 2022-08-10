@@ -40,10 +40,12 @@
 		<td><div style="text-align:center"><br>
 			<input type=button value="データ導入" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'upload.jsp',shop:'Smart-Bear'})">
 			<br><br>
+			<!--
 			<input type=button value="商品情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_product.jsp',shop:'Smart-Bear'})">
 			<br><br>
 			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp',shop:'Smart-Bear'})">
 			<br><br>
+			-->
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'stock.jsp',shop:'Smart-Bear'})">
 			<br><br>
 			<!--
