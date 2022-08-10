@@ -153,6 +153,8 @@
 
 			var highsearch = $("input[name='highsearch']:checked").val();
 
+			alert(highsearch);
+
         	Efw('stock/searchstock',{'productdiv': productdivArr, 'displayflg2':displayflg2, 'highsearch': highsearch});
         }
 
