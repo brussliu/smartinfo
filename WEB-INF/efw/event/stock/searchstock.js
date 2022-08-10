@@ -92,6 +92,8 @@ searchstock.fire=function(params){
 		}
 	).getArray();
 
+	selectResult.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+
 	var subhtml = displayflg2 == "1" ? "" : "style='display: none;'";
 
 	var resultHTML =
