@@ -165,7 +165,7 @@
 					)
 				)
 			</if>
-			
+
 			<if istrue="highsearch == 'deliverycount'"> AND (
 					CASE WHEN 
 							V_SELL."前日数量" = 0 and V_SELL."7日間数量" = 0 and V_SELL."30日間数量" = 0 and 
@@ -180,7 +180,7 @@
 								) 
 							, 2
 						) 
-					END &lt;= cast(!selldayfordelivery as float) 
+					END &lt;= cast(!selldayford as float) 
 				)
 			</if>
 
