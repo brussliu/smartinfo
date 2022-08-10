@@ -373,8 +373,7 @@
 		"VIEW_商品詳細情報" V_MST
 		LEFT JOIN "VIEW_商品在庫情報" V_STOCK ON V_MST."SKU番号" = V_STOCK."SKU番号" AND V_MST."ASIN番号" = V_STOCK."ASIN番号"
 		LEFT JOIN "VIEW_商品販売情報" V_SELL ON V_MST."SKU番号" = V_SELL."SKU番号" AND V_MST."ASIN番号" = V_SELL."ASIN番号"
-        LEFT JOIN "納品明細" PCD ON V_MST."SKU番号" = DD."SKU番号" AND V_MST."ASIN番号" = DD."ASIN番号" AND DD."納品NO" = !deliveryno
-		LEFT JOIN "納品明細" DD ON DETAIL."出品者SKU" = DD."SKU番号" AND DETAIL."ASIN 1" = DD."ASIN番号" AND DD."納品NO" = :deliveryno
+        LEFT JOIN "納品明細" DD ON V_MST."SKU番号" = DD."SKU番号" AND V_MST."ASIN番号" = DD."ASIN番号" AND DD."納品NO" = !deliveryno
 		ORDER BY V_MST."req_no"
 	</sql>
 
