@@ -98,18 +98,18 @@ searchstock.fire=function(params){
 
 	var resultHTML =
 	"<tr style='background-color: rgb(205,255,255);height:42px;'>" +
-		"<td style='width: 50px;'><input type='checkbox'></td>" +
-		"<td style='width:120px;' class='display1'>{productdiv}</td>" +
+		"<td style='width: 40px;'><input type='checkbox'></td>" +
+		"<td style='width:110px;' class='display1'>{productdiv}</td>" +
 		"<td style='width:80px;' class='display1'>{productno}</td>" +
-		"<td style='width:60px;'  class='display1'>{productkinds}</td>" +
+		"<td style='width:55px;'  class='display1'>{productkinds}</td>" +
 		"<td style='width:100px;' class='display1'>{color}</td>" +
 		"<td style='width:120px;word-break:break-all;' class='display1'>{size}</td>" +
 		"<td style='width:110px;' class='display1'>{sku}</td>" +
 		"<td style='width:100px;' class='display1'>{asin}</td>" +
 		"<td style='width:100px;' class='display1'>{label}</td>" +
 		"<td " + subhtml +      " class='display2'>{productname}</td>" +
-		"<td style='width: 80px;' class='display3'>{fba}</td>" +
-		"<td style='width: 80px;' class='display3'>{fbm}</td>" +
+		"<td style='width: 60px;' class='display3'>{fba}</td>" +
+		"<td style='width: 60px;' class='display3'>{fbm}</td>" +
 		"<td style='width: 80px;' class='display3'><input type='text' style='width: 50px;height: 28px;{displayflg}' value='{localstock}'></td>" +
 		"<td style='width: 80px;' class='display3'>{onboard}</td>" +
 		"<td style='width: 80px;' class='display3'>{stockonsell}</td>" +

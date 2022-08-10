@@ -339,18 +339,18 @@
 <div id="stocklisthead" style="height: 40px; width:1883px; overflow:auto;overflow: hidden; border: none;display: none;">
 <table border="1" id="stocktablehead" style="width: 1870px; font-size: 12px;">
 	<tr>
-		<td style="width: 50px;">選択</td>
-		<td style="width: 120px;" class="display1">商品分類</td>
+		<td style="width: 40px;">選択</td>
+		<td style="width: 110px;" class="display1">商品分類</td>
 		<td style="width: 80px;" class="display1">商品管理番号</td>
-		<td style="width: 60px;"  class="display1">商品種別</td>
+		<td style="width: 55px;"  class="display1">商品種別</td>
 		<td style="width: 100px;" class="display1">色</td>
 		<td style="width: 120px;" class="display1">サイズ</td>
 		<td style="width: 110px;" class="display1">SKU番号</td>
 		<td style="width: 100px;" class="display1">ASIN番号</td>
 		<td style="width: 100px;" class="display1">ラベル番号</td>
 		<td style="display: none;" class="display2">商品名称</td>
-		<td style="width: 80px;" class="display3">FBA在庫</td>
-		<td style="width: 80px;" class="display3">FBM在庫</td>
+		<td style="width: 60px;" class="display3">FBA在庫</td>
+		<td style="width: 60px;" class="display3">FBM在庫</td>
 		<td style="width: 80px;" class="display3">LOCAL<br>在庫</td>
 		<td style="width: 80px;" class="display3">ONBOARD<br>在庫</td>
 		<td style="width: 80px;" class="display3">販売中<br>在庫合計</td>
