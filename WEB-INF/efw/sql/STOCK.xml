@@ -132,6 +132,40 @@
 			    )
 			</if>
 
+
+			<if istrue="highsearch == 'sellcount'"> AND (
+				V_MST."商品管理番号" in (
+					SELECT
+						productno
+					FROM
+						( 
+							SELECT
+								V_MST."商品管理番号" as productno
+								, ROUND( 
+									( 
+										V_SELL."前日数量" * 0.05 + 
+										V_SELL."7日間数量" / 7 ::numeric * 0.15 + 
+										V_SELL."30日間数量" / 30 ::numeric * 0.3 + 
+										V_SELL."60日間数量" / 60 ::numeric * 0.3 + 
+										V_SELL."90日間数量" / 90 ::numeric * 0.2
+									) * 7
+									, 2
+								) as selledweek 
+							FROM
+								"VIEW_商品詳細情報" V_MST 
+								LEFT JOIN "VIEW_商品販売情報" V_SELL ON V_MST."SKU番号" = V_SELL."SKU番号" AND V_MST."ASIN番号" = V_SELL."ASIN番号"
+						) T 
+					WHERE
+						1 = 1
+						<if exists="sellfrom">
+							and selledweek >= !sellfrom 
+						</if>
+						<if exists="sellto">
+							and selledweek >= !sellto 
+						</if>
+				)
+			</if>
+
 		ORDER BY V_MST."req_no"
 	</sql>
 

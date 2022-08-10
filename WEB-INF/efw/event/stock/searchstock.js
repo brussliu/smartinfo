@@ -52,13 +52,14 @@ searchstock.fire=function(params){
 	var selldayfordelivery = params["#selldayfordelivery"];
 	var selldayforpurchase = params["#selldayforpurchase"];
 
-	"77777777777777777".debug("777777777777777777");
-	highsearch.debug("AAAAAAAAAAAAAAAAA");
-	sellfrom.debug("BBBBBBBBBBBBBBBB");
-	sellto.debug("CCCCCCCCCCCCCC");
+
+
 	selldayfordelivery.debug("DDDDDDDDDDDDDDDD");
 	selldayforpurchase.debug("EEEEEEEEEEEEEEEE");
 
+	if(sellfrom == "" && sellto == ""){
+		highsearch = "";
+	}
 
 
 	var selectResult = db.select(
@@ -75,7 +76,10 @@ searchstock.fire=function(params){
 			productdivstr7 : productdivstr7,
 			productdivstr8 : productdivstr8,
 			productno : productno,
-			keyword : keyword
+			keyword : keyword,
+			highsearch : highsearch,
+			sellfrom : sellfrom,
+			sellto : sellto
 		}
 	).getArray();
 
