@@ -153,7 +153,7 @@
 </div>
 <input type="hidden" id="shop">
 
-<table id="" border="0">
+<table id="" border="1">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">
@@ -172,8 +172,7 @@
 		</td>
 	</tr>
 </table>
-
-<br/>
+<hr>
 <table border="1" id="earningslisttable" style="font-size: 16px;">
 	<tr style="background-color: aqua;height:40px;font-weight: bold;">
 		<td style="width: 120px;">年月</td>
