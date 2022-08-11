@@ -12,7 +12,7 @@ searchearningslist.fire=function(params){
 
 	var resultHTML = 
 	"<tr style='height:40px'> class='content'" +
-	"	<td style='text-align: right'>{yearmonth}</td>" +
+	"	<td style='text-align: center'><a href='opendetail('{yearmonth}');'>{yearmonth}</a></td>" +
 	"	<td style='text-align: right'>{ordercount}個</td>" +
 	"	<td style='text-align: right'>{orderprofit}円</td>" +
 	"	<td style='text-align: right'>{monthlyfee}円</td>" +

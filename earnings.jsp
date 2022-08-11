@@ -119,35 +119,16 @@
         	Efw('searchstock',{'productdiv': productdivArr});
         }
 
+        function opendetail(yearmonth){
+			
+			Efw('searchstock',{'productdiv': productdivArr});
 
-
-        function initstock(){
-        	Efw('initstock');
-        }
-
-        function showless(){
-        	$(".moreinfo").hide();
-
-        	$("#stocktablehead").css("width","1870px");
-        	$("#stocktable").css("width","1870px");
-
-        	$("#showmore").show();
-        	$("#showless").hide();
-        }
-        function showmore(){
-        	$(".moreinfo").show();
-        	$("#stocktablehead").css("width","3054px");
-        	$("#stocktable").css("width","3054px");
-
-			$("#showmore").hide();
-			$("#showless").show();
-
-        }
+		}
 
   	</script>
 </head>
 <body style="background-color:ghostwhite;" onload="">
-	<efw:Part path="si_stock_inputdialog.jsp"/>
+	<efw:Part path="earnings_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
