@@ -208,7 +208,7 @@
 
 <br/>
 <br/>
-<table id="deliveryInfo" border="0" style="">
+<table id="deliveryInfo" border="0">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">
