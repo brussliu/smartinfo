@@ -119,9 +119,13 @@
         	Efw('searchstock',{'productdiv': productdivArr});
         }
 
-        function opendetail(yearmonth){
-			
-			Efw('searchstock',{'productdiv': productdivArr});
+        function opendetail(obj){
+
+			var a = $(obj).html();
+
+			alert(a);
+
+			//Efw('searchstock',{'productdiv': productdivArr});
 
 		}
 
