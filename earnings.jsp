@@ -123,9 +123,9 @@
 
 			var a = $(obj).html();
 
-			alert(a);
+			//alert(a);,{'yearmonth': a}
 
-			//Efw('searchstock',{'productdiv': productdivArr});
+			Efw('earnings/openearningsdetail');
 
 		}
 
