@@ -152,8 +152,7 @@
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
 <input type="hidden" id="shop">
-
-<table id="" border="1">
+<table id="" border="0">
 	<COLGROUP>
 		<COL WIDTH="350PX">
 		<COL WIDTH="450PX">
@@ -168,7 +167,7 @@
 	<tr>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="8"></td>
 		<td style="font-size: 16px;font-weight: bold;height: 50px;" colspan="1">
-			<input type=button value="検    索" style="width:100px;height: 32px;" id="acceptance" onclick="searchearningslistinfo();">
+			<input type=button value="検    索" style="width: 150px;height: 35px;font-size: 18px;" id="acceptance" onclick="searchearningslistinfo();">
 		</td>
 	</tr>
 </table>
