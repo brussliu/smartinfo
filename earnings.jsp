@@ -121,11 +121,9 @@
 
         function opendetail(obj){
 
-			var a = $(obj).html();
+			var yearmonth = $(obj).html();
 
-			//alert(a);,{'yearmonth': a}
-
-			Efw('earnings/openearningsdetail');
+			Efw('earnings/openearningsdetail',{'yearmonth': yearmonth});
 
 		}
 

@@ -185,4 +185,119 @@
 	</sql>
 
 
+	<sql id="searchearningsdetail1">
+		select
+			"年月" as yearmonth,
+			sum("注文数量") as ordercount,
+			sum("注文売上") as orderearnings,
+			sum("配送料") as shipfee,
+			sum("包装手数料") as packfee,
+			sum("手数料") as orderfee,
+			sum("FBA手数料") as fbafee,
+			sum("ポイント費用") as pointfee,
+			sum("その他料金") as others
+		from
+		(
+			select
+				substr("日付時間", 1, 4) || '年' || substr("日付時間", 6, 2) || '月' as "年月"
+				, cast("数量" as float) as "注文数量"
+				, cast("商品売上" as float) + cast("商品の売上税" as float) as "注文売上"
+				, cast("配送料" as float) + cast("配送料の税金" as float) as "配送料"
+				, cast("ギフト包装手数料" as float) + cast("ギフト包装クレジットの税金" as float) as "包装手数料"
+				, cast("手数料" as float) as "手数料"
+				, cast("FBA 手数料" as float) as "FBA手数料"
+				, cast("Amazonポイントの費用" as float) as "ポイント費用"
+				, cast("プロモーション割引額" as float) + 
+				cast("プロモーション割引の税金" as float) + 
+				cast("源泉徴収税を伴うマーケットプレイス" as float) + 
+				cast("その他" as float) as "その他料金"
+			from
+				"INPUT_売上詳細情報"
+			where
+				"トランザクションの種類" = '注文'
+		) TEMP
+		where
+			"年月" = '2022年07月'
+		group by
+			"年月"
+	</sql>
+	<sql id="searchearningsdetail2">
+		select
+			"年月"
+			, "説明"
+			, sum("合計") as "合計" 
+		FROM
+			( 
+				select
+					substr("日付時間", 1, 4) || '年' || substr("日付時間", 6, 2) || '月' as "年月"
+					, "説明"
+					, cast("合計" as float) as "合計" 
+				from
+					"INPUT_売上詳細情報"
+				where 
+					"トランザクションの種類" = '注文外料金'
+			) TEMP1 
+		where
+			"年月" = '2022年07月'
+		group by
+			"年月", "説明"
+	</sql>
+	<sql id="searchearningsdetail3">
+		select
+			"年月"
+			, "トランザクションの種類"
+			, sum(case when "トランザクションの種類" = '返金' then cast("数量" as int) else 0 end ) as "返品数量"
+			, sum("合計") as "合計" 
+		FROM
+			( 
+				select
+					substr("日付時間", 1, 4) || '年' || substr("日付時間", 6, 2) || '月' as "年月",
+					"トランザクションの種類",
+					"注文番号",
+					"SKU",
+					"説明",
+					"数量",
+					cast("合計" as float) as "合計" 
+				from
+					"INPUT_売上詳細情報"
+				where 
+					"トランザクションの種類" <> '注文'
+					and
+					length("注文番号") = 19
+			) TEMP1 
+		where
+			"年月" = '2022年07月'
+		group by
+			"年月", "トランザクションの種類"
+	</sql>
+
+	<sql id="searchearningsdetail4">
+		select
+			"年月"
+			, "トランザクションの種類"
+			, "説明"
+			, sum("合計") as "合計" 
+		FROM
+			( 
+				select
+					substr("日付時間", 1, 4) || '年' || substr("日付時間", 6, 2) || '月' as "年月",
+					"トランザクションの種類",
+					case when "説明" = 'FBAパートナーキャリアの配送料: ' then 'FBA商品発送料金'
+					when "説明" = 'FBA保管手数料：' then 'FBA保管手数料'
+					when "説明" = 'FBA長期在庫保管手数料' then 'FBA長期在庫保管手数料'
+					when "説明" = 'FBA在庫の返送手数料' or "説明" = 'FBA在庫の廃棄手数料' then 'FBA廃棄返送手数料'
+					end as"説明",
+					cast("合計" as float) as "合計" 
+				from
+					"INPUT_売上詳細情報"
+				where 
+					"トランザクションの種類" = 'FBA 在庫関連の手数料'
+			) TEMP1 
+		where
+			"年月" = '2022年07月'
+		group by
+			"年月", "トランザクションの種類","説明"
+	</sql>
+
+
 </sqls>
