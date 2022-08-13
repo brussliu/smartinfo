@@ -10,6 +10,7 @@ openearningsdetail.fire=function(params){
 	
 	var yearmonth = params["yearmonth"];
 
+	/////////////////////////////////////////////////////////////////////////////////
 	var selectResult1 = db.select(
 		"EARNINGS",
 		"searchearningsdetail1",
@@ -58,6 +59,7 @@ openearningsdetail.fire=function(params){
 			+ orderprofit + "');";
 	ret.eval(script2);
 
+	/////////////////////////////////////////////////////////////////////////////////
 	var selectResult2 = db.select(
 		"EARNINGS",
 		"searchearningsdetail2",
@@ -71,6 +73,7 @@ openearningsdetail.fire=function(params){
 	var script3 = "showaddmonthlyfee('" + adfee + "','" + monthlyfee + "');";
 	ret.eval(script3);
 
+	/////////////////////////////////////////////////////////////////////////////////
 	var selectResult3 = db.select(
 		"EARNINGS",
 		"searchearningsdetail3",
@@ -93,25 +96,28 @@ openearningsdetail.fire=function(params){
 			+ returnadjust + "');";
 	ret.eval(script4);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	/////////////////////////////////////////////////////////////////////////////////
 	var selectResult4 = db.select(
 		"EARNINGS",
 		"searchearningsdetail4",
 		{yearmonth : yearmonth}
 	).getArray();
 	
+	// FBA商品発送料金
+	var fbashipfee = selectResult4.seek("説明","eq","FBA商品発送料金").getValue("合計") + "円　";
+	// FBA保管手数料
+	var fbastockfee = selectResult4.seek("説明","eq","FBA保管手数料").getValue("合計") + "円　";
+	// FBA長期保管手数料
+	var fbalongtermstockfee = selectResult4.seek("説明","eq","FBA長期在庫保管手数料").getValue("合計") + "円　";
+	// FBA廃棄返送手数料
+	var fbadiscardfee = selectResult4.seek("説明","eq","FBA廃棄返送手数料").getValue("合計") + "円　";
+
+	var script5 = "showfbainfo('" 
+			+ fbashipfee + "','" 
+			+ fbastockfee + "','" 
+			+ fbalongtermstockfee + "','" 
+			+ fbadiscardfee + "');";
+	ret.eval(script5);
 
 	// ret.runat("#earnings_inputdialog #detialtable").withdata(
 	// 	{	"#yearmonth" : selectResult1.getValue("yearmonth"),

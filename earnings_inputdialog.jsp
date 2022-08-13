@@ -48,6 +48,13 @@
 			$("#returnadjust").html(txt4);
 		}
 
+		function showfbainfo(txt1,txt2,txt3,txt4){
+			$("#fbashipfee").html(txt1);
+			$("#fbastockfee").html(txt2);
+			$("#fbalongtermstockfee").html(txt3);
+			$("#fbadiscardfee").html(txt4);
+		}
+
 	</SCRIPT>
 	<style>
 		.bg1 {
@@ -124,13 +131,13 @@
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg4">&nbsp;FBA商品発送料金</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="fbashipfee">999999999円　</td>
 			<td class="bg4">&nbsp;FBA保管手数料</td>
-			<td style="text-align: right;">999999999円　</td>
-			<td class="bg4">&nbsp;FBA長期在庫保管手数料</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="fbastockfee">999999999円　</td>
+			<td class="bg4">&nbsp;FBA長期保管手数料</td>
+			<td style="text-align: right;" id="fbalongtermstockfee">999999999円　</td>
 			<td class="bg4">&nbsp;FBA廃棄返送手数料</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="fbadiscardfee">999999999円　</td>
 		</tr>
 	</table>
 
