@@ -71,13 +71,40 @@ openearningsdetail.fire=function(params){
 	var script3 = "showaddmonthlyfee('" + adfee + "','" + monthlyfee + "');";
 	ret.eval(script3);
 
-
-
 	var selectResult3 = db.select(
 		"EARNINGS",
 		"searchearningsdetail3",
 		{yearmonth : yearmonth}
-	).getArray();
+	);
+
+	// 返品数量
+	var returncount = selectResult3.seek("トランザクションの種類","eq","返金").getValue("返品数量") + "個　";
+	// 返品金額
+	var returnamount = selectResult3.seek("トランザクションの種類","eq","返金").getValue("合計") + "円　";
+	// 返品作業料
+	var returnfee = selectResult3.seek("トランザクションの種類","eq","FBA Customer Return Fee").getValue("合計") + "円　";
+	// 返金調整額
+	var returnadjust = selectResult3.seek("トランザクションの種類","eq","調整").getValue("合計") + "円　";
+
+	var script4 = "showreturninfo('" 
+			+ returncount + "','" 
+			+ returnamount + "','" 
+			+ returnfee + "','" 
+			+ returnadjust + "');";
+	ret.eval(script4);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	var selectResult4 = db.select(
 		"EARNINGS",

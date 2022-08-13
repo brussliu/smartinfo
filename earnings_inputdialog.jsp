@@ -41,6 +41,13 @@
 			$("#monthlyfee").html(txt2);
 		}
 
+		function showreturninfo(txt1,txt2,txt3,txt4){
+			$("#returncount").html(txt1);
+			$("#returnamount").html(txt2);
+			$("#returnfee").html(txt3);
+			$("#returnadjust").html(txt4);
+		}
+
 	</SCRIPT>
 	<style>
 		.bg1 {
@@ -107,13 +114,13 @@
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg3">&nbsp;返品数量</td>
-			<td style="text-align: right;">999個　</td>
+			<td style="text-align: right;" id="returncount">999個　</td>
 			<td class="bg3">&nbsp;返品金額</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="returnamount">999999999円　</td>
 			<td class="bg3">&nbsp;返品作業料</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="returnfee">999999999円　</td>
 			<td class="bg3">&nbsp;返金調整額</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="returnadjust">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg4">&nbsp;FBA商品発送料金</td>
