@@ -39,7 +39,7 @@
 			font-weight: bold;
 		}
     </style>
-	<table border="1" id="detialtable" style="font-size: 16px;">
+	<table border="1" id="detialtable" style="font-size: 16px;border-radius: 0px;">
 		<COLGROUP>
 			<COL WIDTH="160PX">
 			<COL WIDTH="150PX">
