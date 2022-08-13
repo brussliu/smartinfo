@@ -35,7 +35,7 @@
 			background-color: rgb(200, 255, 200);
 		}
     </style>
-	<table border="1" id="detialtable" style="font-size: 14px;">
+	<table border="1" id="detialtable" style="font-size: 16px;">
 		<COLGROUP>
 			<COL WIDTH="150PX">
 			<COL WIDTH="150PX">
@@ -46,16 +46,16 @@
 			<COL WIDTH="150PX">
 			<COL WIDTH="150PX">
 		</COLGROUP>
-		<tr>
-			<td colspan="8">2022年07月</td>
+		<tr style="height: 40px;">
+			<td colspan="8" style="text-align: center;">2022年07月</td>
 		</tr>
-		<tr>
+		<tr style="height: 40px;">
 			<td class="bg1">注文数量</td>
 			<td colspan="3">999個</td>
 			<td class="bg1">注文粗利益</td>
 			<td colspan="3">999999999円</td>
 		</tr>
-		<tr>
+		<tr style="height: 40px;">
 			<td class="bg1">注文売上</td>
 			<td colspan="3">999個</td>
 			<td class="bg1">配送料</td>
@@ -63,7 +63,7 @@
 			<td class="bg1">包装手数料</td>
 			<td>999999999円</td>
 		</tr>
-		<tr>
+		<tr style="height: 40px;">
 			<td class="bg1">手数料</td>
 			<td>999999999円</td>
 			<td class="bg1">FBA手数料</td>
@@ -73,14 +73,14 @@
 			<td class="bg1">その他料金</td>
 			<td>999999999円</td>
 		</tr>
-		<tr>
+		<tr style="height: 40px;">
 			<td class="bg2">広告費用</td>
 			<td>999999999円</td>
 			<td class="bg2">月額登録料</td>
 			<td>999999999円</td>
 			<td colspan="4"></td>
 		</tr>
-		<tr>
+		<tr style="height: 40px;">
 			<td class="bg3">返品数量</td>
 			<td>999個</td>
 			<td class="bg3">返品金額</td>
@@ -90,7 +90,7 @@
 			<td class="bg3">返金調整額</td>
 			<td>999999999円</td>
 		</tr>
-		<tr>
+		<tr style="height: 40px;">
 			<td class="bg4">FBA商品発送料金</td>
 			<td>999999999円</td>
 			<td class="bg4">FBA保管手数料</td>
