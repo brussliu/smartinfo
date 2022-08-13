@@ -37,7 +37,7 @@ openearningsdetail.fire=function(params){
 
 
 
-	ret.runat("#earnings_inputdialog detialtable").withdata(
+	ret.runat("#earnings_inputdialog #detialtable").withdata(
 		{	"#yearmonth" : selectResult1.getValue("yearmonth"),
 
 		}
