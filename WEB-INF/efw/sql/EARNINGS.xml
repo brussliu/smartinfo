@@ -299,5 +299,32 @@
 			"年月", "トランザクションの種類","説明"
 	</sql>
 
+	<sql id="searchearningsdetail5">
+		select
+			"年月" as yearmonth,
+			"振込日付" as purchasedate,
+			"合計" as purchaseamount
+		from
+			(
+				select
+					substr("日付時間", 1, 4) || '年' || substr("日付時間", 6, 2) || '月' as "年月"
+					, substr("日付時間", 1, 10) as "振込日付"
+					, "トランザクションの種類"
+					, "説明"
+					, "合計"
+				from
+					"INPUT_売上詳細情報"
+				where
+					"トランザクションの種類" = '振込み'
+			) temp
+		where
+			"年月" = :yearmonth
+		order by
+			"振込日付"
+	</sql>
+
+
+
+
 
 </sqls>

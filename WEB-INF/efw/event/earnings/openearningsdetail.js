@@ -119,17 +119,52 @@ openearningsdetail.fire=function(params){
 			+ fbadiscardfee + "');";
 	ret.eval(script5);
 
-	// ret.runat("#earnings_inputdialog #detialtable").withdata(
-	// 	{	"#yearmonth" : selectResult1.getValue("yearmonth"),
-
-	// 	}
-	// );
-
-
-
+	/////////////////////////////////////////////////////////////////////////////////
+	var selectResult5 = db.select(
+		"EARNINGS",
+		"searchearningsdetail5",
+		{yearmonth : yearmonth}
+	).getArray();
 
 
+	var purchasetitle1 = "&nbsp;振込み（－－－－/－－/－－）";
+	var purchaseamount1 = "－円　";
+	var purchasetitle2 = "&nbsp;振込み（－－－－/－－/－－）";
+	var purchaseamount2 = "－円　";
+	var purchasetitle3 = "&nbsp;振込み（－－－－/－－/－－）";
+	var purchaseamount3 = "－円　";
+	var purchaseamountsum = 0;
 
+	// 仕入費用
+	if(selectResult5.length > 0){
+		purchasetitle1 = "&nbsp;振込み（" + selectResult5[0]["purchasedate"] + "）";
+		purchaseamount1 = selectResult5[0]["purchaseamount"] + "円　";
+		purchaseamountsum = purchaseamountsum + selectResult5[0]["purchaseamount"];
+	}
+
+	if(selectResult5.length > 1){
+		purchasetitle2 = "&nbsp;振込み（" + selectResult5[1]["purchasedate"] + "）";
+		purchaseamount2 = selectResult5[1]["purchaseamount"] + "円　";
+		purchaseamountsum = purchaseamountsum + selectResult5[1]["purchaseamount"];
+	}
+
+	if(selectResult5.length > 2){
+		purchasetitle3 = "&nbsp;振込み（" + selectResult5[2]["purchasedate"] + "）";
+		purchaseamount3 = selectResult5[2]["purchaseamount"] + "円　";
+		purchaseamountsum = purchaseamountsum + selectResult5[2]["purchaseamount"];
+	}
+
+	var purchaseamountsumstr = purchaseamountsum + "円　";
+
+	var script6 = "showpurchaseinfo('" 
+			+ purchasetitle1 + "','" 
+			+ purchaseamount1 + "','" 
+			+ purchasetitle2 + "','" 
+			+ purchaseamount2 + "','" 
+			+ purchasetitle3 + "','" 
+			+ purchaseamount3 + "','" 
+			+ purchaseamountsumstr + "');";
+	ret.eval(script6);
 
 	
 	return ret.eval("earnings_inputdialog.dialog('open')");

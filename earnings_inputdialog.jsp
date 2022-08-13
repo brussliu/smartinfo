@@ -55,6 +55,17 @@
 			$("#fbadiscardfee").html(txt4);
 		}
 
+		function showpurchaseinfo(txt1,txt2,txt3,txt4,txt5,txt6,txt7){
+			$("#purchasetitle1").html(txt1);
+			$("#purchaseamount1").html(txt2);
+			$("#purchasetitle2").html(txt3);
+			$("#purchaseamount2").html(txt4);
+			$("#purchasetitle3").html(txt5);
+			$("#purchaseamount3").html(txt6);
+			$("#purchaseamountsum").html(txt7);
+
+		}
+
 	</SCRIPT>
 	<style>
 		.bg1 {
@@ -139,6 +150,17 @@
 			<td class="bg4">&nbsp;FBA廃棄返送手数料</td>
 			<td style="text-align: right;" id="fbadiscardfee">999999999円　</td>
 		</tr>
+		<tr style="height: 40px;">
+			<td class="bg4" id="purchasetitle1">&nbsp;振込み（2022/06/01）</td>
+			<td style="text-align: right;" id="purchaseamount1">999999999円　</td>
+			<td class="bg4" id="purchasetitle2">&nbsp;振込み（2022/06/02）</td>
+			<td style="text-align: right;" id="purchaseamount2">999999999円　</td>
+			<td class="bg4" id="purchasetitle3">&nbsp;振込み（2022/06/03）</td>
+			<td style="text-align: right;" id="purchaseamount3">999999999円　</td>
+			<td class="bg4">&nbsp;振込み合計</td>
+			<td style="text-align: right;" id="purchaseamountsum">999999999円　</td>
+		</tr>
+
 	</table>
 
 </DIV>
