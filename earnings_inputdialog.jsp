@@ -51,11 +51,11 @@
 			<COL WIDTH="150PX">
 		</COLGROUP>
 		<tr style="height: 40px;">
-			<td colspan="8" style="text-align: center;font-weight: bold;">2022年07月</td>
+			<td colspan="8" style="text-align: center;font-weight: bold;" id="yearmonth">9999年99月</td>
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg1" style="border-bottom: none;">&nbsp;注文数量</td>
-			<td colspan="3" style="text-align: right;border-bottom: none;">999個　</td>
+			<td colspan="3" style="text-align: right;border-bottom: none;" id="ordercount">999個　</td>
 			<td class="bg1" style="border-bottom: none;">&nbsp;注文粗利益</td>
 			<td colspan="3" style="text-align: right;border-bottom: none;">999999999円　</td>
 		</tr>

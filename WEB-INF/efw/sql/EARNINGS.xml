@@ -217,7 +217,7 @@
 				"トランザクションの種類" = '注文'
 		) TEMP
 		where
-			"年月" = '2022年07月'
+			"年月" = :yearmonth
 		group by
 			"年月"
 	</sql>
@@ -238,7 +238,7 @@
 					"トランザクションの種類" = '注文外料金'
 			) TEMP1 
 		where
-			"年月" = '2022年07月'
+			"年月" = :yearmonth
 		group by
 			"年月", "説明"
 	</sql>
@@ -266,12 +266,12 @@
 					length("注文番号") = 19
 			) TEMP1 
 		where
-			"年月" = '2022年07月'
+			"年月" = :yearmonth
 		group by
 			"年月", "トランザクションの種類"
 	</sql>
 
-	<sql id="searchearningsdetail4">
+	<sql id="searchearningsdetail4" paramPrefix="!">
 		select
 			"年月"
 			, "トランザクションの種類"
@@ -294,7 +294,7 @@
 					"トランザクションの種類" = 'FBA 在庫関連の手数料'
 			) TEMP1 
 		where
-			"年月" = '2022年07月'
+			"年月" = !yearmonth
 		group by
 			"年月", "トランザクションの種類","説明"
 	</sql>

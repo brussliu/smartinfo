@@ -6,23 +6,40 @@ openearningsdetail.paramsFormat={
 
 openearningsdetail.fire=function(params){
 
+	var yearmonth = params["yearmonth"];
 
-	var selectResult = db.select(
+	var selectResult1 = db.select(
 		"EARNINGS",
-		"searchearningslist",
-		{}
+		"searchearningsdetail1",
+		{yearmonth : yearmonth}
+	).getSingle().getArray();
+
+	var selectResult2 = db.select(
+		"EARNINGS",
+		"searchearningsdetail2",
+		{yearmonth : yearmonth}
+	).getArray();
+
+	var selectResult3 = db.select(
+		"EARNINGS",
+		"searchearningsdetail3",
+		{yearmonth : yearmonth}
+	).getArray();
+
+	var selectResult4 = db.select(
+		"EARNINGS",
+		"searchearningsdetail4",
+		{yearmonth : yearmonth}
 	).getArray();
 
 
 
 
+	ret.runat("#earnings_inputdialog detialtable").withdata(
+		{	"#yearmonth" : selectResult1.getValue("yearmonth"),
 
-
-
-
-
-
-
+		}
+	);
 
 
 
