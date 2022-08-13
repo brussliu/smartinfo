@@ -8,7 +8,7 @@
 				title : "売上詳細情報",
 				autoOpen : false,
 				resizable : false,
-				height : 500,
+				height : 600,
 				width : 1450,
 				modal : true,
 				open : function(){
