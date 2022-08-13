@@ -6,6 +6,8 @@ openearningsdetail.paramsFormat={
 
 openearningsdetail.fire=function(params){
 
+	var ret = new Result();
+	
 	var yearmonth = params["yearmonth"];
 
 	var selectResult1 = db.select(
