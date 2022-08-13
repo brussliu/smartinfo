@@ -34,6 +34,14 @@ openearningsdetail.fire=function(params){
 	var pointfee = selectResult1.getValue("pointfee") + "円　";
 	// その他料金
 	var others = selectResult1.getValue("others") + "円　";
+	// 注文粗利益
+	var orderprofit = (selectResult1.getValue("orderearnings")
+						+ selectResult1.getValue("shipfee") 
+						+ selectResult1.getValue("packfee")
+						+ selectResult1.getValue("orderfee")
+						+ selectResult1.getValue("fbafee")
+						+ selectResult1.getValue("pointfee")
+						+ selectResult1.getValue("others")) + "円　";
 
 	var script1 = "showyearmonth('" + yearmonth + "');";
 	ret.eval(script1);
@@ -46,7 +54,8 @@ openearningsdetail.fire=function(params){
 			+ orderfee + "','" 
 			+ fbafee + "','" 
 			+ pointfee + "','" 
-			+ others + "');";
+			+ others + "','" 
+			+ orderprofit + "');";
 	ret.eval(script2);
 
 	var selectResult2 = db.select(

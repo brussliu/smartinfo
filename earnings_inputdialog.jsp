@@ -24,7 +24,7 @@
 			$("#yearmonth").html(txt);
 		}
 
-		function showearnings(txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8){
+		function showearnings(txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8,txt9){
 			$("#ordercount").html(txt1);
 			$("#orderearnings").html(txt2);
 			$("#shipfee").html(txt3);
@@ -33,6 +33,7 @@
 			$("#fbafee").html(txt6);
 			$("#pointfee").html(txt7);
 			$("#others").html(txt8);
+			$("#orderprofit").html(txt9);
 		}
 		
 		function showaddmonthlyfee(txt1,txt2){
@@ -77,7 +78,7 @@
 			<td class="bg1" style="border-bottom: none;">&nbsp;注文数量</td>
 			<td colspan="3" style="text-align: right;border-bottom: none;" id="ordercount">999個　</td>
 			<td class="bg1" style="border-bottom: none;">&nbsp;注文粗利益</td>
-			<td colspan="3" style="text-align: right;border-bottom: none;">999999999円　</td>
+			<td colspan="3" style="text-align: right;border-bottom: none;" id="orderprofit">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg1" style="border-bottom: none;">&nbsp;注文売上</td>
