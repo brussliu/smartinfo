@@ -139,19 +139,19 @@ openearningsdetail.fire=function(params){
 	if(selectResult5.length > 0){
 		purchasetitle1 = "&nbsp;振込み（" + selectResult5[0]["purchasedate"] + "）";
 		purchaseamount1 = selectResult5[0]["purchaseamount"] + "円　";
-		purchaseamountsum = purchaseamountsum + parseFloat(selectResult5[0]["purchaseamount"]);
+		purchaseamountsum = purchaseamountsum + parseInt(selectResult5[0]["purchaseamount"]);
 	}
 
 	if(selectResult5.length > 1){
 		purchasetitle2 = "&nbsp;振込み（" + selectResult5[1]["purchasedate"] + "）";
 		purchaseamount2 = selectResult5[1]["purchaseamount"] + "円　";
-		purchaseamountsum = purchaseamountsum + parseFloat(selectResult5[1]["purchaseamount"]);
+		purchaseamountsum = purchaseamountsum + parseInt(selectResult5[1]["purchaseamount"]);
 	}
 
 	if(selectResult5.length > 2){
 		purchasetitle3 = "&nbsp;振込み（" + selectResult5[2]["purchasedate"] + "）";
 		purchaseamount3 = selectResult5[2]["purchaseamount"] + "円　";
-		purchaseamountsum = purchaseamountsum + parseFloat(selectResult5[2]["purchaseamount"]);
+		purchaseamountsum = purchaseamountsum + parseInt(selectResult5[2]["purchaseamount"]);
 	}
 
 	var purchaseamountsumstr = purchaseamountsum + "円　";
