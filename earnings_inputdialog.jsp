@@ -34,7 +34,11 @@
 			$("#pointfee").html(txt7);
 			$("#others").html(txt8);
 		}
-
+		
+		function showaddmonthlyfee(txt1,txt2){
+			$("#adfee").html(txt1);
+			$("#monthlyfee").html(txt2);
+		}
 
 	</SCRIPT>
 	<style>
@@ -95,9 +99,9 @@
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg2">&nbsp;広告費用</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="adfee">999999999円　</td>
 			<td class="bg2">&nbsp;月額登録料</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="monthlyfee">999999999円　</td>
 			<td colspan="4"></td>
 		</tr>
 		<tr style="height: 40px;">

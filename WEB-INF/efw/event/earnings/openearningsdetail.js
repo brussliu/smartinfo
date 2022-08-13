@@ -16,26 +16,6 @@ openearningsdetail.fire=function(params){
 		{yearmonth : yearmonth}
 	);
 
-	var selectResult2 = db.select(
-		"EARNINGS",
-		"searchearningsdetail2",
-		{yearmonth : yearmonth}
-	).getArray();
-
-	var selectResult3 = db.select(
-		"EARNINGS",
-		"searchearningsdetail3",
-		{yearmonth : yearmonth}
-	).getArray();
-
-	var selectResult4 = db.select(
-		"EARNINGS",
-		"searchearningsdetail4",
-		{yearmonth : yearmonth}
-	).getArray();
-
-	"UUUUUUUUUUUUUUUUUUUUUU".debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
-
 	// 年月
 	var yearmonth = selectResult1.getValue("yearmonth");
 	// 注文数量
@@ -56,7 +36,6 @@ openearningsdetail.fire=function(params){
 	var others = selectResult1.getValue("others") + "円　";
 
 	var script1 = "showyearmonth('" + yearmonth + "');";
-	script1.debug("DDDDDDDDDDDDDDDDDDDDDDDDDDD");
 	ret.eval(script1);
 
 	var script2 = "showearnings('" 
@@ -68,9 +47,34 @@ openearningsdetail.fire=function(params){
 			+ fbafee + "','" 
 			+ pointfee + "','" 
 			+ others + "');";
-	script2.debug("EEEEEEEEEEEEEEEEEEEEEEEEEE");
 	ret.eval(script2);
 
+	var selectResult2 = db.select(
+		"EARNINGS",
+		"searchearningsdetail2",
+		{yearmonth : yearmonth}
+	);
+	// 広告費用
+	var adfee = selectResult2.seek("説明","eq","広告費用").getValue("合計") + "円　";
+	// 月額登録料
+	var monthlyfee = selectResult2.seek("説明","eq","月額登録料").getValue("合計") + "円　";
+
+	var script3 = "showaddmonthlyfee('" + adfee + "','" + monthlyfee + "');";
+	ret.eval(script3);
+
+
+
+	var selectResult3 = db.select(
+		"EARNINGS",
+		"searchearningsdetail3",
+		{yearmonth : yearmonth}
+	).getArray();
+
+	var selectResult4 = db.select(
+		"EARNINGS",
+		"searchearningsdetail4",
+		{yearmonth : yearmonth}
+	).getArray();
 	
 
 	// ret.runat("#earnings_inputdialog #detialtable").withdata(
