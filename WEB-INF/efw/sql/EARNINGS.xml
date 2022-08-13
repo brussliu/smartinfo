@@ -326,27 +326,29 @@
 	<sql id="searchearningsdetail6">
 		select
 			"年月" as yearmonth,
-			"振込日付" as purchasedate,
-			"合計" as purchaseamount
+			"仕入確定日" as purchasedate,
+			0-round(cast("商品費用" as numeric) * 100 / cast("為替レート" as numeric),0) as productamountjp,
+			0-round(cast("物流費用" as numeric) * 100 / cast("為替レート" as numeric),0) as shipjp,
+			0-round(cast("税金円貨" as numeric),0) as faxjp,
+			0-round(cast("合計仕入費用円貨" as numeric),0) as purchasejp
 		from
-			(
-				select
-					substr("日付時間", 1, 4) || '年' || substr("日付時間", 6, 2) || '月' as "年月"
-					, substr("日付時間", 1, 10) as "振込日付"
-					, "トランザクションの種類"
-					, "説明"
-					, "合計"
-				from
-					"INPUT_売上詳細情報"
-				where
-					"トランザクションの種類" = '振込み'
-			) temp
-		where
+		(
+			select
+				substr("仕入確定日", 1, 4) || '年' || substr("仕入確定日", 6, 2) || '月' as "年月"
+				, "仕入確定日"
+				, "為替レート"
+				, "商品費用"
+				, "物流費用"
+				, "税金円貨"
+				, "合計仕入費用円貨"
+			from
+				"仕入管理" 
+		) temp
+		where 
 			"年月" = :yearmonth
 		order by
-			"振込日付"
+			"仕入確定日"
+
 	</sql>
-
-
 
 </sqls>

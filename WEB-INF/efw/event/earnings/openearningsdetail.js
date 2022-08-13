@@ -166,6 +166,30 @@ openearningsdetail.fire=function(params){
 			+ purchaseamountsumstr + "');";
 	ret.eval(script6);
 
+	/////////////////////////////////////////////////////////////////////////////////
+	var selectResult6 = db.select(
+		"EARNINGS",
+		"searchearningsdetail6",
+		{yearmonth : yearmonth}
+	).getArray();
+
+	var html =
+	"<tr style='height: 40px;'>" +
+		"<td class='bg6' >仕入（{purchasedate}）</td>" +
+		"<td style='text-align: right;' colspan='2'>{productamountjp}円 / {shipjp}円 / {faxjp}円　</td>" +
+		"<td style='text-align: right;'>{purchasejp}円　</td>" +
+		"<td colspan='4'></td>" +
+	"</tr>";
+
+	ret.runat("#detialtable").remove(".purchaseinfo").append(html).withdata(selectResult6);
+
+
+
+
+
+
+
+
 	
 	return ret.eval("earnings_inputdialog.dialog('open')");
 
