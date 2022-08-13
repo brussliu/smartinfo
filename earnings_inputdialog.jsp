@@ -9,7 +9,7 @@
 				autoOpen : false,
 				resizable : false,
 				height : 500,
-				width : 1300,
+				width : 1500,
 				modal : true,
 				open : function(){
 					setTimeout(function(){});
@@ -87,13 +87,13 @@
     </style>
 	<table border="1" id="detialtable" style="font-size: 16px;border-radius: 0px;">
 		<COLGROUP>
-			<COL WIDTH="160PX">
-			<COL WIDTH="150PX">
-			<COL WIDTH="150PX">
+			<COL WIDTH="200PX">
 			<COL WIDTH="150PX">
 			<COL WIDTH="200PX">
 			<COL WIDTH="150PX">
-			<COL WIDTH="180PX">
+			<COL WIDTH="200PX">
+			<COL WIDTH="150PX">
+			<COL WIDTH="200PX">
 			<COL WIDTH="150PX">
 		</COLGROUP>
 		<tr style="height: 40px;">
