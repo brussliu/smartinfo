@@ -53,19 +53,19 @@
 		<tr style="height: 40px;">
 			<td colspan="8" style="text-align: center;font-weight: bold;">2022年07月</td>
 		</tr>
-		<tr style="height: 40px;border-bottom-style: dotted;">
+		<tr style="height: 40px;">
 			<td class="bg1" style="border-bottom: none;">&nbsp;注文数量</td>
 			<td colspan="3" style="text-align: right;border-bottom: none;">999個　</td>
 			<td class="bg1" style="border-bottom: none;">&nbsp;注文粗利益</td>
 			<td colspan="3" style="text-align: right;border-bottom: none;">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
-			<td class="bg1">&nbsp;注文売上</td>
-			<td colspan="3" style="text-align: right;">999個　</td>
-			<td class="bg1">&nbsp;配送料</td>
-			<td style="text-align: right;">999999999円　</td>
-			<td class="bg1">&nbsp;包装手数料</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td class="bg1" style="border-bottom: none;">&nbsp;注文売上</td>
+			<td colspan="3" style="text-align: right;border-bottom: none;">999個　</td>
+			<td class="bg1" style="border-bottom: none;">&nbsp;配送料</td>
+			<td style="text-align: right;border-bottom: none;">999999999円　</td>
+			<td class="bg1" style="border-bottom: none;">&nbsp;包装手数料</td>
+			<td style="text-align: right;border-bottom: none;">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg1">&nbsp;手数料</td>
