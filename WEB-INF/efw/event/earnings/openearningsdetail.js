@@ -101,7 +101,7 @@ openearningsdetail.fire=function(params){
 		"EARNINGS",
 		"searchearningsdetail4",
 		{yearmonth : yearmonth}
-	).getArray();
+	);
 	
 	// FBA商品発送料金
 	var fbashipfee = selectResult4.seek("説明","eq","FBA商品発送料金").getValue("合計") + "円　";
