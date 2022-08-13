@@ -34,6 +34,8 @@ openearningsdetail.fire=function(params){
 		{yearmonth : yearmonth}
 	).getArray();
 
+	"UUUUUUUUUUUUUUUUUUUUUU".debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+
 	// 年月
 	var yearmonth = selectResult1.getValue("yearmonth");
 	// 注文数量
@@ -54,6 +56,7 @@ openearningsdetail.fire=function(params){
 	var others = selectResult1.getValue("others") + "円　";
 
 	var script1 = "showyearmonth('" + yearmonth + "');";
+	script1.debug("DDDDDDDDDDDDDDDDDDDDDDDDDDD");
 	ret.eval(script1);
 
 	var script2 = "showearnings('" 
@@ -65,7 +68,10 @@ openearningsdetail.fire=function(params){
 			+ fbafee + "'','" 
 			+ pointfee + "'','" 
 			+ others + "');";
+	script2.debug("EEEEEEEEEEEEEEEEEEEEEEEEEE");
 	ret.eval(script2);
+
+	
 
 	// ret.runat("#earnings_inputdialog #detialtable").withdata(
 	// 	{	"#yearmonth" : selectResult1.getValue("yearmonth"),
