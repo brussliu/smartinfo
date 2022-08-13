@@ -174,7 +174,7 @@ openearningsdetail.fire=function(params){
 	).getArray();
 
 	var html =
-	"<tr style='height: 40px;'>" +
+	"<tr style='height: 40px;' class='purchaseinfo'>" +
 		"<td class='bg6' >仕入（{purchasedate}）</td>" +
 		"<td style='text-align: right;' colspan='2'>{productamountjp}円 / {shipjp}円 / {faxjp}円　</td>" +
 		"<td style='text-align: right;'>{purchasejp}円　</td>" +
