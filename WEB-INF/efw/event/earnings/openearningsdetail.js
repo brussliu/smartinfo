@@ -61,12 +61,12 @@ openearningsdetail.fire=function(params){
 
 	var script2 = "showearnings('" 
 			+ ordercount + "','" 
-			+ orderearnings + "'','" 
-			+ shipfee + "'','" 
-			+ packfee + "'','" 
-			+ orderfee + "'','" 
-			+ fbafee + "'','" 
-			+ pointfee + "'','" 
+			+ orderearnings + "','" 
+			+ shipfee + "','" 
+			+ packfee + "','" 
+			+ orderfee + "','" 
+			+ fbafee + "','" 
+			+ pointfee + "','" 
 			+ others + "');";
 	script2.debug("EEEEEEEEEEEEEEEEEEEEEEEEEE");
 	ret.eval(script2);
