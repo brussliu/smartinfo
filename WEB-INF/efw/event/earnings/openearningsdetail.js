@@ -127,11 +127,11 @@ openearningsdetail.fire=function(params){
 	).getArray();
 
 
-	var purchasetitle1 = "&nbsp;振込み（－－－－/－－/－－）";
+	var purchasetitle1 = "&nbsp;振込み（----/--/--）";
 	var purchaseamount1 = "－円　";
-	var purchasetitle2 = "&nbsp;振込み（－－－－/－－/－－）";
+	var purchasetitle2 = "&nbsp;振込み（----/--/--）";
 	var purchaseamount2 = "－円　";
-	var purchasetitle3 = "&nbsp;振込み（－－－－/－－/－－）";
+	var purchasetitle3 = "&nbsp;振込み（----/--/--）";
 	var purchaseamount3 = "－円　";
 	var purchaseamountsum = 0;
 
