@@ -12,7 +12,7 @@ openearningsdetail.fire=function(params){
 		"EARNINGS",
 		"searchearningsdetail1",
 		{yearmonth : yearmonth}
-	).getSingle().getArray();
+	).getSingle();
 
 	var selectResult2 = db.select(
 		"EARNINGS",
