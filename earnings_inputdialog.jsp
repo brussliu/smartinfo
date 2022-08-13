@@ -41,11 +41,11 @@
     </style>
 	<table border="1" id="detialtable" style="font-size: 16px;">
 		<COLGROUP>
+			<COL WIDTH="160PX">
 			<COL WIDTH="150PX">
 			<COL WIDTH="150PX">
 			<COL WIDTH="150PX">
-			<COL WIDTH="150PX">
-			<COL WIDTH="180PX">
+			<COL WIDTH="200PX">
 			<COL WIDTH="150PX">
 			<COL WIDTH="180PX">
 			<COL WIDTH="150PX">
