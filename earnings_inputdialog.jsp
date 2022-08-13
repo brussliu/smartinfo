@@ -8,8 +8,8 @@
 				title : "在庫補足",
 				autoOpen : false,
 				resizable : false,
-				height : 600,
-				width : 1400,
+				height : 500,
+				width : 1300,
 				modal : true,
 				open : function(){
 					setTimeout(function(){});
