@@ -5,7 +5,7 @@
 		var earnings_inputdialog = null;
 		$(function() {
 			earnings_inputdialog = $("#earnings_inputdialog").dialog({
-				title : "在庫補足",
+				title : "売上詳細情報",
 				autoOpen : false,
 				resizable : false,
 				height : 500,
@@ -84,6 +84,10 @@
 			background-color: rgb(200, 255, 200);
 			font-weight: bold;
 		}
+		.bg5 {
+			background-color: rgb(255, 200, 255);
+			font-weight: bold;
+		}
     </style>
 	<table border="1" id="detialtable" style="font-size: 16px;border-radius: 0px;">
 		<COLGROUP>
@@ -151,13 +155,13 @@
 			<td style="text-align: right;" id="fbadiscardfee">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
-			<td class="bg4" id="purchasetitle1">&nbsp;振込み（2022/06/01）</td>
+			<td class="bg5" id="purchasetitle1">&nbsp;振込み（2022/06/01）</td>
 			<td style="text-align: right;" id="purchaseamount1">999999999円　</td>
-			<td class="bg4" id="purchasetitle2">&nbsp;振込み（2022/06/02）</td>
+			<td class="bg5" id="purchasetitle2">&nbsp;振込み（2022/06/02）</td>
 			<td style="text-align: right;" id="purchaseamount2">999999999円　</td>
-			<td class="bg4" id="purchasetitle3">&nbsp;振込み（2022/06/03）</td>
+			<td class="bg5" id="purchasetitle3">&nbsp;振込み（2022/06/03）</td>
 			<td style="text-align: right;" id="purchaseamount3">999999999円　</td>
-			<td class="bg4">&nbsp;振込み合計</td>
+			<td class="bg5">&nbsp;振込み合計</td>
 			<td style="text-align: right;" id="purchaseamountsum">999999999円　</td>
 		</tr>
 
