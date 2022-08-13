@@ -34,14 +34,44 @@ openearningsdetail.fire=function(params){
 		{yearmonth : yearmonth}
 	).getArray();
 
+	// 年月
+	var yearmonth = selectResult1.getValue("yearmonth");
+	// 注文数量
+	var ordercount = selectResult1.getValue("ordercount") + "個　";
+	// 注文売上
+	var orderearnings = selectResult1.getValue("orderearnings") + "円　";
+	// 配送料
+	var shipfee = selectResult1.getValue("shipfee") + "円　";
+	// 包装手数料
+	var packfee = selectResult1.getValue("packfee") + "円　";
+	// 手数料
+	var orderfee = selectResult1.getValue("orderfee") + "円　";
+	// FBA手数料
+	var fbafee = selectResult1.getValue("fbafee") + "円　";
+	// ポイント費用
+	var pointfee = selectResult1.getValue("pointfee") + "円　";
+	// その他料金
+	var others = selectResult1.getValue("others") + "円　";
 
+	var script1 = "showyearmonth('" + yearmonth + "');";
+	ret.eval(script1);
 
+	var script2 = "showearnings('" 
+			+ ordercount + "','" 
+			+ orderearnings + "'','" 
+			+ shipfee + "'','" 
+			+ packfee + "'','" 
+			+ orderfee + "'','" 
+			+ fbafee + "'','" 
+			+ pointfee + "'','" 
+			+ others + "');";
+	ret.eval(script2);
 
-	ret.runat("#earnings_inputdialog #detialtable").withdata(
-		{	"#yearmonth" : selectResult1.getValue("yearmonth"),
+	// ret.runat("#earnings_inputdialog #detialtable").withdata(
+	// 	{	"#yearmonth" : selectResult1.getValue("yearmonth"),
 
-		}
-	);
+	// 	}
+	// );
 
 
 
@@ -50,8 +80,6 @@ openearningsdetail.fire=function(params){
 
 
 	
-	return (new Result())
-	.eval("earnings_inputdialog.dialog('open')")
-	;
+	return ret.eval("earnings_inputdialog.dialog('open')");
 
 };

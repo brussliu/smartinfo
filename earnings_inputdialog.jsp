@@ -20,6 +20,22 @@
 			});
 		});
 
+		function showyearmonth(txt){
+			$("#yearmonth").html(txt);
+		}
+
+		function showearnings(txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8){
+			$("#ordercount").html(txt1);
+			$("#orderearnings").html(txt2);
+			$("#shipfee").html(txt3);
+			$("#packfee").html(txt4);
+			$("#orderfee").html(txt5);
+			$("#fbafee").html(txt6);
+			$("#pointfee").html(txt7);
+			$("#others").html(txt8);
+		}
+
+
 	</SCRIPT>
 	<style>
 		.bg1 {
@@ -61,21 +77,21 @@
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg1" style="border-bottom: none;">&nbsp;注文売上</td>
-			<td colspan="3" style="text-align: right;border-bottom: none;">999個　</td>
+			<td colspan="3" style="text-align: right;border-bottom: none;" id="orderearnings">999個　</td>
 			<td class="bg1" style="border-bottom: none;">&nbsp;配送料</td>
-			<td style="text-align: right;border-bottom: none;">999999999円　</td>
+			<td style="text-align: right;border-bottom: none;" id="shipfee">999999999円　</td>
 			<td class="bg1" style="border-bottom: none;">&nbsp;包装手数料</td>
-			<td style="text-align: right;border-bottom: none;">999999999円　</td>
+			<td style="text-align: right;border-bottom: none;" id="packfee">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg1">&nbsp;手数料</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="orderfee">999999999円　</td>
 			<td class="bg1">&nbsp;FBA手数料</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="fbafee">999999999円　</td>
 			<td class="bg1">&nbsp;ポイント費用</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="pointfee">999999999円　</td>
 			<td class="bg1">&nbsp;その他料金</td>
-			<td style="text-align: right;">999999999円　</td>
+			<td style="text-align: right;" id="others">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg2">&nbsp;広告費用</td>
