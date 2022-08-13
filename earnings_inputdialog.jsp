@@ -176,8 +176,8 @@
 		</tr>
 		<tr style="height: 40px;">
 			<td class="bg6" >仕入（2022/06/03）</td>
-			<td class="bg6" colspan="2">-999999円 / -999999円 / -999999円</td>
-			<td class="bg6" >-999999円</td>
+			<td colspan="2">-999999円 / -999999円 / -999999円</td>
+			<td >-999999円</td>
 			<td colspan="4"></td>
 		</tr>
 	</table>
