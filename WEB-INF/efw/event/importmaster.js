@@ -40,6 +40,6 @@ importmaster.fire=function(params){
 		}
 	);
 	
-	return ret.navigate("si_upload.jsp?shop=" + shopname);
+	return ret.navigate("upload.jsp?shop=" + shopname);
 
 };

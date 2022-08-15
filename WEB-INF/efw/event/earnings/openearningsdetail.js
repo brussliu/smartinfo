@@ -184,11 +184,7 @@ openearningsdetail.fire=function(params){
 	ret.runat("#detialtable").remove(".purchaseinfo").append(html).withdata(selectResult6);
 
 
-
-
-
-
-
+	/////////////////////////////////////////////////////////////////////////////////
 
 	
 	return ret.eval("earnings_inputdialog.dialog('open')");
