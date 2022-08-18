@@ -16,7 +16,7 @@
 				},
 				close : function(){
 					setTimeout(function(){
-						Efw('menu_goto',{page:'si_delivery.jsp',shop:$("#shop").val()})
+						Efw('menu_goto',{page:'delivery.jsp',shop:$("#shop").val()})
 						},
 						100
 						);

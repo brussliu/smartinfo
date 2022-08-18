@@ -33,7 +33,7 @@ updatedelivery.fire=function(params){
 	var importfile_delivery = params["#importfile_delivery"];
 
 	if(importfile_delivery == null || importfile_delivery.length == 0){
-		return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
 	}
 
 	// ステータス検索
@@ -104,11 +104,11 @@ updatedelivery.fire=function(params){
 
 	// 受取済みの場合、明細は更新しない
 	if(status == "3：納品受領" || status == "4：納品完了"){
-		return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
 
 	}
 
-	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
 };
 
 

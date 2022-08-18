@@ -24,7 +24,7 @@ updatedeliverystatus.fire=function(params){
 	// 納品受領または納品完了の場合、受領ファイルが必須
 	if(status == 3 || status == "3" || status == 4 || status == "4"){
 		if(params["#importfile_acceptance"] == null || params["#importfile_acceptance"].length == 0){
-			return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+			return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
 		}
 	}
 
@@ -120,7 +120,7 @@ updatedeliverystatus.fire=function(params){
 
 	}
 
-	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
 
 };
 

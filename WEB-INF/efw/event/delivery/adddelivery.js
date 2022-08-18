@@ -70,5 +70,5 @@ adddelivery.fire=function(params){
 			);
 			
 
-	return (new Result()).eval("Efw('menu_goto',{page:'si_delivery.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
 };
