@@ -46,14 +46,14 @@ outputdeliveryfile.fire=function(params){
 	// ];
 
 	var ary = [
-		["このシートに記入する前にExampleタブを確認してください"],
-		[""],
-		["Default prep owner	Seller"],
-		["Default labeling owner	Seller"],
-		[""],
-		[""],
-		["		任意			任意：メーカー梱包のSKUにのみ使用"],
-		["Merchant SKU	Quantity"],
+		["このシートに記入する前にExampleタブを確認してください										"],
+		["								"],
+		["Default prep owner	Seller									"],
+		["Default labeling owner	Seller									"],
+		["										"],
+		["										"],
+		["		任意			任意：メーカー梱包のSKUにのみ使用					"],
+		["Merchant SKU	Quantity	Prep owner	Labeling owner	Expiration date (MM/DD/YYYY)	Units per box 	Number of boxes	Box length (cm)	Box width (cm)	Box height (cm)	Box weight (kg)"],
 		[""]
 	];
 
