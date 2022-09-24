@@ -53,7 +53,8 @@ outputdeliveryfile.fire=function(params){
 		[""],
 		[""],
 		["		任意			任意：メーカー梱包のSKUにのみ使用"],
-		["Merchant SKU	Quantity"]
+		["Merchant SKU	Quantity"],
+		[""]
 	];
 
 	csvWriter.writeAllLines(ary);
