@@ -31,18 +31,29 @@ outputdeliveryfile.fire=function(params){
 
 	var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
 
+	// var ary = [
+	// 	["PlanName	" + deliveryname],
+	// 	["AddressName	" + shopname],
+	// 	["AddressFieldOne	浮間３－１－３７－４１１号室"],
+	// 	["AddressFieldTwo	"],
+	// 	["AddressCity	北区"],
+	// 	["AddressCountryCode	JP"],
+	// 	["AddressStateOrRegion	東京都"],
+	// 	["AddressPostalCode	1150051"],
+	// 	["	"],
+	// 	["MerchantSKU	Quantity"],
+	// 	[""],
+	// ];
+
 	var ary = [
-		["PlanName	" + deliveryname],
-		["AddressName	" + shopname],
-		["AddressFieldOne	浮間３－１－３７－４１１号室"],
-		["AddressFieldTwo	"],
-		["AddressCity	北区"],
-		["AddressCountryCode	JP"],
-		["AddressStateOrRegion	東京都"],
-		["AddressPostalCode	1150051"],
-		["	"],
-		["MerchantSKU	Quantity"],
+		["このシートに記入する前にExampleタブを確認してください"],
 		[""],
+		["Default prep owner	Seller"],
+		["Default labeling owner	Seller"],
+		[""],
+		[""],
+		["		任意			任意：メーカー梱包のSKUにのみ使用"],
+		["Merchant SKU	Quantity"]
 	];
 
 	csvWriter.writeAllLines(ary);
