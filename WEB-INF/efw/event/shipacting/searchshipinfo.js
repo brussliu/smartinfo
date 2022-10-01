@@ -16,13 +16,13 @@ searchshipinfo.fire=function(params){
 		"<td style='width: 80px'>{amount}</td>" +
 		"<td style='width: 80px '>{postno}</td>" +
 		"<td style='width: 400px'>{address1}<br>{address2}<br>{address3}</td>" +
-		"<td style='width: 100px'>{name}</td>" +
+		"<td style='width: 150px'>{name}</td>" +
 		"<td style='width: 120px'>{tel}</td>" +
 		"<td style='width: 120px'>{shipcontent}</td>" +
 		"<td style='width: 60px '>{shipcount}</td>" +
 		"<td style='width: 150px'>{shipdiv}</td>" +
 		"<td style='width: 200px'>{biko}</td>" +
-		"<td style='width: 100px'>{trackingno}</td>" +
+		"<td style='width: 150px'>{trackingno}</td>" +
 	"</tr>";
 
 	var selectResult = db.select(

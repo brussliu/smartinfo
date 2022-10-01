@@ -166,13 +166,13 @@
 		<td style="width: 80px;">合计<br>（人民币）</td>
 		<td style="width: 80px;">邮编号码</td>
 		<td style="width: 400px;">住所</td>
-		<td style="width: 100px;">姓名</td>
+		<td style="width: 150px;">姓名</td>
 		<td style="width: 120px;">电话号码</td>
 		<td style="width: 120px;">发送内容</td>
 		<td style="width: 60px;">数量</td>
 		<td style="width: 150px;">发送方式</td>
 		<td style="width: 200px;">备考</td>
-		<td style="width: 100px;">追踪号码</td>
+		<td style="width: 150px;">追踪号码</td>
 	</tr>
 </table>
 
