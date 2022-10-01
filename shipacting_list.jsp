@@ -165,9 +165,7 @@
 		<td style="width: 80px;">发送费用<br>（日元）</td>
 		<td style="width: 80px;">合计<br>（人民币）</td>
 		<td style="width: 80px;">邮编号码</td>
-		<td style="width: 160px;">住所1</td>
-		<td style="width: 240px;">住所2</td>
-		<td style="width: 240px;">住所3</td>
+		<td style="width: 400px;">住所</td>
 		<td style="width: 100px;">姓名</td>
 		<td style="width: 120px;">电话号码</td>
 		<td style="width: 120px;">发送内容</td>
