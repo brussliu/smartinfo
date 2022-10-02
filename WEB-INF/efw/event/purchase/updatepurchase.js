@@ -43,6 +43,8 @@ updatepurchase.fire=function(params){
 	// 為替レート
 	var rate = parseFloat(params["#rate"]).toFixed(2);
 
+	rate.debug("XXXXXXXXXXXXXXXXXX");
+
 	// 商品費用
 	var productamount = parseFloat(params["#productamount"]).toFixed(2);
 	// 商品費用（円）
