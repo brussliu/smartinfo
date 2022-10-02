@@ -43,26 +43,55 @@ updatepurchase.fire=function(params){
 	// 為替レート
 	var rate = parseFloat(params["#rate"]).toFixed(2);
 
-	rate.debug("XXXXXXXXXXXXXXXXXX");
+	if(rate == "NaN"){
+		rate = null;
+	}
 
 	// 商品費用
 	var productamount = parseFloat(params["#productamount"]).toFixed(2);
 	// 商品費用（円）
 	var productamount_jp = (productamount * 100 / rate).toFixed(2);
 
+	if(productamount == "NaN"){
+		productamount = null;
+		productamount_jp = null;
+	}
+
+
 	// 物流費用
 	var shipamount = parseFloat(params["#shipamount"]).toFixed(2);
 	// 物流費用（円）
 	var shipamount_jp = (shipamount * 100 / rate).toFixed(2);
 
+	if(shipamount == "NaN"){
+		shipamount = null;
+		shipamount_jp = null;
+	}
+
+
 	// 税金（円）
 	var faxamount_jp = parseFloat(params["#faxamount"]).toFixed(2);
 	// 税金
 	var faxamount = (faxamount_jp * rate / 100).toFixed(2);
+
+	if(faxamount_jp == "NaN"){
+		faxamount = null;
+		faxamount_jp = null;
+	}
+
+
 	// 合計仕入費用
 	var all_amount = (parseFloat(productamount) + parseFloat(shipamount) + parseFloat(faxamount)).toFixed(2);
 	// 合計仕入費用円貨
 	var all_amount_jp = (parseFloat(productamount_jp) + parseFloat(shipamount_jp) + parseFloat(faxamount_jp)).toFixed(2);
+
+	if(productamount == null || shipamount == null || faxamount == null){
+		all_amount = null;
+	}
+	if(productamount_jp == null || shipamount_jp == null || faxamount_jp == null){
+		all_amount_jp = null;
+	}
+
 
 	// 仕入名称更新
 	var updateResult = db.change(
