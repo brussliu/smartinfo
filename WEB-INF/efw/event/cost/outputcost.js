@@ -19,7 +19,7 @@ outputcost.fire=function(params){
 	// テンプレートにより、EXCELオブジェクトを作成する
 	var excel = new Excel("templates/output_cost.xlsx");
 
-	outputMasterList(excel, selectResult, "コスト一覧", false);
+	outputMasterList(excel, selectResult, "コスト一覧");
 
 	var tempFilePathName=file.getTempFileName();
 	
@@ -34,7 +34,7 @@ outputcost.fire=function(params){
 };
 
 
-function outputCostList(excel, selectResult, sheetName, productnameFlg){
+function outputCostList(excel, selectResult, sheetName){
 
 	var p_accrualdate_X = "B";
 	var p_div_X = "C";
@@ -56,15 +56,15 @@ function outputCostList(excel, selectResult, sheetName, productnameFlg){
 		var remarks = selectResult[i]["remarks"];
 
 
-		excel.setCell(sheetName, p_accrualdate_X + y, shopnm);
+		excel.setCell(sheetName, p_accrualdate_X + y, accrualdate);
 
-		excel.setCell(sheetName, p_div_X + y, productno);
+		excel.setCell(sheetName, p_div_X + y, div);
 
-		excel.setCell(sheetName, p_title_X + y, productdiv);
+		excel.setCell(sheetName, p_title_X + y, title);
 
-		excel.setCell(sheetName, p_amount_X + y, producttype);
+		excel.setCell(sheetName, p_amount_X + y, amount);
 
-		excel.setCell(sheetName, p_remarks_X + y, color);
+		excel.setCell(sheetName, p_remarks_X + y, remarks);
 
 	}
 
