@@ -65,7 +65,7 @@ function importCostList(f, shopname, sheetName){
 	
 	for(var y = row_from;y <= row_to;y++){
 
-		var accrualdate = excelXSSF.getValue(sheetName, p_accrualdate_X + y);
+		var accrualdate = excelXSSF.getValue(sheetName, p_accrualdate_X + y).substring(10);
 		var div = excelXSSF.getValue(sheetName, p_div_X + y);
 		var title = excelXSSF.getValue(sheetName, p_title_X + y);
 		var amount = excelXSSF.getValue(sheetName, p_amount_X + y);
