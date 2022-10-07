@@ -81,7 +81,7 @@ function importCostList(f, shopname, sheetName){
 			"insertCost",
 			{
 				"col0" : count,
-				"col1" : accrualdate.toISOString().substring(0,10),
+				"col1" : accrualdate.toISOString().substring(0,10).replaceAll("-","/"),
 				"col2" : div,
 				"col3" : title,
 				"col4" : amount,
