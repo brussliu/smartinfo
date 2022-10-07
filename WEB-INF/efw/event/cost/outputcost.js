@@ -45,6 +45,9 @@ function outputCostList(excel, selectResult, sheetName){
 
 	var row_from = 2;
 
+
+	selectResult.debug("FFFFFFFFFFFFFFFFFFFF");
+	
 	for(var i = 0;i < selectResult.length;i ++){
 
 		var y = i + row_from;
