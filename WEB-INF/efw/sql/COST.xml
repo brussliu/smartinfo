@@ -19,7 +19,7 @@
 		DELETE FROM "コスト管理" 
 	</sql>
 
-	<sql id1="insertCost">
+	<sql id="insertCost">
 		INSERT INTO "コスト管理"
 		VALUES (
 			:col0,--rowid
