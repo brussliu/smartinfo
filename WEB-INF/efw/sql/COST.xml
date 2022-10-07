@@ -2,7 +2,7 @@
 <!DOCTYPE sqls>
 <sqls>
 
-	<sql id="selectmaster">
+	<sql id="selectcost">
 		select
 			"発生日" as accrualdate,
 			"分類" as div,
@@ -28,44 +28,6 @@
 			:col3,--タイトル
 			:col4,--金額
 			:col5 --備考
-		)
-	</sql>
-
-	<sql id="selectSubInfo">
-		SELECT
-		 T2."ラベル番号" as LABEL,
-		 T1."商品名" as PRODUCTNAME,
-		 T1."価格" as PRICE,
-		 T1."数量" as FBMQUANTITY,
-		 T2."在庫数量" as FBAQUANTITY
-		FROM
-		 "INPUT_出品詳細情報" T1
-		 LEFT JOIN
-		 "INPUT_FBA在庫情報" T2
-		 ON T1."出品者SKU" = T2."SKU番号"
-		 AND T1."ASIN 1" = T2."ASIN番号"
-		WHERE
-		 T1."出品者SKU" = :sku
-		 AND
-		 T1."ASIN 1" = :asin
-		 AND
-		 T1."店舗名" = :shop
-	</sql>
-
-	<sql id="delmasterpic">
-		DELETE FROM "MASTER_写真情報" T1
-		WHERE
-		 T1."商品管理番号" = :productno
-		 AND
-		 T1."店舗名" = :shop
-	</sql>
-	<sql id="insertColor">
-		INSERT INTO "MASTER_写真情報"
-		VALUES (
-			:shop,--店舗名
-			:col0,--商品管理番号
-			:col1,--色
-			:col2 --写真
 		)
 	</sql>
 
