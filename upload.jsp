@@ -236,6 +236,33 @@
 	</tr>
 </table>
 <br/>
+<table class="upfile" id="costtable">
+	<tr>
+		<td style="width: 350px;font-size: 20px;font-weight: bold;">
+			コスト情報
+		</td>
+		<td style="width: 120px;font-size: 16px;">
+			前回導入日時：
+		</td>
+		<td style="width: 220px;font-size: 16px;" class="importtime">
+		</td>
+		<td style="width: 120px;font-size: 16px;">
+			前回導入件数：
+		</td>
+		<td style="width: 120px;font-size: 16px;text-align: right;" class="importcount">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="file" id="importfile_cost" style="width: 400px;height: 30px;">
+		</td>
+		<td colspan="3" style="text-align: right;">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導出" onclick="Efw('cost/outputcost')">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('cost/importcost')">
+		</td>
+	</tr>
+</table>
+<br/>
 <table class="upfile" id="shiptable_amazon">
 	<tr>
 		<td style="width: 350px;font-size: 20px;font-weight: bold;">
