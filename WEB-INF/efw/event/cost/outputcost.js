@@ -19,7 +19,7 @@ outputcost.fire=function(params){
 	// テンプレートにより、EXCELオブジェクトを作成する
 	var excel = new Excel("templates/output_cost.xlsx");
 
-	outputMasterList(excel, selectResult, "コスト一覧");
+	outputCostList(excel, selectResult, "コスト一覧");
 
 	var tempFilePathName=file.getTempFileName();
 	
@@ -47,7 +47,7 @@ function outputCostList(excel, selectResult, sheetName){
 
 
 	selectResult.debug("FFFFFFFFFFFFFFFFFFFF");
-	
+
 	for(var i = 0;i < selectResult.length;i ++){
 
 		var y = i + row_from;
