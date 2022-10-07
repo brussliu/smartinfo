@@ -59,7 +59,7 @@ function outputCostList(excel, selectResult, sheetName){
 		var remarks = selectResult[i]["remarks"];
 
 
-		excel.setCell(sheetName, p_accrualdate_X + y, accrualdate);
+		excel.setCell(sheetName, p_accrualdate_X + y, new Date(accrualdate));
 
 		excel.setCell(sheetName, p_div_X + y, div);
 
