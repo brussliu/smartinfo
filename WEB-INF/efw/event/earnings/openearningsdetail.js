@@ -177,14 +177,28 @@ openearningsdetail.fire=function(params){
 	"<tr style='height: 40px;' class='purchaseinfo'>" +
 		"<td class='bg6' >仕入（{purchasedate}）</td>" +
 		"<td style='text-align: right;' colspan='2'>{productamountjp}円 / {shipjp}円 / {faxjp}円　</td>" +
-		"<td style='text-align: right;'>{purchasejp}円　</td>" +
-		"<td colspan='4'></td>" +
+		"<td style='text-align: right;'>{purchasejp}円　</td>"
 	"</tr>";
 
 	ret.runat("#earningstable").remove(".purchaseinfo").append(html).withdata(selectResult6);
 
 
 	/////////////////////////////////////////////////////////////////////////////////
+	var selectResult7 = db.select(
+		"EARNINGS",
+		"searchearningsdetail7",
+		{yearmonth : yearmonth}
+	).getArray();
+
+	var html =
+	"<tr style='height: 40px;' class='costinfo'>" +
+		"<td class='bg6' >支出（{accrualdate}）</td>" +
+		"<td style='text-align: right;' colspan='2'>{div} / {title} / {amount}元　</td>" +
+		"<td style='text-align: right;'>{amountjp}円　</td>"
+	"</tr>";
+
+	ret.runat("#costtable").remove(".costinfo").append(html).withdata(selectResult7);
+
 
 	
 	return ret.eval("earnings_inputdialog.dialog('open')");

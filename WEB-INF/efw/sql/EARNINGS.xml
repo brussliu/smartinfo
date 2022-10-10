@@ -373,4 +373,33 @@
 
 	</sql>
 
+	<sql id="searchearningsdetail7">
+		select
+			"年月" as yearmonth,
+			"発生日" as accrualdate,
+			"分類" as div,
+			"タイトル" as title,
+			0-round(cast("金額" as numeric),0) as amount,
+			0-round(cast("金額（円）" as numeric),0) as amountjp,
+			"ステータス" as status
+		from
+		(
+			select
+				substr("発生日", 1, 4) || '年' || substr("発生日", 6, 2) || '月' as "年月"
+				, "発生日"
+				, "分類"
+				, "タイトル"
+				, "金額"
+				, "金額（円）"
+				, "ステータス"
+			from
+				"コスト管理" 
+		) temp
+		where 
+			"年月" = :yearmonth
+		order by
+			"発生日"
+
+	</sql>
+
 </sqls>

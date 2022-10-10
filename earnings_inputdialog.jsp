@@ -188,7 +188,21 @@
 					</tr>
 				</table>
 			</td>
-			<td colspan="4">その他支出一覧</td>
+			<td colspan="4">
+				<table border="1" id="costtable" style="font-size: 16px;border-radius: 0px;">
+					<COLGROUP>
+						<COL WIDTH="200PX">
+						<COL WIDTH="150PX">
+						<COL WIDTH="200PX">
+						<COL WIDTH="150PX">
+					</COLGROUP>
+					<tr style="height: 40px;">
+						<td class="bg6" >発生日</td>
+						<td class="bg6" colspan="2">その他支出/金額(元)/ステータス</td>
+						<td class="bg6" >金額(円)</td>
+					</tr>
+				</table>
+			</td>
 		</tr>
 		<!--
 		<tr style="height: 40px;">
