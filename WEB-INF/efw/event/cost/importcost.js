@@ -97,9 +97,9 @@ function importCostList(f, shopname, sheetName){
 				"col1" : accrualdate.toISOString().substring(0,10).replaceAll("-","/"),
 				"col2" : div,
 				"col3" : title,
-				"col4" : amount.toFixed(0),
-				"col5" : rate.toFixed(2),
-				"col6" : amountjp.toFixed(0),
+				"col4" : Number(amount).toFixed(0),
+				"col5" : Number(rate).toFixed(2),
+				"col6" : Number(amountjp).toFixed(0),
 				"col7" : remarks,
 				"col8" : status
 			}
