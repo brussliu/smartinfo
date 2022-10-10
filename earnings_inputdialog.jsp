@@ -93,7 +93,7 @@
 			font-weight: bold;
 		}
 		.bg7 {
-			background-color: rgb(50, 130, 255);
+			background-color: rgb(100, 180, 255);
 			font-weight: bold;
 		}
     </style>
