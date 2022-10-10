@@ -40,13 +40,14 @@ function outputCostList(excel, selectResult, sheetName){
 	var p_div_X = "C";
 	var p_title_X = "D";
 	var p_amount_X = "E";
-	var p_remarks_X = "F";
+	var p_rate_X = "F";
+	var p_amountjp_X = "G";
+	var p_remarks_X = "H";
+	var p_status_X = "I";
 
 
 	var row_from = 2;
 
-
-	selectResult.debug("FFFFFFFFFFFFFFFFFFFF");
 
 	for(var i = 0;i < selectResult.length;i ++){
 
@@ -56,7 +57,11 @@ function outputCostList(excel, selectResult, sheetName){
 		var div = selectResult[i]["div"];
 		var title = selectResult[i]["title"];
 		var amount = selectResult[i]["amount"];
+		var rate = selectResult[i]["rate"];
+		var amountjp = selectResult[i]["amountjp"];
+
 		var remarks = selectResult[i]["remarks"];
+		var status = selectResult[i]["status"];
 
 
 		excel.setCell(sheetName, p_accrualdate_X + y, new Date(accrualdate));
@@ -67,7 +72,13 @@ function outputCostList(excel, selectResult, sheetName){
 
 		excel.setCell(sheetName, p_amount_X + y, amount);
 
+		excel.setCell(sheetName, p_rate_X + y, rate);
+
+		excel.setCell(sheetName, p_amountjp_X + y, amountjp);
+
 		excel.setCell(sheetName, p_remarks_X + y, remarks);
+
+		excel.setCell(sheetName, p_status_X + y, status);
 
 	}
 

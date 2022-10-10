@@ -56,7 +56,10 @@ function importCostList(f, shopname, sheetName){
 	var p_div_X = "C";
 	var p_title_X = "D";
 	var p_amount_X = "E";
-	var p_remarks_X = "F";
+	var p_rate_X = "F";
+	var p_amountjp_X = "G";
+	var p_remarks_X = "H";
+	var p_status_X = "I";
 
 	var row_from = 2;
 	var row_to = 9999;
@@ -69,11 +72,21 @@ function importCostList(f, shopname, sheetName){
 		var div = excelXSSF.getValue(sheetName, p_div_X + y);
 		var title = excelXSSF.getValue(sheetName, p_title_X + y);
 		var amount = excelXSSF.getValue(sheetName, p_amount_X + y);
+		var rate = excelXSSF.getValue(sheetName, p_rate_X + y);
+		var amountjp = excelXSSF.getValue(sheetName, p_amountjp_X + y);
 		var remarks = excelXSSF.getValue(sheetName, p_remarks_X + y);
-
+		var status = excelXSSF.getValue(sheetName, p_status_X + y);
 
 		if(accrualdate == null || accrualdate.length <= 0){
 			break;
+		}
+
+		if(amountjp == null || amountjp.length <= 0){
+			amountjp = amount / rate * 100
+		}
+
+		if(amount == null || amount.length <= 0){
+			amount = amountjp * rate / 100
 		}
 
 		var insertResult = db.change(
@@ -85,7 +98,10 @@ function importCostList(f, shopname, sheetName){
 				"col2" : div,
 				"col3" : title,
 				"col4" : amount,
-				"col5" : remarks
+				"col5" : rate,
+				"col6" : amountjp,
+				"col7" : remarks,
+				"col8" : status
 			}
 		);
 

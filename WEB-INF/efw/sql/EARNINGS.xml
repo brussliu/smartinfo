@@ -119,6 +119,26 @@
 		from
 			( 
 				select
+					substr("発生日", 1, 4) || '年' || substr("発生日", 6, 2) || '月' as "年月"
+					, 0 as "注文数量"
+					, 0 as "注文粗利益"
+					, 0 as "月額登録料"
+					, 0 as "広告費用"
+					, 0 as "返品損失金額"
+					, 0 as "FBA入庫料金"
+					, 0 as "FBA保管料金"
+					, 0 as "振込金額"
+					, 0 as 仕入費用
+					, case 
+						when sum(cast("金額（円）" as float)) is not null then 0 - sum(cast("金額（円）" as float)) else 0 end as "その他" 
+				from
+					"コスト管理" 
+				where
+					ステータス in ('支払済')
+				group by
+					"年月" 
+				union all 
+				select
 					substr("仕入確定日", 1, 4) || '年' || substr("仕入確定日", 6, 2) || '月' as "年月"
 					, 0 as "注文数量"
 					, 0 as "注文粗利益"

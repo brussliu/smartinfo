@@ -8,7 +8,10 @@
 			"分類" as div,
 			"タイトル" as title,
 			"金額" as amount,
-			"備考" as remarks
+			"為替レート" as rate,
+			"金額（円）" as amountjp,
+			"備考" as remarks,
+			"ステータス" as status
 		from
 			"コスト管理"
 		order by
@@ -27,7 +30,10 @@
 			:col2,--分類
 			:col3,--タイトル
 			:col4,--金額
-			:col5 --備考
+			:col5,--金額
+			:col6,--金額
+			:col7,--備考
+			:col8 --ステータス
 		)
 	</sql>
 
