@@ -181,7 +181,7 @@ openearningsdetail.fire=function(params){
 		"<td colspan='4'></td>" +
 	"</tr>";
 
-	ret.runat("#detialtable").remove(".purchaseinfo").append(html).withdata(selectResult6);
+	ret.runat("#earningstable").remove(".purchaseinfo").append(html).withdata(selectResult6);
 
 
 	/////////////////////////////////////////////////////////////////////////////////

@@ -92,6 +92,10 @@
 			background-color: rgb(255, 155, 155);
 			font-weight: bold;
 		}
+		.bg7 {
+			background-color: rgb(50, 130, 255);
+			font-weight: bold;
+		}
     </style>
 	<table border="1" id="detialtable" style="font-size: 16px;border-radius: 0px;">
 		<COLGROUP>
@@ -169,10 +173,29 @@
 			<td style="text-align: right;" id="purchaseamountsum">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
+			<td colspan="4">
+				<table border="1" id="earningstable" style="font-size: 16px;border-radius: 0px;">
+					<COLGROUP>
+						<COL WIDTH="200PX">
+						<COL WIDTH="150PX">
+						<COL WIDTH="200PX">
+						<COL WIDTH="150PX">
+					</COLGROUP>
+					<tr style="height: 40px;">
+						<td class="bg6" >&nbsp;</td>
+						<td class="bg6" colspan="2">商品費用(円)/物流費用(円)/税金(円)</td>
+						<td class="bg6" >合計(円)</td>
+					</tr>
+				</table>
+			</td>
+			<td colspan="4">その他支出一覧</td>
+		</tr>
+		<!--
+		<tr style="height: 40px;">
 			<td class="bg6" >&nbsp;</td>
 			<td class="bg6" colspan="2">商品費用(円)/物流費用(円)/税金(円)</td>
 			<td class="bg6" >合計(円)</td>
-			<td colspan="4"></td>
+			<td class="bg7" colspan="4">その他支出一覧</td>
 		</tr>
 		<tr style="height: 40px;" class="purchaseinfo">
 			<td class="bg6" >仕入（2022/06/03）</td>
@@ -180,6 +203,7 @@
 			<td style="text-align: right;">-999999円　</td>
 			<td colspan="4"></td>
 		</tr>
+		-->
 	</table>
 
 </DIV>
