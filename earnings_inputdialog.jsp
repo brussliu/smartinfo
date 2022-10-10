@@ -173,7 +173,7 @@
 			<td style="text-align: right;" id="purchaseamountsum">999999999円　</td>
 		</tr>
 		<tr style="height: 40px;">
-			<td colspan="4">
+			<td colspan="4" style="vertical-align: top;">
 				<table border="1" id="earningstable" style="font-size: 16px;border-radius: 0px;">
 					<COLGROUP>
 						<COL WIDTH="200PX">
@@ -188,7 +188,7 @@
 					</tr>
 				</table>
 			</td>
-			<td colspan="4">
+			<td colspan="4" style="vertical-align: top;">
 				<table border="1" id="costtable" style="font-size: 16px;border-radius: 0px;">
 					<COLGROUP>
 						<COL WIDTH="200PX">
