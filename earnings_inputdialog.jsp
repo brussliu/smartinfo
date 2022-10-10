@@ -197,9 +197,9 @@
 						<COL WIDTH="150PX">
 					</COLGROUP>
 					<tr style="height: 40px;">
-						<td class="bg6" >発生日</td>
-						<td class="bg6" colspan="2">その他支出/金額(元)/ステータス</td>
-						<td class="bg6" >金額(円)</td>
+						<td class="bg7" >発生日</td>
+						<td class="bg7" colspan="2">その他支出/金額(元)/ステータス</td>
+						<td class="bg7" >金額(円)</td>
 					</tr>
 				</table>
 			</td>

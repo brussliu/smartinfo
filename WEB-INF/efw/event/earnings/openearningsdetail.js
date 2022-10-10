@@ -192,7 +192,7 @@ openearningsdetail.fire=function(params){
 
 	var html =
 	"<tr style='height: 40px;' class='costinfo'>" +
-		"<td class='bg6' >支出（{accrualdate}）</td>" +
+		"<td class='bg7' >支出（{accrualdate}）</td>" +
 		"<td style='text-align: right;' colspan='2'>{div} / {title} / {amount}元　</td>" +
 		"<td style='text-align: right;'>{amountjp}円　</td>"
 	"</tr>";
