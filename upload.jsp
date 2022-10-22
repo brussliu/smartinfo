@@ -81,8 +81,8 @@
 			<input type="file" id="importfile_master" style="width: 400px;height: 30px;">
 		</td>
 		<td colspan="3" style="text-align: right;">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導出" onclick="Efw('outputmaster')">
-			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('importmaster')">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導出" onclick="Efw('master/outputmaster')">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('master/importmaster')">
 		</td>
 	</tr>
 </table>

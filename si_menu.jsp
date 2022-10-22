@@ -83,7 +83,7 @@
 			<br><br>
 			<input type=button value="ラベル番号印刷用データ出力" style="width:400px;height: 40px;" onclick="Efw('outputlabeldata')">
 			<br><br>
-			<input type=button value="マスタ修復" style="width:400px;height: 40px;" onclick="Efw('repairmaster')">
+			<input type=button value="マスタ修復" style="width:400px;height: 40px;" onclick="Efw('master/repairmaster')">
 			<br><br>
 			<input type="text" id="delno" style="width: 190px;height: 32px;">
 			<input type=button value="仕入削除" style="width:100px;height: 40px;" onclick="Efw('purchase/delpurchase')">
