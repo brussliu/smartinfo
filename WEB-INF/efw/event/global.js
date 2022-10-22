@@ -251,7 +251,7 @@ function importMasterList(f, shopname, sheetName){
 				"col6" : p_size,
 				"col7" : sku,
 				"col8" : asin,
-				"col9" : purchaseprice.toFixed(2)
+				"col9" : purchaseprice == null ? purchaseprice : purchaseprice.toFixed(2)
 			}
 		);
 
