@@ -98,7 +98,8 @@
 			:col5,--色
 			:col6,--サイズ
 			:col7,--SKU番号
-			:col8 --ASIN番号
+			:col8,--ASIN番号
+			:col9 --仕入価格
 		)
 	</sql>
 
@@ -112,7 +113,8 @@
 			M."色" as color,
 			M."サイズ" as size,
 			M."SKU番号" as sku,
-			M."ASIN番号" as asin
+			M."ASIN番号" as asin,
+			M."仕入価格" as purchaseprice
 		FROM
 			"NEW_出品マスタ情報" M
 			left join "MASTER_ソート情報" C on C."大区分" = M."商品管理番号" and C."小区分" = '色' and M."色" = C."内容"

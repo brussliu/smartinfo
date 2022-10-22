@@ -142,7 +142,8 @@ function outputMasterList(excel, selectResult, sheetName, productnameFlg){
 	var p_size_X = "G";
 	var p_sku_X = "H";
 	var p_asin_X = "I";
-	var p_name_X = "J";
+	var p_purchaseprice_X = "J";
+	var p_name_X = "K";
 
 	var row_from = 2;
 
@@ -162,6 +163,8 @@ function outputMasterList(excel, selectResult, sheetName, productnameFlg){
 		var sku = selectResult[i]["sku"];
 		var asin = selectResult[i]["asin"];
 
+		var purchaseprice = selectResult[i]["purchaseprice"];
+
 		var productname = selectResult[i]["productname"];
 
 		excel.setCell(sheetName, shop_X + y, shopnm);
@@ -179,6 +182,8 @@ function outputMasterList(excel, selectResult, sheetName, productnameFlg){
 		excel.setCell(sheetName, p_sku_X + y, sku);
 
 		excel.setCell(sheetName, p_asin_X + y, asin);
+
+		excel.setCell(sheetName, p_purchaseprice_X + y, purchaseprice);
 
 		if(productnameFlg){
 			excel.setCell(sheetName, p_name_X + y, productname);
@@ -210,6 +215,8 @@ function importMasterList(f, shopname, sheetName){
 	var sku_X = "H";
 	var asin_X = "I";
 
+	var purchaseprice_X = "J";
+
 	var row_from = 2;
 	var row_to = 9999;
 
@@ -225,6 +232,7 @@ function importMasterList(f, shopname, sheetName){
 		var p_size = excelXSSF.getValue(sheetName, p_size_X + y);
 		var sku = excelXSSF.getValue(sheetName, sku_X + y);
 		var asin = excelXSSF.getValue(sheetName, asin_X + y);
+		var purchaseprice = excelXSSF.getValue(sheetName, purchaseprice_X + y);
 
 		if(shop == null || shop.length <= 0){
 			break;
@@ -242,7 +250,8 @@ function importMasterList(f, shopname, sheetName){
 				"col5" : p_color,
 				"col6" : p_size,
 				"col7" : sku,
-				"col8" : asin
+				"col8" : asin,
+				"col9" : purchaseprice
 			}
 		);
 
