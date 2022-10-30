@@ -300,5 +300,10 @@
 	</sql>
 
 
+
+	<sql id="deleteAllLabelInfo">
+		DELETE FROM HON_TEMP_SHIPINFO
+	</sql>
+
 </sqls>
 

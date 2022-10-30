@@ -96,7 +96,13 @@ outputship.fire=function(params){
 
 	}
 
-
+	var delResult = db.change(
+		"SHIP",
+		"deleteAllLabelInfo",
+		{
+		},
+		"jdbc/efw2"
+	);
 
 	if(outputType == "new"){
 
