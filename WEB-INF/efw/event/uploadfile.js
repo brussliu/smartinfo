@@ -588,8 +588,8 @@ function importOrderInfo(aryField, index) {
 				"col24":aryField[24+3],
 				"col25":aryField[25+3],
 				"col26":aryField[26+3],
-				"col27":aryField[27+3+1],
-				"col28":aryField[28+3+1],
+				"col27":aryField[27+3],
+				"col28":aryField[28+3],
 				"col29":shopname
 			}
 		);
