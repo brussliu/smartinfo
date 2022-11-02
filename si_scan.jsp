@@ -79,12 +79,12 @@
 
 				var label = $(this).children().eq(5).html();
 
-				alert(label);
-
 				if(label == labelno){
 
 					var count = $(this).children().eq(7).html();
 					$(this).children().eq(7).html(parseInt(count)+1);
+
+					return;
 				}
 			});
 
