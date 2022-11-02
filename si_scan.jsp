@@ -108,6 +108,8 @@
 
 				var newcontent = $("#listcontent").val() == "" ? "":"," + pno + "-" + color + "-" + size;
 
+				alert(newcontent);
+
 				$("#listcontent").val(newcontent);
 			}
 
