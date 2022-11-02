@@ -220,23 +220,28 @@
 						<COL WIDTH="50PX">
 						<COL WIDTH="100PX">
 						<COL WIDTH="100PX">
+						<COL WIDTH="500PX">
+						<COL WIDTH="50PX">
 					</COLGROUP>
-					<tr>
+					<tr style="background-color: lightblue;">
 						<td>No</td>
 						<td>SKU番号</td>
 						<td>ASIN番号</td>
+						<td>商品名称</td>
 						<td>数量</td>
 					</tr>
 					<tr>
 						<td>1</td>
 						<td>123456789012345</td>
 						<td>123456789012345</td>
+						<td>【Smart-Bear】W502 スポーツソックス プロ用スキーソックス 子供用 厚手のニット 冬用 登山 遠足 スポーツソックス 男の子 女の子 2足入り</td>
 						<td>999</td>
 					</tr>
 					<tr>
 						<td>1</td>
 						<td>123456789012345</td>
 						<td>123456789012345</td>
+						<td>【Smart-Bear】W502 スポーツソックス プロ用スキーソックス 子供用 厚手のニット 冬用 登山 遠足 スポーツソックス 男の子 女の子 2足入り</td>
 						<td>999</td>
 					</tr>
 				</table>
@@ -250,12 +255,12 @@
 						<COL WIDTH="200PX">
 						<COL WIDTH="250PX">
 					</COLGROUP>
-					<tr>
+					<tr style="background-color: lightblue;">
 						<td>No</td>
 						<td>登録日時</td>
 						<td>名前</td>
 					</tr>
-					<tr>
+					<tr style="background-color: lightblue;">
 						<td colspan="3">内容</td>
 					</tr>
 					<tr>
