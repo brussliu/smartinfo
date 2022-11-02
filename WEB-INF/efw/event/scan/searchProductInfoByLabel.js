@@ -19,6 +19,9 @@ searchProductInfoByLabel.fire=function(params){
 		}
 	).getSingle();
 
+
+	selectResult.debug("GGGGGGGGGGGGGGGGGGGGGGGGGGG");
+
 	var pno = selectResult["商品管理番号"];
 	var color = selectResult["色"];
 	var size = selectResult["サイズ"];
@@ -30,6 +33,8 @@ searchProductInfoByLabel.fire=function(params){
 
 	var script = "addRecord('" + pno + "','" + color + "','" + size + "','" + sku + "','" + asin + "','" + labelno + "','" + pname + "')"
 
+
+	script.debug("JJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
 
 	return ret.eval(script);
 
