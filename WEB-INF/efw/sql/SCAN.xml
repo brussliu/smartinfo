@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqls>
+<sqls>
+
+	<sql id="searchProductInfoByLabel">
+		select 
+			"商品管理番号",
+			"色",
+			"サイズ",
+			"SKU番号",
+			"ASIN番号",
+			"ラベル番号",
+			"商品名"
+		from 
+			"VIEW_商品詳細情報" 
+		where 
+			"ラベル番号" = :label
+	</sql>
+
+
+
+
+</sqls>

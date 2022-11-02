@@ -42,27 +42,21 @@
 			}
 		}
 
-		function inputLabel(obj,n){
+		function inputLabel(obj){
 
 			//Efw('searchmaster');
 
 			if($(obj).val().length == 10 && $(obj).val().startsWith("X000")){
-				//alert($(obj).val());
+
 
 				// 商品管理コード取得
-				
+				Efw('searchProductInfoByLabel',{label: $(obj).val()});
+
 
 				// 画面表示
 				// 商品管理コード表示
 
-				// 数量表示
-
-				var row = $(obj).parent().parent().parent().find("tr").length;
-				var count = (row - 2) * 10 + n;
-				$(obj).parent().parent().parent().children(":first").children(":first").children(":last").html("数量：" + count);
-
 				//音声
-
 		        var audioElement = document.createElement('audio');
 		        audioElement.setAttribute('src', 'facai.mp3');
 		        audioElement.setAttribute('autoplay', 'autoplay');
@@ -70,66 +64,29 @@
 				//次の入力欄生成
 				
 
-				if(n < 10){
-
-					var next = $(obj).parent().next().children();
-
-					if(next.length > 0){
-
-
-					}else{
-
-						var html = "<INPUT TYPE='TEXT' STYLE='WIDTH:100%;height:30px;ime-mode:disabled;' value='' oninput='inputLabel(this," + (n+1) + ");' maxlength='10' onblur='checkInput(this);'>";
-						$(obj).parent().next().html(html);
-						$(obj).parent().next().children().focus();
-
-					}
-
-				}else{
-
-					var next = $(obj).parent().parent().next().children().children();
-
-					if(next.length > 0){
-
-
-					}else{
-
-						var $tdName1 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'><INPUT TYPE='TEXT' STYLE='WIDTH:100%;height:30px;ime-mode:disabled;' value='' oninput='inputLabel(this,1);' maxlength='10' onblur='checkInput(this);'></td>");
-						var $tdName2 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-						var $tdName3 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-						var $tdName4 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-						var $tdName5 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-						var $tdName6 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-						var $tdName7 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-						var $tdName8 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-						var $tdName9 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-						var $tdName10 = $("<td style='width: 100px;font-size: 14px;font-weight: bold;'></td>");
-
-						var $tr = $("<tr></tr>");
-						$tr.append($tdName1);
-						$tr.append($tdName2);
-						$tr.append($tdName3);
-						$tr.append($tdName4);
-						$tr.append($tdName5);
-						$tr.append($tdName6);
-						$tr.append($tdName7);
-						$tr.append($tdName8);
-						$tr.append($tdName9);
-						$tr.append($tdName10);
-
-
-						$(obj).parent().parent().parent().append($tr);
-
-						$(obj).parent().parent().next().children().children().focus();
-
-					}
-
-				}
 
 			}else{
 
 				return;
 			}
+
+		}
+
+		function addRecord(pno, color, size, sku, asin, labelno, pname){
+
+			var $tr = $("<tr></tr>");
+
+			var $td1 = $("<td>" + pno + "</td>");
+			var $td2 = $("<td>" + color + "</td>");
+			var $td3 = $("<td>" + size + "</td>");
+			var $td4 = $("<td>" + sku + "</td>");
+			var $td5 = $("<td>" + asin + "</td>");
+			var $td6 = $("<td>" + labelno + "</td>");
+			var $td7 = $("<td>" + pname + "</td>");
+
+			$tr.append($td1).append($td2).append($td3).append($td4).append($td5).append($td6).append($td7);
+
+			$("#lefttable").append($tr);
 
 		}
 
@@ -209,14 +166,14 @@
 <input type="button" id="addgroup" style="width: 170px;height: 30px;" value="新規グループ" onclick="addgroup();">
 <input type="button" id="importstock" style="width: 170px;height: 30px;" value="集計" onclick="liststock();">
 <br/><br/>
-<table border="1">
+<table border="0">
 	<tr>
 		<td>
-			スキャンコード：<input type="text" id="" style="width: 120px;height: 32px;">&nbsp;
+			スキャンコード：<input type="text" id="" style="width: 120px;height: 32px;ime-mode:disabled;" oninput="inputLabel(this);" maxlength="10" onblur="checkInput(this);">&nbsp;
 			名前：<input type="text" id="" style="width: 200px;height: 32px;">&nbsp;
 			内容：<input type="text" id="" style="width: 300px;height: 32px;">
 			<div style="width: 1300px;height: 750px;">
-				<table border="1">
+				<table border="1" id="lefttable">
 					<COLGROUP>
 						<COL WIDTH="50PX">
 						<COL WIDTH="100PX">
@@ -226,7 +183,9 @@
 						<COL WIDTH="100PX">
 					</COLGROUP>
 					<tr style="background-color: lightblue;">
-						<td>No</td>
+						<td>商品管理番号</td>
+						<td>色</td>
+						<td>サイズ</td>
 						<td>SKU番号</td>
 						<td>ASIN番号</td>
 						<td>ラベル番号</td>
@@ -234,7 +193,9 @@
 						<td>数量</td>
 					</tr>
 					<tr>
-						<td>1</td>
+						<td>W001</td>
+						<td>123456789012345</td>
+						<td>123456789012345</td>
 						<td>123456789012345</td>
 						<td>123456789012345</td>
 						<td>123456789012345</td>
@@ -243,6 +204,8 @@
 					</tr>
 					<tr>
 						<td>1</td>
+						<td>123456789012345</td>
+						<td>123456789012345</td>
 						<td>123456789012345</td>
 						<td>123456789012345</td>
 						<td>123456789012345</td>
