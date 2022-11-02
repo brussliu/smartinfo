@@ -74,19 +74,37 @@
 
 		function addRecord(pno, color, size, sku, asin, labelno, pname){
 
-			var $tr = $("<tr></tr>");
+			var flg = false;
+			$("#lefttable").find("tr").each(function(){
 
-			var $td1 = $("<td>" + pno + "</td>");
-			var $td2 = $("<td>" + color + "</td>");
-			var $td3 = $("<td>" + size + "</td>");
-			var $td4 = $("<td>" + sku + "</td>");
-			var $td5 = $("<td>" + asin + "</td>");
-			var $td6 = $("<td>" + labelno + "</td>");
-			var $td7 = $("<td>" + pname + "</td>");
+				var label = $(this).children().eq(5);
 
-			$tr.append($td1).append($td2).append($td3).append($td4).append($td5).append($td6).append($td7);
+				alert(label);
 
-			$("#lefttable").append($tr);
+				if(label == labelno){
+
+					var count = $(this).children().eq(7);
+					$(this).children().eq(7).html(count+1);
+				}
+			});
+
+			if(flg == false){
+
+				var $tr = $("<tr></tr>");
+
+				var $td1 = $("<td>" + pno + "</td>");
+				var $td2 = $("<td>" + color + "</td>");
+				var $td3 = $("<td>" + size + "</td>");
+				var $td4 = $("<td>" + sku + "</td>");
+				var $td5 = $("<td>" + asin + "</td>");
+				var $td6 = $("<td>" + labelno + "</td>");
+				var $td7 = $("<td>" + pname + "</td>");
+				var $td8 = $("<td>1</td>");
+
+				$tr.append($td1).append($td2).append($td3).append($td4).append($td5).append($td6).append($td7).append($td8);
+
+				$("#lefttable").append($tr);
+			}
 
 		}
 

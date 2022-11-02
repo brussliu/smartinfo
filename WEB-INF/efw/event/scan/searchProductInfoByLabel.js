@@ -19,22 +19,17 @@ searchProductInfoByLabel.fire=function(params){
 		}
 	).getSingle();
 
-
-	selectResult.debug("GGGGGGGGGGGGGGGGGGGGGGGGGGG");
-
 	var pno = selectResult["商品管理番号"];
 	var color = selectResult["色"];
 	var size = selectResult["サイズ"];
-	var sku = selectResult["SKU番号"];
-	var asin = selectResult["ASIN番号"];
+	var sku = selectResult["sku番号"];
+	var asin = selectResult["asin番号"];
 	var labelno = selectResult["ラベル番号"];
 	var pname = selectResult["商品名"];
 
 
 	var script = "addRecord('" + pno + "','" + color + "','" + size + "','" + sku + "','" + asin + "','" + labelno + "','" + pname + "')"
 
-
-	script.debug("JJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
 
 	return ret.eval(script);
 
