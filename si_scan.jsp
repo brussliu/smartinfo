@@ -220,13 +220,15 @@
 						<COL WIDTH="50PX">
 						<COL WIDTH="100PX">
 						<COL WIDTH="100PX">
-						<COL WIDTH="500PX">
-						<COL WIDTH="50PX">
+						<COL WIDTH="100PX">
+						<COL WIDTH="600PX">
+						<COL WIDTH="100PX">
 					</COLGROUP>
 					<tr style="background-color: lightblue;">
 						<td>No</td>
 						<td>SKU番号</td>
 						<td>ASIN番号</td>
+						<td>ラベル番号</td>
 						<td>商品名称</td>
 						<td>数量</td>
 					</tr>
@@ -234,11 +236,13 @@
 						<td>1</td>
 						<td>123456789012345</td>
 						<td>123456789012345</td>
+						<td>123456789012345</td>
 						<td>【Smart-Bear】W502 スポーツソックス プロ用スキーソックス 子供用 厚手のニット 冬用 登山 遠足 スポーツソックス 男の子 女の子 2足入り</td>
 						<td>999</td>
 					</tr>
 					<tr>
 						<td>1</td>
+						<td>123456789012345</td>
 						<td>123456789012345</td>
 						<td>123456789012345</td>
 						<td>【Smart-Bear】W502 スポーツソックス プロ用スキーソックス 子供用 厚手のニット 冬用 登山 遠足 スポーツソックス 男の子 女の子 2足入り</td>
