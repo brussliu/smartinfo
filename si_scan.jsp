@@ -252,7 +252,7 @@
 				</table>
 			</div>
 		</td>
-		<td style="text-align: top;">
+		<td style="vertical-align: top;">
 			<div style="width: 500px;height: 750px;">
 				<table border="1">
 					<COLGROUP>
