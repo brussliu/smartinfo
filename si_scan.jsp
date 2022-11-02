@@ -211,65 +211,60 @@
 <input type="button" id="addgroup" style="width: 170px;height: 30px;" value="新規グループ" onclick="addgroup();">
 <input type="button" id="importstock" style="width: 170px;height: 30px;" value="集計" onclick="liststock();">
 <br/><br/>
-<div id="plist0">
-	<table class="productlist" border="1" style="display: none;">
-		<COLGROUP>
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-			<COL WIDTH="100PX">
-		</COLGROUP>
-		<tr>
-			<td colspan="10">
-				<INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;ime-mode:disabled;" value="">
-				<div style="display: contents;"></div>
-			</td>
-		</tr>
-		<tr>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-				<INPUT TYPE="TEXT" STYLE="WIDTH:100%;height:30px;ime-mode:disabled;" value="" oninput="inputLabel(this,1);" maxlength="10" onblur="checkInput(this);">
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
+<table border="1">
+	<tr>
+		<td>
+			<div>
+				<table border="1">
+					<COLGROUP>
+						<COL WIDTH="50PX">
+						<COL WIDTH="100PX">
+						<COL WIDTH="100PX">
+					</COLGROUP>
+					<tr>
+						<td>No</td>
+						<td>SKU番号</td>
+						<td>ASIN番号</td>
+						<td>数量</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>123456789012345</td>
+						<td>123456789012345</td>
+						<td>999</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>123456789012345</td>
+						<td>123456789012345</td>
+						<td>999</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+		<td>
+			<div>
+				<table border="1">
+					<COLGROUP>
+						<COL WIDTH="50PX">
+						<COL WIDTH="150PX">
+						<COL WIDTH="200PX">
+					</COLGROUP>
+					<tr>
+						<td>1</td>
+						<td>2022/12/31 12:23:23</td>
+						<td>XXXXXXXXXXXXXXE</td>
+					</tr>
+					<tr>
+						<td colspan="3">W001,W002,W003</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+</table>
 
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
 
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-
-			</td>
-			<td style="width: 100px;font-size: 14px;font-weight: bold;">
-
-			</td>
-		</tr>
-	</table>
-</div>
-
-<div id="plist">
-	
-
-</div>
 
 
 </body>
