@@ -214,6 +214,8 @@
 <table border="1">
 	<tr>
 		<td>
+			<input type="text" id="" style="width: 200px;height: 32px;">&nbsp;
+			<input type="text" id="" style="width: 300px;height: 32px;">
 			<div style="width: 1300px;height: 750px;">
 				<table border="1">
 					<COLGROUP>
@@ -260,7 +262,7 @@
 						<COL WIDTH="250PX">
 					</COLGROUP>
 					<tr style="background-color: lightblue;">
-						<td>No</td>
+						<td>選択</td>
 						<td>登録日時</td>
 						<td>名前</td>
 					</tr>
@@ -268,7 +270,7 @@
 						<td colspan="3">内容</td>
 					</tr>
 					<tr>
-						<td>1</td>
+						<td><input type="radio" name=""></td>
 						<td>2022/12/31 12:23:23</td>
 						<td>XXXXXXXXXXXXXXE</td>
 					</tr>
