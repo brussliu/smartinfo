@@ -56,10 +56,7 @@
 				// 画面表示
 				// 商品管理コード表示
 
-				//音声
-		        var audioElement = document.createElement('audio');
-		        audioElement.setAttribute('src', 'facai.mp3');
-		        audioElement.setAttribute('autoplay', 'autoplay');
+
 
 				//次の入力欄生成
 				
@@ -69,6 +66,8 @@
 
 				return;
 			}
+
+			$(obj).val("");
 
 		}
 
@@ -92,7 +91,7 @@
 
 			if(flg == false){
 
-				var $tr = $("<tr></tr>");
+				var $tr = $("<tr class='listcontent'></tr>");
 
 				var $td1 = $("<td>" + pno + "</td>");
 				var $td2 = $("<td>" + color + "</td>");
@@ -108,18 +107,23 @@
 				$("#lefttable").append($tr);
 			}
 
+			//音声
+			var audioElement = document.createElement('audio');
+			audioElement.setAttribute('src', 'facai.mp3');
+			audioElement.setAttribute('autoplay', 'autoplay');
 		}
 
 		function addlist(){
 
 			$("#leftdiv").show();
-			// var addhtml = $("#plist0").html();
 
-			// $("#plist").append("<br/>");
+			$("#lefttable .datacontent").remove();
 
-			// $("#plist").append(addhtml);
+			$("#scancode").val("");
 
-			// $("#plist").children(":last").show();
+			$("#listname").val("");
+
+			$("#listcontent").val("");
 
 		}
 
@@ -191,9 +195,11 @@
 	<tr>
 		<td>
 			<div style="width: 1300px;height: 750px;display: none;" id="leftdiv">
-				スキャンコード：<input type="text" id="" style="width: 120px;height: 32px;ime-mode:disabled;" oninput="inputLabel(this);" maxlength="10" onblur="checkInput(this);">&nbsp;
-				名前：<input type="text" id="" style="width: 200px;height: 32px;">&nbsp;
-				内容：<input type="text" id="" style="width: 300px;height: 32px;">
+				スキャンコード：<input type="text" id="scancode" style="width: 120px;height: 32px;ime-mode:disabled;" oninput="inputLabel(this);" maxlength="10" onblur="checkInput(this);">&nbsp;
+				名前：<input type="text" id="listname" style="width: 200px;height: 32px;">&nbsp;
+				内容：<input type="text" id="listcontent" style="width: 300px;height: 32px;">&nbsp;
+				<input type="button" id="savelist" style="width: 170px;height: 30px;" value="保存" onclick="savelist();">
+				<hr>
 				<table border="1" id="lefttable">
 					<COLGROUP>
 						<COL WIDTH="50PX">
