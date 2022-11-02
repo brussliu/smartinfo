@@ -77,14 +77,14 @@
 			var flg = false;
 			$("#lefttable").find("tr").each(function(){
 
-				var label = $(this).children().eq(5);
+				var label = $(this).children().eq(5).html();
 
 				alert(label);
 
 				if(label == labelno){
 
-					var count = $(this).children().eq(7);
-					$(this).children().eq(7).html(count+1);
+					var count = $(this).children().eq(7).html();
+					$(this).children().eq(7).html(parseInt(count)+1);
 				}
 			});
 
