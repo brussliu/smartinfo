@@ -84,6 +84,8 @@
 					var count = $(this).children().eq(7).html();
 					$(this).children().eq(7).html(parseInt(count)+1);
 
+					flg = true;
+					
 					return;
 				}
 			});
