@@ -197,9 +197,7 @@
 
   	</script>
     <style>
-      .productlist {
 
-      }
     </style>
 </head>
 <body style="background-color:ghostwhite;">
@@ -214,8 +212,9 @@
 <table border="1">
 	<tr>
 		<td>
-			<input type="text" id="" style="width: 200px;height: 32px;">&nbsp;
-			<input type="text" id="" style="width: 300px;height: 32px;">
+			スキャンコード：<input type="text" id="" style="width: 120px;height: 32px;">&nbsp;
+			名前：<input type="text" id="" style="width: 200px;height: 32px;">&nbsp;
+			内容：<input type="text" id="" style="width: 300px;height: 32px;">
 			<div style="width: 1300px;height: 750px;">
 				<table border="1">
 					<COLGROUP>
