@@ -50,7 +50,7 @@
 
 
 				// 商品管理コード取得
-				Efw('searchProductInfoByLabel',{label: $(obj).val()});
+				Efw('scan/searchProductInfoByLabel',{label: $(obj).val()});
 
 
 				// 画面表示
