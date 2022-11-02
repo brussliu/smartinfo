@@ -105,6 +105,10 @@
 				$tr.append($td1).append($td2).append($td3).append($td4).append($td5).append($td6).append($td7).append($td8);
 
 				$("#lefttable").append($tr);
+
+				var newcontent = $("#listcontent").val() == "" ? "":"," + pno + "-" + color + "-" + size;
+
+				$("#listcontent").val(newcontent);
 			}
 
 			//音声
