@@ -106,7 +106,7 @@
 
 				$("#lefttable").append($tr);
 
-				var newcontent = $("#listcontent").val() == "" ? "":"," + pno + "-" + color + "-" + size;
+				var newcontent = ($("#listcontent").val() == "" ? "":",") + pno + "-" + color + "-" + size;
 
 				alert(newcontent);
 
