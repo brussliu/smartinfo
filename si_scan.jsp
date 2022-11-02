@@ -117,7 +117,7 @@
 
 			$("#leftdiv").show();
 
-			$("#lefttable .datacontent").remove();
+			$("#lefttable .listcontent").remove();
 
 			$("#scancode").val("");
 
