@@ -214,7 +214,7 @@
 <table border="1">
 	<tr>
 		<td>
-			<div style="width: 1300px;height: 900px;">
+			<div style="width: 1300px;height: 750px;">
 				<table border="1">
 					<COLGROUP>
 						<COL WIDTH="50PX">
@@ -243,7 +243,7 @@
 			</div>
 		</td>
 		<td>
-			<div style="width: 500px;height: 900px;">
+			<div style="width: 500px;height: 750px;">
 				<table border="1">
 					<COLGROUP>
 						<COL WIDTH="50PX">
