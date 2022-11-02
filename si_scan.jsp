@@ -179,8 +179,10 @@
 						<COL WIDTH="100PX">
 						<COL WIDTH="100PX">
 						<COL WIDTH="100PX">
-						<COL WIDTH="600PX">
 						<COL WIDTH="100PX">
+						<COL WIDTH="100PX">
+						<COL WIDTH="600PX">
+						<COL WIDTH="50PX">
 					</COLGROUP>
 					<tr style="background-color: lightblue;">
 						<td>商品管理番号</td>
