@@ -85,7 +85,7 @@
 					$(this).children().eq(7).html(parseInt(count)+1);
 
 					flg = true;
-					
+
 					return;
 				}
 			});
@@ -110,15 +110,16 @@
 
 		}
 
-		function addgroup(){
+		function addlist(){
 
-			var addhtml = $("#plist0").html();
+			$("#leftdiv").show();
+			// var addhtml = $("#plist0").html();
 
-			$("#plist").append("<br/>");
+			// $("#plist").append("<br/>");
 
-			$("#plist").append(addhtml);
+			// $("#plist").append(addhtml);
 
-			$("#plist").children(":last").show();
+			// $("#plist").children(":last").show();
 
 		}
 
@@ -183,16 +184,16 @@
 </div>
 <input type="hidden" id="shop">
 <br/>
-<input type="button" id="addgroup" style="width: 170px;height: 30px;" value="新規グループ" onclick="addgroup();">
+<input type="button" id="addgroup" style="width: 170px;height: 30px;" value="新規リスト" onclick="addlist();">
 <input type="button" id="importstock" style="width: 170px;height: 30px;" value="集計" onclick="liststock();">
 <br/><br/>
 <table border="0">
 	<tr>
 		<td>
-			スキャンコード：<input type="text" id="" style="width: 120px;height: 32px;ime-mode:disabled;" oninput="inputLabel(this);" maxlength="10" onblur="checkInput(this);">&nbsp;
-			名前：<input type="text" id="" style="width: 200px;height: 32px;">&nbsp;
-			内容：<input type="text" id="" style="width: 300px;height: 32px;">
-			<div style="width: 1300px;height: 750px;">
+			<div style="width: 1300px;height: 750px;display: none;" id="leftdiv">
+				スキャンコード：<input type="text" id="" style="width: 120px;height: 32px;ime-mode:disabled;" oninput="inputLabel(this);" maxlength="10" onblur="checkInput(this);">&nbsp;
+				名前：<input type="text" id="" style="width: 200px;height: 32px;">&nbsp;
+				内容：<input type="text" id="" style="width: 300px;height: 32px;">
 				<table border="1" id="lefttable">
 					<COLGROUP>
 						<COL WIDTH="50PX">
@@ -213,26 +214,6 @@
 						<td>ラベル番号</td>
 						<td>商品名称</td>
 						<td>数量</td>
-					</tr>
-					<tr>
-						<td>W001</td>
-						<td>123456789012345</td>
-						<td>123456789012345</td>
-						<td>123456789012345</td>
-						<td>123456789012345</td>
-						<td>123456789012345</td>
-						<td>【Smart-Bear】W502 スポーツソックス プロ用スキーソックス 子供用 厚手のニット 冬用 登山 遠足 スポーツソックス 男の子 女の子 2足入り</td>
-						<td>999</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>123456789012345</td>
-						<td>123456789012345</td>
-						<td>123456789012345</td>
-						<td>123456789012345</td>
-						<td>123456789012345</td>
-						<td>【Smart-Bear】W502 スポーツソックス プロ用スキーソックス 子供用 厚手のニット 冬用 登山 遠足 スポーツソックス 男の子 女の子 2足入り</td>
-						<td>999</td>
 					</tr>
 				</table>
 			</div>
