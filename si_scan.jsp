@@ -247,9 +247,17 @@
 				<table border="1">
 					<COLGROUP>
 						<COL WIDTH="50PX">
-						<COL WIDTH="150PX">
 						<COL WIDTH="200PX">
+						<COL WIDTH="250PX">
 					</COLGROUP>
+					<tr>
+						<td>No</td>
+						<td>登録日時</td>
+						<td>名前</td>
+					</tr>
+					<tr>
+						<td colspan="3">内容</td>
+					</tr>
 					<tr>
 						<td>1</td>
 						<td>2022/12/31 12:23:23</td>
