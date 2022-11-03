@@ -17,7 +17,40 @@
 			"ラベル番号" = :label
 	</sql>
 
+	<sql id="insertScanInfo">
+		insert into "一時商品リスト管理"
+		(
+			"リストNO",
+			"名前",
+			"内容",
+			"登録日", 
+			"更新日"
+		) VALUES (
+			:col0,--"リストNO"
+			:col1,--"名前"
+			:col2,--"内容"
+			:col3, --"登録日"
+			:col4  --"更新日"
+		)
 
+	</sql>
 
+	<sql id="insertScanListInfo">
+		insert into "一時商品リスト明細"
+		(
+			"リストNO",
+			"SKU番号",
+			"ASIN番号",
+			"ラベル番号", 
+			"数量"
+		) VALUES (
+			:col0,--"リストNO"
+			:col1,--"SKU番号"
+			:col2,--"ASIN番号"
+			:col3, --"ラベル番号"
+			:col4  --"数量"
+		)
+
+	</sql>
 
 </sqls>

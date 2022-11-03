@@ -106,7 +106,7 @@
 
 				$("#lefttable").append($tr);
 
-				var newcontent = ($("#listcontent").val() == "" ? "":",") + pno + "-" + color + "-" + size;
+				var newcontent = ($("#listcontent").val() == "" ? "": ($("#listcontent").val() + ",")) + pno + "-" + color + "-" + size;
 
 				alert(newcontent);
 
@@ -130,6 +130,33 @@
 			$("#listname").val("");
 
 			$("#listcontent").val("");
+
+		}
+
+		function savelist(){
+
+			var skuArr = new Array();
+			var asinArr = new Array();
+			var labelArr = new Array();
+			var countArr = new Array();
+
+			$("#lefttable").find("tr").each(function(){
+				
+				var sku = $(this).children().eq(3).html();
+				var asin = $(this).children().eq(4).html();
+				var label = $(this).children().eq(5).html();
+				var count = $(this).children().eq(7).html();
+
+				if(count != "数量"){
+					skuArr.push(sku);
+					asin.push(asin);
+					label.push(label);
+					count.push(count);
+				}
+
+			});
+
+			Efw('savescanlist',{skuArr: skuArr, asinArr: asinArr, labelArr: labelArr, countArr: countArr});
 
 		}
 
