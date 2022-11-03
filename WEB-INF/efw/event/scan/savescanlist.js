@@ -65,6 +65,6 @@ savescanlist.fire=function(params){
 	}
 
 	//return ret.eval(script);
-	return (new Result()).eval("Efw('menu_goto',{page:'si_scan.jsp',shop:'Smart-Bear'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'scan.jsp',shop:'Smart-Bear'})");
 
 };
