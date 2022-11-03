@@ -17,6 +17,17 @@
 			"ラベル番号" = :label
 	</sql>
 
+	<sql id="searchallscanlist">
+		select 
+			"リストNO" as listno,
+			"名前" as listname,
+			"内容" as listcontent,
+			"登録日" as listdate,
+			"更新日" as listupdatedate
+		from 
+			"一時商品リスト管理" 
+	</sql>
+
 	<sql id="insertScanInfo">
 		insert into "一時商品リスト管理"
 		(
@@ -52,5 +63,6 @@
 		)
 
 	</sql>
+
 
 </sqls>

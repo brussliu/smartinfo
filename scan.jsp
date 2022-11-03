@@ -158,6 +158,12 @@
 
 		}
 
+		function searchScanlist(){
+
+			Efw('scan/searchscanlist');
+
+		}
+
 
 		function liststock(){
 
@@ -213,7 +219,7 @@
 
     </style>
 </head>
-<body style="background-color:ghostwhite;">
+<body style="background-color:ghostwhite;" onload="searchScanlist();">
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
 </div>
@@ -257,7 +263,7 @@
 		</td>
 		<td style="vertical-align: top;">
 			<div style="width: 500px;height: 750px;">
-				<table border="1">
+				<table border="1" id="scanlisttable">
 					<COLGROUP>
 						<COL WIDTH="50PX">
 						<COL WIDTH="200PX">
@@ -270,14 +276,6 @@
 					</tr>
 					<tr style="background-color: lightblue;">
 						<td colspan="3">内容</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name=""></td>
-						<td>2022/12/31 12:23:23</td>
-						<td>XXXXXXXXXXXXXXE</td>
-					</tr>
-					<tr>
-						<td colspan="3">W001,W002,W003</td>
 					</tr>
 				</table>
 			</div>
