@@ -154,9 +154,7 @@
 
 			});
 
-			alert("aaaa");
-
-			Efw('savescanlist',{skuArr: skuArr, asinArr: asinArr, labelArr: labelArr, countArr: countArr});
+			Efw('scan/savescanlist',{skuArr: skuArr, asinArr: asinArr, labelArr: labelArr, countArr: countArr});
 
 		}
 
