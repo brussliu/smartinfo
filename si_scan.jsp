@@ -108,8 +108,6 @@
 
 				var newcontent = ($("#listcontent").val() == "" ? "": ($("#listcontent").val() + ",")) + pno + "-" + color + "-" + size;
 
-				alert(newcontent);
-
 				$("#listcontent").val(newcontent);
 			}
 
@@ -149,12 +147,14 @@
 
 				if(count != "数量"){
 					skuArr.push(sku);
-					asin.push(asin);
-					label.push(label);
-					count.push(count);
+					asinArr.push(asin);
+					labelArr.push(label);
+					countArr.push(count);
 				}
 
 			});
+
+			alert("aaaa");
 
 			Efw('savescanlist',{skuArr: skuArr, asinArr: asinArr, labelArr: labelArr, countArr: countArr});
 
