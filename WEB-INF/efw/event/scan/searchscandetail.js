@@ -17,10 +17,11 @@ searchscandetail.fire=function(params){
 		}
 	).getSingle();
 
+	var listno = selectResult1["listno"];
 	var listname = selectResult1["listname"];
 	var listcontent = selectResult1["listcontent"];
 
-	var script = "$('#scancode').val('');$('#listname').val('" + listname + "');$('#listcontent').val('" + listcontent + "');";
+	var script = "$('#scancode').val('');$('#listno').val('" + listno + "');$('#listname').val('" + listname + "');$('#listcontent').val('" + listcontent + "');";
 	
 
 	var selectResult2 = db.select(
