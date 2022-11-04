@@ -76,7 +76,14 @@
 			:col3, --"登録日"
 			:col4  --"更新日"
 		)
+	</sql>
 
+	<sql id="updateScanInfo">
+		update "一時商品リスト管理"
+		set "名前" = :col1,
+			"内容" = :col2,
+			"更新日" = :col3
+		where "リストNO" = :col0
 	</sql>
 
 	<sql id="insertScanListInfo">
@@ -97,5 +104,10 @@
 
 	</sql>
 
+	<sql id="deleteScanListInfo">
+		delete from "一時商品リスト明細"
+		where "リストNO" = :col0
+
+	</sql>
 
 </sqls>

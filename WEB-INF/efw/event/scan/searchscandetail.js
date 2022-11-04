@@ -44,7 +44,6 @@ searchscandetail.fire=function(params){
 	"</tr>";
 
 
-
 	ret.runat("#lefttable").remove(".listcontent");
 
 	ret.runat("#lefttable").append(resultHTML).withdata(selectResult2);

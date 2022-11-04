@@ -129,6 +129,8 @@
 
 			$("#listcontent").val("");
 
+			$("#listno").val("");
+
 		}
 
 		function savelist(){
@@ -168,7 +170,6 @@
 
 			var listno = $(obj).parent().next().html();
 			
-			alert(listno);
 			Efw('scan/searchscandetail',{listno: listno});
 
 			$("#leftdiv").show();
@@ -244,6 +245,7 @@
 				スキャンコード：<input type="text" id="scancode" style="width: 120px;height: 32px;ime-mode:disabled;" oninput="inputLabel(this);" maxlength="10" onblur="checkInput(this);">&nbsp;
 				名前：<input type="text" id="listname" style="width: 200px;height: 32px;">&nbsp;
 				内容：<input type="text" id="listcontent" style="width: 300px;height: 32px;">&nbsp;
+				<input type="hidden" id="listno">
 				<input type="button" id="savelist" style="width: 170px;height: 30px;" value="保存" onclick="savelist();">
 				<hr>
 				<table border="1" id="lefttable">
