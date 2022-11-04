@@ -26,7 +26,7 @@ savescanlist.fire=function(params){
 	// リストNO
 	var listno = params["#leftdiv"]["#listno"];
 
-	if(list == null || list ==""){
+	if(listno == null || listno ==""){
 
 		var today = new Date();
 		// 新規登録日
