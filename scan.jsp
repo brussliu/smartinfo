@@ -166,7 +166,7 @@
 
 		function openScanlist(obj){
 
-			var listno = $(this).parent().next().html();
+			var listno = $(obj).parent().next().html();
 			
 			alert(listno);
 			Efw('scan/searchscandetail',{listno: listno});
