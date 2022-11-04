@@ -16,7 +16,7 @@ searchscanlist.fire=function(params){
 
 	var resultHTML = 
 	"<tr class='content'>" +
-	"	<td><input type='radio' name=''></td>" +
+	"	<td><input type='radio' name='' onclick='openScanlist(this)'></td>" +
 	"	<td>{listno}</td>" +
 	"	<td>{listname}</td>" +
 	"</tr>" +

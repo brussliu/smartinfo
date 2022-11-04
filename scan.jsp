@@ -164,6 +164,15 @@
 
 		}
 
+		function openScanlist(obj){
+
+			var listno = $(this).parent().next().html();
+			
+			alert(listno);
+			Efw('scan/searchscandetail',{listno: listno});
+
+			$("#leftdiv").show();
+		}
 
 		function liststock(){
 

@@ -28,6 +28,39 @@
 			"一時商品リスト管理" 
 	</sql>
 
+	<sql id="searchallscanlistbylistno">
+		select 
+			"リストNO" as listno,
+			"名前" as listname,
+			"内容" as listcontent,
+			"登録日" as listdate,
+			"更新日" as listupdatedate
+		from 
+			"一時商品リスト管理" 
+		where
+			"リストNO" = :listno
+	</sql>
+
+	<sql id="searchscandetail">
+		select 
+			A."リストNO" as listno,
+			B."商品管理番号" as pno,
+			B."色" as color,
+			B."サイズ" as size,
+			A."SKU番号" as sku,
+			A."ASIN番号" as asin,
+			A."ラベル番号" as labelno,
+			B."商品名" as pname,
+			A."数量" as count
+		from "一時商品リスト明細" A 
+		left join "VIEW_商品詳細情報" B
+		on A."SKU番号" = B."SKU番号" and A."ASIN番号" = B."ASIN番号" and A."ラベル番号" = B."ラベル番号"
+		left join "MASTER_ソート情報" C 
+		on B."商品分類" = C."大区分" and C."小区分" = 'サイズ' and B."サイズ" = C."内容"
+		where A."リストNO" = :listno
+		order by B."商品管理番号",C."ソート"
+	</sql>
+
 	<sql id="insertScanInfo">
 		insert into "一時商品リスト管理"
 		(
