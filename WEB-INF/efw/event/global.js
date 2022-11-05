@@ -234,6 +234,11 @@ function importMasterList(f, shopname, sheetName){
 		var asin = excelXSSF.getValue(sheetName, asin_X + y);
 		var purchaseprice = excelXSSF.getValue(sheetName, purchaseprice_X + y);
 
+		if(typeof purchaseprice=='string'){
+			purchaseprice = Number(purchaseprice);
+		}
+		
+
 		if(shop == null || shop.length <= 0){
 			break;
 		}
