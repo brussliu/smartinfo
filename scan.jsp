@@ -280,12 +280,12 @@
 						<COL WIDTH="200PX">
 						<COL WIDTH="250PX">
 					</COLGROUP>
-					<tr style="background-color: lightblue;border-bottom-style: none;">
-						<td>選択</td>
-						<td>登録日時</td>
-						<td>名前</td>
+					<tr style="background-color: lightblue;">
+						<td style="border-bottom-style: none;">選択</td>
+						<td style="border-bottom-style: none;">登録日時</td>
+						<td style="border-bottom-style: none;">名前</td>
 					</tr>
-					<tr style="background-color: lightblue;border-top-style: none;">
+					<tr style="background-color: lightblue;">
 						<td colspan="3">内容</td>
 					</tr>
 				</table>
