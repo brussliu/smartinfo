@@ -175,6 +175,11 @@
 			$("#leftdiv").show();
 		}
 
+		function deletelist(){
+
+			Efw('scan/deletescanlist');
+		}
+
 		function liststock(){
 
 			var groupNameArr = new Array();
@@ -246,7 +251,8 @@
 				名前：<input type="text" id="listname" style="width: 200px;height: 32px;">&nbsp;
 				内容：<input type="text" id="listcontent" style="width: 300px;height: 32px;">&nbsp;
 				<input type="hidden" id="listno">
-				<input type="button" id="savelist" style="width: 170px;height: 30px;" value="保存" onclick="savelist();">
+				<input type="button" id="savelist" style="width: 150px;height: 30px;" value="保存" onclick="savelist();">
+				<input type="button" id="deletelist" style="width: 150px;height: 30px;" value="削除" onclick="deletelist();">
 				<hr>
 				<table border="1" id="lefttable">
 					<COLGROUP>

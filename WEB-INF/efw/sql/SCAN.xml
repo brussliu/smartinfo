@@ -110,4 +110,12 @@
 
 	</sql>
 
+
+	<sql id="deleteScanInfo">
+		delete from "一時商品リスト管理"
+		where "リストNO" = :col0
+
+	</sql>
+
+
 </sqls>
