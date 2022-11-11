@@ -323,6 +323,15 @@
 			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'ship_qoo10_ship'})">
 		</td>
 	</tr>
+	<tr>
+		<td colspan="2">
+			テスト<br>
+			<input type="file" id="importfile_test" style="width: 400px;height: 30px;">
+		</td>
+		<td colspan="3" style="text-align: right;">
+			<input type="button" id="import" style="width: 170px;height: 30px;" value="導入" onclick="Efw('uploadfile',{data:'test'})">
+		</td>
+	</tr>
 </table>
 <br/>
 </body>

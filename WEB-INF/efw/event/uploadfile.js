@@ -24,6 +24,9 @@ uploadfile.paramsFormat={
 	"#importfile_ship_qoo10_order":null,
 	"#importfile_ship_qoo10_ship":null,
 
+
+	"#importfile_test":null,
+
 	"data":null,
 	"#shop":null
 };
@@ -37,7 +40,15 @@ uploadfile.fire=function(params){
 
 	var ret = new Result();
 
-	if(params["data"] == "pfo"){
+	if(params["data"] == "test"){
+
+		var fa = params["#importfile_test"].split("\\");
+		var f = fa[fa.length-1];
+
+		var csvReader = new CSVReader("upload/" + f, ",");
+		csvReader.loopAllLines(importTest);
+
+	}else if(params["data"] == "pfo"){
 
 		var ct = "";
 
@@ -232,8 +243,12 @@ uploadfile.fire=function(params){
 	return ret.navigate("upload.jsp?shop=" + shopname);
 
 };
+function importTest(aryField, index) {
+
+	aryField.debug("==========================================================");
 
 
+}
 function importEarnings(aryField, index) {
 
 	if(index >= 8){
