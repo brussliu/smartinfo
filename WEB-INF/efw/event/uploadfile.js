@@ -45,7 +45,7 @@ uploadfile.fire=function(params){
 		var fa = params["#importfile_test"].split("\\");
 		var f = fa[fa.length-1];
 
-		var csvReader = new CSVReader("upload/" + f, ",");
+		var csvReader = new CSVReader("upload/" + f, ",", "\"");
 		csvReader.loopAllLines(importTest);
 
 	}else if(params["data"] == "pfo"){
