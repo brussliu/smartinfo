@@ -31,6 +31,8 @@ updatestock.fire=function(params){
 				local : local,
 			}
 		);
+
+		updateResult.debug("DDDDDDDDDDDDDDDDDDDDDDDDd");
 	}
 
 
