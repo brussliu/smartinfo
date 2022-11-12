@@ -32,7 +32,21 @@ updatestock.fire=function(params){
 			}
 		);
 
-		updateResult.debug("DDDDDDDDDDDDDDDDDDDDDDDDd");
+		if(updateResult == 0){
+
+			db.change(
+				"STOCK",
+				"insertlocalstock",
+				{
+					sku : sku,
+					asin : asin,
+					local : local,
+				}
+			);
+
+		}
+
+		//updateResult.debug("DDDDDDDDDDDDDDDDDDDDDDDDd");
 	}
 
 
