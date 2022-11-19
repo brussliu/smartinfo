@@ -10,6 +10,8 @@ menu_goto.fire=function(params){
 
 	params["shop"].debug("==========================================================");
 
+	"shop".debug("==========================================================");
+
 	return (new Result())
 	.navigate(params["page"] + "?shop=" + params["shop"]);
 };
