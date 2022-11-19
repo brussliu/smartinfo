@@ -7,6 +7,9 @@ menu_goto.fire=function(params){
 
 	var script = "$('#pagehead')";
 
+
+	params["shop"].debug("==========================================================");
+
 	return (new Result())
 	.navigate(params["page"] + "?shop=" + params["shop"]);
 };
