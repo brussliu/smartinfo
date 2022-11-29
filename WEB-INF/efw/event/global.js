@@ -614,7 +614,7 @@ function outputProductForSmartBear(selectResult, deliveryFlg, purchaseFlg){
 			);
 			
 		// 靴下
-		}else if(productno != null && productno.length > 0 && productno.substring(0,1) == "W" && productno.substring(0,2) != "W5"){
+		}else if(productno != null && productno.length > 0 && productno.substring(0,1) == "W" && productno.substring(0,2) != "W5" && productno.substring(0,2) != "W6"){
 
 			// 情報設定
 			outputflg = setInfoToExcel(excel, selectResult[i], "在庫（袜子）", 
