@@ -8,11 +8,11 @@
 </head>
 <body style="background-color:ghostwhite;">
 
-	<table style="width:1506px;height: 800px;" border="1">
+	<table style="width:1506px;height: 800px;" border="0">
 		<tr>
 			<td align="center">
-				<INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" value="" maxlength="8" id="userid">
-				<input type="BUTTON" value="ログイン" style="width:200px;height: 30px;" onclick="Efw('login')">
+				<INPUT TYPE="TEXT" STYLE="WIDTH:400px;height:40px;font-size: 40;" value="" maxlength="8" id="userid">
+				<input type="BUTTON" value="ログイン" style="width:200px;height: 40px;" onclick="Efw('login')">
 			</td>
 		</tr>
 	</table>
