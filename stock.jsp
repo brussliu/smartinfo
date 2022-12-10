@@ -22,6 +22,8 @@
 
         $(function(){
 
+			test();
+
             var shop = $.session.get('SHOP_ID');
 
             var page = "在庫情報一覧";

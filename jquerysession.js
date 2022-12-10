@@ -130,3 +130,9 @@
     $.session._init();
 
 })(jQuery);
+
+
+function test(){
+    alert("HHHHHHHHHHHHHHH");
+
+}
