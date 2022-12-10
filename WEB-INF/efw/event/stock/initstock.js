@@ -54,6 +54,9 @@ initstock.fire=function(params){
 
 	ret.runat("#productno").remove("option .content").append(resultHTML).withdata(selectResult);
 	
+	var title = "在庫管理（" + getShopId() + "）";
+	var script = "initTitle('" + title +"')";
+	ret.evel(script);
 
 	// 画面へ結果を返す
 	return ret;
