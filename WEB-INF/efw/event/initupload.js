@@ -1,10 +1,9 @@
-var searchhistory={};
-searchhistory.name="データ導入履歴検索";
-searchhistory.paramsFormat={
-	"#shop":null
+var initupload={};
+initupload.name="データ導入履歴検索";
+initupload.paramsFormat={
 };
-var shopname = "";
-searchhistory.fire=function(params){
+
+initupload.fire=function(params){
 	
 	var ret = new Result();
 
@@ -12,18 +11,13 @@ searchhistory.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 
-	shopname = params["#shop"];
-
 	var historyResult = db.select(
 		"UPLOAD",
 		"searchHistory",
-		{shop:shopname}
+		{shop:getShopId()}
 	);
 
 	var masterArr = historyResult.seek("importtype","eq","master").getArray();
-	// var productArr = historyResult.seek("importtype","eq","product").getArray();
-	// var fbaArr = historyResult.seek("importtype","eq","fba").getArray();
-	// var orderArr = historyResult.seek("importtype","eq","order").getArray();
 
 	var pfoArr = historyResult.seek("importtype","eq","pfo").getArray();
 
@@ -48,33 +42,6 @@ searchhistory.fire=function(params){
 			}
 		);
 	}
-
-	// if(productArr.length > 0){
-	// 		ret.runat("#producttable").withdata(
-	// 			{
-	// 				".importtime": productArr[0].importtime,
-	// 				".importcount": productArr[0].importcount
-	// 			}
-	// 	);
-	// }
-
-	// if(fbaArr.length > 0){
-	// 	ret.runat("#fbatable").withdata(
-	// 		{
-	// 			".importtime": fbaArr[0].importtime,
-	// 			".importcount": fbaArr[0].importcount
-	// 		}
-	// 	);
-	// }
-
-	// if(orderArr.length > 0){
-	// 	ret.runat("#ordertable").withdata(
-	// 		{
-	// 			".importtime": orderArr[0].importtime,
-	// 			".importcount": orderArr[0].importcount
-	// 		}
-	// 	);
-	// }
 
 	if(localstockArr.length > 0){
 		ret.runat("#localstocktable").withdata(
@@ -103,7 +70,11 @@ searchhistory.fire=function(params){
 		);
 	}
 
+	var title = "データ導入（" + getShopId() + "）";
+
+	var script = "initTitle('" + title +"')";
+
 	// 画面へ結果を返す
-	return ret;
+	return ret.eval(script);
 
 };

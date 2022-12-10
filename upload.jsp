@@ -14,23 +14,16 @@
                 }
             })(jQuery);
 
+			function initTitle(title){
 
-            $(function(){
- 
-	            var shop = $.getUrlParam('shop');
-
-	            var page = "データ導入";
-
-	            var t = page + "（" + shop + "）" + $("#pagehead").html();
+				var t = title + $("#pagehead").html();
 
 	            $("#pagehead").html(t);
+			}
 
-	            $("#shop").val(shop);
-			 
-			});
 
-			function searchHistory(){
-				Efw('searchhistory');
+			function initUpload(){
+				Efw('initupload');
 			}
 
 			function importData(){
@@ -53,12 +46,11 @@
       }
     </style>
 </head>
-<body style="background-color:ghostwhite;" onload="searchHistory();">
+<body style="background-color:ghostwhite;" onload="initUpload();">
 
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/si_menu.jsp'">
 </div>
-<input type="hidden" id="shop">
 <br/>
 <table class="upfile" id="mastertable">
 	<tr>

@@ -23,6 +23,12 @@ function checkLoginInfo(){
 	}
 	return true;
 }
+
+function getShopId(){
+
+	return session.get("SHOP_ID");
+}
+
 /**
  * ページング用データの取得<br>
  * <br>
