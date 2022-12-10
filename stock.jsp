@@ -6,7 +6,7 @@
 
 	<title>在庫情報</title>
 	
-	<script src="jquerysession.js"></script>
+	<script src="js/common.js"></script>
 
 	<efw:Client/>
 	<script>
@@ -18,24 +18,6 @@
                 if (r != null) return unescape(r[2]); return null;
             }
         })(jQuery);
-
-
-        $(function(){
-
-			test();
-
-            var shop = $.session.get('SHOP_ID');
-
-            var page = "在庫情報一覧";
-
-            var t = page + "（" + shop + "）" + $("#pagehead").html();
-
-            $("#pagehead").html(t);
-
-            $("#shop").val(shop);
-
-		});
-
 
         function changeColor(){
 
