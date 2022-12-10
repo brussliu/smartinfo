@@ -8,6 +8,10 @@ searchpurchase.fire=function(params){
 	
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	shopname = params["#shop"];
 
 	// <td ><input type="radio" name="purchaseitem"></td>

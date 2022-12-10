@@ -7,6 +7,10 @@ updateshipinfo.fire=function(params){
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	var shipno = params["shipno"];
 
 	var html = "<option class='c' value='{pid}'>{productnamecn}&nbsp;{color}&nbsp;{size}</option>";

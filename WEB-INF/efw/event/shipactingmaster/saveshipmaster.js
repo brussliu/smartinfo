@@ -24,6 +24,10 @@ saveshipmaster.name="発送商品マスタ情報保存";
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	// 親商品情報登録
 	// 商品管理番号
 	var productid = params["#shipactingmaster_inputdialog"]["#productid"];

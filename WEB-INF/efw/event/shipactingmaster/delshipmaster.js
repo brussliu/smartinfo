@@ -23,6 +23,10 @@ delshipmaster.name="発送商品マスタ情報削除";
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	// 親商品情報登録
 	// 商品管理番号
 	var productid = parseInt(params["#shipactingmaster_inputdialog"]["#productid"]);

@@ -19,6 +19,10 @@ savescanlist.fire=function(params){
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	// 名称
 	var scanlistname = params["#leftdiv"]["#listname"];
 	// 内容
@@ -122,6 +126,6 @@ savescanlist.fire=function(params){
 
 
 	//return ret.eval(script);
-	return (new Result()).eval("Efw('menu_goto',{page:'scan.jsp',shop:'Smart-Bear'})");
+	return ret.eval("Efw('menu_goto',{page:'scan.jsp',shop:'Smart-Bear'})");
 
 };

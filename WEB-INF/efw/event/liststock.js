@@ -14,6 +14,10 @@ liststock.fire=function(params){
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	// if(params["data"] == "liststock"){
 
 		var excel = new Excel("templates/input_stock.xlsx");

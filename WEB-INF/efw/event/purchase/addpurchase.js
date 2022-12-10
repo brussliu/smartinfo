@@ -13,6 +13,12 @@ var shopname = "";
 
 addpurchase.fire=function(params){
 
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	shopname = params["#shop"];
 
 	// 仕入名称
@@ -57,6 +63,6 @@ addpurchase.fire=function(params){
 		importProductInfoForSmartBear(shopname, excelXSSF, false, false, true, purchaseno);
 	}
 
-	return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+	return ret.eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 
 };

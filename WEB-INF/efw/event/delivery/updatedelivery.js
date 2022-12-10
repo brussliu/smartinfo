@@ -12,7 +12,11 @@ var shopname = "";
 
 updatedelivery.fire=function(params){
 
-	shopname = params["#shop"];
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
 
 	// 納品No
 	var deliveryno = params["#deliveryno"];

@@ -7,6 +7,10 @@ searchshipinfo.fire=function(params){
 	
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	var resultHTML = 
 	"<tr class='content' style=''>" +
 		"<td style='width: 40px'><input type='radio' name='selectshipno' value='{shipno}' onclick='activebutton();'></input></td>" +

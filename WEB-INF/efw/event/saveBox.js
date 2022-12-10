@@ -17,6 +17,12 @@ var shopname = "";
  */
 savebox.fire=function(params){
 
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	var deliveryno = params["#deliveryno"];
 
 	var skuArr = params["#si_box_inputdialog"]["skuArr"];
@@ -57,6 +63,6 @@ savebox.fire=function(params){
 
 	}
 
-	return (new Result()).eval("si_box_inputdialog.dialog('close')");
+	return ret.eval("si_box_inputdialog.dialog('close')");
 
 };

@@ -13,6 +13,12 @@ var deliveryno = "";
 
 updatedeliverystatus.fire=function(params){
 
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	shopname = params["#shop"];
 
 	// 納品No
@@ -120,7 +126,7 @@ updatedeliverystatus.fire=function(params){
 
 	}
 
-	return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
+	return ret.eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
 
 };
 

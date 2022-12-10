@@ -14,6 +14,10 @@ importcost.fire=function(params){
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	var fa = params["#importfile_cost"].split("\\");
 
 	var f = fa[fa.length-1];

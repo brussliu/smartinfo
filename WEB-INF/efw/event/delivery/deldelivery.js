@@ -10,6 +10,10 @@ deldelivery.fire=function(params){
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	// 納品No
 	var delno = params["#delno"];
 

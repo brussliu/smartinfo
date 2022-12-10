@@ -11,6 +11,12 @@ var shopname = "";
 
 updatepurchasestatus.fire=function(params){
 
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	shopname = params["#shop"];
 
 	// 仕入No
@@ -93,5 +99,5 @@ updatepurchasestatus.fire=function(params){
 
 
 
-	return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+	return ret.eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 };

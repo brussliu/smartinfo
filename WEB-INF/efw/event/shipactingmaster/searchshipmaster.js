@@ -8,6 +8,10 @@ searchshipmaster.fire=function(params){
 	
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	var resultHTML = 
 	"<tr class='content'>" +
 		"<td><input type='radio' name='selectshipmasterno' value='{pid}' onclick='activebutton();'></input></td>" +

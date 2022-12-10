@@ -19,6 +19,10 @@ addstock.fire=function(params){
 	
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+	
 	var resultHTML = 
 			"<tr>" +
 				"<td style='width: 100px;'>{addproductno}</td>" +

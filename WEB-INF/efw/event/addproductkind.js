@@ -2,7 +2,13 @@ var addproductkind={};
 addproductkind.name="商品種別登録";
 addproductkind.paramsFormat={};
 addproductkind.fire=function(params){
-	return (new Result())
-	.eval("si_ship_inputdialog.dialog('open')")
-	;
+
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
+	return ret.eval("si_ship_inputdialog.dialog('open')");
+	
 };

@@ -18,6 +18,12 @@ var shopname = "";
  */
 saveproductkind.fire=function(params){
 
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	var productkey = params["#si_ship_inputdialog"][".productkey"];
 
 	var productname = params["#si_ship_inputdialog"][".productname"];
@@ -33,8 +39,6 @@ saveproductkind.fire=function(params){
 			"col1":productkind
 		}
 	);
-
-	var ret = new Result();
 
 	ret.eval("si_ship_inputdialog.dialog('close');");
 

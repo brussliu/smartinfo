@@ -8,6 +8,10 @@ cancelshipinfo.fire=function(params){
 	
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	var shipno = params["#txt_shipno"];
 	
 	var updateResult = db.change(

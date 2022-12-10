@@ -10,6 +10,10 @@ delpurchase.fire=function(params){
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	// 仕入No
 	var delno = params["#delno"];
 
@@ -33,5 +37,5 @@ delpurchase.fire=function(params){
 	);
 
 
-	return (new Result()).eval("window.location.href = '/smartinfo/'");
+	return ret.eval("window.location.href = '/smartinfo/'");
 };

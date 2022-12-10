@@ -30,6 +30,12 @@ var shopname = "";
  */
 savemaster.fire=function(params){
 
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	// 親商品情報登録
 	// 商品管理番号
 	var oya_productid = params["#si_master_inputdialog"]["#productid"];
@@ -186,6 +192,6 @@ savemaster.fire=function(params){
 
 	}
 
-	return (new Result()).eval("si_master_inputdialog.dialog('close')");
+	return ret.eval("si_master_inputdialog.dialog('close')");
 
 };

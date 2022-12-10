@@ -6,6 +6,10 @@ searchorder.fire=function(params){
 	
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	var resultHTML = 
 	"<tr>" +
 		"<td>{col1}</td>" +

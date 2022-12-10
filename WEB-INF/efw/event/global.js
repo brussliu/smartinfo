@@ -9,6 +9,20 @@ global.fire=function(){
 
 
 };
+
+function checkLoginInfo(){
+
+	var USER_ID = session.get("USER_ID");
+	var SHOP_ID = session.get("SHOP_ID");
+
+	if (USER_ID == null || USER_ID == "") {
+		return false;
+	}
+	if (SHOP_ID == null || SHOP_ID == "") {
+		return false;
+	}
+	return true;
+}
 /**
  * ページング用データの取得<br>
  * <br>

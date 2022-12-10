@@ -7,6 +7,11 @@ var shopname = "";
 searchproduct.fire=function(params){
 	
 	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+	
 	shopname = params["#shop"];
 	
 	var resultHTML = 

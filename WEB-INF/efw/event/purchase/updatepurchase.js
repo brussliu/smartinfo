@@ -19,6 +19,12 @@ var shopname = "";
 
 updatepurchase.fire=function(params){
 
+	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	shopname = params["#shop"];
 
 	// 仕入No
@@ -203,11 +209,11 @@ updatepurchase.fire=function(params){
 
 	// 受取済みの場合、明細は更新しない
 	if(status == "4：受取済み"){
-		return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+		return ret.eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 
 	}
 
-	return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+	return ret.eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
 };
 
 

@@ -6,9 +6,14 @@ addbox.paramsFormat={
 	"#shop" : null
 
 };
+
 addbox.fire=function(params){
 
 	var ret = new Result();
+
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
 
 	shopname = params["#shop"];
 	var deliveryno = params["#deliveryno"];

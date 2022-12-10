@@ -11,6 +11,10 @@ deletescanlist.fire=function(params){
 
 	var ret = new Result();
 
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
+
 	// リストNO
 	var listno = params["#leftdiv"]["#listno"];
 
