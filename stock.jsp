@@ -6,7 +6,7 @@
 
 	<title>在庫情報</title>
 	
-	<script type="text/javascript" language="javascript" src="jquerysession.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="jquerysession.js"></script>
 
 	<efw:Client/>
 	<script>
