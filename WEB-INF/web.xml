@@ -5,7 +5,7 @@
 	<!--web application info-->
 	<display-name>application template</display-name>
 	<welcome-file-list>
-		<welcome-file>si_menu.jsp</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
 
 	<session-config>
