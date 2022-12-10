@@ -56,7 +56,7 @@ initstock.fire=function(params){
 	
 	var title = "在庫管理（" + getShopId() + "）";
 	var script = "initTitle('" + title +"')";
-	ret.evel(script);
+	ret.eval(script);
 
 	// 画面へ結果を返す
 	return ret;
