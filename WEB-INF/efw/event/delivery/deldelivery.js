@@ -38,5 +38,5 @@ deldelivery.fire=function(params){
 
 
 
-	return (new Result()).eval("window.location.href = '/smartinfo/'");
+	return ret.eval("window.location.href = '/smartinfo/si_menu.jsp'");
 };

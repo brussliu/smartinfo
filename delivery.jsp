@@ -200,7 +200,7 @@
 <body style="background-color:ghostwhite;" onload="searchDelivery();">
 	<efw:Part path="si_box_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
-	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
+	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/si_menu.jsp'">
 </div>
 
 <input type="hidden" id="shop">

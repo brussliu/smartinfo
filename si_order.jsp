@@ -21,7 +21,7 @@
 <efw:Part path="si_master_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;">
 	注文情報一覧（Smart-Bear）
-	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/'">
+	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/si_menu.jsp'">
 </div>
 <br/>
 <table class="productlist" border="0" style="width: 100%;">

@@ -17,7 +17,9 @@ login.fire=function(params){
 	session.set("USER_ID", userid);
 	session.set("SHOP_ID", shopid);
 
-	var userid = params["#userid"];
+	if (checkLoginInfo() == false) {
+		return ret.navigate("login.jsp");
+	}
 
 	return ret.navigate("si_menu.jsp");
 };

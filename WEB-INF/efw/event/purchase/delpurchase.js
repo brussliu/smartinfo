@@ -37,5 +37,5 @@ delpurchase.fire=function(params){
 	);
 
 
-	return ret.eval("window.location.href = '/smartinfo/'");
+	return ret.eval("window.location.href = '/smartinfo/si_menu.jsp'");
 };
