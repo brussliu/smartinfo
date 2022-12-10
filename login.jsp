@@ -8,9 +8,14 @@
 </head>
 <body style="background-color:ghostwhite;">
 
-	<INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" value="" maxlength="8" id="userid">
-	<input type="BUTTON" value="ログイン" style="width:400px;height: 40px;" onclick="Efw('login')">
-		
+	<table style="width:1506px;" border="0">
+		<tr>
+			<td align="center">
+				<INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" value="" maxlength="8" id="userid">
+				<input type="BUTTON" value="ログイン" style="width:200px;height: 30px;" onclick="Efw('login')">
+			</td>
+		</tr>
+	</table>
 
 </body>
 </html>
