@@ -4,16 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
 	<title>在庫情報</title>
-
-	<script type="text/javascript" language="javascript" src="jquerysession.js"></script>
-
-	<script language="JavaScript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-	<script language="javascript" src="//cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
-	<link rel="stylesheet" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-
 	
+	<script type="text/javascript" language="javascript" src="jquery-3.6.1.min.js"></script>
+	<script type="text/javascript" language="javascript" src="jquerysession.js"></script>
 
 	<efw:Client/>
 	<script>
