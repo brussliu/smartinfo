@@ -7,11 +7,13 @@
 
 	<title>在庫情報</title>
 
+	<script type="text/javascript" language="javascript" src="js/jquerysession.js"></script>
+	
 	<script language="JavaScript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
 	<script language="javascript" src="//cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
 	<link rel="stylesheet" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 
-	<script type="text/javascript" language="javascript" src="js/jquerysession.js"></script>
+	
 
 	<efw:Client/>
 	<script>
