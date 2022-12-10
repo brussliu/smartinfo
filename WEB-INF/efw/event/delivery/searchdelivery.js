@@ -1,9 +1,8 @@
 var searchdelivery={};
 searchdelivery.name="納品情報検索";
 searchdelivery.paramsFormat={
-	"#shop":null
 };
-var shopname = "";
+
 searchdelivery.fire=function(params){
 	
 	var ret = new Result();
@@ -11,8 +10,6 @@ searchdelivery.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	var resultHTML = 
 	"<tr style='height: 28px;background-color: {color};'>" +
@@ -35,7 +32,7 @@ searchdelivery.fire=function(params){
 		"DELIVERY",
 		"searchDelivery",
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 		}
 	).getArray();
 
@@ -44,8 +41,11 @@ searchdelivery.fire=function(params){
 
 	ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
 
+	var title = "納品管理（" + getShopId() + "）";
+
+	var script = "initTitle('" + title +"')";
 
 	// 画面へ結果を返す
-	return ret;
+	return ret.eval(script);
 
 };

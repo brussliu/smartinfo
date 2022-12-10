@@ -18,8 +18,8 @@
 
         $(function(){
 
-            var shop = $.getUrlParam('shop');
-
+            var shop = $.session.get('SHOP_ID');
+			
             var page = "商品スキャン";
 
             var t = page + "（" + shop + "）" + $("#pagehead").html();

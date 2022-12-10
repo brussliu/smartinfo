@@ -25,7 +25,7 @@
 
         $(function(){
 
-            var shop = $.getUrlParam('shop');
+            var shop = $.session.get('SHOP_ID');
 
             var page = "発送管理";
 

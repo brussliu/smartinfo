@@ -23,19 +23,12 @@
         })(jQuery);
 
 
-        $(function(){
+		function initTitle(title){
 
-            var shop = $.getUrlParam('shop');
+			var t = title + $("#pagehead").html();
 
-            var page = "納品管理";
-
-            var t = page + "（" + shop + "）" + $("#pagehead").html();
-
-            $("#pagehead").html(t);
-
-            $("#shop").val(shop);
-
-		});
+			$("#pagehead").html(t);
+		}
 
         function outputdelivery(){
 
@@ -217,7 +210,6 @@
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 		<COL WIDTH="220PX">
-
 		<COL WIDTH="120PX">
 		<COL WIDTH="120PX">
 
