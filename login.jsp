@@ -8,7 +8,7 @@
 </head>
 <body style="background-color:ghostwhite;">
 
-	<table style="width:1506px;" border="0">
+	<table style="width:1506px;height: 800px;" border="1">
 		<tr>
 			<td align="center">
 				<INPUT TYPE="TEXT" STYLE="WIDTH:200px;height:30px;" value="" maxlength="8" id="userid">
