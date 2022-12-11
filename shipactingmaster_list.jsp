@@ -23,21 +23,20 @@
 
 		function activebutton(){
 
-			//$("#updateshipmaster").show();
+			$("#updateshipmaster").show();
 
 		}
 
-		// function addShipMaster(){
-		// 	Efw('shipactingmaster/addshipmaster')
-		// }
+		function addShipMaster(){
+			Efw('shipactingmaster/addshipmaster')
+		}
 
-		// function updateshipMaster(){
+		function updateshipMaster(){
 
-		// 	var shipmasterno = $('input:radio[name=selectshipmasterno]:checked').val();
+			var shipmasterno = $('input:radio[name=selectshipmasterno]:checked').val();
+			Efw('shipactingmaster/updateshipmasterinfo',{'shipmasterno': shipmasterno})
 
-		// 	Efw('shipactingmaster/updateshipmasterinfo',{'shipmasterno': shipmasterno})
-
-		// }
+		}
 
 
   	</script>
