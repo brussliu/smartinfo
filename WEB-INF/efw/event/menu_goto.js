@@ -8,15 +8,22 @@ menu_goto.fire=function(params){
 
 	var ret = new Result();
 
+	var userid = session.get("USER_ID");
+	var shopid = session.set("SHOP_ID");
+
+	userid.debug("AAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+	shopid.debug("BBBBBBBBBBBBBBBBBBBBBBBBBB");
+
+
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
 
 	if(params["page"] == "si_menu.jsp" || params["page"] == "menu.jsp"){
 
-		var userid = session.get("USER_ID");
-		var shopid = session.set("SHOP_ID");
-		
+
+
 		if(userid == "jly99641" && shopid == "Smart-Bear"){
 			return ret.navigate("si_menu.jsp");
 		}else if(userid == "12345678" && shopid == "12345678"){
