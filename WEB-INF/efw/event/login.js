@@ -14,6 +14,10 @@ login.fire=function(params){
 		shopid = "Smart-Bear";
 	}
 
+	if(userid == "12345678"){
+		shopid = "12345678";
+	}
+
 	session.set("USER_ID", userid);
 	session.set("SHOP_ID", shopid);
 
@@ -21,5 +25,12 @@ login.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 
-	return ret.navigate("si_menu.jsp");
+	if(userid == "jly99641" && shopid == "Smart-Bear"){
+		return ret.navigate("si_menu.jsp");
+	}else if(userid == "12345678" && shopid == "12345678"){
+		return ret.navigate("menu.jsp");
+	}else{
+		return ret.navigate("login.jsp");
+	}
+
 };

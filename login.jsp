@@ -11,8 +11,8 @@
 	<table style="width:1506px;height: 800px;" border="0">
 		<tr>
 			<td align="center">
-				<INPUT TYPE="TEXT" STYLE="WIDTH:400px;height:50px;font-size: 50;color: red;" value="" maxlength="8" id="userid">
-				<input type="BUTTON" value="ログイン" style="width:200px;height: 50px;font-size:30;padding-top: 8px;" onclick="Efw('login')">
+				<INPUT type="text" value="" style="width:400px;height:50px;font-size: 50;color: red;" maxlength="8" id="userid">
+				<input type="button" value="ログイン" style="width:200px;height: 50px;font-size:30;padding-top: 8px;" onclick="Efw('login')">
 			</td>
 		</tr>
 	</table>
