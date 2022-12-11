@@ -44,7 +44,7 @@ searchshipmaster.fire=function(params){
 	ret.runat("#productlist").remove(".content");
 	ret.runat("#productlist").append(resultHTML).withdata(selectResult);
 
-	if(userid == "jly99641" && shopid == "Smart-Bear"){
+	if(userid != "jly99641" || shopid != "Smart-Bear"){
 		ret.eval("hiddenbutton()");
 	}
 
