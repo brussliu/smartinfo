@@ -4,8 +4,6 @@ delpurchase.paramsFormat={
 	"#delno":null
 };
 
-var shopname = "";
-
 delpurchase.fire=function(params){
 
 	var ret = new Result();

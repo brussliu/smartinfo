@@ -2,11 +2,10 @@ var outputpurchase={};
 outputpurchase.name="仕入情報出力";
 outputpurchase.paramsFormat={
 
-	"#shop":null,
 	"#purchaseno":"required:true;display-name:仕入No;",
 
 };
-var shopname = "";
+
 outputpurchase.fire=function(params){
 	
 	var ret = new Result();
@@ -15,21 +14,19 @@ outputpurchase.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 
-	shopname = params["#shop"];
-
 	var purchaseno = params["#purchaseno"];
 
 	var selectResult = db.select(
 		"STOCK",
 		"selectstockAndPurchase",
 		{
-		shop : shopname,
+		shop : getShopId(),
 		purchaseno : purchaseno
 		}
 	).getArray();
 
 
-	if(shopname == "Smart-KM"){
+	if(getShopId() == "Smart-KM"){
 
 		var tempFilePathName = outputProductForSmartKM(selectResult, false, true);
 

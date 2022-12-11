@@ -2,11 +2,10 @@ var outputdelivery={};
 outputdelivery.name="納品情報出力";
 outputdelivery.paramsFormat={
 
-	"#shop":null,
 	"#deliveryno":"required:true;display-name:仕入No;",
 
 };
-var shopname = "";
+
 outputdelivery.fire=function(params){
 	
 	var ret = new Result();
@@ -15,13 +14,11 @@ outputdelivery.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 
-	shopname = params["#shop"];
-
 	// 注文基準日
 	var selectResult = db.select(
 		"STOCK",
 		"searchhistory",
-		{shop:shopname}
+		{shop:getShopId()}
 	);
 	var orderArr = selectResult.seek("importtype","eq","order").getArray();
 	var orderBaseDate = orderArr[0]["basetime"];
@@ -32,13 +29,13 @@ outputdelivery.fire=function(params){
 		"STOCK",
 		"selectstockAndDelivery",
 		{
-		shop : shopname,
+		shop : getShopId(),
 		basedate_order : orderBaseDate,
 		deliveryno : deliveryno
 		}
 	).getArray();
 
-	if(shopname == "Smart-KM"){
+	if(getShopId() == "Smart-KM"){
 
 		var tempFilePathName = outputProductForSmartKM(selectResult, true, false);
 

@@ -4,8 +4,6 @@ repairmaster.paramsFormat={
 
 };
 
-var shopname = "";
-
 repairmaster.fire=function(params){
 
 	var ret = new Result();

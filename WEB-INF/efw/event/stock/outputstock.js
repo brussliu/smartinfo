@@ -5,7 +5,7 @@ outputstock.paramsFormat={
 	"shop":null,
 
 };
-var shopname = "";
+
 outputstock.fire=function(params){
 	
 	var ret = new Result();
@@ -14,28 +14,18 @@ outputstock.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 
-	shopname = params["shop"];
-
-	// // 注文基準日
-	// var selectResult = db.select(
-	// 	"STOCK",
-	// 	"searchhistory",
-	// 	{shop:shopname}
-	// );
-	// var orderArr = selectResult.seek("importtype","eq","order").getArray();
-	// var orderBaseDate = orderArr[0]["basetime"];
 
 	var selectResult = db.select(
 		"STOCK",
 		"selectstock",
 		{
-		shop : shopname,
+		shop : getShopId(),
 		csvflg : "1",
 		highsearch : ""
 		}
 	).getArray();
 
-	if(shopname == "Smart-KM"){
+	if(getShopId() == "Smart-KM"){
 
 		var tempFilePathName = outputProductForSmartKM(selectResult, false, false);
 

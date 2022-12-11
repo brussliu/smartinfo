@@ -7,35 +7,16 @@
 
 	<title>仕入管理</title>
 
+	<script type="text/javascript" language="javascript" src="js/common.js"></script>
+
+	<!--
 	<script language="JavaScript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
 	<script language="javascript" src="//cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
 	<link rel="stylesheet" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	-->
 
 	<efw:Client/>
 	<script>
-
-		(function ($) {
-            $.getUrlParam = function (name) {
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-                var r = window.location.search.substr(1).match(reg);
-                if (r != null) return unescape(r[2]); return null;
-            }
-        })(jQuery);
-
-
-        $(function(){
-
-            var shop = $.session.get('SHOP_ID');
-
-            var page = "仕入管理";
-
-            var t = page + "（" + shop + "）" + $("#pagehead").html();
-
-            $("#pagehead").html(t);
-
-            $("#shop").val(shop);
-
-		});
 
         function outputpurchase(){
 

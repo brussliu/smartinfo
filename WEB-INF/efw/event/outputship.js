@@ -1,7 +1,6 @@
 var outputship={};
 outputship.name="発送情報出力";
 outputship.paramsFormat={
-	"#shop":null,
 	"shipno":null,
 	"postno":null,
 	"shipaddress":null,
@@ -9,7 +8,7 @@ outputship.paramsFormat={
 	"outputType":null
 };
 
-var shopname = "";
+
 outputship.fire=function(params){
 	
 	var ret = new Result();
@@ -17,8 +16,6 @@ outputship.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-	
-	shopname = params["#shop"];
 
 	var shipnoArr = params["shipno"];
 
@@ -78,7 +75,7 @@ outputship.fire=function(params){
 		"SHIP",
 		"searchShipProduct",
 		{
-		shop:shopname
+		shop:getShopId()
 		}
 	).getArray();
 

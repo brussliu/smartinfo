@@ -1,7 +1,7 @@
 var searchstock={};
 searchstock.name="在庫一覧検索";
 searchstock.paramsFormat={
-	"#shop":null,
+
 	"productdiv":null,
 	"#productno":null,
 	"#keyword":null,
@@ -15,7 +15,7 @@ searchstock.paramsFormat={
 
 
 };
-var shopname = "";
+
 searchstock.fire=function(params){
 	
 	var ret = new Result();
@@ -23,8 +23,6 @@ searchstock.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	var pdArr = params["productdiv"];
 
@@ -56,12 +54,6 @@ searchstock.fire=function(params){
 	var selldayford = params["#selldayfordelivery"];
 	var selldayforp = params["#selldayforpurchase"];
 
-	// highsearch.debug("AAAAAAAAAAAA");
-	// sellfrom.debug("BBBBBBBBBBB");
-	// sellto.debug("CCCCCCCCCCC");
-	// selldayford.debug("DDDDDDDDDDDD");
-	// selldayforp.debug("EEEEEEEEEEEE");
-
 
 	if(highsearch == "sellcount" && sellfrom == "" && sellto == ""){
 		highsearch = "";
@@ -77,7 +69,7 @@ searchstock.fire=function(params){
 		"STOCK",
 		"selectstock",
 		{
-			shop : shopname,
+			shop : getShopId(),
 			productdivstr1 : productdivstr1,
 			productdivstr2 : productdivstr2,
 			productdivstr3 : productdivstr3,
@@ -95,8 +87,6 @@ searchstock.fire=function(params){
 			selldayforp : selldayforp
 		}
 	).getArray();
-
-	// selectResult.debug("WWWWWWWWWWWWWWWWWWWWWWWWWWWW");
 
 	var subhtml = displayflg2 == "1" ? "" : "style='display: none;'";
 

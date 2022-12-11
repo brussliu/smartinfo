@@ -2,9 +2,8 @@ var searchsubproduct={};
 searchsubproduct.name="子商品検索";
 searchsubproduct.paramsFormat={
 	"#txt_freeWord":null,
-	"#shop":null
 };
-var shopname = "";
+
 searchsubproduct.fire=function(params){
 
 	var ret = new Result();
@@ -12,15 +11,13 @@ searchsubproduct.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-	
-	shopname = params["#shop"];
 
 	var selectResult = db.select(
 		"MASTER",
 		"selectSub",
 		{
 			"freeword":params["#txt_freeWord"],
-			shop:shopname
+			shop:getShopId()
 		}
 	).getArray();
 

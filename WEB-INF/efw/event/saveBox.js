@@ -9,9 +9,7 @@ savebox.paramsFormat={
 		"asinArr":null,
 		"qArr":null,
 	},
-	"#shop":null
 };
-var shopname = "";
 /**
  * 新規或は修正の場合、保存イベント実行関数
  */
@@ -30,8 +28,6 @@ savebox.fire=function(params){
 	var asinArr = params["#si_box_inputdialog"]["asinArr"];
 
 	var qArr = params["#si_box_inputdialog"]["qArr"];
-	
-	shopname = params["#shop"];
 
 	var delResult = db.change(
 		"DELIVERY",

@@ -3,7 +3,6 @@ addbox.name="箱詰め";
 addbox.paramsFormat={
 
 	"#deliveryno":"required:true;display-name:仕入No;",
-	"#shop" : null
 
 };
 
@@ -15,7 +14,6 @@ addbox.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 
-	shopname = params["#shop"];
 	var deliveryno = params["#deliveryno"];
 
 	var resultHTML = 

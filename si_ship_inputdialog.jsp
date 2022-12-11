@@ -15,11 +15,7 @@
 					setTimeout(function(){});
 				},
 				close : function(){
-					// setTimeout(function(){
-					// 	Efw('menu_goto',{page:'si_ship.jsp',shop:$("#shop").val()})
-					// 	},
-					// 	100
-					// 	);
+
 				},
 			});
 

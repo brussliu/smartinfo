@@ -1,9 +1,9 @@
 var searchearningslist={};
 searchearningslist.name="売上情報検索";
 searchearningslist.paramsFormat={
-	"#shop":null
+
 };
-var shopname = "";
+
 searchearningslist.fire=function(params){
 	
 	var ret = new Result();
@@ -11,8 +11,6 @@ searchearningslist.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	var resultHTML = 
 	"<tr style='height:40px'> class='content'" +
@@ -41,6 +39,9 @@ searchearningslist.fire=function(params){
 
 	ret.runat("#earningslisttable").append(resultHTML).withdata(selectResult);
 
+	var title = "売上情報（" + getShopId() + "）";
+	var script = "initTitle('" + title +"')";
+	ret.eval(script);
 
 	// 画面へ結果を返す
 	return ret;

@@ -1,11 +1,9 @@
 var updateship={};
 updateship.name="発送情報更新";
 updateship.paramsFormat={
-	"#shop":null,
 	"shipno":null
 };
 
-var shopname = "";
 updateship.fire=function(params){
 	
 	var ret = new Result();
@@ -13,8 +11,6 @@ updateship.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-	
-	shopname = params["#shop"];
 
 	var shipno = params["shipno"];
 

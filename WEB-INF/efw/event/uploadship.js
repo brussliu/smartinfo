@@ -9,15 +9,12 @@ uploadship.paramsFormat={
 	//"#importfile_ship_qoo10_ship":null,
 
 	"data":null,
-	"#shop":null
 };
-var shopname = "";
+
 var count = 0;
 uploadship.fire=function(params){
 
 	file.saveUploadFiles("upload");
-
-	shopname = params["#shop"];
 
 	var ret = new Result();
 
@@ -128,7 +125,7 @@ uploadship.fire=function(params){
 
 	}
 	
-	return ret.navigate("si_ship.jsp?shop=" + shopname);
+	return ret.navigate("si_ship.jsp?shop=" + getShopId());
 
 };
 

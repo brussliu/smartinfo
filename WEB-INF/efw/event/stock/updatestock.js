@@ -1,11 +1,11 @@
 var updatestock={};
 updatestock.name="在庫情報更新";
 updatestock.paramsFormat={
-	"#shop":null,
+
 	"localtoupdate":null,
 
 };
-var shopname = "";
+
 updatestock.fire=function(params){
 	
 	var ret = new Result();
@@ -13,8 +13,6 @@ updatestock.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	var localtoupdate = params["localtoupdate"];
 

@@ -3,14 +3,9 @@ liststock.name="ファイルアップロード";
 liststock.paramsFormat={
 	"groupNameArr":null,
 	"groupLabelArr":null,
-
-	"#shop":null
 };
-var shopname = "";
 var count = 0;
 liststock.fire=function(params){
-
-	shopname = params["#shop"];
 
 	var ret = new Result();
 
@@ -38,7 +33,7 @@ liststock.fire=function(params){
 					"UPLOAD",
 					"insertLabel",
 					{
-						"col0":shopname,
+						"col0":getShopId(),
 						"col1":labelArr[i],
 						"col2":groupNameArr[s]
 					}
@@ -51,7 +46,7 @@ liststock.fire=function(params){
 				"UPLOAD",
 				"selectLabel",
 				{
-					"col0":shopname,
+					"col0":getShopId(),
 					"col1":groupNameArr[s]
 				}
 			).getArray();
@@ -83,7 +78,7 @@ liststock.fire=function(params){
 			"UPLOAD",
 			"selectAllLabel",
 			{
-				"col0":shopname
+				"col0":getShopId()
 			}
 		).getArray();
 
@@ -105,45 +100,6 @@ liststock.fire=function(params){
 			excel.setCell("ALL", "J" + (r2 + 5), countInfo["count"]);
 
 
-			// if(opt == "output"){
-
-			// }else if(opt == "updatePart"){
-
-			// 	var updateResult = db.change(
-			// 		"UPLOAD",
-			// 		"updateLocalStock",
-			// 		{
-			// 			"col0":shopname,
-			// 			"col1":countInfo["label"],
-			// 			"col2":countInfo["count"]
-			// 		}
-			// 	);
-
-			// }else if(opt == "updateAll"){
-
-			// 	var updateResult = db.change(
-			// 		"UPLOAD",
-			// 		"updateLocalStock",
-			// 		{
-			// 			"col0":shopname,
-			// 			"col1":countInfo["label"],
-			// 			"col2":countInfo["count"]
-			// 		}
-			// 	);
-
-			// }else if(opt == "add"){
-
-			// 	var updateResult = db.change(
-			// 		"UPLOAD",
-			// 		"addLocalStock",
-			// 		{
-			// 			"col0":shopname,
-			// 			"col1":countInfo["label"],
-			// 			"col2":countInfo["count"]
-			// 		}
-			// 	);
-
-			// }
 
 		}
 
@@ -161,16 +117,12 @@ liststock.fire=function(params){
 			"UPLOAD",
 			"deleteLabel",
 			{
-				"col0":shopname
+				"col0":getShopId()
 			}
 		);
-
-
-
-	// }
 	
 	return ret;
-	//navigate(params["page"] + "?shop=" + params["shop"]);
+
 
 };
 

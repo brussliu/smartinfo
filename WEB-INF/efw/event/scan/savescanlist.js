@@ -12,7 +12,6 @@ savescanlist.paramsFormat={
 		"#listcontent":"required:true;display-name:内容;",
 		"#listno":null,
 	},
-	"#shop":null
 
 };
 savescanlist.fire=function(params){

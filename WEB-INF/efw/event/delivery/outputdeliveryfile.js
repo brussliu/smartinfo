@@ -2,12 +2,11 @@ var outputdeliveryfile={};
 outputdeliveryfile.name="納品作成用ファイル出力";
 outputdeliveryfile.paramsFormat={
 
-	"#shop":null,
 	"#deliveryno":"required:true;display-name:納品No;",
 	"#deliveryname":"required:true;display-name:納品名称;",
 
 };
-var shopname = "";
+
 outputdeliveryfile.fire=function(params){
 	
 	var ret = new Result();
@@ -15,8 +14,6 @@ outputdeliveryfile.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	var deliveryno = params["#deliveryno"];
 	var deliveryname = params["#deliveryname"];
@@ -34,20 +31,6 @@ outputdeliveryfile.fire=function(params){
 	file.makeFile("output/test.txt");
 
 	var csvWriter = new CSVWriter("output/test.txt", ",", "\"", "MS932");
-
-	// var ary = [
-	// 	["PlanName	" + deliveryname],
-	// 	["AddressName	" + shopname],
-	// 	["AddressFieldOne	浮間３－１－３７－４１１号室"],
-	// 	["AddressFieldTwo	"],
-	// 	["AddressCity	北区"],
-	// 	["AddressCountryCode	JP"],
-	// 	["AddressStateOrRegion	東京都"],
-	// 	["AddressPostalCode	1150051"],
-	// 	["	"],
-	// 	["MerchantSKU	Quantity"],
-	// 	[""],
-	// ];
 
 	var ary = [
 		["このシートに記入する前にExampleタブを確認してください										"],

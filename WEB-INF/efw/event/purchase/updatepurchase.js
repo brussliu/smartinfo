@@ -12,10 +12,8 @@ updatepurchase.paramsFormat={
 	"#faxamount":null,
 
 	"#importfile_purchase":null,
-	"#shop" : null,
-};
 
-var shopname = "";
+};
 
 updatepurchase.fire=function(params){
 
@@ -24,8 +22,6 @@ updatepurchase.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	// 仕入No
 	var purchaseno = params["#purchaseno"];
@@ -37,7 +33,7 @@ updatepurchase.fire=function(params){
 		"PURCHASE",
 		"updatePurchase00",
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 			"col0":purchaseno,
 			"col1":purchasename
 		}
@@ -104,7 +100,7 @@ updatepurchase.fire=function(params){
 		"PURCHASE",
 		"updatePurchase02",
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 			"col0":purchaseno,
 			"col1":ship,
 			"col2":rate,
@@ -120,7 +116,7 @@ updatepurchase.fire=function(params){
 	var importfile_purchase = params["#importfile_purchase"];
 
 	if(importfile_purchase == null || importfile_purchase.length == 0){
-		return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp'})");
 	}
 
 	// ステータス検索
@@ -129,7 +125,7 @@ updatepurchase.fire=function(params){
 		"selectPurchaseStatus",
 		{
 			col0:purchaseno,
-			shop:shopname
+			shop:getShopId()
 		}
 	).getArray();
 
@@ -156,7 +152,7 @@ updatepurchase.fire=function(params){
 			"updatePurchase01",
 			{
 				col0:purchaseno,
-				shop:shopname
+				shop:getShopId()
 			}
 		);
 
@@ -201,7 +197,7 @@ updatepurchase.fire=function(params){
 			"updatePurchase01",
 			{
 				col0:purchaseno,
-				shop:shopname
+				shop:getShopId()
 			}
 		);
 
@@ -209,11 +205,11 @@ updatepurchase.fire=function(params){
 
 	// 受取済みの場合、明細は更新しない
 	if(status == "4：受取済み"){
-		return ret.eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+		return ret.eval("Efw('menu_goto',{page:'purchase.jsp'})");
 
 	}
 
-	return ret.eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+	return ret.eval("Efw('menu_goto',{page:'purchase.jsp'})");
 };
 
 
@@ -227,14 +223,13 @@ function uploadPurchaseDetail(excelfile, purchaseno){
 	// Excelファイル
 	var excelXSSF = new Excel("upload/" + f);
 
-	if(shopname == "Smart-KM"){
+	if(getShopId() == "Smart-KM"){
 
-		//importProductInfoForSmartKM(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no);
-		importProductInfoForSmartKM(shopname, excelXSSF, false, false, true, purchaseno);
+		importProductInfoForSmartKM(getShopId(), excelXSSF, false, false, true, purchaseno);
 
 	}else{
-		//importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no)
-		importProductInfoForSmartBear(shopname, excelXSSF, false, false, true, purchaseno);
+
+		importProductInfoForSmartBear(getShopId(), excelXSSF, false, false, true, purchaseno);
 
 	}
 

@@ -5,10 +5,8 @@ updatedeliverystatus.paramsFormat={
 	"#deliveryno":"required:true;display-name:納品No;",
 	"status":"required:true;display-name:納品ステータス;",
 	"#importfile_acceptance":null,
-	"#shop" : null
 };
 
-var shopname = "";
 var deliveryno = "";
 
 updatedeliverystatus.fire=function(params){
@@ -19,8 +17,6 @@ updatedeliverystatus.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 
-	shopname = params["#shop"];
-
 	// 納品No
 	deliveryno = params["#deliveryno"];
 
@@ -30,7 +26,7 @@ updatedeliverystatus.fire=function(params){
 	// 納品受領または納品完了の場合、受領ファイルが必須
 	if(status == 3 || status == "3" || status == 4 || status == "4"){
 		if(params["#importfile_acceptance"] == null || params["#importfile_acceptance"].length == 0){
-			return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
+			return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp'})");
 		}
 	}
 
@@ -40,7 +36,7 @@ updatedeliverystatus.fire=function(params){
 		"selectDeliveryStatus",
 		{
 			col0:deliveryno,
-			shop:shopname
+			shop:getShopId()
 		}
 	).getArray();
 
@@ -79,7 +75,7 @@ updatedeliverystatus.fire=function(params){
 		"DELIVERY",
 		sql,
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 			"col0":deliveryno,
 			"col1":statusStr,
 			"col2":dDate
@@ -126,7 +122,7 @@ updatedeliverystatus.fire=function(params){
 
 	}
 
-	return ret.eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
+	return ret.eval("Efw('menu_goto',{page:'delivery.jsp'})");
 
 };
 

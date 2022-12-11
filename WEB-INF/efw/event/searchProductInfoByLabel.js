@@ -3,7 +3,6 @@ searchProductInfoByLabel.name="商品ラベルで商品情報検索";
 searchProductInfoByLabel.paramsFormat={
 
 	"labelno": null,
-	"#shop" : null
 
 };
 searchProductInfoByLabel.fire=function(params){
@@ -14,7 +13,6 @@ searchProductInfoByLabel.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 
-	shopname = params["#shop"];
 	var labelno = params["labelno"];
 
 	var selectResult = db.select(
@@ -22,7 +20,7 @@ searchProductInfoByLabel.fire=function(params){
 		"searchProductInfo",
 		{
 			"labelno":labelno,
-			"shop":shopname,
+			"shop":getShopId(),
 		}
 	).getArray();
 

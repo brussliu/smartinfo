@@ -28,15 +28,11 @@ uploadfile.paramsFormat={
 	"#importfile_test":null,
 
 	"data":null,
-	"#shop":null
 };
-var shopname = "";
 var count = 0;
 uploadfile.fire=function(params){
 
 	file.saveUploadFiles("upload");
-
-	shopname = params["#shop"];
 
 	var ret = new Result();
 
@@ -67,7 +63,7 @@ uploadfile.fire=function(params){
 		var delResult = db.change(
 			"UPLOAD",
 			"delAllProduct",
-			{shop:shopname}
+			{shop:getShopId()}
 		);
 
 		// データ全件導入
@@ -88,7 +84,7 @@ uploadfile.fire=function(params){
 		var delResult = db.change(
 			"UPLOAD",
 			"delAllFba",
-			{shop:params["#shop"]}
+			{shop:getShopId()}
 		);
 
 		// データ全件導入
@@ -110,7 +106,7 @@ uploadfile.fire=function(params){
 
 		ct = ct + "/"+ count;
 
-		saveHistory(shopname, params["data"], null, ct);
+		saveHistory(getShopId(), params["data"], null, ct);
 
 
 	}else if(params["data"] == "localstock"){
@@ -122,17 +118,17 @@ uploadfile.fire=function(params){
 
 		var excelXSSF = new Excel("upload/" + f);
 
-		if(shopname == "Smart-KM"){
+		if(getShopId() == "Smart-KM"){
 
-			importProductInfoForSmartKM(shopname, excelXSSF, true, false, false, null);
+			importProductInfoForSmartKM(getShopId(), excelXSSF, true, false, false, null);
 	
 		}else{
 	
-			importProductInfoForSmartBear(shopname, excelXSSF, true, false, false, null);
+			importProductInfoForSmartBear(getShopId(), excelXSSF, true, false, false, null);
 	
 		}
 
-		saveHistory(shopname, params["data"], null, count);
+		saveHistory(getShopId(), params["data"], null, count);
 
 
 	}else if(params["data"] == "earnings"){
@@ -147,7 +143,7 @@ uploadfile.fire=function(params){
 		// データ全件導入
 		csvReader.loopAllLines(importEarnings);
 
-		saveHistory(shopname, params["data"], null, count);
+		saveHistory(getShopId(), params["data"], null, count);
 
 		var updateResult = db.change(
 			"EARNINGS",
@@ -244,7 +240,7 @@ uploadfile.fire=function(params){
 
 	}
 	
-	return ret.navigate("upload.jsp?shop=" + shopname);
+	return ret.navigate("upload.jsp?shop=" + getShopId());
 
 };
 function importTest(aryField, index) {
@@ -486,7 +482,7 @@ function importProductInfo(aryField, index) {
 				"col19":aryField[19],
 				"col20":aryField[20],
 				"col21":aryField[21],
-				"col22":shopname
+				"col22":getShopId()
 			}
 		);
 
@@ -499,7 +495,7 @@ function importProductInfo(aryField, index) {
 				"col2":aryField[2],
 				"col5":aryField[5],
 				"col6":aryField[6],
-				"col22":shopname
+				"col22":getShopId()
 			}
 		);
 
@@ -522,7 +518,7 @@ function importFbaInfo(aryField, index) {
 				"col3":aryField[3],
 				"col4":aryField[4],
 				"col5":aryField[5],
-				"col6":shopname
+				"col6":getShopId()
 			}
 		);
 
@@ -537,7 +533,7 @@ function importFbaInfo(aryField, index) {
 					// "col3":aryField[3],
 					// "col4":aryField[4],
 					"col5":aryField[5],
-					"col6":shopname
+					"col6":getShopId()
 				}
 			);
 		}
@@ -558,7 +554,7 @@ function importOrderInfo(aryField, index) {
 				"col0":aryField[0],
 				//"col1":aryField[1],
 				"col2":aryField[2],
-				"col3":shopname
+				"col3":getShopId()
 			}
 		).getArray();
 
@@ -571,7 +567,7 @@ function importOrderInfo(aryField, index) {
 					"col0":aryField[0],
 					//"col1":aryField[1],
 					"col2":aryField[2],
-					"col3":shopname
+					"col3":getShopId()
 				}
 			);
 		}
@@ -609,7 +605,7 @@ function importOrderInfo(aryField, index) {
 				"col26":aryField[26],
 				"col27":aryField[27],
 				"col28":aryField[28],
-				"col29":shopname
+				"col29":getShopId()
 			}
 		);
 

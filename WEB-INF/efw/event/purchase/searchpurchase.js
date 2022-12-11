@@ -1,9 +1,9 @@
 var searchpurchase={};
 searchpurchase.name="仕入情報検索";
 searchpurchase.paramsFormat={
-	"#shop":null
+
 };
-var shopname = "";
+
 searchpurchase.fire=function(params){
 	
 	var ret = new Result();
@@ -11,8 +11,6 @@ searchpurchase.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	// <td ><input type="radio" name="purchaseitem"></td>
 	// <td >20210501-192356</td>
@@ -49,7 +47,7 @@ searchpurchase.fire=function(params){
 		"PURCHASE",
 		"searchPurchase",
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 		}
 	).getArray();
 
@@ -58,6 +56,9 @@ searchpurchase.fire=function(params){
 
 	ret.runat("#purchasenamelist").append(resultHTML).withdata(selectResult);
 
+	var title = "仕入情報（" + getShopId() + "）";
+	var script = "initTitle('" + title +"')";
+	ret.eval(script);
 
 	// 画面へ結果を返す
 	return ret;

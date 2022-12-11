@@ -1,9 +1,9 @@
 var searchmaster={};
 searchmaster.name="マスタ一覧検索";
 searchmaster.paramsFormat={
-	"#shop":null
+
 };
-var shopname = "";
+
 searchmaster.fire=function(params){
 	
 	var ret = new Result();
@@ -11,8 +11,6 @@ searchmaster.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	var oyahtml = 
 	"<tr style='background-color:rgb(205,255,255)'>" +
@@ -54,19 +52,19 @@ searchmaster.fire=function(params){
 	var selectResult1 = db.select(
 		"MASTER",
 		"selectmasterlist1",
-		{shop:shopname}
+		{shop:getShopId()}
 	).getArray();
 
 	var selectResult2 = db.select(
 		"MASTER",
 		"selectmasterlist2",
-		{shop:shopname}
+		{shop:getShopId()}
 	);
 
 	var selectResult3 = db.select(
 		"MASTER",
 		"selectmasterlist3",
-		{shop:shopname}
+		{shop:getShopId()}
 	);
 
 
@@ -106,11 +104,13 @@ searchmaster.fire=function(params){
 	var selectResult4 = db.select(
 		"MASTER",
 		"selectmasterlist4",
-		{shop:shopname}
+		{shop:getShopId()}
 	).getArray();
 	ret.runat("#producttable").append(subhtml4).withdata(selectResult4);
 
-
+	var title = "マスタ情報一覧（" + getShopId() + "）";
+	var script = "initTitle('" + title +"')";
+	ret.eval(script);
 
 	// 画面へ結果を返す
 	return ret;

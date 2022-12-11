@@ -4,8 +4,6 @@ deldelivery.paramsFormat={
 	"#delno":null
 };
 
-var shopname = "";
-
 deldelivery.fire=function(params){
 
 	var ret = new Result();

@@ -1,11 +1,10 @@
 var searchsellinfo={};
 searchsellinfo.name="販売検索";
 searchsellinfo.paramsFormat={
-	"#shop":null,
 	"#datefrom":null,
 	"#dateto":null
 };
-var shopname = "";
+
 searchsellinfo.fire=function(params){
 	
 	var ret = new Result();
@@ -13,8 +12,6 @@ searchsellinfo.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-	
-	shopname = params["#shop"];
 
 	var datefrom = params["#datefrom"];
 	var dateto = params["#dateto"];
@@ -43,7 +40,7 @@ searchsellinfo.fire=function(params){
 				"SELLINFO",
 				"selectSellinfo1",
 				{
-				shop:shopname,
+				shop:getShopId(),
 				datefrom: datefrom
 				}
 			).getArray();
@@ -95,7 +92,7 @@ searchsellinfo.fire=function(params){
 				"SELLINFO",
 				"selectSellinfo2",
 				{
-				shop:shopname,
+				shop:getShopId(),
 				datefrom: datefrom,
 				dateto: dateto
 				}
@@ -105,7 +102,7 @@ searchsellinfo.fire=function(params){
 				"SELLINFO",
 				"selectSellinfo2",
 				{
-				shop:shopname,
+				shop:getShopId(),
 				datefrom: dateto,
 				dateto: datefrom
 				}

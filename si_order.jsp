@@ -4,6 +4,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>注文情報（Smart-Bear）</title>
+
+	<script type="text/javascript" language="javascript" src="js/common.js"></script>
+
+	<!--
+	<script language="JavaScript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script language="javascript" src="//cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+	<link rel="stylesheet" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	-->
+
 	<efw:Client/>
 	<script>
 		function searchMaster(){
@@ -11,11 +20,6 @@
 		}
 
   	</script>
-    <style>
-      .productlist {
-
-      }
-    </style>
 </head>
 <body style="background-color:ghostwhite;" onload1="searchMaster();">
 <efw:Part path="si_master_inputdialog.jsp"/>

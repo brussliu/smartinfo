@@ -12,7 +12,6 @@ saveproductkind.paramsFormat={
 		"#txt_productkind" : null
 	}
 };
-var shopname = "";
 /**
  * 新規或は修正の場合、保存イベント実行関数
  */

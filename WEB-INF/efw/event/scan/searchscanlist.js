@@ -32,6 +32,12 @@ searchscanlist.fire=function(params){
 
 	ret.runat("#scanlisttable").append(resultHTML).withdata(selectResult);
 
+
+	var title = "商品スキャン（" + getShopId() + "）";
+	var script = "initTitle('" + title +"')";
+	ret.eval(script);
+
+
 	return ret;
 
 

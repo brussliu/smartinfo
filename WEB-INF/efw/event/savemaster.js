@@ -22,9 +22,7 @@ savemaster.paramsFormat={
 		"picColor":null,
 
 	},
-	"#shop":null
 };
-var shopname = "";
 /**
  * 新規或は修正の場合、保存イベント実行関数
  */
@@ -68,8 +66,6 @@ savemaster.fire=function(params){
 
 	var oya_size = "";
 
-	shopname = params["#shop"];
-
 	var picArr = params["#si_master_inputdialog"]["picStr"];
 
 	var picColorArr = params["#si_master_inputdialog"]["picColor"];
@@ -78,7 +74,7 @@ savemaster.fire=function(params){
 		"MASTER",
 		"insertMaster",
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 			"col0":oya_productid,
 			"col1":oya_productdiv,
 			"col2":oya_sku,
@@ -130,7 +126,7 @@ savemaster.fire=function(params){
 			{
 				"sku":sub_sku,
 				"asin":sub_asin,
-				"shop":shopname
+				"shop":getShopId()
 			}
 		).getArray();
 
@@ -153,7 +149,7 @@ savemaster.fire=function(params){
 			"MASTER",
 			"insertMaster",
 			{
-				"shop":shopname,
+				"shop":getShopId(),
 				"col0":sub_productid,
 				"col1":sub_productdiv,
 				"col2":sub_sku,
@@ -183,7 +179,7 @@ savemaster.fire=function(params){
 			"MASTER",
 			"insertColor",
 			{
-				"shop":shopname,
+				"shop":getShopId(),
 				"col0":oya_productid,
 				"col1":color,
 				"col2":pic

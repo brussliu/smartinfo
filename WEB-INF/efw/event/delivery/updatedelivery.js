@@ -5,10 +5,7 @@ updatedelivery.paramsFormat={
 	"#deliveryno":"required:true;display-name:仕入No;",
 	"#deliveryname":"required:true;display-name:仕入名称;",
 	"#importfile_delivery":null,
-	"#shop" : null
 };
-
-var shopname = "";
 
 updatedelivery.fire=function(params){
 
@@ -27,7 +24,7 @@ updatedelivery.fire=function(params){
 		"DELIVERY",
 		"updateDelivery00",
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 			"col0":deliveryno,
 			"col1":deliveryname
 		}
@@ -37,7 +34,7 @@ updatedelivery.fire=function(params){
 	var importfile_delivery = params["#importfile_delivery"];
 
 	if(importfile_delivery == null || importfile_delivery.length == 0){
-		return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp'})");
 	}
 
 	// ステータス検索
@@ -46,7 +43,7 @@ updatedelivery.fire=function(params){
 		"selectDeliveryStatus",
 		{
 			col0:deliveryno,
-			shop:shopname
+			shop:getShopId()
 		}
 	).getArray();
 
@@ -74,7 +71,7 @@ updatedelivery.fire=function(params){
 			"updateDeliveryCount",
 			{
 				col0:deliveryno,
-				shop:shopname
+				shop:getShopId()
 			}
 		);
 
@@ -100,7 +97,7 @@ updatedelivery.fire=function(params){
 			"updateDeliveryCount",
 			{
 				col0:deliveryno,
-				shop:shopname
+				shop:getShopId()
 			}
 		);
 
@@ -108,11 +105,11 @@ updatedelivery.fire=function(params){
 
 	// 受取済みの場合、明細は更新しない
 	if(status == "3：納品受領" || status == "4：納品完了"){
-		return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp'})");
 
 	}
 
-	return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
+	return (new Result()).eval("Efw('menu_goto',{page:'delivery.jsp'})");
 };
 
 
@@ -126,15 +123,13 @@ function uploadDeliveryDetail(excelfile, deliveryno){
 	// Excelファイル
 	var excelXSSF = new Excel("upload/" + f);
 
-	if(shopname == "Smart-KM"){
+	if(getShopId() == "Smart-KM"){
 
-		//importProductInfoForSmartKM(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no);
-		importProductInfoForSmartKM(shopname, excelXSSF, false, true, false, deliveryno);
+		importProductInfoForSmartKM(getShopId(), excelXSSF, false, true, false, deliveryno);
 
 	}else{
 
-		//importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no)
-		importProductInfoForSmartBear(shopname, excelXSSF, false, true, false, deliveryno);
+		importProductInfoForSmartBear(getShopId(), excelXSSF, false, true, false, deliveryno);
 
 	}
 

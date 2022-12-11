@@ -3,14 +3,11 @@ importcost.name="コストデータ導入";
 importcost.paramsFormat={
 	// 商品マスタ情報
 	"#importfile_cost":null,
-	"#shop":null
 };
 
 importcost.fire=function(params){
 
 	file.saveUploadFiles("upload");
-
-	var shopname = params["#shop"];
 
 	var ret = new Result();
 
@@ -28,10 +25,10 @@ importcost.fire=function(params){
 	var delResult = db.change(
 		"COST",
 		"delAllCost",
-		{shop:shopname}
+		{shop:getShopId()}
 	);
 
-	var count = importCostList(f, shopname, sheetName);
+	var count = importCostList(f, getShopId(), sheetName);
 
 	var d = new Date().format("yyyy-MM-dd");
 
@@ -39,18 +36,18 @@ importcost.fire=function(params){
 		"UPLOAD",
 		"insertHistory",
 		{
-			"col0":shopname,
+			"col0":getShopId(),
 			"col1":"cost",
 			"col2":d,
 			"col3":count
 		}
 	);
 	
-	return ret.navigate("upload.jsp?shop=" + shopname);
+	return ret.navigate("upload.jsp?shop=" + getShopId());
 
 };
 
-function importCostList(f, shopname, sheetName){
+function importCostList(f, getShopId(), sheetName){
 
 
 	// Excelファイル

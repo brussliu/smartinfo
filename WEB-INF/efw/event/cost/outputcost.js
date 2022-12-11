@@ -1,9 +1,9 @@
 var outputcost={};
 outputcost.name="コスト導出";
 outputcost.paramsFormat={
-	"#shop":null,
+
 };
-var shopname = "";
+
 outputcost.fire=function(params){
 	
 	var ret = new Result();

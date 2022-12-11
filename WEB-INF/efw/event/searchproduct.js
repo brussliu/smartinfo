@@ -1,9 +1,9 @@
 var searchproduct={};
 searchproduct.name="商品一覧検索";
 searchproduct.paramsFormat={
-	"#shop":null
+
 };
-var shopname = "";
+
 searchproduct.fire=function(params){
 	
 	var ret = new Result();
@@ -11,8 +11,6 @@ searchproduct.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-	
-	shopname = params["#shop"];
 	
 	var resultHTML = 
 	"<tr>" +
@@ -32,7 +30,7 @@ searchproduct.fire=function(params){
 	var selectResult = db.select(
 		"PRODUCT",
 		"selectproduct",
-		{shop:shopname}
+		{shop:getShopId()}
 	).getArray();
 
 	ret.runat("#producttable").remove("tr").append(resultHTML).withdata(selectResult);

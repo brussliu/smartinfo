@@ -1,9 +1,9 @@
 var outputmaster={};
 outputmaster.name="マスタ導出";
 outputmaster.paramsFormat={
-	"#shop":null,
+
 };
-var shopname = "";
+
 outputmaster.fire=function(params){
 	
 	var ret = new Result();

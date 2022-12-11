@@ -1,10 +1,9 @@
 var searchship={};
 searchship.name="発送情報検索";
 searchship.paramsFormat={
-	"#shop":null,
+
 };
 
-var shopname = "";
 searchship.fire=function(params){
 	
 	var ret = new Result();
@@ -12,8 +11,6 @@ searchship.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-	
-	shopname = params["#shop"];
 
 	var resultHTML1 = 
 	"<tr class='content'>" +
@@ -32,7 +29,7 @@ searchship.fire=function(params){
 		"SHIP",
 		"searchShipProduct",
 		{
-		shop:shopname
+		shop:getShopId()
 		}
 	).getArray();
 
@@ -63,7 +60,7 @@ searchship.fire=function(params){
 		"SHIP",
 		"searchShipAddressUnship",
 		{
-		shop:shopname
+		shop:getShopId()
 		}
 	).getArray();
 
@@ -91,7 +88,7 @@ searchship.fire=function(params){
 		"SHIP",
 		"searchShipAddressShipped",
 		{
-		shop:shopname
+		shop:getShopId()
 		}
 	).getArray();
 

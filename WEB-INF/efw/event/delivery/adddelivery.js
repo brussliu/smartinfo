@@ -6,10 +6,7 @@ adddelivery.paramsFormat={
 		"#deliveryname":"required:true;display-name:納品名称;",
 		"#importfile_delivery":"required:true;display-name:納品内容;",
 	},
-	"#shop":null
 };
-
-var shopname = "";
 
 adddelivery.fire=function(params){
 
@@ -18,8 +15,6 @@ adddelivery.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	// 納品名称
 	var deliveryname = params["#deliveryInfo"]["#deliveryname"];
@@ -36,7 +31,7 @@ adddelivery.fire=function(params){
 		"DELIVERY",
 		"insertDelivery",
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 			"col0":deliveryno,
 			"col1":deliveryname,
 			"col2":"0：新規登録",
@@ -52,16 +47,14 @@ adddelivery.fire=function(params){
 	// Excelファイル
 	var excelXSSF = new Excel("upload/" + f);
 
-	if(shopname == "Smart-KM"){
+	if(shogetShopId() == "Smart-KM"){
 
-		//importProductInfoForSmartKM(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no);
-		importProductInfoForSmartKM(shopname, excelXSSF, false, true, false, deliveryno);
+		importProductInfoForSmartKM(getShopId(), excelXSSF, false, true, false, deliveryno);
 
 
 	}else{
 
-		// importProductInfoForSmartBear(shopname, excelXSSF, stockFlg, deliveryFlg, purchaseFlg, no)
-		importProductInfoForSmartBear(shopname, excelXSSF, false, true, false, deliveryno);
+		importProductInfoForSmartBear(getShopId(), excelXSSF, false, true, false, deliveryno);
 
 	}
 
@@ -71,10 +64,10 @@ adddelivery.fire=function(params){
 				"updateDeliveryCount",
 				{
 					col0:deliveryno,
-					shop:shopname
+					shop:getShopId()
 				}
 			);
 			
 
-	return ret.eval("Efw('menu_goto',{page:'delivery.jsp',shop:'"+ shopname + "'})");
+	return ret.eval("Efw('menu_goto',{page:'delivery.jsp'})");
 };

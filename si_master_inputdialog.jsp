@@ -16,22 +16,13 @@
 				},
 				close : function(){
 					setTimeout(function(){
-						Efw('menu_goto',{page:'si_master.jsp',shop:$("#shop").val()})
+						Efw('menu_goto',{page:'si_master.jsp'})
 						},
 						100
 						);
 				},
 			});
 
-
-			if($("#shop").val() == "Smart-Bear"){
-				$(".newshop").show();
-				$(".oldshop").hide();
-			}
-			if($("#shop").val() == "Smart-KM"){
-				$(".oldshop").show();
-				$(".newshop").hide();
-			}
 		});
 
 		function getstrcount(str1,str2){

@@ -3,14 +3,11 @@ importmaster.name="マスタデータ導入";
 importmaster.paramsFormat={
 	// 商品マスタ情報
 	"#importfile_master":null,
-	"#shop":null
 };
 
 importmaster.fire=function(params){
 
 	file.saveUploadFiles("upload");
-
-	var shopname = params["#shop"];
 
 	var ret = new Result();
 
@@ -23,13 +20,13 @@ importmaster.fire=function(params){
 	var f = fa[fa.length-1];
 
 	var sheetName = "";
-	if(shopname == "Smart-Bear"){
+	if(getShopId() == "Smart-Bear"){
 		sheetName = "新店";
-	}else if(shopname == "Smart-KM"){
+	}else if(getShopId() == "Smart-KM"){
 		sheetName = "旧店";
 	}
 
-	var count = importMasterList(f, shopname, sheetName);
+	var count = importMasterList(f, getShopId(), sheetName);
 
 	var d = new Date().format("yyyy-MM-dd");
 
@@ -37,13 +34,13 @@ importmaster.fire=function(params){
 		"UPLOAD",
 		"insertHistory",
 		{
-			"col0":shopname,
+			"col0":getShopId(),
 			"col1":"master",
 			"col2":d,
 			"col3":count
 		}
 	);
 	
-	return ret.navigate("upload.jsp?shop=" + shopname);
+	return ret.navigate("upload.jsp?shop=" + getShopId());
 
 };

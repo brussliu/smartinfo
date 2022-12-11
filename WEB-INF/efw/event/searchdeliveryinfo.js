@@ -2,9 +2,7 @@ var searchdeliveryinfo={};
 searchdeliveryinfo.name="納品明細情報検索";
 searchdeliveryinfo.paramsFormat={
 	"#deliveryno":"required:true;display-name:仕入No;",
-	"#shop" : null
 };
-var shopname = "";
 searchdeliveryinfo.fire=function(params){
 	
 	var ret = new Result();
@@ -13,7 +11,6 @@ searchdeliveryinfo.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 	
-	shopname = params["#shop"];
 	var deliveryno = params["#deliveryno"];
 
 	var resultHTML = 

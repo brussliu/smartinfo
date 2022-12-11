@@ -4,10 +4,8 @@ updatepurchasestatus.paramsFormat={
 
 	"#purchaseno":"required:true;display-name:仕入No;",
 	"status":"required:true;display-name:仕入ステータス;",
-	"#shop" : null
-};
 
-var shopname = "";
+};
 
 updatepurchasestatus.fire=function(params){
 
@@ -16,8 +14,6 @@ updatepurchasestatus.fire=function(params){
 	if (checkLoginInfo() == false) {
 		return ret.navigate("login.jsp");
 	}
-
-	shopname = params["#shop"];
 
 	// 仕入No
 	var purchaseno = params["#purchaseno"];
@@ -29,7 +25,7 @@ updatepurchasestatus.fire=function(params){
 
 	if(status == 0 || status == "0" ){
 
-		return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+		return (new Result()).eval("Efw('menu_goto',{page:'purchase.jsp'})");
 
 	}else if(status == 1 || status == "1" ){
 		statusStr = "1：仕入確定";
@@ -57,7 +53,7 @@ updatepurchasestatus.fire=function(params){
 		"PURCHASE",
 		sql,
 		{
-			"shop":shopname,
+			"shop":getShopId(),
 			"col0":purchaseno,
 			"col1":statusStr,
 			"col2":dDate
@@ -99,5 +95,5 @@ updatepurchasestatus.fire=function(params){
 
 
 
-	return ret.eval("Efw('menu_goto',{page:'purchase.jsp',shop:'"+ shopname + "'})");
+	return ret.eval("Efw('menu_goto',{page:'purchase.jsp'})");
 };

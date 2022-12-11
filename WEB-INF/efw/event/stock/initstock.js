@@ -1,9 +1,9 @@
 var initstock={};
 initstock.name="在庫一覧初期化";
 initstock.paramsFormat={
-	"#shop":null
+
 };
-var shopname = "";
+
 initstock.fire=function(params){
 	
 	var ret = new Result();
@@ -12,14 +12,6 @@ initstock.fire=function(params){
 		return ret.navigate("login.jsp");
 	}
 	
-	shopname = params["#shop"];
-
-	// var selectResult = db.select(
-	// 	"STOCK",
-	// 	"searchhistory",
-	// 	{shop:shopname}
-	// );
-
 	// var fbaArr = selectResult.seek("importtype","eq","fba").getArray();
 	// var orderArr = selectResult.seek("importtype","eq","order").getArray();
 
