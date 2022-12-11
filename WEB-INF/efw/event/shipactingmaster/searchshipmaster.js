@@ -13,7 +13,7 @@ searchshipmaster.fire=function(params){
 	}
 
 	var userid = session.get("USER_ID");
-	var shopid = session.set("SHOP_ID");
+	var shopid = session.get("SHOP_ID");
 
 	var onclick = "";
 
