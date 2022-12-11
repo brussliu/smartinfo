@@ -37,7 +37,10 @@
 			Efw('shipactingmaster/updateshipmasterinfo',{'shipmasterno': shipmasterno})
 
 		}
-
+		function hiddenbutton(){
+			$("#updateshipmaster").hide();
+			$("#addmaster").hide();
+		}
 
   	</script>
 </head>
