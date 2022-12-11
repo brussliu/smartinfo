@@ -1,7 +1,7 @@
 
 
 function goBackToMenu(){
-    
+    alert("GGGGGGGGGGGGGGG");
     Efw('menu_goto',{page:'si_menu.jsp'});
 
 }
