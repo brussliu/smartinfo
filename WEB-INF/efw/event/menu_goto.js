@@ -9,11 +9,7 @@ menu_goto.fire=function(params){
 	var ret = new Result();
 
 	var userid = session.get("USER_ID");
-	var shopid = session.set("SHOP_ID");
-
-	userid.debug("AAAAAAAAAAAAAAAAAAAAAAAAAA");
-
-	shopid.debug("BBBBBBBBBBBBBBBBBBBBBBBBBB");
+	var shopid = session.get("SHOP_ID");
 
 
 	if (checkLoginInfo() == false) {
