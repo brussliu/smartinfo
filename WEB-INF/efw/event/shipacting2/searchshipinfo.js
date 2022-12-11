@@ -36,6 +36,8 @@ searchshipinfo.fire=function(params){
 		{}
 	).getArray();
 
+	selectResult.debug("YYYYYYYYYYYYYYYYYYYYYYYYYYY");
+
 	ret.runat("#shipinfotable").remove(".content");
 	ret.runat("#shipinfotable").append(resultHTML).withdata(selectResult);
 
