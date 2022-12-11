@@ -15,21 +15,6 @@
 	
 	<efw:Client/>
 	<script>
-            (function ($) {
-                $.getUrlParam = function (name) {
-                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-                    var r = window.location.search.substr(1).match(reg);
-                    if (r != null) return unescape(r[2]); return null;
-                }
-            })(jQuery);
-
-			function initTitle(title){
-
-				var t = title + $("#pagehead").html();
-
-	            $("#pagehead").html(t);
-			}
-
 
 			function initUpload(){
 				Efw('initupload');
