@@ -23,21 +23,21 @@
 
 		function activebutton(){
 
-			$("#updateshipmaster").show();
+			//$("#updateshipmaster").show();
 
 		}
 
-		function addShipMaster(){
-			Efw('shipactingmaster/addshipmaster')
-		}
+		// function addShipMaster(){
+		// 	Efw('shipactingmaster/addshipmaster')
+		// }
 
-		function updateshipMaster(){
+		// function updateshipMaster(){
 
-			var shipmasterno = $('input:radio[name=selectshipmasterno]:checked').val();
+		// 	var shipmasterno = $('input:radio[name=selectshipmasterno]:checked').val();
 
-			Efw('shipactingmaster/updateshipmasterinfo',{'shipmasterno': shipmasterno})
+		// 	Efw('shipactingmaster/updateshipmasterinfo',{'shipmasterno': shipmasterno})
 
-		}
+		// }
 
 
   	</script>
@@ -46,7 +46,7 @@
 <efw:Part path="shipactingmaster_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
 	発送商品マスタ情報
-	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/si_menu.jsp'">
+	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="goBackToMenu()">
 </div>
 <br/>
 <input type="button" id="addmaster" style="width: 170px;height: 30px;" value="親商品登録" onclick="addShipMaster()">

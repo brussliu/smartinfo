@@ -1,7 +1,8 @@
 
 
-function test(){
-    alert("HHHHHHHHHHHHHHH");
+function goBackToMenu(){
+    
+    Efw('menu_goto',{page:'si_menu.jsp'});
 
 }
 function initTitle(title){

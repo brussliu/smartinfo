@@ -24,7 +24,7 @@ delmaster.fire=function(params){
 		{"productno": params["productno"],"shop":getShopId()}
 	);
 
-	var script = "window.location.href = '/smartinfo/si_master.jsp';";
+	var script = "goBackToMenu();";
 	ret.eval(script);
 
 	// 画面へ結果を返す

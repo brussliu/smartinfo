@@ -35,7 +35,7 @@
 <body style="background-color:ghostwhite;" onload="searchearningslistinfo()">
 	<efw:Part path="earnings_inputdialog.jsp"/>
 <div style="font-size: 30px;color: blue;display: inline-block;width: 100%" id="pagehead">
-	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="window.location.href = '/smartinfo/si_menu.jsp'">
+	<img src="img/home.png" style="width: 64px;height: 64px;" onclick="goBackToMenu()">
 </div>
 <input type="hidden" id="shop">
 <hr>
