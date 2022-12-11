@@ -35,9 +35,9 @@
 	</tr>
 	<tr>
 		<td><div style="text-align:center;"><br>
-			<input type=button value="発送商品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'shipactingmaster_list.jsp'})">
+			<input type=button value="発送商品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'shipactingmaster_list2.jsp'})">
 			<br><br>
-			<input type=button value="代行発送管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'shipacting_list.jsp'})">
+			<input type=button value="代行発送管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'shipacting_list2.jsp'})">
 			<br><br>
 		</div></td>
 	</tr>
