@@ -47,7 +47,7 @@ adddelivery.fire=function(params){
 	// Excelファイル
 	var excelXSSF = new Excel("upload/" + f);
 
-	if(shogetShopId() == "Smart-KM"){
+	if(getShopId() == "Smart-KM"){
 
 		importProductInfoForSmartKM(getShopId(), excelXSSF, false, true, false, deliveryno);
 
