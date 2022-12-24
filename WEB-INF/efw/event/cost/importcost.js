@@ -28,7 +28,7 @@ importcost.fire=function(params){
 		{shop:getShopId()}
 	);
 
-	var count = importCostList(f, getShopId(), sheetName);
+	var count = importCostList(f, sheetName);
 
 	var d = new Date().format("yyyy-MM-dd");
 
@@ -47,7 +47,7 @@ importcost.fire=function(params){
 
 };
 
-function importCostList(f, getShopId(), sheetName){
+function importCostList(f, sheetName){
 
 
 	// Excelファイル
