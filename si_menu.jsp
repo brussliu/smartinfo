@@ -55,17 +55,17 @@
 			<input type=button value="注文情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_order.jsp'})">
 			<br><br>
 			-->
-			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'stock.jsp'})">
+			<input type=button value="在庫情報" style="width:400px;height: 40px;" disabled="disabled" onclick="Efw('menu_goto',{page:'stock.jsp'})">
 			<br><br>
 			<!--
 			<input type=button value="在庫情報" style="width:400px;height: 40px;" onclick="Efw('outputstock',{shop:'Smart-Bear'})">
 			<br><br>
 			-->
-			<input type=button value="仕入管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'purchase.jsp'})">
+			<input type=button value="仕入管理" style="width:400px;height: 40px;" disabled="disabled" onclick="Efw('menu_goto',{page:'purchase.jsp'})">
 			<br><br>
-			<input type=button value="納品管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'delivery.jsp'})">
+			<input type=button value="納品管理" style="width:400px;height: 40px;" disabled="disabled" onclick="Efw('menu_goto',{page:'delivery.jsp'})">
 			<br><br>
-			<input type=button value="販売情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_sellinfo.jsp'})">
+			<input type=button value="販売情報" style="width:400px;height: 40px;" disabled="disabled" onclick="Efw('menu_goto',{page:'si_sellinfo.jsp'})">
 			<br><br>
 			<input type=button value="売上情報" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'earnings.jsp'})">
 			<br><br>
@@ -86,17 +86,17 @@
 	</tr>
 	<tr>
 		<td><div style="text-align:center"><br>
-			<input type=button value="発送管理" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'si_ship.jsp'})">
+			<input type=button value="発送管理" style="width:400px;height: 40px;" disabled="disabled" onclick="Efw('menu_goto',{page:'si_ship.jsp'})">
 			<br><br>
 			<input type=button value="商品スキャン" style="width:400px;height: 40px;" onclick="Efw('menu_goto',{page:'scan.jsp'})">
 			<br><br>
-			<input type=button value="ラベル番号印刷用データ出力" style="width:400px;height: 40px;" onclick="Efw('outputlabeldata')">
+			<input type=button value="ラベル番号印刷用データ出力" style="width:400px;height: 40px;" disabled="disabled" onclick="Efw('outputlabeldata')">
 			<br><br>
-			<input type=button value="マスタ修復" style="width:400px;height: 40px;" onclick="Efw('master/repairmaster')">
+			<input type=button value="マスタ修復" style="width:400px;height: 40px;" disabled="disabled" onclick="Efw('master/repairmaster')">
 			<br><br>
 			<input type="text" id="delno" style="width: 190px;height: 32px;">
-			<input type=button value="仕入削除" style="width:100px;height: 40px;" onclick="Efw('purchase/delpurchase')">
-			<input type=button value="納品削除" style="width:100px;height: 40px;" onclick="Efw('delivery/deldelivery')">
+			<input type=button value="仕入削除" style="width:100px;height: 40px;" disabled="disabled" onclick="Efw('purchase/delpurchase')">
+			<input type=button value="納品削除" style="width:100px;height: 40px;" disabled="disabled" onclick="Efw('delivery/deldelivery')">
 			<br><br>
 		</div></td>
 	</tr>

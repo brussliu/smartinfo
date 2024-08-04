@@ -41,7 +41,7 @@
 		LEFT JOIN "MASTER_発送商品マスタ情報5" M
 			ON cast(T."SHIP_CONTENT" as smallint) = M."P_ID"
 		WHERE
-			substring("NO",1,8) >= TO_CHAR(current_date-interval '30 day','yyyymmdd')
+			substring("NO",1,8) >= TO_CHAR(current_date-interval '60 day','yyyymmdd')
 		ORDER BY
 			sortkey,shipno desc
 	</sql>

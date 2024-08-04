@@ -16,6 +16,7 @@ login.fire=function(params){
 
 	if(userid == "12345678"){
 		shopid = "12345678";
+		return ret.navigate("login.jsp");
 	}
 
 	session.set("USER_ID", userid);

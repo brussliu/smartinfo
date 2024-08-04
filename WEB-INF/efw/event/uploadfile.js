@@ -25,7 +25,7 @@ uploadfile.paramsFormat={
 	"#importfile_ship_qoo10_ship":null,
 
 
-	"#importfile_test":null,
+	//"#importfile_test":null,
 
 	"data":null,
 };
